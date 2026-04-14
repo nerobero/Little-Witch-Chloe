@@ -7,12 +7,10 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActions
 {
-    // @TODO: Add a serialized private/public PlayerMovement class reference here
-    private PlayerMovement _playerMove;
-    // @TODO: Add a serialized private/public PlayerAnimControl class reference here
-
     // Reference to input-event binds
     private PlayerInput _inputContext;
+    
+    private PlayerMovement _playerMove;
 #region Setup
     private void Awake()
     {
@@ -44,9 +42,18 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 #endregion
 
 #region InputCallbacks
-    public void OnMoveLeftRight(InputAction.CallbackContext context) { }
+
+    // Passes the float value caught from the input callback context
+    // directly into the PlayerMovement move direction
+    public void OnMoveLeftRight(InputAction.CallbackContext context) 
+        => _playerMove.SetMoveDirection(context.ReadValue<float>());
     
-    public void OnJump(InputAction.CallbackContext context) { }
+    
+    // Calls PlayerMovement.Jump if the input has been performed
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed) _playerMove.Jump();
+    }
     
     public void OnAimAttack(InputAction.CallbackContext context) { }
     
@@ -54,7 +61,10 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     
     public void OnChargedAttack(InputAction.CallbackContext context) { }
 
-    public void OnBlink(InputAction.CallbackContext context) {}
+    public void OnBlink(InputAction.CallbackContext context)
+    {
+        if (context.performed) _playerMove.BlinkToOtherPlatform();
+    }
 
 #endregion
 }
