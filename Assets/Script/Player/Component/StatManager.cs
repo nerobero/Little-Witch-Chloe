@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StatManager : MonoBehaviour
 {
@@ -8,9 +10,9 @@ public class StatManager : MonoBehaviour
     [SerializeField] protected float CurrentHP;
 
     // Event system
-    public UnityEvent<float, float> OnHPChanged;
-    public UnityEvent OnDeath;
-    public UnityEvent OnHeal;
+    public event Action<float, float> OnHPChanged;
+    public event Action OnDeath;
+    public event Action OnHeal;
     
     // Is dead
     public bool IsDead {get; protected set;}
