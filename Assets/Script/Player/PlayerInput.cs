@@ -120,18 +120,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""NormalAttack"",
+                    ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""c8b64c9d-37d3-4c82-9f4b-072c64613734"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ChargedAttack"",
-                    ""type"": ""Button"",
-                    ""id"": ""38069c60-6ce2-44ff-976a-bd623e950aec"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -210,18 +201,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""NormalAttack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8633629a-66f3-4ca6-a8c2-6ec3348a3111"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Hold(duration=3)"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ChargedAttack"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -246,8 +226,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_BaseInputAction_MoveLeftRight = m_BaseInputAction.FindAction("MoveLeftRight", throwIfNotFound: true);
         m_BaseInputAction_Jump = m_BaseInputAction.FindAction("Jump", throwIfNotFound: true);
         m_BaseInputAction_AimAttack = m_BaseInputAction.FindAction("AimAttack", throwIfNotFound: true);
-        m_BaseInputAction_NormalAttack = m_BaseInputAction.FindAction("NormalAttack", throwIfNotFound: true);
-        m_BaseInputAction_ChargedAttack = m_BaseInputAction.FindAction("ChargedAttack", throwIfNotFound: true);
+        m_BaseInputAction_Attack = m_BaseInputAction.FindAction("Attack", throwIfNotFound: true);
         m_BaseInputAction_Blink = m_BaseInputAction.FindAction("Blink", throwIfNotFound: true);
     }
 
@@ -332,8 +311,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_BaseInputAction_MoveLeftRight;
     private readonly InputAction m_BaseInputAction_Jump;
     private readonly InputAction m_BaseInputAction_AimAttack;
-    private readonly InputAction m_BaseInputAction_NormalAttack;
-    private readonly InputAction m_BaseInputAction_ChargedAttack;
+    private readonly InputAction m_BaseInputAction_Attack;
     private readonly InputAction m_BaseInputAction_Blink;
     /// <summary>
     /// Provides access to input actions defined in input action map "BaseInputAction".
@@ -359,13 +337,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @AimAttack => m_Wrapper.m_BaseInputAction_AimAttack;
         /// <summary>
-        /// Provides access to the underlying input action "BaseInputAction/NormalAttack".
+        /// Provides access to the underlying input action "BaseInputAction/Attack".
         /// </summary>
-        public InputAction @NormalAttack => m_Wrapper.m_BaseInputAction_NormalAttack;
-        /// <summary>
-        /// Provides access to the underlying input action "BaseInputAction/ChargedAttack".
-        /// </summary>
-        public InputAction @ChargedAttack => m_Wrapper.m_BaseInputAction_ChargedAttack;
+        public InputAction @Attack => m_Wrapper.m_BaseInputAction_Attack;
         /// <summary>
         /// Provides access to the underlying input action "BaseInputAction/Blink".
         /// </summary>
@@ -405,12 +379,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @AimAttack.started += instance.OnAimAttack;
             @AimAttack.performed += instance.OnAimAttack;
             @AimAttack.canceled += instance.OnAimAttack;
-            @NormalAttack.started += instance.OnNormalAttack;
-            @NormalAttack.performed += instance.OnNormalAttack;
-            @NormalAttack.canceled += instance.OnNormalAttack;
-            @ChargedAttack.started += instance.OnChargedAttack;
-            @ChargedAttack.performed += instance.OnChargedAttack;
-            @ChargedAttack.canceled += instance.OnChargedAttack;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
             @Blink.started += instance.OnBlink;
             @Blink.performed += instance.OnBlink;
             @Blink.canceled += instance.OnBlink;
@@ -434,12 +405,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @AimAttack.started -= instance.OnAimAttack;
             @AimAttack.performed -= instance.OnAimAttack;
             @AimAttack.canceled -= instance.OnAimAttack;
-            @NormalAttack.started -= instance.OnNormalAttack;
-            @NormalAttack.performed -= instance.OnNormalAttack;
-            @NormalAttack.canceled -= instance.OnNormalAttack;
-            @ChargedAttack.started -= instance.OnChargedAttack;
-            @ChargedAttack.performed -= instance.OnChargedAttack;
-            @ChargedAttack.canceled -= instance.OnChargedAttack;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
             @Blink.started -= instance.OnBlink;
             @Blink.performed -= instance.OnBlink;
             @Blink.canceled -= instance.OnBlink;
@@ -505,19 +473,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAimAttack(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "NormalAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnNormalAttack(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "ChargedAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnChargedAttack(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Blink" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
