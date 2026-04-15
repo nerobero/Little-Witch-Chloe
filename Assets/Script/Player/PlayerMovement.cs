@@ -4,6 +4,7 @@ using UnityEngine;
 /// Processes the movement and the physics of the player character
 /// given the vector/axis values from the player controller.
 /// </summary>
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -18,6 +19,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
 
     // @TODO: Add a serialized private/public PlayerAnimControl class reference here
+
+    private void Awake()
+    {
+        // makes sure that we auto-get the reference for the rigidbody at runtime:
+        _rb = GetComponent<Rigidbody2D>();
+    }
 
     // Physics is based on time (in seconds), thus we should use FixedUpdate
     // which is not called per-tick.
