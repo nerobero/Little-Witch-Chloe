@@ -67,7 +67,7 @@ public class StatManager : MonoBehaviour
     /// <returns></returns>
     public virtual bool Heal(float healAmount)
     {
-        if(IsDead || healAmount <= 0.0f)
+        if(IsDead || CurrentHP >= MaxHP || healAmount <= 0.0f)
             return false;
 
         CurrentHP = Mathf.Clamp(CurrentHP + healAmount, 0.0f, MaxHP);
