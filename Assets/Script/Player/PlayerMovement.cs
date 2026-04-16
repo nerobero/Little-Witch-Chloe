@@ -54,6 +54,16 @@ public class PlayerMovement : MonoBehaviour
         // BONUS logic here if needed:
     }
 
+    public void StartFlying()
+    {
+        
+    }
+
+    public void StopFlying()
+    {
+        
+    }
+
     public void BlinkToOtherPlatform()
     {
         /*

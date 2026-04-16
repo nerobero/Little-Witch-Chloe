@@ -25,10 +25,17 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     // Used Time.time instead of Time.deltaTime because
     // the charge logic is directly related to the actual timestamp,
     // which is not something that accumlates PER frame
-    public float CurrentChargeRatio => 
+    public float CurrentChargeRatio =>
         _attackPressTime < 0f ? 0f : Mathf.Clamp01((Time.time - _attackPressTime / maxChargeTime));
 
-    
+
+    // Jump => Flying transition related variables:
+    [Header("Jump => Flying transition")]
+    [SerializeField] private float flyingThreshold = 1.5f;
+    private float _jumpPressTime = -1f;
+    private bool _isFlying = false;
+
+
     #region Setup
     private void Awake()
     {
@@ -78,7 +85,48 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     // Calls PlayerMovement.Jump if the input has been performed
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed) _playerMove.Jump();
+        // if (context.performed) _playerMove.Jump();
+
+        /*
+        2026.04.16: Note from Angela -
+        Because of the newly added feature 'flying' which shares the same key as jump, 
+        I added logic gates that determines whether to jump or to fly depending on the key hold time.
+        */
+        if (context.started)
+        {
+            // keeping a snapshot of the time at which the jump was first processed:
+            _jumpPressTime = Time.time;
+            _playerMove.Jump(); // immediate jump on press
+        }
+        else if (context.canceled)
+        {
+            // when cancelled, resetting the snapshot to negative (i.e., invalid) value:
+            _jumpPressTime = -1f;
+
+            // if the player was flying:
+            if (_isFlying)
+            {
+                _isFlying = false;
+                _playerMove.StopFlying();
+            }
+        }
+
+    }
+
+    private void Update()
+    {
+        // if there is a valid time snapshot for jump start and 
+        // the player is not already flying:
+        if (_jumpPressTime >= 0f && !_isFlying)
+        {
+            // elapsed duration of the hold = current time - the jump start time snapshot
+            float heldFor = Time.time - _jumpPressTime;
+            if (heldFor >= flyingThreshold)
+            {
+                _isFlying = true;
+                _playerMove.StartFlying();
+            }
+        }
     }
 
     public void OnAimAttack(InputAction.CallbackContext context) { }
