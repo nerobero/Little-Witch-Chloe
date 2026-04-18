@@ -7,6 +7,11 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActions
 {
+
+    private static PlayerController _instance;
+    public static PlayerController Instance => _instance;
+
+    #region ReferenceClasses
     // Reference to input-event binds
     private PlayerInput _inputContext;
 
@@ -15,7 +20,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     // Handler for player's attack system
     private PlayerAttack _playerAttack;
-
+    #endregion
 
     [Header("Attack - Input hold duration")]
     [SerializeField] private float chargeThreshold = 1.5f; // seconds to trigger a charged attack
@@ -32,13 +37,18 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     // Jump => Flying transition related variables:
     [Header("Jump => Flying transition")]
     [SerializeField] private float flyingThreshold = 1.5f;
-    private float _jumpPressTime = -1f;
+    public bool IsFlying => _isFlying;
     private bool _isFlying = false;
+    private float _jumpPressTime = -1f;
+
 
 
     #region Setup
     private void Awake()
     {
+        // assigning the instance:
+        _instance = this;
+
         // create PlayerInput:
         _inputContext = new PlayerInput();
 
@@ -121,12 +131,18 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         {
             // elapsed duration of the hold = current time - the jump start time snapshot
             float heldFor = Time.time - _jumpPressTime;
-            if (heldFor >= flyingThreshold)
+            if (heldFor >= flyingThreshold) // state change
             {
                 _isFlying = true;
-                _playerMove.StartFlying();
+                _playerMove.StartFlying(); // always called before FlyTick()
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (_isFlying)
+            _playerMove.FlyTick(); // force applied here, every frame after Update()
     }
 
     public void OnAimAttack(InputAction.CallbackContext context) { }

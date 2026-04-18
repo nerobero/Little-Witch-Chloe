@@ -9,12 +9,14 @@ public class PlayerMovement : MonoBehaviour
 {
 
     // These values are exposed states for others to read:
-    public bool IsGrounded {get; private set;}
-    public float MoveDir {get; private set;}
+    public bool IsGrounded { get; private set; }
+    public float MoveDir { get; private set; }
 
     [Header("Movement values")]
     [SerializeField] private float speed;
     [SerializeField] private float jumpHeight;
+    [SerializeField] private float flyForce;
+
     // Physics body for 2D object
     private Rigidbody2D _rb;
 
@@ -31,9 +33,9 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // fixing horizontal drift:
-        if (MoveDir > -0.3f && MoveDir < 0.3f) 
+        if (MoveDir > -0.3f && MoveDir < 0.3f)
             MoveDir = 0f;
-        
+
         // moving the rigidbody:
         // the y-axis remains constant here.
         _rb.linearVelocity = new Vector2(MoveDir * speed, _rb.linearVelocity.y);
@@ -56,12 +58,31 @@ public class PlayerMovement : MonoBehaviour
 
     public void StartFlying()
     {
-        
+        // if this function is called when the character is NOT set to fly,
+        // then return.
+        if (!PlayerController.Instance.IsFlying) return;
+
+        // flying physics logic here
+        _rb.gravityScale = 0.75f; // reducing the gravity by a quarter for more floaty feel 
+
+        // TODO: add the start flying animation state change here:
     }
 
     public void StopFlying()
     {
-        
+        // if this function is called when the character is STILL set to fly,
+        // then return.
+        if (PlayerController.Instance.IsFlying) return;
+
+        // stop flying physics logic here
+        _rb.gravityScale = 1f; // restoring the default gravity value
+
+        // TODO: add the stop flying animation state change here:
+    }
+
+    public void FlyTick()
+    {
+        _rb.AddForce(Vector2.up * flyForce, ForceMode2D.Force);
     }
 
     public void BlinkToOtherPlatform()
