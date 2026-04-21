@@ -44,13 +44,20 @@ public struct PoolEntry
 /// </summary>
 public class PoolObjectManager : MonoBehaviour
 {
+    private static PoolObjectManager _instance;
+    public static PoolObjectManager Instance => _instance;
     [SerializeField] PoolEntry[] poolEntries; //initialized at compile time, for authoring
 
     private Dictionary<SpawnType, GameObject> prefabMap = new(); // for easier runtime access
     private Dictionary<SpawnType, Queue<GameObject>> pools = new(); // key = pool object type, value = pool
 
+    private void Awake()
+    {
+        _instance = this;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
         // initializes the pools:
         foreach (var entry in poolEntries)
