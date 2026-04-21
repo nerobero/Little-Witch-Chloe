@@ -1,32 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3978843912614249033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/test event
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/test event
-  Guid:
-    Data1: 2052251722
-    Data2: 1141178769
-    Data3: -1825306201
-    Data4: -789503839
-  Banks:
-  - {fileID: 656918248693795482}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1329
 --- !u!114 &-553325728732820942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,10 +15,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639122987174097733
+  lastModified: 639123777326073584
   FileSizes:
   - Name: Desktop
-    Value: 772
+    Value: 778
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -63,16 +36,16 @@ MonoBehaviour:
   - {fileID: -553325728732820942}
   - {fileID: 656918248693795482}
   EditorEvents:
-  - {fileID: -3978843912614249033}
+  - {fileID: 4846658299365399453}
   EditorParameters: []
   MasterBanks:
   - {fileID: 656918248693795482}
   StringsBanks:
   - {fileID: -553325728732820942}
   cacheVersion: 131859
-  cacheTime: 639122987174097733
+  cacheTime: 639123777326073584
   SerializableEventsDict:
-  - key: event:/test event
+  - key: event:/MUSIC/test event
     index: 0
 --- !u!114 &656918248693795482
 MonoBehaviour:
@@ -89,8 +62,35 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639122987174082724
+  lastModified: 639123777326053581
   FileSizes:
   - Name: Desktop
     Value: 13728
   Exists: 1
+--- !u!114 &4846658299365399453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/test event
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MUSIC/test event
+  Guid:
+    Data1: 2052251722
+    Data2: 1141178769
+    Data3: -1825306201
+    Data4: -789503839
+  Banks:
+  - {fileID: 656918248693795482}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1329

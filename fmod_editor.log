@@ -9,7 +9,7 @@
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 0
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001B3E4052EC8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000026F15B84478 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -20,27 +20,6 @@
 [LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
 [LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
-[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
-[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 11616
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 2112
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000291A57F008
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFC098DDA70
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFC098DDA30
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFC098DDB50
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFC098DDC10
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B4B60EB538
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 4
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='FF_CRT_sfx_boing_three_eye_pop_low', format=5, channels=1, frequency=48000, lengthbytes=11456, lengthpcm=63838, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.891251.
-[LOG] SoundI::release                          :  (000001B4F019B4F8)
-[LOG] SoundI::release                          :     FF_CRT_sfx_boing_three_eye_pop_low (000001B4CC70D1C8)
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
