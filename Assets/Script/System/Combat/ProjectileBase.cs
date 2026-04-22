@@ -44,7 +44,8 @@ public class ProjectileBase : MonoBehaviour
         */
 
         //1. processing any potential damage:
-        
+        var stats = other.gameObject.GetComponent<StatManager>(); 
+        stats?.TakeDamage(gameObject, dealtDamage);
 
         //2. returning this to the pool:
         ReturnToPool();
