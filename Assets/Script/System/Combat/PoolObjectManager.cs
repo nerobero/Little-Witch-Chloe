@@ -5,7 +5,7 @@ using System.Collections.Generic;
 /// Defines a type of pool object that can be spawned
 /// by the PC or NPC.
 /// </summary>
-public enum SpawnType
+public enum ESpawnType
 {
     // PC normal projectiles (excluding the charged attacks).
     // NPCs can also spawn these projectiles.
@@ -34,7 +34,7 @@ public enum SpawnType
 [System.Serializable]
 public struct PoolEntry
 {
-    public SpawnType type;
+    public ESpawnType type;
     public GameObject spawnPrefab;
     public int initSpawnSize; // initial spawn limit before having to increase upon demand
 }
@@ -48,8 +48,8 @@ public class PoolObjectManager : MonoBehaviour
     public static PoolObjectManager Instance => _instance;
     [SerializeField] PoolEntry[] poolEntries; //initialized at compile time, for authoring
 
-    private Dictionary<SpawnType, GameObject> prefabMap = new(); // for easier runtime access
-    private Dictionary<SpawnType, Queue<GameObject>> pools = new(); // key = pool object type, value = pool
+    private Dictionary<ESpawnType, GameObject> prefabMap = new(); // for easier runtime access
+    private Dictionary<ESpawnType, Queue<GameObject>> pools = new(); // key = pool object type, value = pool
 
     private void Awake()
     {
@@ -70,7 +70,7 @@ public class PoolObjectManager : MonoBehaviour
         }
     }
 
-    public GameObject Get(SpawnType type)
+    public GameObject Get(ESpawnType type)
     {
         var pool = pools[type];
         var obj = pool.Count > 0 ? pool.Dequeue() : CreateNew(type); // when we run out of pooled objects, we increase the size of the pool by creating new
@@ -78,13 +78,13 @@ public class PoolObjectManager : MonoBehaviour
         return obj;
     }
 
-    public void Return(SpawnType type, GameObject obj)
+    public void Return(ESpawnType type, GameObject obj)
     {
         obj.SetActive(false);
         pools[type].Enqueue(obj);
     }
 
-    GameObject CreateNew(SpawnType type)
+    GameObject CreateNew(ESpawnType type)
     {
         var obj = Instantiate(prefabMap[type]);
         obj.SetActive(false);

@@ -12,7 +12,7 @@ public class ProjectileBase : MonoBehaviour
     [SerializeField] private float dealtDamage;
     [SerializeField] private float speed;
     [SerializeField] private float lifeSpan = 10f;
-    [SerializeField] private SpawnType spawnType;
+    [SerializeField] private ESpawnType spawnType;
     private Collider2D _collider;
     private Rigidbody2D _projRB;
     private float _firedTimeSnapshot = -1f;
