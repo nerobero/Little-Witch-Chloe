@@ -1,8 +1,9 @@
 using UnityEngine;
 
 /// <summary>
-/// Processes the movement and the physics of the enemy character
-/// given the vector/axis values from the enemy controller.
+/// Base class for enemy movement and physics.
+/// Handles velocity, ground detection, and basic movement.
+/// Specific monster types inherit and implement their own AI behavior.
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyMovement : MonoBehaviour
@@ -16,15 +17,19 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float jumpHeight;
     [SerializeField] private float flyForce;
 
+    [Header("Ground Detection")]
+    [SerializeField] protected float groundCheckDistance = 0.5f;
+    [SerializeField] protected LayerMask platformLayer;
+
     // Physics body for 2D object
-    private Rigidbody2D _rb;
+    private Rigidbody2D rb;
 
     // @TODO: Add a serialized private/public PlayerAnimControl class reference here
 
     private void Awake()
     {
         // makes sure that we auto-get the reference for the rigidbody at runtime:
-        _rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         
         //
         Invoke("Think", 5);
@@ -34,16 +39,23 @@ public class EnemyMovement : MonoBehaviour
     // which is not called per-tick.
     private void FixedUpdate()
     {
-        // Move
-        _rb.linearVelocity = new Vector2(MoveDir * speed, _rb.linearVelocity.y); 
+        // Apply calculated velocity
+        rb.linearVelocity = new Vector2(MoveDir * speed, rb.linearVelocity.y); 
 
+        // Check if grounded
+        CheckGround();
+    }
+
+    protected void CheckGround()
+    {
         // Platform check
-        Vector2 frontVec = new Vector2(_rb.position.x + 0.5f * MoveDir * speed,
-        _rb.position.y);
+        Vector2 frontVec = new Vector2(rb.position.x + 0.5f * MoveDir * speed,
+        rb.position.y);
 
         Debug.DrawRay(frontVec, Vector3.down, new Color(0, 1, 0));
+
         RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1,
-        LayerMask.GetMask("Platform"));
+        platformLayer);
 
         // If the next position is cliff, then change its direction
         if(rayHit.collider == null)
@@ -68,6 +80,13 @@ public class EnemyMovement : MonoBehaviour
         Invoke("Think", nextThinkTime);
     }
 
+    // Change the direction
+    protected void Turn()
+    {
+        MoveDir *= -1;
+        
+    }
+
     public void SetMoveDirection(float direction)
     {
         MoveDir = direction;
@@ -77,7 +96,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (IsGrounded)
         {
-            _rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
         }
 
         // BONUS logic here if needed:
@@ -90,7 +109,7 @@ public class EnemyMovement : MonoBehaviour
         if (!PlayerController.Instance.IsFlying) return;
 
         // flying physics logic here
-        _rb.gravityScale = 0.75f; // reducing the gravity by a quarter for more floaty feel 
+        rb.gravityScale = 0.75f; // reducing the gravity by a quarter for more floaty feel 
 
         // TODO: add the start flying animation state change here:
     }
@@ -102,14 +121,14 @@ public class EnemyMovement : MonoBehaviour
         if (PlayerController.Instance.IsFlying) return;
 
         // stop flying physics logic here
-        _rb.gravityScale = 1f; // restoring the default gravity value
+        rb.gravityScale = 1f; // restoring the default gravity value
 
         // TODO: add the stop flying animation state change here:
     }
 
     public void FlyTick()
     {
-        _rb.AddForce(Vector2.up * flyForce, ForceMode2D.Force);
+        rb.AddForce(Vector2.up * flyForce, ForceMode2D.Force);
     }
 
     public void BlinkToOtherPlatform()
