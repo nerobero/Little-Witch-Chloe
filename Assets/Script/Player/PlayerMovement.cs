@@ -83,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
     public void FlyTick()
     {
         _rb.AddForce(Vector2.up * flyForce, ForceMode2D.Force);
+        // TODO: add stamina usage logic here
     }
 
     public void BlinkToOtherPlatform()

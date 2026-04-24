@@ -64,7 +64,7 @@ public class PlayerAttack : MonoBehaviour
     public bool SetCurrentSpell(ESpawnType type)
     {
         // if you can't cast this spell, then you can't set to the current spell either.
-        if (!CanCastThisSpell(type)) return false; 
+        if (!CanCastThisSpell(type)) return false;
 
         // otherwise, set the given type as the current:
         _currentSpell = type;
@@ -80,5 +80,17 @@ public class PlayerAttack : MonoBehaviour
     {
         bool value = false;
         return _spellList.TryGetValue(type, out value) && value;
+    }
+
+    /// <summary>
+    /// Unlocks the spell when collided with the spell scroll object.
+    /// </summary>
+    /// <param name="other">the collider for the scroll object</param>
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        var interactedSpell = other.gameObject.GetComponent<ScrollItem>();
+        if (interactedSpell == null) return; //if cannot get the component, then premature return
+
+        UnlockSpell(interactedSpell.spellType);
     }
 }
