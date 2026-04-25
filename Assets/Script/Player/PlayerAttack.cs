@@ -37,6 +37,10 @@ public class PlayerAttack : MonoBehaviour
         PoolObjectManager.Instance.Get(_currentSpell);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="chargeRatio"></param>
     public void FireCharged(float chargeRatio)
     {
 
