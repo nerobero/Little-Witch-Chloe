@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     // Calls PlayerMovement.Jump if the input has been performed
     public void OnJump(InputAction.CallbackContext context)
     {
-        // if (context.performed) _playerMove.Jump();
+        if (context.performed) _playerMove.Jump();
 
         /*
         2026.04.16: Note from Angela -

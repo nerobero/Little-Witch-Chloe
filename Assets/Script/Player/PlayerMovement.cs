@@ -55,11 +55,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (IsGrounded)
-        {
-            _rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
-        }
-
+        // if (IsGrounded)
+        // {
+        //     _rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+        // }
+        _rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
         // BONUS logic here if needed:
     }
 
@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         if (!PlayerController.Instance.IsFlying) return;
 
         // flying physics logic here
-        _rb.gravityScale = 0.75f; // reducing the gravity by a quarter for more floaty feel 
+        _rb.gravityScale = 0.5f; // reducing the gravity by a quarter for more floaty feel 
 
         // TODO: add the start flying animation state change here:
     }
@@ -120,7 +120,10 @@ public class PlayerMovement : MonoBehaviour
             if (hit2D.collider == null) return;
 
             //3. reposition the player character:
-            _rb.position = new Vector2(_rb.position.x, hit2D.point.y);
+            _rb.position = new Vector2(_rb.position.x, hit2D.point.y+ 0.1f);
+
+            //4. flip the _isBackground value:
+            _isBackground = !_isBackground;
         }
     }
 }
