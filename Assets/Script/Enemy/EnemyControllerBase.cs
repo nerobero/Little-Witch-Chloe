@@ -8,12 +8,14 @@ public class EnemyControllerBase : MonoBehaviour
     // Reference to input-event binds
 
     // Handler for player's movement
-    private EnemyMovement enemyMove;
+    protected EnemyMovement enemyMove;
 
     protected EMonsterState enemyState;
     #endregion
 
     [Header("Attack - Input hold duration")]
+    [SerializeField] protected ESpawnType currentSpell = ESpawnType.FireBall;
+
     public bool isAttacking {get; private set;}
     [SerializeField] private float chargeThreshold = 1.5f; // seconds to trigger a charged attack
     [SerializeField] private float maxChargeTime = 3f;
@@ -103,15 +105,26 @@ public class EnemyControllerBase : MonoBehaviour
 
     protected virtual void FireProjectile()
     {
-        
+        float probability = (float)Random.Range(0, 100) / 100.0f;
+
+        if(probability >= 0.7f)
+        {
+            FireNormal();
+        }
+        else
+        {
+            // Temp
+            FireCharged(0.0f);
+        }
     }
 
     protected virtual void FireNormal()
     {
+        PoolObjectManager.Instance.Get(currentSpell);
         
     }
 
-    protected virtual void FireCharged()
+    protected virtual void FireCharged(float chargeRatio)
     {
         
     }

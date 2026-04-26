@@ -16,10 +16,14 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] protected float speed;
     [SerializeField] protected float jumpHeight;
     [SerializeField] protected float flyForce;
+    [SerializeField] protected float minDistance = 2f; // minimum 2 grid
+    [SerializeField] protected float maxDistance = 3f; // maximum 3 grid
 
     [Header("Ground Detection")]
     [SerializeField] protected float groundCheckDistance = 0.5f;
     [SerializeField] protected LayerMask platformLayer;
+
+    [Header("Patrol Settings")]
 
     // Physics body for 2D object
     protected Rigidbody2D rb;
