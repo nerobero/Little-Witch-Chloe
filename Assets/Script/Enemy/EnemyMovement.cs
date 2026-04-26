@@ -9,24 +9,24 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
      // These values are exposed states for others to read:
-    public bool IsGrounded { get; private set; }
-    public float MoveDir { get; private set; }
+    public bool IsGrounded { get; protected set; }
+    public float MoveDir { get; protected set; }
 
     [Header("Movement values")]
-    [SerializeField] private float speed;
-    [SerializeField] private float jumpHeight;
-    [SerializeField] private float flyForce;
+    [SerializeField] protected float speed;
+    [SerializeField] protected float jumpHeight;
+    [SerializeField] protected float flyForce;
 
     [Header("Ground Detection")]
     [SerializeField] protected float groundCheckDistance = 0.5f;
     [SerializeField] protected LayerMask platformLayer;
 
     // Physics body for 2D object
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
 
     // @TODO: Add a serialized private/public PlayerAnimControl class reference here
 
-    private void Awake()
+    protected virtual void Awake()
     {
         // makes sure that we auto-get the reference for the rigidbody at runtime:
         rb = GetComponent<Rigidbody2D>();
@@ -37,7 +37,7 @@ public class EnemyMovement : MonoBehaviour
 
     // Physics is based on time (in seconds), thus we should use FixedUpdate
     // which is not called per-tick.
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         // Apply calculated velocity
         rb.linearVelocity = new Vector2(MoveDir * speed, rb.linearVelocity.y); 
@@ -46,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
         CheckGround();
     }
 
-    protected void CheckGround()
+    protected virtual void CheckGround()
     {
         // Platform check
         Vector2 frontVec = new Vector2(rb.position.x + 0.5f * MoveDir * speed,
@@ -60,39 +60,37 @@ public class EnemyMovement : MonoBehaviour
         // If the next position is cliff, then change its direction
         if(rayHit.collider == null)
         {
-            MoveDir *= -1;
-
-            // Cancel all invoke function
-            CancelInvoke();
-
-            // Think next behavior after 3 seconds.
-            Invoke("Think", 3);
+            Turn();
         }
     }
 
     // To change the behavior
-    protected void Think()
+    public virtual void Think()
     {
-        MoveDir = Random.Range(-1, 2);
+        MoveDir = Random.Range(-1, 2); // -1 : left, 0: stop, 1: right
 
-        float nextThinkTime = Random.Range(2f, 5f);
+        float nextThinkTime = Random.Range(2.0f, 5.0f);
 
         Invoke("Think", nextThinkTime);
     }
 
     // Change the direction
-    protected void Turn()
+    protected virtual void Turn()
     {
         MoveDir *= -1;
-        
+        // Cancel all invoke function
+        CancelInvoke();
+
+        // Think next behavior after 3 seconds.
+        Invoke("Think", 3);
     }
 
-    public void SetMoveDirection(float direction)
+    public virtual void SetMoveDirection(float direction)
     {
         MoveDir = direction;
     }
 
-    public void Jump()
+    public virtual void Jump()
     {
         if (IsGrounded)
         {

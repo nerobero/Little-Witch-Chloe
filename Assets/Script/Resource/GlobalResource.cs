@@ -16,4 +16,15 @@ namespace Types
         Darkness,
         Ice,
     }
+
+    /// <summary>
+    /// Defines a state of enemy
+    /// </summary>
+    public enum EMonsterState
+    {
+        Idle = 0,   // Idle state(do nothing)
+        Patrol,     // Patrol
+        Chase,      // Chase the target
+        Attack,     // Attack the target
+    }
 }
