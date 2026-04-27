@@ -8,6 +8,7 @@ public class PlayerStatManager : StatManager
     [Header("Stamina Settings")]
     [SerializeField] protected float MaxStamina;
     [SerializeField] protected float CurrentStamina;
+    public float CurrStamina => CurrentStamina;
 
     // Event system
     public event Action<float, float> OnStaminaChanged;
@@ -38,7 +39,7 @@ public class PlayerStatManager : StatManager
         CurrentStamina = Mathf.Clamp(CurrentStamina - staminaAmount, 0.0f, MaxStamina);
         OnStaminaChanged?.Invoke(CurrentStamina, MaxStamina);
 
-        if(CurrentStamina == 0.0f)
+        if(CurrentStamina <= 0.0f)
         {
             OnStaminaOver?.Invoke();
         }
