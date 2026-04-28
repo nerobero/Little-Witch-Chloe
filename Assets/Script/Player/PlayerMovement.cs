@@ -130,7 +130,8 @@ public class PlayerMovement : MonoBehaviour
 
         //2. find the surface to get teleport to:
         float camHalfHeight = Camera.main.orthographicSize;
-        Vector2 origin = (Vector2)transform.position;
+        float xOffset = _isBackground? 2.5f : -2.5f;
+        Vector2 origin = new Vector2(_rb.position.x + xOffset, _rb.position.y); 
         RaycastHit2D hitresult = Physics2D.Raycast(origin + Vector2.up * camHalfHeight,
                 Vector2.down, camHalfHeight * 2f, layerParam);
         if (hitresult.collider == null) return;
@@ -140,9 +141,7 @@ public class PlayerMovement : MonoBehaviour
         Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, _isBackground);
 
         //4. reposition the player character:
-        _rb.position = new Vector2(_rb.position.x, hitresult.point.y + 0.1f);
-
-
+        _rb.position = new Vector2(_rb.position.x + xOffset, hitresult.point.y + 0.1f);
 
         //5. flip the _isBackground value:
         _isBackground = !_isBackground;
