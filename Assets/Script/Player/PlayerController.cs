@@ -66,6 +66,8 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         // enable the input action binding
         _inputContext.BaseInputAction.Enable();
 
+        _playerMove.OnFlyStopped += OnFlyStopped;
+
     }
 
     private void OnDisable()
@@ -74,6 +76,8 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         _inputContext.BaseInputAction.Disable();
 
         _inputContext.BaseInputAction.RemoveCallbacks(this);
+
+        _playerMove.OnFlyStopped -= OnFlyStopped;
     }
 
     private void OnDestroy()
@@ -110,17 +114,16 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         }
         else if (context.canceled)
         {
-            // when cancelled, resetting the snapshot to negative (i.e., invalid) value:
             _jumpPressTime = -1f;
 
-            // if the player was flying:
             if (_isFlying)
-            {
-                _isFlying = false;
-                _playerMove.StopFlying();
-            }
+                _playerMove.StopFlying(); // fires OnFlyStopped event → sets _isFlying = false
         }
 
+    }
+    private void OnFlyStopped()
+    {
+        _isFlying = false;
     }
 
     private void Update()

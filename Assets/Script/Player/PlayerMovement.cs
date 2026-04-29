@@ -6,6 +6,7 @@ using UnityEngine;
 /// given the vector/axis values from the player controller.
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerStatManager))]
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -20,12 +21,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask bgLayer;
     [SerializeField] private LayerMask fgLayer;
 
-    [Header("Debugging, Testing toggler")]
-    [SerializeField] private bool Is3D;
+    private Rigidbody2D _rb; // Physics body for 2D object
+    private bool _isBackground = false; //
+    private int _playerLayer => gameObject.layer; 
+    private int _bgLayerIndex => (int)Mathf.Log(bgLayer.value, 2);
+    private int _fgLayerIndex => (int)Mathf.Log(fgLayer.value, 2);
 
-    // Physics body for 2D object
-    private Rigidbody2D _rb;
-    private bool _isBackground = false;
+    // stamina related component ref here:
+    private PlayerStatManager _statManager;
+    public Action OnFlyStopped;
 
     // @TODO: Add a serialized private/public PlayerAnimControl class reference here
 
@@ -33,6 +37,25 @@ public class PlayerMovement : MonoBehaviour
     {
         // makes sure that we auto-get the reference for the rigidbody at runtime:
         _rb = GetComponent<Rigidbody2D>();
+
+        // makes sure that we get the reference for the stat manager at runtime:
+        _statManager = GetComponent<PlayerStatManager>();
+
+
+        // ignoring the background platform in the beginning
+        Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, true);
+        Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, false);
+
+    }
+
+    private void OnEnable()
+    {
+        _statManager.OnStaminaOver += StopFlying;
+    }
+
+    private void OnDisable()
+    {
+        _statManager.OnStaminaOver -= StopFlying;
     }
 
     // Physics is based on time (in seconds), thus we should use FixedUpdate
@@ -67,7 +90,8 @@ public class PlayerMovement : MonoBehaviour
     {
         // if this function is called when the character is NOT set to fly,
         // then return.
-        if (!PlayerController.Instance.IsFlying) return;
+        if (!PlayerController.Instance.IsFlying ||
+        _statManager.CurrStamina <= 0) return;
 
         // flying physics logic here
         _rb.gravityScale = 0.5f; // reducing the gravity by a quarter for more floaty feel 
@@ -77,20 +101,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void StopFlying()
     {
-        // if this function is called when the character is STILL set to fly,
-        // then return.
-        if (PlayerController.Instance.IsFlying) return;
-
-        // stop flying physics logic here
-        _rb.gravityScale = 1f; // restoring the default gravity value
+        _rb.gravityScale = 1f;
 
         // TODO: add the stop flying animation state change here:
+
+        OnFlyStopped?.Invoke();
     }
 
     public void FlyTick()
     {
         _rb.AddForce(Vector2.up * flyForce, ForceMode2D.Force);
         // TODO: add stamina usage logic here
+        _statManager.UseStamina(0.1f);
     }
 
     public void BlinkToOtherPlatform()
@@ -100,30 +122,28 @@ public class PlayerMovement : MonoBehaviour
         We may need to have our own calculation system for determining where on the platform Chloe should
         teleport to. 
         */
-        if (Is3D)
-        {
 
-        }
-        else
-        {
-            //1. finding if there is any teleportable platform within the given radius 
-            LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
-            if (Physics2D.OverlapCircle(transform.position, 15.0f, layerParam) == null)
-                return;
+        //1. finding if there is any teleportable platform within the given radius 
+        LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
+        if (Physics2D.OverlapCircle(transform.position, 15.0f, layerParam) == null)
+            return;
 
-            //2. find the surface to get teleport to:
-            float camHalfHeight = Camera.main.orthographicSize;
-            // TODO: may need to change this to another position vector
-            Vector2 camOrigin = (Vector2)Camera.main.transform.position;
-            RaycastHit2D hit2D = Physics2D.Raycast(camOrigin + Vector2.up * camHalfHeight,
-                    Vector2.down, camHalfHeight * 2f, layerParam);
-            if (hit2D.collider == null) return;
+        //2. find the surface to get teleport to:
+        float camHalfHeight = Camera.main.orthographicSize;
+        float xOffset = _isBackground? 2.5f : -2.5f;
+        Vector2 origin = new Vector2(_rb.position.x + xOffset, _rb.position.y); 
+        RaycastHit2D hitresult = Physics2D.Raycast(origin + Vector2.up * camHalfHeight,
+                Vector2.down, camHalfHeight * 2f, layerParam);
+        if (hitresult.collider == null) return;
 
-            //3. reposition the player character:
-            _rb.position = new Vector2(_rb.position.x, hit2D.point.y+ 0.1f);
+        //3. ignoring the colliders of the teleported ground.
+        Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, !_isBackground);
+        Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, _isBackground);
 
-            //4. flip the _isBackground value:
-            _isBackground = !_isBackground;
-        }
+        //4. reposition the player character:
+        _rb.position = new Vector2(_rb.position.x + xOffset, hitresult.point.y + 0.1f);
+
+        //5. flip the _isBackground value:
+        _isBackground = !_isBackground;
     }
 }
