@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4564149981406015731}
   - component: {fileID: 8045087993541427929}
   - component: {fileID: 7185458831767383663}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,7 +101,6 @@ MonoBehaviour:
   fgLayer:
     serializedVersion: 2
     m_Bits: 128
-  Is3D: 0
 --- !u!114 &4393072811821626836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +164,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -6074684191123702752, guid: a6d9329d568896e4a99cb3bae2d019f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -211,9 +210,9 @@ PolygonCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.875, y: 1}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -221,12 +220,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.08, y: 0.08}
-      - {x: -0.08, y: -0.08}
-      - {x: 0.074999996, y: -0.08}
-      - {x: 0.08, y: -0.06}
-      - {x: 0.08, y: 0.07}
-      - {x: 0.055, y: 0.08}
+    - - {x: -0.21191451, y: 0.4919488}
+      - {x: -0.44514388, y: 0.037041858}
+      - {x: -0.43440437, y: -0.34311837}
+      - {x: -0.28711414, y: -0.5111674}
+      - {x: 0.42403457, y: -0.5149508}
+      - {x: 0.43440437, y: -0.32311842}
+      - {x: 0.32163936, y: 0.032411642}
+      - {x: 0.18387434, y: 0.4934718}
   m_UseDelaunayMesh: 1
 --- !u!114 &7185458831767383663
 MonoBehaviour:
@@ -242,5 +243,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatManager
   MaxHP: 0
   CurrentHP: 0
-  MaxStamina: 0
-  CurrentStamina: 0
+  MaxStamina: 15
+  CurrentStamina: 15

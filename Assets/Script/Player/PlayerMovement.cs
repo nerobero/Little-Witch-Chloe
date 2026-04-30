@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -11,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     // These values are exposed states for others to read:
-    public bool IsGrounded { get; private set; }
+    public bool IsGrounded => IsOnGround();
     public float MoveDir { get; private set; }
 
     [Header("Movement values")]
@@ -22,8 +23,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask fgLayer;
 
     private Rigidbody2D _rb; // Physics body for 2D object
-    private bool _isBackground = false; //
-    private int _playerLayer => gameObject.layer; 
+    private bool _isBackground = false; //by default, you're already on 
+    private int _playerLayer => gameObject.layer;
     private int _bgLayerIndex => (int)Mathf.Log(bgLayer.value, 2);
     private int _fgLayerIndex => (int)Mathf.Log(fgLayer.value, 2);
 
@@ -41,10 +42,9 @@ public class PlayerMovement : MonoBehaviour
         // makes sure that we get the reference for the stat manager at runtime:
         _statManager = GetComponent<PlayerStatManager>();
 
-
         // ignoring the background platform in the beginning
-        Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, true);
-        Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, false);
+        Physics2D.IgnoreLayerCollision(gameObject.layer, _bgLayerIndex, true);
+        Physics2D.IgnoreLayerCollision(gameObject.layer, _fgLayerIndex, false);
 
     }
 
@@ -71,6 +71,18 @@ public class PlayerMovement : MonoBehaviour
         _rb.linearVelocity = new Vector2(MoveDir * speed, _rb.linearVelocity.y);
     }
 
+    private bool IsOnGround()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, ~(1 << gameObject.layer));
+        return hit.collider != null;
+    }
+
+    private int GetGroundLayer()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, ~(1 << gameObject.layer));
+        return hit.collider != null ? hit.collider.gameObject.layer : _playerLayer;
+    }
+
     public void SetMoveDirection(float direction)
     {
         MoveDir = direction;
@@ -78,11 +90,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        // if (IsGrounded)
-        // {
-        //     _rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
-        // }
-        _rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+        if (IsGrounded)
+        {
+            _rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+        }
+        // _rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
         // BONUS logic here if needed:
     }
 
@@ -125,13 +137,19 @@ public class PlayerMovement : MonoBehaviour
 
         //1. finding if there is any teleportable platform within the given radius 
         LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
-        if (Physics2D.OverlapCircle(transform.position, 15.0f, layerParam) == null)
+        Collider2D collided = Physics2D.OverlapCircle(transform.position, 15.0f, layerParam);
+        int currLayer = GetGroundLayer();
+        if (collided == null || collided.gameObject.layer == GetGroundLayer())
+        {
+            Debug.LogWarning("cannot teleport.");
             return;
+        }
+        Debug.Log($"Collided: {collided.gameObject.layer}, Player: {currLayer}");
 
         //2. find the surface to get teleport to:
         float camHalfHeight = Camera.main.orthographicSize;
-        float xOffset = _isBackground? 2.5f : -2.5f;
-        Vector2 origin = new Vector2(_rb.position.x + xOffset, _rb.position.y); 
+        float xOffset = _isBackground ? 2.5f : -2.5f;
+        Vector2 origin = new Vector2(_rb.position.x + xOffset, _rb.position.y);
         RaycastHit2D hitresult = Physics2D.Raycast(origin + Vector2.up * camHalfHeight,
                 Vector2.down, camHalfHeight * 2f, layerParam);
         if (hitresult.collider == null) return;
@@ -141,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
         Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, _isBackground);
 
         //4. reposition the player character:
-        _rb.position = new Vector2(_rb.position.x + xOffset, hitresult.point.y + 0.1f);
+        _rb.position = new Vector2(_rb.position.x + xOffset, hitresult.point.y + 1.5f);
 
         //5. flip the _isBackground value:
         _isBackground = !_isBackground;
