@@ -24,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] protected LayerMask platformLayer;
 
     [Header("Patrol Settings")]
+    protected Vector2 targetPosition;
 
     // Physics body for 2D object
     protected Rigidbody2D rb;
@@ -48,6 +49,9 @@ public class EnemyMovement : MonoBehaviour
 
         // Check if grounded
         CheckGround();
+
+        // Check if arrived to the target position
+        CheckArrived();
     }
 
     protected virtual void CheckGround()
@@ -65,6 +69,19 @@ public class EnemyMovement : MonoBehaviour
         if(rayHit.collider == null)
         {
             Turn();
+        }
+    }
+
+    protected virtual void CheckArrived()
+    {
+        // Check if the move to the target location is completed
+        if(Vector2.Distance(transform.position, targetPosition) <= 0.01f)
+        {
+            // Cancel all invoke function
+            CancelInvoke();
+
+            // Think next behavior immediately.
+            Think();
         }
     }
 

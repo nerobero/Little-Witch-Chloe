@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class CorruptMovement : EnemyMovement
 {
+    void Start()
+    {
+        
+    }
+
     public override void Think()
     {
+        // Check Z axis 
+
         base.Think();
         // float offsetX = MoveDir * Random.Range(minDistance, maxDistance);
         // float offsetY = MoveDir * Random.Range(minDistance, maxDistance);
@@ -12,5 +19,7 @@ public class CorruptMovement : EnemyMovement
         // Vector2 targetPosition = spawnPosition + new Vector2(offsetX, offsetY);
 
         // SetMoveDirection(MoveDir);
+
+
     }
 }
