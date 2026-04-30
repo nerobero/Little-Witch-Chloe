@@ -37,6 +37,12 @@ public class EnemyControllerBase : MonoBehaviour
     private bool _isFlying = false;
     private float _jumpPressTime = -1f;
 
+    [Header("Detection")]
+    [SerializeField] protected Vector3 eyePoint;
+    [SerializeField] protected LayerMask playerLayer;
+    [SerializeField] protected float viewDistance;
+    [SerializeField] protected float viewAngle;
+
     #region Setup
     private void Awake()
     {
@@ -73,6 +79,62 @@ public class EnemyControllerBase : MonoBehaviour
     {
         if (_isFlying)
             enemyMove.FlyTick(); // force applied here, every frame after Update()
+
+            
+        // Detect player as target
+        DetectPlayer();
+    }
+
+     protected virtual void DetectPlayer()
+    {
+        Collider2D hit;
+
+        // if the enemy is in background, the detection range is box
+        if(enemyMove.IsBackground)
+        {
+            hit = Physics2D.OverlapBox(eyePoint, new Vector2(5.0f, 3.0f), 0.0f, playerLayer);
+
+            // Player detected
+            if(hit != null)
+            {
+                _hasTarget = true;
+                enemyState = EMonsterState.Chase;
+                enemyMove.targetPosition = hit.transform.position;
+
+                return;
+            }
+        }
+        // else if it is in foreground, the range is triangle
+        else
+        {
+            hit = Physics2D.OverlapCircle(eyePoint, viewDistance, playerLayer);
+
+            if(hit != null)
+            {
+                // 2. Calculate the angle
+                // the forward vector
+                Vector2 forward = transform.right * enemyMove.MoveDir;
+                Vector2 dirToPlayer = (hit.transform.position - transform.position).normalized;
+
+                // Calculate the angle of two vectors
+                float angle = Vector2.Angle(forward, dirToPlayer);
+
+                // if the calculated angle is smaller than the half of the view angle
+                if(angle < viewAngle * 0.5f)
+                {
+                    // the player is in view triangle
+                    _hasTarget = true;
+                    enemyState = EMonsterState.Chase;
+                    enemyMove.targetPosition = hit.transform.position;
+
+                    return;
+                }
+            }
+        }
+
+        enemyState = EMonsterState.Patrol;
+        _hasTarget = false;
+        return;
     }
 
     // AI behavior
@@ -85,6 +147,11 @@ public class EnemyControllerBase : MonoBehaviour
 
             // HERE ATTACK LOGIC
             FireProjectile();
+        }
+        // else if the state is chase, then start to chase.
+        else if(enemyState == EMonsterState.Chase)
+        {
+            enemyMove.MoveToTarget();
         }
         // else then start to move
         else

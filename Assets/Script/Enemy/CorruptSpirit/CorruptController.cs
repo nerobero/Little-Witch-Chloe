@@ -1,4 +1,5 @@
 using UnityEngine;
+using Types;
 
 public class CorruptController : EnemyControllerBase
 {
@@ -6,18 +7,54 @@ public class CorruptController : EnemyControllerBase
 
     [Header("Chasing Settings")]
     [SerializeField] private float detectionRange = 10f;
-    [SerializeField] private float layerSwitchDelay = 1.5f;
-    private float lastLayerSwitchTime;
+    // [SerializeField] private float layerSwitchDelay = 1.5f;
+    // private float lastLayerSwitchTime;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // AI behavior
+    protected override void Think()
+    {
+        // If this enemy's state is attack, then stop move logic and start to attack.
+        if(enemyState == EMonsterState.Attack)
+        {
+            enemyMove.CancelInvoke();
+
+            // HERE ATTACK LOGIC
+            Attack();
+        }
+        // else then start to move
+        else
+        {
+            enemyMove.Think();
+        }
+    }
+
+    void Attack()
+    {
+        // Current weapon is projectile
+        FireProjectile();
+
+        // Current weapon is melee
+        MeleeAttack();
+    }
+
+    protected override void FireProjectile()
+    {
+        float probability = (float)Random.Range(0, 100) / 100.0f;
+
+        if(probability >= 0.7f)
+        {
+            FireNormal();
+        }
+        else
+        {
+            // Temp
+            FireCharged(0.0f);
+        }
+    }
+
+    protected virtual void MeleeAttack()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -17,7 +17,7 @@ public class BaseMonsterMovement : EnemyMovement
         float offsetY = MoveDir * Random.Range(minDistance, maxDistance);
         
         // Make target position in 2~3 grids on the x-y axis from its spawn point.
-        Vector2 targetPosition = spawnPosition + new Vector2(offsetX, offsetY);
+        targetPosition = spawnPosition + new Vector2(offsetX, offsetY);
 
         SetMoveDirection(MoveDir);
     }   

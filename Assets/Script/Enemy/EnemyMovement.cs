@@ -22,8 +22,13 @@ public class EnemyMovement : MonoBehaviour
     [Header("Ground Detection")]
     [SerializeField] protected float groundCheckDistance = 0.5f;
     [SerializeField] protected LayerMask platformLayer;
+    
+    private bool _isBackground = false; 
+    public bool IsBackground => _isBackground;
+
 
     [Header("Patrol Settings")]
+    public Vector2 targetPosition;
 
     // Physics body for 2D object
     protected Rigidbody2D rb;
@@ -48,6 +53,9 @@ public class EnemyMovement : MonoBehaviour
 
         // Check if grounded
         CheckGround();
+
+        // Check if arrived to the target position
+        CheckArrived();
     }
 
     protected virtual void CheckGround()
@@ -66,6 +74,24 @@ public class EnemyMovement : MonoBehaviour
         {
             Turn();
         }
+    }
+
+    protected virtual void CheckArrived()
+    {
+        // Check if the move to the target location is completed
+        if(Vector2.Distance(transform.position, targetPosition) <= 0.01f)
+        {
+            // Cancel all invoke function
+            CancelInvoke();
+
+            // Think next behavior immediately.
+            Think();
+        }
+    }
+
+    public virtual void MoveToTarget()
+    {
+        
     }
 
     // To change the behavior
