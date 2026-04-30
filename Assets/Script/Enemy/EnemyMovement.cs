@@ -22,9 +22,13 @@ public class EnemyMovement : MonoBehaviour
     [Header("Ground Detection")]
     [SerializeField] protected float groundCheckDistance = 0.5f;
     [SerializeField] protected LayerMask platformLayer;
+    
+    private bool _isBackground = false; 
+    public bool IsBackground => _isBackground;
+
 
     [Header("Patrol Settings")]
-    protected Vector2 targetPosition;
+    public Vector2 targetPosition;
 
     // Physics body for 2D object
     protected Rigidbody2D rb;
@@ -83,6 +87,11 @@ public class EnemyMovement : MonoBehaviour
             // Think next behavior immediately.
             Think();
         }
+    }
+
+    public virtual void MoveToTarget()
+    {
+        
     }
 
     // To change the behavior
