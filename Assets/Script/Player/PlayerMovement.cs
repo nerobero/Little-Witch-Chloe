@@ -23,9 +23,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float flyForce;
     [SerializeField] private LayerMask bgLayer;
     [SerializeField] private LayerMask fgLayer;
+    private int orderInLayer;
 
     private Rigidbody2D _rb; // Physics body for 2D object
     private bool _isBackground = false; //by default, you're already on 
+
     private int _playerLayer => gameObject.layer;
     private int _bgLayerIndex => (int)Mathf.Log(bgLayer.value, 2);
     private int _fgLayerIndex => (int)Mathf.Log(fgLayer.value, 2);
@@ -35,6 +37,9 @@ public class PlayerMovement : MonoBehaviour
 
     // player's animation controller:
     private PlayerAnimController _animController;
+
+    // player's sprite renderer:
+    private SpriteRenderer _spriteRender;
 
     private void Awake()
     {
@@ -47,10 +52,17 @@ public class PlayerMovement : MonoBehaviour
         // makes sure that we get the reference for the player anim controller at runtime:
         _animController = GetComponent<PlayerAnimController>();
 
+        _spriteRender = GetComponent<SpriteRenderer>();
+
         // ignoring the background platform in the beginning
         Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, true);
         Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, false);
 
+    }
+
+    private void Start()
+    {
+        orderInLayer = _isBackground? -1 : 0;
     }
 
     private void OnEnable()
@@ -176,5 +188,7 @@ public class PlayerMovement : MonoBehaviour
 
         //5. flip the _isBackground value:
         _isBackground = !_isBackground;
+
+        orderInLayer = _isBackground? -1 : 0;
     }
 }
