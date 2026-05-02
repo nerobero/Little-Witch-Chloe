@@ -31,11 +31,11 @@ public class EnemyControllerBase : MonoBehaviour
         _attackPressTime < 0f ? 0f : Mathf.Clamp01((Time.time - _attackPressTime / maxChargeTime));
 
     // Jump => Flying transition related variables:
-    [Header("Jump => Flying transition")]
-    [SerializeField] private float flyingThreshold = 1.5f;
-    public bool IsFlying => _isFlying;
-    private bool _isFlying = false;
-    private float _jumpPressTime = -1f;
+    // [Header("Jump => Flying transition")]
+    // [SerializeField] private float flyingThreshold = 1.5f;
+    // public bool IsFlying => _isFlying;
+    // private bool _isFlying = false;
+    // private float _jumpPressTime = -1f;
 
     [Header("Detection")]
     [SerializeField] protected Vector3 eyePoint;
@@ -44,7 +44,7 @@ public class EnemyControllerBase : MonoBehaviour
     [SerializeField] protected float viewAngle;
 
     #region Setup
-    private void Awake()
+    protected void Awake()
     {
         // Caching once, never having to re-fetch again:
         enemyMove = GetComponent<EnemyMovement>();
@@ -52,44 +52,24 @@ public class EnemyControllerBase : MonoBehaviour
         // _animator = GetComponent<PlayerAnimator>();
     }
 
-    private void Start()
+    protected void Start()
     {
         enemyState = EMonsterState.Idle;
     }
     #endregion
 
-
-    private void Update()
+    protected void FixedUpdate()
     {
-        // if there is a valid time snapshot for jump start and 
-        // the enemy is not already flying:
-        if (_jumpPressTime >= 0f && !_isFlying)
-        {
-            // elapsed duration of the hold = current time - the jump start time snapshot
-            float heldFor = Time.time - _jumpPressTime;
-            if (heldFor >= flyingThreshold) // state change
-            {
-                _isFlying = true;
-                enemyMove.StartFlying(); // always called before FlyTick()
-            }
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (_isFlying)
-            enemyMove.FlyTick(); // force applied here, every frame after Update()
-
             
         // Detect player as target
         DetectPlayer();
     }
 
-     protected virtual void DetectPlayer()
+    protected virtual void DetectPlayer()
     {
         Collider2D hit;
 
-        // if the enemy is in background, the detection range is box
+        // if the enemy is in background, the detection range is box => different layer with player.
         if(enemyMove.IsBackground)
         {
             hit = Physics2D.OverlapBox(eyePoint, new Vector2(5.0f, 3.0f), 0.0f, playerLayer);
@@ -100,6 +80,7 @@ public class EnemyControllerBase : MonoBehaviour
                 _hasTarget = true;
                 enemyState = EMonsterState.Chase;
                 enemyMove.targetPosition = hit.transform.position;
+                enemyMove.BlinkToOtherPlatform();
 
                 return;
             }

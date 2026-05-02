@@ -29,6 +29,7 @@ public class EnemyMovement : MonoBehaviour
 
     [Header("Patrol Settings")]
     public Vector2 targetPosition;
+    public bool isChasing;
 
     // Physics body for 2D object
     protected Rigidbody2D rb;
@@ -44,6 +45,11 @@ public class EnemyMovement : MonoBehaviour
         Invoke("Think", 5);
     }
 
+    protected virtual void Start()
+    {
+        GetGroundLayer();
+    }
+
     // Physics is based on time (in seconds), thus we should use FixedUpdate
     // which is not called per-tick.
     protected virtual void FixedUpdate()
@@ -51,11 +57,27 @@ public class EnemyMovement : MonoBehaviour
         // Apply calculated velocity
         rb.linearVelocity = new Vector2(MoveDir * speed, rb.linearVelocity.y); 
 
+        // Check obstacles for jump
+        CheckObstacles();
+
         // Check if grounded
         CheckGround();
 
         // Check if arrived to the target position
-        CheckArrived();
+        if(isChasing)
+            CheckArrived();
+    }
+
+    protected void CheckObstacles()
+    {
+        float detectionDist = 0.5f;
+        Vector2 rayOrigin = transform.position;
+    }
+
+    protected int GetGroundLayer()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, ~(1 << gameObject.layer));
+        return hit.collider != null ? hit.collider.gameObject.layer : platformLayer;
     }
 
     protected virtual void CheckGround()
@@ -91,7 +113,12 @@ public class EnemyMovement : MonoBehaviour
 
     public virtual void MoveToTarget()
     {
-        
+        isChasing = true;
+    }
+
+    public virtual void StopChasing()
+    {
+        isChasing = false;
     }
 
     // To change the behavior
@@ -130,41 +157,14 @@ public class EnemyMovement : MonoBehaviour
         // BONUS logic here if needed:
     }
 
-    public void StartFlying()
-    {
-        // if this function is called when the character is NOT set to fly,
-        // then return.
-        if (!PlayerController.Instance.IsFlying) return;
-
-        // flying physics logic here
-        rb.gravityScale = 0.75f; // reducing the gravity by a quarter for more floaty feel 
-
-        // TODO: add the start flying animation state change here:
-    }
-
-    public void StopFlying()
-    {
-        // if this function is called when the character is STILL set to fly,
-        // then return.
-        if (PlayerController.Instance.IsFlying) return;
-
-        // stop flying physics logic here
-        rb.gravityScale = 1f; // restoring the default gravity value
-
-        // TODO: add the stop flying animation state change here:
-    }
-
-    public void FlyTick()
-    {
-        rb.AddForce(Vector2.up * flyForce, ForceMode2D.Force);
-    }
-
-    public void BlinkToOtherPlatform()
+    public virtual void BlinkToOtherPlatform()
     {
         /*
         'Blinking' is basically the term for teleporting between the foreground and background platforms.
         We may need to have our own calculation system for determining where on the platform Chloe should
         teleport to. 
         */
+
+        Debug.Log("Hello");
     }
 }

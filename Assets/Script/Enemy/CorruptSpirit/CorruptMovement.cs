@@ -37,6 +37,7 @@ public class CorruptMovement : EnemyMovement
     public override void MoveToTarget()
     {
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
+        //SetMoveDirection(direction);
 
         speed *= 1.5f;
     }
