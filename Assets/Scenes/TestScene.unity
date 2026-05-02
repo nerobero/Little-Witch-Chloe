@@ -1319,6 +1319,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2604971410333150992, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
+      propertyPath: _isFacingRight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7727798701954750557, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1451,7 +1455,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

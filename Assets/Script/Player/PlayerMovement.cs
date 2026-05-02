@@ -171,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
 
         //2. find the surface to get teleport to:
         float camHalfHeight = Camera.main.orthographicSize;
-        float xOffset = 2.5f;
+        float xOffset = 0.89f * 2f;
 
         if (_animController._isFacingRight)
             xOffset = _isBackground ? -xOffset : xOffset;
@@ -198,7 +198,7 @@ public class PlayerMovement : MonoBehaviour
 
         //4. reposition the player character:
         //_rb.position = new Vector2(_rb.position.x + xOffset, hitresult.point.y + 2.0f);
-        _rb.position = new Vector2(hitresult.point.x, hitresult.point.y + 2.0f);
+        _rb.position = new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
 
         orderInLayer = _isBackground? -1 : 0;
         _spriteRender.sortingOrder = orderInLayer;
