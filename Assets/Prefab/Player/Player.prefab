@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 4564149981406015731}
   - component: {fileID: 8045087993541427929}
   - component: {fileID: 7185458831767383663}
+  - component: {fileID: 7084486764173208723}
+  - component: {fileID: 2604971410333150992}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -97,10 +99,10 @@ MonoBehaviour:
   flyForce: 5
   bgLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   fgLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
 --- !u!114 &4393072811821626836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,3 +247,37 @@ MonoBehaviour:
   CurrentHP: 0
   MaxStamina: 15
   CurrentStamina: 15
+--- !u!95 &7084486764173208723
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727798701954750557}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2604971410333150992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727798701954750557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c39047208ced4b46bee87c5a2060aac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimController

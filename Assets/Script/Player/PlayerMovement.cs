@@ -8,12 +8,14 @@ using UnityEngine;
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerStatManager))]
+[RequireComponent(typeof(PlayerAnimController))]
 public class PlayerMovement : MonoBehaviour
 {
 
     // These values are exposed states for others to read:
     public bool IsGrounded => IsOnGround();
     public float MoveDir { get; private set; }
+    public Action OnFlyStopped;
 
     [Header("Movement values")]
     [SerializeField] private float speed;
@@ -30,9 +32,9 @@ public class PlayerMovement : MonoBehaviour
 
     // stamina related component ref here:
     private PlayerStatManager _statManager;
-    public Action OnFlyStopped;
 
-    // @TODO: Add a serialized private/public PlayerAnimControl class reference here
+    // player's animation controller:
+    private PlayerAnimController _animController;
 
     private void Awake()
     {
@@ -42,9 +44,12 @@ public class PlayerMovement : MonoBehaviour
         // makes sure that we get the reference for the stat manager at runtime:
         _statManager = GetComponent<PlayerStatManager>();
 
+        // makes sure that we get the reference for the player anim controller at runtime:
+        _animController = GetComponent<PlayerAnimController>();
+
         // ignoring the background platform in the beginning
-        Physics2D.IgnoreLayerCollision(gameObject.layer, _bgLayerIndex, true);
-        Physics2D.IgnoreLayerCollision(gameObject.layer, _fgLayerIndex, false);
+        Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, true);
+        Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, false);
 
     }
 
@@ -69,6 +74,8 @@ public class PlayerMovement : MonoBehaviour
         // moving the rigidbody:
         // the y-axis remains constant here.
         _rb.linearVelocity = new Vector2(MoveDir * speed, _rb.linearVelocity.y);
+        // if MoveDir != 0, it means that the player is moving in either direction:
+        _animController.SetToWalk(MoveDir != 0); 
     }
 
     private bool IsOnGround()
@@ -86,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
     public void SetMoveDirection(float direction)
     {
         MoveDir = direction;
+        _animController.FlipCharacter(direction);
     }
 
     public void Jump()
@@ -94,7 +102,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
         }
-        // _rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
         // BONUS logic here if needed:
     }
 
@@ -139,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
         LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
         Collider2D collided = Physics2D.OverlapCircle(transform.position, 15.0f, layerParam);
         int currLayer = GetGroundLayer();
-        if (collided == null || collided.gameObject.layer == GetGroundLayer())
+        if (collided == null || collided.gameObject.layer == currLayer)
         {
             Debug.LogWarning("cannot teleport.");
             return;
@@ -148,7 +155,13 @@ public class PlayerMovement : MonoBehaviour
 
         //2. find the surface to get teleport to:
         float camHalfHeight = Camera.main.orthographicSize;
-        float xOffset = _isBackground ? 2.5f : -2.5f;
+        float xOffset = 2.5f;
+        if (_animController._isFacingRight)
+            xOffset = _isBackground ? -xOffset : xOffset;
+        else
+            xOffset = _isBackground ? xOffset : -xOffset;
+
+        
         Vector2 origin = new Vector2(_rb.position.x + xOffset, _rb.position.y);
         RaycastHit2D hitresult = Physics2D.Raycast(origin + Vector2.up * camHalfHeight,
                 Vector2.down, camHalfHeight * 2f, layerParam);
