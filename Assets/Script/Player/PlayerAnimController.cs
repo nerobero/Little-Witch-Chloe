@@ -9,7 +9,7 @@ using UnityEngine;
 public class PlayerAnimController : MonoBehaviour
 {
     private Animator _animator;
-    public bool _isFacingRight;
+    public bool _isFacingRight = true;
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class PlayerAnimController : MonoBehaviour
     public void FlipCharacter(float moveDir)
     {
         // we only process the character to flip when the 
-        if (_isFacingRight && moveDir > 0f || !_isFacingRight && moveDir < 0f)
+        if (!_isFacingRight && moveDir > 0f || _isFacingRight && moveDir < 0f)
         {
             _isFacingRight = !_isFacingRight;
             Vector2 localScale2D = transform.localScale;

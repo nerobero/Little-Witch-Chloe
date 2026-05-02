@@ -55,14 +55,15 @@ public class PlayerMovement : MonoBehaviour
         _spriteRender = GetComponent<SpriteRenderer>();
 
         // ignoring the background platform in the beginning
-        Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, true);
-        Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, false);
+        Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, !_isBackground);
+        Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, _isBackground);
 
     }
 
     private void Start()
     {
         orderInLayer = _isBackground? -1 : 0;
+        _spriteRender.sortingOrder = orderInLayer;
     }
 
     private void OnEnable()
@@ -98,7 +99,10 @@ public class PlayerMovement : MonoBehaviour
 
     private int GetGroundLayer()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, ~(1 << gameObject.layer));
+        //Debug.DrawRay(transform.position, Vector2.down, new Color(0, 1, 0), 2.0f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, ~(1 << gameObject.layer));
+
+        //Debug.Log($"hit.collider: {hit.collider}, playerLayer: {_playerLayer}, hit.layer: {hit.collider.gameObject.layer}");
         return hit.collider != null ? hit.collider.gameObject.layer : _playerLayer;
     }
 
@@ -155,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
         */
 
         //1. finding if there is any teleportable platform within the given radius 
-        LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
+        LayerMask layerParam = _isBackground ? fgLayer : bgLayer;
         Collider2D collided = Physics2D.OverlapCircle(transform.position, 15.0f, layerParam);
         int currLayer = GetGroundLayer();
         if (collided == null || collided.gameObject.layer == currLayer)
@@ -168,6 +172,7 @@ public class PlayerMovement : MonoBehaviour
         //2. find the surface to get teleport to:
         float camHalfHeight = Camera.main.orthographicSize;
         float xOffset = 2.5f;
+
         if (_animController._isFacingRight)
             xOffset = _isBackground ? -xOffset : xOffset;
         else
@@ -175,20 +180,29 @@ public class PlayerMovement : MonoBehaviour
 
         
         Vector2 origin = new Vector2(_rb.position.x + xOffset, _rb.position.y);
+        Debug.DrawRay(origin + Vector2.up * camHalfHeight, Vector2.down * camHalfHeight * 2f, new Color(0, 0, 1), 2.0f);
         RaycastHit2D hitresult = Physics2D.Raycast(origin + Vector2.up * camHalfHeight,
                 Vector2.down, camHalfHeight * 2f, layerParam);
-        if (hitresult.collider == null) return;
+        if (hitresult.collider == null)
+        {
+            Debug.Log("Null");
+            return;
+        }            
+
+        //5. flip the _isBackground value:
+        _isBackground = !_isBackground;
 
         //3. ignoring the colliders of the teleported ground.
         Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, !_isBackground);
         Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, _isBackground);
 
         //4. reposition the player character:
-        _rb.position = new Vector2(_rb.position.x + xOffset, hitresult.point.y + 1.5f);
-
-        //5. flip the _isBackground value:
-        _isBackground = !_isBackground;
+        //_rb.position = new Vector2(_rb.position.x + xOffset, hitresult.point.y + 2.0f);
+        _rb.position = new Vector2(hitresult.point.x, hitresult.point.y + 2.0f);
 
         orderInLayer = _isBackground? -1 : 0;
+        _spriteRender.sortingOrder = orderInLayer;
+
+
     }
 }
