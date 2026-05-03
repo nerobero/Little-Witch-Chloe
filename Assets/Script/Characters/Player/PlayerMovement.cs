@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         // the y-axis remains constant here.
         _rb.linearVelocity = new Vector2(MoveDir * speed, _rb.linearVelocity.y);
         // if MoveDir != 0, it means that the player is moving in either direction:
-        _animController.SetToWalk(MoveDir != 0); 
+        _animController.SetToWalk(_rb.linearVelocity.x != 0f); 
     }
 
     private bool IsOnGround()
@@ -131,22 +131,22 @@ public class PlayerMovement : MonoBehaviour
         // flying physics logic here
         _rb.gravityScale = 0.5f; // reducing the gravity by a quarter for more floaty feel 
 
-        // TODO: add the start flying animation state change here:
+        // add the start flying animation state change here:
+        _animController.SetToStartFlying();
     }
 
     public void StopFlying()
     {
         _rb.gravityScale = 1f;
 
-        // TODO: add the stop flying animation state change here:
-
+        // add the stop flying animation state change here:
         OnFlyStopped?.Invoke();
+        _animController.SetToStopFlying();
     }
 
     public void FlyTick()
     {
         _rb.AddForce(Vector2.up * flyForce, ForceMode2D.Force);
-        // TODO: add stamina usage logic here
         _statManager.UseStamina(0.1f);
     }
 

@@ -1,28 +1,19 @@
 fileFormatVersion: 2
-guid: f8025ebf19b9b5e44aecf6d61488f32e
+guid: af94115ff9d5f934688e60c42f86e018
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2706485644987143219
-    second: cha_sprite_sheet_chloe_fly1_0
+      213: -269614681355130172
+    second: cha_sprite_sheet_chloe_idle1_0
   - first:
-      213: 6713295648356447934
-    second: cha_sprite_sheet_chloe_fly1_1
+      213: 5818017949901556242
+    second: cha_sprite_sheet_chloe_idle1_1
   - first:
-      213: -6627314694882411198
-    second: cha_sprite_sheet_chloe_fly1_2
+      213: -161647998231765342
+    second: cha_sprite_sheet_chloe_idle1_2
   - first:
-      213: -3821588872843960471
-    second: cha_sprite_sheet_chloe_fly1_3
-  - first:
-      213: -3923707878055813809
-    second: cha_sprite_sheet_chloe_fly1_4
-  - first:
-      213: -5760854394628544662
-    second: cha_sprite_sheet_chloe_fly1_5
-  - first:
-      213: 4828277514080825559
-    second: cha_sprite_sheet_chloe_fly1_6
+      213: -556946391179715928
+    second: cha_sprite_sheet_chloe_idle1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -118,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_fly1_0
+      name: cha_sprite_sheet_chloe_idle1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,23 +122,24 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape:
-      - - {x: 11, y: 0}
-        - {x: 10, y: 5}
+      - - {x: 10, y: 1}
+        - {x: 10, y: 7}
         - {x: 5, y: 15}
         - {x: -5, y: 15}
-        - {x: -12, y: 2}
+        - {x: -10, y: 7}
+        - {x: -12, y: 1}
         - {x: -3, y: -16}
-        - {x: 5, y: -16}
+        - {x: 4, y: -16}
       tessellationDetail: 0
       bones: []
-      spriteID: 3341723ca5e5f8520800000000000000
-      internalID: 2706485644987143219
+      spriteID: 4cae89330e2224cf0800000000000000
+      internalID: -269614681355130172
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_fly1_1
+      name: cha_sprite_sheet_chloe_idle1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -160,23 +152,23 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape:
-      - - {x: 11, y: 6}
-        - {x: 6, y: 14}
-        - {x: -4, y: 14}
-        - {x: -11, y: 1}
-        - {x: -2, y: -16}
-        - {x: 5, y: -16}
-        - {x: 11, y: -1}
+      - - {x: 10, y: 7}
+        - {x: 5, y: 14}
+        - {x: -5, y: 14}
+        - {x: -12, y: 1}
+        - {x: -4, y: -16}
+        - {x: 4, y: -16}
+        - {x: 10, y: -1}
       tessellationDetail: 0
       bones: []
-      spriteID: eb63678d2da6a2d50800000000000000
-      internalID: 6713295648356447934
+      spriteID: 21a8ab01080cdb050800000000000000
+      internalID: 5818017949901556242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_fly1_2
+      name: cha_sprite_sheet_chloe_idle1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -190,23 +182,23 @@ TextureImporter:
       outline: []
       physicsShape:
       - - {x: 9, y: 8}
-        - {x: 7, y: 14}
-        - {x: -4, y: 14}
-        - {x: -11, y: 1}
-        - {x: -9, y: -7}
-        - {x: -4, y: -16}
-        - {x: 5, y: -16}
-        - {x: 11, y: 0}
+        - {x: 5, y: 15}
+        - {x: -5, y: 15}
+        - {x: -9, y: 8}
+        - {x: -12, y: 1}
+        - {x: -3, y: -16}
+        - {x: 4, y: -16}
+        - {x: 10, y: 1}
       tessellationDetail: 0
       bones: []
-      spriteID: 24dbec4e56c0704a0800000000000000
-      internalID: -6627314694882411198
+      spriteID: 2ae1eb68006b1cdf0800000000000000
+      internalID: -161647998231765342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_fly1_3
+      name: cha_sprite_sheet_chloe_idle1_3
       rect:
         serializedVersion: 2
         x: 96
@@ -219,114 +211,18 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape:
-      - - {x: 10, y: -7}
-        - {x: 11.295486, y: 0.90828323}
-        - {x: 11, y: 8}
+      - - {x: 10, y: 7}
         - {x: 6, y: 15}
-        - {x: -3, y: 15}
-        - {x: -7, y: 10}
-        - {x: -11, y: 1}
-        - {x: -8, y: -10}
-        - {x: -2, y: -16}
-        - {x: 6, y: -16}
+        - {x: -5, y: 15}
+        - {x: -9, y: 8}
+        - {x: -12, y: 2}
+        - {x: -3, y: -16}
+        - {x: 4, y: -16}
+        - {x: 10, y: 0}
       tessellationDetail: 0
       bones: []
-      spriteID: 96fdc84fa2df6fac0800000000000000
-      internalID: -3821588872843960471
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_fly1_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 12, y: -1}
-        - {x: 9, y: 9}
-        - {x: 6, y: 14}
-        - {x: -4, y: 14}
-        - {x: -9, y: 6}
-        - {x: -11, y: 0}
-        - {x: -9, y: -7}
-        - {x: -2, y: -16}
-        - {x: 6, y: -16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: f4dd41e39703c89c0800000000000000
-      internalID: -3923707878055813809
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_fly1_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 11, y: 0}
-        - {x: 10, y: 7}
-        - {x: 7, y: 14}
-        - {x: -4, y: 14}
-        - {x: -11, y: 1}
-        - {x: -9, y: -7}
-        - {x: -2, y: -16}
-        - {x: 4.9039917, y: -16}
-        - {x: 9, y: -7}
-      tessellationDetail: 0
-      bones: []
-      spriteID: a67ea6d43755d00b0800000000000000
-      internalID: -5760854394628544662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_fly1_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 10, y: -7}
-        - {x: 12, y: 0}
-        - {x: 10, y: 7}
-        - {x: 6, y: 14}
-        - {x: -4, y: 14}
-        - {x: -9, y: 6}
-        - {x: -11, y: 0}
-        - {x: -9, y: -7}
-        - {x: -2, y: -16}
-        - {x: 5, y: -16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d03bc751dc710340800000000000000
-      internalID: 4828277514080825559
+      spriteID: 8aa1cc245345548f0800000000000000
+      internalID: -556946391179715928
       vertices: []
       indices: 
       edges: []
@@ -335,7 +231,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a3ce06ef77c3f7345aa68a3739143abb
+    spriteID: d6d292f444928f54cacdaec28b47c1f8
     internalID: 0
     vertices: []
     indices: 
@@ -344,18 +240,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries:
-      - key: SpriteEditor.SliceOnImport
-        value: False
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      cha_sprite_sheet_chloe_fly1_0: 2706485644987143219
-      cha_sprite_sheet_chloe_fly1_1: 6713295648356447934
-      cha_sprite_sheet_chloe_fly1_2: -6627314694882411198
-      cha_sprite_sheet_chloe_fly1_3: -3821588872843960471
-      cha_sprite_sheet_chloe_fly1_4: -3923707878055813809
-      cha_sprite_sheet_chloe_fly1_5: -5760854394628544662
-      cha_sprite_sheet_chloe_fly1_6: 4828277514080825559
+      cha_sprite_sheet_chloe_idle1_0: -269614681355130172
+      cha_sprite_sheet_chloe_idle1_1: 5818017949901556242
+      cha_sprite_sheet_chloe_idle1_2: -161647998231765342
+      cha_sprite_sheet_chloe_idle1_3: -556946391179715928
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

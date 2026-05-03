@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 3
   jumpHeight: 3
-  flyForce: 5
+  flyForce: 6
   bgLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -243,10 +243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c459c9e9eb3f3134abdedeace32e6403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatManager
-  MaxHP: 0
-  CurrentHP: 0
-  MaxStamina: 15
-  CurrentStamina: 15
+  MaxHP: 50
+  CurrentHP: 50
+  MaxStamina: 30
+  CurrentStamina: 30
 --- !u!95 &7084486764173208723
 Animator:
   serializedVersion: 7
@@ -257,7 +257,7 @@ Animator:
   m_GameObject: {fileID: 7727798701954750557}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3d6633a6d7545c498401b6b8f421486, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -281,3 +281,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c39047208ced4b46bee87c5a2060aac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimController
+  _isFacingRight: 1
