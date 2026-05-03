@@ -9,8 +9,10 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
      // These values are exposed states for others to read:
-    public bool IsGrounded { get; protected set; }
+    public bool IsGrounded => IsOnGround();
     public float MoveDir { get; protected set; }
+
+    public bool enabled = true;
 
     [Header("Movement values")]
     [SerializeField] protected float speed;
@@ -22,6 +24,12 @@ public class EnemyMovement : MonoBehaviour
     [Header("Ground Detection")]
     [SerializeField] protected float groundCheckDistance = 0.5f;
     [SerializeField] protected LayerMask platformLayer;
+
+    [SerializeField] protected LayerMask bgLayer;
+    [SerializeField] protected LayerMask fgLayer;
+
+    protected int _bgLayerIndex => (int)Mathf.Log(bgLayer.value, 2);
+    protected int _fgLayerIndex => (int)Mathf.Log(fgLayer.value, 2);
     
     private bool _isBackground = false; 
     public bool IsBackground => _isBackground;
@@ -41,6 +49,8 @@ public class EnemyMovement : MonoBehaviour
         // makes sure that we auto-get the reference for the rigidbody at runtime:
         rb = GetComponent<Rigidbody2D>();
         
+        Physics2D.IgnoreLayerCollision(platformLayer, _bgLayerIndex, !_isBackground);
+        Physics2D.IgnoreLayerCollision(platformLayer, _fgLayerIndex, _isBackground);
         //
         Invoke("Think", 5);
     }
@@ -54,25 +64,56 @@ public class EnemyMovement : MonoBehaviour
     // which is not called per-tick.
     protected virtual void FixedUpdate()
     {
-        // Apply calculated velocity
-        rb.linearVelocity = new Vector2(MoveDir * speed, rb.linearVelocity.y); 
+        if(enabled)
+        {
+            // Apply calculated velocity
+            rb.linearVelocity = new Vector2(MoveDir * speed, rb.linearVelocity.y); 
 
-        // Check obstacles for jump
-        CheckObstacles();
+            // Check obstacles for jump
+            if(IsGrounded)
+            {
+                CheckObstacles();
+            }
 
-        // Check if grounded
-        CheckGround();
+            // Check if grounded
+            CheckGround();
 
-        // Check if arrived to the target position
-        if(isChasing)
-            CheckArrived();
+            // Check if arrived to the target position
+            if(isChasing)
+                CheckArrived();
+
+
+        }
     }
 
     protected void CheckObstacles()
     {
-        float detectionDist = 0.5f;
-        Vector2 rayOrigin = transform.position;
+        if(IsGrounded)
+        {    
+            LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
+            float detectionDist = MoveDir == 1.0f? 0.5f : -0.5f;
+            Vector2 rayOrigin = transform.position;
+
+            Vector2 frontVec = new Vector2(rayOrigin.x + detectionDist, rayOrigin.y + 0.5f);
+
+            Debug.DrawRay(frontVec, Vector3.up, new Color(0, 1, 0));
+            RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector2.up, 1.0f, layerParam);
+
+            // If monster detects some obstacles, then jump
+            if(rayHit != null && MoveDir != 0)
+            {
+                Debug.Log("Obstacle Detected!");
+                Jump();
+            }
+        }
     }
+
+    protected bool IsOnGround()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, ~(1 << gameObject.layer));
+        return hit.collider != null;
+    }
+
 
     protected int GetGroundLayer()
     {
@@ -86,7 +127,7 @@ public class EnemyMovement : MonoBehaviour
         Vector2 frontVec = new Vector2(rb.position.x + 0.5f * MoveDir * speed,
         rb.position.y);
 
-        Debug.DrawRay(frontVec, Vector3.down, new Color(0, 1, 0));
+        //Debug.DrawRay(frontVec, Vector3.down, new Color(0, 1, 0));
 
         RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1,
         platformLayer);
@@ -151,6 +192,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (IsGrounded)
         {
+            Debug.Log("Jump!");
             rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
         }
 

@@ -24,6 +24,8 @@ public class EnemyControllerBase : MonoBehaviour
     private float _loseTimer = 0f;
     private bool _hasTarget = false; // Is this monster detected player(target)
 
+    public bool enabled = true;
+
     // Used Time.time instead of Time.deltaTime because
     // the charge logic is directly related to the actual timestamp,
     // which is not something that accumlates PER frame
@@ -143,11 +145,15 @@ public class EnemyControllerBase : MonoBehaviour
 
     protected virtual void OnBecomeVisible()
     {
+        enabled = true;
+        enemyMove.enabled = true;
         enemyState = EMonsterState.Patrol;
     }
 
     protected virtual void OnBecameInvisible()
     {
+        enabled = false;
+        enemyMove.enabled = false;
         enemyState = EMonsterState.Idle;
     }
 
