@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 3
   jumpHeight: 3
-  flyForce: 5
+  flyForce: 6
   bgLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -243,10 +243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c459c9e9eb3f3134abdedeace32e6403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatManager
-  MaxHP: 0
-  CurrentHP: 0
-  MaxStamina: 15
-  CurrentStamina: 15
+  MaxHP: 50
+  CurrentHP: 50
+  MaxStamina: 30
+  CurrentStamina: 30
 --- !u!95 &7084486764173208723
 Animator:
   serializedVersion: 7
