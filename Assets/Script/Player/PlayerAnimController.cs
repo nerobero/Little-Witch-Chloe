@@ -8,6 +8,11 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimController : MonoBehaviour
 {
+    private static readonly int IdleHash = Animator.StringToHash("IdleHash");
+    private static readonly int WalkingHash = Animator.StringToHash("IsWalking");
+    private static readonly int IsFlyingHash = Animator.StringToHash("IsFlying");
+    private static readonly int FlyTickHash = Animator.StringToHash("FlyTick");
+
     private Animator _animator;
     public bool _isFacingRight = true;
 
@@ -33,11 +38,17 @@ public class PlayerAnimController : MonoBehaviour
 
     public void SetToWalk(bool isWalking)
     {
-        _animator.SetBool("Walking", isWalking);
+        _animator.SetBool(WalkingHash, isWalking);
     }
 
     public void SetToStartFlying()
     {
-        
+        _animator.SetBool(IsFlyingHash, true);
+        _animator.SetTrigger(FlyTickHash);
+    }
+
+    public void SetToStopFlying()
+    {
+        _animator.SetBool(IsFlyingHash, false);
     }
 }
