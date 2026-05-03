@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -112,17 +112,25 @@ TextureImporter:
       name: cha_sprite_sheet_chloe_idle1_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 24
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 10, y: 1}
+        - {x: 10, y: 7}
+        - {x: 5, y: 15}
+        - {x: -5, y: 15}
+        - {x: -10, y: 7}
+        - {x: -12, y: 1}
+        - {x: -3, y: -16}
+        - {x: 4, y: -16}
+      tessellationDetail: 0
       bones: []
       spriteID: 4cae89330e2224cf0800000000000000
       internalID: -269614681355130172
@@ -134,17 +142,24 @@ TextureImporter:
       name: cha_sprite_sheet_chloe_idle1_1
       rect:
         serializedVersion: 2
-        x: 35
+        x: 32
         y: 0
-        width: 25
-        height: 31
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 10, y: 7}
+        - {x: 5, y: 14}
+        - {x: -5, y: 14}
+        - {x: -12, y: 1}
+        - {x: -4, y: -16}
+        - {x: 4, y: -16}
+        - {x: 10, y: -1}
+      tessellationDetail: 0
       bones: []
       spriteID: 21a8ab01080cdb050800000000000000
       internalID: 5818017949901556242
@@ -156,17 +171,25 @@ TextureImporter:
       name: cha_sprite_sheet_chloe_idle1_2
       rect:
         serializedVersion: 2
-        x: 67
+        x: 64
         y: 0
-        width: 25
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 9, y: 8}
+        - {x: 5, y: 15}
+        - {x: -5, y: 15}
+        - {x: -9, y: 8}
+        - {x: -12, y: 1}
+        - {x: -3, y: -16}
+        - {x: 4, y: -16}
+        - {x: 10, y: 1}
+      tessellationDetail: 0
       bones: []
       spriteID: 2ae1eb68006b1cdf0800000000000000
       internalID: -161647998231765342
@@ -178,17 +201,25 @@ TextureImporter:
       name: cha_sprite_sheet_chloe_idle1_3
       rect:
         serializedVersion: 2
-        x: 99
+        x: 96
         y: 0
-        width: 25
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 10, y: 7}
+        - {x: 6, y: 15}
+        - {x: -5, y: 15}
+        - {x: -9, y: 8}
+        - {x: -12, y: 2}
+        - {x: -3, y: -16}
+        - {x: 4, y: -16}
+        - {x: 10, y: 0}
+      tessellationDetail: 0
       bones: []
       spriteID: 8aa1cc245345548f0800000000000000
       internalID: -556946391179715928
@@ -200,7 +231,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d6d292f444928f54cacdaec28b47c1f8
     internalID: 0
     vertices: []
     indices: 
@@ -208,7 +239,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       cha_sprite_sheet_chloe_idle1_0: -269614681355130172
       cha_sprite_sheet_chloe_idle1_1: 5818017949901556242

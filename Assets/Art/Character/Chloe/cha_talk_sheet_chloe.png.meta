@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 63
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,9 +115,9 @@ TextureImporter:
         x: 0
         y: 0
         width: 63
-        height: 60
+        height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -137,9 +137,9 @@ TextureImporter:
         x: 63
         y: 0
         width: 63
-        height: 60
+        height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -159,9 +159,9 @@ TextureImporter:
         x: 126
         y: 0
         width: 63
-        height: 60
+        height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -181,17 +181,17 @@ TextureImporter:
         x: 189
         y: 0
         width: 63
-        height: 60
+        height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c47189bae356018b0800000000000000
-      internalID: -5183531851262191796
+      spriteID: 12f75ba44ff8f954293036fc86af88d0
+      internalID: -1730565181
       vertices: []
       indices: 
       edges: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 62744f333cc318b49b434f6138bc2518
     internalID: 0
     vertices: []
     indices: 
@@ -208,12 +208,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":63.0,"y":63.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      - key: SpriteEditor.SliceOnImport
+        value: False
     nameFileIdTable:
       cha_talk_sheet_chloe_0: -748715930859883094
       cha_talk_sheet_chloe_1: 1430866322414204545
       cha_talk_sheet_chloe_2: 4389893373541963333
-      cha_talk_sheet_chloe_3: -5183531851262191796
+      cha_talk_sheet_chloe_3: -1730565181
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,133 +115,192 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_move1_0
+      name: cha_sprite_sheet_chloe_flytick_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 26
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 11, y: 1}
+        - {x: 9, y: 8}
+        - {x: 6, y: 15}
+        - {x: -5, y: 15}
+        - {x: -8, y: 9}
+        - {x: -12, y: 2}
+        - {x: -9, y: -7}
+        - {x: -4, y: -15}
+        - {x: 4, y: -15}
+      tessellationDetail: 0
       bones: []
-      spriteID: 718ebb6fddc5b9b10800000000000000
-      internalID: 1989285768811243543
+      spriteID: 170339773cd41974d9f470048079b089
+      internalID: -847503945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_move1_1
+      name: cha_sprite_sheet_chloe_flytick_1
       rect:
         serializedVersion: 2
-        x: 34
+        x: 32
         y: 0
-        width: 25
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 6, y: -10}
+        - {x: 10, y: 1}
+        - {x: 9, y: 8}
+        - {x: 5, y: 15}
+        - {x: -5, y: 15}
+        - {x: -9, y: 9}
+        - {x: -12, y: 2}
+        - {x: -8, y: -8}
+        - {x: -4, y: -15}
+        - {x: 1, y: -15}
+      tessellationDetail: 0
       bones: []
-      spriteID: 7821297639258c310800000000000000
-      internalID: 1425480075114058375
+      spriteID: 6dd542b1a818a96478cd3e9a419b4950
+      internalID: -63211405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_move1_2
+      name: cha_sprite_sheet_chloe_flytick_2
       rect:
         serializedVersion: 2
-        x: 65
+        x: 64
         y: 0
-        width: 26
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 9, y: -6}
+        - {x: 10, y: 2}
+        - {x: 9, y: 8}
+        - {x: 5, y: 16}
+        - {x: -5, y: 16}
+        - {x: -9, y: 9}
+        - {x: -12, y: 3}
+        - {x: -10, y: -7}
+        - {x: -4, y: -16}
+        - {x: 1, y: -16}
+      tessellationDetail: 0
       bones: []
-      spriteID: 020e7a1d6f6252190800000000000000
-      internalID: -7987935522550456288
+      spriteID: 65a4134edfe110e4fb05ab93adeb3c73
+      internalID: 176941506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_move1_3
+      name: cha_sprite_sheet_chloe_flytick_3
       rect:
         serializedVersion: 2
-        x: 98
+        x: 96
         y: 0
-        width: 25
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 9, y: -7}
+        - {x: 11, y: 1}
+        - {x: 10, y: 8}
+        - {x: 6, y: 16}
+        - {x: -5, y: 16}
+        - {x: -9, y: 10}
+        - {x: -12, y: 2}
+        - {x: -10, y: -7}
+        - {x: -4, y: -16}
+        - {x: 2, y: -16}
+      tessellationDetail: 0
       bones: []
-      spriteID: d6b8e477f18ab58a0800000000000000
-      internalID: -6315269199357899923
+      spriteID: 6664e840abeb571489b23f0b0c906505
+      internalID: 57882284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_move1_4
+      name: cha_sprite_sheet_chloe_flytick_4
       rect:
         serializedVersion: 2
-        x: 129
+        x: 128
         y: 0
-        width: 26
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 9, y: -6}
+        - {x: 11, y: 1}
+        - {x: 10, y: 8}
+        - {x: 6, y: 15}
+        - {x: -5, y: 15}
+        - {x: -9, y: 8}
+        - {x: -12, y: 1}
+        - {x: -11, y: -7}
+        - {x: -4, y: -15}
+        - {x: 2, y: -15}
+      tessellationDetail: 0
       bones: []
-      spriteID: 843316ebec4352920800000000000000
-      internalID: 2964833992255288136
+      spriteID: 92fda851b14f79c4fb561d6c424def8a
+      internalID: -362110127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_move1_5
+      name: cha_sprite_sheet_chloe_flytick_5
       rect:
         serializedVersion: 2
-        x: 162
+        x: 160
         y: 0
-        width: 25
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 9, y: -7}
+        - {x: 11, y: 1}
+        - {x: 8, y: 10}
+        - {x: 5, y: 15}
+        - {x: -5, y: 15}
+        - {x: -8, y: 9}
+        - {x: -12, y: 2}
+        - {x: -10, y: -7}
+        - {x: -5, y: -15}
+        - {x: 2, y: -15}
+      tessellationDetail: 0
       bones: []
-      spriteID: db4f189f33f09c790800000000000000
-      internalID: -7509454187759799107
+      spriteID: 30af054112898b64fb92ab2987dbf76a
+      internalID: 1543763525
       vertices: []
       indices: 
       edges: []
@@ -250,7 +309,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 57fb6a525d9c0b44ca7de23e6d8d4a15
     internalID: 0
     vertices: []
     indices: 
@@ -258,14 +317,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      cha_sprite_sheet_chloe_move1_0: 1989285768811243543
-      cha_sprite_sheet_chloe_move1_1: 1425480075114058375
-      cha_sprite_sheet_chloe_move1_2: -7987935522550456288
-      cha_sprite_sheet_chloe_move1_3: -6315269199357899923
-      cha_sprite_sheet_chloe_move1_4: 2964833992255288136
-      cha_sprite_sheet_chloe_move1_5: -7509454187759799107
+      cha_sprite_sheet_chloe_flytick_0: -847503945
+      cha_sprite_sheet_chloe_flytick_1: -63211405
+      cha_sprite_sheet_chloe_flytick_2: 176941506
+      cha_sprite_sheet_chloe_flytick_3: 57882284
+      cha_sprite_sheet_chloe_flytick_4: -362110127
+      cha_sprite_sheet_chloe_flytick_5: 1543763525
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

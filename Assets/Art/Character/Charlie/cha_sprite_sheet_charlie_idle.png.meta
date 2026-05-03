@@ -63,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,17 +115,27 @@ TextureImporter:
       name: cha_sprite_sheet_charlie_idle_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 0
         y: 0
-        width: 25
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 10, y: 2}
+        - {x: 12, y: 10}
+        - {x: 12, y: 12}
+        - {x: -2, y: 16}
+        - {x: -4, y: 16}
+        - {x: -10, y: 7}
+        - {x: -11, y: -4}
+        - {x: -11, y: -6}
+        - {x: -4, y: -16}
+        - {x: 6, y: -16}
+      tessellationDetail: 0
       bones: []
       spriteID: 5991e0709a652e4d0800000000000000
       internalID: -3106825508964394603
@@ -137,17 +147,26 @@ TextureImporter:
       name: cha_sprite_sheet_charlie_idle_1
       rect:
         serializedVersion: 2
-        x: 37
+        x: 32
         y: 0
-        width: 25
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 11, y: 0}
+        - {x: 13, y: 9}
+        - {x: 13, y: 11}
+        - {x: -1, y: 16}
+        - {x: -3, y: 16}
+        - {x: -9, y: 7}
+        - {x: -11, y: -5}
+        - {x: -3, y: -16}
+        - {x: 5, y: -16}
+      tessellationDetail: 0
       bones: []
       spriteID: eef2231150e3bb030800000000000000
       internalID: 3511468525949693934
@@ -159,17 +178,27 @@ TextureImporter:
       name: cha_sprite_sheet_charlie_idle_2
       rect:
         serializedVersion: 2
-        x: 70
+        x: 64
         y: 0
-        width: 24
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 9, y: -13}
+        - {x: 9, y: -11}
+        - {x: 14, y: 9}
+        - {x: 13, y: 10}
+        - {x: -1, y: 15}
+        - {x: -3, y: 15}
+        - {x: -9, y: 6}
+        - {x: -10, y: -3}
+        - {x: -4, y: -16}
+        - {x: 4, y: -16}
+      tessellationDetail: 0
       bones: []
       spriteID: 23b12d989e30678e0800000000000000
       internalID: -1696163908083901646
@@ -181,17 +210,25 @@ TextureImporter:
       name: cha_sprite_sheet_charlie_idle_3
       rect:
         serializedVersion: 2
-        x: 101
+        x: 96
         y: 0
-        width: 25
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 12, y: 1}
+        - {x: 13, y: 10}
+        - {x: -1, y: 15}
+        - {x: -3, y: 15}
+        - {x: -9, y: 7}
+        - {x: -11, y: -6}
+        - {x: -3, y: -16}
+        - {x: 6, y: -16}
+      tessellationDetail: 0
       bones: []
       spriteID: 37c10b35135ff82a0800000000000000
       internalID: -6732893325689349005
@@ -203,17 +240,25 @@ TextureImporter:
       name: cha_sprite_sheet_charlie_idle_4
       rect:
         serializedVersion: 2
-        x: 133
+        x: 128
         y: 0
-        width: 25
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 9.951813, y: -11.667169}
+        - {x: 14, y: 8}
+        - {x: 14, y: 10}
+        - {x: -2, y: 15}
+        - {x: -8, y: 9}
+        - {x: -11, y: -5}
+        - {x: -3, y: -16}
+        - {x: 5, y: -16}
+      tessellationDetail: 0
       bones: []
       spriteID: 1f6e05012801ee8e0800000000000000
       internalID: -1662373061647603983
@@ -225,7 +270,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b97b02f9bc730c844a87c8d6d5b81e51
     internalID: 0
     vertices: []
     indices: 
@@ -233,7 +278,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       cha_sprite_sheet_charlie_idle_0: -3106825508964394603
       cha_sprite_sheet_charlie_idle_1: 3511468525949693934
