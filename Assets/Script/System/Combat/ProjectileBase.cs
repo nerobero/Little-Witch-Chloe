@@ -1,5 +1,5 @@
-using System.ComponentModel;
 using UnityEngine;
+using Types;
 
 /// <summary>
 /// Base projectile objects that deals damage to characters.

@@ -27,4 +27,32 @@ namespace Types
         Chase,      // Chase the target
         Attack,     // Attack the target
     }
+
+
+    /// <summary>
+    /// Defines a type of pool object that can be spawned
+    /// by the PC or NPC.
+    /// </summary>
+    public enum ESpawnType
+    {
+        // PC normal projectiles (excluding the charged attacks).
+        // NPCs can also spawn these projectiles.
+        FireBall = 0,
+        WaterBall,
+        ElectricBall,
+        PoisonBall,
+        LightBall,
+        // NPC projectiles
+        FireSlash,
+        FirePillar,
+        PlantBall,
+        PoisonPool,
+        PoisonSplash,
+        DarknessBall,
+        DarknessCloud,
+        IceShard,
+        IceBall,
+        IceGroundShards,
+    }
+
 }

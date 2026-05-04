@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
     public bool IsGrounded => IsOnGround();
     public float MoveDir { get; protected set; }
 
-    public bool enabled = true;
+    public bool IsEnabled = true;
 
     [Header("Movement values")]
     [SerializeField] protected float speed;
@@ -68,7 +68,7 @@ public class EnemyMovement : MonoBehaviour
     // which is not called per-tick.
     protected virtual void FixedUpdate()
     {
-        if(enabled)
+        if(IsEnabled)
         {
             // Apply calculated velocity
             rb.linearVelocity = new Vector2(MoveDir * speed, rb.linearVelocity.y); 

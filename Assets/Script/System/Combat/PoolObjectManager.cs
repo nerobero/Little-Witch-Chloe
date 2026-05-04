@@ -1,31 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-
-/// <summary>
-/// Defines a type of pool object that can be spawned
-/// by the PC or NPC.
-/// </summary>
-public enum ESpawnType
-{
-    // PC normal projectiles (excluding the charged attacks).
-    // NPCs can also spawn these projectiles.
-    FireBall = 0,
-    WaterBall,
-    ElectricBall,
-    PoisonBall,
-    LightBall,
-    // NPC projectiles
-    FireSlash,
-    FirePillar,
-    PlantBall,
-    PoisonPool,
-    PoisonSplash,
-    DarknessBall,
-    DarknessCloud,
-    IceShard,
-    IceBall,
-    IceGroundShards,
-}
+using Types;
 
 /// <summary>
 /// Struct that groups the information needed for

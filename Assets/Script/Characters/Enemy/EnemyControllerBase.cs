@@ -150,14 +150,14 @@ public class EnemyControllerBase : MonoBehaviour
     protected virtual void OnBecomeVisible()
     {
         enabled = true;
-        enemyMove.enabled = true;
+        enemyMove.IsEnabled = true;
         enemyState = EMonsterState.Patrol;
     }
 
     protected virtual void OnBecameInvisible()
     {
         enabled = false;
-        enemyMove.enabled = false;
+        enemyMove.IsEnabled = false;
         enemyState = EMonsterState.Idle;
     }
 
