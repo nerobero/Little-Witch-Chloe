@@ -53,6 +53,7 @@ namespace Types
         IceShard,
         IceBall,
         IceGroundShards,
+        ScrollItem,
     }
 
 }
