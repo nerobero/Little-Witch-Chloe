@@ -11,10 +11,12 @@ GameObject:
   - component: {fileID: 7100565863009182168}
   - component: {fileID: 1416312217897855818}
   - component: {fileID: 6888505805484767814}
-  - component: {fileID: 8522293277437001057}
   - component: {fileID: -781276781480723014}
-  - component: {fileID: 9008090814934527515}
   - component: {fileID: -8888456695948119546}
+  - component: {fileID: 5613224481609003455}
+  - component: {fileID: 2735090288949440141}
+  - component: {fileID: -7472839418427734712}
+  - component: {fileID: -8642600596553475692}
   m_Layer: 0
   m_Name: BaseMonster
   m_TagString: Untagged
@@ -61,26 +63,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd9df285d318464ba890e7de2b5a570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacterBase
-  MaxHP: 0
-  CurrentHP: 0
+  MaxHP: 3
+  CurrentHP: 3
   monsterType: 0
---- !u!114 &8522293277437001057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8043046792835732294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b994940a16a080e4dbb96a8ddde63560, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyControllerBase
-  currentSpell: 0
-  chargeThreshold: 1.5
-  maxChargeTime: 3
-  loseTargetTime: 4
-  flyingThreshold: 1.5
 --- !u!50 &-781276781480723014
 Rigidbody2D:
   serializedVersion: 5
@@ -107,28 +92,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &9008090814934527515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8043046792835732294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20a8682e72f08f1488c28a0726905449, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
-  speed: 0
-  jumpHeight: 0
-  flyForce: 0
-  minDistance: 2
-  maxDistance: 3
-  groundCheckDistance: 0.5
-  platformLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  m_Constraints: 4
 --- !u!212 &-8888456695948119546
 SpriteRenderer:
   serializedVersion: 2
@@ -188,3 +152,130 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!60 &5613224481609003455
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8043046792835732294}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.2, y: 0.2}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.049999997, y: 0.099999994}
+      - {x: -0.099999994, y: 0.044999998}
+      - {x: -0.099999994, y: -0.03}
+      - {x: -0.074999996, y: -0.085}
+      - {x: -0.065, y: -0.099999994}
+      - {x: 0.06, y: -0.099999994}
+      - {x: 0.099999994, y: -0.074999996}
+      - {x: 0.099999994, y: 0.055}
+      - {x: 0.049999997, y: 0.099999994}
+  m_UseDelaunayMesh: 1
+--- !u!114 &2735090288949440141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8043046792835732294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181d035de88924d44a00396e281b14aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseMonsterMovement
+  enabled: 1
+  speed: 0.5
+  jumpHeight: 1
+  flyForce: 0
+  minDistance: 2
+  maxDistance: 3
+  groundCheckDistance: 0.5
+  obstacleDistance: 0.75
+  bgLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  fgLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  targetPosition: {x: 0, y: 0}
+  isChasing: 0
+--- !u!114 &-7472839418427734712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8043046792835732294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03bfc03e9d8c61242b0f6b756f4890b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseMonsterController
+  enemyState: 0
+  currentSpell: 0
+  chargeThreshold: 1.5
+  maxChargeTime: 3
+  loseTargetTime: 4
+  enabled: 1
+  eyePoint: {x: 0, y: 0, z: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  viewDistance: 0
+  viewAngle: 0
+--- !u!251 &-8642600596553475692
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8043046792835732294}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1

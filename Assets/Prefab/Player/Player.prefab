@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7185458831767383663}
   - component: {fileID: 7084486764173208723}
   - component: {fileID: 2604971410333150992}
+  - component: {fileID: 3643734836692442126}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -207,7 +208,7 @@ PolygonCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
@@ -281,4 +282,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c39047208ced4b46bee87c5a2060aac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimController
+  IsFacingRight: 1
   _isFacingRight: 1
+--- !u!251 &3643734836692442126
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727798701954750557}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1

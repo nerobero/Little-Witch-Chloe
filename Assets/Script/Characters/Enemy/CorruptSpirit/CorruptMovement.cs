@@ -2,11 +2,6 @@ using UnityEngine;
 
 public class CorruptMovement : EnemyMovement
 {
-    [Header("Movement values")]
-    [SerializeField] private LayerMask bgLayer;
-    [SerializeField] private LayerMask fgLayer;
-
-
     private bool _isBackground = false; 
     public bool IsBackground => _isBackground;
     private int _characterLayer => gameObject.layer; 

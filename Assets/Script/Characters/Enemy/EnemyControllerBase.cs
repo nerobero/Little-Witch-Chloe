@@ -10,7 +10,7 @@ public class EnemyControllerBase : MonoBehaviour
     // Handler for player's movement
     protected EnemyMovement enemyMove;
 
-    protected EMonsterState enemyState;
+    [SerializeField] protected EMonsterState enemyState;
     #endregion
 
     [Header("Attack - Input hold duration")]
@@ -23,6 +23,8 @@ public class EnemyControllerBase : MonoBehaviour
     [SerializeField] private float loseTargetTime = 4.0f; // time to change idle after missing the target (between 3 and 5 seconds)
     private float _loseTimer = 0f;
     private bool _hasTarget = false; // Is this monster detected player(target)
+
+    public bool enabled = true;
 
     // Used Time.time instead of Time.deltaTime because
     // the charge logic is directly related to the actual timestamp,
@@ -44,7 +46,7 @@ public class EnemyControllerBase : MonoBehaviour
     [SerializeField] protected float viewAngle;
 
     #region Setup
-    protected void Awake()
+    protected virtual void Awake()
     {
         // Caching once, never having to re-fetch again:
         enemyMove = GetComponent<EnemyMovement>();
@@ -52,9 +54,10 @@ public class EnemyControllerBase : MonoBehaviour
         // _animator = GetComponent<PlayerAnimator>();
     }
 
-    protected void Start()
+    protected virtual void Start()
     {
         enemyState = EMonsterState.Idle;
+        Invoke("Think", 1);
     }
     #endregion
 
@@ -121,8 +124,9 @@ public class EnemyControllerBase : MonoBehaviour
     // AI behavior
     protected virtual void Think()
     {
+        Debug.Log("Monster Cont: Think");
         // If this enemy's state is attack, then stop move logic and start to attack.
-        if(enemyState  == EMonsterState.Attack)
+        if(enemyState == EMonsterState.Attack)
         {
             enemyMove.CancelInvoke();
 
@@ -139,15 +143,21 @@ public class EnemyControllerBase : MonoBehaviour
         {
             enemyMove.Think();
         }
+
+        Invoke("Think", 2);
     }
 
     protected virtual void OnBecomeVisible()
     {
+        enabled = true;
+        enemyMove.enabled = true;
         enemyState = EMonsterState.Patrol;
     }
 
     protected virtual void OnBecameInvisible()
     {
+        enabled = false;
+        enemyMove.enabled = false;
         enemyState = EMonsterState.Idle;
     }
 
