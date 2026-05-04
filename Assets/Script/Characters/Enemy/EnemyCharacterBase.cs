@@ -17,4 +17,12 @@ public class EnemyCharacterBase : StatManager
     {
         
     }
+
+    public override void Death()
+    {
+        base.Death();
+
+        // Return to pool
+        gameObject.SetActive(false);
+    }
 }

@@ -36,7 +36,8 @@ public class EnemyMovement : MonoBehaviour
     protected bool _isBackground = false; 
     public bool IsBackground => _isBackground;
     SpriteRenderer sr;
-
+    protected EnemyAnimController _animController;
+    protected int orderInLayer;
 
     [Header("Patrol Settings")]
     public Vector2 targetPosition;
@@ -44,6 +45,9 @@ public class EnemyMovement : MonoBehaviour
 
     // Physics body for 2D object
     protected Rigidbody2D rb;
+    // enemy's sprite renderer:
+    protected SpriteRenderer _spriteRender;
+
 
     // @TODO: Add a serialized private/public PlayerAnimControl class reference here
 
@@ -55,6 +59,7 @@ public class EnemyMovement : MonoBehaviour
         Physics2D.IgnoreLayerCollision(platformLayer, _bgLayerIndex, !_isBackground);
         Physics2D.IgnoreLayerCollision(platformLayer, _fgLayerIndex, _isBackground);
         //
+        _spriteRender = GetComponent<SpriteRenderer>();
     }
 
     protected virtual void Start()
@@ -114,11 +119,13 @@ public class EnemyMovement : MonoBehaviour
             // If monster detects some obstacles, then jump
             if(lowHit.collider != null)
             {
-                if(highHit.collider == null)
+                float slopeAngle = Vector2.Angle(lowHit.normal, Vector2.up);
+                Debug.Log($"angle: {slopeAngle}");
+                if(highHit.collider == null && slopeAngle >= 45.0f)
                 {
                     Jump();
                 }
-                else
+                else if(highHit.collider != null)
                 {
                     Turn();
                 }
@@ -148,16 +155,16 @@ public class EnemyMovement : MonoBehaviour
     {
         LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
         // Platform check
-        Vector2 frontVec = new Vector2(rb.position.x + 0.5f * MoveDir * speed,
+        Vector2 frontVec = new Vector2(rb.position.x + groundCheckDistance * MoveDir * speed,
         rb.position.y);
 
-        Debug.DrawRay(frontVec, Vector3.down * 1.5f, new Color(1, 0, 0));
+        Debug.DrawRay(frontVec, Vector3.down * 0.5f, new Color(1, 0, 0));
 
         RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 0.5f,
         layerParam);
 
         // If the next position is cliff, then change its direction
-        if(rayHit.collider == null)
+        if(rayHit.collider == null && IsGrounded)
         {
             Turn();
         }

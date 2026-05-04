@@ -124,7 +124,6 @@ public class EnemyControllerBase : MonoBehaviour
     // AI behavior
     protected virtual void Think()
     {
-        Debug.Log("Monster Cont: Think");
         // If this enemy's state is attack, then stop move logic and start to attack.
         if(enemyState == EMonsterState.Attack)
         {
