@@ -10,7 +10,7 @@ public class EnemyControllerBase : MonoBehaviour
     // Handler for player's movement
     protected EnemyMovement enemyMove;
 
-    protected EMonsterState enemyState;
+    [SerializeField] protected EMonsterState enemyState;
     #endregion
 
     [Header("Attack - Input hold duration")]
@@ -46,7 +46,7 @@ public class EnemyControllerBase : MonoBehaviour
     [SerializeField] protected float viewAngle;
 
     #region Setup
-    protected void Awake()
+    protected virtual void Awake()
     {
         // Caching once, never having to re-fetch again:
         enemyMove = GetComponent<EnemyMovement>();
@@ -54,9 +54,10 @@ public class EnemyControllerBase : MonoBehaviour
         // _animator = GetComponent<PlayerAnimator>();
     }
 
-    protected void Start()
+    protected virtual void Start()
     {
         enemyState = EMonsterState.Idle;
+        Invoke("Think", 1);
     }
     #endregion
 
@@ -123,8 +124,9 @@ public class EnemyControllerBase : MonoBehaviour
     // AI behavior
     protected virtual void Think()
     {
+        Debug.Log("Monster Cont: Think");
         // If this enemy's state is attack, then stop move logic and start to attack.
-        if(enemyState  == EMonsterState.Attack)
+        if(enemyState == EMonsterState.Attack)
         {
             enemyMove.CancelInvoke();
 
@@ -141,6 +143,8 @@ public class EnemyControllerBase : MonoBehaviour
         {
             enemyMove.Think();
         }
+
+        Invoke("Think", 2);
     }
 
     protected virtual void OnBecomeVisible()

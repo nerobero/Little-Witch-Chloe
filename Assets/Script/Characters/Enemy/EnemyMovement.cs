@@ -8,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyMovement : MonoBehaviour
 {
-     // These values are exposed states for others to read:
+    // These values are exposed states for others to read:
     public bool IsGrounded => IsOnGround();
     public float MoveDir { get; protected set; }
 
@@ -23,16 +23,19 @@ public class EnemyMovement : MonoBehaviour
 
     [Header("Ground Detection")]
     [SerializeField] protected float groundCheckDistance = 0.5f;
-    [SerializeField] protected LayerMask platformLayer;
+    [SerializeField] protected float obstacleDistance = 0.5f;
+    //[SerializeField] protected LayerMask platformLayer = gameObject.layer;
 
     [SerializeField] protected LayerMask bgLayer;
     [SerializeField] protected LayerMask fgLayer;
 
+    protected int platformLayer => gameObject.layer;
     protected int _bgLayerIndex => (int)Mathf.Log(bgLayer.value, 2);
     protected int _fgLayerIndex => (int)Mathf.Log(fgLayer.value, 2);
     
-    private bool _isBackground = false; 
+    protected bool _isBackground = false; 
     public bool IsBackground => _isBackground;
+    SpriteRenderer sr;
 
 
     [Header("Patrol Settings")]
@@ -52,11 +55,12 @@ public class EnemyMovement : MonoBehaviour
         Physics2D.IgnoreLayerCollision(platformLayer, _bgLayerIndex, !_isBackground);
         Physics2D.IgnoreLayerCollision(platformLayer, _fgLayerIndex, _isBackground);
         //
-        Invoke("Think", 5);
     }
 
     protected virtual void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
+        //Invoke("Think", 1);
         GetGroundLayer();
     }
 
@@ -90,27 +94,46 @@ public class EnemyMovement : MonoBehaviour
     {
         if(IsGrounded)
         {    
+            
             LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
-            float detectionDist = MoveDir == 1.0f? 0.5f : -0.5f;
-            Vector2 rayOrigin = transform.position;
+            Vector2 origin = transform.position;
+            Vector2 dirVec = Vector2.right * MoveDir;
+            Vector2 offset = new Vector2(sr.bounds.extents.x * MoveDir, -sr.bounds.extents.y / 2.0f);
 
-            Vector2 frontVec = new Vector2(rayOrigin.x + detectionDist, rayOrigin.y + 0.5f);
+            // 1. Check obstacle (low raycast)
+            RaycastHit2D lowHit = Physics2D.Raycast(origin + offset, dirVec, obstacleDistance, layerParam);
+            Debug.DrawRay(origin + offset, dirVec * obstacleDistance, new Color(0, 1, 0));
 
-            Debug.DrawRay(frontVec, Vector3.up, new Color(0, 1, 0));
-            RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector2.up, 1.0f, layerParam);
+            // 2. Check can vault the obstacle
+            RaycastHit2D highHit = Physics2D.Raycast(origin + new Vector2(0, jumpHeight), dirVec, obstacleDistance, layerParam);
+            Debug.DrawRay(origin + new Vector2(0, jumpHeight), dirVec * obstacleDistance, new Color(0, 0, 1));
+
+            // Debug.DrawRay(frontVec, Vector3.up, new Color(0, 1, 0));
+            // RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector2.up, 1.0f, layerParam);
 
             // If monster detects some obstacles, then jump
-            if(rayHit != null && MoveDir != 0)
+            if(lowHit.collider != null)
             {
-                Debug.Log("Obstacle Detected!");
-                Jump();
+                if(highHit.collider == null)
+                {
+                    Jump();
+                }
+                else
+                {
+                    Turn();
+                }
             }
+            // if(rayHit.collider != null && MoveDir != 0)
+            // {
+            //     Debug.Log($"Obstacle {rayHit.collider.name} Detected!");
+            //     Jump();
+            // }
         }
     }
 
     protected bool IsOnGround()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, ~(1 << gameObject.layer));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.2f, ~(1 << gameObject.layer));
         return hit.collider != null;
     }
 
@@ -123,14 +146,15 @@ public class EnemyMovement : MonoBehaviour
 
     protected virtual void CheckGround()
     {
+        LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
         // Platform check
         Vector2 frontVec = new Vector2(rb.position.x + 0.5f * MoveDir * speed,
         rb.position.y);
 
-        //Debug.DrawRay(frontVec, Vector3.down, new Color(0, 1, 0));
+        Debug.DrawRay(frontVec, Vector3.down * 1.5f, new Color(1, 0, 0));
 
-        RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1,
-        platformLayer);
+        RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 0.5f,
+        layerParam);
 
         // If the next position is cliff, then change its direction
         if(rayHit.collider == null)
@@ -145,7 +169,7 @@ public class EnemyMovement : MonoBehaviour
         if(Vector2.Distance(transform.position, targetPosition) <= 0.01f)
         {
             // Cancel all invoke function
-            CancelInvoke();
+            //CancelInvoke();
 
             // Think next behavior immediately.
             Think();
@@ -165,22 +189,24 @@ public class EnemyMovement : MonoBehaviour
     // To change the behavior
     public virtual void Think()
     {
+        //Debug.Log("Monster Move: Think");
         MoveDir = Random.Range(-1, 2); // -1 : left, 0: stop, 1: right
 
-        float nextThinkTime = Random.Range(2.0f, 5.0f);
+        //float nextThinkTime = Random.Range(2.0f, 5.0f);
 
-        Invoke("Think", nextThinkTime);
+        //Invoke("Think", nextThinkTime);
     }
 
     // Change the direction
     protected virtual void Turn()
     {
+        //Debug.Log("Monster Move: Turn");
         MoveDir *= -1;
         // Cancel all invoke function
-        CancelInvoke();
+        //CancelInvoke();
 
         // Think next behavior after 3 seconds.
-        Invoke("Think", 3);
+        //Invoke("Think", 3);
     }
 
     public virtual void SetMoveDirection(float direction)

@@ -4,10 +4,11 @@ public class BaseMonsterMovement : EnemyMovement
 {
     private Vector2 spawnPosition;
 
-    void Start()
+    protected override void Start()
     {
         // Memory the spawn point
         spawnPosition = transform.position;
+        base.Start();
     }
 
     public override void Think()
