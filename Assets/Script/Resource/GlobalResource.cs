@@ -31,7 +31,7 @@ namespace Types
 
     /// <summary>
     /// Defines a type of pool object that can be spawned
-    /// by the PC or NPC.
+    /// and be managed by the PoolObjectManager
     /// </summary>
     public enum ESpawnType
     {
@@ -54,6 +54,8 @@ namespace Types
         IceBall,
         IceGroundShards,
         ScrollItem,
+        HPItem,
+        StaminaItem,
     }
 
 }
