@@ -46,26 +46,46 @@ public class CorruptMovement : EnemyMovement
         */
 
         //1. finding if there is any teleportable platform within the given radius 
-        LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
-        if (Physics2D.OverlapCircle(transform.position, 15.0f, layerParam) == null)
+        LayerMask layerParam = _isBackground ? fgLayer : bgLayer;
+        Collider2D collided = Physics2D.OverlapCircle(transform.position, 15.0f, layerParam);
+        int currLayer = GetGroundLayer();
+        if (collided == null || collided.gameObject.layer == currLayer)
+        {
+            Debug.LogWarning("cannot teleport.");
             return;
+        }
 
         //2. find the surface to get teleport to:
         float camHalfHeight = Camera.main.orthographicSize;
-        float xOffset = _isBackground? 2.5f : -2.5f;
-        Vector2 origin = new Vector2(rb.position.x + xOffset, rb.position.y); 
+        float xOffset = 0.89f * 2f;
+
+        if (_animController._isFacingRight)
+            xOffset = _isBackground ? -xOffset : xOffset;
+        else
+            xOffset = _isBackground ? xOffset : -xOffset;
+
+        
+        Vector2 origin = new Vector2(rb.position.x + xOffset, rb.position.y);
+        Debug.DrawRay(origin + Vector2.up * camHalfHeight, Vector2.down * camHalfHeight * 2f, new Color(0, 0, 1), 2.0f);
         RaycastHit2D hitresult = Physics2D.Raycast(origin + Vector2.up * camHalfHeight,
                 Vector2.down, camHalfHeight * 2f, layerParam);
-        if (hitresult.collider == null) return;
+        if (hitresult.collider == null)
+        {
+            Debug.Log("Null");
+            return;
+        }            
 
-        //3. ignoring the colliders of the teleported ground.
-        Physics2D.IgnoreLayerCollision(_characterLayer, _bgLayerIndex, !_isBackground);
-        Physics2D.IgnoreLayerCollision(_characterLayer, _fgLayerIndex, _isBackground);
-
-        //4. reposition the player character:
-        rb.position = new Vector2(rb.position.x + xOffset, hitresult.point.y + 0.1f);
-
-        //5. flip the _isBackground value:
+        //3. flip the _isBackground value:
         _isBackground = !_isBackground;
+
+        //4. ignoring the colliders of the teleported ground.
+        Physics2D.IgnoreLayerCollision(platformLayer, _bgLayerIndex, !_isBackground);
+        Physics2D.IgnoreLayerCollision(platformLayer, _fgLayerIndex, _isBackground);
+
+        //5. reposition the player character:
+        rb.position = new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
+
+        orderInLayer = _isBackground? -1 : 0;
+        _spriteRender.sortingOrder = orderInLayer;
     }
 }

@@ -183,7 +183,7 @@ PolygonCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
@@ -221,13 +221,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaseMonsterMovement
   enabled: 1
-  speed: 0.5
+  speed: 1
   jumpHeight: 1
   flyForce: 0
   minDistance: 2
   maxDistance: 3
-  groundCheckDistance: 0.5
-  obstacleDistance: 0.75
+  groundCheckDistance: 0.25
+  obstacleDistance: 0.25
   bgLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -267,7 +267,7 @@ PlatformEffector2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8043046792835732294}
-  m_Enabled: 1
+  m_Enabled: 0
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2

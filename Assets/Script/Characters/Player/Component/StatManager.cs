@@ -37,7 +37,7 @@ public class StatManager : MonoBehaviour
     /// </summary>
     /// <param name="instigator">damage instigator</param>
     /// <param name="damageAmount">the damage amount</param>
-    /// <returns></returns>
+    /// <returns>dealt or not</returns>
     public virtual bool TakeDamage(GameObject instigator, float damageAmount)
     {
         if(IsDead || damageAmount <= 0.0f)
@@ -48,8 +48,7 @@ public class StatManager : MonoBehaviour
 
         if(CurrentHP == 0.0f)
         {
-            IsDead = true;
-            OnDeath?.Invoke();
+           Death();
         }
 
         else
@@ -64,7 +63,7 @@ public class StatManager : MonoBehaviour
     /// the base method of healing
     /// </summary>
     /// <param name="healAmount">heal amount</param>
-    /// <returns></returns>
+    /// <returns>Healed or not</returns>
     public virtual bool Heal(float healAmount)
     {
         if(IsDead || CurrentHP >= MaxHP || healAmount <= 0.0f)
@@ -75,5 +74,14 @@ public class StatManager : MonoBehaviour
         OnHeal?.Invoke();
 
         return true;
+    }
+
+    /// <summary>
+    /// the base method of death
+    /// </summary>
+    public virtual void Death()
+    {
+        IsDead = true;
+        OnDeath?.Invoke();
     }
 }
