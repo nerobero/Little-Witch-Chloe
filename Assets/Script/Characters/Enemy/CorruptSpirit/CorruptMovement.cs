@@ -37,7 +37,7 @@ public class CorruptMovement : EnemyMovement
         speed *= 1.5f;
     }
 
-    public void BlinkToOtherPlatform()
+    public override void BlinkToOtherPlatform()
     {
         /*
         'Blinking' is basically the term for teleporting between the foreground and background platforms.
@@ -46,6 +46,7 @@ public class CorruptMovement : EnemyMovement
         */
 
         //1. finding if there is any teleportable platform within the given radius 
+        base.BlinkToOtherPlatform();
         LayerMask layerParam = _isBackground ? fgLayer : bgLayer;
         Collider2D collided = Physics2D.OverlapCircle(transform.position, 15.0f, layerParam);
         int currLayer = GetGroundLayer();

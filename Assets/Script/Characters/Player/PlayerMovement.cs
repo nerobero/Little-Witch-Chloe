@@ -93,14 +93,19 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsOnGround()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, ~(1 << gameObject.layer));
+        LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, layerParam);
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, ~(1 << gameObject.layer));
         return hit.collider != null;
     }
 
     private int GetGroundLayer()
     {
         //Debug.DrawRay(transform.position, Vector2.down, new Color(0, 1, 0), 2.0f);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, ~(1 << gameObject.layer));
+        LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, layerParam);
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, ~(1 << gameObject.layer));
+
 
         //Debug.Log($"hit.collider: {hit.collider}, playerLayer: {_playerLayer}, hit.layer: {hit.collider.gameObject.layer}");
         return hit.collider != null ? hit.collider.gameObject.layer : _playerLayer;
@@ -167,7 +172,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogWarning("cannot teleport.");
             return;
         }
-        Debug.Log($"Collided: {collided.gameObject.layer}, Player: {currLayer}");
+        //Debug.Log($"Collided: {collided.gameObject.layer}, Player: {currLayer}");
 
         //2. find the surface to get teleport to:
         float camHalfHeight = Camera.main.orthographicSize;

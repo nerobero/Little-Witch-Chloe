@@ -22,4 +22,15 @@ public class BaseMonsterMovement : EnemyMovement
 
         SetMoveDirection(MoveDir);
     }   
+
+    public override void BlinkToOtherPlatform()
+    {
+        /*
+        'Blinking' is basically the term for teleporting between the foreground and background platforms.
+        We may need to have our own calculation system for determining where on the platform Chloe should
+        teleport to. 
+        */
+
+        base.BlinkToOtherPlatform();
+    }
 }

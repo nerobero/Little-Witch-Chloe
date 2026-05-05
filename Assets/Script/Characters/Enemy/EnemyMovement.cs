@@ -33,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
     protected int _bgLayerIndex => (int)Mathf.Log(bgLayer.value, 2);
     protected int _fgLayerIndex => (int)Mathf.Log(fgLayer.value, 2);
     
-    protected bool _isBackground = false; 
+    [SerializeField] protected bool _isBackground = false; 
     public bool IsBackground => _isBackground;
     SpriteRenderer sr;
     protected EnemyAnimController _animController;
@@ -120,7 +120,7 @@ public class EnemyMovement : MonoBehaviour
             if(lowHit.collider != null)
             {
                 float slopeAngle = Vector2.Angle(lowHit.normal, Vector2.up);
-                Debug.Log($"angle: {slopeAngle}");
+                // Debug.Log($"angle: {slopeAngle}");
                 if(highHit.collider == null && slopeAngle >= 45.0f)
                 {
                     Jump();
@@ -140,14 +140,18 @@ public class EnemyMovement : MonoBehaviour
 
     protected bool IsOnGround()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.2f, ~(1 << gameObject.layer));
+        LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, layerParam);
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.2f, ~(1 << gameObject.layer));
         return hit.collider != null;
     }
 
 
     protected int GetGroundLayer()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, ~(1 << gameObject.layer));
+        LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, layerParam);
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, ~(1 << gameObject.layer));
         return hit.collider != null ? hit.collider.gameObject.layer : platformLayer;
     }
 
@@ -241,5 +245,6 @@ public class EnemyMovement : MonoBehaviour
         */
 
         Debug.Log("Hello");
+        return;
     }
 }

@@ -10,14 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7100565863009182168}
   - component: {fileID: 1416312217897855818}
-  - component: {fileID: 6888505805484767814}
   - component: {fileID: -781276781480723014}
   - component: {fileID: -8888456695948119546}
   - component: {fileID: 5613224481609003455}
-  - component: {fileID: 2735090288949440141}
-  - component: {fileID: -7472839418427734712}
-  - component: {fileID: -8642600596553475692}
-  m_Layer: 0
+  - component: {fileID: 138408667479429145}
+  - component: {fileID: -2196039495606327619}
+  - component: {fileID: -6319705491011855851}
+  m_Layer: 9
   m_Name: BaseMonster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,21 +50,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95c8b2193bc1b341bd4185c8899c23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
---- !u!114 &6888505805484767814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8043046792835732294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdd9df285d318464ba890e7de2b5a570, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacterBase
-  MaxHP: 3
-  CurrentHP: 3
-  monsterType: 0
 --- !u!50 &-781276781480723014
 Rigidbody2D:
   serializedVersion: 5
@@ -208,35 +192,7 @@ PolygonCollider2D:
       - {x: 0.099999994, y: 0.055}
       - {x: 0.049999997, y: 0.099999994}
   m_UseDelaunayMesh: 1
---- !u!114 &2735090288949440141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8043046792835732294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181d035de88924d44a00396e281b14aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BaseMonsterMovement
-  enabled: 1
-  speed: 1
-  jumpHeight: 1
-  flyForce: 0
-  minDistance: 2
-  maxDistance: 3
-  groundCheckDistance: 0.25
-  obstacleDistance: 0.25
-  bgLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  fgLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  targetPosition: {x: 0, y: 0}
-  isChasing: 0
---- !u!114 &-7472839418427734712
+--- !u!114 &138408667479429145
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,25 +213,50 @@ MonoBehaviour:
   eyePoint: {x: 0, y: 0, z: 0}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   viewDistance: 0
   viewAngle: 0
---- !u!251 &-8642600596553475692
-PlatformEffector2D:
+--- !u!114 &-2196039495606327619
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8043046792835732294}
-  m_Enabled: 0
-  m_UseColliderMask: 1
-  m_ColliderMask:
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181d035de88924d44a00396e281b14aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseMonsterMovement
+  IsEnabled: 1
+  speed: 1
+  jumpHeight: 1
+  flyForce: 0
+  minDistance: 2
+  maxDistance: 3
+  groundCheckDistance: 0.25
+  obstacleDistance: 0.25
+  bgLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
-  m_RotationalOffset: 0
-  m_UseOneWay: 0
-  m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1
+    m_Bits: 128
+  fgLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _isBackground: 0
+  targetPosition: {x: 0, y: 0}
+  isChasing: 0
+--- !u!114 &-6319705491011855851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8043046792835732294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd9df285d318464ba890e7de2b5a570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacterBase
+  MaxHP: 3
+  CurrentHP: 3
+  monsterType: 0
