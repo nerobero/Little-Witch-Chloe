@@ -1,16 +1,24 @@
 using UnityEngine;
+using Types;
 
-public class RegenStaminaItem : MonoBehaviour
+/// <summary>
+/// Class for respawnable stamina items.
+/// Replenishes n amount of stamina upon collision.
+/// </summary>
+public class RegenStaminaItem : RegenItemBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // the amount to replenish upon interaction:
+    [SerializeField] private float _replenishAmount = 0f;
+    private void Awake()
     {
-        
+        base.spawnType = ESpawnType.StaminaItem;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override bool OnInteractHelper(Collider2D other)
     {
-        
+        var playerStatMgrComp = other.gameObject.GetComponent<PlayerStatManager>();
+        if (playerStatMgrComp == null) return false;
+
+        return playerStatMgrComp.ReplenishStamina(_replenishAmount);
     }
 }
