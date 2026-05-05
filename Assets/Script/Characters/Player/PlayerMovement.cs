@@ -62,7 +62,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        orderInLayer = _isBackground? -1 : 0;
+        ChangeOrderInLayer();
+    }
+
+    /// <summary>
+    /// Set the gameobject's orderInLayer -1 or 0 based on whether
+    /// the character is in the background or not.
+    /// </summary>
+    private void ChangeOrderInLayer()
+    {
+
+        orderInLayer = _isBackground ? -1 : 0;
         _spriteRender.sortingOrder = orderInLayer;
     }
 
@@ -88,9 +98,13 @@ public class PlayerMovement : MonoBehaviour
         // the y-axis remains constant here.
         _rb.linearVelocity = new Vector2(MoveDir * speed, _rb.linearVelocity.y);
         // if MoveDir != 0, it means that the player is moving in either direction:
-        _animController.SetToWalk(_rb.linearVelocity.x != 0f); 
+        _animController.SetToWalk(_rb.linearVelocity.x != 0f);
     }
 
+    /// <summary>
+    /// Is the character on the ground platform?
+    /// </summary>
+    /// <returns>true if the raycast hits an object</returns>
     private bool IsOnGround()
     {
         LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
@@ -99,6 +113,10 @@ public class PlayerMovement : MonoBehaviour
         return hit.collider != null;
     }
 
+    /// <summary>
+    /// Gets the index of the layermask that the player is currently standing on.
+    /// </summary>
+    /// <returns>the index of the current layermask the player is standing on</returns>
     private int GetGroundLayer()
     {
         //Debug.DrawRay(transform.position, Vector2.down, new Color(0, 1, 0), 2.0f);
@@ -111,12 +129,23 @@ public class PlayerMovement : MonoBehaviour
         return hit.collider != null ? hit.collider.gameObject.layer : _playerLayer;
     }
 
+    /// <summary>
+    /// Sets the player's move direction. Also flips the character via anim controller
+    /// -1 = left
+    /// 0 = idle
+    /// 1 = right
+    /// </summary>
+    /// <param name="direction">the direction value in float</param>
     public void SetMoveDirection(float direction)
     {
         MoveDir = direction;
         _animController.FlipCharacter(direction);
     }
 
+    /// <summary>
+    /// Adds force to the character to have it jump.
+    /// Only works if the character is currently grounded.
+    /// </summary>
     public void Jump()
     {
         if (IsGrounded)
@@ -126,6 +155,12 @@ public class PlayerMovement : MonoBehaviour
         // BONUS logic here if needed:
     }
 
+    /// <summary>
+    /// Prepares the character before flying. 
+    /// - If the character is already flying OR the stamina is below 0, then early return
+    /// - Modifies the gravity for flying that looks more floaty 
+    /// - Sets the anim state to start flying
+    /// </summary>
     public void StartFlying()
     {
         // if this function is called when the character is NOT set to fly,
@@ -140,6 +175,12 @@ public class PlayerMovement : MonoBehaviour
         _animController.SetToStartFlying();
     }
 
+    /// <summary>
+    /// Stops the character from flying.
+    /// - Resets the gravity back to 1f
+    /// - Invokes OnFlyStopped event
+    /// - Changes the anim state to Stop Flying
+    /// </summary>
     public void StopFlying()
     {
         _rb.gravityScale = 1f;
@@ -149,12 +190,20 @@ public class PlayerMovement : MonoBehaviour
         _animController.SetToStopFlying();
     }
 
+    /// <summary>
+    /// Applies flight force to the character's rigidbody per tick.
+    /// - Also uses 10% of stamina per tick.
+    /// </summary>
     public void FlyTick()
     {
         _rb.AddForce(Vector2.up * flyForce, ForceMode2D.Force);
         _statManager.UseStamina(0.1f);
     }
 
+    /// <summary>
+    /// Checks if the player can 'blink' to another platform
+    /// and performs the action if so. 
+    /// </summary>
     public void BlinkToOtherPlatform()
     {
         /*
@@ -178,36 +227,36 @@ public class PlayerMovement : MonoBehaviour
         float camHalfHeight = Camera.main.orthographicSize;
         float xOffset = 0.89f * 2f;
 
+        // 2a. flipping the xOffset based on the character's move direction
+        // and whether the character is in the background or not:
         if (_animController._isFacingRight)
             xOffset = _isBackground ? -xOffset : xOffset;
         else
             xOffset = _isBackground ? xOffset : -xOffset;
 
-        
+        // 2b. using raycast to determine where on the surface the character can 'blink' to:
         Vector2 origin = new Vector2(_rb.position.x + xOffset, _rb.position.y);
-        Debug.DrawRay(origin + Vector2.up * camHalfHeight, Vector2.down * camHalfHeight * 2f, new Color(0, 0, 1), 2.0f);
+        // Debug.DrawRay(origin + Vector2.up * camHalfHeight, Vector2.down * camHalfHeight * 2f, new Color(0, 0, 1), 2.0f);
         RaycastHit2D hitresult = Physics2D.Raycast(origin + Vector2.up * camHalfHeight,
                 Vector2.down, camHalfHeight * 2f, layerParam);
         if (hitresult.collider == null)
         {
             Debug.Log("Null");
             return;
-        }            
+        }
 
-        //5. flip the _isBackground value:
+        //3. flip the _isBackground value before we reposition the character:
         _isBackground = !_isBackground;
 
-        //3. ignoring the colliders of the teleported ground.
+        //4. ignoring the colliders of the source ground
+        // and enabling the colliders for the destination ground:
         Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, !_isBackground);
         Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, _isBackground);
 
-        //4. reposition the player character:
-        //_rb.position = new Vector2(_rb.position.x + xOffset, hitresult.point.y + 2.0f);
+        //5. reposition the player character:
         _rb.position = new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
 
-        orderInLayer = _isBackground? -1 : 0;
-        _spriteRender.sortingOrder = orderInLayer;
-
-
+        //6. changing the order in layer:
+        ChangeOrderInLayer();
     }
 }
