@@ -253,6 +253,5 @@ public class PlayerMovement : MonoBehaviour
 
         //6. changing the order in layer:
         ChangeOrderInLayer();
-
     }
 }

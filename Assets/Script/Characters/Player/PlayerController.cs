@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         // Caching once, never having to re-fetch again:
         _playerMove = GetComponent<PlayerMovement>();
         _playerAttack = GetComponent<PlayerAttack>();
-        // _animator = GetComponent<PlayerAnimator>();
     }
 
     private void OnEnable()
