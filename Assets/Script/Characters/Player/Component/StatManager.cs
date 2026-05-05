@@ -1,15 +1,17 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
+/// <summary>
+/// Base class for managing the character's stats.
+/// </summary>
 public class StatManager : MonoBehaviour
 {
-    // HP
+    // HP stats
     [Header("HP Settings")]
     [SerializeField] protected float MaxHP;
     [SerializeField] protected float CurrentHP;
 
-    // Event system
+    // Event system: can be used for UI changes or animation control
     public event Action<float, float> OnHPChanged;
     public event Action OnDeath;
     public event Action OnHeal;
@@ -17,7 +19,7 @@ public class StatManager : MonoBehaviour
     // Is dead
     public bool IsDead {get; protected set;}
 
-    // Is Invincible
+    // When blinking, the character is Invincible
     public bool IsBlink{get; protected set;}
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,10 +29,10 @@ public class StatManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    // void Update()
+    // {
         
-    }
+    // }
 
     /// <summary>
     /// the base method of taking damage

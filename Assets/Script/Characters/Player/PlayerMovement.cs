@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     // These values are exposed states for others to read:
     public bool IsGrounded => IsOnGround();
     public float MoveDir { get; private set; }
-    public Action OnFlyStopped;
+    public event Action OnFlyStopped;
 
     [Header("Movement values")]
     [SerializeField] private float speed;
