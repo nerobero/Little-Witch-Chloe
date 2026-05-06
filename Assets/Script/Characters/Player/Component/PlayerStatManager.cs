@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class PlayerStatManager : StatManager
 {
@@ -21,10 +20,10 @@ public class PlayerStatManager : StatManager
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    // void Update()
+    // {
         
-    }
+    // }
 
     /// <summary>
     /// the base method of use stamina

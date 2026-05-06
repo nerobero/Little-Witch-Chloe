@@ -2,12 +2,24 @@ using UnityEngine;
 using Types;
 
 /// <summary>
-/// 
+/// Class for respawnable HP items.
+/// Heals n HP upon collision.
 /// </summary>
 public class RegenHPItem : RegenItemBase
 {
+    // the amount to heal upon interaction:
+    [SerializeField] private float _healAmount = 0f;
+
+    private void Awake()
+    {
+        base.spawnType = ESpawnType.HPItem;    
+    }
+
     protected override bool OnInteractHelper(Collider2D other)
     {
-        throw new System.NotImplementedException();
+        var statManagerComp = other.gameObject.GetComponent<StatManager>();
+        if (statManagerComp == null) return false;
+
+        return statManagerComp.Heal(_healAmount);
     }
 }
