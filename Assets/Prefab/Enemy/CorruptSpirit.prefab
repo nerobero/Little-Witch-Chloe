@@ -13,11 +13,13 @@ GameObject:
   - component: {fileID: -781276781480723014}
   - component: {fileID: -8888456695948119546}
   - component: {fileID: 5613224481609003455}
-  - component: {fileID: 138408667479429145}
-  - component: {fileID: -2196039495606327619}
   - component: {fileID: -6319705491011855851}
+  - component: {fileID: -735388312326350677}
+  - component: {fileID: 3059663102776062226}
+  - component: {fileID: -1052823039766081648}
+  - component: {fileID: 6369354359210486003}
   m_Layer: 9
-  m_Name: BaseMonster
+  m_Name: CorruptSpirit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,7 +128,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,9 +174,9 @@ PolygonCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.2}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -192,7 +194,7 @@ PolygonCollider2D:
       - {x: 0.099999994, y: 0.055}
       - {x: 0.049999997, y: 0.099999994}
   m_UseDelaunayMesh: 1
---- !u!114 &138408667479429145
+--- !u!114 &-6319705491011855851
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,9 +203,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 8043046792835732294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03bfc03e9d8c61242b0f6b756f4890b5, type: 3}
+  m_Script: {fileID: 11500000, guid: bdd9df285d318464ba890e7de2b5a570, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BaseMonsterController
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacterBase
+  MaxHP: 3
+  CurrentHP: 3
+  monsterType: 0
+--- !u!114 &-735388312326350677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8043046792835732294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b188ac4e602cb4aa07515107c8cdc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CorruptController
   enemyState: 0
   currentSpell: 0
   chargeThreshold: 1.5
@@ -217,7 +234,8 @@ MonoBehaviour:
   viewDistance: 5
   viewHeight: 3
   viewAngle: 45
---- !u!114 &-2196039495606327619
+  detectionRange: 10
+--- !u!114 &3059663102776062226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,9 +244,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8043046792835732294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181d035de88924d44a00396e281b14aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 33d6623f14b41c54ab5a66446e238093, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BaseMonsterMovement
+  m_EditorClassIdentifier: Assembly-CSharp::CorruptMovement
   IsEnabled: 1
   speed: 1
   jumpHeight: 1
@@ -246,7 +264,29 @@ MonoBehaviour:
   _isBackground: 0
   targetPosition: {x: 0, y: 0}
   isChasing: 0
---- !u!114 &-6319705491011855851
+--- !u!95 &-1052823039766081648
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8043046792835732294}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6369354359210486003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,9 +295,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8043046792835732294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdd9df285d318464ba890e7de2b5a570, type: 3}
+  m_Script: {fileID: 11500000, guid: abed53df4c048fd4699c35bbe0179747, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacterBase
-  MaxHP: 3
-  CurrentHP: 3
-  monsterType: 0
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAnimController
+  IsFacingRight: 1
+  _isFacingRight: 1

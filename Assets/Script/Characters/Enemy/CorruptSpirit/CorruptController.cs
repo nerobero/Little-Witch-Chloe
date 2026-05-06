@@ -13,18 +13,26 @@ public class CorruptController : EnemyControllerBase
     // AI behavior
     protected override void Think()
     {
-        // If this enemy's state is attack, then stop move logic and start to attack.
-        if(enemyState == EMonsterState.Attack)
+        switch(enemyState)
         {
-            enemyMove.CancelInvoke();
+            case EMonsterState.Attack:
 
-            // HERE ATTACK LOGIC
-            Attack();
-        }
-        // else then start to move
-        else
-        {
-            enemyMove.Think();
+                // HERE ATTACK LOGIC
+                Attack();
+                Invoke("Think", 2);
+            break;
+            case EMonsterState.Chase:
+                //enemyMove.MoveToTarget();
+                Invoke("Think", 2);
+            break;
+            case EMonsterState.Idle:
+                CancelInvoke();
+            break;
+            default:
+                enemyMove.Think();
+                Invoke("Think", 2);
+            break;
+
         }
     }
 

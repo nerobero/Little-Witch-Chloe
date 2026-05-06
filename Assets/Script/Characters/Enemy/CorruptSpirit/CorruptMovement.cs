@@ -2,11 +2,6 @@ using UnityEngine;
 
 public class CorruptMovement : EnemyMovement
 {
-    private bool _isBackground = false; 
-    public bool IsBackground => _isBackground;
-    private int _characterLayer => gameObject.layer; 
-    private int _bgLayerIndex => (int)Mathf.Log(bgLayer.value, 2);
-    private int _fgLayerIndex => (int)Mathf.Log(fgLayer.value, 2);
 
     void Start()
     {
@@ -29,12 +24,22 @@ public class CorruptMovement : EnemyMovement
 
     }
 
-    public override void MoveToTarget()
+    public override void MoveToTarget(Vector2 target)
     {
-        Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-        //SetMoveDirection(direction);
+        if(!isChasing)
+            speed *= 1.5f;
+        
+        base.MoveToTarget(target);
+        // Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
+        // //SetMoveDirection(direction);
+    }
 
-        speed *= 1.5f;
+    public override void StopChasing()
+    {
+        if(isChasing)
+            speed /= 1.5f;
+
+        base.StopChasing();
     }
 
     public override void BlinkToOtherPlatform()
@@ -60,7 +65,7 @@ public class CorruptMovement : EnemyMovement
         float camHalfHeight = Camera.main.orthographicSize;
         float xOffset = 0.89f * 2f;
 
-        if (_animController._isFacingRight)
+        if (_animController.IsFacingRight)
             xOffset = _isBackground ? -xOffset : xOffset;
         else
             xOffset = _isBackground ? xOffset : -xOffset;

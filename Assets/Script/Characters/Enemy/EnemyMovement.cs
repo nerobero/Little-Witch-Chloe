@@ -35,7 +35,6 @@ public class EnemyMovement : MonoBehaviour
     
     [SerializeField] protected bool _isBackground = false; 
     public bool IsBackground => _isBackground;
-    SpriteRenderer sr;
     protected EnemyAnimController _animController;
     protected int orderInLayer;
 
@@ -60,11 +59,13 @@ public class EnemyMovement : MonoBehaviour
         Physics2D.IgnoreLayerCollision(platformLayer, _fgLayerIndex, _isBackground);
         //
         _spriteRender = GetComponent<SpriteRenderer>();
+        _animController = GetComponent<EnemyAnimController>();
+        
     }
 
     protected virtual void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        //sr = GetComponent<SpriteRenderer>();
         //Invoke("Think", 1);
         GetGroundLayer();
     }
@@ -103,7 +104,7 @@ public class EnemyMovement : MonoBehaviour
             LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
             Vector2 origin = transform.position;
             Vector2 dirVec = Vector2.right * MoveDir;
-            Vector2 offset = new Vector2(sr.bounds.extents.x * MoveDir, -sr.bounds.extents.y / 2.0f);
+            Vector2 offset = new Vector2(_spriteRender.bounds.extents.x * MoveDir, -_spriteRender.bounds.extents.y / 2.0f);
 
             // 1. Check obstacle (low raycast)
             RaycastHit2D lowHit = Physics2D.Raycast(origin + offset, dirVec, obstacleDistance, layerParam);
@@ -187,14 +188,22 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    public virtual void MoveToTarget()
+    public virtual void MoveToTarget(Vector2 target)
     {
         isChasing = true;
+        targetPosition = target;
+        //speed *= 1.5f;
+
+        // Set move direction
+        SetMoveDirection(Mathf.Sign((targetPosition - (Vector2)transform.position).normalized.x));
+
     }
 
     public virtual void StopChasing()
     {
         isChasing = false;
+        //speed /= 1.5f;
+        Think();
     }
 
     // To change the behavior
@@ -229,7 +238,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (IsGrounded)
         {
-            Debug.Log("Jump!");
+            //Debug.Log("Jump!");
             rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
         }
 
@@ -245,6 +254,5 @@ public class EnemyMovement : MonoBehaviour
         */
 
         Debug.Log("Hello");
-        return;
     }
 }

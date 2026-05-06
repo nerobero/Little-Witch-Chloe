@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D _rb; // Physics body for 2D object
     private bool _isBackground = false; //by default, you're already on 
+    public bool IsBackground => _isBackground;
 
     private int _playerLayer => gameObject.layer;
     private int _bgLayerIndex => (int)Mathf.Log(bgLayer.value, 2);

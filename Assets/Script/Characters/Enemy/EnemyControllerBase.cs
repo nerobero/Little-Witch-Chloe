@@ -5,15 +5,13 @@ using Types;
 public class EnemyControllerBase : MonoBehaviour
 {
     #region ReferenceClasses
-    // Reference to input-event binds
-
     // Handler for player's movement
     protected EnemyMovement enemyMove;
 
     [SerializeField] protected EMonsterState enemyState;
     #endregion
 
-    [Header("Attack - Input hold duration")]
+    [Header("Attack")]
     [SerializeField] protected ESpawnType currentSpell = ESpawnType.FireBall;
 
     public bool isAttacking {get; private set;}
@@ -22,7 +20,7 @@ public class EnemyControllerBase : MonoBehaviour
     private float _attackPressTime = -1f;
     [SerializeField] private float loseTargetTime = 4.0f; // time to change idle after missing the target (between 3 and 5 seconds)
     private float _loseTimer = 0f;
-    private bool _hasTarget = false; // Is this monster detected player(target)
+    protected bool _hasTarget = false; // Is this monster detected player(target)
 
     public bool enabled = true;
 
@@ -43,6 +41,7 @@ public class EnemyControllerBase : MonoBehaviour
     [SerializeField] protected Vector3 eyePoint;
     [SerializeField] protected LayerMask playerLayer;
     [SerializeField] protected float viewDistance;
+    [SerializeField] protected float viewHeight;
     [SerializeField] protected float viewAngle;
 
     #region Setup
@@ -57,6 +56,7 @@ public class EnemyControllerBase : MonoBehaviour
     protected virtual void Start()
     {
         enemyState = EMonsterState.Idle;
+        enemyMove = GetComponent<EnemyMovement>();
         Invoke("Think", 1);
     }
     #endregion
@@ -71,45 +71,47 @@ public class EnemyControllerBase : MonoBehaviour
     protected virtual void DetectPlayer()
     {
         Collider2D hit;
+        PlayerMovement playerMove = null;
+        Vector3 worldEyePoint = transform.TransformPoint(eyePoint); 
 
-        // if the enemy is in background, the detection range is box => different layer with player.
-        if(enemyMove.IsBackground)
+        // 1. First detect the player to check the current platform layer of player movement
+        hit = Physics2D.OverlapBox(worldEyePoint, new Vector2(viewDistance, viewHeight), 0.0f, playerLayer);
+        //DrawDebugBox(eyePoint, new Vector2(viewDistance, viewHeight), Color.green);
+
+        if(hit != null)
         {
-            hit = Physics2D.OverlapBox(eyePoint, new Vector2(5.0f, 3.0f), 0.0f, playerLayer);
+            //Debug.Log(hit.gameObject);
+            playerMove = hit.GetComponent<PlayerMovement>();
+        }
 
-            // Player detected
-            if(hit != null)
+        // 2. When player detected
+        if(playerMove != null)
+        {
+            // if the player is on the different platform.
+            if(enemyMove.IsBackground != playerMove.IsBackground)
             {
-                _hasTarget = true;
-                enemyState = EMonsterState.Chase;
-                enemyMove.targetPosition = hit.transform.position;
-                enemyMove.BlinkToOtherPlatform();
+                PlayerDetected(true, hit);
 
                 return;
             }
-        }
-        // else if it is in foreground, the range is triangle
-        else
-        {
-            hit = Physics2D.OverlapCircle(eyePoint, viewDistance, playerLayer);
-
-            if(hit != null)
+            // if the player is on the same platform
+            else
             {
-                // 2. Calculate the angle
+                // 3. Calculate the angle
                 // the forward vector
+                float cosThreshold = Mathf.Cos(viewAngle * 0.5f * Mathf.Deg2Rad); 
+
                 Vector2 forward = transform.right * enemyMove.MoveDir;
                 Vector2 dirToPlayer = (hit.transform.position - transform.position).normalized;
 
                 // Calculate the angle of two vectors
-                float angle = Vector2.Angle(forward, dirToPlayer);
+                float dot = Vector2.Dot(forward, dirToPlayer);
 
                 // if the calculated angle is smaller than the half of the view angle
-                if(angle < viewAngle * 0.5f)
+                if(dot > cosThreshold)
                 {
                     // the player is in view triangle
-                    _hasTarget = true;
-                    enemyState = EMonsterState.Chase;
-                    enemyMove.targetPosition = hit.transform.position;
+                    PlayerDetected(false, hit);
 
                     return;
                 }
@@ -117,46 +119,112 @@ public class EnemyControllerBase : MonoBehaviour
         }
 
         enemyState = EMonsterState.Patrol;
+        if(_hasTarget)
+            enemyMove.StopChasing();
         _hasTarget = false;
         return;
+    }
+
+    protected void OnDrawGizmos()
+    {
+        if(enemyMove != null)
+        {      
+            // 기즈모 색상 설정 (원하는 색으로 변경 가능)
+            Gizmos.color = Color.red;
+
+            // OverlapBox와 동일한 위치, 크기, 회전값을 사용하여 박스 그리기
+            // eyePoint가 로컬 좌표라면 transform.TransformPoint(eyePoint)를 사용해야 정확합니다.
+            Vector3 worldEyePoint = transform.TransformPoint(eyePoint); 
+            
+            Gizmos.DrawWireCube(worldEyePoint, new Vector3(viewDistance, viewHeight, 0));
+
+            // --- 2. 시야각(FOV) 영역 그리기 (노란 부채꼴) ---
+            Gizmos.color = Color.yellow;
+            float cosThreshold = Mathf.Cos(viewAngle * 0.5f * Mathf.Deg2Rad); 
+
+            Vector2 forward = transform.right * enemyMove.MoveDir;
+        
+            // 시야의 양 끝 방향 계산 (Z축 회전)
+            Vector3 leftBoundary = Quaternion.Euler(0, 0, viewAngle * 0.5f) * forward;
+            Vector3 rightBoundary = Quaternion.Euler(0, 0, -viewAngle * 0.5f) * forward;
+
+            // 양 끝 선 그리기 (길이는 viewDistance 활용)
+            Gizmos.DrawRay(worldEyePoint, leftBoundary * viewDistance / 2);
+            Gizmos.DrawRay(worldEyePoint, rightBoundary * viewDistance / 2);
+            
+            // 부채꼴 끝부분 연결 (선택 사항)
+            Gizmos.DrawLine(worldEyePoint + leftBoundary * viewDistance / 2, worldEyePoint + rightBoundary * viewDistance / 2);
+        }
+    }
+
+    protected virtual void PlayerDetected(bool bIsDifferentPlatform, Collider2D hit)
+    {
+        _hasTarget = true;
+        enemyState = EMonsterState.Chase;
+        //enemyMove.targetPosition = hit.transform.position;
+        enemyMove.MoveToTarget(hit.transform.position);
+
+        if(bIsDifferentPlatform)
+        {
+
+            Debug.Log("Blink");
+            enemyMove.BlinkToOtherPlatform();
+        }
     }
 
     // AI behavior
     protected virtual void Think()
     {
-        // If this enemy's state is attack, then stop move logic and start to attack.
-        if(enemyState == EMonsterState.Attack)
+        switch(enemyState)
         {
-            enemyMove.CancelInvoke();
+            case EMonsterState.Attack:
+                enemyMove.CancelInvoke();
 
-            // HERE ATTACK LOGIC
-            FireProjectile();
-        }
-        // else if the state is chase, then start to chase.
-        else if(enemyState == EMonsterState.Chase)
-        {
-            enemyMove.MoveToTarget();
-        }
-        // else then start to move
-        else
-        {
-            enemyMove.Think();
-        }
+                // HERE ATTACK LOGIC
+                FireProjectile();
+                Invoke("Think", 2);
+            break;
+            case EMonsterState.Chase:
+                //enemyMove.MoveToTarget();
+                Invoke("Think", 2);
+            break;
+            case EMonsterState.Idle:
+                CancelInvoke();
+            break;
+            default:
+                enemyMove.Think();
+                Invoke("Think", 2);
+            break;
 
-        Invoke("Think", 2);
+        }
+        // // If this enemy's state is attack, then stop move logic and start to attack.
+        // if(enemyState == EMonsterState.Attack)
+        // {
+        // }
+        // // else if the state is chase, then start to chase.
+        // else if(enemyState == EMonsterState.Chase)
+        // {
+        // }
+        // // else then start to move
+        // else
+        // {
+        // }
     }
 
-    protected virtual void OnBecomeVisible()
+    protected virtual void OnBecameVisible()
     {
+        Debug.Log("Become Visible");
         enabled = true;
-        enemyMove.IsEnabled = true;
+        enemyMove.enabled = true;
         enemyState = EMonsterState.Patrol;
+        Think();
     }
 
     protected virtual void OnBecameInvisible()
     {
+        Debug.Log("Become Invisible");
         enabled = false;
-        enemyMove.IsEnabled = false;
+        enemyMove.enabled = false;
         enemyState = EMonsterState.Idle;
     }
 
