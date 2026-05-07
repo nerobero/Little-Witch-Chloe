@@ -232,9 +232,9 @@ GameObject:
   - component: {fileID: 1470512264}
   - component: {fileID: 1470512269}
   - component: {fileID: 1470512268}
-  - component: {fileID: 1470512267}
-  - component: {fileID: 1470512266}
   - component: {fileID: 1470512265}
+  - component: {fileID: 1470512266}
+  - component: {fileID: 1470512267}
   m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
@@ -2448,6 +2448,10 @@ PrefabInstance:
     - target: {fileID: 7727798701954750557, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045087993541427929, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8066750104543563746, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_LocalPosition.x
