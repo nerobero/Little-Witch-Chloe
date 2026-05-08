@@ -7,6 +7,7 @@ using Types;
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Animator))]
 public class ProjectileBase : MonoBehaviour
 {
     [SerializeField] private float dealtDamage;
@@ -15,13 +16,19 @@ public class ProjectileBase : MonoBehaviour
     [SerializeField] private ESpawnType spawnType;
     private Collider2D _collider;
     private Rigidbody2D _projRB;
+
     private float _firedTimeSnapshot = -1f;
     private bool _isFired = false;
+
+    private Animator _animator;
+    private static readonly int CollidedHash = Animator.StringToHash("Collided");
+    private static readonly int IsResetHash = Animator.StringToHash("IsReset");
 
     private void Awake()
     {
         _collider = GetComponent<Collider2D>();
         _projRB = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         _projRB.gravityScale = 0f;
     }
 
@@ -40,14 +47,19 @@ public class ProjectileBase : MonoBehaviour
     {
         /*
         1. call the TakeDamage(gameObject, dealtDamage) interface function 
-        2. call ReturnToPool()
+        2. change the anim state to collided.
+        3. call ReturnToPool()
         */
 
         //1. processing any potential damage:
         var stats = other.gameObject.GetComponent<StatManager>(); 
         stats?.TakeDamage(gameObject, dealtDamage);
 
-        //2. returning this to the pool:
+        //2. change the anim state to collided.
+        _animator.SetBool(IsResetHash, false);
+        _animator.SetTrigger(CollidedHash);
+
+        //3. returning this to the pool:
         ReturnToPool();
     }
 
@@ -59,7 +71,11 @@ public class ProjectileBase : MonoBehaviour
         //resetting the snapshot values back to their default before returning it to the pool
         _firedTimeSnapshot = -1f;
         _isFired = false;
+        // reset the anim state to its default as well before returning it to the pool:
+                _animator.SetBool(IsResetHash, true);
+
         PoolObjectManager.Instance.Return(spawnType, gameObject);
+
     }
 
     /// <summary>
