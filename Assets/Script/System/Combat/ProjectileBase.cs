@@ -53,11 +53,12 @@ public class ProjectileBase : MonoBehaviour
 
         //1. processing any potential damage:
         var stats = other.gameObject.GetComponent<StatManager>(); 
-        stats?.TakeDamage(gameObject, dealtDamage);
+        if (stats != null)
+            stats?.TakeDamage(gameObject, dealtDamage);
 
         //2. change the anim state to collided.
-        _animator.SetBool(IsResetHash, false);
-        _animator.SetTrigger(CollidedHash);
+        // _animator.SetBool(IsResetHash, false);
+        // _animator.SetTrigger(CollidedHash);
 
         //3. returning this to the pool:
         ReturnToPool();
@@ -72,20 +73,18 @@ public class ProjectileBase : MonoBehaviour
         _firedTimeSnapshot = -1f;
         _isFired = false;
         // reset the anim state to its default as well before returning it to the pool:
-                _animator.SetBool(IsResetHash, true);
-
         PoolObjectManager.Instance.Return(spawnType, gameObject);
-
+        _animator.SetBool(IsResetHash, true);
     }
 
     /// <summary>
     /// Callback function that gets called when the character fires this
     /// projectile object from its attack point
     /// </summary>
-    public void OnFired(Transform firePointTransform)
+    public void OnFired(Transform firePointTransform, float fireAngle)
     {
-        this.transform.SetPositionAndRotation(firePointTransform.position, firePointTransform.rotation);
-        _projRB.linearVelocity = firePointTransform.up * speed; // setting its travel velocity
+        this.transform.SetPositionAndRotation(firePointTransform.position, Quaternion.Euler(0f,0f, fireAngle));
+        _projRB.AddForce(firePointTransform.up * speed, ForceMode2D.Impulse);
         _firedTimeSnapshot = Time.time; // taking a snapshot of the time at which it was fired
         _isFired = true;
     }
