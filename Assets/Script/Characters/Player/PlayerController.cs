@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     // Handler for player's attack system
     private PlayerAttack _playerAttack;
+
+    private Camera _mainCamera;
     #endregion
 
     [Header("Attack - Input hold duration")]
@@ -55,6 +57,8 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         // Caching once, never having to re-fetch again:
         _playerMove = GetComponent<PlayerMovement>();
         _playerAttack = GetComponent<PlayerAttack>();
+
+        _mainCamera = Camera.main;
     }
 
     private void OnEnable()
@@ -147,7 +151,13 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
             _playerMove.FlyTick(); // force applied here, every frame after Update()
     }
 
-    public void OnAimAttack(InputAction.CallbackContext context) { }
+    public void OnAimAttack(InputAction.CallbackContext context)
+    {
+        Vector2 mousePosition = context.ReadValue<Vector2>();
+        mousePosition = _mainCamera.ScreenToWorldPoint(mousePosition) - transform.position;
+        _playerAttack.SetAimDirection(mousePosition);
+
+    }
 
     public void OnAttack(InputAction.CallbackContext context)
     {

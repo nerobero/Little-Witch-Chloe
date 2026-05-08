@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Types;
+using System;
+using Unity.VisualScripting;
 
 /// <summary>
 /// Processes the player's attack logic here
@@ -9,8 +11,6 @@ using Types;
 /// </summary>
 public class PlayerAttack : MonoBehaviour
 {
-    // private static PlayerAttack _instance;
-    // public static PlayerAttack Instance => _instance;
 
     [Header("Chloe's attack stats")]
     [SerializeField] private float chargeAttackCDtime = 0f;
@@ -22,9 +22,33 @@ public class PlayerAttack : MonoBehaviour
     };
     private ESpawnType _currentSpell = ESpawnType.FireBall;
 
-    private void Awake()
+    [Header("Chloe's shoot point")]
+    [SerializeField] private Transform _firePoint; // static child gameobject that represents the shoot point
+    [SerializeField] private float _orbitRadius; // the radius of which the shoot point will rotate around Chloe
+    private Vector2 _aimDirection = Vector2.up; // for storing the current aim direction
+
+    /// <summary>
+    /// Rotates and re-positions the shoot-point based on the position of the mouse cursor.
+    /// 1. normalizes the direction vector and set the _aimDirection as that value
+    /// 2. change the position of the shoot point
+    /// 3. rotate the shoot point so that its up direction faces the cursor
+    /// </summary>
+    /// <param name="dir">the incoming direction</param>
+    public void SetAimDirection(Vector2 dir)
     {
-        // _instance = this;
+        // normalizing the direction vector before multiplying the orbit radius
+        Vector2 normalizedDir = Vector2.Normalize(dir);
+        _aimDirection = normalizedDir;
+
+        // calculating the aim angle by getting the arctangent and converting the value to degrees
+        // (the 2D vector is relative to the positive X axis)
+        float aimAngle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg;
+        
+        // setting the shoot point's position based on Chloe's world position:
+        _firePoint.position = (Vector2)transform.position + _aimDirection * _orbitRadius;
+        
+        // rotating the shoot point so that its up direction faces the cursor
+        _firePoint.rotation = Quaternion.Euler(0,0, aimAngle - 90f);
     }
 
     /// <summary>
@@ -35,7 +59,10 @@ public class PlayerAttack : MonoBehaviour
         // extra sanity check before actually shooting
         // if (!CanCastThisSpell(_currentSpell)) return;
 
-        PoolObjectManager.Instance.Get(_currentSpell);
+        var projectile = PoolObjectManager.Instance.Get(_currentSpell).GetComponent<ProjectileBase>();
+        if (projectile == null) return;
+
+        projectile.OnFired(_firePoint);
     }
 
     /// <summary>
