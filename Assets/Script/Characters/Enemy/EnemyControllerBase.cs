@@ -5,8 +5,15 @@ using Types;
 public class EnemyControllerBase : MonoBehaviour
 {
     #region ReferenceClasses
-    // Handler for player's movement
+    // Handler for enemy's movement
     protected EnemyMovement enemyMove;
+    public EnemyMovement EnemyMove => enemyMove;
+    
+    // Handler for enemy's stat
+    protected EnemyCharacterBase enemyStat;
+
+    // Handler for enemy's attack system
+    protected EnemyAttack enemyAttack;
 
     [SerializeField] protected EMonsterState enemyState;
     #endregion
@@ -49,7 +56,8 @@ public class EnemyControllerBase : MonoBehaviour
     {
         // Caching once, never having to re-fetch again:
         enemyMove = GetComponent<EnemyMovement>();
-        //_playerAttack = GetComponent<PlayerAttack>();
+        enemyAttack = GetComponent<EnemyAttack>();
+        enemyStat = GetComponent<EnemyCharacterBase>();
         // _animator = GetComponent<PlayerAnimator>();
     }
 
@@ -61,7 +69,7 @@ public class EnemyControllerBase : MonoBehaviour
     }
     #endregion
 
-    protected void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
             
         // Detect player as target

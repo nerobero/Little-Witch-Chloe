@@ -6,6 +6,7 @@ using UnityEngine;
 /// Specific monster types inherit and implement their own AI behavior.
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(EnemyAnimController))]
 public class EnemyMovement : MonoBehaviour
 {
     // These values are exposed states for others to read:
@@ -36,6 +37,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] protected bool _isBackground = false; 
     public bool IsBackground => _isBackground;
     protected EnemyAnimController _animController;
+    public EnemyAnimController AnimController => _animController;
     protected int orderInLayer;
 
     [Header("Patrol Settings")]

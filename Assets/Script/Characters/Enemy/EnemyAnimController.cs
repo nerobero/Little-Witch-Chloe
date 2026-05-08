@@ -13,4 +13,9 @@ public class EnemyAnimController : BaseCharacterAnimController
     {
         
     }
+
+    public virtual void onDead()
+    {
+        
+    }
 }

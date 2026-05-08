@@ -13,4 +13,10 @@ public class MushroomMineStat : EnemyCharacterBase
     {
         
     }
+
+    public override void Death()
+    {
+        base.Death();
+
+    }
 }

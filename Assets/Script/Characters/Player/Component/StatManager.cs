@@ -8,8 +8,11 @@ public class StatManager : MonoBehaviour
 {
     // HP stats
     [Header("HP Settings")]
-    [SerializeField] protected float MaxHP;
-    [SerializeField] protected float CurrentHP;
+    [SerializeField] protected float maxHP;
+    [SerializeField] protected float currentHP;
+
+    public float MaxHP => maxHP;
+    public float CurrentHP => currentHP;
 
     // Event system: can be used for UI changes or animation control
     public event Action<float, float> OnHPChanged;
@@ -25,7 +28,7 @@ public class StatManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        CurrentHP = MaxHP;
+        currentHP = maxHP;
     }
 
     // Update is called once per frame
@@ -45,10 +48,10 @@ public class StatManager : MonoBehaviour
         if(IsDead || damageAmount <= 0.0f)
             return false;
 
-        CurrentHP = Mathf.Clamp(CurrentHP - damageAmount, 0.0f, MaxHP);
-        OnHPChanged?.Invoke(CurrentHP, MaxHP);
+        currentHP = Mathf.Clamp(currentHP - damageAmount, 0.0f, maxHP);
+        OnHPChanged?.Invoke(currentHP, maxHP);
 
-        if(CurrentHP == 0.0f)
+        if(currentHP == 0.0f)
         {
            Death();
         }
@@ -68,11 +71,11 @@ public class StatManager : MonoBehaviour
     /// <returns>Healed or not</returns>
     public virtual bool Heal(float healAmount)
     {
-        if(IsDead || CurrentHP >= MaxHP || healAmount <= 0.0f)
+        if(IsDead || currentHP >= maxHP || healAmount <= 0.0f)
             return false;
 
-        CurrentHP = Mathf.Clamp(CurrentHP + healAmount, 0.0f, MaxHP);
-        OnHPChanged?.Invoke(CurrentHP, MaxHP);
+        currentHP = Mathf.Clamp(currentHP + healAmount, 0.0f, maxHP);
+        OnHPChanged?.Invoke(currentHP, maxHP);
         OnHeal?.Invoke();
 
         return true;

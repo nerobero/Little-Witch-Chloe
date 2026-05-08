@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: cd03faa15540d50409b3fb6e4bcd529f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -842714289843720936
+    second: monster_sprite_sheet_spirit_1_attack_0
+  - first:
+      213: 8876299086064923304
+    second: monster_sprite_sheet_spirit_1_attack_1
+  - first:
+      213: -2538112179205179433
+    second: monster_sprite_sheet_spirit_1_attack_2
+  - first:
+      213: 1186328558762933519
+    second: monster_sprite_sheet_spirit_1_attack_3
+  - first:
+      213: 213191418765598997
+    second: monster_sprite_sheet_spirit_1_attack_4
+  - first:
+      213: 8132374161150685785
+    second: monster_sprite_sheet_spirit_1_attack_5
+  - first:
+      213: 1590735343736030442
+    second: monster_sprite_sheet_spirit_1_attack_6
+  - first:
+      213: -9178776575122764131
+    second: monster_sprite_sheet_spirit_1_attack_7
+  - first:
+      213: -6167735533164285863
+    second: monster_sprite_sheet_spirit_1_attack_8
+  - first:
+      213: 9164065436011697885
+    second: monster_sprite_sheet_spirit_1_attack_9
+  - first:
+      213: -8437952950662644490
+    second: monster_sprite_sheet_spirit_1_attack_10
+  - first:
+      213: -4830897204432416667
+    second: monster_sprite_sheet_spirit_1_attack_11
+  - first:
+      213: -565289370215560573
+    second: monster_sprite_sheet_spirit_1_attack_12
+  - first:
+      213: -983052527416131191
+    second: monster_sprite_sheet_spirit_1_attack_13
+  - first:
+      213: 4502499599664834160
+    second: monster_sprite_sheet_spirit_1_attack_14
+  - first:
+      213: 3389848093379368893
+    second: monster_sprite_sheet_spirit_1_attack_15
+  - first:
+      213: -4917741033191300889
+    second: monster_sprite_sheet_spirit_1_attack_16
+  - first:
+      213: 3668205735424494450
+    second: monster_sprite_sheet_spirit_1_attack_17
+  - first:
+      213: 263081470122037620
+    second: monster_sprite_sheet_spirit_1_attack_18
+  - first:
+      213: 4171862851844209871
+    second: monster_sprite_sheet_spirit_1_attack_19
+  - first:
+      213: 6117287995037352666
+    second: monster_sprite_sheet_spirit_1_attack_20
+  - first:
+      213: -4266146702708309886
+    second: monster_sprite_sheet_spirit_1_attack_21
+  - first:
+      213: -1932680017408774439
+    second: monster_sprite_sheet_spirit_1_attack_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 36
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81d28ba71d31e44f0800000000000000
+      internalID: -842714289843720936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_1
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 31
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a236097df2fe2b70800000000000000
+      internalID: 8876299086064923304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_2
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 20
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d7f166ab60d6ccd0800000000000000
+      internalID: -2538112179205179433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_3
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 38
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0d37fbe98fa67010800000000000000
+      internalID: 1186328558762933519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_4
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 33
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5116fa0477865f200800000000000000
+      internalID: 213191418765598997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_5
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 0
+        width: 20
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 952b3ff563ffbd070800000000000000
+      internalID: 8132374161150685785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_6
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 40
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae48b07fd5d631610800000000000000
+      internalID: 1590735343736030442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_7
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 40
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9e812f065f6e9080800000000000000
+      internalID: -9178776575122764131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_8
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 25
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 950303de53dc76aa0800000000000000
+      internalID: -6167735533164285863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_9
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 34
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd699e3f5fc4d2f70800000000000000
+      internalID: 9164065436011697885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_10
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 42
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fc3b406f7e56ea80800000000000000
+      internalID: -8437952950662644490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_11
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 28
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 560d067769435fcb0800000000000000
+      internalID: -4830897204432416667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_12
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 38
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38a4ff41050b728f0800000000000000
+      internalID: -565289370215560573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_13
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 33
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 981cfcb4fee7b52f0800000000000000
+      internalID: -983052527416131191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_14
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 40
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0766c57d7871c7e30800000000000000
+      internalID: 4502499599664834160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_15
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 24
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db7996871e82b0f20800000000000000
+      internalID: 3389848093379368893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_16
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e0254be59ca0cbb0800000000000000
+      internalID: -4917741033191300889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_17
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 0
+        width: 21
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27b070f6ea518e230800000000000000
+      internalID: 3668205735424494450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_18
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 30
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4719c950437a6a300800000000000000
+      internalID: 263081470122037620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_19
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 0
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcc72d7092f65e930800000000000000
+      internalID: 4171862851844209871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_20
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 0
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad286fc4509f4e450800000000000000
+      internalID: 6117287995037352666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_21
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 0
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2800e594d2a9bc4c0800000000000000
+      internalID: -4266146702708309886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_sprite_sheet_spirit_1_attack_22
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 0
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9deaad193cdbd25e0800000000000000
+      internalID: -1932680017408774439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      monster_sprite_sheet_spirit_1_attack_0: -842714289843720936
+      monster_sprite_sheet_spirit_1_attack_1: 8876299086064923304
+      monster_sprite_sheet_spirit_1_attack_10: -8437952950662644490
+      monster_sprite_sheet_spirit_1_attack_11: -4830897204432416667
+      monster_sprite_sheet_spirit_1_attack_12: -565289370215560573
+      monster_sprite_sheet_spirit_1_attack_13: -983052527416131191
+      monster_sprite_sheet_spirit_1_attack_14: 4502499599664834160
+      monster_sprite_sheet_spirit_1_attack_15: 3389848093379368893
+      monster_sprite_sheet_spirit_1_attack_16: -4917741033191300889
+      monster_sprite_sheet_spirit_1_attack_17: 3668205735424494450
+      monster_sprite_sheet_spirit_1_attack_18: 263081470122037620
+      monster_sprite_sheet_spirit_1_attack_19: 4171862851844209871
+      monster_sprite_sheet_spirit_1_attack_2: -2538112179205179433
+      monster_sprite_sheet_spirit_1_attack_20: 6117287995037352666
+      monster_sprite_sheet_spirit_1_attack_21: -4266146702708309886
+      monster_sprite_sheet_spirit_1_attack_22: -1932680017408774439
+      monster_sprite_sheet_spirit_1_attack_3: 1186328558762933519
+      monster_sprite_sheet_spirit_1_attack_4: 213191418765598997
+      monster_sprite_sheet_spirit_1_attack_5: 8132374161150685785
+      monster_sprite_sheet_spirit_1_attack_6: 1590735343736030442
+      monster_sprite_sheet_spirit_1_attack_7: -9178776575122764131
+      monster_sprite_sheet_spirit_1_attack_8: -6167735533164285863
+      monster_sprite_sheet_spirit_1_attack_9: 9164065436011697885
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

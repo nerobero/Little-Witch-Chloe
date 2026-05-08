@@ -3,13 +3,101 @@ using Types;
 
 public class MushroomMineController : BaseMonsterController
 {
+    [Header("Trap Setting")]
+    [SerializeField] protected float explosionDist = 1.2f;
+    protected bool isExploded = false;
+
+    // Activated Is Trigger, to detect player
     BoxCollider2D triggerCollider;
+
+
     protected override void Start()
     {
         base.Start();
 
         triggerCollider = GetComponent<BoxCollider2D>();
+
+        if(enemyMove.AnimController is MushroomMineAnimController anim)
+        {
+            enemyStat.OnDeath += anim.SetToStartDead;
+        }
     }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+    }
+
+    // Box collider enter logic => growing
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isExploded) return;
+
+        // Check the player layer (use LayerMask)
+        if (((1 << collision.gameObject.layer) & playerLayer) != 0)
+        {
+            Debug.Log("collision!");
+            _hasTarget = true;
+            if(enemyMove.AnimController is MushroomMineAnimController anim)
+            {
+                Debug.Log(anim);
+                anim.SetToStartGrowing();
+            }
+        }
+    }
+
+    // Box collider exit logic => shrink
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (isExploded) return;
+
+        // Check the player layer (use LayerMask)
+        if (((1 << collision.gameObject.layer) & playerLayer) != 0)
+        {
+            _hasTarget = false;
+
+            if(enemyMove.AnimController is MushroomMineAnimController anim)
+            {
+                anim.SetToStartShrinking();
+            }
+        }
+    }
+
+    // Polygon collider(default: Physics) collision event => explode
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isExploded) return;
+
+        // Check the player layer (use LayerMask)
+        if (((1 << collision.gameObject.layer) & playerLayer) != 0)
+        {
+            Explode(collision.gameObject);
+        }
+    }
+
+    // Damage logic
+    private void Explode(GameObject target)
+    {
+        isExploded = true;
+        enemyState = EMonsterState.Dead;
+
+        // 1. deal damage to player
+        enemyAttack.Attack(target);
+
+        // 2. Play animation => this can be called by Death method of the enemy stat.
+        // if(enemyMove.AnimController is MushroomMineAnimController anim)
+        // {
+        //     anim.SetToStartDead();
+        // }
+
+        // 
+        Debug.Log("Collide with player. Deal explosion damage");
+
+        // 3. take damage to itself for calling on death event dispatcher
+        enemyStat.TakeDamage(this.gameObject, enemyStat.MaxHP);
+    }
+
     protected override void Think()
     {
         switch(enemyState)
@@ -30,10 +118,29 @@ public class MushroomMineController : BaseMonsterController
         }
     }
 
+    // override detect player of the enemy controller base, but don't use base.DetectPlayer().
+    protected override void DetectPlayer()
+    {
+        
+    }
+
     protected override void PlayerDetected(bool bIsDifferentPlatform, Collider2D hit)
     {
-        _hasTarget = true;
-        enemyState = EMonsterState.Chase;
-        enemyMove.targetPosition = hit.transform.position;
+        
+    }
+
+    /// <summary>
+    /// This is the event driven function which will be called at death animation.
+    /// </summary>
+    public void OnDeathFinished()
+    {
+        // Remove bound function of OnDeath event dispatcher
+        if(enemyMove.AnimController is MushroomMineAnimController anim)
+        {
+            enemyStat.OnDeath -= anim.SetToStartDead;
+        }
+
+        // Return to pool
+        gameObject.SetActive(false);
     }
 }

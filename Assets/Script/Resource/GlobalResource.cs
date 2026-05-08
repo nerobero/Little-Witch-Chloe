@@ -26,6 +26,7 @@ namespace Types
         Patrol,     // Patrol
         Chase,      // Chase the target
         Attack,     // Attack the target
+        Dead,      // Dead state
     }
 
 
