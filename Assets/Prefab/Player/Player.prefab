@@ -213,6 +213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   chargeAttackCDtime: 0
   changeSpellCDtime: 0
+  attackIdleTime: 5
+  _firePointObject: {fileID: 1278601370393913022}
   _firePoint: {fileID: 5244638233950203186}
   _orbitRadius: 1
 --- !u!212 &4564149981406015731

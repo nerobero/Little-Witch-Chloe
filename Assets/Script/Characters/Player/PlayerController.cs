@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActions
 {
-
     private static PlayerController _instance;
     public static PlayerController Instance => _instance;
 

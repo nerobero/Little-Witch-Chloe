@@ -4648,6 +4648,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4393072811821626836, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
+      propertyPath: attackIdleTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7727798701954750557, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4705,6 +4709,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1875270486532918031, guid: 8579c2a5440b9824faa0fce7aa1a9db3, type: 3}
+      propertyPath: poolEntries.Array.data[0].initSpawnSize
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4571515406585558468, guid: 8579c2a5440b9824faa0fce7aa1a9db3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.53035
