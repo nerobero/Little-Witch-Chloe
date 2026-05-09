@@ -1,43 +1,22 @@
 fileFormatVersion: 2
-guid: a5a06c00b9a356145bcd47742fa87d58
+guid: 5742eab242843ca40ad8eb35bed77f42
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1096131538506493701
-    second: mons_sprite_sheet_spirit_1_dead_0
+      213: -3106825508964394603
+    second: cha_sprite_sheet_charlie_idle_0
   - first:
-      213: 7481719045746807830
-    second: mons_sprite_sheet_spirit_1_dead_1
+      213: 3511468525949693934
+    second: cha_sprite_sheet_charlie_idle_1
   - first:
-      213: 3278453360601922090
-    second: mons_sprite_sheet_spirit_1_dead_2
+      213: -1696163908083901646
+    second: cha_sprite_sheet_charlie_idle_2
   - first:
-      213: 3193955734767547914
-    second: mons_sprite_sheet_spirit_1_dead_3
+      213: -6732893325689349005
+    second: cha_sprite_sheet_charlie_idle_3
   - first:
-      213: 3723250921345187909
-    second: mons_sprite_sheet_spirit_1_dead_4
-  - first:
-      213: -6313663329416769081
-    second: mons_sprite_sheet_spirit_1_dead_5
-  - first:
-      213: -5769546923889664317
-    second: mons_sprite_sheet_spirit_1_dead_6
-  - first:
-      213: 4902839271245657286
-    second: mons_sprite_sheet_spirit_1_dead_7
-  - first:
-      213: 6464302995307993832
-    second: mons_sprite_sheet_spirit_1_dead_8
-  - first:
-      213: -1692165473692997658
-    second: mons_sprite_sheet_spirit_1_dead_9
-  - first:
-      213: -945306518370933535
-    second: mons_sprite_sheet_spirit_1_dead_10
-  - first:
-      213: -8808371577831376907
-    second: mons_sprite_sheet_spirit_1_dead_11
+      213: -1662373061647603983
+    second: cha_sprite_sheet_charlie_idle_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -133,173 +112,156 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_dead_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 10, y: 3}
-        - {x: -4, y: 3}
-        - {x: -7, y: 1}
-        - {x: -7, y: -16}
-        - {x: 10, y: -16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 614530f05d764d760800000000000000
-      internalID: 7481719045746807830
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_dead_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 6, y: -21}
-        - {x: 6, y: -9}
-        - {x: -1, y: -9}
-        - {x: -6, y: -12}
-        - {x: -6, y: -19}
-        - {x: -2, y: -24}
-        - {x: 3, y: -24}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5400d608cf4aba330800000000000000
-      internalID: 3723250921345187909
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_dead_0
+      name: cha_sprite_sheet_charlie_idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape:
-      - - {x: 8, y: 5}
-        - {x: -1, y: 9}
-        - {x: -8, y: 9}
-        - {x: -8, y: -18}
-        - {x: -6, y: -21}
-        - {x: 8, y: -21}
+      - - {x: 10, y: 2}
+        - {x: 12, y: 10}
+        - {x: 12, y: 12}
+        - {x: -2, y: 16}
+        - {x: -4, y: 16}
+        - {x: -10, y: 7}
+        - {x: -11, y: -4}
+        - {x: -11, y: -6}
+        - {x: -4, y: -16}
+        - {x: 6, y: -16}
       tessellationDetail: 0
       bones: []
-      spriteID: 4ca3ee741083ebd4d9dd21ea724b5d65
-      internalID: -1096131538506493701
+      spriteID: 5991e0709a652e4d0800000000000000
+      internalID: -3106825508964394603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_dead_2
+      name: cha_sprite_sheet_charlie_idle_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 11, y: 0}
+        - {x: 13, y: 9}
+        - {x: 13, y: 11}
+        - {x: -1, y: 16}
+        - {x: -3, y: 16}
+        - {x: -9, y: 7}
+        - {x: -11, y: -5}
+        - {x: -3, y: -16}
+        - {x: 5, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: eef2231150e3bb030800000000000000
+      internalID: 3511468525949693934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cha_sprite_sheet_charlie_idle_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 9, y: -13}
+        - {x: 9, y: -11}
+        - {x: 14, y: 9}
+        - {x: 13, y: 10}
+        - {x: -1, y: 15}
+        - {x: -3, y: 15}
+        - {x: -9, y: 6}
+        - {x: -10, y: -3}
+        - {x: -4, y: -16}
+        - {x: 4, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b12d989e30678e0800000000000000
+      internalID: -1696163908083901646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cha_sprite_sheet_charlie_idle_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 12, y: 1}
+        - {x: 13, y: 10}
+        - {x: -1, y: 15}
+        - {x: -3, y: 15}
+        - {x: -9, y: 7}
+        - {x: -11, y: -6}
+        - {x: -3, y: -16}
+        - {x: 6, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37c10b35135ff82a0800000000000000
+      internalID: -6732893325689349005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cha_sprite_sheet_charlie_idle_4
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape:
-      - - {x: 11, y: -15}
-        - {x: 11, y: -10}
-        - {x: 7, y: -2}
-        - {x: -5, y: -2}
-        - {x: -7, y: -6}
-        - {x: -7, y: -12}
-        - {x: -3, y: -17}
-        - {x: 1, y: -18}
-        - {x: 8, y: -18}
+      - - {x: 9.951813, y: -11.667169}
+        - {x: 14, y: 8}
+        - {x: 14, y: 10}
+        - {x: -2, y: 15}
+        - {x: -8, y: 9}
+        - {x: -11, y: -5}
+        - {x: -3, y: -16}
+        - {x: 5, y: -16}
       tessellationDetail: 0
       bones: []
-      spriteID: 4c5bb40342ad4124a88c7be09eb6d8e7
-      internalID: 3278453360601922090
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_dead_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 11, y: -10}
-        - {x: 7, y: -4}
-        - {x: -5, y: -4}
-        - {x: -7, y: -8}
-        - {x: -7, y: -15}
-        - {x: -5, y: -22}
-        - {x: 8, y: -22}
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8ca60eb12644d343a3464d36801e1e8
-      internalID: 3193955734767547914
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_dead_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 11, y: -30}
-        - {x: 10, y: -27}
-        - {x: 0, y: -27}
-        - {x: -5, y: -29}
-        - {x: -5, y: -31}
-        - {x: 7, y: -31}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3bc9098d8ef585f4caa8c13efe670e61
-      internalID: -6313663329416769081
+      spriteID: 1f6e05012801ee8e0800000000000000
+      internalID: -1662373061647603983
       vertices: []
       indices: 
       edges: []
@@ -308,7 +270,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 00a297d9fd602f244b35714d27147db4
+    spriteID: b97b02f9bc730c844a87c8d6d5b81e51
     internalID: 0
     vertices: []
     indices: 
@@ -318,14 +280,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      mons_sprite_sheet_spirit_1_dead_0: -1096131538506493701
-      mons_sprite_sheet_spirit_1_dead_1: 7481719045746807830
-      mons_sprite_sheet_spirit_1_dead_2: 3278453360601922090
-      mons_sprite_sheet_spirit_1_dead_3: 3193955734767547914
-      mons_sprite_sheet_spirit_1_dead_4: 3723250921345187909
-      mons_sprite_sheet_spirit_1_dead_5: -6313663329416769081
+      cha_sprite_sheet_charlie_idle_0: -3106825508964394603
+      cha_sprite_sheet_charlie_idle_1: 3511468525949693934
+      cha_sprite_sheet_charlie_idle_2: -1696163908083901646
+      cha_sprite_sheet_charlie_idle_3: -6732893325689349005
+      cha_sprite_sheet_charlie_idle_4: -1662373061647603983
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

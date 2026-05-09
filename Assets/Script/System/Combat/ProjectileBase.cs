@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Types;
 
@@ -68,11 +69,21 @@ public class ProjectileBase : MonoBehaviour
         if (stats != null)
             stats?.TakeDamage(gameObject, dealtDamage);
 
-        //2. change the anim state to collided.
-        // _animator.SetBool(IsResetHash, false);
-        // _animator.SetTrigger(CollidedHash);
+        //2. stop movement and disable collider so it doesn't retrigger
+        _projRB.linearVelocity = Vector2.zero;
+        _collider.enabled = false;
 
-        //3. returning this to the pool:
+        //3. play collision animation and wait for it to finish before pooling
+        _animator.SetBool(IsResetHash, false);
+        _animator.SetTrigger(CollidedHash);
+        StartCoroutine(ReturnToPoolAfterAnimation());
+    }
+
+    private IEnumerator ReturnToPoolAfterAnimation()
+    {
+        yield return null; // wait one frame for the trigger to take effect
+        while (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            yield return null;
         ReturnToPool();
     }
 
@@ -96,6 +107,7 @@ public class ProjectileBase : MonoBehaviour
     /// </summary>
     public void OnFired(Transform firePointTransform, float fireAngle, bool FiredAtBackground)
     {
+        _collider.enabled = true;
         this.transform.SetPositionAndRotation(firePointTransform.position, Quaternion.Euler(0f,0f, fireAngle));
         isBackground = FiredAtBackground;
         gameObject.layer = isBackground ? bgLayer : fgLayer;

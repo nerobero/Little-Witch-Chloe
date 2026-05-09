@@ -169,17 +169,25 @@ TextureImporter:
       name: mons_sprite_sheet_spirit_1_idle_2
       rect:
         serializedVersion: 2
-        x: 152
-        y: 9
-        width: 20
-        height: 41
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 11, y: -15}
+        - {x: 11, y: -2}
+        - {x: 8, y: 12}
+        - {x: 0, y: 12}
+        - {x: -7, y: 3}
+        - {x: -7, y: -18}
+        - {x: -2, y: -21}
+        - {x: 9, y: -21}
+      tessellationDetail: 0
       bones: []
       spriteID: db9288e2634a22b00800000000000000
       internalID: 802384236241234365
@@ -191,17 +199,25 @@ TextureImporter:
       name: mons_sprite_sheet_spirit_1_idle_5
       rect:
         serializedVersion: 2
-        x: 278
-        y: 9
-        width: 21
-        height: 41
+        x: 320
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 11, y: -20}
+        - {x: 11, y: 4}
+        - {x: 4, y: 14}
+        - {x: -4, y: 14}
+        - {x: -9, y: 11}
+        - {x: -8, y: -19}
+        - {x: -6, y: -23}
+        - {x: 3, y: -23}
+      tessellationDetail: 0
       bones: []
       spriteID: b1af0ffd4ef382410800000000000000
       internalID: 1452481132069190171
@@ -210,133 +226,191 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_idle_16
+      name: mons_sprite_sheet_spirit_1_idle_0
       rect:
         serializedVersion: 2
-        x: 87
-        y: 9
-        width: 20
-        height: 33
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 8, y: 3}
+        - {x: 0, y: 9}
+        - {x: -4, y: 9}
+        - {x: -8, y: 8}
+        - {x: -8, y: -21}
+        - {x: 8, y: -21}
+      tessellationDetail: 0
       bones: []
-      spriteID: 96112b22074563b10800000000000000
-      internalID: 1960847528361595241
+      spriteID: 1bcd0916eba06254f9275244aeb3e333
+      internalID: -6992707890143149869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_idle_17
+      name: mons_sprite_sheet_spirit_1_idle_1
       rect:
         serializedVersion: 2
-        x: 217
-        y: 9
-        width: 21
-        height: 41
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 10, y: -15}
+        - {x: 10, y: -5}
+        - {x: 3, y: 9}
+        - {x: -8, y: 6}
+        - {x: -7, y: -8}
+        - {x: -6, y: -19}
+        - {x: 2, y: -21}
+        - {x: 6, y: -21}
+      tessellationDetail: 0
       bones: []
-      spriteID: ca3232a2ed9abd230800000000000000
-      internalID: 3664709493450810284
+      spriteID: cbd7765d6f94266449a4559260c73978
+      internalID: 1606770961804968336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_idle_19
+      name: mons_sprite_sheet_spirit_1_idle_3
       rect:
         serializedVersion: 2
-        x: 469
-        y: 8
-        width: 24
-        height: 42
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 13, y: -11}
+        - {x: 13, y: 2}
+        - {x: 11, y: 9}
+        - {x: -6, y: 15}
+        - {x: -6, y: -3}
+        - {x: -6, y: -14}
+        - {x: -4, y: -22}
+        - {x: 7, y: -22}
+      tessellationDetail: 0
       bones: []
-      spriteID: c2f9d04e081776b70800000000000000
-      internalID: 8892200787662184236
+      spriteID: 3f4468a149a395a4690e16a6465d7f23
+      internalID: -2491346117863398716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_idle_20
+      name: mons_sprite_sheet_spirit_1_idle_4
       rect:
         serializedVersion: 2
-        x: 22
-        y: 10
-        width: 19
-        height: 33
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 10, y: -6}
+        - {x: 10, y: 10}
+        - {x: -1, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: -21}
+        - {x: 8, y: -20}
+      tessellationDetail: 0
       bones: []
-      spriteID: c894f14a91f945300800000000000000
-      internalID: 239991612633991564
+      spriteID: 09dc783880efa1a46a82fccf37137224
+      internalID: 6053093170429620671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_idle_21
+      name: mons_sprite_sheet_spirit_1_idle_6
       rect:
         serializedVersion: 2
-        x: 342
-        y: 8
-        width: 22
-        height: 41
+        x: 384
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 11, y: 2}
+        - {x: 11, y: 8}
+        - {x: 3, y: 16}
+        - {x: -6, y: 15}
+        - {x: -8, y: 8}
+        - {x: -8, y: 4}
+        - {x: -2, y: -3}
+        - {x: 9, y: -3}
+      - - {x: 10, y: -21}
+        - {x: 10, y: -10}
+        - {x: 9, y: -5}
+        - {x: -8, y: -5}
+        - {x: -11, y: -11}
+        - {x: -7, y: -22}
+        - {x: 7, y: -22}
+      tessellationDetail: 0
       bones: []
-      spriteID: 68f4b3ab904ffa0a0800000000000000
-      internalID: -6868002584100384890
+      spriteID: 01a634cbf3469f14aaccd92d1b76d35d
+      internalID: -5368553879689326378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_idle_22
+      name: mons_sprite_sheet_spirit_1_idle_7
       rect:
         serializedVersion: 2
-        x: 405
-        y: 8
-        width: 23
-        height: 42
+        x: 448
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 5, y: 2}
+        - {x: 8, y: 9}
+        - {x: 8, y: 12}
+        - {x: 4, y: 16}
+        - {x: -3, y: 16}
+        - {x: -8, y: 12}
+        - {x: -8, y: 7}
+        - {x: -2, y: 2}
+      - - {x: 11, y: -17}
+        - {x: 11, y: -5}
+        - {x: 9, y: 0}
+        - {x: -9, y: -2}
+        - {x: -9, y: -18}
+        - {x: -3, y: -22}
+        - {x: 7, y: -23}
+      tessellationDetail: 0
       bones: []
-      spriteID: 68c1c661b8b136cb0800000000000000
-      internalID: -4872020087694156666
+      spriteID: be91e2e90c593594487845dfae4d2d34
+      internalID: -2790596053530030872
       vertices: []
       indices: 
       edges: []
@@ -353,31 +427,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       mons_sprite_sheet_spirit_1_idle_0: -6992707890143149869
       mons_sprite_sheet_spirit_1_idle_1: 1606770961804968336
-      mons_sprite_sheet_spirit_1_idle_10: 399681189182884943
-      mons_sprite_sheet_spirit_1_idle_11: 3699658360137219496
-      mons_sprite_sheet_spirit_1_idle_12: 3751625014748373633
-      mons_sprite_sheet_spirit_1_idle_13: 4179441211870999921
-      mons_sprite_sheet_spirit_1_idle_14: -8146793652259681637
-      mons_sprite_sheet_spirit_1_idle_15: 5786214592727255740
-      mons_sprite_sheet_spirit_1_idle_16: 1960847528361595241
-      mons_sprite_sheet_spirit_1_idle_17: 3664709493450810284
-      mons_sprite_sheet_spirit_1_idle_18: -6924450712965742092
-      mons_sprite_sheet_spirit_1_idle_19: 8892200787662184236
       mons_sprite_sheet_spirit_1_idle_2: 802384236241234365
-      mons_sprite_sheet_spirit_1_idle_20: 239991612633991564
-      mons_sprite_sheet_spirit_1_idle_21: -6868002584100384890
-      mons_sprite_sheet_spirit_1_idle_22: -4872020087694156666
       mons_sprite_sheet_spirit_1_idle_3: -2491346117863398716
       mons_sprite_sheet_spirit_1_idle_4: 6053093170429620671
       mons_sprite_sheet_spirit_1_idle_5: 1452481132069190171
       mons_sprite_sheet_spirit_1_idle_6: -5368553879689326378
       mons_sprite_sheet_spirit_1_idle_7: -2790596053530030872
-      mons_sprite_sheet_spirit_1_idle_8: -3732573832869091439
-      mons_sprite_sheet_spirit_1_idle_9: 9130897053705639554
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
