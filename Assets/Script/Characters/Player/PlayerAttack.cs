@@ -16,11 +16,12 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float chargeAttackCDtime = 0f;
     [SerializeField] private float changeSpellCDtime = 0f;
     // duration of inactivity before disabling the shoot-point
-    [SerializeField] private float attackIdleTime = 0f; 
-    // public bool IsAttacking => _isAttacking;
-    // private bool _isAttacking = false;
+    [SerializeField] private float attackIdleTime = 1.5f;
+
+    private PlayerAnimController _animController;
+
     private float _ATKTimeSnapshot = -1f;
-    private float _chargedATKTimeSnapshot = -1f; 
+    private float _chargedATKTimeSnapshot = -1f;
 
     private Dictionary<ESpawnType, bool> _spellList = new Dictionary<ESpawnType, bool>()
     {
@@ -40,6 +41,8 @@ public class PlayerAttack : MonoBehaviour
     {
         // at first, the fire point object is invisible until the player starts attacking:
         _firePointObject.enabled = false;
+
+        _animController = GetComponent<PlayerAnimController>();
     }
 
     /// <summary>
@@ -87,9 +90,11 @@ public class PlayerAttack : MonoBehaviour
         {
             var projectile = PoolObjectManager.Instance.Get(_currentSpell).GetComponent<ProjectileBase>();
             if (projectile == null) return;
-            
+
             // taking the time snapshot for checking for inactivity:
             _ATKTimeSnapshot = Time.time;
+            // _animController?.SetToIsAttacking(true);
+            _animController.SetToIsAttacking();
             projectile.OnFired(_firePoint, _aimAngleDeg);
         }
 
@@ -101,7 +106,7 @@ public class PlayerAttack : MonoBehaviour
     /// <param name="chargeRatio"></param>
     public void FireCharged(float chargeRatio)
     {
-            
+
     }
 
     private void Update()
@@ -112,7 +117,11 @@ public class PlayerAttack : MonoBehaviour
         {
             float idleFor = Time.time - _ATKTimeSnapshot;
             if (idleFor >= attackIdleTime)
+            {
+                // _animController?.SetToIsAttacking(false);
                 SetEnabledShootPoint(false);
+            }
+
         }
     }
 

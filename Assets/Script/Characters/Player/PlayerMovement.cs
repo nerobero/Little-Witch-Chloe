@@ -40,7 +40,9 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAnimController _animController;
 
     // player's sprite renderer:
+    [SerializeField] private SpriteRenderer _childSpriteRender;
     private SpriteRenderer _spriteRender;
+    
 
     private void Awake()
     {
@@ -75,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
         orderInLayer = _isBackground ? -1 : 0;
         _spriteRender.sortingOrder = orderInLayer;
+        _childSpriteRender.sortingOrder = orderInLayer;
     }
 
     private void OnEnable()

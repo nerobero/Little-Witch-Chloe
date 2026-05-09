@@ -14,6 +14,9 @@ public class PlayerAnimController : BaseCharacterAnimController
     private static readonly int IsDeadHash = Animator.StringToHash("IsDead");
     private static readonly int DeadOneShot = Animator.StringToHash("DeadOneShot");
 
+    private static readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
+    private static readonly int IsAttackingTrigHash = Animator.StringToHash("IsAttackingTrig");
+
     public bool _isFacingRight = true;
 
     public void SetToStartFlying()
@@ -31,5 +34,15 @@ public class PlayerAnimController : BaseCharacterAnimController
     {
         _animator.SetBool(IsDeadHash, true);
         _animator.SetTrigger(DeadOneShot);
+    }
+
+    public void SetToIsAttacking()
+    {
+        _animator.SetTrigger(IsAttackingTrigHash);
+    }
+
+    public void SetToIsAttacking(bool isAttacking)
+    {
+        _animator.SetBool(IsAttackingHash, isAttacking);
     }
 }
