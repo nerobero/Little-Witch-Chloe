@@ -103,7 +103,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -117,7 +117,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -166,59 +166,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: monster_sprite_sheet_spirit_1_attack_0
-      rect:
-        serializedVersion: 2
-        x: 26
-        y: 36
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 81d28ba71d31e44f0800000000000000
-      internalID: -842714289843720936
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monster_sprite_sheet_spirit_1_attack_1
-      rect:
-        serializedVersion: 2
-        x: 87
-        y: 31
-        width: 15
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8a236097df2fe2b70800000000000000
-      internalID: 8876299086064923304
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: monster_sprite_sheet_spirit_1_attack_2
       rect:
         serializedVersion: 2
         x: 152
-        y: 0
+        y: 5
         width: 20
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -232,59 +188,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster_sprite_sheet_spirit_1_attack_3
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 38
-        width: 11
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f0d37fbe98fa67010800000000000000
-      internalID: 1186328558762933519
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monster_sprite_sheet_spirit_1_attack_4
-      rect:
-        serializedVersion: 2
-        x: 217
-        y: 33
-        width: 19
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5116fa0477865f200800000000000000
-      internalID: 213191418765598997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: monster_sprite_sheet_spirit_1_attack_5
       rect:
         serializedVersion: 2
         x: 279
-        y: 0
+        y: 6
         width: 20
-        height: 42
+        height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -298,235 +210,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster_sprite_sheet_spirit_1_attack_6
-      rect:
-        serializedVersion: 2
-        x: 281
-        y: 40
-        width: 11
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ae48b07fd5d631610800000000000000
-      internalID: 1590735343736030442
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monster_sprite_sheet_spirit_1_attack_7
-      rect:
-        serializedVersion: 2
-        x: 346
-        y: 40
-        width: 9
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d9e812f065f6e9080800000000000000
-      internalID: -9178776575122764131
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monster_sprite_sheet_spirit_1_attack_8
-      rect:
-        serializedVersion: 2
-        x: 346
-        y: 25
-        width: 18
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 950303de53dc76aa0800000000000000
-      internalID: -6167735533164285863
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monster_sprite_sheet_spirit_1_attack_9
-      rect:
-        serializedVersion: 2
-        x: 407
-        y: 34
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dd699e3f5fc4d2f70800000000000000
-      internalID: 9164065436011697885
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monster_sprite_sheet_spirit_1_attack_10
-      rect:
-        serializedVersion: 2
-        x: 411
-        y: 42
-        width: 9
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6fc3b406f7e56ea80800000000000000
-      internalID: -8437952950662644490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monster_sprite_sheet_spirit_1_attack_11
-      rect:
-        serializedVersion: 2
-        x: 414
-        y: 28
-        width: 14
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 560d067769435fcb0800000000000000
-      internalID: -4830897204432416667
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monster_sprite_sheet_spirit_1_attack_12
-      rect:
-        serializedVersion: 2
-        x: 470
-        y: 38
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 38a4ff41050b728f0800000000000000
-      internalID: -565289370215560573
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monster_sprite_sheet_spirit_1_attack_13
-      rect:
-        serializedVersion: 2
-        x: 473
-        y: 33
-        width: 12
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 981cfcb4fee7b52f0800000000000000
-      internalID: -983052527416131191
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monster_sprite_sheet_spirit_1_attack_14
-      rect:
-        serializedVersion: 2
-        x: 474
-        y: 40
-        width: 14
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0766c57d7871c7e30800000000000000
-      internalID: 4502499599664834160
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monster_sprite_sheet_spirit_1_attack_15
-      rect:
-        serializedVersion: 2
-        x: 23
-        y: 24
-        width: 18
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: db7996871e82b0f20800000000000000
-      internalID: 3389848093379368893
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: monster_sprite_sheet_spirit_1_attack_16
       rect:
         serializedVersion: 2
-        x: 88
-        y: 0
-        width: 19
-        height: 31
+        x: 87
+        y: 5
+        width: 21
+        height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -543,12 +235,12 @@ TextureImporter:
       name: monster_sprite_sheet_spirit_1_attack_17
       rect:
         serializedVersion: 2
-        x: 217
-        y: 0
-        width: 21
-        height: 34
+        x: 216
+        y: 7
+        width: 22
+        height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -562,37 +254,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster_sprite_sheet_spirit_1_attack_18
-      rect:
-        serializedVersion: 2
-        x: 343
-        y: 30
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4719c950437a6a300800000000000000
-      internalID: 263081470122037620
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: monster_sprite_sheet_spirit_1_attack_19
       rect:
         serializedVersion: 2
         x: 469
-        y: 0
+        y: 6
         width: 22
-        height: 34
+        height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -609,12 +279,12 @@ TextureImporter:
       name: monster_sprite_sheet_spirit_1_attack_20
       rect:
         serializedVersion: 2
-        x: 25
-        y: 0
-        width: 15
-        height: 25
+        x: 23
+        y: 8
+        width: 18
+        height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -631,12 +301,12 @@ TextureImporter:
       name: monster_sprite_sheet_spirit_1_attack_21
       rect:
         serializedVersion: 2
-        x: 343
-        y: 0
-        width: 19
-        height: 27
+        x: 341
+        y: 3
+        width: 24
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -653,12 +323,12 @@ TextureImporter:
       name: monster_sprite_sheet_spirit_1_attack_22
       rect:
         serializedVersion: 2
-        x: 405
-        y: 0
-        width: 22
-        height: 29
+        x: 404
+        y: 6
+        width: 24
+        height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -675,7 +345,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2cdb2678af087fe42bd8636d9a52ce2c
     internalID: 0
     vertices: []
     indices: 
