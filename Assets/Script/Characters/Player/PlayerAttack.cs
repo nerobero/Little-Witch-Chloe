@@ -22,6 +22,8 @@ public class PlayerAttack : MonoBehaviour
     private float _ATKTimeSnapshot = -1f;
     private float _chargedATKTimeSnapshot = -1f; 
 
+    public bool isBackground;
+
     private Dictionary<ESpawnType, bool> _spellList = new Dictionary<ESpawnType, bool>()
     {
         {ESpawnType.FireBall, true}, {ESpawnType.WaterBall, true},
@@ -89,8 +91,10 @@ public class PlayerAttack : MonoBehaviour
             if (projectile == null) return;
             
             // taking the time snapshot for checking for inactivity:
+
+            Debug.Log(isBackground);
             _ATKTimeSnapshot = Time.time;
-            projectile.OnFired(_firePoint, _aimAngleDeg);
+            projectile.OnFired(_firePoint, _aimAngleDeg, isBackground);
         }
 
     }

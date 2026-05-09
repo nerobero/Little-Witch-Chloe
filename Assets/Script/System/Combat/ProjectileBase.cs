@@ -19,6 +19,10 @@ public class ProjectileBase : MonoBehaviour
 
     private float _firedTimeSnapshot = -1f;
     private bool _isFired = false;
+    private bool isBackground;
+
+    protected int fgLayer;
+    protected int bgLayer;
 
     private Animator _animator;
     private static readonly int CollidedHash = Animator.StringToHash("Collided");
@@ -30,6 +34,12 @@ public class ProjectileBase : MonoBehaviour
         _projRB = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _projRB.gravityScale = 0f;
+
+        fgLayer = LayerMask.NameToLayer("ForegroundProjectile");
+        bgLayer = LayerMask.NameToLayer("BackgroundProjectile");
+        
+        Physics2D.IgnoreLayerCollision(fgLayer, LayerMask.NameToLayer("Background Platform"), true);
+        Physics2D.IgnoreLayerCollision(bgLayer, LayerMask.NameToLayer("Foreground Platform"), true);
     }
 
     private void Update()
@@ -43,13 +53,15 @@ public class ProjectileBase : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other) 
+    private void OnCollisionEnter2D(Collision2D other) 
     {
         /*
         1. call the TakeDamage(gameObject, dealtDamage) interface function 
         2. change the anim state to collided.
         3. call ReturnToPool()
         */
+
+        Debug.Log($"Collided: {other}");
 
         //1. processing any potential damage:
         var stats = other.gameObject.GetComponent<StatManager>(); 
@@ -75,15 +87,18 @@ public class ProjectileBase : MonoBehaviour
         // reset the anim state to its default as well before returning it to the pool:
         PoolObjectManager.Instance.Return(spawnType, gameObject);
         _animator.SetBool(IsResetHash, true);
+        //Physics2D.IgnoreLayerCollision(this.gameObject.layer, layer, false);
     }
 
     /// <summary>
     /// Callback function that gets called when the character fires this
     /// projectile object from its attack point
     /// </summary>
-    public void OnFired(Transform firePointTransform, float fireAngle)
+    public void OnFired(Transform firePointTransform, float fireAngle, bool FiredAtBackground)
     {
         this.transform.SetPositionAndRotation(firePointTransform.position, Quaternion.Euler(0f,0f, fireAngle));
+        isBackground = FiredAtBackground;
+        gameObject.layer = isBackground ? bgLayer : fgLayer;
         _projRB.AddForce(firePointTransform.up * speed, ForceMode2D.Impulse);
         _firedTimeSnapshot = Time.time; // taking a snapshot of the time at which it was fired
         _isFired = true;

@@ -58,6 +58,8 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         _playerAttack = GetComponent<PlayerAttack>();
 
         _mainCamera = Camera.main;
+
+        _playerAttack.isBackground = _playerMove.IsBackground;
     }
 
     private void OnEnable()
@@ -195,7 +197,11 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     public void OnBlink(InputAction.CallbackContext context)
     {
-        if (context.performed) _playerMove.BlinkToOtherPlatform();
+        if (context.performed) 
+        {
+            _playerMove.BlinkToOtherPlatform();
+            _playerAttack.isBackground = _playerMove.IsBackground;
+        }
     }
 
     #endregion

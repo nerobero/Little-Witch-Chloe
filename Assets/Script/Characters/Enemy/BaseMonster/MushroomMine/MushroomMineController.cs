@@ -29,7 +29,7 @@ public class MushroomMineController : BaseMonsterController
 
     }
 
-    // Box collider enter logic => growing
+    // Box collider enter logic => growing ;; Think about after growing, using blink but inside the collider(trigger); it should shrink
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isExploded) return;
@@ -37,12 +37,24 @@ public class MushroomMineController : BaseMonsterController
         // Check the player layer (use LayerMask)
         if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
-            Debug.Log("collision!");
-            _hasTarget = true;
-            if(enemyMove.AnimController is MushroomMineAnimController anim)
+            var PlayerMove = collision.GetComponent<PlayerMovement>();
+            bool isSamePlatform = false;
+
+            if(PlayerMove != null)
             {
-                Debug.Log(anim);
-                anim.SetToStartGrowing();
+                isSamePlatform = PlayerMove.IsBackground == enemyMove.IsBackground;
+            }
+
+            // Grow only if it is in the same platform.
+            if(isSamePlatform)
+            {
+                Debug.Log("collision!");
+                _hasTarget = true;
+                if(enemyMove.AnimController is MushroomMineAnimController anim)
+                {
+                    Debug.Log(anim);
+                    anim.SetToStartGrowing();
+                }
             }
         }
     }

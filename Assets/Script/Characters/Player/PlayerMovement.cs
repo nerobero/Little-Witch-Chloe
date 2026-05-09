@@ -260,4 +260,9 @@ public class PlayerMovement : MonoBehaviour
         //6. changing the order in layer:
         ChangeOrderInLayer();
     }
+
+    public int GetCurrentLayer()
+    {
+        return IsBackground ? _bgLayerIndex : _fgLayerIndex;
+    }
 }
