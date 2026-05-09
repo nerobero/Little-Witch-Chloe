@@ -154,17 +154,25 @@ TextureImporter:
       name: mons_sprite_sheet_spirit_1_hurt_1
       rect:
         serializedVersion: 2
-        x: 138
-        y: 2
-        width: 50
-        height: 54
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 10, y: -10}
+        - {x: 10, y: -5}
+        - {x: 7, y: 3}
+        - {x: -4, y: 3}
+        - {x: -7, y: 1}
+        - {x: -7, y: -8}
+        - {x: -5, y: -16}
+        - {x: 8, y: -16}
+      tessellationDetail: 0
       bones: []
       spriteID: 472e192b297aa91b0800000000000000
       internalID: -5649018534079896972
@@ -176,17 +184,23 @@ TextureImporter:
       name: mons_sprite_sheet_spirit_1_hurt_3
       rect:
         serializedVersion: 2
-        x: 271
-        y: 3
-        width: 37
-        height: 50
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 11, y: -15}
+        - {x: 11, y: -6}
+        - {x: 10, y: -2}
+        - {x: -7, y: -2}
+        - {x: -7, y: -18}
+        - {x: 8, y: -18}
+      tessellationDetail: 0
       bones: []
       spriteID: 47efc307001d895d0800000000000000
       internalID: -3055462547357630860
@@ -195,89 +209,127 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_hurt_12
+      name: mons_sprite_sheet_spirit_1_hurt_0
       rect:
         serializedVersion: 2
-        x: 213
-        y: 9
-        width: 28
-        height: 38
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 8, y: 5}
+        - {x: -1, y: 9}
+        - {x: -8, y: 9}
+        - {x: -8, y: -18}
+        - {x: -6, y: -21}
+        - {x: 8, y: -21}
+      tessellationDetail: 0
       bones: []
-      spriteID: 0e07159af0d7bc8b0800000000000000
-      internalID: -5130869844239879968
+      spriteID: 3eb5d3f42e9908540849b040a71dbe0c
+      internalID: 1109815307841774607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_hurt_14
+      name: mons_sprite_sheet_spirit_1_hurt_2
       rect:
         serializedVersion: 2
-        x: 22
-        y: 9
-        width: 20
-        height: 33
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 16, y: -27}
+        - {x: 20, y: -15}
+        - {x: 20, y: 0}
+        - {x: 9, y: 12}
+        - {x: -14, y: 13}
+        - {x: -13.191299, y: -18.539446}
+        - {x: -5, y: -26}
+      tessellationDetail: 0
       bones: []
-      spriteID: ea2c4e13bbac5bd70800000000000000
-      internalID: 9058369130870391470
+      spriteID: 58b398197c87fda4ca2089ce14f2e882
+      internalID: -8751121139814361235
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_hurt_15
+      name: mons_sprite_sheet_spirit_1_hurt_4
       rect:
         serializedVersion: 2
-        x: 88
-        y: 11
-        width: 19
-        height: 30
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 18, y: -18}
+        - {x: 18, y: 8}
+        - {x: 11, y: 13}
+        - {x: 4, y: 6}
+        - {x: -7, y: 5}
+        - {x: -15, y: -2}
+        - {x: -14, y: -10}
+        - {x: -5, y: -25}
+        - {x: 14, y: -25}
+      tessellationDetail: 0
       bones: []
-      spriteID: 8487f5aa3ff243d20800000000000000
-      internalID: 3257281154077653064
+      spriteID: 7735993c24b14b247ba55c06cbd796a7
+      internalID: 4464673323959368739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_spirit_1_hurt_17
+      name: mons_sprite_sheet_spirit_1_hurt_5
       rect:
         serializedVersion: 2
-        x: 341
-        y: 8
-        width: 23
-        height: 42
+        x: 320
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 11, y: 2}
+        - {x: 11, y: 8}
+        - {x: 3, y: 16}
+        - {x: -5, y: 16}
+        - {x: -8, y: 8}
+        - {x: -8, y: 4}
+        - {x: -2, y: -3}
+        - {x: 9, y: -3}
+      - - {x: 10, y: -21}
+        - {x: 10, y: -10}
+        - {x: 9, y: -5}
+        - {x: -8, y: -5}
+        - {x: -10, y: -6}
+        - {x: -10, y: -13}
+        - {x: -7, y: -22}
+        - {x: 7, y: -22}
+      tessellationDetail: 0
       bones: []
-      spriteID: f28442f186d3ea920800000000000000
-      internalID: 3003405518911064111
+      spriteID: 5cd4cb5b4512cca44a39f41dea893cad
+      internalID: -2983774805731438109
       vertices: []
       indices: 
       edges: []
@@ -294,26 +346,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       mons_sprite_sheet_spirit_1_hurt_0: 1109815307841774607
       mons_sprite_sheet_spirit_1_hurt_1: -5649018534079896972
-      mons_sprite_sheet_spirit_1_hurt_10: -7692659211991630711
-      mons_sprite_sheet_spirit_1_hurt_11: -254585121885878599
-      mons_sprite_sheet_spirit_1_hurt_12: -5130869844239879968
-      mons_sprite_sheet_spirit_1_hurt_13: -4448909209767140029
-      mons_sprite_sheet_spirit_1_hurt_14: 9058369130870391470
-      mons_sprite_sheet_spirit_1_hurt_15: 3257281154077653064
-      mons_sprite_sheet_spirit_1_hurt_16: 1214047526265836511
-      mons_sprite_sheet_spirit_1_hurt_17: 3003405518911064111
       mons_sprite_sheet_spirit_1_hurt_2: -8751121139814361235
       mons_sprite_sheet_spirit_1_hurt_3: -3055462547357630860
       mons_sprite_sheet_spirit_1_hurt_4: 4464673323959368739
       mons_sprite_sheet_spirit_1_hurt_5: -2983774805731438109
-      mons_sprite_sheet_spirit_1_hurt_6: 2652068937870511425
-      mons_sprite_sheet_spirit_1_hurt_7: 6794623157568218730
-      mons_sprite_sheet_spirit_1_hurt_8: 4880650456960133193
-      mons_sprite_sheet_spirit_1_hurt_9: -2083343370813131369
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
