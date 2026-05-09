@@ -30,6 +30,7 @@ public class MushroomMineController : BaseMonsterController
     }
 
     // Box collider enter logic => growing ;; Think about after growing, using blink but inside the collider(trigger); it should shrink
+    // => Use Event 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isExploded) return;
@@ -79,7 +80,7 @@ public class MushroomMineController : BaseMonsterController
     // Polygon collider(default: Physics) collision event => explode
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isExploded) return;
+        if (isExploded || enemyState == EMonsterState.Dead) return;
 
         // Check the player layer (use LayerMask)
         if (((1 << collision.gameObject.layer) & playerLayer) != 0)
@@ -108,6 +109,7 @@ public class MushroomMineController : BaseMonsterController
 
         // 3. take damage to itself for calling on death event dispatcher
         enemyStat.TakeDamage(this.gameObject, enemyStat.MaxHP);
+        
     }
 
     protected override void Think()
@@ -154,5 +156,6 @@ public class MushroomMineController : BaseMonsterController
 
         // Return to pool
         gameObject.SetActive(false);
+        
     }
 }

@@ -22,6 +22,12 @@ public class MushroomMineAnimController : EnemyAnimController
         _animator.SetBool(IsDead, true);
     }
 
+     public void SetToRestart()
+    {
+        _animator.SetBool(IsDead, false);
+        _animator.SetBool(IsGrown, false);
+    }
+
     public void SetToStartGrowing()
     {
         _animator.SetBool(IsGrown, true);
