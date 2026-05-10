@@ -1,0 +1,459 @@
+fileFormatVersion: 2
+guid: 19d5ce7d45123c14eab7286bcf330b45
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4073371027659072610
+    second: mons_sprite_sheet_corruptedSpirit_1_seen_0
+  - first:
+      213: -2460569271903693201
+    second: mons_sprite_sheet_corruptedSpirit_1_seen_1
+  - first:
+      213: -7582396684472934135
+    second: mons_sprite_sheet_corruptedSpirit_1_seen_2
+  - first:
+      213: 596059942297526796
+    second: mons_sprite_sheet_corruptedSpirit_1_seen_3
+  - first:
+      213: -5082882012964665031
+    second: mons_sprite_sheet_corruptedSpirit_1_seen_4
+  - first:
+      213: 4730326109129956202
+    second: mons_sprite_sheet_corruptedSpirit_1_seen_5
+  - first:
+      213: -1857364080100329934
+    second: mons_sprite_sheet_corruptedSpirit_1_seen_6
+  - first:
+      213: 6184588741866695134
+    second: mons_sprite_sheet_corruptedSpirit_1_seen_7
+  - first:
+      213: 6385715476517004532
+    second: mons_sprite_sheet_corruptedSpirit_1_seen_8
+  - first:
+      213: -8128669786009140917
+    second: mons_sprite_sheet_corruptedSpirit_1_seen_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mons_sprite_sheet_corruptedSpirit_1_seen_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 25, y: -23}
+        - {x: 25, y: 22}
+        - {x: 17, y: 29}
+        - {x: 9, y: 29}
+        - {x: -28, y: 18}
+        - {x: -28, y: 11}
+        - {x: -5, y: -31}
+        - {x: 16, y: -31}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 264acf53e55878830800000000000000
+      internalID: 4073371027659072610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_corruptedSpirit_1_seen_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 25, y: -23}
+        - {x: 25, y: 22}
+        - {x: 17, y: 29}
+        - {x: 9, y: 29}
+        - {x: -28, y: 18}
+        - {x: -28, y: 11}
+        - {x: -5, y: -31}
+        - {x: 16, y: -31}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6650faa84d4addd0800000000000000
+      internalID: -2460569271903693201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_corruptedSpirit_1_seen_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 25, y: -23}
+        - {x: 25, y: 22}
+        - {x: 17, y: 29}
+        - {x: 9, y: 29}
+        - {x: -28, y: 18}
+        - {x: -28, y: 11}
+        - {x: -5, y: -31}
+        - {x: 16, y: -31}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90124e3836ae5c690800000000000000
+      internalID: -7582396684472934135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_corruptedSpirit_1_seen_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 25, y: -23}
+        - {x: 25, y: 22}
+        - {x: 17, y: 32}
+        - {x: 9, y: 32}
+        - {x: -28, y: 21}
+        - {x: -28, y: 15}
+        - {x: -5, y: -31}
+        - {x: 16, y: -31}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c02eb750c51a54800800000000000000
+      internalID: 596059942297526796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_corruptedSpirit_1_seen_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 25, y: -23}
+        - {x: 27, y: 25}
+        - {x: 19, y: 32}
+        - {x: 11, y: 32}
+        - {x: -26, y: 21}
+        - {x: -26, y: 14}
+        - {x: -5, y: -31}
+        - {x: 16, y: -31}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 939c40e4db9f579b0800000000000000
+      internalID: -5082882012964665031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_corruptedSpirit_1_seen_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 25, y: -23}
+        - {x: 25, y: 24}
+        - {x: 17, y: 31}
+        - {x: 9, y: 31}
+        - {x: -27, y: 21}
+        - {x: -27, y: 14}
+        - {x: -5, y: -31}
+        - {x: 16, y: -31}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6b527ea88e75a140800000000000000
+      internalID: 4730326109129956202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_corruptedSpirit_1_seen_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 25, y: -23}
+        - {x: 27, y: 26}
+        - {x: 19, y: 32}
+        - {x: 11, y: 32}
+        - {x: -27, y: 23}
+        - {x: -27, y: 16}
+        - {x: -5, y: -31}
+        - {x: 16, y: -31}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 236bc0bb5315936e0800000000000000
+      internalID: -1857364080100329934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_corruptedSpirit_1_seen_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 25, y: -23}
+        - {x: 27, y: 22}
+        - {x: 17, y: 32}
+        - {x: 9, y: 32}
+        - {x: -28, y: 22}
+        - {x: -28, y: 15}
+        - {x: -5, y: -31}
+        - {x: 16, y: -31}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed928d081b214d550800000000000000
+      internalID: 6184588741866695134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_corruptedSpirit_1_seen_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 25, y: -23}
+        - {x: 27, y: 25}
+        - {x: 19, y: 32}
+        - {x: 11, y: 32}
+        - {x: -26, y: 21}
+        - {x: -26, y: 14}
+        - {x: -5, y: -31}
+        - {x: 16, y: -31}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f4a286946e9e9850800000000000000
+      internalID: 6385715476517004532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_corruptedSpirit_1_seen_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 25, y: -23}
+        - {x: 25, y: 25}
+        - {x: 17, y: 32}
+        - {x: 9, y: 32}
+        - {x: -28, y: 21}
+        - {x: -28, y: 14}
+        - {x: -5, y: -31}
+        - {x: 16, y: -31}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b41897ca5e9213f80800000000000000
+      internalID: -8128669786009140917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d90d06fda5f5c8a418be5102e5619a85
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      mons_sprite_sheet_corruptedSpirit_1_seen_0: 4073371027659072610
+      mons_sprite_sheet_corruptedSpirit_1_seen_1: -2460569271903693201
+      mons_sprite_sheet_corruptedSpirit_1_seen_2: -7582396684472934135
+      mons_sprite_sheet_corruptedSpirit_1_seen_3: 596059942297526796
+      mons_sprite_sheet_corruptedSpirit_1_seen_4: -5082882012964665031
+      mons_sprite_sheet_corruptedSpirit_1_seen_5: 4730326109129956202
+      mons_sprite_sheet_corruptedSpirit_1_seen_6: -1857364080100329934
+      mons_sprite_sheet_corruptedSpirit_1_seen_7: 6184588741866695134
+      mons_sprite_sheet_corruptedSpirit_1_seen_8: 6385715476517004532
+      mons_sprite_sheet_corruptedSpirit_1_seen_9: -8128669786009140917
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
