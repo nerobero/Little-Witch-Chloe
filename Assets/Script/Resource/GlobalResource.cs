@@ -12,9 +12,12 @@ namespace Types
     {
         Fire = 0,
         Plant,
-        Posion,
+        Poison,
         Darkness,
         Ice,
+        Light,
+        Electricity,
+        Water,
     }
 
     /// <summary>

@@ -15,6 +15,7 @@ public class EnemyAttack : MonoBehaviour
         {ESpawnType.PoisonBall, false}, {ESpawnType.ElectricBall, false}, {ESpawnType.LightBall, false}
     };
     [SerializeField] protected ESpawnType _currentSpell = ESpawnType.FireBall;
+    [SerializeField] protected EElementType _elementType = EElementType.Fire;
 
     [SerializeField] protected float damageAmount;
 

@@ -21,12 +21,12 @@ public class StatManager : MonoBehaviour
     public event Action<float, float, GameObject> OnHPChanged;
     public event Action OnDeath;
     public event Action OnHeal;
-    
+
     // Is dead
-    public bool IsDead {get; protected set;}
+    public bool IsDead { get; protected set; }
 
     // When blinking, the character is Invincible
-    public bool IsBlink{get; protected set;}
+    public bool IsBlink { get; protected set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,7 +37,7 @@ public class StatManager : MonoBehaviour
     // Update is called once per frame
     // void Update()
     // {
-        
+
     // }
 
     /// <summary>
@@ -47,105 +47,93 @@ public class StatManager : MonoBehaviour
     /// <param name="damageAmount">the damage amount</param>
     /// <param name="element">damage element</param>
     /// <returns>dealt or not</returns>
-    public virtual bool TakeDamage(GameObject instigator, float damageAmount, ESpawnType damageElement)
+    public virtual bool TakeDamage(GameObject instigator, float damageAmount, EElementType damageElement)
     {
         Debug.Log(IsDead);
 
-        if(IsDead || damageAmount <= 0.0f)
+        if (IsDead || damageAmount <= 0.0f)
             return false;
 
         float actualDamage = damageAmount;
 
-        switch(characterElement)
+        switch (characterElement)
         {
             // if the character's element is fire
             case EElementType.Fire:
                 // if the damage element is water => more damage
-                if(damageElement == ESpawnType.WaterBall || damageElement == ESpawnType.IceShard
-                    || damageElement == ESpawnType.IceBall || damageElement == ESpawnType.IceGroundShards)
+                if (damageElement == EElementType.Water || damageElement == EElementType.Ice)
                 {
                     actualDamage *= 1.5f;
                 }
                 // if the damage element is fire or electricity => no damage
-                else if(damageElement == ESpawnType.FireBall || damageElement == ESpawnType.FirePillar
-                    || damageElement == ESpawnType.FirePillar)
+                else if (damageElement == EElementType.Fire)
                 {
                     actualDamage = 0.0f;
                 }
-            break;
+                break;
             // if the character's element is plant
             case EElementType.Plant:
                 // if the damage element is fire or poision => more damage
-                if(damageElement == ESpawnType.FireBall || damageElement == ESpawnType.FirePillar
-                    || damageElement == ESpawnType.FirePillar || damageElement == ESpawnType.PoisonBall
-                    || damageElement == ESpawnType.PoisonPool || damageElement == ESpawnType.PoisonSplash)
+                if (damageElement == EElementType.Fire || damageElement == EElementType.Poison)
                 {
                     actualDamage *= 1.5f;
                 }
                 // if the damage element is water or electricity => no damage
-                else if(damageElement == ESpawnType.WaterBall || damageElement == ESpawnType.IceShard
-                    || damageElement == ESpawnType.IceBall || damageElement == ESpawnType.IceGroundShards)
+                else if (damageElement == EElementType.Water || damageElement == EElementType.Electricity
+                || damageElement == EElementType.Ice)
                 {
                     actualDamage = 0.0f;
                 }
-            break;
+                break;
             // if the character's element is poison
-            case EElementType.Posion:
+            case EElementType.Poison:
                 // if the damage element is water => more damage
-                if(damageElement == ESpawnType.WaterBall || damageElement == ESpawnType.IceShard
-                    || damageElement == ESpawnType.IceBall || damageElement == ESpawnType.IceGroundShards)
+                if (damageElement == EElementType.Water || damageElement == EElementType.Ice)
                 {
                     actualDamage *= 1.5f;
                 }
                 // if the damage element is poison or fire => no damage
-                else if(damageElement == ESpawnType.FireBall || damageElement == ESpawnType.FirePillar
-                    || damageElement == ESpawnType.FirePillar || damageElement == ESpawnType.PoisonBall
-                    || damageElement == ESpawnType.PoisonPool || damageElement == ESpawnType.PoisonSplash)
+                else if (damageElement == EElementType.Poison || damageElement == EElementType.Fire)
                 {
                     actualDamage = 0.0f;
                 }
-            break;
+                break;
             // if the character's element is darkness
             case EElementType.Darkness:
                 // if the damage element is light or electricity => more damage
-                if(damageElement == ESpawnType.LightBall)
+                if (damageElement == EElementType.Light)
                 {
                     actualDamage *= 1.5f;
                 }
                 // if the damage element is water or poison => no damage
-                else if(damageElement == ESpawnType.WaterBall || damageElement == ESpawnType.IceShard
-                    || damageElement == ESpawnType.IceBall || damageElement == ESpawnType.IceGroundShards
-                    || damageElement == ESpawnType.PoisonBall || damageElement == ESpawnType.PoisonPool
-                    || damageElement == ESpawnType.PoisonSplash)
+                else if (damageElement == EElementType.Water || damageElement == EElementType.Poison
+                || damageElement == EElementType.Ice)
                 {
                     actualDamage = 0.0f;
                 }
-            break;
+                break;
             // if the character's element is ice
             case EElementType.Ice:
                 // if the damage element is fire => more damage
-                if(damageElement == ESpawnType.FireBall || damageElement == ESpawnType.FirePillar
-                    || damageElement == ESpawnType.FirePillar)
+                if (damageElement == EElementType.Fire)
                 {
                     actualDamage *= 1.5f;
                 }
                 // if the damage element is water or poison => no damage
-                else if(damageElement == ESpawnType.WaterBall || damageElement == ESpawnType.IceShard
-                    || damageElement == ESpawnType.IceBall || damageElement == ESpawnType.IceGroundShards
-                    || damageElement == ESpawnType.PoisonBall || damageElement == ESpawnType.PoisonPool
-                    || damageElement == ESpawnType.PoisonSplash)
+                else if (damageElement == EElementType.Water || damageElement == EElementType.Poison
+                || damageElement == EElementType.Ice)
                 {
                     actualDamage = 0.0f;
                 }
-            break;
+                break;
         }
 
         currentHP = Mathf.Clamp(currentHP - actualDamage, 0.0f, maxHP);
         OnHPChanged?.Invoke(currentHP, maxHP, instigator);
 
-        if(currentHP == 0.0f)
+        if (currentHP == 0.0f)
         {
-           Death();
+            Death();
         }
 
         return true;
@@ -158,7 +146,7 @@ public class StatManager : MonoBehaviour
     /// <returns>Healed or not</returns>
     public virtual bool Heal(float healAmount)
     {
-        if(IsDead || currentHP >= maxHP || healAmount <= 0.0f)
+        if (IsDead || currentHP >= maxHP || healAmount <= 0.0f)
             return false;
 
         currentHP = Mathf.Clamp(currentHP + healAmount, 0.0f, maxHP);

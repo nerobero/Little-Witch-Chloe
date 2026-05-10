@@ -15,6 +15,8 @@ public class ProjectileBase : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float lifeSpan = 10f;
     [SerializeField] private ESpawnType spawnType;
+    [SerializeField] private EElementType elementType;
+
     private Collider2D _collider;
     private Rigidbody2D _projRB;
 
@@ -69,7 +71,7 @@ public class ProjectileBase : MonoBehaviour
         //1. processing any potential damage:
         var stats = other.gameObject.GetComponent<StatManager>(); 
         if (stats != null)
-            stats?.TakeDamage(instigator, dealtDamage, spawnType);
+            stats?.TakeDamage(instigator, dealtDamage, elementType);
 
         //2. stop movement and disable collider so it doesn't retrigger
         _projRB.linearVelocity = Vector2.zero;
