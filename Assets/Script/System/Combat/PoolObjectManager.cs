@@ -28,7 +28,17 @@ public class PoolObjectManager : MonoBehaviour
 
     private void Awake()
     {
-        _instance = this;
+        if (_instance != this && _instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
