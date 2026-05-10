@@ -16,7 +16,7 @@ public class DialogueSystem : MonoBehaviour
         public bool hasDialogueEnded;
     }
 
-    public DialogueSystem Instance => _instance;
+    public static DialogueSystem Instance {get; private set;}
     private DialogueSystem _instance;
 
     [SerializeField] private static readonly TextAsset _dialogueCSV;

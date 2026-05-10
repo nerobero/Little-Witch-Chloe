@@ -19,8 +19,8 @@ public struct PoolEntry
 /// </summary>
 public class PoolObjectManager : MonoBehaviour
 {
-    private static PoolObjectManager _instance;
-    public static PoolObjectManager Instance => _instance;
+    private PoolObjectManager _instance;
+    public static PoolObjectManager Instance { get; private set; }
     [SerializeField] PoolEntry[] poolEntries; //initialized at compile time, for authoring
 
     private Dictionary<ESpawnType, GameObject> prefabMap = new(); // for easier runtime access
