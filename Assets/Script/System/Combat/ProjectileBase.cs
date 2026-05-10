@@ -38,11 +38,11 @@ public class ProjectileBase : MonoBehaviour
         _animator = GetComponent<Animator>();
         _projRB.gravityScale = 0f;
 
-        fgLayer = LayerMask.NameToLayer("ForegroundProjectile");
-        bgLayer = LayerMask.NameToLayer("BackgroundProjectile");
+        // fgLayer = LayerMask.NameToLayer("ForegroundProjectile");
+        // bgLayer = LayerMask.NameToLayer("BackgroundProjectile");
         
-        Physics2D.IgnoreLayerCollision(fgLayer, LayerMask.NameToLayer("Background Platform"), true);
-        Physics2D.IgnoreLayerCollision(bgLayer, LayerMask.NameToLayer("Foreground Platform"), true);
+        // Physics2D.IgnoreLayerCollision(fgLayer, LayerMask.NameToLayer("Background Platform"), true);
+        // Physics2D.IgnoreLayerCollision(bgLayer, LayerMask.NameToLayer("Foreground Platform"), true);
     }
 
     private void Update()
@@ -113,7 +113,7 @@ public class ProjectileBase : MonoBehaviour
         this.transform.SetPositionAndRotation(firePointTransform.position, Quaternion.Euler(0f,0f, fireAngle));
         isBackground = FiredAtBackground;
         instigator = Instigator;
-        gameObject.layer = isBackground ? bgLayer : fgLayer;
+        //gameObject.layer = isBackground ? bgLayer : fgLayer;
         _projRB.AddForce(firePointTransform.up * speed, ForceMode2D.Impulse);
         _firedTimeSnapshot = Time.time; // taking a snapshot of the time at which it was fired
         _isFired = true;
