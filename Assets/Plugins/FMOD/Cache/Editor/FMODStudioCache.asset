@@ -54,6 +54,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 500
+--- !u!114 &-6047711423763796917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Forest Level/ForestLevel
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: ForestLevel
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 928983037
+    data2: 3303953333
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Pre Intro
+  - Intro 1
+  - Intro
+  - Main Loop
+  Exists: 1
 --- !u!114 &-5864203873555673807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +109,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3916
+--- !u!114 &-823593229300720151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ForestLevel
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: ForestLevel
+  StudioPath: parameter:/ForestLevel
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 928983037
+    data2: 3303953333
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Pre Intro
+  - Intro 1
+  - Intro
+  - Main Loop
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,18 +158,30 @@ MonoBehaviour:
   - {fileID: -5864203873555673807}
   - {fileID: 4860926104547274246}
   - {fileID: 4722604012809132965}
+<<<<<<< Updated upstream
   - {fileID: 7522763433137011298}
+=======
+  - {fileID: 5197125327403117732}
+>>>>>>> Stashed changes
   EditorParameters:
   - {fileID: 5376015972537555131}
   - {fileID: 4993207008122812132}
   - {fileID: 4405884489999104906}
+<<<<<<< Updated upstream
   - {fileID: 8801561174019233511}
+=======
+  - {fileID: -823593229300720151}
+>>>>>>> Stashed changes
   MasterBanks:
   - {fileID: 8435845644242563879}
   StringsBanks:
   - {fileID: 5869693088115076967}
   cacheVersion: 131859
+<<<<<<< Updated upstream
   cacheTime: 639139317564954087
+=======
+  cacheTime: 639138612146656482
+>>>>>>> Stashed changes
   SerializableEventsDict:
   - key: event:/SFX/Menu Hover
     index: 0
@@ -229,6 +297,34 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &5197125327403117732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/Forest Level
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MUSIC/Forest Level
+  Guid:
+    Data1: -436705827
+    Data2: 1210747085
+    Data3: 985334197
+    Data4: -1636808202
+  Banks:
+  - {fileID: 8435845644242563879}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -6047711423763796917}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 138352
 --- !u!114 &5376015972537555131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,7 +364,11 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+<<<<<<< Updated upstream
   lastModified: 639139317564954087
+=======
+  lastModified: 639138612146656482
+>>>>>>> Stashed changes
   FileSizes:
   - Name: Desktop
     Value: 1284
@@ -344,6 +444,7 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
+<<<<<<< Updated upstream
   lastModified: 639139317564944115
   FileSizes:
   - Name: Desktop
@@ -376,4 +477,10 @@ MonoBehaviour:
   - Intro 1
   - Intro
   - Main Loop
+=======
+  lastModified: 639138612146636476
+  FileSizes:
+  - Name: Desktop
+    Value: 2652096
+>>>>>>> Stashed changes
   Exists: 1
