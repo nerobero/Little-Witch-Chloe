@@ -37,6 +37,8 @@ public class PlayerAttack : MonoBehaviour
     private Vector2 _aimDirection = Vector2.up; // for storing the current aim direction
     private float _aimAngleDeg = 0f;
 
+    public bool isBackground;
+
     private void Awake()
     {
         // at first, the fire point object is invisible until the player starts attacking:
@@ -95,7 +97,7 @@ public class PlayerAttack : MonoBehaviour
             _ATKTimeSnapshot = Time.time;
             // _animController?.SetToIsAttacking(true);
             _animController.SetToIsAttacking();
-            projectile.OnFired(_firePoint, _aimAngleDeg);
+            projectile.OnFired(_firePoint, _aimAngleDeg, isBackground, gameObject);
         }
 
     }

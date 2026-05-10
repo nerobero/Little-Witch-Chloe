@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MushroomMineController
   enemyState: 0
-  currentSpell: 0
+  currentSpell: 9
   chargeThreshold: 1.5
   maxChargeTime: 3
   loseTargetTime: 4
@@ -160,6 +160,7 @@ MonoBehaviour:
   viewDistance: 0
   viewHeight: 0
   viewAngle: 0
+  targetTimer: 0
   explosionDist: 1.2
 --- !u!114 &8441780030308826278
 MonoBehaviour:
@@ -175,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MushroomMineStat
   maxHP: 1
   currentHP: 1
-  monsterType: 0
+  characterElement: 2
 --- !u!50 &-262578371704667441
 Rigidbody2D:
   serializedVersion: 5
@@ -345,4 +346,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MushroomMineAttack
   chargeAttackCDtime: 0
   changeSpellCDtime: 0
+  _currentSpell: 0
   damageAmount: 1

@@ -51,6 +51,9 @@ public class EnemyControllerBase : MonoBehaviour
     [SerializeField] protected float viewHeight;
     [SerializeField] protected float viewAngle;
 
+    [SerializeField] protected float targetTimer = 0f;
+    [SerializeField] protected const float FORGET_TIME = 5f;
+
     #region Setup
     protected virtual void Awake()
     {
@@ -98,7 +101,7 @@ public class EnemyControllerBase : MonoBehaviour
             // if the player is on the different platform.
             if(enemyMove.IsBackground != playerMove.IsBackground)
             {
-                PlayerDetected(true, hit);
+                PlayerDetected(true, hit.gameObject);
 
                 return;
             }
@@ -119,13 +122,27 @@ public class EnemyControllerBase : MonoBehaviour
                 if(dot > cosThreshold)
                 {
                     // the player is in view triangle
-                    PlayerDetected(false, hit);
+                    PlayerDetected(false, hit.gameObject);
 
                     return;
                 }
             }
         }
 
+        // already has target
+        if (_hasTarget)
+        {
+            targetTimer -= Time.deltaTime; // Reduce the timer
+
+            if (targetTimer > 0)
+            {
+                // remain the timer. => try moving the target location.
+                // (필요하다면 여기서 추격 로직을 계속 실행)
+                return; 
+            }
+        }
+
+        // when the timer is over, or there is no target, 
         enemyState = EMonsterState.Patrol;
         if(_hasTarget)
             enemyMove.StopChasing();
@@ -165,9 +182,10 @@ public class EnemyControllerBase : MonoBehaviour
         }
     }
 
-    protected virtual void PlayerDetected(bool bIsDifferentPlatform, Collider2D hit)
+    protected virtual void PlayerDetected(bool bIsDifferentPlatform, GameObject hit)
     {
         _hasTarget = true;
+        targetTimer = FORGET_TIME; // initialize the timer as 5 seconds.
         enemyState = EMonsterState.Chase;
         //enemyMove.targetPosition = hit.transform.position;
         enemyMove.MoveToTarget(hit.transform.position);
@@ -236,6 +254,32 @@ public class EnemyControllerBase : MonoBehaviour
         enemyState = EMonsterState.Idle;
     }
 
+    void OnEnable()
+    {
+        // subscribe the event: OnHit
+        enemyStat.OnHPChanged += OnHit;
+    }
+
+    void OnDisable()
+    {
+        // release subscription for escaping memory leak
+        enemyStat.OnHPChanged -= OnHit;
+    }
+
+    void OnHit(float currentHP, float maxHP, GameObject instigator)
+    {
+        // 여기서 타겟을 플레이어로 설정하고 타이머를 5초로 세팅
+        var playerMove = instigator.GetComponent<PlayerMovement>();
+
+        if(playerMove == null)
+        {
+            return;
+        }
+
+        PlayerDetected(enemyMove.IsBackground == playerMove.IsBackground, instigator);
+    }
+
+
     protected virtual void FireProjectile()
     {
         float probability = (float)Random.Range(0, 100) / 100.0f;
@@ -261,4 +305,6 @@ public class EnemyControllerBase : MonoBehaviour
     {
         
     }
+
+    
 }

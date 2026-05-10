@@ -8,7 +8,7 @@ namespace Types
     /// <summary>
     /// Defines a type of enemy
     /// </summary>
-    public enum EMonsterType // Have to rename EElementType
+    public enum EElementType // Have to rename EElementType
     {
         Fire = 0,
         Plant,

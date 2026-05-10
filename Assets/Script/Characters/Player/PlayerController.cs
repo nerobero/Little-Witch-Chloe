@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 /// <summary>
 /// Captures/caches the raw input values from the user and passes the values 
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     private bool _isFlying = false;
     private float _jumpPressTime = -1f;
 
+    public event Action<bool> onBlinked;
 
 
     #region Setup
@@ -201,6 +203,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         {
             _playerMove.BlinkToOtherPlatform();
             _playerAttack.isBackground = _playerMove.IsBackground;
+            onBlinked?.Invoke(_playerMove.IsBackground);
         }
     }
 

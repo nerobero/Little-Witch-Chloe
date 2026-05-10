@@ -29,6 +29,8 @@ public class ProjectileBase : MonoBehaviour
     private static readonly int CollidedHash = Animator.StringToHash("Collided");
     private static readonly int IsResetHash = Animator.StringToHash("IsReset");
 
+    protected GameObject instigator;
+
     private void Awake()
     {
         _collider = GetComponent<Collider2D>();
@@ -62,12 +64,12 @@ public class ProjectileBase : MonoBehaviour
         3. call ReturnToPool()
         */
 
-        Debug.Log($"Collided: {other}");
+        Debug.Log($"Collided: {other.gameObject}");
 
         //1. processing any potential damage:
         var stats = other.gameObject.GetComponent<StatManager>(); 
         if (stats != null)
-            stats?.TakeDamage(gameObject, dealtDamage);
+            stats?.TakeDamage(instigator, dealtDamage, spawnType);
 
         //2. stop movement and disable collider so it doesn't retrigger
         _projRB.linearVelocity = Vector2.zero;
@@ -105,11 +107,12 @@ public class ProjectileBase : MonoBehaviour
     /// Callback function that gets called when the character fires this
     /// projectile object from its attack point
     /// </summary>
-    public void OnFired(Transform firePointTransform, float fireAngle, bool FiredAtBackground)
+    public void OnFired(Transform firePointTransform, float fireAngle, bool FiredAtBackground, GameObject Instigator)
     {
         _collider.enabled = true;
         this.transform.SetPositionAndRotation(firePointTransform.position, Quaternion.Euler(0f,0f, fireAngle));
         isBackground = FiredAtBackground;
+        instigator = Instigator;
         gameObject.layer = isBackground ? bgLayer : fgLayer;
         _projRB.AddForce(firePointTransform.up * speed, ForceMode2D.Impulse);
         _firedTimeSnapshot = Time.time; // taking a snapshot of the time at which it was fired

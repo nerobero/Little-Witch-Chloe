@@ -1,4 +1,5 @@
 using UnityEngine;
+using Types;
 
 public class MushroomMineAttack : EnemyAttack
 {
@@ -19,7 +20,7 @@ public class MushroomMineAttack : EnemyAttack
         PlayerStatManager targetStat = target.GetComponent<PlayerStatManager>();
         if(targetStat != null)
         {
-            targetStat.TakeDamage(gameObject, damageAmount);
+            targetStat.TakeDamage(gameObject, damageAmount, _currentSpell);
         }
     }
 }

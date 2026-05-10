@@ -4,7 +4,7 @@ using Types;
 
 public class EnemyCharacterBase : StatManager
 {
-    [SerializeField] private EMonsterType monsterType;
+    //[SerializeField] protected EElementType monsterType;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,4 +17,6 @@ public class EnemyCharacterBase : StatManager
     {
         
     }
+
+    //public override bool TakeDamage()
 }

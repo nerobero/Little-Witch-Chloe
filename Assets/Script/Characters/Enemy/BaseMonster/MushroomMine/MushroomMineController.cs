@@ -39,25 +39,45 @@ public class MushroomMineController : BaseMonsterController
         if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
             var PlayerMove = collision.GetComponent<PlayerMovement>();
-            bool isSamePlatform = false;
+            var Player = collision.GetComponent<PlayerController>();
+            //bool isSamePlatform = false;
+            if(Player != null)
+            {
+                Player.onBlinked += AdjustScale;
+            }
 
             if(PlayerMove != null)
             {
-                isSamePlatform = PlayerMove.IsBackground == enemyMove.IsBackground;
-            }
-
-            // Grow only if it is in the same platform.
-            if(isSamePlatform)
-            {
-                Debug.Log("collision!");
-                _hasTarget = true;
-                if(enemyMove.AnimController is MushroomMineAnimController anim)
-                {
-                    Debug.Log(anim);
-                    anim.SetToStartGrowing();
-                }
+            //    isSamePlatform = PlayerMove.IsBackground == enemyMove.IsBackground;
+                AdjustScale(PlayerMove.IsBackground);
             }
         }
+    }
+
+    private void AdjustScale(bool isBackground)
+    {
+        var anim = enemyMove.AnimController as MushroomMineAnimController;
+        if(!_hasTarget)
+        {
+            // Grow only if it is in the same platform.
+            if(isBackground == enemyMove.IsBackground)
+            {
+                _hasTarget = true;
+                // if(enemyMove.AnimController is MushroomMineAnimController anim)
+                // {
+                    anim.SetToStartGrowing();
+                // }
+
+                return;
+            }    
+        }
+
+        _hasTarget = false;
+
+        //if(enemyMove.AnimController is MushroomMineAnimController anim)
+        //{
+            anim.SetToStartShrinking();
+        //}
     }
 
     // Box collider exit logic => shrink
@@ -68,6 +88,15 @@ public class MushroomMineController : BaseMonsterController
         // Check the player layer (use LayerMask)
         if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
+            //AdjustScale(false);
+
+            var Player = collision.GetComponent<PlayerController>();
+            //bool isSamePlatform = false;
+            if(Player != null)
+            {
+                Player.onBlinked -= AdjustScale;
+            }
+
             _hasTarget = false;
 
             if(enemyMove.AnimController is MushroomMineAnimController anim)
@@ -108,7 +137,7 @@ public class MushroomMineController : BaseMonsterController
         Debug.Log("Collide with player. Deal explosion damage");
 
         // 3. take damage to itself for calling on death event dispatcher
-        enemyStat.TakeDamage(this.gameObject, enemyStat.MaxHP);
+        enemyStat.TakeDamage(this.gameObject, enemyStat.MaxHP, ESpawnType.WaterBall);
         
     }
 
@@ -138,7 +167,7 @@ public class MushroomMineController : BaseMonsterController
         
     }
 
-    protected override void PlayerDetected(bool bIsDifferentPlatform, Collider2D hit)
+    protected override void PlayerDetected(bool bIsDifferentPlatform, GameObject hit)
     {
         
     }
