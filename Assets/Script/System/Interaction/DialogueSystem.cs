@@ -21,6 +21,7 @@ public class DialogueSystem : MonoBehaviour
 
     [SerializeField] private static readonly TextAsset _dialogueCSV;
     public event Action DialogueEnded;
+    public event Action DialogueStarted;
     private List<DialogueRow> _dialogueLines;
     private int _currentIndex = 0;
     private bool _hasDialogueEnded = false;
