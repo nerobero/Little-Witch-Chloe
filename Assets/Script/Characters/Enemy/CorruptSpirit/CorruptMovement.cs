@@ -88,13 +88,6 @@ public class CorruptMovement : EnemyMovement
         _isBackground = !_isBackground;
 
         //4. ignoring the colliders of the teleported ground.
-        //Physics2D.IgnoreLayerCollision(platformLayer, _bgLayerIndex, !_isBackground);
-        // Physics2D.IgnoreCollision(myCollider, hitresult.collider, true);
-        // _ignoredColliders.Add(hitresult.collider);
-        //Physics2D.IgnoreLayerCollision(platformLayer, _fgLayerIndex, _isBackground);
-        // Physics2D.IgnoreCollision(myCollider, hit.collider, false);
-        // _ignoredColliders.Remove(hit.collider);
-
         if(_isBackground)
         {
             myCollider.includeLayers |= (1 << _bgLayerIndex);

@@ -156,6 +156,26 @@ public class StatManager : MonoBehaviour
         return true;
     }
 
+    public virtual void IncreaseMaxHP(float amount)
+    {
+        if (IsDead || amount <= 0.0f)
+            return false;
+
+        // Increase the max hp and heal
+        maxHP += amount;
+        return Heal(amount); // this is same with increase current hp
+    }
+    
+    /// <summary>
+    /// Buff system but not used yet.
+    /// </summary>
+    /// <param name="buffAmount"></param>
+    /// <returns></returns>
+    public virtual bool Buff(float buffAmount)
+    {
+        return false;
+    }
+
     /// <summary>
     /// the base method of death
     /// </summary>

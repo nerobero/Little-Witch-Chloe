@@ -206,8 +206,6 @@ public class EnemyControllerBase : MonoBehaviour
             enemyMove.BlinkToOtherPlatform();
         }
 
-        Debug.Log(enemyState);
-
         Think();
     }
 
@@ -289,7 +287,7 @@ public class EnemyControllerBase : MonoBehaviour
             return;
         }
 
-        PlayerDetected(enemyMove.IsBackground == playerMove.IsBackground, instigator);
+        PlayerDetected(enemyMove.IsBackground != playerMove.IsBackground, instigator);
     }
 
 

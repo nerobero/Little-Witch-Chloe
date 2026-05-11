@@ -62,4 +62,14 @@ namespace Types
         StaminaItem,
     }
 
+    /// <summary>
+    /// Defines a type of buff that can be granted
+    /// and be managed by the stat
+    /// </summary>
+    public enum EBuffType
+    {
+        None = 0,
+        Empowere,
+        
+    }
 }
