@@ -7,6 +7,8 @@ public class CorruptMovement : EnemyMovement
     
     private void Awake()
     {
+        base.Awake();
+        
         _originalSpeed = speed;
 
         ChangeOrderInLayer();
@@ -115,7 +117,7 @@ public class CorruptMovement : EnemyMovement
 
         // 6. Change the order layer
         ChangeOrderInLayer();
-        
+
         base.BlinkToOtherPlatform();
     }
 
