@@ -167,7 +167,7 @@ public class MushroomMineController : BaseMonsterController
         
     }
 
-    protected override void PlayerDetected(bool bIsDifferentPlatform, GameObject hit)
+    protected override void PlayerDetected(Vector2 position)
     {
         
     }

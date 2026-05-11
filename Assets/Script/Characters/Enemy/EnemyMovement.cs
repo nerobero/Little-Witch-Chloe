@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 /// <summary>
 /// Base class for enemy movement and physics.
@@ -40,6 +41,7 @@ public class EnemyMovement : MonoBehaviour
     protected EnemyAnimController _animController;
     public EnemyAnimController AnimController => _animController;
     protected int orderInLayer;
+    public Action<Vector2> aa;
 
     [Header("Patrol Settings")]
     public Vector2 targetPosition;
@@ -52,7 +54,7 @@ public class EnemyMovement : MonoBehaviour
     protected PolygonCollider2D  myCollider;
 
     protected HashSet<Collider2D> _ignoredColliders = new HashSet<Collider2D>();
-
+    protected bool isBlinking = false;
 
     // @TODO: Add a serialized private/public PlayerAnimControl class reference here
 
@@ -300,5 +302,6 @@ public class EnemyMovement : MonoBehaviour
         */
 
         //Debug.Log("Hello");
+        isBlinking = false;
     }
 }

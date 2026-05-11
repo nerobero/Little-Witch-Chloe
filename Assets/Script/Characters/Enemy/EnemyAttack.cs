@@ -80,17 +80,11 @@ public class EnemyAttack : MonoBehaviour
         var projectile = PoolObjectManager.Instance.Get(_currentSpell).GetComponent<ProjectileBase>();
         if (projectile == null) return;
 
-        Debug.Log($"FirePoint 위치: {_firePoint.position}");
-        Debug.Log($"Projectile 스폰 위치: {projectile.transform.position}");
-        Debug.Log($"Aim 각도: {_aimAngleDeg}");
-
         // taking the time snapshot for checking for inactivity:
         _ATKTimeSnapshot = Time.time;
         // _animController?.SetToIsAttacking(true);
         _animController.SetToIsAttacking();
         projectile.OnFired(_firePoint, _aimAngleDeg, isBackground, gameObject);
-
-        Debug.Log($"OnFired 후 Projectile 위치: {projectile.transform.position}");
     }
 
     /// <summary>

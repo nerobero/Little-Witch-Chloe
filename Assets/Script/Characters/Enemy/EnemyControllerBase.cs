@@ -100,7 +100,7 @@ public class EnemyControllerBase : MonoBehaviour
             // if the player is on the different platform.
             if(enemyMove.IsBackground != playerMove.IsBackground)
             {
-                PlayerDetected(true, hit.gameObject);
+                PlayerDetected();
 
                 return;
             }
@@ -121,7 +121,7 @@ public class EnemyControllerBase : MonoBehaviour
                 if(dot > cosThreshold)
                 {
                     // the player is in view triangle
-                    PlayerDetected(false, hit.gameObject);
+                    PlayerDetected(false, hit.gameObject.transform.position);
 
                     return;
                 }
@@ -181,33 +181,28 @@ public class EnemyControllerBase : MonoBehaviour
         }
     }
 
-    protected virtual void PlayerDetected(bool bIsDifferentPlatform, GameObject hit)
+    protected virtual void PlayerDetected(Vector2 targetPosition)
     {
         _hasTarget = true;
         targetTimer = FORGET_TIME; // initialize the timer as 5 seconds.
 
+        enemyMove.OnBlinkCallback();
+
         if(isProjectile)
         {
             enemyState = EMonsterState.Attack;
-            enemyMove.targetPosition = hit.transform.position;
+            enemyMove.targetPosition = targetPosition;
             enemyMove.SetMoveDirection(0); // Stop
         }
         else
         {
             enemyState = EMonsterState.Chase;
-            enemyMove.MoveToTarget(hit.transform.position);
-        }
-
-        //enemyMove.targetPosition = hit.transform.position;
-
-        if(bIsDifferentPlatform)
-        {
-
-            enemyMove.BlinkToOtherPlatform();
+            enemyMove.MoveToTarget(targetPosition);
         }
 
         Think();
     }
+
 
     // AI behavior
     protected virtual void Think()
@@ -221,13 +216,10 @@ public class EnemyControllerBase : MonoBehaviour
                 FireProjectile();
                 Invoke("Think", 2);
             break;
-            case EMonsterState.Chase:
-                //enemyMove.MoveToTarget();
-                Invoke("Think", 2);
-            break;
             case EMonsterState.Idle:
                 CancelInvoke();
             break;
+            case EMonsterState.Chase:
             default:
                 enemyMove.Think();
                 Invoke("Think", 2);
@@ -287,7 +279,7 @@ public class EnemyControllerBase : MonoBehaviour
             return;
         }
 
-        PlayerDetected(enemyMove.IsBackground != playerMove.IsBackground, instigator);
+        PlayerDetected(instigator.transform.position);
     }
 
 

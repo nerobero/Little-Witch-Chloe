@@ -67,4 +67,9 @@ public class LesserSpiritController : CorruptController
     {
         //enemyMove.MoveToTarget();
     }
+
+    public override void Blink()
+    {
+        base.Blink();
+    }
 }

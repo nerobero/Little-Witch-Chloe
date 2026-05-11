@@ -241,6 +241,7 @@ MonoBehaviour:
   _firePointObject: {fileID: 1278601370393913022}
   _firePoint: {fileID: 5244638233950203186}
   _orbitRadius: 1.05
+  isBackground: 0
 --- !u!212 &4564149981406015731
 SpriteRenderer:
   serializedVersion: 2
@@ -367,8 +368,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c459c9e9eb3f3134abdedeace32e6403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatManager
-  maxHP: 0
-  currentHP: 0
+  maxHP: 3
+  currentHP: 3
+  characterElement: 0
   MaxStamina: 30
   CurrentStamina: 30
 --- !u!95 &7084486764173208723
