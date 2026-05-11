@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class CorruptMovement : EnemyMovement
 {
-    protected void Awake()
+    [SerializeField] private float speedIncFactor = 1f;
+    private float _originalSpeed;
+    
+    private void Awake()
     {
-        base.Awake();
+        _originalSpeed = speed;
 
         ChangeOrderInLayer();
     }
@@ -27,7 +30,7 @@ public class CorruptMovement : EnemyMovement
     public override void MoveToTarget(Vector2 target)
     {
         if(!isChasing)
-            speed *= 1.5f;
+            speed *= speedIncFactor;
         
         base.MoveToTarget(target);
         // Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
@@ -37,9 +40,14 @@ public class CorruptMovement : EnemyMovement
     public override void StopChasing()
     {
         if(isChasing)
-            speed /= 1.5f;
+            speed = _originalSpeed;
 
         base.StopChasing();
+    }
+
+    public override void OnBlinkCallback()
+    {
+        BlinkToOtherPlatform();
     }
 
     public override void BlinkToOtherPlatform()
@@ -51,7 +59,6 @@ public class CorruptMovement : EnemyMovement
         */
 
         //1. finding if there is any teleportable platform within the given radius 
-        base.BlinkToOtherPlatform();
         LayerMask layerParam = _isBackground ? fgLayer : bgLayer;
         Collider2D collided = Physics2D.OverlapCircle(transform.position, 15.0f, layerParam);
         int currLayer = GetGroundLayer();
@@ -108,6 +115,8 @@ public class CorruptMovement : EnemyMovement
 
         // 6. Change the order layer
         ChangeOrderInLayer();
+        
+        base.BlinkToOtherPlatform();
     }
 
     /// <summary>
@@ -119,6 +128,6 @@ public class CorruptMovement : EnemyMovement
 
         orderInLayer = _isBackground ? -1 : 0;
         _spriteRender.sortingOrder = orderInLayer;
-        //_childSpriteRender.sortingOrder = orderInLayer;
+
     }
 }
