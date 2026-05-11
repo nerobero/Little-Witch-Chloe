@@ -196,7 +196,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &7180754108153495968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a89a26b407c14241963d46b89b2ab2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileBase
-  dealtDamage: 12
+  dealtDamage: 5
   speed: 10
   lifeSpan: 10
   spawnType: 0
+  elementType: 0

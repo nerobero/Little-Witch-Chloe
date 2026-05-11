@@ -137,7 +137,7 @@ public class MushroomMineController : BaseMonsterController
         Debug.Log("Collide with player. Deal explosion damage");
 
         // 3. take damage to itself for calling on death event dispatcher
-        enemyStat.TakeDamage(this.gameObject, enemyStat.MaxHP, ESpawnType.WaterBall);
+        enemyStat.TakeDamage(this.gameObject, enemyStat.MaxHP, EElementType.Water);
         
     }
 
