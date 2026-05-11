@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -112,17 +112,24 @@ TextureImporter:
       name: effect_sprite_sheet_sprit_1_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 25
-        width: 36
-        height: 14
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 21, y: -3}
+        - {x: 21, y: 2}
+        - {x: 19, y: 6}
+        - {x: 3, y: 6}
+        - {x: -6, y: -1}
+        - {x: -6, y: -6}
+        - {x: 17, y: -6}
+      tessellationDetail: 0
       bones: []
       spriteID: c9bbcd1108d991cb0800000000000000
       internalID: -4892706346780279908
@@ -134,17 +141,24 @@ TextureImporter:
       name: effect_sprite_sheet_sprit_1_1
       rect:
         serializedVersion: 2
-        x: 69
-        y: 25
-        width: 49
-        height: 14
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 21, y: -4}
+        - {x: 21, y: 2}
+        - {x: 19, y: 6}
+        - {x: -20, y: 6}
+        - {x: -20, y: -1}
+        - {x: 1, y: -6}
+        - {x: 17, y: -6}
+      tessellationDetail: 0
       bones: []
       spriteID: 6baba69a202ad5130800000000000000
       internalID: 3557177413008538294
@@ -156,17 +170,24 @@ TextureImporter:
       name: effect_sprite_sheet_sprit_1_2
       rect:
         serializedVersion: 2
-        x: 136
-        y: 25
-        width: 46
-        height: 14
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 21, y: -2}
+        - {x: 21, y: 3}
+        - {x: 19, y: 6}
+        - {x: 3, y: 6}
+        - {x: -2, y: -2}
+        - {x: -2, y: -6}
+        - {x: 19, y: -6}
+      tessellationDetail: 0
       bones: []
       spriteID: 9c415eaea70850be0800000000000000
       internalID: -1511660834497686327
@@ -178,17 +199,25 @@ TextureImporter:
       name: effect_sprite_sheet_sprit_1_3
       rect:
         serializedVersion: 2
-        x: 197
-        y: 25
-        width: 49
-        height: 16
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 21, y: -3}
+        - {x: 21, y: 2}
+        - {x: 19, y: 6}
+        - {x: 12, y: 8}
+        - {x: 4, y: 4}
+        - {x: 2, y: 0}
+        - {x: 2, y: -3}
+        - {x: 16, y: -7}
+      tessellationDetail: 0
       bones: []
       spriteID: 8e45d0695fa0e67d0800000000000000
       internalID: -2923387058216151832
@@ -208,7 +237,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       effect_sprite_sheet_sprit_1_0: -4892706346780279908
       effect_sprite_sheet_sprit_1_1: 3557177413008538294
