@@ -58,6 +58,7 @@ public class EnemyControllerBase : MonoBehaviour
     {
         // Caching once, never having to re-fetch again:
         enemyMove = GetComponent<EnemyMovement>();
+        enemyMove.OnBlinkFinished += ChangeStateToATKorChase;
         enemyAttack = GetComponent<EnemyAttack>();
         enemyStat = GetComponent<EnemyCharacterBase>();
         // _animator = GetComponent<PlayerAnimator>();
@@ -186,27 +187,28 @@ public class EnemyControllerBase : MonoBehaviour
         _hasTarget = true;
         targetTimer = FORGET_TIME; // initialize the timer as 5 seconds.
 
+        if(bIsDifferentPlatform)
+        {
+            enemyMove.targetPosition = hit.transform.position;
+            enemyMove.OnBlinkCallback();
+        }
+
+        Think();
+    }
+
+    private void ChangeStateToATKorChase(Vector2 position)
+    {
         if(isProjectile)
         {
             enemyState = EMonsterState.Attack;
-            enemyMove.targetPosition = hit.transform.position;
+            enemyMove.targetPosition = position;
             enemyMove.SetMoveDirection(0); // Stop
         }
         else
         {
             enemyState = EMonsterState.Chase;
-            enemyMove.MoveToTarget(hit.transform.position);
+            enemyMove.MoveToTarget(position);
         }
-
-        //enemyMove.targetPosition = hit.transform.position;
-
-        if(bIsDifferentPlatform)
-        {
-
-            enemyMove.BlinkToOtherPlatform();
-        }
-
-        Think();
     }
 
     // AI behavior

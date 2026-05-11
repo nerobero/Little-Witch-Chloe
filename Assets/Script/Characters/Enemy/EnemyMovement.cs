@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
+using Random = UnityEngine.Random;
 
 /// <summary>
 /// Base class for enemy movement and physics.
@@ -30,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] protected LayerMask bgLayer;
     [SerializeField] protected LayerMask fgLayer;
-
+    public event Action<Vector2> OnBlinkFinished;
     protected int platformLayer => gameObject.layer;
     protected int _bgLayerIndex => (int)Mathf.Log(bgLayer.value, 2);
     protected int _fgLayerIndex => (int)Mathf.Log(fgLayer.value, 2);
@@ -291,6 +293,12 @@ public class EnemyMovement : MonoBehaviour
         // BONUS logic here if needed:
     }
 
+    public virtual void OnBlinkCallback()
+    {
+        // change the state of the _animController.SetToSeen()
+    }
+
+
     public virtual void BlinkToOtherPlatform()
     {
         /*
@@ -299,6 +307,6 @@ public class EnemyMovement : MonoBehaviour
         teleport to. 
         */
 
-        //Debug.Log("Hello");
+        OnBlinkFinished.Invoke(targetPosition);
     }
 }

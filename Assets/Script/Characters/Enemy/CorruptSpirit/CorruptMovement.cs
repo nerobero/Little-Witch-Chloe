@@ -3,11 +3,6 @@ using UnityEngine;
 public class CorruptMovement : EnemyMovement
 {
 
-    void Start()
-    {
-        
-    }
-
     public override void Think()
     {
         // Check Z axis 

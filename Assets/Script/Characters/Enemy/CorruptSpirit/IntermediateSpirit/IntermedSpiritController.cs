@@ -1,29 +1,29 @@
 using UnityEngine;
 using Types;
 
-public class LesserSpiritController : CorruptController
+public class IntermedSpiritController : CorruptController
 {
     protected override void Think()
     {
-        switch(enemyState)
+        switch (enemyState)
         {
             case EMonsterState.Attack:
-
-                // HERE ATTACK LOGIC
                 Attack();
                 Invoke("Think", 2);
-            break;
+                break;
             case EMonsterState.Chase:
                 //enemyMove.MoveToTarget();
                 Invoke("Think", 2);
-            break;
+                break;
             case EMonsterState.Idle:
                 CancelInvoke();
-            break;
+                break;
+            case EMonsterState.Seen:
+                break;
             default:
                 enemyMove.Think();
                 Invoke("Think", 2);
-            break;
+                break;
 
         }
     }
@@ -32,25 +32,14 @@ public class LesserSpiritController : CorruptController
     {
         float probability = (float)Random.Range(0, 100) / 100.0f;
 
-        if(probability >= 0.7f)
+        if (probability >= 0.7f)
         {
             enemyAttack.SetAimDirection(enemyMove.targetPosition - (Vector2)transform.position);
             enemyAttack.FireNormal();
         }
         else
         {
-           // Temp
-           FireCharged(0.0f);
+            FireCharged(0.0f);
         }
-    }
-
-    protected override void FireCharged(float chargeRatio)
-    {
-        
-    }
-
-    protected override void MeleeAttack()
-    {
-        //enemyMove.MoveToTarget();
     }
 }

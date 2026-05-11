@@ -8,6 +8,20 @@ public class CorruptController : EnemyControllerBase
     [Header("Chasing Settings")]
     [SerializeField] protected float detectionRange = 10f;
 
+    protected virtual void Attack()
+    {
+        if (isProjectile)
+        {
+            // Current weapon is projectile
+            FireProjectile();
+        }
+        else
+        {
+            // Current weapon is melee
+            MeleeAttack();
+        }
+    }
+
     protected override void FireProjectile()
     {
         float probability = (float)Random.Range(0, 100) / 100.0f;
