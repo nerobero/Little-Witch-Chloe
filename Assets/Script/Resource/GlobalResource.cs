@@ -30,6 +30,7 @@ namespace Types
         Chase,      // Chase the target
         Attack,     // Attack the target
         Dead,      // Dead state
+        Seen, // Some monsters have a separate interaction with the player when 'seen'
     }
 
 

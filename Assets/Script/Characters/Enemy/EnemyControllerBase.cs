@@ -58,6 +58,7 @@ public class EnemyControllerBase : MonoBehaviour
     {
         // Caching once, never having to re-fetch again:
         enemyMove = GetComponent<EnemyMovement>();
+        enemyMove.OnBlinkFinished += ChangeStateToATKorChase;
         enemyAttack = GetComponent<EnemyAttack>();
         enemyStat = GetComponent<EnemyCharacterBase>();
         // _animator = GetComponent<PlayerAnimator>();
@@ -100,7 +101,7 @@ public class EnemyControllerBase : MonoBehaviour
             // if the player is on the different platform.
             if(enemyMove.IsBackground != playerMove.IsBackground)
             {
-                PlayerDetected();
+                PlayerDetected(true, hit.gameObject);
 
                 return;
             }
@@ -121,7 +122,7 @@ public class EnemyControllerBase : MonoBehaviour
                 if(dot > cosThreshold)
                 {
                     // the player is in view triangle
-                    PlayerDetected(false, hit.gameObject.transform.position);
+                    PlayerDetected(false, hit.gameObject);
 
                     return;
                 }
@@ -181,28 +182,34 @@ public class EnemyControllerBase : MonoBehaviour
         }
     }
 
-    protected virtual void PlayerDetected(Vector2 targetPosition)
+    protected virtual void PlayerDetected(bool bIsDifferentPlatform, GameObject hit)
     {
         _hasTarget = true;
         targetTimer = FORGET_TIME; // initialize the timer as 5 seconds.
 
-        enemyMove.OnBlinkCallback();
-
-        if(isProjectile)
+        if(bIsDifferentPlatform)
         {
-            enemyState = EMonsterState.Attack;
-            enemyMove.targetPosition = targetPosition;
-            enemyMove.SetMoveDirection(0); // Stop
-        }
-        else
-        {
-            enemyState = EMonsterState.Chase;
-            enemyMove.MoveToTarget(targetPosition);
+            enemyMove.targetPosition = hit.transform.position;
+            enemyMove.OnBlinkCallback();
         }
 
         Think();
     }
 
+    private void ChangeStateToATKorChase(Vector2 position)
+    {
+        if(isProjectile)
+        {
+            enemyState = EMonsterState.Attack;
+            enemyMove.targetPosition = position;
+            enemyMove.SetMoveDirection(0); // Stop
+        }
+        else
+        {
+            enemyState = EMonsterState.Chase;
+            enemyMove.MoveToTarget(position);
+        }
+    }
 
     // AI behavior
     protected virtual void Think()
@@ -216,10 +223,13 @@ public class EnemyControllerBase : MonoBehaviour
                 FireProjectile();
                 Invoke("Think", 2);
             break;
+            case EMonsterState.Chase:
+                //enemyMove.MoveToTarget();
+                Invoke("Think", 2);
+            break;
             case EMonsterState.Idle:
                 CancelInvoke();
             break;
-            case EMonsterState.Chase:
             default:
                 enemyMove.Think();
                 Invoke("Think", 2);
@@ -279,7 +289,7 @@ public class EnemyControllerBase : MonoBehaviour
             return;
         }
 
-        PlayerDetected(instigator.transform.position);
+        PlayerDetected(enemyMove.IsBackground != playerMove.IsBackground, instigator);
     }
 
 
