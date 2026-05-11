@@ -9,6 +9,7 @@ public class MushroomMineController : BaseMonsterController
 
     // Activated Is Trigger, to detect player
     BoxCollider2D triggerCollider;
+    
 
 
     protected override void Start()
@@ -167,7 +168,7 @@ public class MushroomMineController : BaseMonsterController
         
     }
 
-    protected override void PlayerDetected(Vector2 position)
+    protected virtual void PlayerDetected(bool bIsDifferentPlatform, GameObject hit)
     {
         
     }

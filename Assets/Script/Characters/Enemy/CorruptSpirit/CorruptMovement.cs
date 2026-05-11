@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class CorruptMovement : EnemyMovement
 {
+    protected void Awake()
+    {
+        base.Awake();
 
+        ChangeOrderInLayer();
+    }
     public override void Think()
     {
         // Check Z axis 
@@ -101,7 +106,19 @@ public class CorruptMovement : EnemyMovement
         //5. reposition the player character:
         rb.position = new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
 
-        orderInLayer = _isBackground? -1 : 0;
+        // 6. Change the order layer
+        ChangeOrderInLayer();
+    }
+
+    /// <summary>
+    /// Set the gameobject's orderInLayer -1 or 0 based on whether
+    /// the character is in the background or not.
+    /// </summary>
+    protected void ChangeOrderInLayer()
+    {
+
+        orderInLayer = _isBackground ? -1 : 0;
         _spriteRender.sortingOrder = orderInLayer;
+        //_childSpriteRender.sortingOrder = orderInLayer;
     }
 }

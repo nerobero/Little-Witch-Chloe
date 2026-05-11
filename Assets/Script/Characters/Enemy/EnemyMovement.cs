@@ -53,8 +53,6 @@ public class EnemyMovement : MonoBehaviour
     protected SpriteRenderer _spriteRender;
     protected PolygonCollider2D  myCollider;
 
-    protected HashSet<Collider2D> _ignoredColliders = new HashSet<Collider2D>();
-
 
     // @TODO: Add a serialized private/public PlayerAnimControl class reference here
 

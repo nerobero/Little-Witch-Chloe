@@ -54,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,12 +106,12 @@ TextureImporter:
       name: cha_sprite_sheet_frog_idle_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 44
         y: 0
-        width: 32
-        height: 32
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -130,28 +130,23 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cha_sprite_sheet_frog_idle_1
+      name: cha_sprite_sheet_frog_idle_27
       rect:
         serializedVersion: 2
-        x: 32
+        x: 12
         y: 0
-        width: 32
-        height: 32
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 3, y: -8}
-        - {x: -2, y: -8}
-        - {x: -3, y: -9}
-        - {x: -3, y: -16}
-        - {x: 3, y: -16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47d2b87aefdc3b470800000000000000
-      internalID: 8409291422847151476
+      spriteID: 9d7e21c72064b5441924c164a8ceb66b
+      internalID: 1606827464
       vertices: []
       indices: 
       edges: []
@@ -174,6 +169,32 @@ TextureImporter:
     nameFileIdTable:
       cha_sprite_sheet_frog_idle_0: 8653373438735295252
       cha_sprite_sheet_frog_idle_1: 8409291422847151476
+      cha_sprite_sheet_frog_idle_10: -1041493021
+      cha_sprite_sheet_frog_idle_11: -137953566
+      cha_sprite_sheet_frog_idle_12: -621393661
+      cha_sprite_sheet_frog_idle_13: -2130350493
+      cha_sprite_sheet_frog_idle_14: -54889463
+      cha_sprite_sheet_frog_idle_15: -1867938617
+      cha_sprite_sheet_frog_idle_16: 1092065744
+      cha_sprite_sheet_frog_idle_17: 2100261252
+      cha_sprite_sheet_frog_idle_18: -52399904
+      cha_sprite_sheet_frog_idle_19: 428176622
+      cha_sprite_sheet_frog_idle_2: 1144718748
+      cha_sprite_sheet_frog_idle_20: 2130531491
+      cha_sprite_sheet_frog_idle_21: -1948638665
+      cha_sprite_sheet_frog_idle_22: 815468385
+      cha_sprite_sheet_frog_idle_23: -1818942761
+      cha_sprite_sheet_frog_idle_24: -782729767
+      cha_sprite_sheet_frog_idle_25: 1977460069
+      cha_sprite_sheet_frog_idle_26: -1594897697
+      cha_sprite_sheet_frog_idle_27: 1606827464
+      cha_sprite_sheet_frog_idle_3: -958239446
+      cha_sprite_sheet_frog_idle_4: 1497293664
+      cha_sprite_sheet_frog_idle_5: -2124085576
+      cha_sprite_sheet_frog_idle_6: 711983125
+      cha_sprite_sheet_frog_idle_7: 330272721
+      cha_sprite_sheet_frog_idle_8: -309206633
+      cha_sprite_sheet_frog_idle_9: -956325475
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
