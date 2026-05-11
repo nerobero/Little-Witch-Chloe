@@ -37,4 +37,9 @@ public class IntermedSpiritAnimController : EnemyAnimController
     {
         _animator.SetBool(IsAttackingHash, isAttacking);
     }
+
+    public void SetToSeenTrans()
+    {
+
+    }
 }
