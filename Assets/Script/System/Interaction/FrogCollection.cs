@@ -19,6 +19,8 @@ public class FrogCollection : ItemBase
 
     protected override bool OnInteract(Collider2D other)
     {
+        GameManager.Instance.OnFrogCollected();
+
         var stat = other.GetComponent<StatManager>();
         
         return stat.IncreaseMaxHP(healAmount);

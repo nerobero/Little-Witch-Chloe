@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
     // make Game Manager to singleton
     public static GameManager Instance {get; private set;}
 
+    private int collectedFrog;
+
     private void Awake()
     {
         if(Instance == null)
@@ -29,5 +31,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnFrogCollected()
+    {
+        collectedFrog++;
     }
 }
