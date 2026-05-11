@@ -18,9 +18,47 @@ public class EnemyAttack : MonoBehaviour
 
     [SerializeField] protected float damageAmount;
 
+    protected EnemyAnimController _animController;
+    
+    protected float _ATKTimeSnapshot = -1f;
+    protected float _chargedATKTimeSnapshot = -1f;
+
+    [Header("Chloe's shoot point")]
+    [SerializeField] protected SpriteRenderer _firePointObject;
+    [SerializeField] protected Transform _firePoint; // static child gameobject that represents the shoot point
+    [SerializeField] protected float _orbitRadius; // the radius of which the shoot point will rotate around Chloe
+    protected Vector2 _aimDirection = Vector2.up; // for storing the current aim direction
+    protected float _aimAngleDeg = 0f;
+
+    protected bool isBackground;
+
     public virtual void Attack(GameObject target)
     {
         
+    }
+
+    /// <summary>
+    /// Rotates and re-positions the shoot-point based on the position of the mouse cursor.
+    /// 1. normalizes the direction vector and set the _aimDirection as that value
+    /// 2. change the position of the shoot point
+    /// 3. rotate the shoot point so that its up direction faces the cursor
+    /// </summary>
+    /// <param name="dir">the incoming direction</param>
+    public void SetAimDirection(Vector2 dir)
+    {
+        // normalizing the direction vector before multiplying the orbit radius
+        Vector2 normalizedDir = Vector2.Normalize(dir);
+        _aimDirection = normalizedDir;
+
+        // calculating the aim angle by getting the arctangent and converting the value to degrees
+        // (the 2D vector is relative to the positive X axis)
+        _aimAngleDeg = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg;
+
+        // setting the shoot point's position based on Chloe's world position:
+        _firePoint.position = (Vector2)transform.position + _aimDirection * _orbitRadius;
+
+        // rotating the shoot point so that its up direction faces the cursor
+        _firePoint.rotation = Quaternion.Euler(0, 0, _aimAngleDeg - 90f);
     }
 
     /// <summary>
@@ -31,7 +69,14 @@ public class EnemyAttack : MonoBehaviour
         // extra sanity check before actually shooting
         // if (!CanCastThisSpell(_currentSpell)) return;
 
-        PoolObjectManager.Instance.Get(_currentSpell);
+        var projectile = PoolObjectManager.Instance.Get(_currentSpell).GetComponent<ProjectileBase>();
+        if (projectile == null) return;
+
+        // taking the time snapshot for checking for inactivity:
+        _ATKTimeSnapshot = Time.time;
+        // _animController?.SetToIsAttacking(true);
+        _animController.SetToIsAttacking();
+        projectile.OnFired(_firePoint, _aimAngleDeg, isBackground, gameObject);
     }
 
     /// <summary>

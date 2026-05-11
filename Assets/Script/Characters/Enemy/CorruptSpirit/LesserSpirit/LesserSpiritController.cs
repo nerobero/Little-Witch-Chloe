@@ -1,16 +1,70 @@
 using UnityEngine;
+using Types;
 
 public class LesserSpiritController : CorruptController
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Think()
+    {
+        switch(enemyState)
+        {
+            case EMonsterState.Attack:
+
+                // HERE ATTACK LOGIC
+                Attack();
+                Invoke("Think", 2);
+            break;
+            case EMonsterState.Chase:
+                //enemyMove.MoveToTarget();
+                Invoke("Think", 2);
+            break;
+            case EMonsterState.Idle:
+                CancelInvoke();
+            break;
+            default:
+                enemyMove.Think();
+                Invoke("Think", 2);
+            break;
+
+        }
+    }
+
+    void Attack()
+    {
+        if(isProjectile)
+        {
+            // Current weapon is projectile
+            FireProjectile();
+        }
+        else
+        {
+            // Current weapon is melee
+            MeleeAttack();
+        }
+    }
+
+    protected override void FireProjectile()
+    {
+        float probability = (float)Random.Range(0, 100) / 100.0f;
+
+        if(probability >= 0.7f)
+        {
+            enemyAttack.SetAimDirection(enemyMove.targetPosition);
+            enemyAttack.FireNormal();
+        }
+        else
+        {
+            // Temp
+            FireCharged(0.0f);
+        }
+    }
+
+    protected override void FireCharged(float chargeRatio)
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void MeleeAttack()
     {
-        
+        //enemyMove.MoveToTarget();
     }
 }

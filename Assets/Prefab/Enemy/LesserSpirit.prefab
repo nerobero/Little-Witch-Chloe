@@ -54,7 +54,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   chargeAttackCDtime: 0
   changeSpellCDtime: 0
+  _currentSpell: 0
   damageAmount: 0
+  _firePointObject: {fileID: 0}
+  _firePoint: {fileID: 0}
+  _orbitRadius: 0
 --- !u!50 &-781276781480723014
 Rigidbody2D:
   serializedVersion: 5
@@ -154,7 +158,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -178,8 +182,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.625, y: 1.28125}
+    pivot: {x: 0.5, y: 0.25}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -187,15 +191,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.049999997, y: 0.099999994}
-      - {x: -0.099999994, y: 0.044999998}
-      - {x: -0.099999994, y: -0.03}
-      - {x: -0.074999996, y: -0.085}
-      - {x: -0.065, y: -0.099999994}
-      - {x: 0.06, y: -0.099999994}
-      - {x: 0.099999994, y: -0.074999996}
-      - {x: 0.099999994, y: 0.055}
-      - {x: 0.049999997, y: 0.099999994}
+    - - {x: 0.16134854, y: 0.66706026}
+      - {x: -0.0047321096, y: 0.6674006}
+      - {x: -0.17917039, y: 0.45636314}
+      - {x: -0.24492872, y: 0.23795238}
+      - {x: -0.12384625, y: -0.18021472}
+      - {x: 0.11665656, y: -0.17984122}
+      - {x: 0.3795363, y: -0.1800949}
+      - {x: 0.43978965, y: 0.24588421}
+      - {x: 0.35930097, y: 0.4848829}
   m_UseDelaunayMesh: 1
 --- !u!114 &-6319705491011855851
 MonoBehaviour:
@@ -211,7 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacterBase
   maxHP: 0
   currentHP: 0
-  monsterType: 0
+  characterElement: 0
 --- !u!114 &-735388312326350677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +233,7 @@ MonoBehaviour:
   chargeThreshold: 1.5
   maxChargeTime: 3
   loseTargetTime: 4
-  enabled: 1
+  isProjectile: 0
   eyePoint: {x: 0, y: 0, z: 0}
   playerLayer:
     serializedVersion: 2
@@ -237,6 +241,7 @@ MonoBehaviour:
   viewDistance: 5
   viewHeight: 3
   viewAngle: 45
+  targetTimer: 0
   detectionRange: 10
 --- !u!114 &3059663102776062226
 MonoBehaviour:
@@ -277,7 +282,7 @@ Animator:
   m_GameObject: {fileID: 8043046792835732294}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 865c717d432c97e4e8ab20dda5da3c1d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

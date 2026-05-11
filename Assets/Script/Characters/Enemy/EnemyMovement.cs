@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 /// <summary>
 /// Base class for enemy movement and physics.
@@ -48,6 +49,9 @@ public class EnemyMovement : MonoBehaviour
     protected Rigidbody2D rb;
     // enemy's sprite renderer:
     protected SpriteRenderer _spriteRender;
+    protected PolygonCollider2D  myCollider;
+
+    protected HashSet<Collider2D> _ignoredColliders = new HashSet<Collider2D>();
 
 
     // @TODO: Add a serialized private/public PlayerAnimControl class reference here
@@ -56,13 +60,30 @@ public class EnemyMovement : MonoBehaviour
     {
         // makes sure that we auto-get the reference for the rigidbody at runtime:
         rb = GetComponent<Rigidbody2D>();
+        myCollider = GetComponent<PolygonCollider2D >();
         
-        Physics2D.IgnoreLayerCollision(platformLayer, _bgLayerIndex, !_isBackground);
-        Physics2D.IgnoreLayerCollision(platformLayer, _fgLayerIndex, _isBackground);
+        //Physics2D.IgnoreLayerCollision(myCollider.layer, _bgLayerIndex, !_isBackground);
+        //Physics2D.IgnoreLayerCollision(platformLayer, _fgLayerIndex, _isBackground);
+        Physics2D.IgnoreLayerCollision(platformLayer, platformLayer, true);
+
         //
         _spriteRender = GetComponent<SpriteRenderer>();
         _animController = GetComponent<EnemyAnimController>();
-        
+
+        if(_isBackground)
+        {
+            myCollider.includeLayers |= (1 << _bgLayerIndex);
+            myCollider.includeLayers &= ~(1 << _fgLayerIndex);
+            myCollider.excludeLayers |= (1 << _fgLayerIndex);
+            myCollider.excludeLayers &= ~(1 << _bgLayerIndex);
+        }
+        else
+        {
+            myCollider.includeLayers |= (1 << _fgLayerIndex);
+            myCollider.includeLayers &= ~(1 << _bgLayerIndex);
+            myCollider.excludeLayers |= (1 << _bgLayerIndex);
+            myCollider.excludeLayers &= ~(1 << _fgLayerIndex);
+        }
     }
 
     protected virtual void Start()
@@ -140,6 +161,28 @@ public class EnemyMovement : MonoBehaviour
             // }
         }
     }
+
+    // protected virtual void OnCollisionEnter2D(Collision2D collision)
+    // {
+
+    //     int ignoreTargetLayer = _isBackground ? _fgLayerIndex : _bgLayerIndex;
+
+    //     // Check the floor collider's layer
+    //     if (collision.gameObject.layer == ignoreTargetLayer)
+    //     {
+    //         if(_ignoredColliders.Contains(collision.collider)) return;
+
+    //         // Ignore the tile
+    //         Physics2D.IgnoreCollision(myCollider, collision.collider, true);
+    //         _ignoredColliders.Add(collision.collider);
+
+    //         return;
+    //     }
+        
+    //     // don't ignore the tile
+    //     Physics2D.IgnoreCollision(myCollider, collision.collider, false);
+    //     _ignoredColliders.Remove(collision.collider);
+    // }
 
     protected bool IsOnGround()
     {

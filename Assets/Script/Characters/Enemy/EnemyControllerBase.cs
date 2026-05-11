@@ -21,15 +21,14 @@ public class EnemyControllerBase : MonoBehaviour
     [Header("Attack")]
     [SerializeField] protected ESpawnType currentSpell = ESpawnType.FireBall;
 
-    public bool isAttacking {get; private set;}
-    [SerializeField] private float chargeThreshold = 1.5f; // seconds to trigger a charged attack
-    [SerializeField] private float maxChargeTime = 3f;
-    private float _attackPressTime = -1f;
-    [SerializeField] private float loseTargetTime = 4.0f; // time to change idle after missing the target (between 3 and 5 seconds)
-    private float _loseTimer = 0f;
+    public bool isAttacking {get; protected set;}
+    [SerializeField] protected float chargeThreshold = 1.5f; // seconds to trigger a charged attack
+    [SerializeField] protected float maxChargeTime = 3f;
+    protected float _attackPressTime = -1f;
+    [SerializeField] protected float loseTargetTime = 4.0f; // time to change idle after missing the target (between 3 and 5 seconds)
+    protected float _loseTimer = 0f;
     protected bool _hasTarget = false; // Is this monster detected player(target)
-
-    public bool enabled = true;
+    [SerializeField] protected bool isProjectile; // Does this monster projectile attack?
 
     // Used Time.time instead of Time.deltaTime because
     // the charge logic is directly related to the actual timestamp,
@@ -186,7 +185,12 @@ public class EnemyControllerBase : MonoBehaviour
     {
         _hasTarget = true;
         targetTimer = FORGET_TIME; // initialize the timer as 5 seconds.
-        enemyState = EMonsterState.Chase;
+
+        if(isProjectile)
+            enemyState = EMonsterState.Attack;
+        else
+            enemyState = EMonsterState.Chase;
+
         //enemyMove.targetPosition = hit.transform.position;
         enemyMove.MoveToTarget(hit.transform.position);
 

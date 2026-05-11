@@ -75,6 +75,9 @@ public class CorruptMovement : EnemyMovement
         Debug.DrawRay(origin + Vector2.up * camHalfHeight, Vector2.down * camHalfHeight * 2f, new Color(0, 0, 1), 2.0f);
         RaycastHit2D hitresult = Physics2D.Raycast(origin + Vector2.up * camHalfHeight,
                 Vector2.down, camHalfHeight * 2f, layerParam);
+
+        layerParam = _isBackground ? bgLayer : fgLayer;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, layerParam);
         if (hitresult.collider == null)
         {
             Debug.Log("Null");
@@ -85,8 +88,27 @@ public class CorruptMovement : EnemyMovement
         _isBackground = !_isBackground;
 
         //4. ignoring the colliders of the teleported ground.
-        Physics2D.IgnoreLayerCollision(platformLayer, _bgLayerIndex, !_isBackground);
-        Physics2D.IgnoreLayerCollision(platformLayer, _fgLayerIndex, _isBackground);
+        //Physics2D.IgnoreLayerCollision(platformLayer, _bgLayerIndex, !_isBackground);
+        // Physics2D.IgnoreCollision(myCollider, hitresult.collider, true);
+        // _ignoredColliders.Add(hitresult.collider);
+        //Physics2D.IgnoreLayerCollision(platformLayer, _fgLayerIndex, _isBackground);
+        // Physics2D.IgnoreCollision(myCollider, hit.collider, false);
+        // _ignoredColliders.Remove(hit.collider);
+
+        if(_isBackground)
+        {
+            myCollider.includeLayers |= (1 << _bgLayerIndex);
+            myCollider.includeLayers &= ~(1 << _fgLayerIndex);
+            myCollider.excludeLayers |= (1 << _fgLayerIndex);
+            myCollider.excludeLayers &= ~(1 << _bgLayerIndex);
+        }
+        else
+        {
+            myCollider.includeLayers |= (1 << _fgLayerIndex);
+            myCollider.includeLayers &= ~(1 << _bgLayerIndex);
+            myCollider.excludeLayers |= (1 << _bgLayerIndex);
+            myCollider.excludeLayers &= ~(1 << _fgLayerIndex);
+        }
 
         //5. reposition the player character:
         rb.position = new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
