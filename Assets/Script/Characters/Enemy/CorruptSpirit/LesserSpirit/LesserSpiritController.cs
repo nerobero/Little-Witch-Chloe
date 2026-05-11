@@ -48,13 +48,13 @@ public class LesserSpiritController : CorruptController
 
         if(probability >= 0.7f)
         {
-            enemyAttack.SetAimDirection(enemyMove.targetPosition);
+            enemyAttack.SetAimDirection(enemyMove.targetPosition - (Vector2)transform.position);
             enemyAttack.FireNormal();
         }
         else
         {
-            // Temp
-            FireCharged(0.0f);
+           // Temp
+           FireCharged(0.0f);
         }
     }
 

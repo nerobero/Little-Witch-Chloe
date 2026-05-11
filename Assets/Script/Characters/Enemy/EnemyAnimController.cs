@@ -4,10 +4,12 @@ public class EnemyAnimController : BaseCharacterAnimController
 {
     protected static readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
     protected static readonly int IsAttackingTrigHash = Animator.StringToHash("IsAttackingTrig");
+
+    protected SpriteRenderer FirePointObj;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        FirePointObj = GetComponent<EnemyAttack>().FirePointObj;
     }
 
     // Update is called once per frame
@@ -31,4 +33,16 @@ public class EnemyAnimController : BaseCharacterAnimController
         _animator.SetTrigger(IsAttackingTrigHash);
     }
 
+    public override void FlipCharacter(float moveDir)
+    {
+        base.FlipCharacter(moveDir);
+
+        // we only process the character to flip when the 
+        if (!IsFacingRight && moveDir > 0f || IsFacingRight && moveDir < 0f)
+        {
+            Vector2 localPosition2D = FirePointObj.transform.position;
+            localPosition2D.x *= -1f;
+            FirePointObj.transform.localPosition = localPosition2D;
+        }
+    }
 }

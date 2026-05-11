@@ -208,9 +208,9 @@ public class EnemyMovement : MonoBehaviour
         Vector2 frontVec = new Vector2(rb.position.x + groundCheckDistance * MoveDir * speed,
         rb.position.y);
 
-        Debug.DrawRay(frontVec, Vector3.down * 0.5f, new Color(1, 0, 0));
+        Debug.DrawRay(frontVec, Vector3.down * 1.0f, new Color(1, 0, 0));
 
-        RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 0.5f,
+        RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1.0f,
         layerParam);
 
         // If the next position is cliff, then change its direction
@@ -255,7 +255,7 @@ public class EnemyMovement : MonoBehaviour
     public virtual void Think()
     {
         //Debug.Log("Monster Move: Think");
-        MoveDir = Random.Range(-1, 2); // -1 : left, 0: stop, 1: right
+        SetMoveDirection(Random.Range(-1, 2)); // -1 : left, 0: stop, 1: right
 
         //float nextThinkTime = Random.Range(2.0f, 5.0f);
 
@@ -266,7 +266,7 @@ public class EnemyMovement : MonoBehaviour
     protected virtual void Turn()
     {
         //Debug.Log("Monster Move: Turn");
-        MoveDir *= -1;
+        SetMoveDirection(MoveDir * -1f);
         // Cancel all invoke function
         //CancelInvoke();
 
@@ -277,6 +277,7 @@ public class EnemyMovement : MonoBehaviour
     public virtual void SetMoveDirection(float direction)
     {
         MoveDir = direction;
+        _animController.FlipCharacter(MoveDir);
     }
 
     public virtual void Jump()
@@ -298,6 +299,6 @@ public class EnemyMovement : MonoBehaviour
         teleport to. 
         */
 
-        Debug.Log("Hello");
+        //Debug.Log("Hello");
     }
 }

@@ -187,19 +187,28 @@ public class EnemyControllerBase : MonoBehaviour
         targetTimer = FORGET_TIME; // initialize the timer as 5 seconds.
 
         if(isProjectile)
+        {
             enemyState = EMonsterState.Attack;
+            enemyMove.targetPosition = hit.transform.position;
+            enemyMove.SetMoveDirection(0); // Stop
+        }
         else
+        {
             enemyState = EMonsterState.Chase;
+            enemyMove.MoveToTarget(hit.transform.position);
+        }
 
         //enemyMove.targetPosition = hit.transform.position;
-        enemyMove.MoveToTarget(hit.transform.position);
 
         if(bIsDifferentPlatform)
         {
 
-            Debug.Log("Blink");
             enemyMove.BlinkToOtherPlatform();
         }
+
+        Debug.Log(enemyState);
+
+        Think();
     }
 
     // AI behavior
@@ -243,7 +252,7 @@ public class EnemyControllerBase : MonoBehaviour
 
     protected virtual void OnBecameVisible()
     {
-        Debug.Log("Become Visible");
+        //Debug.Log("Become Visible");
         enabled = true;
         enemyMove.enabled = true;
         enemyState = EMonsterState.Patrol;
@@ -252,7 +261,7 @@ public class EnemyControllerBase : MonoBehaviour
 
     protected virtual void OnBecameInvisible()
     {
-        Debug.Log("Become Invisible");
+        //Debug.Log("Become Invisible");
         enabled = false;
         enemyMove.enabled = false;
         enemyState = EMonsterState.Idle;

@@ -24,7 +24,7 @@ public class BaseCharacterAnimController : MonoBehaviour
     /// <summary>
     /// Flips the owner of this component on the x-axis.
     /// </summary>
-    public void FlipCharacter(float moveDir)
+    public virtual void FlipCharacter(float moveDir)
     {
         // we only process the character to flip when the 
         if (!IsFacingRight && moveDir > 0f || IsFacingRight && moveDir < 0f)
