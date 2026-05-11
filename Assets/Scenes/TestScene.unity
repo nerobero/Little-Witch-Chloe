@@ -5346,7 +5346,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2145280404}
-  - component: {fileID: 2145280406}
   - component: {fileID: 2145280405}
   m_Layer: 0
   m_Name: SoundManager
@@ -5389,18 +5388,6 @@ MonoBehaviour:
       Data3: 985334197
       Data4: -1636808202
     Path: event:/MUSIC/Forest Level
---- !u!114 &2145280406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145280402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a685326f6ca0b5408ad88b6cb183f24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1001 &2069237496283617195
 PrefabInstance:
   m_ObjectHideFlags: 0
