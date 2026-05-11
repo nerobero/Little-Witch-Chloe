@@ -156,7 +156,7 @@ public class StatManager : MonoBehaviour
         return true;
     }
 
-    public virtual void IncreaseMaxHP(float amount)
+    public virtual bool IncreaseMaxHP(float amount)
     {
         if (IsDead || amount <= 0.0f)
             return false;
