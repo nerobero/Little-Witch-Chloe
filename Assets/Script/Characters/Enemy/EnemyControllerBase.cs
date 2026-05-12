@@ -101,7 +101,7 @@ public class EnemyControllerBase : MonoBehaviour
             // if the player is on the different platform.
             if(enemyMove.IsBackground != playerMove.IsBackground)
             {
-                PlayerDetected(true, hit.gameObject);
+                PlayerDetected(true, hit.gameObject.transform.position);
 
                 return;
             }
@@ -122,7 +122,7 @@ public class EnemyControllerBase : MonoBehaviour
                 if(dot > cosThreshold)
                 {
                     // the player is in view triangle
-                    PlayerDetected(false, hit.gameObject);
+                    PlayerDetected(false, hit.gameObject.transform.position);
 
                     return;
                 }
@@ -182,14 +182,14 @@ public class EnemyControllerBase : MonoBehaviour
         }
     }
 
-    protected virtual void PlayerDetected(bool bIsDifferentPlatform, GameObject hit)
+    protected virtual void PlayerDetected(bool bIsDifferentPlatform, Vector2 hitPosition)
     {
         _hasTarget = true;
         targetTimer = FORGET_TIME; // initialize the timer as 5 seconds.
 
         if(bIsDifferentPlatform)
         {
-            enemyMove.targetPosition = hit.transform.position;
+            enemyMove.targetPosition = hitPosition;
             enemyMove.OnBlinkCallback();
         }
 
@@ -289,7 +289,7 @@ public class EnemyControllerBase : MonoBehaviour
             return;
         }
 
-        PlayerDetected(enemyMove.IsBackground != playerMove.IsBackground, instigator);
+        PlayerDetected(enemyMove.IsBackground != playerMove.IsBackground, instigator.transform.position);
     }
 
 

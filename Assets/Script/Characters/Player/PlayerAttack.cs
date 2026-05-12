@@ -136,6 +136,12 @@ public class PlayerAttack : MonoBehaviour
         if (!_spellList.ContainsKey(unlockedType)) return false;
 
         _spellList[unlockedType] = true;
+
+        foreach(var (spell, active) in _spellList)
+        {
+            Debug.Log($"{spell}: {active}");
+        }
+
         return true;
     }
 

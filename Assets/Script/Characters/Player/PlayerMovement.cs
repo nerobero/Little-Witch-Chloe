@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask bgLayer;
     [SerializeField] private LayerMask fgLayer;
     private int orderInLayer;
+    public int OrderInLayer => orderInLayer;
 
     private Rigidbody2D _rb; // Physics body for 2D object
     private bool _isBackground = false; //by default, you're already on 
@@ -75,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
     private void ChangeOrderInLayer()
     {
 
-        orderInLayer = _isBackground ? -1 : 0;
+        orderInLayer = _isBackground ? -1 : 1;
         _spriteRender.sortingOrder = orderInLayer;
         _childSpriteRender.sortingOrder = orderInLayer;
     }
@@ -215,6 +216,9 @@ public class PlayerMovement : MonoBehaviour
         We may need to have our own calculation system for determining where on the platform Chloe should
         teleport to. 
         */
+
+        // If blink is unlocked
+        if(!GameManager.Instance.IsSpellUnlocked(Types.EAbilityType.Blink)) return;
 
         //1. finding if there is any teleportable platform within the given radius 
         LayerMask layerParam = _isBackground ? fgLayer : bgLayer;

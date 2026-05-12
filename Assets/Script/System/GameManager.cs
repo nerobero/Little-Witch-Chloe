@@ -1,11 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
-
+using Types;
 public class GameManager : MonoBehaviour
 {
     // make Game Manager to singleton
     public static GameManager Instance {get; private set;}
 
     private int collectedFrog;
+
+    // Activated spells by scroll. (flying, blink)
+    private HashSet<EAbilityType> unlockedSpell = new HashSet<EAbilityType>();
 
     private void Awake()
     {
@@ -36,5 +40,25 @@ public class GameManager : MonoBehaviour
     public void OnFrogCollected()
     {
         collectedFrog++;
+    }
+
+    /// <summary>
+    /// Manage the unlock ability(current blink and flying)
+    /// </summary>
+    /// <param name="scrollType">the ability to unlock</param>
+    /// <returns>Does ability unlocked succeed</returns>
+    public bool OnScrollCollected(EAbilityType scrollType)
+    {
+        return unlockedSpell.Add(scrollType);
+    }
+
+    /// <summary>
+    /// Check the unlock ability(current blink and flying)
+    /// </summary>
+    /// <param name="spell">the ability to find<</param>
+    /// <returns>Is ability unlocked</returns>
+    public bool IsSpellUnlocked(EAbilityType spell)
+    {
+        return unlockedSpell.Contains(spell);
     }
 }

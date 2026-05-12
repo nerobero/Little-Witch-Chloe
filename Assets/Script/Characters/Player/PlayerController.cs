@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     private float _jumpPressTime = -1f;
 
     public event Action<bool> onBlinked;
-
+    public PlayerMovement PlayerMove => _playerMove;
 
     #region Setup
     private void Awake()
@@ -142,6 +142,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
             float heldFor = Time.time - _jumpPressTime;
             if (heldFor >= flyingThreshold) // state change
             {
+                if(!GameManager.Instance.IsSpellUnlocked(Types.EAbilityType.Flying)) return;
                 _isFlying = true;
                 _playerMove.StartFlying(); // always called before FlyTick()
             }

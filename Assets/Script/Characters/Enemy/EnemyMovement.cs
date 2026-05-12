@@ -84,6 +84,9 @@ public class EnemyMovement : MonoBehaviour
             myCollider.excludeLayers |= (1 << _bgLayerIndex);
             myCollider.excludeLayers &= ~(1 << _fgLayerIndex);
         }
+
+        
+        ChangeOrderInLayer();
     }
 
     protected virtual void Start()
@@ -91,6 +94,18 @@ public class EnemyMovement : MonoBehaviour
         //sr = GetComponent<SpriteRenderer>();
         //Invoke("Think", 1);
         GetGroundLayer();
+    }
+    
+    /// <summary>
+    /// Set the gameobject's orderInLayer -1 or 0 based on whether
+    /// the character is in the background or not.
+    /// </summary>
+     protected void ChangeOrderInLayer()
+    {
+
+        orderInLayer = _isBackground ? -1 : 1;
+        _spriteRender.sortingOrder = orderInLayer;
+
     }
 
     // Physics is based on time (in seconds), thus we should use FixedUpdate

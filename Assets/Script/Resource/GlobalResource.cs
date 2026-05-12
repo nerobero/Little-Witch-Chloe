@@ -10,7 +10,8 @@ namespace Types
     /// </summary>
     public enum EElementType // Have to rename EElementType
     {
-        Fire = 0,
+        None = 0,
+        Fire,
         Plant,
         Poison,
         Darkness,
@@ -71,6 +72,17 @@ namespace Types
     {
         None = 0,
         Empowere,
+        
+    }
+
+    /// <summary>
+    /// Defines an spell that can be granted by scroll
+    /// </summary>
+    public enum EAbilityType
+    {
+        None = 0,
+        Flying,
+        Blink,
         
     }
 }

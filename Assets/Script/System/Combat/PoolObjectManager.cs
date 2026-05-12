@@ -65,6 +65,11 @@ public class PoolObjectManager : MonoBehaviour
 
     public void Return(ESpawnType type, GameObject obj)
     {
+        if(!pools.ContainsKey(type))
+        {
+            pools[type] = new Queue<GameObject>();
+        }
+
         obj.SetActive(false);
         pools[type].Enqueue(obj);
     }

@@ -5,13 +5,11 @@ public class CorruptMovement : EnemyMovement
     [SerializeField] private float speedIncFactor = 1f;
     private float _originalSpeed;
     
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
         
         _originalSpeed = speed;
-
-        ChangeOrderInLayer();
     }
     public override void Think()
     {
@@ -125,11 +123,4 @@ public class CorruptMovement : EnemyMovement
     /// Set the gameobject's orderInLayer -1 or 0 based on whether
     /// the character is in the background or not.
     /// </summary>
-    protected void ChangeOrderInLayer()
-    {
-
-        orderInLayer = _isBackground ? -1 : 0;
-        _spriteRender.sortingOrder = orderInLayer;
-
-    }
 }
