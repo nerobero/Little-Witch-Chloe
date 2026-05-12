@@ -1,3 +1,4 @@
+using System.Data.Common;
 using TMPro;
 using UnityEditor.U2D;
 using UnityEngine;
@@ -43,19 +44,13 @@ public class UIDialoguePanel : UIBase
 
     private void UpdateUI()
     {
-        (string speaker, string dialogue) = DialogueSystem.Instance.ReturnDialogueLine();
+        (string speaker, string dialogue, bool isSameSpeaker) = DialogueSystem.Instance.ReturnDialogueLine();
+
 
         string name1 = speakerName1.text;
         string name2 = speakerName2.text;
 
-        // Check current speaker from dialogue line
-        // If the speaker is speaker1
-        if(name1 == speaker)
-        {
-            
-        }
-        // else if the speaker is speaker2
-        else if(name2 == speaker)
+        if (isSameSpeaker)
         {
             
         }
@@ -65,6 +60,7 @@ public class UIDialoguePanel : UIBase
 
     private void OnNextDialogue()
     {
+        DialogueSystem.Instance.UpdateLineIndex();
         UpdateUI();
     }
     #endregion

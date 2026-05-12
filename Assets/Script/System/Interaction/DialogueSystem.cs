@@ -24,6 +24,7 @@ public class DialogueSystem : MonoBehaviour
     public event Action DialogueStarted;
     private List<DialogueRow> _dialogueLines;
     private int _currentIndex = 0;
+    private string _prevSpeakerName = "";
     private bool _hasDialogueEnded = false;
 
 
@@ -63,18 +64,18 @@ public class DialogueSystem : MonoBehaviour
     /// then invoke the DialogueEnded Event
     /// </summary>
     /// <returns>a tuple of current speaker and current dialogue line</returns>
-    public (string speaker, string dialogueText) ReturnDialogueLine()
+    public (string speaker, string dialogueText, bool IsSameSpeaker) ReturnDialogueLine()
     {
         if (_hasDialogueEnded)
         {
             DialogueEnded.Invoke();
             _hasDialogueEnded = false; // resetting it after invoking the event
-            return ("", "");
+            return ("", "", false);
         }
         DialogueRow row = _dialogueLines[_currentIndex];
         string currentSpeaker = row.speakerName;
         string currentLine = row.dialogueText;
-        return (currentSpeaker, currentLine);
+        return (currentSpeaker, currentLine, currentSpeaker.Equals(_prevSpeakerName));
     }
 
     /// <summary>
@@ -83,6 +84,7 @@ public class DialogueSystem : MonoBehaviour
     public void UpdateLineIndex()
     {
         DialogueRow row = _dialogueLines[_currentIndex];
+        _prevSpeakerName = row.speakerName;
         _currentIndex = (int)row.nextridx;
         _hasDialogueEnded = row.hasDialogueEnded;
     }
