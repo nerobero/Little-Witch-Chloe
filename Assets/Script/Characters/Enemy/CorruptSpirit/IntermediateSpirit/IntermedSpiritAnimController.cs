@@ -24,7 +24,7 @@ public class IntermedSpiritAnimController : EnemyAnimController
 
     public void SetToIdle()
     {
-        _animator.SetBool(IsSeenHash, false);
+        // _animator.SetBool(IsSeenHash, false);
         _animator.SetBool(IdleHash, true);
     }
 

@@ -22,7 +22,7 @@ public class IntermedSpiritMovement : CorruptMovement
     public override void MoveToTarget(Vector2 target)
     {
         base.MoveToTarget(target);
-        _castedAnimController.SetToIdle();
+        // _castedAnimController.SetToIdle();
     }
     public override void OnBlinkCallback()
     {
