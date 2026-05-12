@@ -5,7 +5,7 @@ public class IntermedSpiritAnimController : EnemyAnimController
 
     private static readonly int IsSeenHash = Animator.StringToHash("IsSeen");
     private static readonly int IsSeenTrigHash = Animator.StringToHash("IsSeenTrigg");
-    private static readonly int TransAttackTrigHash = Animator.StringToHash("");
+    private static readonly int TransAttackTrigHash = Animator.StringToHash("TransAttackTrigg");
     private static readonly int IsDeadHash = Animator.StringToHash("IsDead");
     private static readonly int DeadOneShot = Animator.StringToHash("DeadOneShot");
 
@@ -30,6 +30,7 @@ public class IntermedSpiritAnimController : EnemyAnimController
 
     public override void SetToIsAttacking(bool isAttacking)
     {
+        Debug.Log("Intermediate's called");
         _animator.SetTrigger(TransAttackTrigHash);
         base.SetToIsAttacking(isAttacking);
     }

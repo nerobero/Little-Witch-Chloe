@@ -198,7 +198,6 @@ public class EnemyControllerBase : MonoBehaviour
 
         // Remove the delayed function call(think)
         CancelInvoke();
-        Think();
     }
 
     private void ChangeStateToATKorChase(Vector2 position)
@@ -214,6 +213,8 @@ public class EnemyControllerBase : MonoBehaviour
             enemyState = EMonsterState.Chase;
             enemyMove.MoveToTarget(position);
         }
+        
+        Think();
     }
 
     // AI behavior
