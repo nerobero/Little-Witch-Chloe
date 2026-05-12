@@ -13,6 +13,11 @@ GameObject:
   - component: {fileID: 4746890236931693668}
   - component: {fileID: 8843324053056568759}
   - component: {fileID: 1406693521383033894}
+  - component: {fileID: 6236761298486232003}
+  - component: {fileID: 3732890092863350611}
+  - component: {fileID: 5297130023732998316}
+  - component: {fileID: 7916854309380687958}
+  - component: {fileID: 2396583604303670290}
   m_Layer: 9
   m_Name: CorruptSpirit
   m_TagString: Untagged
@@ -32,7 +37,8 @@ Transform:
   m_LocalPosition: {x: 12.08, y: 2.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3387865071293112304}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5017284588309293016
@@ -84,7 +90,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 5232889621539689729, guid: 4964ea8e3231c704f9521a3f0c61d9fc, type: 3}
+  m_Sprite: {fileID: 743093170502734949, guid: 7c81b49e67489d0449c412ea0dde72cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -189,10 +195,149 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.84375, y: -0.71875}
-      - {x: 0.625, y: -0.5}
-      - {x: -0.0625, y: -0.5}
-      - {x: -0.8125, y: -0.78125}
-      - {x: -0.8125, y: -0.96875}
-      - {x: 0.84375, y: -0.96875}
+    - - {x: 0.84375, y: -0.6875}
+      - {x: 0.75, y: 0.8125}
+      - {x: 0.53125, y: 0.90625}
+      - {x: 0.375, y: 0.90625}
+      - {x: -0.6875, y: 0.6875}
+      - {x: -0.875, y: 0.5}
+      - {x: -0.875, y: 0.09375}
+      - {x: -0.15625, y: -0.96875}
+      - {x: 0.5, y: -0.96875}
   m_UseDelaunayMesh: 1
+--- !u!114 &6236761298486232003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608453852482272175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aba2c4a1cc9307f4d8d8b8bf3dfbbe64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntermedSpiritAnimController
+  IsFacingRight: 1
+--- !u!114 &3732890092863350611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608453852482272175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0270a7955adbbfd40bd24f729ea5fde3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntermedSpiritController
+  enemyState: 0
+  currentSpell: 10
+  chargeThreshold: 1.5
+  maxChargeTime: 3
+  loseTargetTime: 4
+  isProjectile: 0
+  eyePoint: {x: 0, y: 0, z: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  viewDistance: 0
+  viewHeight: 0
+  viewAngle: 0
+  targetTimer: 0
+  detectionRange: 10
+--- !u!114 &5297130023732998316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608453852482272175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d4da44e5ab7724aaddeb22a9409e42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntermedSpiritMovement
+  IsEnabled: 1
+  speed: 2
+  jumpHeight: 0
+  flyForce: 0
+  minDistance: 2
+  maxDistance: 3
+  groundCheckDistance: 0.5
+  obstacleDistance: 0.5
+  bgLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  fgLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _isBackground: 0
+  targetPosition: {x: 0, y: 0}
+  isChasing: 0
+  speedIncFactor: 1
+--- !u!114 &7916854309380687958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608453852482272175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95c8b2193bc1b341bd4185c8899c23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  chargeAttackCDtime: 0
+  changeSpellCDtime: 0
+  _currentSpell: 10
+  _elementType: 4
+  damageAmount: 3
+  _firePointObject: {fileID: 0}
+  _firePoint: {fileID: 3387865071293112304}
+  _orbitRadius: 0
+--- !u!114 &2396583604303670290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608453852482272175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd9df285d318464ba890e7de2b5a570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacterBase
+  maxHP: 30
+  currentHP: 30
+  characterElement: 4
+--- !u!1 &5377933577493040639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3387865071293112304}
+  m_Layer: 9
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3387865071293112304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5377933577493040639}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.141, y: 0.163, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 836459279395459010}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

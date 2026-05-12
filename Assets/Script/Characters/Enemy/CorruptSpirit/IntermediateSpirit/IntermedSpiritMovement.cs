@@ -13,6 +13,17 @@ public class IntermedSpiritMovement : CorruptMovement
         _castedAnimController = _animController as IntermedSpiritAnimController;
     }
 
+    public override void SetMoveDirection(float direction)
+    {
+        MoveDir = direction;
+        _animController.FlipCharacter(-MoveDir);
+    }
+    
+    public override void MoveToTarget(Vector2 target)
+    {
+        base.MoveToTarget(target);
+        _castedAnimController.SetToIdle();
+    }
     public override void OnBlinkCallback()
     {
         _castedAnimController.SetToSeenTrans();

@@ -8,17 +8,15 @@ public class IntermedSpiritController : CorruptController
         switch (enemyState)
         {
             case EMonsterState.Attack:
+                CancelInvoke();
                 Attack();
-                Invoke("Think", 2);
                 break;
             case EMonsterState.Chase:
-                //enemyMove.MoveToTarget();
+                // enemyMove.MoveToTarget();
                 Invoke("Think", 2);
                 break;
             case EMonsterState.Idle:
                 CancelInvoke();
-                break;
-            case EMonsterState.Seen:
                 break;
             default:
                 enemyMove.Think();

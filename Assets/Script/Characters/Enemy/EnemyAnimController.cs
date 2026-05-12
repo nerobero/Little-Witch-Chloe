@@ -12,12 +12,6 @@ public class EnemyAnimController : BaseCharacterAnimController
         FirePointObj = GetComponent<EnemyAttack>().FirePointObj;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public virtual void onDead()
     {
         
