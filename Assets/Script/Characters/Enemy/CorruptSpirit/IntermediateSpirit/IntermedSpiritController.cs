@@ -9,6 +9,7 @@ public class IntermedSpiritController : CorruptController
         {
             case EMonsterState.Attack:
                 CancelInvoke();
+                enemyMove.AnimController.SetToIsAttacking(true);
                 Attack();
                 break;
             case EMonsterState.Chase:
