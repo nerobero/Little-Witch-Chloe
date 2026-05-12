@@ -145,7 +145,10 @@ public class EnemyControllerBase : MonoBehaviour
         // when the timer is over, or there is no target, 
         enemyState = EMonsterState.Patrol;
         if(_hasTarget)
+        {
             enemyMove.StopChasing();
+            Think();
+        }
         _hasTarget = false;
         return;
     }
@@ -193,6 +196,8 @@ public class EnemyControllerBase : MonoBehaviour
             enemyMove.OnBlinkCallback();
         }
 
+        // Remove the delayed function call(think)
+        CancelInvoke();
         Think();
     }
 

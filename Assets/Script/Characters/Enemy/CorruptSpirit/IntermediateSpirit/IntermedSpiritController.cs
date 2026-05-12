@@ -8,8 +8,7 @@ public class IntermedSpiritController : CorruptController
         switch (enemyState)
         {
             case EMonsterState.Attack:
-                CancelInvoke();
-                Attack();
+                enemyMove.AnimController.SetToIsAttacking();
                 break;
             case EMonsterState.Chase:
                 // enemyMove.MoveToTarget();
