@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.25, y: 0.25}
+  m_AnchoredPosition: {x: -0.193, y: -0.513}
   m_SizeDelta: {x: 0.9456, y: 0.5526}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!212 &6139647403758418630
@@ -91,7 +91,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.14, y: 0.11}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -319,9 +319,9 @@ PolygonCollider2D:
       - {x: -0.0047321096, y: 0.6674006}
       - {x: -0.17917039, y: 0.45636314}
       - {x: -0.24492872, y: 0.23795238}
-      - {x: -0.12384625, y: -0.18021472}
-      - {x: 0.11665656, y: -0.17984122}
-      - {x: 0.3795363, y: -0.1800949}
+      - {x: -0.09971692, y: -0.3367787}
+      - {x: 0.1301043, y: -0.33449018}
+      - {x: 0.40055904, y: -0.33738235}
       - {x: 0.43978965, y: 0.24588421}
       - {x: 0.35930097, y: 0.4848829}
   m_UseDelaunayMesh: 1
@@ -375,6 +375,7 @@ MonoBehaviour:
   maxHP: 5
   currentHP: 5
   characterElement: 0
+  OnTakenDamageEvent: 
 --- !u!114 &-1742412551515105769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,6 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45aef59a55382c94db8e2413037f4b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LesserSpiritMovement
+  shouldStop: 0
   IsEnabled: 1
   speed: 1
   jumpHeight: 1
@@ -447,6 +449,7 @@ MonoBehaviour:
   maxHP: 10
   currentHP: 10
   characterElement: 3
+  OnTakenDamageEvent: 
 --- !u!114 &4983372570207355703
 MonoBehaviour:
   m_ObjectHideFlags: 0

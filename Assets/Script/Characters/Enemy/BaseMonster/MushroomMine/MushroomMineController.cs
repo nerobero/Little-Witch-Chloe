@@ -9,7 +9,7 @@ public class MushroomMineController : BaseMonsterController
 
     // Activated Is Trigger, to detect player
     BoxCollider2D triggerCollider;
-    
+    private int playerLayerIndex => (int)Mathf.Log(playerLayer.value, 2);
 
 
     protected override void Start()
@@ -37,7 +37,7 @@ public class MushroomMineController : BaseMonsterController
         if (isExploded) return;
 
         // Check the player layer (use LayerMask)
-        if (((1 << collision.gameObject.layer) & playerLayer) != 0)
+        if (collision.gameObject.layer == playerLayerIndex)
         {
             var PlayerMove = collision.GetComponent<PlayerMovement>();
             var Player = collision.GetComponent<PlayerController>();
@@ -87,7 +87,7 @@ public class MushroomMineController : BaseMonsterController
         if (isExploded) return;
 
         // Check the player layer (use LayerMask)
-        if (((1 << collision.gameObject.layer) & playerLayer) != 0)
+        if (collision.gameObject.layer == playerLayerIndex)
         {
             //AdjustScale(false);
 
@@ -113,7 +113,7 @@ public class MushroomMineController : BaseMonsterController
         if (isExploded || enemyState == EMonsterState.Dead) return;
 
         // Check the player layer (use LayerMask)
-        if (((1 << collision.gameObject.layer) & playerLayer) != 0)
+        if (collision.gameObject.layer == playerLayerIndex)
         {
             Explode(collision.gameObject);
         }
@@ -138,7 +138,7 @@ public class MushroomMineController : BaseMonsterController
         Debug.Log("Collide with player. Deal explosion damage");
 
         // 3. take damage to itself for calling on death event dispatcher
-        enemyStat.TakeDamage(this.gameObject, enemyStat.MaxHP, EElementType.Water);
+        enemyStat.TakeDamage(this.gameObject, enemyStat.MaxHP, EElementType.Fire);
         
     }
 

@@ -178,6 +178,7 @@ MonoBehaviour:
   maxHP: 1
   currentHP: 1
   characterElement: 2
+  OnTakenDamageEvent: 
 --- !u!50 &-262578371704667441
 Rigidbody2D:
   serializedVersion: 5
@@ -218,7 +219,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -271,7 +272,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 2048
@@ -316,6 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181d035de88924d44a00396e281b14aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaseMonsterMovement
+  shouldStop: 0
   IsEnabled: 1
   speed: 0
   jumpHeight: 0
