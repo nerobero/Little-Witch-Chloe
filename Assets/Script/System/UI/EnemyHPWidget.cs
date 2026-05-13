@@ -30,19 +30,33 @@ public class EnemyHPWidget : UIBase
         
         // 초기 UI 갱신
         UpdateHP(_targetStat.CurrentHP, _targetStat.MaxHP, null);
+        
+        
     }
 
     #region EventSubscription
     protected override void SubscribeEvents()
     {
+        Debug.Log("This");
         _targetStat.OnHPChanged += UpdateHP;
         _targetStat.OnDeath += OnDeath;
+
+        var Anim = _targetStat.GetComponent<EnemyAnimController>();
+        if(Anim == null) return;
+
+        Anim.OnFlipped += Flipped;
     }
 
     protected override void UnsubscribeEvents()
     {
+        Debug.Log("This");
         _targetStat.OnHPChanged -= UpdateHP;
         _targetStat.OnDeath -= OnDeath;
+
+        var Anim = _targetStat.GetComponent<EnemyAnimController>();
+        if(Anim == null) return;
+
+        Anim.OnFlipped -= Flipped;
     }
     #endregion
 
@@ -54,5 +68,12 @@ public class EnemyHPWidget : UIBase
     public void OnDeath()
     {
         OnDisable();
+    }
+
+    public void Flipped()
+    {
+        Vector2 localPosition2D = transform.position;
+        localPosition2D.x *= -1f;
+        transform.localPosition = localPosition2D;
     }
 }
