@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7916854309380687958}
   - component: {fileID: 2396583604303670290}
   - component: {fileID: 1377156501553361744}
+  - component: {fileID: 765397199573638565}
   m_Layer: 9
   m_Name: CorruptSpirit
   m_TagString: Untagged
@@ -324,6 +325,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4235ee690f9965c4685a044285a25b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SFXcontroller
+--- !u!114 &765397199573638565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608453852482272175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bbbd5dddace525468d54f5c7b8bc701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHPWidget
+  _hpSlider: {fileID: 3210559054453902021}
 --- !u!1 &5377933577493040639
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8393862373991772850, guid: d122068995684394f9fcc60682b13fff, type: 3}
+    - {fileID: -332094646466938960, guid: d122068995684394f9fcc60682b13fff, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -570,3 +585,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6287765120938365995, guid: d122068995684394f9fcc60682b13fff, type: 3}
   m_PrefabInstance: {fileID: 8443591869917469481}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3210559054453902021 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6459173841312485868, guid: d122068995684394f9fcc60682b13fff, type: 3}
+  m_PrefabInstance: {fileID: 8443591869917469481}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider

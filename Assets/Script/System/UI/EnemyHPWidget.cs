@@ -5,11 +5,23 @@ public class EnemyHPWidget : UIBase
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private EnemyCharacterBase _targetStat;
+    //private EnemyAnimController _targetAnim;
     [SerializeField] private Slider _hpSlider;
+    public Slider HPSlider => _hpSlider;
+    
 
     protected override void Start()
     {
         base.Start();
+
+        // _targetStat = GetComponentInParent<EnemyCharacterBase>();
+
+        // if(_targetStat == null)
+        // {
+        //     Debug.Log("Why");
+        // }
+
+        // SetTarget(_targetStat);
     }
 
     // Update is called once per frame
@@ -21,42 +33,35 @@ public class EnemyHPWidget : UIBase
     // Register the target.
     public void SetTarget(EnemyCharacterBase stat)
     {
-        UnsubscribeEvents();
-
         _targetStat = stat;
+        Show();
 
-        // 새로운 대상 구독
-        SubscribeEvents();
-        
-        // 초기 UI 갱신
         UpdateHP(_targetStat.CurrentHP, _targetStat.MaxHP, null);
-        
-        
+
+        SubscribeEvents();
     }
 
     #region EventSubscription
     protected override void SubscribeEvents()
     {
-        Debug.Log("This");
         _targetStat.OnHPChanged += UpdateHP;
         _targetStat.OnDeath += OnDeath;
 
-        var Anim = _targetStat.GetComponent<EnemyAnimController>();
-        if(Anim == null) return;
+        // _targetAnim = _targetStat.GetComponent<EnemyAnimController>();
+        // if(_targetAnim == null) return;
 
-        Anim.OnFlipped += Flipped;
+        // _targetAnim.OnFlipped += Flipped;
     }
 
     protected override void UnsubscribeEvents()
     {
-        Debug.Log("This");
         _targetStat.OnHPChanged -= UpdateHP;
         _targetStat.OnDeath -= OnDeath;
 
-        var Anim = _targetStat.GetComponent<EnemyAnimController>();
-        if(Anim == null) return;
+        //_targetAnim.OnFlipped -= Flipped;
 
-        Anim.OnFlipped -= Flipped;
+        _targetStat = null;
+        //_targetAnim = null;
     }
     #endregion
 
@@ -70,10 +75,23 @@ public class EnemyHPWidget : UIBase
         OnDisable();
     }
 
-    public void Flipped()
-    {
-        Vector2 localPosition2D = transform.position;
-        localPosition2D.x *= -1f;
-        transform.localPosition = localPosition2D;
-    }
+    // public void Flipped()
+    // {
+    //     Debug.Log("Hmm");
+    //     // Vector2 localScale2D = _targetStat.transform.localScale;
+    //     // localScale2D.x *= -1f;
+
+    //     if(_targetAnim.IsFacingRight)
+    //     {
+    //         Vector2 localScale2D = Vector2.one;
+    //         localScale2D.x = 1f;
+    //         transform.localScale = localScale2D;
+    //     }
+    //     else
+    //     {
+    //         Vector2 localScale2D = Vector2.one;
+    //         localScale2D.x = -1f;
+    //         transform.localScale = localScale2D;
+    //     }
+    // }
 }

@@ -30,7 +30,6 @@ public class IntermedSpiritAnimController : EnemyAnimController
 
     public override void SetToIsAttacking(bool isAttacking)
     {
-        Debug.Log("Intermediate's called");
         _animator.SetTrigger(TransAttackTrigHash);
         base.SetToIsAttacking(isAttacking);
     }

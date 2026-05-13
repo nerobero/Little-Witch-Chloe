@@ -112,6 +112,14 @@ public class ProjectileBase : MonoBehaviour
     /// </summary>
     public void OnFired(Transform firePointTransform, float fireAngle, bool FiredAtBackground, GameObject Instigator)
     {
+        Collider2D instigatorCollider = Instigator.GetComponent<Collider2D>();
+
+        if (_collider != null && instigatorCollider != null)
+        {
+            // Set to ignore collisions between the projectile collider and the owner collider
+            Physics2D.IgnoreCollision(_collider, instigatorCollider);
+        }
+
         _collider.enabled = true;
         this.transform.SetPositionAndRotation(firePointTransform.position, Quaternion.Euler(0f,0f, fireAngle));
         isBackground = FiredAtBackground;

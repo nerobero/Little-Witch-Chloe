@@ -83,7 +83,7 @@ public class EnemyAttack : MonoBehaviour
         // taking the time snapshot for checking for inactivity:
         _ATKTimeSnapshot = Time.time;
         // _animController?.SetToIsAttacking(true);
-        _animController.SetToIsAttacking();
+        //_animController.SetToIsAttacking();
         projectile.OnFired(_firePoint, _aimAngleDeg, isBackground, gameObject);
     }
 
