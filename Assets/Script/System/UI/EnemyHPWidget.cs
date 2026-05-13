@@ -14,7 +14,7 @@ public class EnemyHPWidget : UIBase
     {
         base.Start();
 
-        // _targetStat = GetComponentInParent<EnemyCharacterBase>();
+        _targetStat = GetComponent<EnemyCharacterBase>();
 
         // if(_targetStat == null)
         // {
@@ -31,9 +31,9 @@ public class EnemyHPWidget : UIBase
     }
 
     // Register the target.
-    public void SetTarget(EnemyCharacterBase stat)
+    public void SetTarget()
     {
-        _targetStat = stat;
+        //_targetStat = stat;
         Show();
 
         UpdateHP(_targetStat.CurrentHP, _targetStat.MaxHP, null);
@@ -55,12 +55,15 @@ public class EnemyHPWidget : UIBase
 
     protected override void UnsubscribeEvents()
     {
-        _targetStat.OnHPChanged -= UpdateHP;
-        _targetStat.OnDeath -= OnDeath;
+        if(_targetStat)
+        {
+            _targetStat.OnHPChanged -= UpdateHP;
+            _targetStat.OnDeath -= OnDeath;
+            _targetStat = null;
+        }
 
         //_targetAnim.OnFlipped -= Flipped;
 
-        _targetStat = null;
         //_targetAnim = null;
     }
     #endregion
