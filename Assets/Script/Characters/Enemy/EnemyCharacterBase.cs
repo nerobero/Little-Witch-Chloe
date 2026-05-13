@@ -7,7 +7,7 @@ public class EnemyCharacterBase : StatManager
     {
         base.Start();
 
-        var enemyHP = UIManager.Instance.Get<EnemyHPWidget>();
+        var enemyHP = GetComponent<EnemyHPWidget>();
 
         if(enemyHP == null)
         {

@@ -6,13 +6,17 @@ public class EnemyAnimController : BaseCharacterAnimController
     protected static readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
     protected static readonly int IsAttackingTrigHash = Animator.StringToHash("IsAttackingTrig");
 
-    public event Action OnFlipped;
+    private EnemyHPWidget enemyHPWidget;
+
+    //public event Action OnFlipped;
 
     protected SpriteRenderer FirePointObj;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         FirePointObj = GetComponent<EnemyAttack>().FirePointObj;
+        enemyHPWidget = GetComponent<EnemyHPWidget>();
+        
     }
 
     public virtual void onDead()
@@ -34,13 +38,20 @@ public class EnemyAnimController : BaseCharacterAnimController
     {
         base.FlipCharacter(moveDir);
 
-        // we only process the character to flip when the 
-        if (!IsFacingRight && moveDir > 0f || IsFacingRight && moveDir < 0f)
+        
+        if(enemyHPWidget)
         {
-            Vector2 localPosition2D = FirePointObj.transform.position;
-            localPosition2D.x *= -1f;
-            FirePointObj.transform.localPosition = localPosition2D;
-            OnFlipped?.Invoke();
+            if (IsFacingRight && moveDir > 0f || !IsFacingRight && moveDir < 0f)
+            {
+                Vector2 localScale2D = transform.localScale;
+                localScale2D.x = IsFacingRight ? 1f : -1f;
+                enemyHPWidget.HPSlider.transform.localScale = localScale2D;
+            }
         }
+
+        // if (!IsFacingRight && moveDir < 0f || IsFacingRight && moveDir > 0f)
+        // {
+        //     OnFlipped?.Invoke();
+        // }
     }
 }

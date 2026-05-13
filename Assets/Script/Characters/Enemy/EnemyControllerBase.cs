@@ -139,6 +139,7 @@ public class EnemyControllerBase : MonoBehaviour
             {
                 // when the timer is over, or there is no target, 
                 enemyState = EMonsterState.Patrol;
+                enemyMove.shouldStop = false;
                 if(_hasTarget)
                 {
                     enemyMove.StopChasing();
@@ -210,7 +211,7 @@ public class EnemyControllerBase : MonoBehaviour
         {
             enemyState = EMonsterState.Attack;
             enemyMove.targetPosition = position;
-            enemyMove.SetMoveDirection(0); // Stop
+            enemyMove.shouldStop = true;
         }
         else
         {
@@ -297,6 +298,13 @@ public class EnemyControllerBase : MonoBehaviour
         if(playerMove == null)
         {
             return;
+        }
+
+        bool shouldFacingLeft = instigator.transform.position.x < transform.position.x;
+        // IsFacingRight of enemy is same as is facing left
+        if (shouldFacingLeft != enemyMove.AnimController.IsFacingRight)
+        {
+            enemyMove.SetMoveDirection(enemyMove.MoveDir * -1);
         }
 
         PlayerDetected(enemyMove.IsBackground != playerMove.IsBackground, instigator.transform.position);
