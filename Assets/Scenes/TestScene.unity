@@ -5396,10 +5396,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1875270486532918031, guid: 8579c2a5440b9824faa0fce7aa1a9db3, type: 3}
-      propertyPath: poolEntries.Array.data[1].spawnPrefab
-      value: 
-      objectReference: {fileID: 8841709806442576222, guid: b7030eb8a6c174e46a9a42ff68cae738, type: 3}
     - target: {fileID: 4571515406585558468, guid: 8579c2a5440b9824faa0fce7aa1a9db3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.6631
@@ -5457,10 +5453,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1675912663}
     m_Modifications:
-    - target: {fileID: 1299607695547478745, guid: 79b0ba6dc1cc7a54e84e3704955861de, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2024030307680042007, guid: 79b0ba6dc1cc7a54e84e3704955861de, type: 3}
       propertyPath: m_Name
       value: PlayerHUD
@@ -5483,19 +5475,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6287765120938365995, guid: 79b0ba6dc1cc7a54e84e3704955861de, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.92200005
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6287765120938365995, guid: 79b0ba6dc1cc7a54e84e3704955861de, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.9387173
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6287765120938365995, guid: 79b0ba6dc1cc7a54e84e3704955861de, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.05946003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6287765120938365995, guid: 79b0ba6dc1cc7a54e84e3704955861de, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.07949465
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6287765120938365995, guid: 79b0ba6dc1cc7a54e84e3704955861de, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6208,6 +6200,10 @@ PrefabInstance:
     - target: {fileID: 2024030307680042007, guid: 55768058707bb4b4eba26a0cd57d290a, type: 3}
       propertyPath: m_Name
       value: UI_DialoguePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2024030307680042007, guid: 55768058707bb4b4eba26a0cd57d290a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6287765120938365995, guid: 55768058707bb4b4eba26a0cd57d290a, type: 3}
       propertyPath: m_Pivot.x
