@@ -1,14 +1,8 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-
-public class SFXController : BaseCharacterAnimController 
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
+public class SFXcontroller : MonoBehaviour {
+    
     public void PlayFootstepSFX()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Footstep");
