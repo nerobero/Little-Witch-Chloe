@@ -5,9 +5,10 @@ public class PlayerStatManager : StatManager
 {
     // Stamina
     [Header("Stamina Settings")]
-    [SerializeField] protected float MaxStamina;
-    [SerializeField] protected float CurrentStamina;
-    public float CurrStamina => CurrentStamina;
+    [SerializeField] protected float maxStamina;
+    [SerializeField] protected float currentStamina;
+    public float CurrStamina => currentStamina;
+    public float MaxStamina => maxStamina;
 
     // Event system
     public event Action<float, float> OnStaminaChanged;
@@ -17,7 +18,7 @@ public class PlayerStatManager : StatManager
     protected override void Start()
     {
         base.Start();
-        CurrentStamina = MaxStamina;
+        currentStamina = maxStamina;
         
     }
 
@@ -34,13 +35,13 @@ public class PlayerStatManager : StatManager
     /// <returns></returns>
     public virtual bool UseStamina(float staminaAmount)
     {
-        if(CurrentStamina <= 0.0f || staminaAmount <= 0.0f)
+        if(currentStamina <= 0.0f || staminaAmount <= 0.0f)
             return false;
 
-        CurrentStamina = Mathf.Clamp(CurrentStamina - staminaAmount, 0.0f, MaxStamina);
-        OnStaminaChanged?.Invoke(CurrentStamina, MaxStamina);
+        currentStamina = Mathf.Clamp(currentStamina - staminaAmount, 0.0f, maxStamina);
+        OnStaminaChanged?.Invoke(currentStamina, maxStamina);
 
-        if(CurrentStamina <= 0.0f)
+        if(currentStamina <= 0.0f)
         {
             OnStaminaOver?.Invoke();
         }
@@ -60,11 +61,11 @@ public class PlayerStatManager : StatManager
     /// <returns></returns>
     public virtual bool ReplenishStamina(float staminaAmount)
     {
-        if(CurrentStamina >= MaxStamina || staminaAmount <= 0.0f)
+        if(currentStamina >= maxStamina || staminaAmount <= 0.0f)
             return false;
 
-        CurrentStamina = Mathf.Clamp(CurrentStamina + staminaAmount, 0.0f, MaxStamina);
-        OnStaminaChanged?.Invoke(CurrentStamina, MaxStamina);
+        currentStamina = Mathf.Clamp(currentStamina + staminaAmount, 0.0f, maxStamina);
+        OnStaminaChanged?.Invoke(currentStamina, maxStamina);
 
         return true;
     }

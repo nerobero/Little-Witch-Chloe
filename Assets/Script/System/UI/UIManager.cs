@@ -16,14 +16,14 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        if (_instance != this && _instance != null)
+        if (Instance != this && Instance != null)
         {
             Destroy(gameObject);
             return;
         }
         else
         {
-            _instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
     }

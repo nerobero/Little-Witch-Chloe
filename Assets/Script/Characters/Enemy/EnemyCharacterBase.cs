@@ -7,6 +7,13 @@ public class EnemyCharacterBase : StatManager
     {
         base.Start();
 
-        UIManager.Instance.Get<EnemyHPWidget>().SetTarget(this);
+        var enemyHP = UIManager.Instance.Get<EnemyHPWidget>();
+
+        if(enemyHP == null)
+        {
+            return;
+        }
+        
+        enemyHP.SetTarget(this);
     }
 }
