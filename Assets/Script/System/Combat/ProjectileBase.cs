@@ -16,6 +16,7 @@ public class ProjectileBase : MonoBehaviour
     [SerializeField] private float lifeSpan = 10f;
     [SerializeField] private ESpawnType spawnType;
     [SerializeField] private EElementType elementType;
+    [SerializeField] private string fmodEventName = "";
 
     private Collider2D _collider;
     private Rigidbody2D _projRB;
@@ -117,6 +118,7 @@ public class ProjectileBase : MonoBehaviour
         instigator = Instigator;
         //gameObject.layer = isBackground ? bgLayer : fgLayer;
         _projRB.AddForce(firePointTransform.up * speed, ForceMode2D.Impulse);
+        FMODUnity.RuntimeManager.PlayOneShot(fmodEventName);
         _firedTimeSnapshot = Time.time; // taking a snapshot of the time at which it was fired
         _isFired = true;
     }
