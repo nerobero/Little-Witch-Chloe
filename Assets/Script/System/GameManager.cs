@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public void OnFrogCollected()
     {
         collectedFrog++;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Frog");
     }
 
     /// <summary>

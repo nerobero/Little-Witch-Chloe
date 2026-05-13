@@ -15,6 +15,7 @@ public abstract class RegenItemBase : ItemBase
         // successfully, return true.
         if (OnInteractHelper(other))
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Healing Berry");
             Invoke("Regenerate", _regenCDTime);
             return true;
         }
