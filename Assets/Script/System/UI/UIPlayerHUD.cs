@@ -6,9 +6,10 @@ public class UIPlayerHUD : UIBase
     [SerializeField] private Slider _hpSlider;
     [SerializeField] private Slider _staminaSlider;   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
-        
+        base.Start();
+        SubscribeEvents();
     }
 
     // Update is called once per frame
@@ -20,6 +21,8 @@ public class UIPlayerHUD : UIBase
     #region EventSubscription
     protected override void SubscribeEvents()
     {
+        if(PlayerController.Instance == null) return;
+
         var playerStat = PlayerController.Instance.GetComponent<PlayerStatManager>();
 
         playerStat.OnHPChanged += UpdateHP;
@@ -27,10 +30,13 @@ public class UIPlayerHUD : UIBase
         playerStat.OnDeath += OnDeath;
 
         UpdateHP(playerStat.CurrentHP, playerStat.MaxHP, null);
+        UpdateStamina(playerStat.CurrStamina, playerStat.MaxStamina);
     }
 
     protected override void UnsubscribeEvents()
     {
+        if(PlayerController.Instance == null) return;
+
         var playerStat = PlayerController.Instance.GetComponent<PlayerStatManager>();
 
         playerStat.OnHPChanged -= UpdateHP;

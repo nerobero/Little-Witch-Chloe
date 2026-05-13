@@ -7,9 +7,9 @@ public class EnemyHPWidget : UIBase
     private EnemyCharacterBase _targetStat;
     [SerializeField] private Slider _hpSlider;
 
-    void Start()
+    protected override void Start()
     {
-        
+        base.Start();
     }
 
     // Update is called once per frame
