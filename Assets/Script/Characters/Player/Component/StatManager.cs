@@ -12,6 +12,7 @@ public class StatManager : MonoBehaviour
     [SerializeField] protected float maxHP;
     [SerializeField] protected float currentHP;
     [SerializeField] protected EElementType characterElement;
+    [SerializeField] protected string OnTakenDamageEvent = "";
     public EElementType CharacterElement => characterElement;
 
     public float MaxHP => maxHP;
@@ -129,6 +130,7 @@ public class StatManager : MonoBehaviour
         }
 
         currentHP = Mathf.Clamp(currentHP - actualDamage, 0.0f, maxHP);
+        FMODUnity.RuntimeManager.PlayOneShot(OnTakenDamageEvent);
         OnHPChanged?.Invoke(currentHP, maxHP, instigator);
 
         if (currentHP == 0.0f)

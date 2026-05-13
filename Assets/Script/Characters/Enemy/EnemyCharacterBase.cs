@@ -6,7 +6,8 @@ public class EnemyCharacterBase : StatManager
     protected override void Start()
     {
         base.Start();
-
+        OnTakenDamageEvent = "event:/SFX/EnemyDamaged";
+        
         var enemyHP = UIManager.Instance.Get<EnemyHPWidget>();
 
         if(enemyHP == null)

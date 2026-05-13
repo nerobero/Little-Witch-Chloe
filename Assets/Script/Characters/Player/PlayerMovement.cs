@@ -255,6 +255,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //3. flip the _isBackground value before we reposition the character:
+        _animController.SetToIsBlinkingStartTrig();
         _isBackground = !_isBackground;
 
         //4. ignoring the colliders of the source ground
@@ -263,7 +264,9 @@ public class PlayerMovement : MonoBehaviour
         Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, _isBackground);
 
         //5. reposition the player character:
+        
         _rb.position = new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
+        
 
         //6. changing the order in layer:
         ChangeOrderInLayer();

@@ -17,6 +17,8 @@ public class PlayerAnimController : BaseCharacterAnimController
     private static readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
     private static readonly int IsAttackingTrigHash = Animator.StringToHash("IsAttackingTrig");
 
+    private static readonly int IsBlinkStartTrigHash = Animator.StringToHash("IsBlinkStartTrig");
+
     public bool _isFacingRight = true;
 
     public void SetToStartFlying()
@@ -44,5 +46,10 @@ public class PlayerAnimController : BaseCharacterAnimController
     public void SetToIsAttacking(bool isAttacking)
     {
         _animator.SetBool(IsAttackingHash, isAttacking);
+    }
+
+    public void SetToIsBlinkingStartTrig()
+    {
+        _animator.SetTrigger(IsBlinkStartTrigHash);
     }
 }

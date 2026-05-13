@@ -19,6 +19,7 @@ public class PlayerStatManager : StatManager
     {
         base.Start();
         currentStamina = maxStamina;
+        OnTakenDamageEvent = "event:/SFX/PlayerDamaged";
         
     }
 

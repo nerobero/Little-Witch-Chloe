@@ -97,7 +97,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -111,7 +111,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -163,12 +163,12 @@ TextureImporter:
       name: effect_sprite_sheet_blink_2_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 18
-        width: 49
-        height: 34
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -185,12 +185,12 @@ TextureImporter:
       name: effect_sprite_sheet_blink_2_1
       rect:
         serializedVersion: 2
-        x: 13
-        y: 30
-        width: 7
-        height: 15
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -207,12 +207,12 @@ TextureImporter:
       name: effect_sprite_sheet_blink_2_2
       rect:
         serializedVersion: 2
-        x: 18
-        y: 14
-        width: 8
-        height: 7
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -229,12 +229,12 @@ TextureImporter:
       name: effect_sprite_sheet_blink_2_3
       rect:
         serializedVersion: 2
-        x: 25
-        y: 12
-        width: 25
-        height: 12
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -251,12 +251,12 @@ TextureImporter:
       name: effect_sprite_sheet_blink_2_4
       rect:
         serializedVersion: 2
-        x: 78
-        y: 13
-        width: 38
-        height: 37
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -273,12 +273,12 @@ TextureImporter:
       name: effect_sprite_sheet_blink_2_5
       rect:
         serializedVersion: 2
-        x: 137
-        y: 15
-        width: 40
-        height: 33
+        x: 320
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -295,12 +295,12 @@ TextureImporter:
       name: effect_sprite_sheet_blink_2_6
       rect:
         serializedVersion: 2
-        x: 138
-        y: 40
-        width: 8
-        height: 7
+        x: 384
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -317,12 +317,12 @@ TextureImporter:
       name: effect_sprite_sheet_blink_2_7
       rect:
         serializedVersion: 2
-        x: 176
-        y: 15
-        width: 7
-        height: 7
+        x: 448
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -339,12 +339,12 @@ TextureImporter:
       name: effect_sprite_sheet_blink_2_8
       rect:
         serializedVersion: 2
-        x: 205
-        y: 15
-        width: 37
-        height: 31
+        x: 512
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -357,275 +357,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_blink_2_9
-      rect:
-        serializedVersion: 2
-        x: 234
-        y: 30
-        width: 15
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 22155ed0cf402e360800000000000000
-      internalID: 7197320635102875938
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_blink_2_10
-      rect:
-        serializedVersion: 2
-        x: 269
-        y: 20
-        width: 32
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0405b028ba37422c0800000000000000
-      internalID: -4457310550731567040
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_blink_2_11
-      rect:
-        serializedVersion: 2
-        x: 273
-        y: 14
-        width: 23
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fbc4d443ed9e13d00800000000000000
-      internalID: 950798136921377983
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_blink_2_12
-      rect:
-        serializedVersion: 2
-        x: 274
-        y: 40
-        width: 17
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 86d6667704b51a260800000000000000
-      internalID: 7107062019406589288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_blink_2_13
-      rect:
-        serializedVersion: 2
-        x: 294
-        y: 30
-        width: 13
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a7479c774cb7313f0800000000000000
-      internalID: -931264614182062982
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_blink_2_14
-      rect:
-        serializedVersion: 2
-        x: 297
-        y: 18
-        width: 9
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 99445fef52977a5d0800000000000000
-      internalID: -3051337018421984103
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_blink_2_15
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 14
-        width: 33
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dd3e86bababbd6d70800000000000000
-      internalID: 9038086373192033245
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_blink_2_16
-      rect:
-        serializedVersion: 2
-        x: 368
-        y: 43
-        width: 8
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 02630ab787f10b5e0800000000000000
-      internalID: -1895980840792345056
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_blink_2_17
-      rect:
-        serializedVersion: 2
-        x: 398
-        y: 14
-        width: 42
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 91c735e56a784e0f0800000000000000
-      internalID: -1088596061299966951
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_blink_2_18
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 33
-        width: 11
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a69236c5ee8643490800000000000000
-      internalID: -7767468084345755286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_blink_2_19
-      rect:
-        serializedVersion: 2
-        x: 469
-        y: 18
-        width: 27
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 801e9d91bf4daa050800000000000000
-      internalID: 5812692444010635528
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_blink_2_20
-      rect:
-        serializedVersion: 2
-        x: 533
-        y: 20
-        width: 23
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5955ee0b620d15e50800000000000000
-      internalID: 6796442177274533269
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0e22b8598879a9042a6cb6cc35eaec51
     internalID: 0
     vertices: []
     indices: 
@@ -633,29 +369,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       effect_sprite_sheet_blink_2_0: 6942814028087245809
       effect_sprite_sheet_blink_2_1: 2621081947777667808
-      effect_sprite_sheet_blink_2_10: -4457310550731567040
-      effect_sprite_sheet_blink_2_11: 950798136921377983
-      effect_sprite_sheet_blink_2_12: 7107062019406589288
-      effect_sprite_sheet_blink_2_13: -931264614182062982
-      effect_sprite_sheet_blink_2_14: -3051337018421984103
-      effect_sprite_sheet_blink_2_15: 9038086373192033245
-      effect_sprite_sheet_blink_2_16: -1895980840792345056
-      effect_sprite_sheet_blink_2_17: -1088596061299966951
-      effect_sprite_sheet_blink_2_18: -7767468084345755286
-      effect_sprite_sheet_blink_2_19: 5812692444010635528
       effect_sprite_sheet_blink_2_2: -3104176508759852992
-      effect_sprite_sheet_blink_2_20: 6796442177274533269
       effect_sprite_sheet_blink_2_3: -8375560211801082376
       effect_sprite_sheet_blink_2_4: -4970398268936159084
       effect_sprite_sheet_blink_2_5: 3225065498318114129
       effect_sprite_sheet_blink_2_6: 2330380391523708253
       effect_sprite_sheet_blink_2_7: -4043120132261026931
       effect_sprite_sheet_blink_2_8: 2679410268399252980
-      effect_sprite_sheet_blink_2_9: 7197320635102875938
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

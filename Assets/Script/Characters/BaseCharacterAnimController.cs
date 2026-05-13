@@ -10,7 +10,7 @@ public class BaseCharacterAnimController : MonoBehaviour
 {
     protected static readonly int IdleHash = Animator.StringToHash("IdleHash");
     protected static readonly int WalkingHash = Animator.StringToHash("IsWalking");
-    protected static readonly int BlinkingHash = Animator.StringToHash("IsBlinking");
+    // protected static readonly int BlinkingHash = Animator.StringToHash("IsBlinking");
 
     protected Animator _animator;
 
@@ -38,6 +38,9 @@ public class BaseCharacterAnimController : MonoBehaviour
 
     public void SetToWalk(bool isWalking)
     {
-        _animator.SetBool(WalkingHash, isWalking);
+
+            _animator.SetBool(WalkingHash, isWalking);
+
+            _animator.SetBool(IdleHash, !isWalking);
     }
 }
