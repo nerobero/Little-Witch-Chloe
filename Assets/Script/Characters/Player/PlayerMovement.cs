@@ -79,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
         orderInLayer = _isBackground ? -1 : 1;
         _spriteRender.sortingOrder = orderInLayer;
         _childSpriteRender.sortingOrder = orderInLayer;
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Blink");
     }
 
     private void OnEnable()
@@ -267,7 +266,8 @@ public class PlayerMovement : MonoBehaviour
         //5. reposition the player character:
         
         _rb.position = new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
-        
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Blink");
+
 
         //6. changing the order in layer:
         ChangeOrderInLayer();
