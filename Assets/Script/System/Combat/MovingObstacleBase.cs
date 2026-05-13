@@ -58,6 +58,37 @@ public class MovingObstacleBase : MonoBehaviour
         }
     }
 
+    protected void OnEnable()
+    {
+        _objRB = GetComponent<Rigidbody2D>();
+        _spriteRender = GetComponent<SpriteRenderer>();
+        myCollider = GetComponent<PolygonCollider2D>();
+        
+        int orderInLayer = isBackground ? 0 : 2;
+        _spriteRender.sortingOrder = orderInLayer;
+        SetMoveDirection(1);
+
+         if(isBackground)
+        {
+            myCollider.includeLayers |= (1 << _bgLayerIndex);
+            myCollider.includeLayers &= ~(1 << _fgLayerIndex);
+            myCollider.excludeLayers |= (1 << _fgLayerIndex);
+            myCollider.excludeLayers &= ~(1 << _bgLayerIndex);
+        }
+        else
+        {
+            myCollider.includeLayers |= (1 << _fgLayerIndex);
+            myCollider.includeLayers &= ~(1 << _bgLayerIndex);
+            myCollider.excludeLayers |= (1 << _bgLayerIndex);
+            myCollider.excludeLayers &= ~(1 << _fgLayerIndex);
+        }
+    }
+
+    protected void OnDisable()
+    {
+        
+    }
+
     protected void FixedUpdate()
     {
         _objRB.linearVelocity = new Vector2(moveDir * speed, _objRB.linearVelocity.y);
