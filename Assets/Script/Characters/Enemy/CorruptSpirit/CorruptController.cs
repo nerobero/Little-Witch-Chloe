@@ -8,8 +8,29 @@ public class CorruptController : EnemyControllerBase
     [Header("Chasing Settings")]
     [SerializeField] protected float detectionRange = 10f;
 
-    protected virtual void Attack()
+    protected virtual void AttackStart()
     {
+        bool shouldFacingLeft = enemyMove.targetPosition.x < transform.position.x;
+        // IsFacingRight of enemy is same as is facing left
+        if (shouldFacingLeft != enemyMove.AnimController.IsFacingRight)
+        {
+            enemyMove.SetMoveDirection(enemyMove.MoveDir * -1);
+        }
+
+        enemyMove.AnimController.SetToIsAttacking();
+    }
+
+    protected virtual void onAttack()
+    {
+        bool shouldFacingLeft = enemyMove.targetPosition.x < transform.position.x;
+        // IsFacingRight of enemy is same as is facing left
+        if (shouldFacingLeft != enemyMove.AnimController.IsFacingRight)
+        {
+            Debug.Log("Turn?");
+            
+            enemyMove.SetMoveDirection(enemyMove.MoveDir * -1);
+        }
+
         if (isProjectile)
         {
             // Current weapon is projectile
@@ -28,12 +49,13 @@ public class CorruptController : EnemyControllerBase
 
         if(probability >= 0.7f)
         {
-            FireNormal();
+            enemyAttack.SetAimDirection(enemyMove.targetPosition - (Vector2)transform.position);
+            enemyAttack.FireNormal();
         }
         else
         {
-            // Temp
-            FireCharged(0.0f);
+           // Temp
+           FireCharged(0.0f);
         }
     }
 

@@ -10,8 +10,8 @@ public class IntermedSpiritController : CorruptController
             case EMonsterState.Attack:
                 //CancelInvoke();
                 //enemyMove.AnimController.SetToIsAttacking(true);
-                Attack();
-                Invoke("Think", 2);
+                AttackStart();
+                Invoke("Think", 1);
                 break;
             case EMonsterState.Chase:
                 // enemyMove.MoveToTarget();
@@ -41,5 +41,11 @@ public class IntermedSpiritController : CorruptController
         {
             FireCharged(0.0f);
         }
+    }
+
+    protected override void AttackStart()
+    {
+        Debug.Log("Attack");
+        base.AttackStart();
     }
 }

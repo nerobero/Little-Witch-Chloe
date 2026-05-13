@@ -117,6 +117,7 @@ public class CorruptMovement : EnemyMovement
         ChangeOrderInLayer();
 
         base.BlinkToOtherPlatform();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Blink Enemy");
     }
 
     /// <summary>

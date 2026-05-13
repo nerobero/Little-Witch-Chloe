@@ -79,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
         orderInLayer = _isBackground ? -1 : 1;
         _spriteRender.sortingOrder = orderInLayer;
         _childSpriteRender.sortingOrder = orderInLayer;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Blink");
     }
 
     private void OnEnable()

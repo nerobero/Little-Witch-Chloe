@@ -7,8 +7,8 @@ public class EnemyCharacterBase : StatManager
     {
         base.Start();
         OnTakenDamageEvent = "event:/SFX/EnemyDamaged";
-        
-        var enemyHP = UIManager.Instance.Get<EnemyHPWidget>();
+
+        var enemyHP = GetComponent<EnemyHPWidget>();
 
         if(enemyHP == null)
         {

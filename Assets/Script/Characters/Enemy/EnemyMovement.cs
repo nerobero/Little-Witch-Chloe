@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
     // These values are exposed states for others to read:
     public bool IsGrounded => IsOnGround();
     public float MoveDir { get; protected set; }
+    public bool shouldStop;
 
     public bool IsEnabled = true;
 
@@ -114,6 +115,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if(IsEnabled)
         {
+            if(shouldStop) return;
+
             // Apply calculated velocity
             rb.linearVelocity = new Vector2(MoveDir * speed, rb.linearVelocity.y); 
 
