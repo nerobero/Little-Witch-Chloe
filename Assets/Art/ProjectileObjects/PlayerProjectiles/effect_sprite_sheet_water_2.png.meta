@@ -81,7 +81,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -138,7 +138,7 @@ TextureImporter:
         width: 29
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -160,7 +160,7 @@ TextureImporter:
         width: 25
         height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -174,37 +174,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effect_sprite_sheet_water_2_2
-      rect:
-        serializedVersion: 2
-        x: 161
-        y: 33
-        width: 19
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e335234f3af18b6f0800000000000000
-      internalID: -668749755627449538
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: effect_sprite_sheet_water_2_3
       rect:
         serializedVersion: 2
         x: 215
         y: 15
-        width: 17
-        height: 28
+        width: 34
+        height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -218,37 +196,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effect_sprite_sheet_water_2_4
-      rect:
-        serializedVersion: 2
-        x: 233
-        y: 39
-        width: 14
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 93098c64e1ce88130800000000000000
-      internalID: 3569362319471841337
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: effect_sprite_sheet_water_2_5
       rect:
         serializedVersion: 2
         x: 279
-        y: 15
-        width: 159
-        height: 32
+        y: 20
+        width: 35
+        height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -266,11 +222,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 152
-        y: 25
-        width: 8
-        height: 9
+        y: 14
+        width: 31
+        height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -284,89 +240,45 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effect_sprite_sheet_water_2_7
+      name: effect_sprite_sheet_water_2_11
       rect:
         serializedVersion: 2
-        x: 160
-        y: 23
-        width: 8
-        height: 7
+        x: 350
+        y: 19
+        width: 31
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 83841ed58d480eca0800000000000000
-      internalID: -5989641439579912136
+      spriteID: 373ba52d8826ee6478f9038743baee07
+      internalID: 59377264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effect_sprite_sheet_water_2_8
+      name: effect_sprite_sheet_water_2_12
       rect:
         serializedVersion: 2
-        x: 164
-        y: 28
-        width: 18
-        height: 7
+        x: 425
+        y: 19
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 85f48afaecaadf4d0800000000000000
-      internalID: -3099133163874005160
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_water_2_9
-      rect:
-        serializedVersion: 2
-        x: 230
-        y: 25
-        width: 17
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3ccf86036445fad50800000000000000
-      internalID: 6750707026888293571
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_water_2_10
-      rect:
-        serializedVersion: 2
-        x: 159
-        y: 16
-        width: 14
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9cab402b427e153b0800000000000000
-      internalID: -5525381123015394615
+      spriteID: 4c4cc25419748ea409703236523264c7
+      internalID: -37145128
       vertices: []
       indices: 
       edges: []
@@ -375,7 +287,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: cf82d44b3d700d941b8e3db4b7221067
     internalID: 0
     vertices: []
     indices: 
@@ -388,6 +300,8 @@ TextureImporter:
       effect_sprite_sheet_water_2_0: 5146069785552281087
       effect_sprite_sheet_water_2_1: 2378446059878684597
       effect_sprite_sheet_water_2_10: -5525381123015394615
+      effect_sprite_sheet_water_2_11: 59377264
+      effect_sprite_sheet_water_2_12: -37145128
       effect_sprite_sheet_water_2_2: -668749755627449538
       effect_sprite_sheet_water_2_3: -7075779355331147518
       effect_sprite_sheet_water_2_4: 3569362319471841337
