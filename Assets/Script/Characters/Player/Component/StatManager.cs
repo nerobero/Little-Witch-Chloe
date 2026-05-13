@@ -29,7 +29,7 @@ public class StatManager : MonoBehaviour
     public bool IsBlink { get; protected set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected virtual void Start()
     {
         currentHP = maxHP;
     }

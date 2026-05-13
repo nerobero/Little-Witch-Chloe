@@ -14,9 +14,11 @@ public class PlayerStatManager : StatManager
     public event Action OnStaminaOver;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         CurrentStamina = MaxStamina;
+        
     }
 
     // Update is called once per frame
