@@ -22,7 +22,7 @@ public class SFXcontroller : MonoBehaviour {
     }
     public void PlayMushroomStartSFX()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/event:/SFX/Mushroom Mine Grow");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Mushroom Mine Grow");
 
     }
     public void PlayMushroomExplodeSFX()

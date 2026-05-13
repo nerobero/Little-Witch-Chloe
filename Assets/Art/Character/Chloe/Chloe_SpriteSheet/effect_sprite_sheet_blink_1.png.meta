@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 62646b0f8bbb5664da9d1e600d57c510
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4156621941470649787
+    second: effect_sprite_sheet_blink_1_0
+  - first:
+      213: 584717174425131579
+    second: effect_sprite_sheet_blink_1_1
+  - first:
+      213: -6934386286043304633
+    second: effect_sprite_sheet_blink_1_2
+  - first:
+      213: -1230191339726701072
+    second: effect_sprite_sheet_blink_1_3
+  - first:
+      213: 6975155282039388313
+    second: effect_sprite_sheet_blink_1_4
+  - first:
+      213: -2014006868564396970
+    second: effect_sprite_sheet_blink_1_5
+  - first:
+      213: 4070060062578183463
+    second: effect_sprite_sheet_blink_1_6
+  - first:
+      213: 9189245067127697539
+    second: effect_sprite_sheet_blink_1_7
+  - first:
+      213: -3096086064118113239
+    second: effect_sprite_sheet_blink_1_8
+  - first:
+      213: -950676797022401831
+    second: effect_sprite_sheet_blink_1_9
+  - first:
+      213: -4158507010808509700
+    second: effect_sprite_sheet_blink_1_10
+  - first:
+      213: -3461263663348945709
+    second: effect_sprite_sheet_blink_1_11
+  - first:
+      213: 5531667781291483316
+    second: effect_sprite_sheet_blink_1_12
+  - first:
+      213: -3452132545288005336
+    second: effect_sprite_sheet_blink_1_13
+  - first:
+      213: 3913983327862697711
+    second: effect_sprite_sheet_blink_1_14
+  - first:
+      213: -7213064765517496375
+    second: effect_sprite_sheet_blink_1_15
+  - first:
+      213: -5213780519859571588
+    second: effect_sprite_sheet_blink_1_16
+  - first:
+      213: 7202280112096686986
+    second: effect_sprite_sheet_blink_1_17
+  - first:
+      213: 6857419801627602829
+    second: effect_sprite_sheet_blink_1_18
+  - first:
+      213: 1094706657543540095
+    second: effect_sprite_sheet_blink_1_19
+  - first:
+      213: -9072031475964379157
+    second: effect_sprite_sheet_blink_1_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 20
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbdd3fe02a94fa930800000000000000
+      internalID: 4156621941470649787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 18
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3a1ea31c255d1800800000000000000
+      internalID: 584717174425131579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_2
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 33
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74d6c0da96c14cf90800000000000000
+      internalID: -6934386286043304633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_3
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 14
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fdf3dd8e7b7deee0800000000000000
+      internalID: -1230191339726701072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 43
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 998b527e5cabcc060800000000000000
+      internalID: 6975155282039388313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_5
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 14
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 654b5087c6fcc04e0800000000000000
+      internalID: -2014006868564396970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_6
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 30
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72d0a741012cb7830800000000000000
+      internalID: 4070060062578183463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_7
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 18
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 380382ca3b1c68f70800000000000000
+      internalID: 9189245067127697539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_8
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 14
+        width: 32
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92cd332e02e7805d0800000000000000
+      internalID: -3096086064118113239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_9
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 40
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9da06417d748ec2f0800000000000000
+      internalID: -950676797022401831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_10
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 20
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfa89c808e30a46c0800000000000000
+      internalID: -4158507010808509700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_11
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 30
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dc6e18690f17ffc0800000000000000
+      internalID: -3461263663348945709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_12
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 15
+        width: 37
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b02a5ff98e64cc40800000000000000
+      internalID: 5531667781291483316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_13
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 15
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8291b808dbf8710d0800000000000000
+      internalID: -3452132545288005336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_14
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 15
+        width: 40
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feeae0a7913415630800000000000000
+      internalID: 3913983327862697711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_15
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 40
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cf717defcb06eb90800000000000000
+      internalID: -7213064765517496375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_16
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 13
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c743be0bd3ee4a7b0800000000000000
+      internalID: -5213780519859571588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_17
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 18
+        width: 49
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8332664a93a3f360800000000000000
+      internalID: 7202280112096686986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_18
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 12
+        width: 25
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8f2eb73af27a2f50800000000000000
+      internalID: 6857419801627602829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_19
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 14
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7d4320b7ed213f00800000000000000
+      internalID: 1094706657543540095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_blink_1_20
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 30
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beffaf3307ba91280800000000000000
+      internalID: -9072031475964379157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      effect_sprite_sheet_blink_1_0: 4156621941470649787
+      effect_sprite_sheet_blink_1_1: 584717174425131579
+      effect_sprite_sheet_blink_1_10: -4158507010808509700
+      effect_sprite_sheet_blink_1_11: -3461263663348945709
+      effect_sprite_sheet_blink_1_12: 5531667781291483316
+      effect_sprite_sheet_blink_1_13: -3452132545288005336
+      effect_sprite_sheet_blink_1_14: 3913983327862697711
+      effect_sprite_sheet_blink_1_15: -7213064765517496375
+      effect_sprite_sheet_blink_1_16: -5213780519859571588
+      effect_sprite_sheet_blink_1_17: 7202280112096686986
+      effect_sprite_sheet_blink_1_18: 6857419801627602829
+      effect_sprite_sheet_blink_1_19: 1094706657543540095
+      effect_sprite_sheet_blink_1_2: -6934386286043304633
+      effect_sprite_sheet_blink_1_20: -9072031475964379157
+      effect_sprite_sheet_blink_1_3: -1230191339726701072
+      effect_sprite_sheet_blink_1_4: 6975155282039388313
+      effect_sprite_sheet_blink_1_5: -2014006868564396970
+      effect_sprite_sheet_blink_1_6: 4070060062578183463
+      effect_sprite_sheet_blink_1_7: 9189245067127697539
+      effect_sprite_sheet_blink_1_8: -3096086064118113239
+      effect_sprite_sheet_blink_1_9: -950676797022401831
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
