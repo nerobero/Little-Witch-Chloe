@@ -101,7 +101,7 @@ public class UIDialoguePanel : UIBase
     }
     #region ButtonListeners
 
-    private void OnNextDialogue()
+    public void OnNextDialogue()
     {
         DialogueSystem.Instance.UpdateLineIndex();
         UpdateUI();
