@@ -134,23 +134,21 @@ public class EnemyControllerBase : MonoBehaviour
         {
             targetTimer -= Time.deltaTime; // Reduce the timer
 
-            if (targetTimer > 0)
+            // the timer is over
+            if (targetTimer <= 0)
             {
-                // remain the timer. => try moving the target location.
-                // (필요하다면 여기서 추격 로직을 계속 실행)
-                return; 
+                // when the timer is over, or there is no target, 
+                enemyState = EMonsterState.Patrol;
+                if(_hasTarget)
+                {
+                    enemyMove.StopChasing();
+                    Think();
+                }
+                _hasTarget = false;
+                return;
             }
         }
 
-        // when the timer is over, or there is no target, 
-        enemyState = EMonsterState.Patrol;
-        if(_hasTarget)
-        {
-            enemyMove.StopChasing();
-            Think();
-        }
-        _hasTarget = false;
-        return;
     }
 
     protected void OnDrawGizmos()
@@ -190,18 +188,24 @@ public class EnemyControllerBase : MonoBehaviour
         _hasTarget = true;
         targetTimer = FORGET_TIME; // initialize the timer as 5 seconds.
 
+        // Remove the delayed function call(think)
+        CancelInvoke();
+
         if(bIsDifferentPlatform)
         {
             enemyMove.targetPosition = hitPosition;
             enemyMove.OnBlinkCallback();
         }
-
-        // Remove the delayed function call(think)
-        CancelInvoke();
+        else
+        {
+            ChangeStateToATKorChase(hitPosition);
+        }
     }
 
     private void ChangeStateToATKorChase(Vector2 position)
     {
+        enemyMove.AnimController.SetToIsAttacking(true);
+        
         if(isProjectile)
         {
             enemyState = EMonsterState.Attack;
