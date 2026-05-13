@@ -156,6 +156,7 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded)
         {
             _rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Jump");
         }
         // BONUS logic here if needed:
     }
