@@ -43,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,17 +109,23 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_attack_0
       rect:
         serializedVersion: 2
-        x: 11
+        x: 0
         y: 0
-        width: 43
-        height: 49
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 21, y: 16}
+        - {x: -10, y: 16}
+        - {x: -20, y: 4}
+        - {x: -20, y: -3}
+        - {x: -8, y: -30}
+        - {x: 21, y: -30}
+      tessellationDetail: 0
       bones: []
       spriteID: 091219f4cd2363bf0800000000000000
       internalID: -345032399638158960
@@ -131,17 +137,24 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_attack_1
       rect:
         serializedVersion: 2
-        x: 76
+        x: 64
         y: 0
-        width: 43
-        height: 50
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 13, y: -31}
+        - {x: 21, y: -13}
+        - {x: 22, y: 17}
+        - {x: -8, y: 17}
+        - {x: -19, y: 2}
+        - {x: -19, y: 0}
+        - {x: -7, y: -31}
+      tessellationDetail: 0
       bones: []
       spriteID: e06c635f7760438e0800000000000000
       internalID: -1714738445836433906
@@ -153,17 +166,23 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_attack_2
       rect:
         serializedVersion: 2
-        x: 140
+        x: 128
         y: 0
-        width: 43
-        height: 46
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 23, y: 9}
+        - {x: 15, y: 13}
+        - {x: -9, y: 13}
+        - {x: -20, y: 0}
+        - {x: -6, y: -30}
+        - {x: 15.951996, y: -30}
+      tessellationDetail: 0
       bones: []
       spriteID: 8b57ed084ab90c4b0800000000000000
       internalID: -5422162820515072584
@@ -175,7 +194,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b1964729bc5b1f140bc3151d56c6e579
     internalID: 0
     vertices: []
     indices: 
@@ -183,7 +202,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       mons_sprite_sheet_Walking_Herb_1_attack_0: -345032399638158960
       mons_sprite_sheet_Walking_Herb_1_attack_1: -1714738445836433906

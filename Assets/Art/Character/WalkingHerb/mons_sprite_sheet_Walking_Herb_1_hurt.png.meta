@@ -52,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -118,17 +118,27 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_hurt_0
       rect:
         serializedVersion: 2
-        x: 75
+        x: 0
         y: 0
-        width: 43
-        height: 49
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: -3, y: -30}
+        - {x: 1, y: -31}
+        - {x: 14, y: -31}
+        - {x: 20, y: -27}
+        - {x: 20, y: 11}
+        - {x: -13, y: 11}
+        - {x: -21, y: 1}
+        - {x: -21, y: -8}
+        - {x: -7, y: -31}
+        - {x: -4, y: -31}
+      tessellationDetail: 0
       bones: []
       spriteID: fb237b59a230c57d0800000000000000
       internalID: -2928462176262344001
@@ -140,17 +150,23 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_hurt_1
       rect:
         serializedVersion: 2
-        x: 139
+        x: 64
         y: 0
-        width: 45
-        height: 61
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 19, y: -31}
+        - {x: 21, y: -24}
+        - {x: 21, y: 16}
+        - {x: -10, y: 16}
+        - {x: -20, y: 1}
+        - {x: -6, y: -31}
+      tessellationDetail: 0
       bones: []
       spriteID: 8cb482ef73264bc00800000000000000
       internalID: 915464616889830344
@@ -162,17 +178,24 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_hurt_2
       rect:
         serializedVersion: 2
-        x: 153
-        y: 45
-        width: 8
-        height: 11
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 19, y: 20}
+        - {x: 13, y: 29}
+        - {x: 7, y: 27}
+        - {x: -20, y: 13}
+        - {x: -20, y: -7}
+        - {x: -8, y: -31}
+        - {x: 19, y: -31}
+      tessellationDetail: 0
       bones: []
       spriteID: beff67ab3e0998b20800000000000000
       internalID: 3137197923200597995
@@ -184,64 +207,28 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_hurt_3
       rect:
         serializedVersion: 2
-        x: 162
-        y: 45
-        width: 12
-        height: 17
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 14, y: -31}
+        - {x: 21, y: -26}
+        - {x: 21, y: 11}
+        - {x: 19, y: 16}
+        - {x: -11, y: 16}
+        - {x: -20, y: 8}
+        - {x: -20, y: -10}
+        - {x: -10, y: -31}
+      tessellationDetail: 0
       bones: []
       spriteID: 63eb45551c7f35bb0800000000000000
       internalID: -4948339155817677258
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mons_sprite_sheet_Walking_Herb_1_hurt_4
-      rect:
-        serializedVersion: 2
-        x: 203
-        y: 0
-        width: 43
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 63af4a729bce410a0800000000000000
-      internalID: -6911639248128640458
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mons_sprite_sheet_Walking_Herb_1_hurt_5
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 0
-        width: 43
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a0fa621696cf67f00800000000000000
-      internalID: 1114355487352467210
       vertices: []
       indices: 
       edges: []
@@ -250,7 +237,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2213e0f94a4328c48be3a38d5d9c58d2
     internalID: 0
     vertices: []
     indices: 
@@ -258,14 +245,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       mons_sprite_sheet_Walking_Herb_1_hurt_0: -2928462176262344001
       mons_sprite_sheet_Walking_Herb_1_hurt_1: 915464616889830344
       mons_sprite_sheet_Walking_Herb_1_hurt_2: 3137197923200597995
       mons_sprite_sheet_Walking_Herb_1_hurt_3: -4948339155817677258
-      mons_sprite_sheet_Walking_Herb_1_hurt_4: -6911639248128640458
-      mons_sprite_sheet_Walking_Herb_1_hurt_5: 1114355487352467210
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

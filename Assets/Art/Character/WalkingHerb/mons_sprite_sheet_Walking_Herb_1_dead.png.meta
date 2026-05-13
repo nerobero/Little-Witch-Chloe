@@ -55,7 +55,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -69,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,17 +121,24 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_dead_0
       rect:
         serializedVersion: 2
-        x: 11
+        x: 0
         y: 0
-        width: 43
-        height: 49
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 21, y: -22}
+        - {x: 21, y: 16}
+        - {x: -17, y: 16}
+        - {x: -20, y: 5}
+        - {x: -20, y: -5}
+        - {x: -8, y: -31}
+        - {x: 19, y: -31}
+      tessellationDetail: 0
       bones: []
       spriteID: ae0ef802687c899d0800000000000000
       internalID: -2767242592133324566
@@ -143,17 +150,25 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_dead_1
       rect:
         serializedVersion: 2
-        x: 76
-        y: 3
-        width: 45
-        height: 52
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 22, y: -15}
+        - {x: 22, y: 12}
+        - {x: 12, y: 14}
+        - {x: -12, y: 14}
+        - {x: -19, y: 4}
+        - {x: -19, y: -10}
+        - {x: -6, y: -31}
+        - {x: 18, y: -31}
+      tessellationDetail: 0
       bones: []
       spriteID: 2324c87f00648e990800000000000000
       internalID: -7356553021342596558
@@ -165,17 +180,25 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_dead_2
       rect:
         serializedVersion: 2
-        x: 86
+        x: 128
         y: 0
-        width: 24
-        height: 7
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 21, y: -18}
+        - {x: 21, y: 16}
+        - {x: -10, y: 16}
+        - {x: -20, y: 3}
+        - {x: -20, y: -2}
+        - {x: -14, y: -16}
+        - {x: -3, y: -31}
+        - {x: 6, y: -31}
+      tessellationDetail: 0
       bones: []
       spriteID: 3b1d0efe08c71fd20800000000000000
       internalID: 3310564094316171699
@@ -187,17 +210,25 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_dead_3
       rect:
         serializedVersion: 2
-        x: 139
+        x: 192
         y: 0
-        width: 52
-        height: 49
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 18, y: -19}
+        - {x: 18, y: 13}
+        - {x: -16, y: 13}
+        - {x: -20, y: 4}
+        - {x: -20, y: -2}
+        - {x: -11, y: -19}
+        - {x: -4, y: -27}
+        - {x: 7, y: -27}
+      tessellationDetail: 0
       bones: []
       spriteID: 4e8ed7fc3511921e0800000000000000
       internalID: -2222225889469536028
@@ -209,17 +240,23 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_dead_4
       rect:
         serializedVersion: 2
-        x: 203
+        x: 256
         y: 0
-        width: 40
-        height: 46
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 18, y: 9}
+        - {x: -16, y: 9}
+        - {x: -20, y: 0}
+        - {x: -20, y: -7}
+        - {x: 0, y: -25}
+        - {x: 14, y: -25}
+      tessellationDetail: 0
       bones: []
       spriteID: d0e9547edde1e9980800000000000000
       internalID: -8530346705776435699
@@ -231,42 +268,26 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_dead_5
       rect:
         serializedVersion: 2
-        x: 267
+        x: 320
         y: 0
-        width: 40
-        height: 42
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 12, y: -29}
+        - {x: 12, y: -11}
+        - {x: -5, y: -11}
+        - {x: -5, y: -28}
+        - {x: -1, y: -30}
+        - {x: 7, y: -30}
+      tessellationDetail: 0
       bones: []
       spriteID: 675de7e660a82e710800000000000000
       internalID: 1721089767837193590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mons_sprite_sheet_Walking_Herb_1_dead_6
-      rect:
-        serializedVersion: 2
-        x: 346
-        y: 0
-        width: 19
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d12d0ee24482ad500800000000000000
-      internalID: 421693788421935645
       vertices: []
       indices: 
       edges: []
@@ -275,7 +296,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5ae4744c20ce4e94c9211895a52b3306
     internalID: 0
     vertices: []
     indices: 
@@ -283,7 +304,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       mons_sprite_sheet_Walking_Herb_1_dead_0: -2767242592133324566
       mons_sprite_sheet_Walking_Herb_1_dead_1: -7356553021342596558
@@ -291,7 +314,6 @@ TextureImporter:
       mons_sprite_sheet_Walking_Herb_1_dead_3: -2222225889469536028
       mons_sprite_sheet_Walking_Herb_1_dead_4: -8530346705776435699
       mons_sprite_sheet_Walking_Herb_1_dead_5: 1721089767837193590
-      mons_sprite_sheet_Walking_Herb_1_dead_6: 421693788421935645
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
