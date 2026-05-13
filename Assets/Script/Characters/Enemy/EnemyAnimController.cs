@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 public class EnemyAnimController : BaseCharacterAnimController
 {
     protected static readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
     protected static readonly int IsAttackingTrigHash = Animator.StringToHash("IsAttackingTrig");
+
+    public event Action OnFlipped;
 
     protected SpriteRenderer FirePointObj;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -37,6 +40,7 @@ public class EnemyAnimController : BaseCharacterAnimController
             Vector2 localPosition2D = FirePointObj.transform.position;
             localPosition2D.x *= -1f;
             FirePointObj.transform.localPosition = localPosition2D;
+            OnFlipped?.Invoke();
         }
     }
 }
