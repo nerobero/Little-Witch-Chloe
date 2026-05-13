@@ -27,6 +27,7 @@ public class ScrollItem : ItemBase
     {
         var playerAttackComp = other.gameObject.GetComponent<PlayerAttack>();
         if (playerAttackComp == null) return false; // cannot get the component, then return false
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Scroll");
 
         return playerAttackComp.UnlockSpell(_spellType);
     }

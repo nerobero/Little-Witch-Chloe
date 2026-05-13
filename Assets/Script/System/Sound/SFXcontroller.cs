@@ -14,7 +14,7 @@ public class SFXcontroller : MonoBehaviour {
     }
     public void PlayGlideFX()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/FlyStart");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Fly");
     }
     public void PlayAttackSFX()
     {

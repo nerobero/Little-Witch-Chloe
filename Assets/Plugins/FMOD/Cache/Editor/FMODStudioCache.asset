@@ -24,6 +24,33 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &-8681494165330814932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI Select
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/UI Select
+  Guid:
+    Data1: 100188645
+    Data2: 1182881453
+    Data3: -1470955880
+    Data4: 1971176314
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-5662479597483696475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,10 +66,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639142677499992907
+  lastModified: 639142716918237309
   FileSizes:
   - Name: Desktop
-    Value: 1882
+    Value: 2172
   Exists: 1
 --- !u!114 &-5201378617633771360
 MonoBehaviour:
@@ -98,6 +125,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 118
+--- !u!114 &-4570746499296282627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/EnemyDamaged
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/EnemyDamaged
+  Guid:
+    Data1: 1996235053
+    Data2: 1272299113
+    Data3: -989334120
+    Data4: -1836708889
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4533339184958613913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,10 +167,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639142677499952905
+  lastModified: 639142716918207299
   FileSizes:
   - Name: Desktop
-    Value: 2876608
+    Value: 2928800
   Exists: 1
 --- !u!114 &-4184413156735936226
 MonoBehaviour:
@@ -264,6 +318,13 @@ MonoBehaviour:
   - {fileID: -498052115779659504}
   - {fileID: -778238221030726468}
   - {fileID: -5169665001995409114}
+  - {fileID: 8578821383406890684}
+  - {fileID: 8841220781413604765}
+  - {fileID: 1088596644353178505}
+  - {fileID: -8681494165330814932}
+  - {fileID: -4570746499296282627}
+  - {fileID: 8278512797665384931}
+  - {fileID: 2220808220529455601}
   EditorParameters:
   - {fileID: 2478196569288099822}
   - {fileID: 572125993231974450}
@@ -274,7 +335,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -5662479597483696475}
   cacheVersion: 131859
-  cacheTime: 639142677499992907
+  cacheTime: 639142716918237309
   SerializableEventsDict:
   - key: event:/SFX/Menu Hover
     index: 0
@@ -316,6 +377,20 @@ MonoBehaviour:
     index: 18
   - key: event:/SFX/Blink Enemy
     index: 19
+  - key: event:/SFX/UI Back
+    index: 20
+  - key: event:/SFX/UI Hover
+    index: 21
+  - key: event:/SFX/Dialouge
+    index: 22
+  - key: event:/SFX/UI Select
+    index: 23
+  - key: event:/SFX/EnemyDamaged
+    index: 24
+  - key: event:/SFX/PlayerDamaged
+    index: 25
+  - key: event:/SFX/Frog
+    index: 26
 --- !u!114 &572125993231974450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +415,33 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &1088596644353178505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Dialouge
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Dialouge
+  Guid:
+    Data1: 1639686830
+    Data2: 1127911022
+    Data3: -213031010
+    Data4: -1711200531
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1117023723212729838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,7 +522,34 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2419
+  Length: 1100
+--- !u!114 &2220808220529455601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Frog
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Frog
+  Guid:
+    Data1: -496457833
+    Data2: 1334205378
+    Data3: 2076250506
+    Data4: 415525123
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2269557707669527772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,7 +817,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 2039
 --- !u!114 &7629706046212088009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,6 +845,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 621
+--- !u!114 &8278512797665384931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/PlayerDamaged
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/PlayerDamaged
+  Guid:
+    Data1: -313711763
+    Data2: 1326756182
+    Data3: -1441038201
+    Data4: 1317731638
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8578821383406890684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI Back
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/UI Back
+  Guid:
+    Data1: 1917994627
+    Data2: 1240671455
+    Data3: -1817325139
+    Data4: 205440731
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &8617078764283670951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,6 +917,33 @@ MonoBehaviour:
     Data2: 1267118915
     Data3: -954746476
     Data4: -834669691
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8841220781413604765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI Hover
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/UI Hover
+  Guid:
+    Data1: 2128839076
+    Data2: 1187980565
+    Data3: 1912224386
+    Data4: -1887367605
   Banks:
   - {fileID: -4533339184958613913}
   IsStream: 0

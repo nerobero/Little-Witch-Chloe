@@ -65,11 +65,20 @@
 	<object class="EventAutomatableProperties" id="{1dfeaed7-83fb-4a60-a154-b6977f539edb}" />
 	<object class="MarkerTrack" id="{c4dc6079-f454-47d5-b559-901fe13f8804}" />
 	<object class="GroupTrack" id="{ce62c0f2-08b2-4b69-9510-e10548039b83}">
+		<relationship name="modules">
+			<destination>{a4fafd80-b02d-4830-b702-4117e8d2fcbc}</destination>
+			<destination>{9c67aab5-cbd0-43a0-8db9-91e422f0759a}</destination>
+		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{d5920f74-f8f5-409e-b4e0-253ba60a219f}</destination>
 		</relationship>
 	</object>
-	<object class="Timeline" id="{25732b48-5204-41a2-84d9-9c05987fde03}" />
+	<object class="Timeline" id="{25732b48-5204-41a2-84d9-9c05987fde03}">
+		<relationship name="modules">
+			<destination>{a4fafd80-b02d-4830-b702-4117e8d2fcbc}</destination>
+			<destination>{9c67aab5-cbd0-43a0-8db9-91e422f0759a}</destination>
+		</relationship>
+	</object>
 	<object class="ActionSheet" id="{f4c87283-a9ef-4d44-a78e-b7a6315b8877}">
 		<relationship name="modules">
 			<destination>{089f5f16-fb15-4b48-a035-f459d993e7b4}</destination>
@@ -89,21 +98,33 @@
 			<destination>{e19bb2f2-ef7a-4c3e-b469-838950eb5038}</destination>
 		</relationship>
 	</object>
-	<object class="MultiSound" id="{089f5f16-fb15-4b48-a035-f459d993e7b4}">
-		<relationship name="sounds">
-			<destination>{2b0951e0-6d02-4d7c-bd6a-dc37f862664a}</destination>
-		</relationship>
-	</object>
+	<object class="MultiSound" id="{089f5f16-fb15-4b48-a035-f459d993e7b4}" />
 	<object class="MixerBusEffectChain" id="{3bf22e1c-6dbc-4247-bf26-b0d57f3af2f9}">
 		<relationship name="effects">
 			<destination>{cd065e36-1380-456b-8aa1-b23c05c80c01}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{7c5ac171-4174-4593-83a1-98da9e8d8287}" />
-	<object class="EventMixerGroup" id="{d5920f74-f8f5-409e-b4e0-253ba60a219f}">
-		<property name="volume">
-			<value>-15.5</value>
+	<object class="SingleSound" id="{a4fafd80-b02d-4830-b702-4117e8d2fcbc}">
+		<property name="length">
+			<value>0.90000000000000002</value>
 		</property>
+		<relationship name="audioFile">
+			<destination>{f6a25d8d-80c5-4cb1-a5fc-eb40703bc00d}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{9c67aab5-cbd0-43a0-8db9-91e422f0759a}">
+		<property name="start">
+			<value>0.20000000000000001</value>
+		</property>
+		<property name="length">
+			<value>0.90000000000000002</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{f6a25d8d-80c5-4cb1-a5fc-eb40703bc00d}</destination>
+		</relationship>
+	</object>
+	<object class="EventMixerGroup" id="{d5920f74-f8f5-409e-b4e0-253ba60a219f}">
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -123,36 +144,13 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{10caf30e-62d9-4adb-b505-740f283c6b01}" />
-	<object class="SingleSound" id="{2b0951e0-6d02-4d7c-bd6a-dc37f862664a}">
-		<relationship name="audioFile">
-			<destination>{f6a25d8d-80c5-4cb1-a5fc-eb40703bc00d}</destination>
-		</relationship>
-	</object>
 	<object class="MixerBusFader" id="{cd065e36-1380-456b-8aa1-b23c05c80c01}" />
 	<object class="MixerBusEffectChain" id="{a21f1636-9b28-4633-b0c3-96742ba7b17b}">
 		<relationship name="effects">
-			<destination>{50ac1fac-110b-4f2b-a501-d9e585948fe4}</destination>
 			<destination>{dc118056-fcd8-4f31-a457-919018b7d8a0}</destination>
-			<destination>{5c46af17-afca-4049-8982-12e902cb0e5c}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{85e455f1-474b-4716-99a3-6d2bdb713e33}" />
 	<object class="MixerBusFader" id="{365cd91c-bdff-4a91-9a9e-9086e1d7beea}" />
-	<object class="ChorusEffect" id="{50ac1fac-110b-4f2b-a501-d9e585948fe4}">
-		<property name="rate">
-			<value>0.119999997</value>
-		</property>
-		<property name="depth">
-			<value>100</value>
-		</property>
-	</object>
 	<object class="MixerBusFader" id="{dc118056-fcd8-4f31-a457-919018b7d8a0}" />
-	<object class="FlangerEffect" id="{5c46af17-afca-4049-8982-12e902cb0e5c}">
-		<property name="rate">
-			<value>8</value>
-		</property>
-		<property name="mix">
-			<value>64</value>
-		</property>
-	</object>
 </objects>
