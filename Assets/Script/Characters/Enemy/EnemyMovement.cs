@@ -295,7 +295,7 @@ public class EnemyMovement : MonoBehaviour
     public virtual void SetMoveDirection(float direction)
     {
         MoveDir = direction;
-        _animController.FlipCharacter(MoveDir);
+        _animController.FlipCharacter(-MoveDir);
     }
 
     public virtual void Jump()

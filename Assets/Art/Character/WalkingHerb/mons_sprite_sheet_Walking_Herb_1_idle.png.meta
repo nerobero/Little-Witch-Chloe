@@ -52,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -118,17 +118,24 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_idle_0
       rect:
         serializedVersion: 2
-        x: 11
+        x: 0
         y: 0
-        width: 43
-        height: 49
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 21, y: -22}
+        - {x: 21, y: 16}
+        - {x: -17, y: 16}
+        - {x: -20, y: 5}
+        - {x: -20, y: -5}
+        - {x: -8, y: -31}
+        - {x: 19, y: -31}
+      tessellationDetail: 0
       bones: []
       spriteID: fd699abf3793f1df0800000000000000
       internalID: -207383887529535777
@@ -140,17 +147,25 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_idle_1
       rect:
         serializedVersion: 2
-        x: 75
+        x: 64
         y: 0
-        width: 43
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 21, y: -5}
+        - {x: 21, y: 13}
+        - {x: 12, y: 15}
+        - {x: -13, y: 15}
+        - {x: -20, y: 5}
+        - {x: -20, y: -7}
+        - {x: -9, y: -31}
+        - {x: 16, y: -31}
+      tessellationDetail: 0
       bones: []
       spriteID: 760b9e529c62fd670800000000000000
       internalID: 8565607661648326759
@@ -162,17 +177,23 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_idle_2
       rect:
         serializedVersion: 2
-        x: 139
+        x: 128
         y: 0
-        width: 43
-        height: 49
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 21, y: 16}
+        - {x: -10, y: 16}
+        - {x: -20, y: 4}
+        - {x: -20, y: -7}
+        - {x: -14, y: -31}
+        - {x: 21, y: -31}
+      tessellationDetail: 0
       bones: []
       spriteID: cf85809e1275e7940800000000000000
       internalID: 5295766014989457660
@@ -184,17 +205,25 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_idle_3
       rect:
         serializedVersion: 2
-        x: 203
+        x: 192
         y: 0
-        width: 43
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 21, y: -5}
+        - {x: 21, y: 13}
+        - {x: 12, y: 15}
+        - {x: -13, y: 15}
+        - {x: -20, y: 5}
+        - {x: -20, y: -7}
+        - {x: -9, y: -31}
+        - {x: 16, y: -31}
+      tessellationDetail: 0
       bones: []
       spriteID: 50d9f862f58488200800000000000000
       internalID: 182475358414544133
@@ -206,17 +235,24 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_idle_4
       rect:
         serializedVersion: 2
-        x: 267
+        x: 256
         y: 0
-        width: 43
-        height: 49
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 21, y: -22}
+        - {x: 21, y: 16}
+        - {x: -17, y: 16}
+        - {x: -20, y: 5}
+        - {x: -20, y: -5}
+        - {x: -8, y: -31}
+        - {x: 19, y: -31}
+      tessellationDetail: 0
       bones: []
       spriteID: 1bc8826b03a91a6c0800000000000000
       internalID: -4133853448944186191
@@ -228,17 +264,23 @@ TextureImporter:
       name: mons_sprite_sheet_Walking_Herb_1_idle_5
       rect:
         serializedVersion: 2
-        x: 331
+        x: 320
         y: 0
-        width: 43
-        height: 49
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 21, y: 16}
+        - {x: -10, y: 16}
+        - {x: -20, y: 4}
+        - {x: -20, y: -7}
+        - {x: -14, y: -31}
+        - {x: 21, y: -31}
+      tessellationDetail: 0
       bones: []
       spriteID: 9fdda39cc12e196a0800000000000000
       internalID: -6444120978527429127
@@ -250,7 +292,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2cc5c39ab2d699b4d854d7a0136a1e5b
     internalID: 0
     vertices: []
     indices: 
@@ -258,7 +300,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       mons_sprite_sheet_Walking_Herb_1_idle_0: -207383887529535777
       mons_sprite_sheet_Walking_Herb_1_idle_1: 8565607661648326759

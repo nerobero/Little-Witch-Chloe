@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: 45657325003c5fc48a7b6083368335aa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5146069785552281087
+    second: effect_sprite_sheet_water_2_0
+  - first:
+      213: 2378446059878684597
+    second: effect_sprite_sheet_water_2_1
+  - first:
+      213: -668749755627449538
+    second: effect_sprite_sheet_water_2_2
+  - first:
+      213: -7075779355331147518
+    second: effect_sprite_sheet_water_2_3
+  - first:
+      213: 3569362319471841337
+    second: effect_sprite_sheet_water_2_4
+  - first:
+      213: 8652297052497532730
+    second: effect_sprite_sheet_water_2_5
+  - first:
+      213: -5587495810525541901
+    second: effect_sprite_sheet_water_2_6
+  - first:
+      213: -5989641439579912136
+    second: effect_sprite_sheet_water_2_7
+  - first:
+      213: -3099133163874005160
+    second: effect_sprite_sheet_water_2_8
+  - first:
+      213: 6750707026888293571
+    second: effect_sprite_sheet_water_2_9
+  - first:
+      213: -5525381123015394615
+    second: effect_sprite_sheet_water_2_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: effect_sprite_sheet_water_2_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 20
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffdd63574338a6740800000000000000
+      internalID: 5146069785552281087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_water_2_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 19
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b71f740710f10120800000000000000
+      internalID: 2378446059878684597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_water_2_2
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 33
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e335234f3af18b6f0800000000000000
+      internalID: -668749755627449538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_water_2_3
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 15
+        width: 17
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 209c1785a28cdcd90800000000000000
+      internalID: -7075779355331147518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_water_2_4
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 39
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93098c64e1ce88130800000000000000
+      internalID: 3569362319471841337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_water_2_5
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 15
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a375641d352231870800000000000000
+      internalID: 8652297052497532730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_water_2_6
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 25
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f944a50a2a3572b0800000000000000
+      internalID: -5587495810525541901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_water_2_7
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 23
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83841ed58d480eca0800000000000000
+      internalID: -5989641439579912136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_water_2_8
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 28
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85f48afaecaadf4d0800000000000000
+      internalID: -3099133163874005160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_water_2_9
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 25
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ccf86036445fad50800000000000000
+      internalID: 6750707026888293571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_sprite_sheet_water_2_10
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 16
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cab402b427e153b0800000000000000
+      internalID: -5525381123015394615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      effect_sprite_sheet_water_2_0: 5146069785552281087
+      effect_sprite_sheet_water_2_1: 2378446059878684597
+      effect_sprite_sheet_water_2_10: -5525381123015394615
+      effect_sprite_sheet_water_2_2: -668749755627449538
+      effect_sprite_sheet_water_2_3: -7075779355331147518
+      effect_sprite_sheet_water_2_4: 3569362319471841337
+      effect_sprite_sheet_water_2_5: 8652297052497532730
+      effect_sprite_sheet_water_2_6: -5587495810525541901
+      effect_sprite_sheet_water_2_7: -5989641439579912136
+      effect_sprite_sheet_water_2_8: -3099133163874005160
+      effect_sprite_sheet_water_2_9: 6750707026888293571
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
