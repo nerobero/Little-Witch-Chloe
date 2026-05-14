@@ -19,6 +19,10 @@ public class RegenHPItem : RegenItemBase
     {
         var statManagerComp = other.gameObject.GetComponent<StatManager>();
         if (statManagerComp == null) return false;
+        
+        int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
+
+        if(other.gameObject.layer != layer) return false;
 
         return statManagerComp.Heal(_healAmount);
     }

@@ -134,10 +134,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1980d96b3669d8e48a7740994ae438e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrogCollection
+  bgPlayerLayer:
+    serializedVersion: 2
+    m_Bits: 8192
+  fgPlayeLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  isBackground: 0
   healAmount: 1
   playerLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 12544
+  isBackgroundItem: 0
 --- !u!60 &1094099784225141047
 PolygonCollider2D:
   m_ObjectHideFlags: 0

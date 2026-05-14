@@ -11,7 +11,7 @@ public class ScrollItem : ItemBase
     _spellType = the type of spell that the player will unlock
     base.spawnType = the type of item, this class will be ESpawnType.Scroll
     */
-    [SerializeField] private ESpawnType _spellType;
+    [SerializeField] protected ESpawnType _spellType;
 
     private void Awake()
     {
@@ -27,6 +27,11 @@ public class ScrollItem : ItemBase
     {
         var playerAttackComp = other.gameObject.GetComponent<PlayerAttack>();
         if (playerAttackComp == null) return false; // cannot get the component, then return false
+
+        int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
+
+        if(other.gameObject.layer != layer) return false;
+        
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Scroll");
 
         return playerAttackComp.UnlockSpell(_spellType);

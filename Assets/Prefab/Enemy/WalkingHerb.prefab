@@ -175,13 +175,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.328125, y: -0.34375}
-      - {x: 0.328125, y: 0.25}
-      - {x: -0.265625, y: 0.25}
-      - {x: -0.3125, y: 0.078125}
-      - {x: -0.3125, y: -0.078125}
-      - {x: -0.125, y: -0.484375}
-      - {x: 0.296875, y: -0.484375}
+    - - {x: 0.6622662, y: -0.46473217}
+      - {x: 0.76596534, y: 0.5265307}
+      - {x: -0.53063357, y: 0.53229177}
+      - {x: -0.72729605, y: -0.00829085}
+      - {x: -0.5256591, y: -0.1991072}
+      - {x: -0.30359277, y: -1.0950469}
+      - {x: 0.5157951, y: -1.0950469}
   m_UseDelaunayMesh: 1
 --- !u!95 &-1052823039766081648
 Animator:
@@ -293,8 +293,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   shouldStop: 0
   IsEnabled: 1
-  speed: 5
-  jumpHeight: 0
+  originalSpeed: 1
+  jumpHeight: 1
   flyForce: 0
   minDistance: 2
   maxDistance: 3
@@ -306,6 +306,12 @@ MonoBehaviour:
   fgLayer:
     serializedVersion: 2
     m_Bits: 64
+  fgEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+  bgEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 32768
   _isBackground: 0
   targetPosition: {x: 0, y: 0}
   isChasing: 0
@@ -330,10 +336,10 @@ MonoBehaviour:
   eyePoint: {x: 0, y: 0, z: 0}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 256
-  viewDistance: 0
-  viewHeight: 0
-  viewAngle: 0
+    m_Bits: 12544
+  viewDistance: 10
+  viewHeight: 5
+  viewAngle: 45
   targetTimer: 0
 --- !u!1001 &3437537476233459647
 PrefabInstance:

@@ -95,20 +95,22 @@ public class CorruptMovement : EnemyMovement
         _isBackground = !_isBackground;
 
         //4. ignoring the colliders of the teleported ground.
-        if(_isBackground)
-        {
-            myCollider.includeLayers |= (1 << _bgLayerIndex);
-            myCollider.includeLayers &= ~(1 << _fgLayerIndex);
-            myCollider.excludeLayers |= (1 << _fgLayerIndex);
-            myCollider.excludeLayers &= ~(1 << _bgLayerIndex);
-        }
-        else
-        {
-            myCollider.includeLayers |= (1 << _fgLayerIndex);
-            myCollider.includeLayers &= ~(1 << _bgLayerIndex);
-            myCollider.excludeLayers |= (1 << _bgLayerIndex);
-            myCollider.excludeLayers &= ~(1 << _fgLayerIndex);
-        }
+        int layerIndex = (int)Mathf.Log(_isBackground ? bgEnemyLayer : fgEnemyLayer, 2);
+        gameObject.layer = layerIndex;
+        // if(_isBackground)
+        // {
+        //     myCollider.includeLayers |= (1 << _bgLayerIndex);
+        //     myCollider.includeLayers &= ~(1 << _fgLayerIndex);
+        //     myCollider.excludeLayers |= (1 << _fgLayerIndex);
+        //     myCollider.excludeLayers &= ~(1 << _bgLayerIndex);
+        // }
+        // else
+        // {
+        //     myCollider.includeLayers |= (1 << _fgLayerIndex);
+        //     myCollider.includeLayers &= ~(1 << _bgLayerIndex);
+        //     myCollider.excludeLayers |= (1 << _bgLayerIndex);
+        //     myCollider.excludeLayers &= ~(1 << _fgLayerIndex);
+        // }
 
         //5. reposition the player character:
         rb.position = new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);

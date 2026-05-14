@@ -9,7 +9,7 @@ public class MushroomMineController : BaseMonsterController
 
     // Activated Is Trigger, to detect player
     BoxCollider2D triggerCollider;
-    private int playerLayerIndex => (int)Mathf.Log(playerLayer.value, 2);
+    //private int playerLayerIndex => (int)Mathf.Log(playerLayer.value, 2);
 
 
     protected override void Start()
@@ -37,7 +37,7 @@ public class MushroomMineController : BaseMonsterController
         if (isExploded) return;
 
         // Check the player layer (use LayerMask)
-        if (collision.gameObject.layer == playerLayerIndex)
+        if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
             var PlayerMove = collision.GetComponent<PlayerMovement>();
             var Player = collision.GetComponent<PlayerController>();
@@ -87,7 +87,7 @@ public class MushroomMineController : BaseMonsterController
         if (isExploded) return;
 
         // Check the player layer (use LayerMask)
-        if (collision.gameObject.layer == playerLayerIndex)
+        if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
             //AdjustScale(false);
 
@@ -113,7 +113,7 @@ public class MushroomMineController : BaseMonsterController
         if (isExploded || enemyState == EMonsterState.Dead) return;
 
         // Check the player layer (use LayerMask)
-        if (collision.gameObject.layer == playerLayerIndex)
+        if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
             Explode(collision.gameObject);
         }

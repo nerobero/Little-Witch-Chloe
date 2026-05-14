@@ -69,6 +69,21 @@ public class ProjectileBase : MonoBehaviour
 
         Debug.Log($"Collided: {other.gameObject}");
 
+        // Get instigator's layer name and collided object's layer name
+        string instigatorLayerName = LayerMask.LayerToName(instigator.layer);
+        
+        string targetLayerName = LayerMask.LayerToName(other.gameObject.layer);
+
+        // prevent team kill 
+        if (instigatorLayerName.Contains("Enemy"))
+        {
+            if (targetLayerName.Contains("Enemy"))
+            {
+                Debug.Log("?");
+                return;
+            }
+        }
+
         //1. processing any potential damage:
         var stats = other.gameObject.GetComponent<StatManager>(); 
         if (stats != null)

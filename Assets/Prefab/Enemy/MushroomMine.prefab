@@ -157,7 +157,7 @@ MonoBehaviour:
   eyePoint: {x: 0, y: 0, z: 0}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 12544
   viewDistance: 0
   viewHeight: 0
   viewAngle: 0
@@ -272,7 +272,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 12544
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 2048
@@ -319,7 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BaseMonsterMovement
   shouldStop: 0
   IsEnabled: 1
-  speed: 0
+  originalSpeed: 0
   jumpHeight: 0
   flyForce: 0
   minDistance: 2
@@ -332,6 +332,12 @@ MonoBehaviour:
   fgLayer:
     serializedVersion: 2
     m_Bits: 64
+  fgEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+  bgEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 32768
   _isBackground: 0
   targetPosition: {x: 0, y: 0}
   isChasing: 0

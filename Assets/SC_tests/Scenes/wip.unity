@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -902512691818760491, guid: 3d71e3ba5b51b2f4c9f14e1e2edb3e49, type: 3}
       propertyPath: _isBackground
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4808622535488247922, guid: 3d71e3ba5b51b2f4c9f14e1e2edb3e49, type: 3}
       propertyPath: m_AnchorMax.x
@@ -35190,6 +35190,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -616190976162600829, guid: 8fba6ae50b7bd1341a16811445f729e7, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: -426171179696963765, guid: 8fba6ae50b7bd1341a16811445f729e7, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
       value: 1

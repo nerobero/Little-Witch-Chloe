@@ -18,13 +18,18 @@ public class PlayerMovement : MonoBehaviour
     public event Action OnFlyStopped;
 
     [Header("Movement values")]
-    [SerializeField] private float speed;
+    [SerializeField] private float originalSpeed;
     [SerializeField] private float jumpHeight;
     [SerializeField] private float flyForce;
     [SerializeField] private LayerMask bgLayer;
     [SerializeField] private LayerMask fgLayer;
+    [SerializeField] private LayerMask bgPlayerLayer;
+    [SerializeField] private LayerMask fgPlayerLayer;
     private int orderInLayer;
+    private float speed;
+    private float curJumpHeight;
     public int OrderInLayer => orderInLayer;
+    private Vector3 originalScale;
 
     private Rigidbody2D _rb; // Physics body for 2D object
     private bool _isBackground = false; //by default, you're already on 
@@ -59,9 +64,12 @@ public class PlayerMovement : MonoBehaviour
         _spriteRender = GetComponent<SpriteRenderer>();
 
         // ignoring the background platform in the beginning
-        Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, !_isBackground);
-        Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, _isBackground);
+        int layerIndex = (int)Mathf.Log(_isBackground ? bgPlayerLayer : fgPlayerLayer, 2);
+        gameObject.layer = layerIndex;
+        // Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, !_isBackground);
+        // Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, _isBackground);
 
+        originalScale = transform.localScale;
     }
 
     private void Start()
@@ -75,10 +83,16 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void ChangeOrderInLayer()
     {
-
         orderInLayer = _isBackground ? -1 : 1;
         _spriteRender.sortingOrder = orderInLayer;
         _childSpriteRender.sortingOrder = orderInLayer;
+
+        // Change speed, jump height and scale
+        speed = _isBackground ? originalSpeed * 0.7f : originalSpeed;
+        curJumpHeight = _isBackground ? jumpHeight * 0.7f : jumpHeight;
+        transform.localScale = 
+            _isBackground ? new Vector3(transform.localScale.x * 0.75f, 0.75f, 1) : 
+                new Vector3(Mathf.Sign(transform.localScale.x) * originalScale.x, originalScale.y, 1);
     }
 
     private void OnEnable()
@@ -155,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGrounded)
         {
-            _rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+            _rb.AddForce(Vector2.up * curJumpHeight, ForceMode2D.Impulse);
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Jump");
         }
         // BONUS logic here if needed:
@@ -260,8 +274,10 @@ public class PlayerMovement : MonoBehaviour
 
         //4. ignoring the colliders of the source ground
         // and enabling the colliders for the destination ground:
-        Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, !_isBackground);
-        Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, _isBackground);
+        int layerIndex = (int)Mathf.Log(_isBackground ? bgPlayerLayer : fgPlayerLayer, 2);
+        gameObject.layer = layerIndex;
+        // Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, !_isBackground);
+        // Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, _isBackground);
 
         //5. reposition the player character:
         

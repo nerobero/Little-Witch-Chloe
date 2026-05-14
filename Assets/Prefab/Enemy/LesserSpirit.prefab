@@ -178,7 +178,7 @@ MonoBehaviour:
   chargeAttackCDtime: 0
   changeSpellCDtime: 0
   _currentSpell: 0
-  _elementType: 0
+  _elementType: 1
   damageAmount: 1
   _firePointObject: {fileID: 6139647403758418630}
   _firePoint: {fileID: 1901527055763118400}
@@ -397,11 +397,11 @@ MonoBehaviour:
   eyePoint: {x: 0, y: 0, z: 0}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 256
-  viewDistance: 5
-  viewHeight: 3
+    m_Bits: 12544
+  viewDistance: 10
+  viewHeight: 6
   viewAngle: 45
-  targetTimer: 5
+  targetTimer: 3
   detectionRange: 10
 --- !u!114 &-902512691818760491
 MonoBehaviour:
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LesserSpiritMovement
   shouldStop: 0
   IsEnabled: 1
-  speed: 1
+  originalSpeed: 1
   jumpHeight: 1
   flyForce: 0
   minDistance: 2
@@ -430,6 +430,12 @@ MonoBehaviour:
   fgLayer:
     serializedVersion: 2
     m_Bits: 64
+  fgEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+  bgEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 32768
   _isBackground: 0
   targetPosition: {x: 0, y: 0}
   isChasing: 0

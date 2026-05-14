@@ -8,6 +8,7 @@ public class FrogCollection : ItemBase
     [Header("Frog Setting")]
     [SerializeField] private float healAmount;
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] bool isBackgroundItem = false; // default is false(foreground)
     private int playerLayerIndex;
 
     void Start()
@@ -21,6 +22,12 @@ public class FrogCollection : ItemBase
         {
             return false;
         }
+
+        PlayerMovement player = other.GetComponent<PlayerMovement>();
+
+        if(player == null) return false;
+
+        if (this.isBackgroundItem != player.IsBackground) return false;
      
         GameManager.Instance.OnFrogCollected();
 

@@ -110,7 +110,7 @@ public class MovingObstacleBase : MonoBehaviour
         int otherLayer = other.gameObject.layer;
 
 
-        if(otherLayer != playerLayerIndex && otherLayer != enmeyLayerIndex)
+        if(((1 >> otherLayer) & playerLayerIndex) == 0 && ((1 >> otherLayer) & enmeyLayerIndex) == 0)
         {
             return;
         }

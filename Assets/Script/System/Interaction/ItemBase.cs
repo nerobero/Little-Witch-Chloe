@@ -10,6 +10,10 @@ using Types;
 public abstract class ItemBase : MonoBehaviour
 {
     protected ESpawnType spawnType;
+    
+    [SerializeField] protected LayerMask bgPlayerLayer;
+    [SerializeField] protected LayerMask fgPlayeLayer;
+    [SerializeField] protected bool isBackground;
 
     /// <summary>
     /// Handles interaction logic. Can be overriden by the child classes.

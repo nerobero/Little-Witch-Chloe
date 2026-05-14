@@ -20,11 +20,14 @@ public class EnemyMovement : MonoBehaviour
     public bool IsEnabled = true;
 
     [Header("Movement values")]
-    [SerializeField] protected float speed;
+    [SerializeField] protected float originalSpeed;
     [SerializeField] protected float jumpHeight;
     [SerializeField] protected float flyForce;
     [SerializeField] protected float minDistance = 2f; // minimum 2 grid
     [SerializeField] protected float maxDistance = 3f; // maximum 3 grid
+    protected float speed;
+    protected float curJumpHeight;
+    protected Vector3 originalScale;
 
     [Header("Ground Detection")]
     [SerializeField] protected float groundCheckDistance = 0.5f;
@@ -33,6 +36,8 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] protected LayerMask bgLayer;
     [SerializeField] protected LayerMask fgLayer;
+    [SerializeField] protected LayerMask fgEnemyLayer;
+    [SerializeField] protected LayerMask bgEnemyLayer;
     public event Action<Vector2> OnBlinkFinished;
     protected int platformLayer => gameObject.layer;
     protected int _bgLayerIndex => (int)Mathf.Log(bgLayer.value, 2);
@@ -71,20 +76,25 @@ public class EnemyMovement : MonoBehaviour
         _spriteRender = GetComponent<SpriteRenderer>();
         _animController = GetComponent<EnemyAnimController>();
 
-        if(_isBackground)
-        {
-            myCollider.includeLayers |= (1 << _bgLayerIndex);
-            myCollider.includeLayers &= ~(1 << _fgLayerIndex);
-            myCollider.excludeLayers |= (1 << _fgLayerIndex);
-            myCollider.excludeLayers &= ~(1 << _bgLayerIndex);
-        }
-        else
-        {
-            myCollider.includeLayers |= (1 << _fgLayerIndex);
-            myCollider.includeLayers &= ~(1 << _bgLayerIndex);
-            myCollider.excludeLayers |= (1 << _bgLayerIndex);
-            myCollider.excludeLayers &= ~(1 << _fgLayerIndex);
-        }
+        int layerIndex = (int)Mathf.Log(_isBackground ? bgEnemyLayer : fgEnemyLayer, 2);
+        gameObject.layer = layerIndex;
+
+        // if(_isBackground)
+        // {
+        //     myCollider.includeLayers |= (1 << _bgLayerIndex);
+        //     myCollider.includeLayers &= ~(1 << _fgLayerIndex);
+        //     myCollider.excludeLayers |= (1 << _fgLayerIndex);
+        //     myCollider.excludeLayers &= ~(1 << _bgLayerIndex);
+        // }
+        // else
+        // {
+        //     myCollider.includeLayers |= (1 << _fgLayerIndex);
+        //     myCollider.includeLayers &= ~(1 << _bgLayerIndex);
+        //     myCollider.excludeLayers |= (1 << _bgLayerIndex);
+        //     myCollider.excludeLayers &= ~(1 << _fgLayerIndex);
+        // }
+
+        originalScale = transform.localScale;
 
         
         ChangeOrderInLayer();
@@ -101,12 +111,18 @@ public class EnemyMovement : MonoBehaviour
     /// Set the gameobject's orderInLayer -1 or 0 based on whether
     /// the character is in the background or not.
     /// </summary>
-     protected void ChangeOrderInLayer()
+    protected void ChangeOrderInLayer()
     {
 
         orderInLayer = _isBackground ? -1 : 1;
         _spriteRender.sortingOrder = orderInLayer;
 
+        // Change speed, jump height and scale
+        speed = _isBackground ? originalSpeed * 0.7f : originalSpeed;
+        curJumpHeight = _isBackground ? jumpHeight * 0.7f : jumpHeight;
+        transform.localScale = 
+            _isBackground ? new Vector3(transform.localScale.x * 0.75f, 0.75f, 1) : 
+                new Vector3(Mathf.Sign(transform.localScale.x) * originalScale.x, originalScale.y, 1);
     }
 
     // Physics is based on time (in seconds), thus we should use FixedUpdate
@@ -152,8 +168,8 @@ public class EnemyMovement : MonoBehaviour
             Debug.DrawRay(origin + offset, dirVec * obstacleDistance, new Color(0, 1, 0));
 
             // 2. Check can vault the obstacle
-            RaycastHit2D highHit = Physics2D.Raycast(origin + new Vector2(0, jumpHeight), dirVec, obstacleDistance, layerParam);
-            Debug.DrawRay(origin + new Vector2(0, jumpHeight), dirVec * obstacleDistance, new Color(0, 0, 1));
+            RaycastHit2D highHit = Physics2D.Raycast(origin + new Vector2(0, curJumpHeight), dirVec, obstacleDistance, layerParam);
+            Debug.DrawRay(origin + new Vector2(0, curJumpHeight), dirVec * obstacleDistance, new Color(0, 0, 1));
 
             // Debug.DrawRay(frontVec, Vector3.up, new Color(0, 1, 0));
             // RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector2.up, 1.0f, layerParam);
@@ -303,7 +319,7 @@ public class EnemyMovement : MonoBehaviour
         if (IsGrounded)
         {
             //Debug.Log("Jump!");
-            rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * curJumpHeight, ForceMode2D.Impulse);
         }
 
         // BONUS logic here if needed:

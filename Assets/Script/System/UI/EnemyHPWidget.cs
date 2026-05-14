@@ -16,10 +16,10 @@ public class EnemyHPWidget : UIBase
 
         _targetStat = GetComponent<EnemyCharacterBase>();
 
-        // if(_targetStat == null)
-        // {
-        //     Debug.Log("Why");
-        // }
+        if(_targetStat == null)
+        {
+            Debug.Log("Why");
+        }
 
         // SetTarget(_targetStat);
     }
@@ -44,6 +44,10 @@ public class EnemyHPWidget : UIBase
     #region EventSubscription
     protected override void SubscribeEvents()
     {
+        if(_targetStat == null)
+        {
+            _targetStat = GetComponent<EnemyCharacterBase>();
+        }
         _targetStat.OnHPChanged += UpdateHP;
         _targetStat.OnDeath += OnDeath;
 

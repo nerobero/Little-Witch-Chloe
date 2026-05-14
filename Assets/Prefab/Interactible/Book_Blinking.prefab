@@ -232,5 +232,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad659b237122954f9c2f816c01f6f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnlockScrollItem
+  bgPlayerLayer:
+    serializedVersion: 2
+    m_Bits: 8192
+  fgPlayeLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  isBackground: 0
   _spellType: 0
   _unlockType: 2

@@ -242,7 +242,7 @@ MonoBehaviour:
   eyePoint: {x: 0, y: 0, z: 0}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 12544
   viewDistance: 10
   viewHeight: 10
   viewAngle: 40
@@ -260,9 +260,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47d4da44e5ab7724aaddeb22a9409e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntermedSpiritMovement
+  shouldStop: 0
   IsEnabled: 1
-  speed: 1.2
-  jumpHeight: 0
+  originalSpeed: 1
+  jumpHeight: 1
   flyForce: 0
   minDistance: 2
   maxDistance: 3
@@ -274,6 +275,12 @@ MonoBehaviour:
   fgLayer:
     serializedVersion: 2
     m_Bits: 64
+  fgEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+  bgEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 32768
   _isBackground: 1
   targetPosition: {x: 0, y: 0}
   isChasing: 0
@@ -313,6 +320,7 @@ MonoBehaviour:
   maxHP: 30
   currentHP: 30
   characterElement: 4
+  OnTakenDamageEvent: 
 --- !u!114 &1377156501553361744
 MonoBehaviour:
   m_ObjectHideFlags: 0

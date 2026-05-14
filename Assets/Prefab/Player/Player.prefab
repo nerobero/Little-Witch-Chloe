@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a4f7f4ddd340541b4bc6bd4f51bf66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 3
+  originalSpeed: 3
   jumpHeight: 3
   flyForce: 6
   bgLayer:
@@ -223,6 +223,12 @@ MonoBehaviour:
   fgLayer:
     serializedVersion: 2
     m_Bits: 64
+  bgPlayerLayer:
+    serializedVersion: 2
+    m_Bits: 8192
+  fgPlayerLayer:
+    serializedVersion: 2
+    m_Bits: 4096
   _childSpriteRender: {fileID: 1278601370393913022}
 --- !u!114 &4393072811821626836
 MonoBehaviour:
@@ -372,6 +378,7 @@ MonoBehaviour:
   maxHP: 15
   currentHP: 15
   characterElement: 1
+  OnTakenDamageEvent: 
   maxStamina: 15
   currentStamina: 15
 --- !u!95 &7084486764173208723

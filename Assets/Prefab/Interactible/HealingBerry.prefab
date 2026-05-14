@@ -141,5 +141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d1529354c08404388e911a72086228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RegenHPItem
+  bgPlayerLayer:
+    serializedVersion: 2
+    m_Bits: 8192
+  fgPlayeLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  isBackground: 0
   _regenCDTime: 10
   _healAmount: 80

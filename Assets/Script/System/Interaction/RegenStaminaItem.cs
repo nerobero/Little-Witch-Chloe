@@ -19,6 +19,10 @@ public class RegenStaminaItem : RegenItemBase
         var playerStatMgrComp = other.gameObject.GetComponent<PlayerStatManager>();
         if (playerStatMgrComp == null) return false;
 
+        int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
+
+        if(other.gameObject.layer != layer) return false;
+
         return playerStatMgrComp.ReplenishStamina(_replenishAmount);
     }
 }

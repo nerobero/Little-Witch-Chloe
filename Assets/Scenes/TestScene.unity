@@ -3008,6 +3008,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -616190976162600829, guid: 8fba6ae50b7bd1341a16811445f729e7, type: 3}
+      propertyPath: isBackgroundItem
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -616190976162600829, guid: 8fba6ae50b7bd1341a16811445f729e7, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 12544
+      objectReference: {fileID: 0}
     - target: {fileID: 458162909430274076, guid: 8fba6ae50b7bd1341a16811445f729e7, type: 3}
       propertyPath: m_Name
       value: Frog
