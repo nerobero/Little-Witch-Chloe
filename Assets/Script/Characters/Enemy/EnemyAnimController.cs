@@ -7,6 +7,8 @@ public class EnemyAnimController : BaseCharacterAnimController
     protected static readonly int IsAttackingTrigHash = Animator.StringToHash("IsAttackingTrig");
 
     protected static readonly int IsDeadHash = Animator.StringToHash("IsDead");
+    
+    protected static readonly int HurtHash = Animator.StringToHash("IsHurt");
 
     private EnemyHPWidget enemyHPWidget;
 
@@ -72,5 +74,10 @@ public class EnemyAnimController : BaseCharacterAnimController
         // {
         //     OnFlipped?.Invoke();
         // }
+    }
+
+    public virtual void Hurt()
+    {
+        _animator.SetTrigger(HurtHash);
     }
 }
