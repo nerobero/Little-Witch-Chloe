@@ -18,10 +18,9 @@ public class FrogCollection : ItemBase
 
     protected override bool OnInteract(Collider2D other)
     {
-        if(other.gameObject.layer != playerLayerIndex)
-        {
-            return false;
-        }
+        int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
+
+        if(other.gameObject.layer != layer) return false;
 
         PlayerMovement player = other.GetComponent<PlayerMovement>();
 

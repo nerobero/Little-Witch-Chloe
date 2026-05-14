@@ -6,6 +6,8 @@ public class EnemyAnimController : BaseCharacterAnimController
     protected static readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
     protected static readonly int IsAttackingTrigHash = Animator.StringToHash("IsAttackingTrig");
 
+    protected static readonly int IsDeadHash = Animator.StringToHash("IsDead");
+
     private EnemyHPWidget enemyHPWidget;
 
     //public event Action OnFlipped;
@@ -16,12 +18,29 @@ public class EnemyAnimController : BaseCharacterAnimController
     {
         FirePointObj = GetComponent<EnemyAttack>().FirePointObj;
         enemyHPWidget = GetComponent<EnemyHPWidget>();
+        EnemyCharacterBase enemyStat = GetComponent<EnemyCharacterBase>();
         
+        enemyStat.OnDeath += SetToDead;
     }
 
-    public virtual void onDead()
+    public virtual void SetToDead()
     {
+        _animator.SetBool(IsDeadHash, true);
+
+        EnemyCharacterBase enemyStat = GetComponent<EnemyCharacterBase>();
         
+        enemyStat.OnDeath -= SetToDead;
+    }
+
+    public virtual void OnDeathFinished()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public virtual void Reset()
+    {
+        _animator.SetBool(IsDeadHash, false);
+        _animator.SetBool(IsAttackingHash, false);
     }
 
     public virtual void SetToIsAttacking(bool isAttacking)

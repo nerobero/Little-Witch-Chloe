@@ -10,6 +10,8 @@ public class CorruptController : EnemyControllerBase
 
     protected virtual void AttackStart()
     {
+        if(enemyStat.IsDead) return;
+
         bool shouldFacingLeft = enemyMove.targetPosition.x < transform.position.x;
         // IsFacingRight of enemy is same as is facing left
         if (shouldFacingLeft != enemyMove.AnimController.IsFacingRight)
@@ -22,6 +24,8 @@ public class CorruptController : EnemyControllerBase
 
     protected virtual void onAttack()
     {
+        if(enemyStat.IsDead) return;
+        
         bool shouldFacingLeft = enemyMove.targetPosition.x < transform.position.x;
         // IsFacingRight of enemy is same as is facing left
         if (shouldFacingLeft != enemyMove.AnimController.IsFacingRight)

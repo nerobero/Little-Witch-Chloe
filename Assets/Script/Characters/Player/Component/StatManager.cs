@@ -131,7 +131,7 @@ public class StatManager : MonoBehaviour
 
         currentHP = Mathf.Clamp(currentHP - actualDamage, 0.0f, maxHP);
         FMODUnity.RuntimeManager.PlayOneShot(OnTakenDamageEvent);
-        OnHPChanged?.Invoke(currentHP, maxHP, instigator);
+        this.OnHPChanged?.Invoke(currentHP, maxHP, instigator);
 
         if (currentHP == 0.0f)
         {
@@ -152,8 +152,8 @@ public class StatManager : MonoBehaviour
             return false;
 
         currentHP = Mathf.Clamp(currentHP + healAmount, 0.0f, maxHP);
-        OnHPChanged?.Invoke(currentHP, maxHP, null);
-        OnHeal?.Invoke();
+        this.OnHPChanged?.Invoke(currentHP, maxHP, null);
+        this.OnHeal?.Invoke();
 
         return true;
     }
@@ -184,6 +184,6 @@ public class StatManager : MonoBehaviour
     public virtual void Death()
     {
         IsDead = true;
-        OnDeath?.Invoke();
+        this.OnDeath?.Invoke();
     }
 }

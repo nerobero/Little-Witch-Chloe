@@ -4,8 +4,6 @@ public class LesserSpiritAnimController : EnemyAnimController
 {
     private static readonly int IsFlyingHash = Animator.StringToHash("IsFlying");
     private static readonly int FlyTickHash = Animator.StringToHash("FlyTick");
-
-    private static readonly int IsDeadHash = Animator.StringToHash("IsDead");
     private static readonly int DeadOneShot = Animator.StringToHash("DeadOneShot");
 
     public void SetToStartFlying()
@@ -19,9 +17,10 @@ public class LesserSpiritAnimController : EnemyAnimController
         _animator.SetBool(IsFlyingHash, false);
     }
 
-    public void SetToDead()
+    public override void SetToDead()
     {
-        _animator.SetBool(IsDeadHash, true);
+        //_animator.SetBool(IsDeadHash, true);
         _animator.SetTrigger(DeadOneShot);
+        base.SetToDead();
     }
 }

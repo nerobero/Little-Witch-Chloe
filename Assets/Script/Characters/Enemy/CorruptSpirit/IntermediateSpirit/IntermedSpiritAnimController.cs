@@ -6,13 +6,13 @@ public class IntermedSpiritAnimController : EnemyAnimController
     private static readonly int IsSeenHash = Animator.StringToHash("IsSeen");
     private static readonly int IsSeenTrigHash = Animator.StringToHash("IsSeenTrigg");
     private static readonly int TransAttackTrigHash = Animator.StringToHash("TransAttackTrigg");
-    private static readonly int IsDeadHash = Animator.StringToHash("IsDead");
     private static readonly int DeadOneShot = Animator.StringToHash("DeadOneShot");
 
-    public void SetToDead()
+    public override void SetToDead()
     {
-        _animator.SetBool(IsDeadHash, true);
+        //_animator.SetBool(IsDeadHash, true);
         _animator.SetTrigger(DeadOneShot);
+        base.SetToDead();
     }
 
 

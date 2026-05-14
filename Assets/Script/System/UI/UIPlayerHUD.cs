@@ -25,6 +25,8 @@ public class UIPlayerHUD : UIBase
 
         var playerStat = PlayerController.Instance.GetComponent<PlayerStatManager>();
 
+        if(playerStat == null) return;
+
         playerStat.OnHPChanged += UpdateHP;
         playerStat.OnStaminaChanged += UpdateStamina;
         playerStat.OnDeath += OnDeath;

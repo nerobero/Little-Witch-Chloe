@@ -38,9 +38,8 @@ public class BaseCharacterAnimController : MonoBehaviour
 
     public void SetToWalk(bool isWalking)
     {
+        _animator.SetBool(WalkingHash, isWalking);
 
-            _animator.SetBool(WalkingHash, isWalking);
-
-            _animator.SetBool(IdleHash, !isWalking);
+        _animator.SetBool(IdleHash, !isWalking);
     }
 }
