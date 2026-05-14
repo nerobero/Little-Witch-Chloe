@@ -21,6 +21,22 @@ public class PlayerAnimController : BaseCharacterAnimController
 
     public bool _isFacingRight = true;
 
+    void Start()
+    {
+        PlayerStatManager playerStat = GetComponent<PlayerStatManager>();
+        
+        playerStat.OnDeath += SetToDead;
+    }
+
+    public virtual void OnDeathFinished()
+    {
+        PlayerStatManager playerStat = GetComponent<PlayerStatManager>();
+        
+        playerStat.OnDeath -= SetToDead;
+        gameObject.SetActive(false);
+    }
+
+
     public void SetToStartFlying()
     {
         _animator.SetBool(IsFlyingHash, true);

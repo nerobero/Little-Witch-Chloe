@@ -217,7 +217,7 @@ public class PlayerMovement : MonoBehaviour
     public void FlyTick()
     {
         _rb.AddForce(Vector2.up * flyForce, ForceMode2D.Force);
-        _statManager.UseStamina(0.1f);
+        _statManager.UseStamina(0.01f);
     }
 
     /// <summary>

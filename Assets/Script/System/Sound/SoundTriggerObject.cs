@@ -28,7 +28,7 @@ public class SoundTriggerObject : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log($"[SoundTriggerObject] Hit: {collision.gameObject.name}");
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (LayerMask.LayerToName(collision.gameObject.layer).Contains("Player"))
         {
             if (SoundManager.Instance.GetGlobalValue() != _globalParam)
             {
