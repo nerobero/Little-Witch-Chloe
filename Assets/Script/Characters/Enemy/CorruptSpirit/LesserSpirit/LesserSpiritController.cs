@@ -27,35 +27,4 @@ public class LesserSpiritController : CorruptController
 
         }
     }
-
-    // protected override void FireProjectile()
-    // {
-    //     float probability = (float)Random.Range(0, 100) / 100.0f;
-
-    //     if(probability >= 0.7f)
-    //     {
-    //         enemyAttack.SetAimDirection(enemyMove.targetPosition - (Vector2)transform.position);
-    //         enemyAttack.FireNormal();
-    //     }
-    //     else
-    //     {
-    //        // Temp
-    //        FireCharged(0.0f);
-    //     }
-    // }
-
-    protected override void FireCharged(float chargeRatio)
-    {
-        
-    }
-
-    protected override void MeleeAttack()
-    {
-        //enemyMove.MoveToTarget();
-    }
-
-    // public override void Blink()
-    // {
-    //     base.Blink();
-    // }
 }
