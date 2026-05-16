@@ -96,6 +96,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   obstacle: {fileID: 7241189994691158795}
+  isBackground: 0
+  bgPlayerLayer:
+    serializedVersion: 2
+    m_Bits: 8192
+  fgPlayeLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1001 &1214574165632727508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147,6 +154,10 @@ PrefabInstance:
     - target: {fileID: 8405642338366020319, guid: 8a6a01d17dce45141926f6ab4de9d600, type: 3}
       propertyPath: m_Name
       value: TestMovingObs
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405642338366020319, guid: 8a6a01d17dce45141926f6ab4de9d600, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

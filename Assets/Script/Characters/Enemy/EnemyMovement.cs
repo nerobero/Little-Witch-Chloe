@@ -25,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] protected float flyForce;
     [SerializeField] protected float minDistance = 2f; // minimum 2 grid
     [SerializeField] protected float maxDistance = 3f; // maximum 3 grid
+    [SerializeField] protected float speedIncFactor = 1f;
     protected float speed;
     protected float curJumpHeight;
     protected Vector3 originalScale;
@@ -95,7 +96,7 @@ public class EnemyMovement : MonoBehaviour
         // }
 
         originalScale = transform.localScale;
-
+        originalSpeed = speed;
         
         ChangeOrderInLayer();
     }
@@ -269,9 +270,10 @@ public class EnemyMovement : MonoBehaviour
 
     public virtual void MoveToTarget(Vector2 target)
     {
+        if(!isChasing)
+            speed *= speedIncFactor;
         isChasing = true;
         targetPosition = target;
-        //speed *= 1.5f;
 
         // Set move direction
         SetMoveDirection(Mathf.Sign((targetPosition - (Vector2)transform.position).normalized.x));
@@ -280,6 +282,8 @@ public class EnemyMovement : MonoBehaviour
 
     public virtual void StopChasing()
     {
+        if(isChasing)
+            speed = originalSpeed;
         isChasing = false;
         //speed /= 1.5f;
         Think();

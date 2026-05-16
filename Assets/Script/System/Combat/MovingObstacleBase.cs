@@ -16,6 +16,7 @@ public class MovingObstacleBase : MonoBehaviour
     protected float moveDir;
     [SerializeField] protected float speed;
     [SerializeField] protected bool isBackground;
+    [SerializeField] protected float originalDirection = 1;
 
     [Header("MoveingObstacle")]
     [SerializeField] protected float damageAmount;
@@ -40,7 +41,7 @@ public class MovingObstacleBase : MonoBehaviour
     {
         int orderInLayer = isBackground ? 0 : 2;
         _spriteRender.sortingOrder = orderInLayer;
-        SetMoveDirection(1);
+        SetMoveDirection(originalDirection);
 
          if(isBackground)
         {
@@ -56,6 +57,11 @@ public class MovingObstacleBase : MonoBehaviour
             myCollider.excludeLayers |= (1 << _bgLayerIndex);
             myCollider.excludeLayers &= ~(1 << _fgLayerIndex);
         }
+    }
+
+    public void SetIsBackground(bool background)
+    {
+        isBackground = background;
     }
 
     protected void OnEnable()

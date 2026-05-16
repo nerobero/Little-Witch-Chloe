@@ -2,14 +2,11 @@ using UnityEngine;
 
 public class CorruptMovement : EnemyMovement
 {
-    [SerializeField] private float speedIncFactor = 1f;
-    private float _originalSpeed;
-    
+   
     protected override void Awake()
     {
         base.Awake();
-        
-        _originalSpeed = speed;
+    
     }
     public override void Think()
     {
@@ -25,24 +22,6 @@ public class CorruptMovement : EnemyMovement
         // SetMoveDirection(MoveDir);
 
 
-    }
-
-    public override void MoveToTarget(Vector2 target)
-    {
-        if(!isChasing)
-            speed *= speedIncFactor;
-        
-        base.MoveToTarget(target);
-        // Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-        // //SetMoveDirection(direction);
-    }
-
-    public override void StopChasing()
-    {
-        if(isChasing)
-            speed = _originalSpeed;
-
-        base.StopChasing();
     }
 
     public override void OnBlinkCallback()
@@ -97,20 +76,6 @@ public class CorruptMovement : EnemyMovement
         //4. ignoring the colliders of the teleported ground.
         int layerIndex = (int)Mathf.Log(_isBackground ? bgEnemyLayer : fgEnemyLayer, 2);
         gameObject.layer = layerIndex;
-        // if(_isBackground)
-        // {
-        //     myCollider.includeLayers |= (1 << _bgLayerIndex);
-        //     myCollider.includeLayers &= ~(1 << _fgLayerIndex);
-        //     myCollider.excludeLayers |= (1 << _fgLayerIndex);
-        //     myCollider.excludeLayers &= ~(1 << _bgLayerIndex);
-        // }
-        // else
-        // {
-        //     myCollider.includeLayers |= (1 << _fgLayerIndex);
-        //     myCollider.includeLayers &= ~(1 << _bgLayerIndex);
-        //     myCollider.excludeLayers |= (1 << _bgLayerIndex);
-        //     myCollider.excludeLayers &= ~(1 << _fgLayerIndex);
-        // }
 
         //5. reposition the player character:
         rb.position = new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
