@@ -136,6 +136,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""a591e768-5996-496e-a535-3365c9bb3b6d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -215,6 +224,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Blink"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75197d9f-a4b8-4426-8421-138ad906103a"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -228,6 +248,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_BaseInputAction_AimAttack = m_BaseInputAction.FindAction("AimAttack", throwIfNotFound: true);
         m_BaseInputAction_Attack = m_BaseInputAction.FindAction("Attack", throwIfNotFound: true);
         m_BaseInputAction_Blink = m_BaseInputAction.FindAction("Blink", throwIfNotFound: true);
+        m_BaseInputAction_Interact = m_BaseInputAction.FindAction("Interact", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
@@ -313,6 +334,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_BaseInputAction_AimAttack;
     private readonly InputAction m_BaseInputAction_Attack;
     private readonly InputAction m_BaseInputAction_Blink;
+    private readonly InputAction m_BaseInputAction_Interact;
     /// <summary>
     /// Provides access to input actions defined in input action map "BaseInputAction".
     /// </summary>
@@ -344,6 +366,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BaseInputAction/Blink".
         /// </summary>
         public InputAction @Blink => m_Wrapper.m_BaseInputAction_Blink;
+        /// <summary>
+        /// Provides access to the underlying input action "BaseInputAction/Interact".
+        /// </summary>
+        public InputAction @Interact => m_Wrapper.m_BaseInputAction_Interact;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -385,6 +411,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Blink.started += instance.OnBlink;
             @Blink.performed += instance.OnBlink;
             @Blink.canceled += instance.OnBlink;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         /// <summary>
@@ -411,6 +440,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Blink.started -= instance.OnBlink;
             @Blink.performed -= instance.OnBlink;
             @Blink.canceled -= instance.OnBlink;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         /// <summary>
@@ -486,5 +518,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnBlink(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteract(InputAction.CallbackContext context);
     }
 }
