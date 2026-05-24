@@ -267,6 +267,7 @@ MonoBehaviour:
   flyForce: 0
   minDistance: 2
   maxDistance: 3
+  speedIncFactor: 1
   groundCheckDistance: 0.5
   obstacleDistance: 0.5
   bgLayer:
@@ -284,7 +285,6 @@ MonoBehaviour:
   _isBackground: 1
   targetPosition: {x: 0, y: 0}
   isChasing: 0
-  speedIncFactor: 1
 --- !u!114 &7916854309380687958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   chargeAttackCDtime: 0
   changeSpellCDtime: 0
-  _currentSpell: 10
+  _currentSpell: 12
   _elementType: 4
   damageAmount: 3
   _firePointObject: {fileID: 0}

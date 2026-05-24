@@ -51,9 +51,11 @@ namespace Types
         // NPC projectiles
         FireSlash,
         FirePillar,
+        WaterBallNPC,
         PlantBall,
         PoisonPool,
         PoisonSplash,
+        PoisonBallNPC,
         DarknessBall,
         DarknessCloud,
         IceShard,

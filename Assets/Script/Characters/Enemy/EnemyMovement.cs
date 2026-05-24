@@ -96,7 +96,7 @@ public class EnemyMovement : MonoBehaviour
         // }
 
         originalScale = transform.localScale;
-        originalSpeed = speed;
+        speed = originalSpeed;
         
         ChangeOrderInLayer();
     }

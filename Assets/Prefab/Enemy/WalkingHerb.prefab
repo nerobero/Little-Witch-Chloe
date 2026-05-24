@@ -293,11 +293,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   shouldStop: 0
   IsEnabled: 1
-  originalSpeed: 1
+  originalSpeed: 3
   jumpHeight: 1
   flyForce: 0
   minDistance: 2
   maxDistance: 3
+  speedIncFactor: 1.2
   groundCheckDistance: 0.5
   obstacleDistance: 0.5
   bgLayer:
