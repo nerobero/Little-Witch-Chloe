@@ -8,10 +8,12 @@ public interface IInteractable
 {
     bool CanInteract();
     void Interact();
+    void ShowInteractUI(bool isShown);
 }
 
 /// <summary>
-/// Abstract class that has 
+/// Abstract class that implements the IInteractable interface
+/// as well as shared Monobehavior functions.
 /// </summary>
 public abstract class InteractableBase : MonoBehaviour, IInteractable
 {
@@ -31,4 +33,9 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
             Interact_Impl();
     }
 
+    public void ShowInteractUI(bool isShown)
+    {
+        // throw new System.NotImplementedException();
+        Debug.Log($"Showing interaction text? : {isShown}");
+    }
 }
