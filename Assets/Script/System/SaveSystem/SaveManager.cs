@@ -14,7 +14,6 @@ public class SaveManager : MonoBehaviour
     [SerializeField] private SettingData settingData;
     
     private string savePlayerPath = "savePlayerData.json";
-    private string saveSettingPath = "saveSettingData.json";
 
     private void Awake()
     {
@@ -97,11 +96,11 @@ public class SaveManager : MonoBehaviour
             ApplyAllGameData(savePlayerData);
 
         }
-        // if not
-        else
-        {
-            ResetSettingData();
-        }
+        // // if not
+        // else
+        // {
+        //     ResetPlayerData();
+        // }
     }
 
     private void ApplyAllGameData(SavePlayerData savePlayerData)
@@ -122,51 +121,5 @@ public class SaveManager : MonoBehaviour
                 playerAttack.UnlockSpell(spell);
             }
         }
-    }
-
-    private void LoadSettingData()
-    {
-        string filePath = Application.persistentDataPath + saveSettingPath;
-
-        // If there is saved file
-        if(File.Exists(filePath))
-        {
-            Debug.Log("Load saved setting");
-
-            string FromJsonFile = File.ReadAllText(filePath);
-            settingData = JsonUtility.FromJson<SettingData>(FromJsonFile);
-            
-            if(settingData == null)
-            {
-                Debug.Log("There is no saved setting");
-            }
-
-        }
-        // if not
-        else
-        {
-            ResetSettingData();
-        }
-    }
-
-    public void ResetSettingData()
-    {
-        Debug.Log("Create new setting save file");
-
-        settingData = null;
-        settingData = new SettingData();
-
-        settingData.language = Application.systemLanguage;
-        
-        SaveSettingData();
-    }
-
-    public void SaveSettingData()
-    {
-        string ToJsonData = JsonUtility.ToJson(settingData);
-        string filePath = Application.persistentDataPath + saveSettingPath;
-
-        // overwrite the save file
-        File.WriteAllText(filePath, ToJsonData);   
     }
 }

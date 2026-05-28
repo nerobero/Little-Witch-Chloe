@@ -15,6 +15,14 @@ public class SoundManager : MonoBehaviour
     private EventInstance _eventInstance;
     private float _currentStateValue;
 
+    private Bus _masterBus;
+    private Bus _bgmBus;
+    private Bus _sfxBus;
+
+    private const string MASTER_KEY = "Volume_Master";
+    private const string BGM_KEY = "Volume_BGM";
+    private const string SFX_KEY = "Volume_SFX";
+
     private void Awake()
     {
         if (_instance != this && _instance != null)
@@ -27,6 +35,10 @@ public class SoundManager : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        _masterBus = RuntimeManager.GetBus("bus:/");
+        _bgmBus = RuntimeManager.GetBus("bus:/BGM"); 
+        _sfxBus = RuntimeManager.GetBus("bus:/SFX"); 
         
     }
     private void HandleStartManagerEvent()
@@ -82,4 +94,27 @@ public class SoundManager : MonoBehaviour
     }
     private void OnDestroy() => HandleStopEvent();
     private void OnDisable() => HandleStopEvent();
+
+    #region Volume Setting
+    public void SetMasterVolume(float volume)
+    {
+        volume = Mathf.Clamp01(volume);
+        _masterBus.setVolume(volume);
+        PlayerPrefs.SetFloat(MASTER_KEY, volume); // 기기에 볼륨 저장
+    }
+
+    public void SetBgmVolume(float volume)
+    {
+        volume = Mathf.Clamp01(volume);
+        _bgmBus.setVolume(volume);
+        PlayerPrefs.SetFloat(BGM_KEY, volume);
+    }
+
+    public void SetSfxVolume(float volume)
+    {
+        volume = Mathf.Clamp01(volume);
+        _sfxBus.setVolume(volume);
+        PlayerPrefs.SetFloat(SFX_KEY, volume);
+    }
+    #endregion
 }
