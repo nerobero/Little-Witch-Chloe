@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     // Handler for player's attack system
     private PlayerAttack _playerAttack;
 
+    private InteractionSystem _playerInteract;
+
     private Camera _mainCamera;
     #endregion
 
@@ -58,6 +60,8 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         // Caching once, never having to re-fetch again:
         _playerMove = GetComponent<PlayerMovement>();
         _playerAttack = GetComponent<PlayerAttack>();
+
+        _playerInteract = GetComponent<InteractionSystem>();
 
         _mainCamera = Camera.main;
 
@@ -142,7 +146,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
             float heldFor = Time.time - _jumpPressTime;
             if (heldFor >= flyingThreshold) // state change
             {
-                if(!GameManager.Instance.IsSpellUnlocked(Types.EAbilityType.Flying)) return;
+                if (!GameManager.Instance.IsSpellUnlocked(Types.EAbilityType.Flying)) return;
                 _isFlying = true;
                 _playerMove.StartFlying(); // always called before FlyTick()
             }
@@ -200,12 +204,17 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     public void OnBlink(InputAction.CallbackContext context)
     {
-        if (context.performed) 
+        if (context.performed)
         {
             _playerMove.BlinkToOtherPlatform();
             _playerAttack.isBackground = _playerMove.IsBackground;
             onBlinked?.Invoke(_playerMove.IsBackground);
         }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        _playerInteract.Interact();
     }
 
     #endregion
