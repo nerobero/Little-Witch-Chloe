@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -30,8 +32,8 @@ namespace Types
         Patrol,     // Patrol
         Chase,      // Chase the target
         Attack,     // Attack the target
-        Dead,      // Dead state
-        Seen, // Some monsters have a separate interaction with the player when 'seen'
+        Dead,       // Dead state
+        Seen,       // Some monsters have a separate interaction with the player when 'seen'
     }
 
 
@@ -85,4 +87,40 @@ namespace Types
         Blink,
         
     }
+}
+
+/// <summary>
+/// This is a global  type namespace
+/// </summary>
+namespace Data
+{
+    // Save data : unlocked spell, inventory?
+    [System.Serializable]
+    public class SavePlayerData
+    {
+        public HashSet<Types.EAbilityType> unlockedSpell;
+        public HashSet<Types.ESpawnType> spellList;
+        public Transform savedTransform;
+        public DateTime currentTime;
+    }
+
+    // Setting data : Master volume, graphics, input key?
+    [System.Serializable]
+    public class SettingData
+    {
+        // sound setting
+        // master volume
+        public float masterVolume;
+        // bgm volume
+        public float bgmVolume;
+        // effect volume
+        public float sfxVolume;
+        // public int resolutionWidth;
+        // public int resolutionHeight;
+        // public bool isFullScreen;
+
+        // Language setting
+        public SystemLanguage language;
+    }
+
 }

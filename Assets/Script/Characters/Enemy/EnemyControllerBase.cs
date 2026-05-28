@@ -1,5 +1,6 @@
 using UnityEngine;
 using Types;
+using Unity.VisualScripting;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class EnemyControllerBase : MonoBehaviour
@@ -112,8 +113,15 @@ public class EnemyControllerBase : MonoBehaviour
                 // the forward vector
                 float cosThreshold = Mathf.Cos(viewAngle * 0.5f * Mathf.Deg2Rad); 
 
-                Vector2 forward = transform.right * enemyMove.MoveDir;
+                //Vector2 forward = transform.right * enemyMove.MoveDir;
                 Vector2 dirToPlayer = (hit.transform.position - transform.position).normalized;
+                Vector2 baseForward = transform.right * enemyMove.MoveDir;
+                Vector2 forward = baseForward;
+                if (Vector2.Dot(baseForward, dirToPlayer) > 0f) 
+                {
+                    // Aligns the central axis of the field of view with the player (turns head to look).
+                    forward = dirToPlayer; 
+                }
 
                 // Calculate the angle of two vectors
                 float dot = Vector2.Dot(forward, dirToPlayer);
@@ -121,10 +129,22 @@ public class EnemyControllerBase : MonoBehaviour
                 // if the calculated angle is smaller than the half of the view angle
                 if(dot > cosThreshold)
                 {
-                    // the player is in view triangle
-                    PlayerDetected(false, hit.gameObject.transform.position);
+                    // Check the obstacles(wall) between player and this
+                    Vector2 dirToTarget = (hit.gameObject.transform.position - worldEyePoint).normalized;
+                    float distsToTarget = Vector2.Distance(hit.gameObject.transform.position, transform.position);
 
-                    return;
+                    LayerMask mask = enemyMove.IsBackground ? LayerMask.GetMask("Background") : LayerMask.GetMask("Foreground");
+
+                    // Do raycast for dectect the obstacles
+                    RaycastHit2D rayHit = Physics2D.Raycast(worldEyePoint, dirToTarget, distsToTarget, mask);
+
+                    if(rayHit.collider != null)
+                    {
+                        // the player is in view triangle
+                        PlayerDetected(false, hit.gameObject.transform.position);
+                        
+                        return;
+                    }
                 }
             }
         }
@@ -149,7 +169,6 @@ public class EnemyControllerBase : MonoBehaviour
                 return;
             }
         }
-
     }
 
     protected void OnDrawGizmos()
@@ -169,7 +188,15 @@ public class EnemyControllerBase : MonoBehaviour
             Gizmos.color = Color.yellow;
             float cosThreshold = Mathf.Cos(viewAngle * 0.5f * Mathf.Deg2Rad); 
 
-            Vector2 forward = transform.right * enemyMove.MoveDir;
+            //Vector2 forward = transform.right * enemyMove.MoveDir;
+            Vector2 baseForward = transform.right * enemyMove.MoveDir;
+            Vector2 dirToPlayer = ((Vector3)enemyMove.targetPosition - transform.position).normalized;
+            Vector2 forward = baseForward;
+            if (Vector2.Dot(baseForward, dirToPlayer) > 0f) 
+            {
+                // Aligns the central axis of the field of view with the player (turns head to look).
+                forward = dirToPlayer; 
+            }
         
             // 시야의 양 끝 방향 계산 (Z축 회전)
             Vector3 leftBoundary = Quaternion.Euler(0, 0, viewAngle * 0.5f) * forward;
@@ -203,7 +230,7 @@ public class EnemyControllerBase : MonoBehaviour
         }
     }
 
-    private void ChangeStateToATKorChase(Vector2 position)
+    protected virtual void ChangeStateToATKorChase(Vector2 position)
     {
         enemyMove.AnimController.SetToIsAttacking(true);
         
@@ -220,6 +247,20 @@ public class EnemyControllerBase : MonoBehaviour
         }
         
         Think();
+    }
+
+    protected virtual void onAttack()
+    {
+        if(enemyStat.IsDead) return;
+        
+        bool shouldFacingLeft = enemyMove.targetPosition.x < transform.position.x;
+        // IsFacingRight of enemy is same as is facing left
+        if (shouldFacingLeft != enemyMove.AnimController.IsFacingRight)
+        {
+            Debug.Log("Turn?");
+            
+            enemyMove.SetMoveDirection(enemyMove.MoveDir * -1);
+        }
     }
 
     // AI behavior
@@ -247,18 +288,6 @@ public class EnemyControllerBase : MonoBehaviour
             break;
 
         }
-        // // If this enemy's state is attack, then stop move logic and start to attack.
-        // if(enemyState == EMonsterState.Attack)
-        // {
-        // }
-        // // else if the state is chase, then start to chase.
-        // else if(enemyState == EMonsterState.Chase)
-        // {
-        // }
-        // // else then start to move
-        // else
-        // {
-        // }
     }
 
     protected virtual void OnBecameVisible()

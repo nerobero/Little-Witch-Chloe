@@ -63,7 +63,7 @@ public class CorruptMovement : EnemyMovement
                 Vector2.down, camHalfHeight * 2f, layerParam);
 
         layerParam = _isBackground ? bgLayer : fgLayer;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, layerParam);
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, layerParam);
         if (hitresult.collider == null)
         {
             Debug.Log("Null");

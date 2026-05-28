@@ -96,7 +96,7 @@ public class EnemyMovement : MonoBehaviour
         // }
 
         originalScale = transform.localScale;
-        originalSpeed = speed;
+        speed = originalSpeed;
         
         ChangeOrderInLayer();
     }
@@ -266,6 +266,15 @@ public class EnemyMovement : MonoBehaviour
             // Think next behavior immediately.
             Think();
         }
+    }
+
+    public virtual void SeeTarget(Vector2 target)
+    {
+        isChasing = true;
+        targetPosition = target;
+
+        // Set move direction
+        SetMoveDirection(Mathf.Sign((targetPosition - (Vector2)transform.position).normalized.x));
     }
 
     public virtual void MoveToTarget(Vector2 target)

@@ -22,7 +22,7 @@ public class CorruptController : EnemyControllerBase
         enemyMove.AnimController.SetToIsAttacking();
     }
 
-    protected virtual void onAttack()
+    protected override void onAttack()
     {
         if(enemyStat.IsDead) return;
         

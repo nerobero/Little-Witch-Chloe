@@ -7,4 +7,10 @@ public class LesserSpiritMovement : CorruptMovement
         MoveDir = direction;
         _animController.FlipCharacter(-MoveDir);
     }
+
+    public override void StopChasing()
+    {
+        _animController.SetToIsAttacking(false);
+        base.StopChasing();
+    }
 }

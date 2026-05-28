@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     // Activated spells by scroll. (flying, blink)
     private HashSet<EAbilityType> unlockedSpell = new HashSet<EAbilityType>();
+    public HashSet<EAbilityType> GetUnlockedSpell => unlockedSpell;
 
     private void Awake()
     {
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        SaveManager.Instance.LoadSaveGame();
     }
 
     // Update is called once per frame

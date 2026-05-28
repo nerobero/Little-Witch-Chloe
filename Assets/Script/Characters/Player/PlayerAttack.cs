@@ -26,6 +26,7 @@ public class PlayerAttack : MonoBehaviour
         {ESpawnType.FireBall, true}, {ESpawnType.WaterBall, true},
         {ESpawnType.PoisonBall, false}, {ESpawnType.ElectricBall, false}, {ESpawnType.LightBall, false}
     };
+
     private ESpawnType _currentSpell = ESpawnType.FireBall;
 
     [Header("Chloe's shoot point")]
@@ -171,5 +172,21 @@ public class PlayerAttack : MonoBehaviour
         bool value = false;
         return _spellList.TryGetValue(type, out value) && value;
     }
+
+    public HashSet<ESpawnType> GetUnlockedSpell()
+    {
+        HashSet<ESpawnType> unlockedSpell = new HashSet<ESpawnType>();
+
+        foreach(KeyValuePair<ESpawnType, bool> pair in _spellList)
+        {
+            if(pair.Value)
+            {
+                unlockedSpell.Add(pair.Key);
+            }
+        }
+
+        return unlockedSpell;    
+    }
+
     #endregion 
 }
