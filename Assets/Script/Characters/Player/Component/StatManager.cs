@@ -55,6 +55,23 @@ public class StatManager : MonoBehaviour
         if (IsDead || damageAmount <= 0.0f)
             return false;
 
+        float actualDamage = CalculateActualDamage(damageAmount, damageElement);
+
+        currentHP = Mathf.Clamp(currentHP - actualDamage, 0.0f, maxHP);
+        FMODUnity.RuntimeManager.PlayOneShot(OnTakenDamageEvent);
+        this.OnHPChanged?.Invoke(currentHP, maxHP, instigator);
+
+        if (currentHP == 0.0f)
+        {
+            Death();
+        }
+
+        return true;
+    }
+
+    // Calculate actual damage amount
+    public virtual float CalculateActualDamage(float damageAmount, EElementType damageElement)
+    {
         float actualDamage = damageAmount;
 
         switch (characterElement)
@@ -129,16 +146,7 @@ public class StatManager : MonoBehaviour
                 break;
         }
 
-        currentHP = Mathf.Clamp(currentHP - actualDamage, 0.0f, maxHP);
-        FMODUnity.RuntimeManager.PlayOneShot(OnTakenDamageEvent);
-        this.OnHPChanged?.Invoke(currentHP, maxHP, instigator);
-
-        if (currentHP == 0.0f)
-        {
-            Death();
-        }
-
-        return true;
+        return actualDamage;
     }
 
     /// <summary>

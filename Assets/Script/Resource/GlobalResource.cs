@@ -100,8 +100,8 @@ namespace Data
     [System.Serializable]
     public class SavePlayerData
     {
-        public HashSet<Types.EAbilityType> unlockedSpell;
-        public HashSet<Types.ESpawnType> spellList;
+        public HashSet<Types.EAbilityType> unlockedAbility; // Blink, Flying
+        public HashSet<Types.ESpawnType> spellList; // Projectiles
         public Transform savedTransform;
         public DateTime currentTime;
     }

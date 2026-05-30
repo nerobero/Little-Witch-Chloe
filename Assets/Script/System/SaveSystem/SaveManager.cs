@@ -52,12 +52,14 @@ public class SaveManager : MonoBehaviour
 
         SavePlayerData savePlayerData = CollectAllPlayerData();
 
+        // Prototypes it can be changed
         string json = JsonUtility.ToJson(savePlayerData);
         string filePath = Application.persistentDataPath + savePlayerPath;
 
         File.WriteAllText(filePath, json);
+        
 
-        Debug.Log("Save Finish");
+        Debug.Log("Save Finish"); 
     }
 
     private SavePlayerData CollectAllPlayerData()
@@ -67,7 +69,7 @@ public class SaveManager : MonoBehaviour
         if(playerAttack)
         {
             savePlayerData.savedTransform = playerAttack.gameObject.transform;
-            savePlayerData.unlockedSpell = gameManager.GetUnlockedSpell;
+            savePlayerData.unlockedAbility = gameManager.GetUnlockedSpell;
             savePlayerData.spellList = playerAttack.GetUnlockedSpell();
 
             savePlayerData.currentTime = System.DateTime.Now;
@@ -109,8 +111,9 @@ public class SaveManager : MonoBehaviour
         {
             playerAttack.gameObject.transform.position = savePlayerData.savedTransform.position;
             playerAttack.gameObject.transform.rotation = savePlayerData.savedTransform.rotation;
+            playerAttack.gameObject.transform.localScale = savePlayerData.savedTransform.localScale;
             
-            foreach(Types.EAbilityType unlocked in savePlayerData.unlockedSpell)
+            foreach(Types.EAbilityType unlocked in savePlayerData.unlockedAbility)
             {
                 gameManager.OnScrollCollected(unlocked);
             }
