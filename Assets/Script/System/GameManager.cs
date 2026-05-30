@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using UnityEngine;
 using Types;
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSingletonBase<GameManager>
 {
     // make Game Manager to singleton
-    public static GameManager Instance {get; private set;}
+    // public static GameManager Instance {get; private set;}
 
     private int collectedFrog;
 
@@ -12,18 +11,10 @@ public class GameManager : MonoBehaviour
     private HashSet<EAbilityType> unlockedSpell = new HashSet<EAbilityType>();
     public HashSet<EAbilityType> GetUnlockedSpell => unlockedSpell;
 
-    private void Awake()
+    protected override void Awake()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-            // maintain this instance even if the scene changed.
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        dontDestroy = true;
+        base.Awake();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

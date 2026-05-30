@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d2eacabf6315e46b344be34896886e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PoolObjectManager
+  dontDestroy: 1
   poolEntries:
   - type: 0
     spawnPrefab: {fileID: 5886028441092481102, guid: 392496fcb043e7849b845402426885a1, type: 3}
@@ -59,4 +60,4 @@ MonoBehaviour:
     initSpawnSize: 0
   - type: 19
     spawnPrefab: {fileID: 3646741652251605535, guid: 669b794375319d149934a280d5c82d72, type: 3}
-    initSpawnSize: 0
+    initSpawnSize: 10

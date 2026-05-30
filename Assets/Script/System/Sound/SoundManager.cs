@@ -6,11 +6,8 @@ using UnityEngine;
 /// Singleton class for managing sounds.
 /// Mainly controls the changes of BGM tracks.
 /// </summary>
-public class SoundManager : MonoBehaviour
+public class SoundManager : MonoSingletonBase<SoundManager>
 {
-    private static SoundManager _instance;
-    public static SoundManager Instance => _instance;
-
     [SerializeField] private EventReference MainMusic;
     private EventInstance _eventInstance;
     private float _currentStateValue;
@@ -23,18 +20,10 @@ public class SoundManager : MonoBehaviour
     private const string BGM_KEY = "Volume_BGM";
     private const string SFX_KEY = "Volume_SFX";
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (_instance != this && _instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        else
-        {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        dontDestroy = true;
+        base.Awake();
 
         _masterBus = RuntimeManager.GetBus("bus:/");
         _bgmBus = RuntimeManager.GetBus("bus:/BGM"); 
@@ -92,7 +81,11 @@ public class SoundManager : MonoBehaviour
         _eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         _eventInstance.release();
     }
-    private void OnDestroy() => HandleStopEvent();
+    protected override void OnDestroy()
+    {
+        HandleStopEvent();
+        base.OnDestroy();
+    }
     private void OnDisable() => HandleStopEvent();
 
     #region Volume Setting

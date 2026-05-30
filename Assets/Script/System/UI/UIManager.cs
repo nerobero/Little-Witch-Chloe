@@ -6,26 +6,18 @@ using UnityEngine;
 /// UIManager that acts as a registry of UI panels.
 /// Panels will self-register, so there is no need for any serialized references to every panel.
 /// </summary>
-public class UIManager : MonoBehaviour
+public class UIManager : MonoSingletonBase<UIManager>
 {
-    public static UIManager Instance { get; private set; }
-    private UIManager _instance;
+    // public static UIManager Instance { get; private set; }
+    // private UIManager _instance;
 
     // the registry for the panels that UIManager should keep track of:
     private readonly Dictionary<Type, UIBase> _uiPanels = new();
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (Instance != this && Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        dontDestroy = true;
+        base.Awake();
     }
 
     /// <summary>

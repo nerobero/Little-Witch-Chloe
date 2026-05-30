@@ -17,29 +17,34 @@ public struct PoolEntry
 /// <summary>
 /// Manages different types of poolable objects as a dictionary.
 /// </summary>
-public class PoolObjectManager : MonoBehaviour
+public class PoolObjectManager : MonoSingletonBase<PoolObjectManager>
 {
-    private static PoolObjectManager _instance;
-    public static PoolObjectManager Instance => _instance;
+    // private static PoolObjectManager _instance;
+    // public static PoolObjectManager Instance => _instance;
     [SerializeField] PoolEntry[] poolEntries; //initialized at compile time, for authoring
 
     private Dictionary<ESpawnType, GameObject> prefabMap = new(); // for easier runtime access
     private Dictionary<ESpawnType, Queue<GameObject>> pools = new(); // key = pool object type, value = pool
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (_instance != this && _instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        else
-        {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        
+        dontDestroy = true;
+        base.Awake();
     }
+    // private void Awake()
+    // {
+    //     if (_instance != this && _instance != null)
+    //     {
+    //         Destroy(gameObject);
+    //         return;
+    //     }
+    //     else
+    //     {
+    //         _instance = this;
+    //         DontDestroyOnLoad(gameObject);
+    //     }
+        
+    // }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
