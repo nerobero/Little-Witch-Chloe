@@ -1,5 +1,5 @@
 using System;
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -49,6 +49,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private SpriteRenderer _childSpriteRender;
     private SpriteRenderer _spriteRender;
     
+    [SerializeField] private float blinkCooldownTime = 3.0f;
+    private bool canBlink = true;
+    public event Action<float> OnBlinkCooldown;
+
 
     private void Awake()
     {
@@ -235,6 +239,9 @@ public class PlayerMovement : MonoBehaviour
         // If blink is unlocked
         if(!GameManager.Instance.IsSpellUnlocked(Types.EAbilityType.Blink)) return;
 
+        
+        if(!canBlink) return;
+
         //1. finding if there is any teleportable platform within the given radius 
         LayerMask layerParam = _isBackground ? fgLayer : bgLayer;
         Collider2D collided = Physics2D.OverlapCircle(transform.position, 15.0f, layerParam);
@@ -268,6 +275,8 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        canBlink = false;
+
         //3. flip the _isBackground value before we reposition the character:
         _animController.SetToIsBlinkingStartTrig();
         _isBackground = !_isBackground;
@@ -287,10 +296,29 @@ public class PlayerMovement : MonoBehaviour
 
         //6. changing the order in layer:
         ChangeOrderInLayer();
+
+        
+        StartCoroutine(BlinkCooltimeChk(blinkCooldownTime));
     }
 
     public int GetCurrentLayer()
     {
         return IsBackground ? _bgLayerIndex : _fgLayerIndex;
     }
+
+    #region Cooltime
+    IEnumerator BlinkCooltimeChk(float cool)
+    {
+        Debug.Log("Cooltime start");
+
+        while (cool > 1.0f)
+        {
+            cool -= Time.deltaTime;
+            OnBlinkCooldown?.Invoke(cool);
+            yield return new WaitForFixedUpdate();
+        }
+
+        canBlink = true;
+    }
+    #endregion
 }

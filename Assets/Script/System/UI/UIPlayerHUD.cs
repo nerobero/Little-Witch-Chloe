@@ -4,7 +4,8 @@ using UnityEngine.UI;
 public class UIPlayerHUD : UIBase
 {
     [SerializeField] private Slider _hpSlider;
-    [SerializeField] private Slider _staminaSlider;   
+    [SerializeField] private Slider _staminaSlider;  
+    [SerializeField] private Image _blinkImg;  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
@@ -33,6 +34,12 @@ public class UIPlayerHUD : UIBase
 
         UpdateHP(playerStat.CurrentHP, playerStat.MaxHP, null);
         UpdateStamina(playerStat.CurrStamina, playerStat.MaxStamina);
+
+        var playerMove = PlayerController.Instance.GetComponent<PlayerMovement>();
+
+        if(playerMove == null) return;
+
+        playerMove.OnBlinkCooldown += UpdateBlinkCooldown;
     }
 
     protected override void UnsubscribeEvents()
@@ -44,6 +51,12 @@ public class UIPlayerHUD : UIBase
         playerStat.OnHPChanged -= UpdateHP;
         playerStat.OnStaminaChanged -= UpdateStamina;
         playerStat.OnDeath -= OnDeath;
+
+         var playerMove = PlayerController.Instance.GetComponent<PlayerMovement>();
+
+        if(playerMove == null) return;
+
+        playerMove.OnBlinkCooldown -= UpdateBlinkCooldown;
     }
     #endregion
 
@@ -60,5 +73,10 @@ public class UIPlayerHUD : UIBase
     public void OnDeath()
     {
         OnDisable();
+    }
+
+    public void UpdateBlinkCooldown(float cool)
+    {
+        //_blinkImg.fillAmount = (1.0f / cool);
     }
 }
