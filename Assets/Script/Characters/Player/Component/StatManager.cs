@@ -11,9 +11,9 @@ public class StatManager : MonoBehaviour
     [Header("HP Settings")]
     [SerializeField] protected float maxHP;
     [SerializeField] protected float currentHP;
-    [SerializeField] protected EElementType characterElement;
+    [SerializeField] protected EElementType mainCharacElement;
     [SerializeField] protected string OnTakenDamageEvent = "";
-    public EElementType CharacterElement => characterElement;
+    public EElementType CharacterElement => mainCharacElement;
 
     public float MaxHP => maxHP;
     public float CurrentHP => currentHP;
@@ -55,7 +55,7 @@ public class StatManager : MonoBehaviour
         if (IsDead || damageAmount <= 0.0f)
             return false;
 
-        float actualDamage = CalculateActualDamage(damageAmount, damageElement);
+        float actualDamage = CalculateActualDamage(damageAmount, damageElement, mainCharacElement);
 
         currentHP = Mathf.Clamp(currentHP - actualDamage, 0.0f, maxHP);
         FMODUnity.RuntimeManager.PlayOneShot(OnTakenDamageEvent);
@@ -70,11 +70,11 @@ public class StatManager : MonoBehaviour
     }
 
     // Calculate actual damage amount
-    public virtual float CalculateActualDamage(float damageAmount, EElementType damageElement)
+    protected virtual float CalculateActualDamage(float damageAmount, EElementType damageElement, EElementType CharacElement)
     {
         float actualDamage = damageAmount;
 
-        switch (characterElement)
+        switch (CharacElement)
         {
             // if the character's element is fire
             case EElementType.Fire:
@@ -194,4 +194,7 @@ public class StatManager : MonoBehaviour
         IsDead = true;
         this.OnDeath?.Invoke();
     }
+
+    protected void InvokeOnHPChanged(float current, float max, GameObject instigator)
+        => OnHPChanged?.Invoke(current, max, instigator);
 }
