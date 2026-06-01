@@ -42,29 +42,37 @@ public class OptionManager : MonoBehaviour
     private void LoadSettingData()
     {
         string filePath = Application.persistentDataPath + saveSettingPath;
+        settingData = PlayerPrefsExt.GetObject<SettingData>("SettingData", new SettingData());
+        // settingData.masterVolume = PlayerPrefsExt.GetObject<float>("masterVolume", 100.0f);
+        // settingData.bgmVolume = PlayerPrefsExt.GetObject<float>("bgmVolume", 100.0f);
+        // settingData.sfxVolume = PlayerPrefsExt.GetObject<float>("sfxVolume", 100.0f);
 
-        // If there is saved file
-        if(File.Exists(filePath))
-        {
-            Debug.Log("Load saved setting");
+        SoundManager.Instance.SetMasterVolume(settingData.masterVolume);
+        SoundManager.Instance.SetBgmVolume(settingData.bgmVolume);
+        SoundManager.Instance.SetSfxVolume(settingData.sfxVolume);
 
-            string FromJsonFile = File.ReadAllText(filePath);
-            settingData = JsonUtility.FromJson<SettingData>(FromJsonFile);
+        // // If there is saved file
+        // if(File.Exists(filePath))
+        // {
+        //     Debug.Log("Load saved setting");
+
+        //     string FromJsonFile = File.ReadAllText(filePath);
+        //     settingData = JsonUtility.FromJson<SettingData>(FromJsonFile);
             
-            if(settingData == null)
-            {
-                Debug.Log("There is no saved setting");
-            }
+        //     if(settingData == null)
+        //     {
+        //         Debug.Log("There is no saved setting");
+        //     }
 
-            SoundManager.Instance.SetMasterVolume(settingData.masterVolume);
-            SoundManager.Instance.SetBgmVolume(settingData.bgmVolume);
-            SoundManager.Instance.SetSfxVolume(settingData.sfxVolume);
-        }
-        // if not
-        else
-        {
-            ResetSettingData();
-        }
+        //     SoundManager.Instance.SetMasterVolume(settingData.masterVolume);
+        //     SoundManager.Instance.SetBgmVolume(settingData.bgmVolume);
+        //     SoundManager.Instance.SetSfxVolume(settingData.sfxVolume);
+        // }
+        // // if not
+        // else
+        // {
+        //     ResetSettingData();
+        // }
     }
 
     public void ResetSettingData()
@@ -81,10 +89,15 @@ public class OptionManager : MonoBehaviour
 
     public void SaveSettingData()
     {
-        string ToJsonData = JsonUtility.ToJson(settingData);
-        string filePath = Application.persistentDataPath + saveSettingPath;
+        // string ToJsonData = JsonUtility.ToJson(settingData);
+        // string filePath = Application.persistentDataPath + saveSettingPath;
 
-        // overwrite the save file
-        File.WriteAllText(filePath, ToJsonData);   
+        // // overwrite the save file
+        // File.WriteAllText(filePath, ToJsonData);   
+        PlayerPrefsExt.SetObject<SettingData>("SettingData", settingData);
+
+        // PlayerPrefsExt.SetObject<float>("masterVolume", settingData.masterVolume);
+        // PlayerPrefsExt.SetObject<float>("bgmVolume", settingData.bgmVolume);
+        // PlayerPrefsExt.SetObject<float>("sfxVolume", settingData.sfxVolume);
     }
 }

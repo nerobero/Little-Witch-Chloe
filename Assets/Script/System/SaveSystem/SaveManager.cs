@@ -53,10 +53,10 @@ public class SaveManager : MonoBehaviour
         SavePlayerData savePlayerData = CollectAllPlayerData();
 
         // Prototypes it can be changed
-        string json = JsonUtility.ToJson(savePlayerData);
-        string filePath = Application.persistentDataPath + savePlayerPath;
+        //string filePath = Application.persistentDataPath + savePlayerPath;
+        //File.WriteAllText(filePath, json);
 
-        File.WriteAllText(filePath, json);
+        PlayerPrefsExt.SetObject<SavePlayerData>("PlayerData", savePlayerData);
         
 
         Debug.Log("Save Finish"); 
@@ -80,24 +80,27 @@ public class SaveManager : MonoBehaviour
 
     private void LoadPlayerData()
     {
-        string filePath = Application.persistentDataPath + savePlayerPath;
+        SavePlayerData savedPlayerData = PlayerPrefsExt.GetObject<SavePlayerData>("PlayerData", new SavePlayerData());
+        ApplyAllGameData(savedPlayerData);
+        
+        // string filePath = Application.persistentDataPath + savePlayerPath;
 
-        // If there is saved file
-        if(File.Exists(filePath))
-        {
-            Debug.Log("Load saved player data");
+        // // If there is saved file
+        // if(File.Exists(filePath))
+        // {
+        //     Debug.Log("Load saved player data");
 
-            string FromJsonFile = File.ReadAllText(filePath);
-            SavePlayerData savePlayerData = JsonUtility.FromJson<SavePlayerData>(FromJsonFile);
+        //     string FromJsonFile = File.ReadAllText(filePath);
+        //     SavePlayerData savePlayerData = JsonUtility.FromJson<SavePlayerData>(FromJsonFile);
             
-            if(settingData == null)
-            {
-                Debug.Log("There is no saved setting");
-            }
+        //     if(settingData == null)
+        //     {
+        //         Debug.Log("There is no saved setting");
+        //     }
 
-            ApplyAllGameData(savePlayerData);
+        //     ApplyAllGameData(savePlayerData);
 
-        }
+        // }
         // // if not
         // else
         // {
