@@ -2,10 +2,11 @@ using System.Collections.Generic;
 using Types;
 public class GameManager : MonoSingletonBase<GameManager>
 {
-    // make Game Manager to singleton
-    // public static GameManager Instance {get; private set;}
 
     private int collectedFrog;
+
+    // Unlocked levels during gameplay (excluding Intro and MainGame)
+    private HashSet<ELevelType> unlockedLevels = new HashSet<ELevelType>();
 
     // Activated spells by scroll. (flying, blink)
     private HashSet<EAbilityType> unlockedSpell = new HashSet<EAbilityType>();
@@ -21,12 +22,6 @@ public class GameManager : MonoSingletonBase<GameManager>
     void Start()
     {
         SaveManager.Instance.LoadSaveGame();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void OnFrogCollected()
@@ -59,4 +54,6 @@ public class GameManager : MonoSingletonBase<GameManager>
     {
         return unlockedSpell.Contains(spell);
     }
+
+    
 }

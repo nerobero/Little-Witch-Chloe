@@ -89,7 +89,13 @@ namespace Types
         Blink,
         
     }
-    
+    public enum ELevelType
+    {
+        Intro = 0,
+        MainGame,
+        BogLevel,
+    }
+
     /// <summary>
     /// Collectable type
     /// </summary>
@@ -97,7 +103,6 @@ namespace Types
     {
         None = 0,
         Frog,
-
     }
 }
 
