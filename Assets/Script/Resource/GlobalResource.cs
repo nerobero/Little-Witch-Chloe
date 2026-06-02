@@ -89,6 +89,14 @@ namespace Types
         Blink,
         
     }
+
+    public enum ELevelType
+    {
+        Intro = 0,
+        MainGame,
+        BogLevel,
+
+    }
 }
 
 /// <summary>

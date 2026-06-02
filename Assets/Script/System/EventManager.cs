@@ -1,32 +1,35 @@
+using System;
+using Types;
 using UnityEngine;
 
-public class EventManager : MonoBehaviour
+/// <summary>
+/// Event Manager that processes the global events
+/// such as level loading, story unlocks, commission progress.
+/// </summary>
+public class EventManager : MonoSingletonBase<EventManager>
 {
-    // make Event Manager to singleton
-    public static EventManager Instance { get; private set; }
+    #region SubscribableEvents
+    public event Action<ELevelType> OnTransitionLevel;
 
-    private void Awake()
+    public event Action<ELevelType> OnUnlockLevel;
+    #endregion
+
+
+    protected override void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        dontDestroy = true;
+        base.Awake();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    #region RequestFunctions
+    public void ReqLevelLoad(ELevelType level)
     {
-        
+        OnTransitionLevel?.Invoke(level);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ReqLevelUnlock(ELevelType level)
     {
-        
+        OnUnlockLevel?.Invoke(level);
     }
+    #endregion
 }
