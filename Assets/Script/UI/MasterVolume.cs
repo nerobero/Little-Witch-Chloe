@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using FMODUnity;
 using UnityEngine.EventSystems;
+using Data;
 
 
 public class MasterVolume : MonoBehaviour, IPointerUpHandler, IPointerEnterHandler
@@ -25,7 +26,11 @@ public class MasterVolume : MonoBehaviour, IPointerUpHandler, IPointerEnterHandl
         void UpdateParameter(float value)
         {
             RuntimeManager.StudioSystem.setParameterByName("Master Volume", value);
-           
+            
+            SettingData settingData = OptionManager.Instance.GetSettingData();
+            settingData.masterVolume = value;
+
+            OptionManager.Instance.SaveSettingData();
         }
 
 

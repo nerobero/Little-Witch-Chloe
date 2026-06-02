@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using FMODUnity;
 using UnityEngine.EventSystems;
-
+using Data;
 
 public class MusicVolume : MonoBehaviour, IPointerUpHandler, IPointerEnterHandler
 {
@@ -26,6 +26,10 @@ public class MusicVolume : MonoBehaviour, IPointerUpHandler, IPointerEnterHandle
     {
         RuntimeManager.StudioSystem.setParameterByName("MUSIC Volume", value);
 
+        SettingData settingData = OptionManager.Instance.GetSettingData();
+        settingData.bgmVolume = value;
+
+        OptionManager.Instance.SaveSettingData();
     }
 
 

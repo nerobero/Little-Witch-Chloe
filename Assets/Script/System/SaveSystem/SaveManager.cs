@@ -2,6 +2,7 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using Data;
+using Types;
 
 public class SaveManager : MonoBehaviour
 {
@@ -71,6 +72,7 @@ public class SaveManager : MonoBehaviour
             savePlayerData.savedTransform = playerAttack.gameObject.transform;
             savePlayerData.unlockedAbility = gameManager.GetUnlockedSpell;
             savePlayerData.spellList = playerAttack.GetUnlockedSpell();
+            savePlayerData.objectives[ECollectibleType.Frog] = GameManager.Instance.GetCollectedFrog();
 
             savePlayerData.currentTime = System.DateTime.Now;
         }

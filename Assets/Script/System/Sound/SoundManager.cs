@@ -12,24 +12,13 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     private EventInstance _eventInstance;
     private float _currentStateValue;
 
-    private Bus _masterBus;
-    private Bus _bgmBus;
-    private Bus _sfxBus;
-
-    private const string MASTER_KEY = "Volume_Master";
-    private const string BGM_KEY = "Volume_BGM";
-    private const string SFX_KEY = "Volume_SFX";
 
     protected override void Awake()
     {
         dontDestroy = true;
         base.Awake();
-
-        _masterBus = RuntimeManager.GetBus("bus:/");
-        _bgmBus = RuntimeManager.GetBus("bus:/BGM"); 
-        _sfxBus = RuntimeManager.GetBus("bus:/SFX"); 
-        
     }
+
     private void HandleStartManagerEvent()
     {
         if (MainMusic.IsNull) return;
@@ -91,23 +80,17 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     #region Volume Setting
     public void SetMasterVolume(float volume)
     {
-        volume = Mathf.Clamp01(volume);
-        _masterBus.setVolume(volume);
-        PlayerPrefs.SetFloat(MASTER_KEY, volume); // 기기에 볼륨 저장
+        RuntimeManager.StudioSystem.setParameterByName("Master Volume", volume);
     }
 
     public void SetBgmVolume(float volume)
     {
-        volume = Mathf.Clamp01(volume);
-        _bgmBus.setVolume(volume);
-        PlayerPrefs.SetFloat(BGM_KEY, volume);
+        RuntimeManager.StudioSystem.setParameterByName("MUSIC Volume", volume);
     }
 
     public void SetSfxVolume(float volume)
     {
-        volume = Mathf.Clamp01(volume);
-        _sfxBus.setVolume(volume);
-        PlayerPrefs.SetFloat(SFX_KEY, volume);
+        RuntimeManager.StudioSystem.setParameterByName("SFX Volume", volume);
     }
     #endregion
 }

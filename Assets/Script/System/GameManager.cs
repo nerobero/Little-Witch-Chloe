@@ -35,6 +35,11 @@ public class GameManager : MonoSingletonBase<GameManager>
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Frog");
     }
 
+    public int GetCollectedFrog()
+    {
+        return collectedFrog;
+    }
+
     /// <summary>
     /// Manage the unlock ability(current blink and flying)
     /// </summary>

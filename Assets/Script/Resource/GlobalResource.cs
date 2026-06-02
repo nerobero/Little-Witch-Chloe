@@ -89,10 +89,20 @@ namespace Types
         Blink,
         
     }
+    
+    /// <summary>
+    /// Collectable type
+    /// </summary>
+    public enum ECollectibleType
+    {
+        None = 0,
+        Frog,
+
+    }
 }
 
 /// <summary>
-/// This is a global  type namespace
+/// This is a global struct data namespace
 /// </summary>
 namespace Data
 {
@@ -103,6 +113,9 @@ namespace Data
         public HashSet<Types.EAbilityType> unlockedAbility; // Blink, Flying
         public HashSet<Types.ESpawnType> spellList; // Projectiles
         public Transform savedTransform;
+
+        public Dictionary<Types.ECollectibleType, int> objectives;
+
         public DateTime currentTime;
     }
 
