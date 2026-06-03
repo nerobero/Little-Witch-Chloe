@@ -1,33 +1,27 @@
+using Types;
 using UnityEngine;
 
 /// <summary>
 /// Collectable frog items that increases the player's max HP value
 /// </summary>
-public class FrogCollection : ItemBase
+public class FrogCollection : CollectableItemBase
 {
     [Header("Frog Setting")]
     [SerializeField] private float healAmount;
-    [SerializeField] private LayerMask playerLayer;
-    [SerializeField] bool isBackgroundItem = false; // default is false(foreground)
     private int playerLayerIndex;
+
+    private void Awake()
+    {
+        CollectType = ECollectable.FrogCollectible;
+    }
 
     void Start()
     {
         playerLayerIndex = (int)Mathf.Log(playerLayer.value, 2);
     }
 
-    protected override bool OnInteract(Collider2D other)
+    protected override bool OnInteract_HelperImpl(Collider2D other)
     {
-        int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
-
-        if(other.gameObject.layer != layer) return false;
-
-        PlayerMovement player = other.GetComponent<PlayerMovement>();
-
-        if(player == null) return false;
-
-        if (this.isBackgroundItem != player.IsBackground) return false;
-     
         GameManager.Instance.OnFrogCollected();
 
         var stat = other.GetComponent<StatManager>();

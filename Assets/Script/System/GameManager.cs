@@ -12,6 +12,8 @@ public class GameManager : MonoSingletonBase<GameManager>
     private HashSet<EAbilityType> unlockedSpell = new HashSet<EAbilityType>();
     public HashSet<EAbilityType> GetUnlockedSpell => unlockedSpell;
 
+    private Dictionary<ECollectable, int> _commHerbs = new Dictionary<ECollectable, int>();
+
     protected override void Awake()
     {
         dontDestroy = true;
@@ -24,11 +26,34 @@ public class GameManager : MonoSingletonBase<GameManager>
         SaveManager.Instance.LoadSaveGame();
     }
 
+    #region CollectableCounter
     public void OnFrogCollected()
     {
         collectedFrog++;
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Frog");
     }
+
+    public bool OnCommHerbCollected(ECollectable type)
+    {
+        if (type == ECollectable.FrogCollectible
+            || type == ECollectable.AntiFogMossPatch)
+            return false;
+        return true;
+    }
+
+
+    #endregion
+
+    #region LevelLoad
+
+    public bool IsLevelUnlocked(ELevelType level)
+    {
+        return unlockedLevels.Contains(level);
+    }
+
+    #endregion
+
+    #region ScrollCollection
 
     /// <summary>
     /// Manage the unlock ability(current blink and flying)
@@ -50,5 +75,5 @@ public class GameManager : MonoSingletonBase<GameManager>
         return unlockedSpell.Contains(spell);
     }
 
-    
+    #endregion
 }
