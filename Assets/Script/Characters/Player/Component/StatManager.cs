@@ -84,10 +84,16 @@ public class StatManager : MonoBehaviour
                     actualDamage *= 1.5f;
                 }
                 // if the damage element is fire or electricity => no damage
-                else if (damageElement == EElementType.Fire)
+                else if (damageElement == CharacElement)
                 {
                     actualDamage = 0.0f;
                 }
+                break;
+            case EElementType.Water: 
+                if (damageElement == EElementType.Electricity)
+                    actualDamage *= 1.5f;
+                else if (damageElement == CharacElement || damageElement == EElementType.Fire)
+                    actualDamage = 0.0f;
                 break;
             // if the character's element is plant
             case EElementType.Plant:
@@ -97,8 +103,7 @@ public class StatManager : MonoBehaviour
                     actualDamage *= 1.5f;
                 }
                 // if the damage element is water or electricity => no damage
-                else if (damageElement == EElementType.Water || damageElement == EElementType.Electricity
-                || damageElement == EElementType.Ice)
+                else if (damageElement == EElementType.Water || damageElement == EElementType.Ice)
                 {
                     actualDamage = 0.0f;
                 }
@@ -111,7 +116,7 @@ public class StatManager : MonoBehaviour
                     actualDamage *= 1.5f;
                 }
                 // if the damage element is poison or fire => no damage
-                else if (damageElement == EElementType.Poison || damageElement == EElementType.Fire)
+                else if (damageElement == CharacElement || damageElement == EElementType.Fire)
                 {
                     actualDamage = 0.0f;
                 }
