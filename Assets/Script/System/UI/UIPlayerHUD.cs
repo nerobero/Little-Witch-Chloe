@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Types;
 
 public class UIPlayerHUD : UIBase
 {
@@ -86,7 +87,7 @@ public class UIPlayerHUD : UIBase
         //_blinkImg.fillAmount = (1.0f / cool);
     }
 
-    public void UpdateObjectives(int amount)
+    public void UpdateObjectives(ECollectable types, int amount)
     {
         _objectivesText.text = amount.ToString();
     }

@@ -81,7 +81,7 @@ public class SaveManager : MonoBehaviour
             savePlayerData.savedTransform = playerAttack.gameObject.transform;
             savePlayerData.unlockedAbility = gameManager.GetUnlockedSpell;
             savePlayerData.spellList = playerAttack.GetUnlockedSpell();
-            savePlayerData.objectives[ECollectibleType.Frog] = GameManager.Instance.GetCollectedFrog();
+            savePlayerData.objectives[ECollectable.FrogCollectible] = GameManager.Instance.GetCollectedFrog();
 
             savePlayerData.currentTime = System.DateTime.Now;
         }

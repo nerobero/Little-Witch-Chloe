@@ -97,15 +97,6 @@ namespace Types
     }
 
     /// <summary>
-    /// Collectable type
-    /// </summary>
-    public enum ECollectibleType
-    {
-        None = 0,
-        Frog,
-    }
-
-    /// <summary>
     /// Defines types of collectables that needs management by Game Manager
     /// </summary>
     public enum ECollectable
@@ -133,7 +124,7 @@ namespace Data
         public HashSet<Types.ESpawnType> spellList; // Projectiles
         public Transform savedTransform;
 
-        public Dictionary<Types.ECollectibleType, int> objectives;
+        public Dictionary<Types.ECollectable, int> objectives;
 
         public DateTime currentTime;
     }
