@@ -9,9 +9,7 @@ public class PopupHUD : UIBase
 {
     [SerializeField] private MasterVolume _masterVolumeObject;
     [SerializeField] private MusicVolume _bgmVolumeObject;
-    [SerializeField] private SFXVolume _sfxVolumeObject;  
-    [SerializeField] private Button _saveButton;
-    [SerializeField] private Button _titleButton;
+    [SerializeField] private SFXVolume _sfxVolumeObject;
     [SerializeField] private TMP_Dropdown _languages;
     List<string> languageLists;
 
@@ -52,13 +50,23 @@ public class PopupHUD : UIBase
         // Change Scene(title scene)
         SceneManager.LoadScene("TitleScene");
     }
+
+    public void OnClosePopupButtonClicked()
+    {
+        this.gameObject.SetActive(false);
+    }
+
+    public void OnQuitClicked()
+    {
+        Application.Quit(0);
+    }
+    
     #endregion
 
     #region EventSubscription
     protected override void SubscribeEvents()
     {
-        _saveButton.onClick.AddListener(OnSaveButtonClicked);
-        _titleButton.onClick.AddListener(OnReturnMenuButtonClicked);
+        
     }
 
     protected override void UnsubscribeEvents()
