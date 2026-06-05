@@ -1,9 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Types;
 public class GameManager : MonoSingletonBase<GameManager>
 {
-
-    private int collectedFrog;
+    private int collectedFrog = 0;
 
     // Unlocked levels during gameplay (excluding Intro and MainGame)
     private HashSet<ELevelType> unlockedLevels = new HashSet<ELevelType>();
@@ -11,6 +11,8 @@ public class GameManager : MonoSingletonBase<GameManager>
     // Activated spells by scroll. (flying, blink)
     private HashSet<EAbilityType> unlockedSpell = new HashSet<EAbilityType>();
     public HashSet<EAbilityType> GetUnlockedSpell => unlockedSpell;
+
+    public event Action<int> OnObjectivesCollected;
 
     protected override void Awake()
     {
@@ -21,13 +23,15 @@ public class GameManager : MonoSingletonBase<GameManager>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SaveManager.Instance.LoadSaveGame();
+        //SaveManager.Instance.LoadSaveGame();
+        OnObjectivesCollected?.Invoke(collectedFrog);
     }
 
     public void OnFrogCollected()
     {
         collectedFrog++;
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Frog");
+        OnObjectivesCollected?.Invoke(collectedFrog);
     }
 
     public int GetCollectedFrog()

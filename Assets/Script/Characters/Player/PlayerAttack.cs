@@ -146,6 +146,11 @@ public class PlayerAttack : MonoBehaviour
         return true;
     }
 
+    public void SelectWeapon(int slot)
+    {
+        SetCurrentSpell((ESpawnType)slot);
+    }
+
     /// <summary>
     /// Changes the current spell type to the given type.
     /// Returns boolean for any potential visual/auditory feedback.

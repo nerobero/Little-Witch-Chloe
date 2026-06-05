@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 using Data;
 
@@ -49,6 +50,7 @@ public class PopupHUD : UIBase
     public void OnReturnMenuButtonClicked()
     {
         // Change Scene(title scene)
+        SceneManager.LoadScene("TitleScene");
     }
     #endregion
 

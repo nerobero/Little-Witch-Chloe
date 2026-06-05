@@ -1,6 +1,7 @@
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Data;
 using Types;
 
@@ -12,7 +13,7 @@ public class SaveManager : MonoBehaviour
     [SerializeField] private PlayerStatManager playerState;
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private SettingData settingData;
+    private SavePlayerData _pendingData;
     
     private string savePlayerPath = "savePlayerData.json";
 
@@ -41,10 +42,18 @@ public class SaveManager : MonoBehaviour
     {
         
     }
-
-    public void LoadSaveGame()
+    void OnEnable()
     {
-        LoadPlayerData();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    public bool LoadSaveGame()
+    {
+        if (!PlayerPrefs.HasKey("PlayerData")) return false;
+    
+        _pendingData = PlayerPrefsExt.GetObject<SavePlayerData>("PlayerData", null);
+        return _pendingData != null;
+        //LoadPlayerData();
     }
 
     public virtual void SavePlayerData()
@@ -80,35 +89,43 @@ public class SaveManager : MonoBehaviour
         return savePlayerData;
     }
 
-    private void LoadPlayerData()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        SavePlayerData savedPlayerData = PlayerPrefsExt.GetObject<SavePlayerData>("PlayerData", new SavePlayerData());
-        ApplyAllGameData(savedPlayerData);
+        if (_pendingData == null) return;
         
-        // string filePath = Application.persistentDataPath + savePlayerPath;
-
-        // // If there is saved file
-        // if(File.Exists(filePath))
-        // {
-        //     Debug.Log("Load saved player data");
-
-        //     string FromJsonFile = File.ReadAllText(filePath);
-        //     SavePlayerData savePlayerData = JsonUtility.FromJson<SavePlayerData>(FromJsonFile);
-            
-        //     if(settingData == null)
-        //     {
-        //         Debug.Log("There is no saved setting");
-        //     }
-
-        //     ApplyAllGameData(savePlayerData);
-
-        // }
-        // // if not
-        // else
-        // {
-        //     ResetPlayerData();
-        // }
+        ApplyAllGameData(_pendingData);
+        _pendingData = null; // initialize after applied
     }
+
+    // private void LoadPlayerData()
+    // {
+    //     SavePlayerData savedPlayerData = PlayerPrefsExt.GetObject<SavePlayerData>("PlayerData", new SavePlayerData());
+    //     ApplyAllGameData(savedPlayerData);
+        
+    //     // string filePath = Application.persistentDataPath + savePlayerPath;
+
+    //     // // If there is saved file
+    //     // if(File.Exists(filePath))
+    //     // {
+    //     //     Debug.Log("Load saved player data");
+
+    //     //     string FromJsonFile = File.ReadAllText(filePath);
+    //     //     SavePlayerData savePlayerData = JsonUtility.FromJson<SavePlayerData>(FromJsonFile);
+            
+    //     //     if(settingData == null)
+    //     //     {
+    //     //         Debug.Log("There is no saved setting");
+    //     //     }
+
+    //     //     ApplyAllGameData(savePlayerData);
+
+    //     // }
+    //     // // if not
+    //     // else
+    //     // {
+    //     //     ResetPlayerData();
+    //     // }
+    // }
 
     private void ApplyAllGameData(SavePlayerData savePlayerData)
     {
