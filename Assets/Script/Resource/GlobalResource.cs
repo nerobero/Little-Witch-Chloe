@@ -104,6 +104,20 @@ namespace Types
         None = 0,
         Frog,
     }
+
+    /// <summary>
+    /// Defines types of collectables that needs management by Game Manager
+    /// </summary>
+    public enum ECollectable
+    {
+        FrogCollectible = 0,
+        // ========== Herb types for commissions ===========
+        CommDigestHerb,
+        CommColdHerb,
+        CommFeverHerb,
+        // ===========  Moss Patches for Bog Level ===========
+        AntiFogMossPatch,
+    }
 }
 
 /// <summary>

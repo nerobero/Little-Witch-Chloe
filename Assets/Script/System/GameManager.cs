@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Types;
+using UnityEngine;
 public class GameManager : MonoSingletonBase<GameManager>
 {
     private int collectedFrog = 0;
@@ -11,8 +12,8 @@ public class GameManager : MonoSingletonBase<GameManager>
     // Activated spells by scroll. (flying, blink)
     private HashSet<EAbilityType> unlockedSpell = new HashSet<EAbilityType>();
     public HashSet<EAbilityType> GetUnlockedSpell => unlockedSpell;
-
-    public event Action<int> OnObjectivesCollected;
+    public event Action<ECollectable, int> OnObjectivesCollected;
+    private Dictionary<ECollectable, int> _commHerbs = new Dictionary<ECollectable, int>();
 
     protected override void Awake()
     {
@@ -24,20 +25,54 @@ public class GameManager : MonoSingletonBase<GameManager>
     void Start()
     {
         //SaveManager.Instance.LoadSaveGame();
-        OnObjectivesCollected?.Invoke(collectedFrog);
+        foreach(KeyValuePair<ECollectable, int> collection in _commHerbs)
+        {
+            OnObjectivesCollected?.Invoke(collection.Key, collection.Value);
+        }
     }
 
+    #region CollectableCounter
     public void OnFrogCollected()
     {
-        collectedFrog++;
+        if(_commHerbs.ContainsKey(ECollectable.FrogCollectible))
+        {
+            _commHerbs[ECollectable.FrogCollectible]++;
+        }
+        else
+        {
+            _commHerbs.Add(ECollectable.FrogCollectible, 1);
+        }
+        //collectedFrog++;
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Frog");
-        OnObjectivesCollected?.Invoke(collectedFrog);
+        OnObjectivesCollected?.Invoke(ECollectable.FrogCollectible, _commHerbs[ECollectable.FrogCollectible]);
     }
 
     public int GetCollectedFrog()
     {
         return collectedFrog;
     }
+
+    public bool OnCommHerbCollected(ECollectable type)
+    {
+        if (type == ECollectable.FrogCollectible
+            || type == ECollectable.AntiFogMossPatch)
+            return false;
+        return true;
+    }
+
+
+    #endregion
+
+    #region LevelLoad
+
+    public bool IsLevelUnlocked(ELevelType level)
+    {
+        return unlockedLevels.Contains(level);
+    }
+
+    #endregion
+
+    #region ScrollCollection
 
     /// <summary>
     /// Manage the unlock ability(current blink and flying)
@@ -59,5 +94,5 @@ public class GameManager : MonoSingletonBase<GameManager>
         return unlockedSpell.Contains(spell);
     }
 
-    
+    #endregion
 }

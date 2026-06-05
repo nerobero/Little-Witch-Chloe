@@ -11,7 +11,10 @@ public class EventManager : MonoSingletonBase<EventManager>
     #region SubscribableEvents
     public event Action<ELevelType> OnTransitionLevel;
 
+    public event Action OnLevelLoadFailed;
+
     public event Action<ELevelType> OnUnlockLevel;
+
     #endregion
 
 
@@ -24,12 +27,15 @@ public class EventManager : MonoSingletonBase<EventManager>
     #region RequestFunctions
     public void ReqLevelLoad(ELevelType level)
     {
-        OnTransitionLevel?.Invoke(level);
+        if (GameManager.Instance.IsLevelUnlocked(level))
+            OnTransitionLevel?.Invoke(level);
+        else OnLevelLoadFailed?.Invoke();
     }
 
     public void ReqLevelUnlock(ELevelType level)
     {
-        OnUnlockLevel?.Invoke(level);
+        if (!GameManager.Instance.IsLevelUnlocked(level))
+            OnUnlockLevel?.Invoke(level);
     }
     #endregion
 }
