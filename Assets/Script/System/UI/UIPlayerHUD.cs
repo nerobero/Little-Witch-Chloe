@@ -58,7 +58,7 @@ public class UIPlayerHUD : UIBase
         playerStat.OnStaminaChanged -= UpdateStamina;
         playerStat.OnDeath -= OnDeath;
 
-         var playerMove = PlayerController.Instance.GetComponent<PlayerMovement>();
+        var playerMove = PlayerController.Instance.GetComponent<PlayerMovement>();
 
         if(playerMove == null) return;
 

@@ -10,25 +10,28 @@ public class PopupHUD : UIBase
     [SerializeField] private MasterVolume _masterVolumeObject;
     [SerializeField] private MusicVolume _bgmVolumeObject;
     [SerializeField] private SFXVolume _sfxVolumeObject;
-    [SerializeField] private TMP_Dropdown _languages;
-    List<string> languageLists;
+    // [SerializeField] private TMP_Dropdown _languages;
+    // List<string> languageLists;
+    public GameObject root;
 
     protected override void Start()
     {
         base.Start();
 
-        _languages.ClearOptions();
+        // _languages?.ClearOptions();
 
-        languageLists.Add("English");
-        languageLists.Add("한국어");
-        // This will be added if we plan to add jp/cn(tw)
-        // languageLists.Add("日本語"); // japanese
-        // languageLists.Add("简体中文"); // chinese
-        // languageLists.Add("繁體中文"); // taiwan chinese
+        // languageLists.Add("English");
+        // languageLists.Add("한국어");
+        // // This will be added if we plan to add jp/cn(tw)
+        // // languageLists.Add("日本語"); // japanese
+        // // languageLists.Add("简体中文"); // chinese
+        // // languageLists.Add("繁體中文"); // taiwan chinese
 
-        _languages.AddOptions(languageLists);
+        // _languages.AddOptions(languageLists);
 
         SubscribeEvents();
+
+        Hide();
     }
 
     // Update is called once per frame
@@ -67,7 +70,7 @@ public class PopupHUD : UIBase
     protected override void SubscribeEvents()
     {
         Debug.Log("Option HUD Subscribe");
-        gameObject.SetActive(false);
+        
     }
 
     protected override void UnsubscribeEvents()
@@ -78,7 +81,12 @@ public class PopupHUD : UIBase
     public override void Show()
     {
         Debug.Log("Show!!!!!!!!!");
-        base.Show();
+        root.SetActive(true);
+    }
+
+    public override void Hide()
+    {
+        root.SetActive(false);
     }
 
     #endregion

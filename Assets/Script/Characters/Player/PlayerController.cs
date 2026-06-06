@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     public bool IsFlying => _isFlying;
     private bool _isFlying = false;
     private float _jumpPressTime = -1f;
+    private bool _optionMenuEnabled = false;
 
     public event Action<bool> onBlinked;
     public PlayerMovement PlayerMove => _playerMove;
@@ -219,11 +220,11 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     public void OnChangeWeapon(InputAction.CallbackContext context)
     {
-        if(!context.performed) return;
-        
+        if (!context.performed) return;
+
         var controlName = context.control.name;
 
-        if(int.TryParse(controlName, out int slot))
+        if (int.TryParse(controlName, out int slot))
         {
             _playerAttack.SelectWeapon(slot - 1);
         }
@@ -232,9 +233,18 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     // Show the option pop up
     public void OnPause(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if (context.performed)
         {
-            UIManager.Instance.Show<PopupHUD>();
+            if (!_optionMenuEnabled)
+            {
+                UIManager.Instance.Show<PopupHUD>();
+                _optionMenuEnabled = true;
+            }
+            else
+            {
+                UIManager.Instance.Hide<PopupHUD>();
+                _optionMenuEnabled = false;
+            }
         }
     }
     #endregion
