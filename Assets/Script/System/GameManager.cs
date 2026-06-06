@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
 using Types;
+using UnityEngine;
 public class GameManager : MonoSingletonBase<GameManager>
 {
-
-    private int collectedFrog;
+    private int collectedFrog = 0;
 
     // Unlocked levels during gameplay (excluding Intro and MainGame)
     private HashSet<ELevelType> unlockedLevels = new HashSet<ELevelType>();
@@ -11,7 +12,7 @@ public class GameManager : MonoSingletonBase<GameManager>
     // Activated spells by scroll. (flying, blink)
     private HashSet<EAbilityType> unlockedSpell = new HashSet<EAbilityType>();
     public HashSet<EAbilityType> GetUnlockedSpell => unlockedSpell;
-
+    public event Action<ECollectable, int> OnObjectivesCollected;
     private Dictionary<ECollectable, int> _commHerbs = new Dictionary<ECollectable, int>();
 
     protected override void Awake()
@@ -23,14 +24,32 @@ public class GameManager : MonoSingletonBase<GameManager>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SaveManager.Instance.LoadSaveGame();
+        //SaveManager.Instance.LoadSaveGame();
+        foreach(KeyValuePair<ECollectable, int> collection in _commHerbs)
+        {
+            OnObjectivesCollected?.Invoke(collection.Key, collection.Value);
+        }
     }
 
     #region CollectableCounter
     public void OnFrogCollected()
     {
-        collectedFrog++;
+        if(_commHerbs.ContainsKey(ECollectable.FrogCollectible))
+        {
+            _commHerbs[ECollectable.FrogCollectible]++;
+        }
+        else
+        {
+            _commHerbs.Add(ECollectable.FrogCollectible, 1);
+        }
+        //collectedFrog++;
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Frog");
+        OnObjectivesCollected?.Invoke(ECollectable.FrogCollectible, _commHerbs[ECollectable.FrogCollectible]);
+    }
+
+    public int GetCollectedFrog()
+    {
+        return collectedFrog;
     }
 
     public bool OnCommHerbCollected(ECollectable type)

@@ -1,15 +1,33 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
+using Data;
 
 public class PopupHUD : UIBase
 {
-    [SerializeField] private Slider _masterVolumeSlider;
-    [SerializeField] private Slider _bgmVolumeSlider;
-    [SerializeField] private Slider _sfxVolumeSlider;  
-    [SerializeField] private Image _blinkImg;
+    [SerializeField] private MasterVolume _masterVolumeObject;
+    [SerializeField] private MusicVolume _bgmVolumeObject;
+    [SerializeField] private SFXVolume _sfxVolumeObject;
+    [SerializeField] private TMP_Dropdown _languages;
+    List<string> languageLists;
+
     protected override void Start()
     {
         base.Start();
+
+        _languages.ClearOptions();
+
+        languageLists.Add("English");
+        languageLists.Add("한국어");
+        // This will be added if we plan to add jp/cn(tw)
+        // languageLists.Add("日本語"); // japanese
+        // languageLists.Add("简体中文"); // chinese
+        // languageLists.Add("繁體中文"); // taiwan chinese
+
+        _languages.AddOptions(languageLists);
+
         SubscribeEvents();
     }
 
@@ -19,47 +37,41 @@ public class PopupHUD : UIBase
         
     }
 
+    #region Button click event
+    // Save button click event
+    public void OnSaveButtonClicked()
+    {
+        SaveManager.Instance.SavePlayerData();
+    }
+
+    // Return to the menu button click event
+    public void OnReturnMenuButtonClicked()
+    {
+        // Change Scene(title scene)
+        SceneManager.LoadScene("TitleScene");
+    }
+
+    public void OnClosePopupButtonClicked()
+    {
+        this.gameObject.SetActive(false);
+    }
+
+    public void OnQuitClicked()
+    {
+        Application.Quit(0);
+    }
+    
+    #endregion
+
     #region EventSubscription
     protected override void SubscribeEvents()
     {
-        if(PlayerController.Instance == null) return;
-
-        var playerStat = PlayerController.Instance.GetComponent<PlayerStatManager>();
-
-        if(playerStat == null) return;
-
-        playerStat.OnDeath += OnDeath;
-
-        var playerMove = PlayerController.Instance.GetComponent<PlayerMovement>();
-
-        if(playerMove == null) return;
-
-        playerMove.OnBlinkCooldown += UpdateBlinkCooldown;
+        
     }
 
     protected override void UnsubscribeEvents()
     {
-        if(PlayerController.Instance == null) return;
-
-        var playerStat = PlayerController.Instance.GetComponent<PlayerStatManager>();
-
-        playerStat.OnDeath -= OnDeath;
-
-         var playerMove = PlayerController.Instance.GetComponent<PlayerMovement>();
-
-        if(playerMove == null) return;
-
-        playerMove.OnBlinkCooldown -= UpdateBlinkCooldown;
+        
     }
     #endregion
-
-    public void OnDeath()
-    {
-        OnDisable();
-    }
-
-    public void UpdateBlinkCooldown(float cool)
-    {
-        //_blinkImg.fillAmount = (1.0f / cool);
-    }
 }

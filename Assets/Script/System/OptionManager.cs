@@ -100,4 +100,14 @@ public class OptionManager : MonoBehaviour
         // PlayerPrefsExt.SetObject<float>("bgmVolume", settingData.bgmVolume);
         // PlayerPrefsExt.SetObject<float>("sfxVolume", settingData.sfxVolume);
     }
+
+    public void SetSettingData(SettingData newData)
+    {
+        settingData = newData;
+    }
+
+    public SettingData GetSettingData()
+    {
+        return settingData;
+    }
 }

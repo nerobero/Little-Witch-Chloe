@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using FMODUnity;
 using UnityEngine.EventSystems;
-
+using Data;
 
 public class SFXVolume : MonoBehaviour, IPointerUpHandler, IPointerEnterHandler
 {
@@ -25,7 +25,11 @@ public class SFXVolume : MonoBehaviour, IPointerUpHandler, IPointerEnterHandler
     void UpdateParameter(float value)
     {
         RuntimeManager.StudioSystem.setParameterByName("SFX Volume", value);
+ 
+        SettingData settingData = OptionManager.Instance.GetSettingData();
+        settingData.sfxVolume = value;
 
+        OptionManager.Instance.SaveSettingData();
     }
 
 

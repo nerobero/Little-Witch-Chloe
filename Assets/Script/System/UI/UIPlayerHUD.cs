@@ -1,11 +1,15 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using Types;
 
 public class UIPlayerHUD : UIBase
 {
     [SerializeField] private Slider _hpSlider;
     [SerializeField] private Slider _staminaSlider;  
     [SerializeField] private Image _blinkImg;  
+    [SerializeField] private TextMeshProUGUI _objectivesText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
@@ -27,6 +31,9 @@ public class UIPlayerHUD : UIBase
         var playerStat = PlayerController.Instance.GetComponent<PlayerStatManager>();
 
         if(playerStat == null) return;
+        var playerMove = PlayerController.Instance.GetComponent<PlayerMovement>();
+
+        if(playerMove == null) return;
 
         playerStat.OnHPChanged += UpdateHP;
         playerStat.OnStaminaChanged += UpdateStamina;
@@ -35,11 +42,10 @@ public class UIPlayerHUD : UIBase
         UpdateHP(playerStat.CurrentHP, playerStat.MaxHP, null);
         UpdateStamina(playerStat.CurrStamina, playerStat.MaxStamina);
 
-        var playerMove = PlayerController.Instance.GetComponent<PlayerMovement>();
-
-        if(playerMove == null) return;
-
         playerMove.OnBlinkCooldown += UpdateBlinkCooldown;
+
+        GameManager.Instance.OnObjectivesCollected += UpdateObjectives;
+        
     }
 
     protected override void UnsubscribeEvents()
@@ -57,6 +63,7 @@ public class UIPlayerHUD : UIBase
         if(playerMove == null) return;
 
         playerMove.OnBlinkCooldown -= UpdateBlinkCooldown;
+        GameManager.Instance.OnObjectivesCollected -= UpdateObjectives;
     }
     #endregion
 
@@ -78,5 +85,10 @@ public class UIPlayerHUD : UIBase
     public void UpdateBlinkCooldown(float cool)
     {
         //_blinkImg.fillAmount = (1.0f / cool);
+    }
+
+    public void UpdateObjectives(ECollectable types, int amount)
+    {
+        _objectivesText.text = amount.ToString();
     }
 }

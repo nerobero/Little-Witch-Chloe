@@ -217,5 +217,16 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         _playerInteract.Interact();
     }
 
+    public void OnChangeWeapon(InputAction.CallbackContext context)
+    {
+        if(!context.performed) return;
+        
+        var controlName = context.control.name;
+
+        if(int.TryParse(controlName, out int slot))
+        {
+            _playerAttack.SelectWeapon(slot - 1);
+        }
+    }
     #endregion
 }

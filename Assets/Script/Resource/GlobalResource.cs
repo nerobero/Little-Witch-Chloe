@@ -89,13 +89,11 @@ namespace Types
         Blink,
         
     }
-
     public enum ELevelType
     {
         Intro = 0,
         MainGame,
         BogLevel,
-
     }
 
     /// <summary>
@@ -114,7 +112,7 @@ namespace Types
 }
 
 /// <summary>
-/// This is a global  type namespace
+/// This is a global struct data namespace
 /// </summary>
 namespace Data
 {
@@ -125,6 +123,9 @@ namespace Data
         public HashSet<Types.EAbilityType> unlockedAbility; // Blink, Flying
         public HashSet<Types.ESpawnType> spellList; // Projectiles
         public Transform savedTransform;
+
+        public Dictionary<Types.ECollectable, int> objectives;
+
         public DateTime currentTime;
     }
 
