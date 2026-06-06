@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 2883861787656126}
   - component: {fileID: 4989843347514858100}
   m_Layer: 5
-  m_Name: Group_ChloeSkills
+  m_Name: Group_ChloeAbilities
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -766,6 +766,10 @@ PrefabInstance:
     - target: {fileID: 1019103164157921420, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_Name
       value: UI_UnlockableSkillSlot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019103164157921420, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

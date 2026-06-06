@@ -4,7 +4,6 @@ using Types;
 using UnityEngine;
 public class GameManager : MonoSingletonBase<GameManager>
 {
-    private int collectedFrog = 0;
 
     // Unlocked levels during gameplay (excluding Intro and MainGame)
     private HashSet<ELevelType> unlockedLevels = new HashSet<ELevelType>();
@@ -15,7 +14,6 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     public event Action<ECollectable, int> OnObjectivesCollected;
 
-    private int _collectedFrog = 0;
     private int _collectedMossPatch = 0;
 
     private Dictionary<ECollectable, int> _commHerbs = new Dictionary<ECollectable, int>();
@@ -50,9 +48,13 @@ public class GameManager : MonoSingletonBase<GameManager>
         return collectedFrog;
     }
 
-    public void OnAntiFogMossCollected()
+    public bool OnAntiFogMossCollected()
     {
-
+        if (_commHerbs.ContainsKey(ECollectable.AntiFogMossPatch))
+            _commHerbs[ECollectable.AntiFogMossPatch]++;
+        else _commHerbs.Add(ECollectable.AntiFogMossPatch, 1);
+        
+        return true;
     }
 
     public bool OnCommHerbCollected(ECollectable type)
@@ -82,6 +84,8 @@ public class GameManager : MonoSingletonBase<GameManager>
     {
         return unlockedLevels.Contains(level);
     }
+
+    // @TODO: implement a function that actually processes the unlocking (i.e., adding a new level) to the hash set:
 
     #endregion
 
