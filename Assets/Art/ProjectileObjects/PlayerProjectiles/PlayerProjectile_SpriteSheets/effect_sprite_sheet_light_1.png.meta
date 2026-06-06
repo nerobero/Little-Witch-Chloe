@@ -1,28 +1,31 @@
 fileFormatVersion: 2
-guid: eabf2ae833c3480489b0db4ac5cb33d2
+guid: 5fe80280276b24f45a6c10f16a546dad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1030596347000017539
-    second: effect_sprite_sheet_fire_2_0
+      213: 9187368407647807156
+    second: effect_sprite_sheet_light_1_0
   - first:
-      213: 2754573382657883792
-    second: effect_sprite_sheet_fire_2_1
+      213: 1008263627573374062
+    second: effect_sprite_sheet_light_1_1
   - first:
-      213: -2413638977599359707
-    second: effect_sprite_sheet_fire_2_2
+      213: 6385056221508545784
+    second: effect_sprite_sheet_light_1_2
   - first:
-      213: -3287929315123903543
-    second: effect_sprite_sheet_fire_2_3
+      213: 314700656827709598
+    second: effect_sprite_sheet_light_1_3
   - first:
-      213: -1644734173981788641
-    second: effect_sprite_sheet_fire_2_4
+      213: -5917563674163993528
+    second: effect_sprite_sheet_light_1_4
   - first:
-      213: -593324643656961592
-    second: effect_sprite_sheet_fire_2_5
+      213: 5640000070200862595
+    second: effect_sprite_sheet_light_1_5
   - first:
-      213: 1414295887555970551
-    second: effect_sprite_sheet_fire_2_6
+      213: -7420304733564955510
+    second: effect_sprite_sheet_light_1_6
+  - first:
+      213: -5326382901011726762
+    second: effect_sprite_sheet_light_1_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -93,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -118,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: effect_sprite_sheet_fire_2_0
+      name: effect_sprite_sheet_light_1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 20
+        y: 133
+        width: 23
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 38250c1dae96d4e00800000000000000
-      internalID: 1030596347000017539
+      spriteID: 4b66e76d3e6108f70800000000000000
+      internalID: 9187368407647807156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effect_sprite_sheet_fire_2_1
+      name: effect_sprite_sheet_light_1_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
+        x: 18
+        y: 99
+        width: 27
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 09eb11da5e53a3620800000000000000
-      internalID: 2754573382657883792
+      spriteID: e6c25716d621efd00800000000000000
+      internalID: 1008263627573374062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effect_sprite_sheet_fire_2_2
+      name: effect_sprite_sheet_light_1_6
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
+        x: 17
+        y: 31
+        width: 32
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 525372c4328018ed0800000000000000
-      internalID: -2413638977599359707
+      spriteID: a8416b6c828c50990800000000000000
+      internalID: -7420304733564955510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effect_sprite_sheet_fire_2_3
+      name: effect_sprite_sheet_light_1_7
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
+        x: 17
+        y: 66
+        width: 30
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,52 +202,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c3427545bdee52d0800000000000000
-      internalID: -3287929315123903543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_fire_2_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f16bed1abfabc29e0800000000000000
-      internalID: -1644734173981788641
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effect_sprite_sheet_fire_2_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8c17752516614c7f0800000000000000
-      internalID: -593324643656961592
+      spriteID: 65e3b7fc8f2e416b0800000000000000
+      internalID: -5326382901011726762
       vertices: []
       indices: 
       edges: []
@@ -253,7 +212,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b2d91707ccc7cf64fb479bba369e7954
+    spriteID: 998531b40ba9e744e8fc60fc15f35804
     internalID: 0
     vertices: []
     indices: 
@@ -261,16 +220,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      effect_sprite_sheet_fire_2_0: 1030596347000017539
-      effect_sprite_sheet_fire_2_1: 2754573382657883792
-      effect_sprite_sheet_fire_2_2: -2413638977599359707
-      effect_sprite_sheet_fire_2_3: -3287929315123903543
-      effect_sprite_sheet_fire_2_4: -1644734173981788641
-      effect_sprite_sheet_fire_2_5: -593324643656961592
+      effect_sprite_sheet_light_1_0: 9187368407647807156
+      effect_sprite_sheet_light_1_1: 1008263627573374062
+      effect_sprite_sheet_light_1_2: 6385056221508545784
+      effect_sprite_sheet_light_1_3: 314700656827709598
+      effect_sprite_sheet_light_1_4: -5917563674163993528
+      effect_sprite_sheet_light_1_5: 5640000070200862595
+      effect_sprite_sheet_light_1_6: -7420304733564955510
+      effect_sprite_sheet_light_1_7: -5326382901011726762
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
