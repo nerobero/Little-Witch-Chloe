@@ -53,7 +53,7 @@ public class PopupHUD : UIBase
 
     public void OnClosePopupButtonClicked()
     {
-        this.gameObject.SetActive(false);
+        UIManager.Instance.Hide<PopupHUD>();
     }
 
     public void OnQuitClicked()
@@ -66,12 +66,20 @@ public class PopupHUD : UIBase
     #region EventSubscription
     protected override void SubscribeEvents()
     {
-        
+        Debug.Log("Option HUD Subscribe");
+        gameObject.SetActive(false);
     }
 
     protected override void UnsubscribeEvents()
     {
         
     }
+    
+    public override void Show()
+    {
+        Debug.Log("Show!!!!!!!!!");
+        base.Show();
+    }
+
     #endregion
 }

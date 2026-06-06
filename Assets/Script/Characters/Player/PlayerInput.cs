@@ -154,6 +154,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""a0e2a207-e83f-421f-8caf-18656d695027"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -299,6 +308,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""ChangeWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79d6b260-fb12-4ad4-848c-7eb0630d3a60"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -314,6 +334,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_BaseInputAction_Blink = m_BaseInputAction.FindAction("Blink", throwIfNotFound: true);
         m_BaseInputAction_Interact = m_BaseInputAction.FindAction("Interact", throwIfNotFound: true);
         m_BaseInputAction_ChangeWeapon = m_BaseInputAction.FindAction("ChangeWeapon", throwIfNotFound: true);
+        m_BaseInputAction_Pause = m_BaseInputAction.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
@@ -401,6 +422,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_BaseInputAction_Blink;
     private readonly InputAction m_BaseInputAction_Interact;
     private readonly InputAction m_BaseInputAction_ChangeWeapon;
+    private readonly InputAction m_BaseInputAction_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "BaseInputAction".
     /// </summary>
@@ -440,6 +462,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BaseInputAction/ChangeWeapon".
         /// </summary>
         public InputAction @ChangeWeapon => m_Wrapper.m_BaseInputAction_ChangeWeapon;
+        /// <summary>
+        /// Provides access to the underlying input action "BaseInputAction/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_BaseInputAction_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -487,6 +513,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @ChangeWeapon.started += instance.OnChangeWeapon;
             @ChangeWeapon.performed += instance.OnChangeWeapon;
             @ChangeWeapon.canceled += instance.OnChangeWeapon;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -519,6 +548,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @ChangeWeapon.started -= instance.OnChangeWeapon;
             @ChangeWeapon.performed -= instance.OnChangeWeapon;
             @ChangeWeapon.canceled -= instance.OnChangeWeapon;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -608,5 +640,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnChangeWeapon(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
     }
 }

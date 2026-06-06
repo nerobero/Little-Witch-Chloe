@@ -8,7 +8,7 @@ public class FrogCollection : CollectableItemBase
 {
     [Header("Frog Setting")]
     [SerializeField] private float healAmount;
-    // private int playerLayerIndex;
+    private int playerLayerIndex;
 
     private void Awake()
     {

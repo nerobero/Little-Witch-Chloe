@@ -37,7 +37,14 @@ public class GameManager : MonoSingletonBase<GameManager>
     #region CollectableCounter
     public void OnFrogCollected()
     {
-        _collectedFrog++;
+        if(_commHerbs.ContainsKey(ECollectable.FrogCollectible))
+        {
+            _commHerbs[ECollectable.FrogCollectible]++;
+        }
+        else
+        {
+            _commHerbs.Add(ECollectable.FrogCollectible, 1);
+        }
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Frog");
         OnObjectivesCollected?.Invoke(ECollectable.FrogCollectible, _commHerbs[ECollectable.FrogCollectible]);
@@ -45,7 +52,7 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     public int GetCollectedFrog()
     {
-        return collectedFrog;
+        return _commHerbs[ECollectable.FrogCollectible];
     }
 
     public bool OnAntiFogMossCollected()

@@ -228,5 +228,14 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
             _playerAttack.SelectWeapon(slot - 1);
         }
     }
+
+    // Show the option pop up
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            UIManager.Instance.Show<PopupHUD>();
+        }
+    }
     #endregion
 }

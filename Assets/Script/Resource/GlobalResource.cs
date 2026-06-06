@@ -125,6 +125,7 @@ namespace Data
         public Transform savedTransform;
 
         public Dictionary<Types.ECollectable, int> objectives;
+        HashSet<Types.ELevelType> unlockedLevels;
 
         public DateTime currentTime;
     }

@@ -2,26 +2,18 @@ using UnityEngine;
 using Data;
 using System.IO;
 
-public class OptionManager : MonoBehaviour
+public class OptionManager : MonoSingletonBase<OptionManager>
 {
-    public static OptionManager Instance {get; private set;}
+    //public static OptionManager Instance {get; private set;}
     
     [SerializeField] private SettingData settingData;
     
     private string saveSettingPath = "saveSettingData.json";
 
-    private void Awake()
+    protected override void Awake()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-            // maintain this instance even if the scene changed.
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        dontDestroy = true;
+        base.Awake();
 
         LoadSettingData();
         SaveSettingData();

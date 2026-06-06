@@ -387,7 +387,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2192261034381798428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,22 +607,22 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75211317d1410bc4ebfeff98ef5386e4, type: 2}
+  m_sharedMaterial: {fileID: -6629658760532734321, guid: 75211317d1410bc4ebfeff98ef5386e4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287977028
-  m_fontColor: {r: 0.26666668, g: 0.3372549, b: 0.58431375, a: 1}
-  m_enableVertexGradient: 1
-  m_colorMode: 2
+    rgba: 4289028181
+  m_fontColor: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 0
   m_fontColorGradient:
-    topLeft: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
-    topRight: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
-    bottomLeft: {r: 0.654902, g: 0.5568628, b: 0.70980394, a: 1}
-    bottomRight: {r: 0.654902, g: 0.5568628, b: 0.70980394, a: 1}
+    topLeft: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
+    topRight: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
+    bottomLeft: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
+    bottomRight: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -877,22 +877,22 @@ MonoBehaviour:
       m_Calls: []
   m_text: Load
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75211317d1410bc4ebfeff98ef5386e4, type: 2}
+  m_sharedMaterial: {fileID: -6629658760532734321, guid: 75211317d1410bc4ebfeff98ef5386e4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287977028
-  m_fontColor: {r: 0.26666668, g: 0.3372549, b: 0.58431375, a: 1}
-  m_enableVertexGradient: 1
-  m_colorMode: 2
+    rgba: 4289028181
+  m_fontColor: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 0
   m_fontColorGradient:
-    topLeft: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
-    topRight: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
-    bottomLeft: {r: 0.654902, g: 0.5568628, b: 0.70980394, a: 1}
-    bottomRight: {r: 0.654902, g: 0.5568628, b: 0.70980394, a: 1}
+    topLeft: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
+    topRight: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
+    bottomLeft: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
+    bottomRight: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -1014,22 +1014,22 @@ MonoBehaviour:
       m_Calls: []
   m_text: Setting
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75211317d1410bc4ebfeff98ef5386e4, type: 2}
+  m_sharedMaterial: {fileID: -6629658760532734321, guid: 75211317d1410bc4ebfeff98ef5386e4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287977028
-  m_fontColor: {r: 0.26666668, g: 0.3372549, b: 0.58431375, a: 1}
-  m_enableVertexGradient: 1
-  m_colorMode: 2
+    rgba: 4289028181
+  m_fontColor: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 0
   m_fontColorGradient:
-    topLeft: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
-    topRight: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
-    bottomLeft: {r: 0.654902, g: 0.5568628, b: 0.70980394, a: 1}
-    bottomRight: {r: 0.654902, g: 0.5568628, b: 0.70980394, a: 1}
+    topLeft: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
+    topRight: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
+    bottomLeft: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
+    bottomRight: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -1363,22 +1363,22 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75211317d1410bc4ebfeff98ef5386e4, type: 2}
+  m_sharedMaterial: {fileID: -6629658760532734321, guid: 75211317d1410bc4ebfeff98ef5386e4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287977028
-  m_fontColor: {r: 0.26666668, g: 0.3372549, b: 0.58431375, a: 1}
-  m_enableVertexGradient: 1
-  m_colorMode: 2
+    rgba: 4289028181
+  m_fontColor: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 0
   m_fontColorGradient:
-    topLeft: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
-    topRight: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
-    bottomLeft: {r: 0.654902, g: 0.5568628, b: 0.70980394, a: 1}
-    bottomRight: {r: 0.654902, g: 0.5568628, b: 0.70980394, a: 1}
+    topLeft: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
+    topRight: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
+    bottomLeft: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
+    bottomRight: {r: 0.654902, g: 0.5529412, b: 0.69803923, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0

@@ -42,6 +42,7 @@ public class TitleUI : MonoBehaviour
     public void OnClickSetting()
     {
         Debug.Log("Setting");
+        UIManager.Instance.Show<PopupHUD>();
     }
 
     public void OnClickExit()
