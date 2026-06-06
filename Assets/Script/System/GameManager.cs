@@ -12,7 +12,12 @@ public class GameManager : MonoSingletonBase<GameManager>
     // Activated spells by scroll. (flying, blink)
     private HashSet<EAbilityType> unlockedSpell = new HashSet<EAbilityType>();
     public HashSet<EAbilityType> GetUnlockedSpell => unlockedSpell;
+
     public event Action<ECollectable, int> OnObjectivesCollected;
+
+    private int _collectedFrog = 0;
+    private int _collectedMossPatch = 0;
+
     private Dictionary<ECollectable, int> _commHerbs = new Dictionary<ECollectable, int>();
 
     protected override void Awake()
@@ -25,7 +30,7 @@ public class GameManager : MonoSingletonBase<GameManager>
     void Start()
     {
         //SaveManager.Instance.LoadSaveGame();
-        foreach(KeyValuePair<ECollectable, int> collection in _commHerbs)
+        foreach (KeyValuePair<ECollectable, int> collection in _commHerbs)
         {
             OnObjectivesCollected?.Invoke(collection.Key, collection.Value);
         }
@@ -34,15 +39,8 @@ public class GameManager : MonoSingletonBase<GameManager>
     #region CollectableCounter
     public void OnFrogCollected()
     {
-        if(_commHerbs.ContainsKey(ECollectable.FrogCollectible))
-        {
-            _commHerbs[ECollectable.FrogCollectible]++;
-        }
-        else
-        {
-            _commHerbs.Add(ECollectable.FrogCollectible, 1);
-        }
-        //collectedFrog++;
+        _collectedFrog++;
+
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Frog");
         OnObjectivesCollected?.Invoke(ECollectable.FrogCollectible, _commHerbs[ECollectable.FrogCollectible]);
     }
@@ -52,11 +50,26 @@ public class GameManager : MonoSingletonBase<GameManager>
         return collectedFrog;
     }
 
+    public void OnAntiFogMossCollected()
+    {
+
+    }
+
     public bool OnCommHerbCollected(ECollectable type)
     {
         if (type == ECollectable.FrogCollectible
             || type == ECollectable.AntiFogMossPatch)
             return false;
+
+        if (_commHerbs.ContainsKey(type))
+        {
+            _commHerbs[type]++;
+        }
+        else
+        {
+            _commHerbs.Add(type, 1);
+        }
+
         return true;
     }
 
