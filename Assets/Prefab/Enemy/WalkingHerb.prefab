@@ -219,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacterBase
   maxHP: 10
   currentHP: 10
-  characterElement: 2
+  mainCharacElement: 2
   OnTakenDamageEvent: 
 --- !u!114 &4983372570207355703
 MonoBehaviour:
@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bbbd5dddace525468d54f5c7b8bc701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHPWidget
+  root: {fileID: 7698529043149096065}
   _hpSlider: {fileID: 8509285954682480211}
 --- !u!114 &-2818862869753585158
 MonoBehaviour:
@@ -464,6 +465,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d122068995684394f9fcc60682b13fff, type: 3}
+--- !u!1 &7698529043149096065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4999626153633444670, guid: d122068995684394f9fcc60682b13fff, type: 3}
+  m_PrefabInstance: {fileID: 3437537476233459647}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8509285954682480211 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6459173841312485868, guid: d122068995684394f9fcc60682b13fff, type: 3}

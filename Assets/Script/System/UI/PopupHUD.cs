@@ -12,7 +12,6 @@ public class PopupHUD : UIBase
     [SerializeField] private SFXVolume _sfxVolumeObject;
     // [SerializeField] private TMP_Dropdown _languages;
     // List<string> languageLists;
-    public GameObject root;
 
     protected override void Start()
     {
@@ -76,17 +75,6 @@ public class PopupHUD : UIBase
     protected override void UnsubscribeEvents()
     {
         
-    }
-    
-    public override void Show()
-    {
-        Debug.Log("Show!!!!!!!!!");
-        root.SetActive(true);
-    }
-
-    public override void Hide()
-    {
-        root.SetActive(false);
     }
 
     #endregion

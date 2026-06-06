@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7e2cb747c9c264da7a01edb0f19f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIPlayerHUD
+  root: {fileID: 2389787923472161709}
   _hpSlider: {fileID: 6459173841312485868}
   _staminaSlider: {fileID: 7389521924678674503}
   _blinkImg: {fileID: 6537434126719646711}
@@ -1076,26 +1077,6 @@ PrefabInstance:
     - target: {fileID: 1019103164157921420, guid: 1b9d977ca4ee49640b25ffab1b891393, type: 3}
       propertyPath: m_Name
       value: UI_Objectives
-      objectReference: {fileID: 0}
-    - target: {fileID: 2493190727986754719, guid: 1b9d977ca4ee49640b25ffab1b891393, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -3670192805511832984, guid: 92e255dcb88e7504d9ec661beb4b9b1c, type: 3}
-    - target: {fileID: 7519890800828825245, guid: 1b9d977ca4ee49640b25ffab1b891393, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7519890800828825245, guid: 1b9d977ca4ee49640b25ffab1b891393, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7519890800828825245, guid: 1b9d977ca4ee49640b25ffab1b891393, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7519890800828825245, guid: 1b9d977ca4ee49640b25ffab1b891393, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 31.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

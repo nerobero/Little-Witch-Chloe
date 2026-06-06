@@ -5,6 +5,7 @@ using UnityEngine;
 /// </summary>
 public abstract class UIBase : MonoBehaviour
 {
+    public GameObject root;
     protected virtual void Start()
     {
         // self-registering to UIManager's panel registry:
@@ -29,12 +30,12 @@ public abstract class UIBase : MonoBehaviour
     /// Left as virtual just in case there is special 
     /// presentation before it is shown on screen.
     /// </summary>
-    public virtual void Show() => gameObject.SetActive(true);
+    public virtual void Show() => root.SetActive(true);
 
     /// <summary>
     /// Hides this UI panel. 
     /// Left as virtual just in case there is special 
     /// presentation before it is hidden from the screen.
     /// </summary>
-    public virtual void Hide() => gameObject.SetActive(false);
+    public virtual void Hide() => root.SetActive(false);
 }

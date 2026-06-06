@@ -345,10 +345,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2daf990e83377ba469a6837f36bb8faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PopupHUD
+  root: {fileID: 8300270669678023444}
   _masterVolumeObject: {fileID: 6188596117429421318}
   _bgmVolumeObject: {fileID: 4430640463019561299}
   _sfxVolumeObject: {fileID: 1563913674625099575}
-  root: {fileID: 8300270669678023444}
 --- !u!1 &5375028983578278400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,7 +1639,8 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7387644949629056203, guid: a82aafbb701ffe7488b4e9a8fedb0b8d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1808,6 +1809,26 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7387644949629056203, guid: a82aafbb701ffe7488b4e9a8fedb0b8d, type: 3}
+      propertyPath: MasterSelect.Path
+      value: event:/MasterVolumeSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 7387644949629056203, guid: a82aafbb701ffe7488b4e9a8fedb0b8d, type: 3}
+      propertyPath: MasterSelect.Guid.Data1
+      value: 242290579
+      objectReference: {fileID: 0}
+    - target: {fileID: 7387644949629056203, guid: a82aafbb701ffe7488b4e9a8fedb0b8d, type: 3}
+      propertyPath: MasterSelect.Guid.Data2
+      value: 1279941716
+      objectReference: {fileID: 0}
+    - target: {fileID: 7387644949629056203, guid: a82aafbb701ffe7488b4e9a8fedb0b8d, type: 3}
+      propertyPath: MasterSelect.Guid.Data3
+      value: -1437776456
+      objectReference: {fileID: 0}
+    - target: {fileID: 7387644949629056203, guid: a82aafbb701ffe7488b4e9a8fedb0b8d, type: 3}
+      propertyPath: MasterSelect.Guid.Data4
+      value: 409033044
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1973,7 +1994,8 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7387644949629056203, guid: a82aafbb701ffe7488b4e9a8fedb0b8d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

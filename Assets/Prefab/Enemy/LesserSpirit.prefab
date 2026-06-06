@@ -177,8 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LesserSpiritAttack
   chargeAttackCDtime: 0
   changeSpellCDtime: 0
-  _currentSpell: 0
-  _elementType: 1
+  _currentSpell: 11
+  _elementType: 3
   damageAmount: 1
   _firePointObject: {fileID: 6139647403758418630}
   _firePoint: {fileID: 1901527055763118400}
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LesserSpiritStat
   maxHP: 5
   currentHP: 5
-  characterElement: 0
+  mainCharacElement: 3
   OnTakenDamageEvent: 
 --- !u!114 &-1742412551515105769
 MonoBehaviour:
@@ -393,7 +393,7 @@ MonoBehaviour:
   chargeThreshold: 1.5
   maxChargeTime: 3
   loseTargetTime: 4
-  isProjectile: 0
+  isProjectile: 1
   eyePoint: {x: 0, y: 0, z: 0}
   playerLayer:
     serializedVersion: 2
@@ -401,7 +401,7 @@ MonoBehaviour:
   viewDistance: 10
   viewHeight: 6
   viewAngle: 45
-  targetTimer: 3
+  targetTimer: 5
   detectionRange: 10
 --- !u!114 &-902512691818760491
 MonoBehaviour:
@@ -422,6 +422,7 @@ MonoBehaviour:
   flyForce: 0
   minDistance: 2
   maxDistance: 3
+  speedIncFactor: 1
   groundCheckDistance: 0.25
   obstacleDistance: 0.25
   bgLayer:
@@ -439,7 +440,6 @@ MonoBehaviour:
   _isBackground: 0
   targetPosition: {x: 0, y: 0}
   isChasing: 0
-  speedIncFactor: 1
 --- !u!114 &6644432538697428835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,7 +454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacterBase
   maxHP: 20
   currentHP: 20
-  characterElement: 3
+  mainCharacElement: 0
   OnTakenDamageEvent: 
 --- !u!114 &4983372570207355703
 MonoBehaviour:
@@ -480,6 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bbbd5dddace525468d54f5c7b8bc701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHPWidget
+  root: {fileID: 7698529043149096065}
   _hpSlider: {fileID: 8509285954682480211}
 --- !u!1001 &3437537476233459647
 PrefabInstance:
@@ -567,7 +568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6287765120938365995, guid: d122068995684394f9fcc60682b13fff, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 6287765120938365995, guid: d122068995684394f9fcc60682b13fff, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -603,6 +604,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d122068995684394f9fcc60682b13fff, type: 3}
+--- !u!1 &7698529043149096065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4999626153633444670, guid: d122068995684394f9fcc60682b13fff, type: 3}
+  m_PrefabInstance: {fileID: 3437537476233459647}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8509285954682480211 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6459173841312485868, guid: d122068995684394f9fcc60682b13fff, type: 3}
