@@ -5,46 +5,30 @@ using UnityEngine.SceneManagement;
 using Data;
 using Types;
 
-public class SaveManager : MonoBehaviour
+public class SaveManager : MonoSingletonBase<SaveManager>
 {
-    public static SaveManager Instance {get; private set;}
 
     [SerializeField] private PlayerController playerController;
     [SerializeField] private PlayerStatManager playerState;
     [SerializeField] private PlayerAttack playerAttack;
-    [SerializeField] private GameManager gameManager;
     private SavePlayerData _pendingData;
     
     private string savePlayerPath = "savePlayerData.json";
 
-    private void Awake()
+    protected override void Awake()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-            // maintain this instance even if the scene changed.
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        dontDestroy = true;
+        base.Awake();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    void OnEnable()
+    private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     public bool LoadSaveGame()
@@ -81,7 +65,7 @@ public class SaveManager : MonoBehaviour
             savePlayerData.savedPosition = playerAttack.gameObject.transform.position;
             savePlayerData.savedRotation = playerAttack.gameObject.transform.rotation;
             savePlayerData.savedScale = playerAttack.gameObject.transform.localScale;
-            savePlayerData.unlockedAbility = gameManager.GetUnlockedAbilitiesList;
+            savePlayerData.unlockedAbility = GameManager.Instance.GetUnlockedAbilitiesList;
             savePlayerData.spellList = new List<ESpawnType>(playerAttack.GetUnlockedSpell());
             savePlayerData.objectives = new List<SavedObjectiveData>
             {
@@ -142,7 +126,7 @@ public class SaveManager : MonoBehaviour
             
             foreach(Types.EAbilityType unlocked in savePlayerData.unlockedAbility)
             {
-                gameManager.OnScrollCollected(unlocked);
+                GameManager.Instance.OnScrollCollected(unlocked);
             }
 
             foreach(Types.ESpawnType spell in savePlayerData.spellList)
