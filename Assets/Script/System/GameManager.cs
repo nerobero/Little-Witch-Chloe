@@ -11,9 +11,10 @@ public class GameManager : MonoSingletonBase<GameManager>
     private ELevelType _currentLevel;
     public ELevelType CurrentLevel => _currentLevel;
 
-    // Activated spells by scroll. (flying, blink)
-    private HashSet<EAbilityType> unlockedSpell = new HashSet<EAbilityType>();
-    public HashSet<EAbilityType> GetUnlockedSpell => unlockedSpell;
+    // Activated spells by scroll.
+    private HashSet<EAbilityType> _unlockedAbilities = new HashSet<EAbilityType>();
+    public HashSet<EAbilityType> GetUnlockedAbilities => _unlockedAbilities;
+    public List<EAbilityType> GetUnlockedAbilitiesList => new List<EAbilityType>(_unlockedAbilities);
 
     // Objectives related fields
     public event Action<ECollectable, int> OnObjectivesCollected;
@@ -136,7 +137,7 @@ public class GameManager : MonoSingletonBase<GameManager>
     /// <returns>Does ability unlocked succeed</returns>
     public bool OnScrollCollected(EAbilityType scrollType)
     {
-        return unlockedSpell.Add(scrollType);
+        return _unlockedAbilities.Add(scrollType);
     }
 
     /// <summary>
@@ -146,7 +147,7 @@ public class GameManager : MonoSingletonBase<GameManager>
     /// <returns>Is ability unlocked</returns>
     public bool IsSpellUnlocked(EAbilityType spell)
     {
-        return unlockedSpell.Contains(spell);
+        return _unlockedAbilities.Contains(spell);
     }
 
     #endregion

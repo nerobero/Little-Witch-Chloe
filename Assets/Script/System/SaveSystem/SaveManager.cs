@@ -78,10 +78,15 @@ public class SaveManager : MonoBehaviour
 
         if(playerAttack)
         {
-            savePlayerData.savedTransform = playerAttack.gameObject.transform;
-            savePlayerData.unlockedAbility = gameManager.GetUnlockedSpell;
-            savePlayerData.spellList = playerAttack.GetUnlockedSpell();
-            savePlayerData.objectives[ECollectable.FrogCollectible] = GameManager.Instance.GetCollectedFrog();
+            savePlayerData.savedPosition = playerAttack.gameObject.transform.position;
+            savePlayerData.savedRotation = playerAttack.gameObject.transform.rotation;
+            savePlayerData.savedScale = playerAttack.gameObject.transform.localScale;
+            savePlayerData.unlockedAbility = gameManager.GetUnlockedAbilitiesList;
+            savePlayerData.spellList = new List<ESpawnType>(playerAttack.GetUnlockedSpell());
+            savePlayerData.objectives = new List<SavedObjectiveData>
+            {
+                new() { collectableType = ECollectable.FrogCollectible, collectedCount = GameManager.Instance.GetCollectedFrog() }
+            };
 
             savePlayerData.currentTime = System.DateTime.Now;
         }
@@ -131,9 +136,9 @@ public class SaveManager : MonoBehaviour
     {
         if(playerAttack)
         {
-            playerAttack.gameObject.transform.position = savePlayerData.savedTransform.position;
-            playerAttack.gameObject.transform.rotation = savePlayerData.savedTransform.rotation;
-            playerAttack.gameObject.transform.localScale = savePlayerData.savedTransform.localScale;
+            playerAttack.gameObject.transform.position = savePlayerData.savedPosition;
+            playerAttack.gameObject.transform.rotation = savePlayerData.savedRotation;
+            playerAttack.gameObject.transform.localScale = savePlayerData.savedScale;
             
             foreach(Types.EAbilityType unlocked in savePlayerData.unlockedAbility)
             {
