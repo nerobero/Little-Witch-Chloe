@@ -25975,6 +25975,46 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1563913674625099575, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: SFXHover.Path
+      value: event:/SFX/UI Hover
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563913674625099575, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: SFXSelect.Path
+      value: event:/SFX/UI Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563913674625099575, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: SFXHover.Guid.Data1
+      value: 2128839076
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563913674625099575, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: SFXHover.Guid.Data2
+      value: 1187980565
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563913674625099575, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: SFXHover.Guid.Data3
+      value: 1912224386
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563913674625099575, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: SFXHover.Guid.Data4
+      value: -1887367605
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563913674625099575, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: SFXSelect.Guid.Data1
+      value: 100188645
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563913674625099575, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: SFXSelect.Guid.Data2
+      value: 1182881453
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563913674625099575, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: SFXSelect.Guid.Data3
+      value: -1470955880
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563913674625099575, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: SFXSelect.Guid.Data4
+      value: 1971176314
+      objectReference: {fileID: 0}
     - target: {fileID: 1609494255125683368, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -26054,6 +26094,46 @@ PrefabInstance:
     - target: {fileID: 3945674770637277738, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430640463019561299, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: MusicHover.Path
+      value: event:/MUSIC/Music Menu Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430640463019561299, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: MusicSelect.Path
+      value: event:/MUSIC/Music Menu Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430640463019561299, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: MusicHover.Guid.Data1
+      value: -1090743102
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430640463019561299, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: MusicHover.Guid.Data2
+      value: 1172651231
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430640463019561299, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: MusicHover.Guid.Data3
+      value: 927559851
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430640463019561299, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: MusicHover.Guid.Data4
+      value: 874094533
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430640463019561299, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: MusicSelect.Guid.Data1
+      value: -1090743102
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430640463019561299, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: MusicSelect.Guid.Data2
+      value: 1172651231
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430640463019561299, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: MusicSelect.Guid.Data3
+      value: 927559851
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430640463019561299, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: MusicSelect.Guid.Data4
+      value: 874094533
       objectReference: {fileID: 0}
     - target: {fileID: 5120637025143142274, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -26186,6 +26266,26 @@ PrefabInstance:
     - target: {fileID: 6100146993587328144, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188596117429421318, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: MasterHover.Path
+      value: event:/MasterVolumeSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188596117429421318, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: MasterHover.Guid.Data1
+      value: 242290579
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188596117429421318, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: MasterHover.Guid.Data2
+      value: 1279941716
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188596117429421318, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: MasterHover.Guid.Data3
+      value: -1437776456
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188596117429421318, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
+      propertyPath: MasterHover.Guid.Data4
+      value: 409033044
       objectReference: {fileID: 0}
     - target: {fileID: 7438978884635173234, guid: e2c3f2d818249334b963855de0dd1e8a, type: 3}
       propertyPath: m_SizeDelta.y
