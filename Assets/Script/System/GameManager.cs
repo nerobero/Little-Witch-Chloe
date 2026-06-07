@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Types;
 using UnityEngine;
 public class GameManager : MonoSingletonBase<GameManager>
@@ -7,19 +8,36 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     // Unlocked levels during gameplay (excluding Intro and MainGame)
     private HashSet<ELevelType> unlockedLevels = new HashSet<ELevelType>();
+    private ELevelType _currentLevel;
+    public ELevelType CurrentLevel => _currentLevel;
 
     // Activated spells by scroll. (flying, blink)
     private HashSet<EAbilityType> unlockedSpell = new HashSet<EAbilityType>();
     public HashSet<EAbilityType> GetUnlockedSpell => unlockedSpell;
 
+    // Objectives related fields
     public event Action<ECollectable, int> OnObjectivesCollected;
+    private HashSet<string> _defeatedBosses = new HashSet<string>();
 
     private Dictionary<ECollectable, int> _objectives = new Dictionary<ECollectable, int>();
+
+
+
 
     protected override void Awake()
     {
         dontDestroy = true;
         base.Awake();
+    }
+
+    private void OnEnable()
+    {
+        EventManager.Instance.OnUnlockLevel += OnUnlockLevel;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.OnUnlockLevel -= OnUnlockLevel;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,7 +53,7 @@ public class GameManager : MonoSingletonBase<GameManager>
     #region CollectableCounter
     public void OnFrogCollected()
     {
-        if(_objectives.ContainsKey(ECollectable.FrogCollectible))
+        if (_objectives.ContainsKey(ECollectable.FrogCollectible))
         {
             _objectives[ECollectable.FrogCollectible]++;
         }
@@ -60,7 +78,7 @@ public class GameManager : MonoSingletonBase<GameManager>
         if (_objectives.ContainsKey(ECollectable.AntiFogMossPatch))
             _objectives[ECollectable.AntiFogMossPatch]++;
         else _objectives.Add(ECollectable.AntiFogMossPatch, 1);
-        
+
         return true;
     }
 
@@ -82,7 +100,14 @@ public class GameManager : MonoSingletonBase<GameManager>
         return true;
     }
 
-
+    public void RestoreObjective(ECollectable type, int count)
+    {
+        if (_objectives.ContainsKey(type))
+        {
+            _objectives[type] = count;
+            OnObjectivesCollected?.Invoke(type, count);
+        }
+    }
     #endregion
 
     #region LevelLoad
@@ -92,7 +117,13 @@ public class GameManager : MonoSingletonBase<GameManager>
         return unlockedLevels.Contains(level);
     }
 
-    // @TODO: implement a function that actually processes the unlocking (i.e., adding a new level) to the hash set:
+    public void OnUnlockLevel(ELevelType type)
+    {
+        if (!unlockedLevels.Contains(type))
+            unlockedLevels.Add(type);
+    }
+
+    public void SetCurrentLevel(ELevelType type) => _currentLevel = type;
 
     #endregion
 
