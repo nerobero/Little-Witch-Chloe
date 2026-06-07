@@ -14,9 +14,7 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     public event Action<ECollectable, int> OnObjectivesCollected;
 
-    private int _collectedMossPatch = 0;
-
-    private Dictionary<ECollectable, int> _commHerbs = new Dictionary<ECollectable, int>();
+    private Dictionary<ECollectable, int> _objectives = new Dictionary<ECollectable, int>();
 
     protected override void Awake()
     {
@@ -28,7 +26,7 @@ public class GameManager : MonoSingletonBase<GameManager>
     void Start()
     {
         //SaveManager.Instance.LoadSaveGame();
-        foreach (KeyValuePair<ECollectable, int> collection in _commHerbs)
+        foreach (KeyValuePair<ECollectable, int> collection in _objectives)
         {
             OnObjectivesCollected?.Invoke(collection.Key, collection.Value);
         }
@@ -37,29 +35,31 @@ public class GameManager : MonoSingletonBase<GameManager>
     #region CollectableCounter
     public void OnFrogCollected()
     {
-        if(_commHerbs.ContainsKey(ECollectable.FrogCollectible))
+        if(_objectives.ContainsKey(ECollectable.FrogCollectible))
         {
-            _commHerbs[ECollectable.FrogCollectible]++;
+            _objectives[ECollectable.FrogCollectible]++;
         }
         else
         {
-            _commHerbs.Add(ECollectable.FrogCollectible, 1);
+            _objectives.Add(ECollectable.FrogCollectible, 1);
         }
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Frog");
-        OnObjectivesCollected?.Invoke(ECollectable.FrogCollectible, _commHerbs[ECollectable.FrogCollectible]);
+        OnObjectivesCollected?.Invoke(ECollectable.FrogCollectible, _objectives[ECollectable.FrogCollectible]);
     }
 
     public int GetCollectedFrog()
     {
-        return _commHerbs[ECollectable.FrogCollectible];
+        if (!_objectives.ContainsKey(ECollectable.FrogCollectible))
+            return 0;
+        return _objectives[ECollectable.FrogCollectible];
     }
 
     public bool OnAntiFogMossCollected()
     {
-        if (_commHerbs.ContainsKey(ECollectable.AntiFogMossPatch))
-            _commHerbs[ECollectable.AntiFogMossPatch]++;
-        else _commHerbs.Add(ECollectable.AntiFogMossPatch, 1);
+        if (_objectives.ContainsKey(ECollectable.AntiFogMossPatch))
+            _objectives[ECollectable.AntiFogMossPatch]++;
+        else _objectives.Add(ECollectable.AntiFogMossPatch, 1);
         
         return true;
     }
@@ -70,13 +70,13 @@ public class GameManager : MonoSingletonBase<GameManager>
             || type == ECollectable.AntiFogMossPatch)
             return false;
 
-        if (_commHerbs.ContainsKey(type))
+        if (_objectives.ContainsKey(type))
         {
-            _commHerbs[type]++;
+            _objectives[type]++;
         }
         else
         {
-            _commHerbs.Add(type, 1);
+            _objectives.Add(type, 1);
         }
 
         return true;
