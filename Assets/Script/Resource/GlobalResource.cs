@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using Types;
 
 /// <summary>
 /// This is a global enum type namespace
@@ -76,7 +77,7 @@ namespace Types
     {
         None = 0,
         Empowere,
-        
+
     }
 
     /// <summary>
@@ -87,12 +88,15 @@ namespace Types
         None = 0,
         Flying,
         Blink,
-        
+
     }
+
+
     public enum ELevelType
     {
         Intro = 0,
         MainGame,
+        Overworld,
         BogLevel,
     }
 
@@ -120,14 +124,34 @@ namespace Data
     [System.Serializable]
     public class SavePlayerData
     {
-        public HashSet<Types.EAbilityType> unlockedAbility; // Blink, Flying
-        public HashSet<Types.ESpawnType> spellList; // Projectiles
-        public Transform savedTransform;
+        // ============= LEVEL PLACEMENT related data ==================
+        public ELevelType currentLevel; // the level the player was last playing in
+        public List<Types.ELevelType> unlockedLevels;
 
-        public Dictionary<Types.ECollectable, int> objectives;
-        HashSet<Types.ELevelType> unlockedLevels;
+        // Breaking the Transform into two parts; Transform is NOT Json-serializable:
+        public Vector3 savedPosition;
+        public Quaternion savedRotation;
+        public Vector3 savedScale;
+        public bool isInBackground; // added this field to determine whether to be placed in fg or bg
 
+        // ============== PLAYER related data ==================
+        public List<Types.EAbilityType> unlockedAbility; // Blink, Flying
+        public List<Types.ESpawnType> spellList; // unlocked Projectile spells
+        public List<SavedObjectiveData> objectives;
+        public List<string> defeatedBosses;
+        public float currentHP;
+        public float currentMaxHP;
+        public float currentStamina;
+
+        // ============== LOGISTICS =======================
         public DateTime currentTime;
+    }
+
+    [System.Serializable]
+    public class SavedObjectiveData
+    {
+        public Types.ECollectable collectableType;
+        public int collectedCount = 0;
     }
 
     // Setting data : Master volume, graphics, input key?
