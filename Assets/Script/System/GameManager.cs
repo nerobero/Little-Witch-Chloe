@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Data;
 using NUnit.Framework.Constraints;
+using System.Linq;
 using Types;
 using UnityEngine;
 public class GameManager : MonoSingletonBase<GameManager>
@@ -9,23 +10,40 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     // Unlocked levels during gameplay (excluding Intro and MainGame)
     private HashSet<ELevelType> unlockedLevels = new HashSet<ELevelType>();
-    private ELevelType currentLevel;
+    private ELevelType _currentLevel;
+    public ELevelType CurrentLevel => _currentLevel;
 
-    // Activated spells by scroll. (flying, blink)
-    private HashSet<EAbilityType> unlockedSpell = new HashSet<EAbilityType>();
-    public HashSet<EAbilityType> GetUnlockedSpell => unlockedSpell;
+    // Activated spells by scroll.
+    private HashSet<EAbilityType> _unlockedAbilities = new HashSet<EAbilityType>();
+    public HashSet<EAbilityType> GetUnlockedAbilities => _unlockedAbilities;
+    public List<EAbilityType> GetUnlockedAbilitiesList => new List<EAbilityType>(_unlockedAbilities);
 
+    // Objectives related fields
     public event Action<ECollectable, int> OnObjectivesCollected;
+    private HashSet<string> _defeatedBosses = new HashSet<string>();
 
     private Dictionary<ECollectable, int> _objectives = new Dictionary<ECollectable, int>();
     private int allCollectedObjectivesCounts = 0;
 
     private List<string> defeatedBosses = new List<string>();
 
+
+
+
     protected override void Awake()
     {
         dontDestroy = true;
         base.Awake();
+    }
+
+    private void OnEnable()
+    {
+        EventManager.Instance.OnUnlockLevel += OnUnlockLevel;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.OnUnlockLevel -= OnUnlockLevel;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -48,7 +66,7 @@ public class GameManager : MonoSingletonBase<GameManager>
     #region CollectableCounter
     public void OnFrogCollected()
     {
-        if(_objectives.ContainsKey(ECollectable.FrogCollectible))
+        if (_objectives.ContainsKey(ECollectable.FrogCollectible))
         {
             _objectives[ECollectable.FrogCollectible]++;
         }
@@ -73,7 +91,7 @@ public class GameManager : MonoSingletonBase<GameManager>
         if (_objectives.ContainsKey(ECollectable.AntiFogMossPatch))
             _objectives[ECollectable.AntiFogMossPatch]++;
         else _objectives.Add(ECollectable.AntiFogMossPatch, 1);
-        
+
         return true;
     }
 
@@ -92,7 +110,7 @@ public class GameManager : MonoSingletonBase<GameManager>
             _objectives.Add(type, 1);
         }
 
-        int targetAmount = CommisionManager.Instance.GetTargetCount(currentLevel, type);
+        int targetAmount = CommisionManager.Instance.GetTargetCount(_currentLevel, type);
 
         if(targetAmount == _objectives[type])
         {
@@ -105,9 +123,9 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     public void CheckAllObjectives()
     {
-        if(CommisionManager.Instance.GetObjectivesAmount(currentLevel) == allCollectedObjectivesCounts)
+        if(CommisionManager.Instance.GetObjectivesAmount(_currentLevel) == allCollectedObjectivesCounts)
         {
-            onLevelUnlocked(currentLevel + 1);
+            onLevelUnlocked(_currentLevel + 1);
         }
     }
 
@@ -128,7 +146,7 @@ public class GameManager : MonoSingletonBase<GameManager>
         {
             _objectives.Add(data.collectableType, data.collectedCount);
 
-            if(data.collectedCount == CommisionManager.Instance.GetTargetCount(currentLevel, data.collectableType))
+            if(data.collectedCount == CommisionManager.Instance.GetTargetCount(_currentLevel, data.collectableType))
             {
                 allCollectedObjectivesCounts++;
             }
@@ -136,6 +154,14 @@ public class GameManager : MonoSingletonBase<GameManager>
     }
 
 
+    public void RestoreObjective(ECollectable type, int count)
+    {
+        if (_objectives.ContainsKey(type))
+        {
+            _objectives[type] = count;
+            OnObjectivesCollected?.Invoke(type, count);
+        }
+    }
     #endregion
 
     #region LevelLoad
@@ -169,14 +195,9 @@ public class GameManager : MonoSingletonBase<GameManager>
         return levelList;
     }
 
-    public void SetCurrentLevel(ELevelType level)
-    {
-        currentLevel = level;
-    }
-
     public ELevelType GetCurrentLevel()
     {
-        return currentLevel;
+        return _currentLevel;
     }
 
     public void onBossDefeated(string bossName)
@@ -196,6 +217,14 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     // @TODO: implement a function that actually processes the unlocking (i.e., adding a new level) to the hash set:
 
+    public void OnUnlockLevel(ELevelType type)
+    {
+        if (!unlockedLevels.Contains(type))
+            unlockedLevels.Add(type);
+    }
+
+    public void SetCurrentLevel(ELevelType type) => _currentLevel = type;
+
     #endregion
 
     #region ScrollCollection
@@ -207,7 +236,7 @@ public class GameManager : MonoSingletonBase<GameManager>
     /// <returns>Does ability unlocked succeed</returns>
     public bool OnScrollCollected(EAbilityType scrollType)
     {
-        return unlockedSpell.Add(scrollType);
+        return _unlockedAbilities.Add(scrollType);
     }
 
     /// <summary>
@@ -217,7 +246,7 @@ public class GameManager : MonoSingletonBase<GameManager>
     /// <returns>Is ability unlocked</returns>
     public bool IsSpellUnlocked(EAbilityType spell)
     {
-        return unlockedSpell.Contains(spell);
+        return _unlockedAbilities.Contains(spell);
     }
 
     #endregion
