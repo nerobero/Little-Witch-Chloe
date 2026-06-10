@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Data;
+using NUnit.Framework.Constraints;
 using Types;
 using UnityEngine;
 public class GameManager : MonoSingletonBase<GameManager>
@@ -7,6 +9,7 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     // Unlocked levels during gameplay (excluding Intro and MainGame)
     private HashSet<ELevelType> unlockedLevels = new HashSet<ELevelType>();
+    private ELevelType currentLevel;
 
     // Activated spells by scroll. (flying, blink)
     private HashSet<EAbilityType> unlockedSpell = new HashSet<EAbilityType>();
@@ -15,6 +18,9 @@ public class GameManager : MonoSingletonBase<GameManager>
     public event Action<ECollectable, int> OnObjectivesCollected;
 
     private Dictionary<ECollectable, int> _objectives = new Dictionary<ECollectable, int>();
+    private int allCollectedObjectivesCounts = 0;
+
+    private List<string> defeatedBosses = new List<string>();
 
     protected override void Awake()
     {
@@ -31,6 +37,13 @@ public class GameManager : MonoSingletonBase<GameManager>
             OnObjectivesCollected?.Invoke(collection.Key, collection.Value);
         }
     }
+
+    // #region Save&Load
+    // public void ApplyAllGameData()
+    // {
+        
+    // }
+    // #endregion
 
     #region CollectableCounter
     public void OnFrogCollected()
@@ -79,7 +92,47 @@ public class GameManager : MonoSingletonBase<GameManager>
             _objectives.Add(type, 1);
         }
 
+        int targetAmount = CommisionManager.Instance.GetTargetCount(currentLevel, type);
+
+        if(targetAmount == _objectives[type])
+        {
+            allCollectedObjectivesCounts++;
+            CheckAllObjectives();
+        }
+
         return true;
+    }
+
+    public void CheckAllObjectives()
+    {
+        if(CommisionManager.Instance.GetObjectivesAmount(currentLevel) == allCollectedObjectivesCounts)
+        {
+            onLevelUnlocked(currentLevel + 1);
+        }
+    }
+
+    public List<SavedObjectiveData> GetObjectiveData()
+    {
+        List<SavedObjectiveData> data = new List<SavedObjectiveData>();
+        foreach(KeyValuePair<ECollectable, int> objective in _objectives)
+        {
+            data.Add(new SavedObjectiveData(objective.Key, objective.Value));
+        }
+
+        return data;
+    }
+
+    public void LoadObjectiveData(List<SavedObjectiveData> savedData)
+    {
+        foreach(SavedObjectiveData data in savedData)
+        {
+            _objectives.Add(data.collectableType, data.collectedCount);
+
+            if(data.collectedCount == CommisionManager.Instance.GetTargetCount(currentLevel, data.collectableType))
+            {
+                allCollectedObjectivesCounts++;
+            }
+        }
     }
 
 
@@ -90,6 +143,55 @@ public class GameManager : MonoSingletonBase<GameManager>
     public bool IsLevelUnlocked(ELevelType level)
     {
         return unlockedLevels.Contains(level);
+    }
+
+    public bool onLevelUnlocked(ELevelType level)
+    {
+        if(level == ELevelType.Count)
+        {
+            // Game END
+            Debug.Log("Game END");
+            return false;
+        }
+
+        return unlockedLevels.Add(level);
+    }
+
+    public List<ELevelType> GetUnlockedLevel()
+    {
+        List<ELevelType> levelList = new List<ELevelType>();
+
+        foreach(ELevelType level in unlockedLevels)
+        {
+            levelList.Add(level);
+        }
+
+        return levelList;
+    }
+
+    public void SetCurrentLevel(ELevelType level)
+    {
+        currentLevel = level;
+    }
+
+    public ELevelType GetCurrentLevel()
+    {
+        return currentLevel;
+    }
+
+    public void onBossDefeated(string bossName)
+    {
+        defeatedBosses.Add(bossName);
+    }
+
+    public List<string> GetDefeatedBosses()
+    {
+        return defeatedBosses;
+    }
+
+    public void LoadDefeatedBosses(List<string> bosses)
+    {
+        defeatedBosses = new List<string>(bosses);
     }
 
     // @TODO: implement a function that actually processes the unlocking (i.e., adding a new level) to the hash set:

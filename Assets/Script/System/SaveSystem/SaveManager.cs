@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Data;
 using Types;
+using System.Linq;
 
 public class SaveManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class SaveManager : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     [SerializeField] private PlayerStatManager playerState;
     [SerializeField] private PlayerAttack playerAttack;
+    [SerializeField] private PlayerMovement playerMove;
     [SerializeField] private GameManager gameManager;
     private SavePlayerData _pendingData;
     
@@ -78,13 +80,32 @@ public class SaveManager : MonoBehaviour
 
         if(playerAttack)
         {
-            savePlayerData.savedTransform = playerAttack.gameObject.transform;
-            savePlayerData.unlockedAbility = gameManager.GetUnlockedSpell;
+            savePlayerData.savedPosition = playerAttack.gameObject.transform.position;
+            savePlayerData.savedRotation = playerAttack.gameObject.transform.rotation;
+            savePlayerData.savedScale = playerAttack.gameObject.transform.localScale;
+            savePlayerData.unlockedAbility = gameManager.GetUnlockedSpell.ToList<EAbilityType>();
             savePlayerData.spellList = playerAttack.GetUnlockedSpell();
-            savePlayerData.objectives[ECollectable.FrogCollectible] = GameManager.Instance.GetCollectedFrog();
 
-            savePlayerData.currentTime = System.DateTime.Now;
         }
+
+        if(playerState)
+        {
+            savePlayerData.currentHP = playerState.CurrentHP;
+            savePlayerData.currentMaxHP = playerState.MaxHP;
+            savePlayerData.currentStamina = playerState.CurrStamina;
+        }
+
+        if(playerMove)
+        {
+            savePlayerData.isInBackground = playerMove.IsBackground;
+        }
+
+        savePlayerData.objectives = GameManager.Instance.GetObjectiveData();
+        savePlayerData.currentLevel = GameManager.Instance.GetCurrentLevel();
+        savePlayerData.unlockedLevels = GameManager.Instance.GetUnlockedLevel();
+        savePlayerData.defeatedBosses = GameManager.Instance.GetDefeatedBosses();
+
+        savePlayerData.currentTime = System.DateTime.Now;
 
         return savePlayerData;
     }
@@ -97,43 +118,13 @@ public class SaveManager : MonoBehaviour
         _pendingData = null; // initialize after applied
     }
 
-    // private void LoadPlayerData()
-    // {
-    //     SavePlayerData savedPlayerData = PlayerPrefsExt.GetObject<SavePlayerData>("PlayerData", new SavePlayerData());
-    //     ApplyAllGameData(savedPlayerData);
-        
-    //     // string filePath = Application.persistentDataPath + savePlayerPath;
-
-    //     // // If there is saved file
-    //     // if(File.Exists(filePath))
-    //     // {
-    //     //     Debug.Log("Load saved player data");
-
-    //     //     string FromJsonFile = File.ReadAllText(filePath);
-    //     //     SavePlayerData savePlayerData = JsonUtility.FromJson<SavePlayerData>(FromJsonFile);
-            
-    //     //     if(settingData == null)
-    //     //     {
-    //     //         Debug.Log("There is no saved setting");
-    //     //     }
-
-    //     //     ApplyAllGameData(savePlayerData);
-
-    //     // }
-    //     // // if not
-    //     // else
-    //     // {
-    //     //     ResetPlayerData();
-    //     // }
-    // }
-
     private void ApplyAllGameData(SavePlayerData savePlayerData)
     {
         if(playerAttack)
         {
-            playerAttack.gameObject.transform.position = savePlayerData.savedTransform.position;
-            playerAttack.gameObject.transform.rotation = savePlayerData.savedTransform.rotation;
-            playerAttack.gameObject.transform.localScale = savePlayerData.savedTransform.localScale;
+            playerAttack.gameObject.transform.position = savePlayerData.savedPosition;
+            playerAttack.gameObject.transform.rotation = savePlayerData.savedRotation;
+            playerAttack.gameObject.transform.localScale = savePlayerData.savedScale;
             
             foreach(Types.EAbilityType unlocked in savePlayerData.unlockedAbility)
             {
@@ -146,5 +137,24 @@ public class SaveManager : MonoBehaviour
                 playerAttack.UnlockSpell(spell);
             }
         }
+
+        if(playerMove)
+        {
+            playerMove.ApplyAllGameData(savePlayerData.isInBackground);
+        }
+
+        if(playerState)
+        {
+            playerState.ApplyAllGameData(savePlayerData.currentMaxHP, savePlayerData.currentHP, savePlayerData.currentStamina);
+        }
+
+        foreach(ELevelType unlockedLevel in savePlayerData.unlockedLevels)
+        {
+            GameManager.Instance.onLevelUnlocked(unlockedLevel);
+        }
+
+        GameManager.Instance.LoadObjectiveData(savePlayerData.objectives);
+        GameManager.Instance.SetCurrentLevel(savePlayerData.currentLevel);    
+        GameManager.Instance.LoadDefeatedBosses(savePlayerData.defeatedBosses); 
     }
 }

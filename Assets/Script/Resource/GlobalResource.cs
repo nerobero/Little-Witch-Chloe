@@ -98,6 +98,9 @@ namespace Types
         MainGame,
         Overworld,
         BogLevel,
+
+        // Last for level amount
+        Count,
     }
 
     /// <summary>
@@ -152,6 +155,14 @@ namespace Data
     {
         public Types.ECollectable collectableType;
         public int collectedCount = 0;
+
+        public SavedObjectiveData() {}
+
+        public SavedObjectiveData(Types.ECollectable type, int amount)
+        {
+            collectableType = type;
+            collectedCount = amount;
+        }
     }
 
     // Setting data : Master volume, graphics, input key?

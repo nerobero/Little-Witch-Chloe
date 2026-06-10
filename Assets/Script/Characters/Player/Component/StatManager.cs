@@ -35,6 +35,15 @@ public class StatManager : MonoBehaviour
         currentHP = maxHP;
     }
 
+    
+    #region initialize
+    public virtual void ApplyAllGameData(float savedMaxHP, float savedCurrentHP)
+    {
+        this.maxHP = savedMaxHP;
+        this.currentHP = savedCurrentHP;
+    }
+    #endregion
+
     // Update is called once per frame
     // void Update()
     // {
@@ -202,4 +211,5 @@ public class StatManager : MonoBehaviour
 
     protected void InvokeOnHPChanged(float current, float max, GameObject instigator)
         => OnHPChanged?.Invoke(current, max, instigator);
+
 }

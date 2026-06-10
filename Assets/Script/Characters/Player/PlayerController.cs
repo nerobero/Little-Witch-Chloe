@@ -237,11 +237,13 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         {
             if (!_optionMenuEnabled)
             {
+                Time.timeScale = 0f;
                 UIManager.Instance.Show<PopupHUD>();
                 _optionMenuEnabled = true;
             }
             else
             {
+                Time.timeScale = 1f;
                 UIManager.Instance.Hide<PopupHUD>();
                 _optionMenuEnabled = false;
             }

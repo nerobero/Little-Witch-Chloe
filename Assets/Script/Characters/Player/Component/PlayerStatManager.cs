@@ -23,6 +23,19 @@ public class PlayerStatManager : StatManager
         
     }
 
+    #region initialize
+    public override void ApplyAllGameData(float savedMaxHP, float savedCurrentHP)
+    {
+        base.ApplyAllGameData(savedMaxHP, savedCurrentHP);
+    }
+
+    public void ApplyAllGameData(float savedMaxHP, float savedCurrentHP, float savedCurrentStamina)
+    {
+        base.ApplyAllGameData(savedMaxHP, savedCurrentHP);
+        this.currentStamina = savedCurrentStamina;
+    }
+    #endregion
+
     // Update is called once per frame
     // void Update()
     // {

@@ -178,7 +178,22 @@ public class PlayerAttack : MonoBehaviour
         return _spellList.TryGetValue(type, out value) && value;
     }
 
-    public HashSet<ESpawnType> GetUnlockedSpell()
+    public List<ESpawnType> GetUnlockedSpell()
+    {
+        List<ESpawnType> unlockedSpell = new List<ESpawnType>();
+
+        foreach(KeyValuePair<ESpawnType, bool> pair in _spellList)
+        {
+            if(pair.Value)
+            {
+                unlockedSpell.Add(pair.Key);
+            }
+        }
+
+        return unlockedSpell;    
+    }
+
+    public HashSet<ESpawnType> GetUnlockedSpellSet()
     {
         HashSet<ESpawnType> unlockedSpell = new HashSet<ESpawnType>();
 

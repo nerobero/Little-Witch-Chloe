@@ -99,6 +99,12 @@ public class PlayerMovement : MonoBehaviour
                 new Vector3(Mathf.Sign(transform.localScale.x) * originalScale.x, originalScale.y, 1);
     }
 
+    public void ApplyAllGameData(bool isBackground)
+    {
+        _isBackground = isBackground;
+        ChangeOrderInLayer();
+    }
+
     private void OnEnable()
     {
         _statManager.OnStaminaOver += StopFlying;
