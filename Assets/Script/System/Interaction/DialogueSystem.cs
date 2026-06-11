@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Singleton manager that keeps track of the current progress of dialogues.
 /// </summary>
-public class DialogueSystem : MonoBehaviour
+public class DialogueSystem : MonoSingletonBase<DialogueSystem>
 {
     struct DialogueRow
     {
@@ -16,9 +16,6 @@ public class DialogueSystem : MonoBehaviour
         public bool hasDialogueEnded;
     }
 
-    public static DialogueSystem Instance {get; private set;}
-    private DialogueSystem _instance;
-
     [SerializeField] private static readonly TextAsset _dialogueCSV;
     public event Action DialogueEnded;
     public event Action DialogueStarted;
@@ -28,19 +25,11 @@ public class DialogueSystem : MonoBehaviour
     private bool _hasDialogueEnded = false;
 
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (_instance != this && _instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        else
-        {
-            _instance = this;
-            ReadDialogueData();
-            DontDestroyOnLoad(gameObject);
-        }
+        dontDestroy = true;
+        base.Awake();
+        ReadDialogueData();
     }
 
     /// <summary>
