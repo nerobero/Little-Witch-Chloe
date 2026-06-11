@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using FMODUnity;
 using UnityEngine.EventSystems;
 using Data;
+using System.Collections;
 
 public class MusicVolume : MonoBehaviour, IPointerUpHandler, IPointerEnterHandler
 {
@@ -17,14 +18,27 @@ public class MusicVolume : MonoBehaviour, IPointerUpHandler, IPointerEnterHandle
 
     void Start()
     {
-        UpdateParameter(slider.value);
-        slider.onValueChanged.AddListener(_ => UpdateParameter(slider.value));
+        StartCoroutine(Initialize());
+    }
+    private IEnumerator Initialize()
+    {
+        try
+        {
+            var data = OptionManager.Instance.GetSettingData() ?? new SettingData { bgmVolume = slider.maxValue };
+            slider.value = data.bgmVolume;
+            slider.onValueChanged.AddListener(_ => UpdateParameter(slider.value));
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("Initialize failed: " + e.Message);
+        }
+        yield return null;
     }
 
 
     void UpdateParameter(float value)
     {
-        RuntimeManager.StudioSystem.setParameterByName("MUSIC Volume", value);
+        RuntimeManager.StudioSystem.setParameterByName(parameterName, value);
 
         SettingData settingData = OptionManager.Instance.GetSettingData();
         settingData.bgmVolume = value;

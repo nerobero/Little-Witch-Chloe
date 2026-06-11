@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using FMODUnity;
 using UnityEngine.EventSystems;
 using Data;
+using System.Collections;
 
 
 public class MasterVolume : MonoBehaviour, IPointerUpHandler, IPointerEnterHandler
@@ -14,18 +15,30 @@ public class MasterVolume : MonoBehaviour, IPointerUpHandler, IPointerEnterHandl
         [SerializeField] private EventReference MasterSelect;
         [SerializeField] private EventReference MasterHover;
 
-        
 
-        void Start()
+
+    void Start()
+    {
+        StartCoroutine(Initialize());
+    }
+    private IEnumerator Initialize()
+    {
+        try
         {
-            UpdateParameter(slider.value);
-            slider.onValueChanged.AddListener(_ => UpdateParameter(slider.value));   
+            var data = OptionManager.Instance.GetSettingData() ?? new SettingData { masterVolume = slider.maxValue };
+            slider.value = data.masterVolume;
+            slider.onValueChanged.AddListener(_ => UpdateParameter(slider.value));
         }
-        
-        
-        void UpdateParameter(float value)
+        catch (System.Exception e)
         {
-            RuntimeManager.StudioSystem.setParameterByName("Master Volume", value);
+            Debug.LogError("Initialize failed: " + e.Message);
+        }
+        yield return null;
+    }
+
+    void UpdateParameter(float value)
+        {
+            RuntimeManager.StudioSystem.setParameterByName(parameterName, value);
             
             SettingData settingData = OptionManager.Instance.GetSettingData();
             settingData.masterVolume = value;

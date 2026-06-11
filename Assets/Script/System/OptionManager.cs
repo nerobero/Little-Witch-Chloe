@@ -39,6 +39,8 @@ public class OptionManager : MonoSingletonBase<OptionManager>
         // settingData.bgmVolume = PlayerPrefsExt.GetObject<float>("bgmVolume", 100.0f);
         // settingData.sfxVolume = PlayerPrefsExt.GetObject<float>("sfxVolume", 100.0f);
 
+
+
         SoundManager.Instance.SetMasterVolume(settingData.masterVolume);
         SoundManager.Instance.SetBgmVolume(settingData.bgmVolume);
         SoundManager.Instance.SetSfxVolume(settingData.sfxVolume);
