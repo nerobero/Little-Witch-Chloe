@@ -29,7 +29,7 @@ public class DialogueSystem : MonoSingletonBase<DialogueSystem>
     {
         dontDestroy = true;
         base.Awake();
-        ReadDialogueData();
+        if (_dialogueCSV != null) ReadDialogueData();
     }
 
     /// <summary>
