@@ -12,18 +12,6 @@ public class TitleUI : MonoBehaviour
     private Button _exitButton;
     [SerializeField] private string sceneName = "wip";
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnClickStart()
     {
         Debug.Log("Start");

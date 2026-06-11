@@ -9,13 +9,11 @@ using System.Collections;
 public class MasterVolume : MonoBehaviour, IPointerUpHandler, IPointerEnterHandler
 {
 
-    
-        [SerializeField] private Slider slider;
-        [SerializeField] private string parameterName = "Master Volume";
-        [SerializeField] private EventReference MasterSelect;
-        [SerializeField] private EventReference MasterHover;
 
-
+    [SerializeField] private Slider slider;
+    [SerializeField] private string parameterName = "Master Volume";
+    [SerializeField] private EventReference MasterSelect;
+    [SerializeField] private EventReference MasterHover;
 
     void Start()
     {
@@ -37,28 +35,28 @@ public class MasterVolume : MonoBehaviour, IPointerUpHandler, IPointerEnterHandl
     }
 
     void UpdateParameter(float value)
-        {
-            RuntimeManager.StudioSystem.setParameterByName(parameterName, value);
-            
-            SettingData settingData = OptionManager.Instance.GetSettingData();
-            settingData.masterVolume = value;
+    {
+        RuntimeManager.StudioSystem.setParameterByName(parameterName, value);
+        
+        SettingData settingData = OptionManager.Instance.GetSettingData();
+        settingData.masterVolume = value;
 
-            OptionManager.Instance.SaveSettingData();
-        }
-
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-
-            RuntimeManager.PlayOneShot(MasterHover);
-   
-        }
+        OptionManager.Instance.SaveSettingData();
+    }
 
 
-        public void OnPointerUp(PointerEventData eventData) 
-            {
-            RuntimeManager.PlayOneShot(MasterSelect);
-            }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+
+        RuntimeManager.PlayOneShot(MasterHover);
+
+    }
+
+
+    public void OnPointerUp(PointerEventData eventData) 
+    {
+    RuntimeManager.PlayOneShot(MasterSelect);
+    }
 
 
 }

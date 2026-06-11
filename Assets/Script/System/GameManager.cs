@@ -43,7 +43,10 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     private void OnDisable()
     {
-        EventManager.Instance.OnUnlockLevel -= OnUnlockLevel;
+        if(EventManager.Instance != null)
+        {
+            EventManager.Instance.OnUnlockLevel -= OnUnlockLevel;
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

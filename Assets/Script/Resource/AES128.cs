@@ -33,7 +33,7 @@ public class AES128
     public string Encrypt(string textToEncrypt)
     {
         byte[] pwdBytes = Encoding.UTF8.GetBytes(key);
-        byte[] keyBytes = new byte[128];
+        byte[] keyBytes = new byte[16];
 
         int len = pwdBytes.Length;
         if(len > keyBytes.Length) len = keyBytes.Length;
@@ -54,7 +54,7 @@ public class AES128
     {
         byte[] encryptedData = Convert.FromBase64String(textToDecrypt);
         byte[] pwdBytes = Encoding.UTF8.GetBytes(key);
-        byte[] keyBytes = new byte[128];
+        byte[] keyBytes = new byte[16];
 
         int len = pwdBytes.Length;
         if(len > keyBytes.Length) len = keyBytes.Length;
