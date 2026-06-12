@@ -3,41 +3,25 @@ using Types;
 using Data;
 using UnityEngine;
 
-[System.Serializable]
-public class CollectableData
-{
-    public ELevelType levelType;
-    public ECollectable collectableType;
-    public int collectedCount = 0;
-}
-
 public class CommisionManager : MonoSingletonBase<CommisionManager>
 {
     private Dictionary<ELevelType, List<SavedObjectiveData>> objectives;
-    [SerializeField] private static readonly TextAsset _commisionCSV;
 
     protected override void Awake()
     {
         base.Awake();
-        
         ReadObjectives();
     }
 
     private void ReadObjectives()
     {
-        List<CollectableData> objectivesLine = CSVParser.Parse<CollectableData>(_commisionCSV, cols => new CollectableData
-        {
-            levelType = (ELevelType)(uint.TryParse(cols[0], out uint lidx) ? lidx : 0),
-            collectableType = (ECollectable)(uint.TryParse(cols[1], out uint tidx) ? tidx : 0),
-            collectedCount = int.TryParse(cols[2], out int amount) ? amount : 0,
-        });
+        objectives = new Dictionary<ELevelType, List<SavedObjectiveData>>();
+        CollectableData[] records = DataTableRegistry.Get<CollectableData>().Records;
 
-        foreach(CollectableData data in objectivesLine)
+        foreach (CollectableData data in records)
         {
-            if(!objectives.ContainsKey(data.levelType))
-            {
+            if (!objectives.ContainsKey(data.levelType))
                 objectives[data.levelType] = new List<SavedObjectiveData>();
-            }
 
             objectives[data.levelType].Add(new SavedObjectiveData(data.collectableType, data.collectedCount));
         }

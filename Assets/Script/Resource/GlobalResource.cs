@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using System.IO;
 using UnityEngine;
 using Types;
 
@@ -163,6 +164,55 @@ namespace Data
             collectableType = type;
             collectedCount = amount;
         }
+    }
+
+    [System.Serializable]
+    public class CollectableData : IBinaryRecord
+    {
+        public ELevelType levelType;
+        public ECollectable collectableType;
+        public int collectedCount = 0;
+
+        public void Serialize(BinaryWriter writer)
+        {
+            writer.Write((uint)levelType);
+            writer.Write((uint)collectableType);
+            writer.Write(collectedCount);
+        }
+
+        public static CollectableData Deserialize(BinaryReader reader) => new CollectableData
+        {
+            levelType       = (ELevelType)reader.ReadUInt32(),
+            collectableType = (ECollectable)reader.ReadUInt32(),
+            collectedCount  = reader.ReadInt32(),
+        };
+    }
+
+    public struct DialogueRow : IBinaryRecord
+    {
+        public uint currentridx;
+        public string speakerName;
+        public string dialogueText;
+        public uint nextridx;
+        public bool hasDialogueEnded;
+
+        public void Serialize(BinaryWriter writer)
+        {
+            writer.Write(currentridx);
+            writer.Write(speakerName);
+            writer.Write(dialogueText);
+            writer.Write(nextridx);
+            writer.Write(hasDialogueEnded);
+        }
+
+        public static DialogueRow Deserialize(BinaryReader reader) => new DialogueRow
+        {
+            currentridx      = reader.ReadUInt32(),
+            speakerName      = reader.ReadString(),
+            dialogueText     = reader.ReadString(),
+            nextridx         = reader.ReadUInt32(),
+            hasDialogueEnded = reader.ReadBoolean(),
+        };
     }
 
     // Setting data : Master volume, graphics, input key?

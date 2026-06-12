@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using Data;
 using UnityEngine;
 
 /// <summary>
@@ -7,44 +7,18 @@ using UnityEngine;
 /// </summary>
 public class DialogueSystem : MonoSingletonBase<DialogueSystem>
 {
-    struct DialogueRow
-    {
-        public uint currentridx;
-        public string speakerName;
-        public string dialogueText;
-        public uint nextridx;
-        public bool hasDialogueEnded;
-    }
-
-    [SerializeField] private static readonly TextAsset _dialogueCSV;
     public event Action DialogueEnded;
     public event Action DialogueStarted;
-    private List<DialogueRow> _dialogueLines;
+    private DialogueRow[] _dialogueLines;
     private int _currentIndex = 0;
     private string _prevSpeakerName = "";
     private bool _hasDialogueEnded = false;
-
 
     protected override void Awake()
     {
         dontDestroy = true;
         base.Awake();
-        if (_dialogueCSV != null) ReadDialogueData();
-    }
-
-    /// <summary>
-    /// Helper function that reads dialogue CSV data and parses it into DialogueRows
-    /// </summary>
-    private void ReadDialogueData()
-    {
-        _dialogueLines = CSVParser.Parse(_dialogueCSV, cols => new DialogueRow
-        {
-            currentridx = uint.TryParse(cols[0], out uint ridx) ? ridx : 0,
-            speakerName = cols[1],
-            dialogueText = cols[2],
-            nextridx = uint.TryParse(cols[3], out uint next) ? next : 0,
-            hasDialogueEnded = bool.TryParse(cols[4], out bool ended) ? ended : false,
-        });
+        _dialogueLines = DataTableRegistry.Get<DialogueRow>().Records;
     }
 
     /// <summary>
