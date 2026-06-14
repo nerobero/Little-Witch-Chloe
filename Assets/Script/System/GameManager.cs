@@ -23,7 +23,7 @@ public class GameManager : MonoSingletonBase<GameManager>
     private HashSet<string> _defeatedBosses = new HashSet<string>();
 
     private Dictionary<ECollectable, int> _objectives = new Dictionary<ECollectable, int>();
-    private int allCollectedObjectivesCounts = 0;
+    private int allCollectedObjectivesCounts = 0; 
 
     private List<string> defeatedBosses = new List<string>();
 
@@ -126,7 +126,7 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     public void CheckAllObjectives()
     {
-        if(CommisionManager.Instance.GetObjectivesAmount(_currentLevel) == allCollectedObjectivesCounts)
+        if(CommisionManager.Instance.GetObjectivesTypeAmount(_currentLevel) == allCollectedObjectivesCounts)
         {
             onLevelUnlocked(_currentLevel + 1);
         }
@@ -205,7 +205,7 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     public void onBossDefeated(string bossName)
     {
-        defeatedBosses.Add(bossName);
+        defeatedBosses.Add(bossName); // event dispatcher? GameManger.Instance.onBossDefeated?
     }
 
     public List<string> GetDefeatedBosses()

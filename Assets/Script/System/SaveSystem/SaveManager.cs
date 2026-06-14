@@ -66,11 +66,12 @@ public class SaveManager : MonoSingletonBase<SaveManager>
 
         if(playerAttack)
         {
-            savePlayerData.savedPosition = playerAttack.gameObject.transform.position;
-            savePlayerData.savedRotation = playerAttack.gameObject.transform.rotation;
-            savePlayerData.savedScale = playerAttack.gameObject.transform.localScale;
+            Transform transform = playerAttack.gameObject.transform;
+            savePlayerData.savedPosition = transform.position;
+            savePlayerData.savedRotation = transform.rotation;
+            savePlayerData.savedScale = transform.localScale;
 
-            savePlayerData.unlockedAbility = gameManager.GetUnlockedAbilities.ToList<EAbilityType>();
+            savePlayerData.unlockedAbility = GameManager.Instance.GetUnlockedAbilities.ToList<EAbilityType>();
             savePlayerData.spellList = playerAttack.GetUnlockedSpell();
             savePlayerData.unlockedAbility = GameManager.Instance.GetUnlockedAbilitiesList;
             savePlayerData.spellList = new List<ESpawnType>(playerAttack.GetUnlockedSpell());
