@@ -193,20 +193,20 @@ public class PlayerAttack : MonoBehaviour
         return unlockedSpell;    
     }
 
-    public HashSet<ESpawnType> GetUnlockedSpellSet()
-    {
-        HashSet<ESpawnType> unlockedSpell = new HashSet<ESpawnType>();
+    // public HashSet<ESpawnType> GetUnlockedSpellSet()
+    // {
+    //     HashSet<ESpawnType> unlockedSpell = new HashSet<ESpawnType>();
 
-        foreach(KeyValuePair<ESpawnType, bool> pair in _spellList)
-        {
-            if(pair.Value)
-            {
-                unlockedSpell.Add(pair.Key);
-            }
-        }
+    //     foreach(KeyValuePair<ESpawnType, bool> pair in _spellList)
+    //     {
+    //         if(pair.Value)
+    //         {
+    //             unlockedSpell.Add(pair.Key);
+    //         }
+    //     }
 
-        return unlockedSpell;    
-    }
+    //     return unlockedSpell;    
+    // }
 
     #endregion 
 }

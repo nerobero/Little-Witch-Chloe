@@ -165,6 +165,19 @@ namespace Data
             collectedCount = amount;
         }
     }
+    public class ObjectiveData
+    {
+        public Types.ECollectable collectableType;
+        public int collectedCount = 0;
+
+        public ObjectiveData() {}
+
+        public ObjectiveData(Types.ECollectable type, int amount)
+        {
+            collectableType = type;
+            collectedCount = amount;
+        }
+    }
 
     [System.Serializable]
     public class CollectableData : IBinaryRecord

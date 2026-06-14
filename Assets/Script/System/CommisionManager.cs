@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class CommisionManager : MonoSingletonBase<CommisionManager>
 {
-    private Dictionary<ELevelType, List<SavedObjectiveData>> objectives;
+    private Dictionary<ELevelType, List<ObjectiveData>> objectives;
+    // nested Dic < ELEvelType, Dic<Type, amount>> <= Hash Collision <= the bigger data amount the time 
 
     protected override void Awake()
     {
@@ -15,15 +16,15 @@ public class CommisionManager : MonoSingletonBase<CommisionManager>
 
     private void ReadObjectives()
     {
-        objectives = new Dictionary<ELevelType, List<SavedObjectiveData>>();
+        objectives = new Dictionary<ELevelType, List<ObjectiveData>>();
         CollectableData[] records = DataTableRegistry.Get<CollectableData>().Records;
 
         foreach (CollectableData data in records)
         {
             if (!objectives.ContainsKey(data.levelType))
-                objectives[data.levelType] = new List<SavedObjectiveData>();
+                objectives[data.levelType] = new List<ObjectiveData>();
 
-            objectives[data.levelType].Add(new SavedObjectiveData(data.collectableType, data.collectedCount));
+            objectives[data.levelType].Add(new ObjectiveData(data.collectableType, data.collectedCount));
         }
     }
 
@@ -35,7 +36,7 @@ public class CommisionManager : MonoSingletonBase<CommisionManager>
     /// <returns></returns>
     public int GetTargetCount(ELevelType currentLevel, ECollectable herbType)
     {
-        SavedObjectiveData data = objectives[currentLevel].Find(x => x.collectableType == herbType);
+        ObjectiveData data = objectives[currentLevel].Find(x => x.collectableType == herbType);
 
         return data.collectedCount;
     }
@@ -45,7 +46,7 @@ public class CommisionManager : MonoSingletonBase<CommisionManager>
     /// </summary>
     /// <param name="currentLevel"></param>
     /// <returns></returns>
-    public int GetObjectivesAmount(ELevelType currentLevel)
+    public int GetObjectivesTypeAmount(ELevelType currentLevel)
     {
         return objectives[currentLevel].Count;
     }
