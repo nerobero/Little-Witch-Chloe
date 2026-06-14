@@ -32,6 +32,13 @@ public class CsvBinaryImporter : AssetPostprocessor
             }),
         };
 
+    /// <summary>
+    /// Auto-parses and exports bytes whenever saved/re-imported.
+    /// </summary>
+    /// <param name="importedAssets"></param>
+    /// <param name="deletedAssets"></param>
+    /// <param name="movedAssets"></param>
+    /// <param name="movedFromAssetPaths"></param>
     static void OnPostprocessAllAssets(
         string[] importedAssets,
         string[] deletedAssets,
@@ -48,6 +55,35 @@ public class CsvBinaryImporter : AssetPostprocessor
             TextAsset csv = AssetDatabase.LoadAssetAtPath<TextAsset>(path);
             if (csv == null) continue;
 
+            string result = ProcessEntry(filename, csv, convert);
+            Debug.Log($"[CsvBinaryImporter] {result}");
+        }
+    }
+
+    public static List<string> ConvertAll()
+    {
+        var results = new List<string>();
+
+        foreach (var kvp in Registry)
+        {
+            string csvPath = FindCsvPath(kvp.Key);
+            if (csvPath == null)
+            {
+                results.Add($"FAIL  {kvp.Key} — CSV not found in project");
+                continue;
+            }
+
+            TextAsset csv = AssetDatabase.LoadAssetAtPath<TextAsset>(csvPath);
+            results.Add(ProcessEntry(kvp.Key, csv, kvp.Value));
+        }
+
+        return results;
+    }
+
+    private static string ProcessEntry(string filename, TextAsset csv, Func<TextAsset, byte[]> convert)
+    {
+        try
+        {
             byte[] bytes = convert(csv);
 
             if (!Directory.Exists(OutputFolder))
@@ -57,8 +93,25 @@ public class CsvBinaryImporter : AssetPostprocessor
             File.WriteAllBytes(outputPath, bytes);
             AssetDatabase.ImportAsset(outputPath);
 
-            Debug.Log($"[CsvBinaryImporter] {outputPath} regenerated ({bytes.Length} bytes, {CountRecords(bytes)} records)");
+            return $"OK    {filename} — {CountRecords(bytes)} records written to {outputPath}";
         }
+        catch (Exception e)
+        {
+            return $"FAIL  {filename} — {e.Message}";
+        }
+    }
+
+    private static string FindCsvPath(string filename)
+    {
+        string[] guids = AssetDatabase.FindAssets($"t:TextAsset {filename}");
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            if (path.EndsWith(".csv", StringComparison.OrdinalIgnoreCase) &&
+                Path.GetFileNameWithoutExtension(path).Equals(filename, StringComparison.OrdinalIgnoreCase))
+                return path;
+        }
+        return null;
     }
 
     private static int CountRecords(byte[] bytes)
