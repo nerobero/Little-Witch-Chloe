@@ -35,7 +35,7 @@ public class StatManager : MonoBehaviour
         currentHP = maxHP;
     }
 
-    
+
     #region initialize
     public virtual void ApplyAllGameData(float savedMaxHP, float savedCurrentHP)
     {
@@ -60,11 +60,10 @@ public class StatManager : MonoBehaviour
     public virtual bool TakeDamage(GameObject instigator, float damageAmount, EElementType damageElement)
     {
         Debug.Log(IsDead);
-
-        if (IsDead || damageAmount <= 0.0f)
-            return false;
-
         float actualDamage = CalculateActualDamage(damageAmount, damageElement, mainCharacElement);
+
+        if (IsDead || actualDamage <= 0.0f)
+            return false;
 
         currentHP = Mathf.Clamp(currentHP - actualDamage, 0.0f, maxHP);
         FMODUnity.RuntimeManager.PlayOneShot(OnTakenDamageEvent);
@@ -98,7 +97,7 @@ public class StatManager : MonoBehaviour
                     actualDamage = 0.0f;
                 }
                 break;
-            case EElementType.Water: 
+            case EElementType.Water:
                 if (damageElement == EElementType.Electricity)
                     actualDamage *= 1.5f;
                 else if (damageElement == CharacElement || damageElement == EElementType.Fire)
@@ -189,7 +188,7 @@ public class StatManager : MonoBehaviour
         maxHP += amount;
         return Heal(amount); // this is same with increase current hp
     }
-    
+
     /// <summary>
     /// Buff system but not used yet.
     /// </summary>

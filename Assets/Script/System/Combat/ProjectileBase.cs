@@ -22,6 +22,8 @@ public class ProjectileBase : MonoBehaviour
     private Rigidbody2D _projRB;
 
     private float _firedTimeSnapshot = -1f;
+    private float _fireAngleSnapShot = 0f;
+    private Vector2 _startPoint = Vector2.zero;
     private bool _isFired = false;
     private bool isBackground;
 
@@ -43,7 +45,7 @@ public class ProjectileBase : MonoBehaviour
 
         // fgLayer = LayerMask.NameToLayer("ForegroundProjectile");
         // bgLayer = LayerMask.NameToLayer("BackgroundProjectile");
-        
+
         // Physics2D.IgnoreLayerCollision(fgLayer, LayerMask.NameToLayer("Background Platform"), true);
         // Physics2D.IgnoreLayerCollision(bgLayer, LayerMask.NameToLayer("Foreground Platform"), true);
     }
@@ -54,12 +56,12 @@ public class ProjectileBase : MonoBehaviour
         if (_firedTimeSnapshot > 0f && _isFired)
         {
             float lifetime = Time.time - _firedTimeSnapshot;
-            if (lifetime >= lifeSpan) 
+            if (lifetime >= lifeSpan)
                 ReturnToPool();
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other) 
+    private void OnCollisionEnter2D(Collision2D other)
     {
         /*
         1. call the TakeDamage(gameObject, dealtDamage) interface function 
@@ -71,7 +73,7 @@ public class ProjectileBase : MonoBehaviour
 
         // Get instigator's layer name and collided object's layer name
         string instigatorLayerName = LayerMask.LayerToName(instigator.layer);
-        
+
         string targetLayerName = LayerMask.LayerToName(other.gameObject.layer);
 
         // prevent team kill 
@@ -85,18 +87,47 @@ public class ProjectileBase : MonoBehaviour
         }
 
         //1. processing any potential damage:
-        var stats = other.gameObject.GetComponent<StatManager>(); 
+        var stats = other.gameObject.GetComponent<StatManager>();
         if (stats != null)
-            stats?.TakeDamage(instigator, dealtDamage, elementType);
+        {
+            if (stats.TakeDamage(instigator, dealtDamage, elementType))
+            {
+                //2. stop movement and disable collider so it doesn't retrigger
+                _projRB.linearVelocity = Vector2.zero;
+                _collider.enabled = false;
 
-        //2. stop movement and disable collider so it doesn't retrigger
-        _projRB.linearVelocity = Vector2.zero;
-        _collider.enabled = false;
+                //3. play collision animation and wait for it to finish before pooling
+                _animator.SetBool(IsResetHash, false);
+                _animator.SetTrigger(CollidedHash);
+                StartCoroutine(ReturnToPoolAfterAnimation());
+            }
+            else
+            {
+                // DEFLECT the projectile using the normal vector
+                _projRB.linearVelocity = Vector2.zero;
+                Vector2 otherTransform = other.gameObject.transform.position;
 
-        //3. play collision animation and wait for it to finish before pooling
-        _animator.SetBool(IsResetHash, false);
-        _animator.SetTrigger(CollidedHash);
-        StartCoroutine(ReturnToPoolAfterAnimation());
+                //1. calculate the direction vector: 
+                Vector2 direction = (otherTransform - _startPoint).normalized;
+                direction.x = -direction.x;
+
+                //2. shooting:
+                OnFired(direction);
+
+            }
+        }
+        else
+        {
+            //2. stop movement and disable collider so it doesn't retrigger
+            _projRB.linearVelocity = Vector2.zero;
+            _collider.enabled = false;
+
+            //3. play collision animation and wait for it to finish before pooling
+            _animator.SetBool(IsResetHash, false);
+            _animator.SetTrigger(CollidedHash);
+            StartCoroutine(ReturnToPoolAfterAnimation());
+        }
+
     }
 
     private IEnumerator ReturnToPoolAfterAnimation()
@@ -136,7 +167,10 @@ public class ProjectileBase : MonoBehaviour
         }
 
         _collider.enabled = true;
-        this.transform.SetPositionAndRotation(firePointTransform.position, Quaternion.Euler(0f,0f, fireAngle));
+        this.transform.SetPositionAndRotation(firePointTransform.position, Quaternion.Euler(0f, 0f, fireAngle));
+        _startPoint = firePointTransform.position;
+        _fireAngleSnapShot = fireAngle;
+
         isBackground = FiredAtBackground;
         instigator = Instigator;
         //gameObject.layer = isBackground ? bgLayer : fgLayer;
@@ -144,5 +178,20 @@ public class ProjectileBase : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(fmodEventName);
         _firedTimeSnapshot = Time.time; // taking a snapshot of the time at which it was fired
         _isFired = true;
+    }
+
+    private void OnFired(Vector2 fireDirection)
+    {
+        Collider2D instigatorCollider = instigator.GetComponent<Collider2D>();
+
+        if (_collider != null && instigatorCollider != null)
+        {
+            // Set to ignore collisions between the projectile collider and the owner collider
+            Physics2D.IgnoreCollision(_collider, instigatorCollider, false);
+        }
+
+        transform.localEulerAngles = new Vector3(0, 180f, _fireAngleSnapShot);
+
+        _projRB.AddForce(fireDirection * speed, ForceMode2D.Impulse);
     }
 }
