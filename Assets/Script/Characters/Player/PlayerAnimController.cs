@@ -21,11 +21,24 @@ public class PlayerAnimController : BaseCharacterAnimController
 
     public bool _isFacingRight = true;
 
+    private PlayerAttack playerAttack = null;
+
     void Start()
     {
         PlayerStatManager playerStat = GetComponent<PlayerStatManager>();
-        
+        playerAttack = GetComponent<PlayerAttack>();
+
         playerStat.OnDeath += SetToDead;
+    }
+
+    /// <summary>
+    /// Flips the owner of this component on the x-axis.
+    /// </summary>
+    public override void FlipCharacter(float moveDir)
+    {
+        base.FlipCharacter(moveDir);
+
+        playerAttack.SetAimDirection(playerAttack.AimDirection);
     }
 
     public virtual void OnDeathFinished()

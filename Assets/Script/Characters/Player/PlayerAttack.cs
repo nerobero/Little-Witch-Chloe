@@ -37,6 +37,7 @@ public class PlayerAttack : MonoBehaviour
     private float _aimAngleDeg = 0f;
 
     public bool isBackground;
+    public Vector2 AimDirection => _aimDirection;
 
     private void Awake()
     {
