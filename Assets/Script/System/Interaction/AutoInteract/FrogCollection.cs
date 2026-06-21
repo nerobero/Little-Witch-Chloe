@@ -46,7 +46,6 @@ public class FrogCollection : CollectableItemBase
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         _animator.SetTrigger(IsCollectedTrigHash);
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Frog");
         OnInteract(collision);
     }
 
@@ -54,6 +53,11 @@ public class FrogCollection : CollectableItemBase
     {
 
         PoolObjectManager.Instance.Return(spawnType, gameObject);
+    }
+
+    public void PlaySFX()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Frog");
     }
 }
 

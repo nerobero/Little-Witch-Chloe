@@ -54,7 +54,7 @@ MonoBehaviour:
     initSpawnSize: 8
   - type: 11
     spawnPrefab: {fileID: 5886028441092481102, guid: 52184c06bcf155543a29ac54d96f585b, type: 3}
-    initSpawnSize: 0
+    initSpawnSize: 5
   - type: 18
     spawnPrefab: {fileID: 3646741652251605535, guid: 11dabea80b2246d4aa9333dd257ff141, type: 3}
     initSpawnSize: 0
@@ -63,4 +63,7 @@ MonoBehaviour:
     initSpawnSize: 10
   - type: 1
     spawnPrefab: {fileID: 5886028441092481102, guid: 162d846dcb500d44f884f1ec38c14064, type: 3}
+    initSpawnSize: 15
+  - type: 4
+    spawnPrefab: {fileID: 5886028441092481102, guid: ee65d514b5724ad4eaee70de2385d2e2, type: 3}
     initSpawnSize: 15
