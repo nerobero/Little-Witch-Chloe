@@ -1,21 +1,11 @@
 using UnityEngine;
 using Types;
-using System;
 
 /// <summary>
-/// Separate stat manager for the boss NPCs. (body/main Stats)
+/// Separate stat manager for the boss NPCs. (weakpoint Stats)
 /// </summary>
-public class BossEnemyStatManager : StatManager
+public class BossWeakPointStat : EnemyCharacterBase
 {
-    [SerializeField] private BossWeakPointStat weakPointStat;
-
-    protected override void Start()
-    {
-        base.Start();
-        weakPointStat.OnDeath += KnockedDown;
-        // Should unsubscribe the ondeath event after death finish
-    }
-
     public override bool TakeDamage(GameObject instigator, float damageAmount, EElementType damageElement)
     {
         if (IsDead || damageAmount <= 0.0f)
@@ -38,14 +28,13 @@ public class BossEnemyStatManager : StatManager
     public override void Death()
     {
         base.Death();
-        weakPointStat.OnDeath -= KnockedDown;
+
+        Invoke("Recover", 10);
     }
 
-    public void KnockedDown()
+    private void Recover()
     {
-        TakeDamage(this.gameObject, weakPointStat.MaxHP, EElementType.None);
-        //Stun();
+        IsDead = false;
+        currentHP = maxHP;
     }
-
-
 }
