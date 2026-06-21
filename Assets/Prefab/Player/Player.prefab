@@ -233,6 +233,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   _childSpriteRender: {fileID: 1278601370393913022}
+  blinkCooldownTime: 3
 --- !u!114 &4393072811821626836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,7 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatManager
   maxHP: 15
   currentHP: 15
-  characterElement: 0
+  mainCharacElement: 0
   OnTakenDamageEvent: 
   maxStamina: 15
   currentStamina: 15
@@ -479,7 +480,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 2.25
+  m_Radius: 1.16
 --- !u!114 &990224407702109210
 MonoBehaviour:
   m_ObjectHideFlags: 0

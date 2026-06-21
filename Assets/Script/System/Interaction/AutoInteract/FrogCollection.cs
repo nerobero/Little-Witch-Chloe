@@ -1,3 +1,4 @@
+using System.Collections;
 using Types;
 using UnityEngine;
 
@@ -9,10 +10,17 @@ public class FrogCollection : CollectableItemBase
     [Header("Frog Setting")]
     [SerializeField] private float healAmount;
     private int playerLayerIndex;
+    private Animator _animator;
+    private static readonly int IsCollectedTrigHash = Animator.StringToHash("IsCollectedTrig");
+
+    // private static readonly int IsIdleHash = Animator.StringToHash("IsIdle");
+
 
     private void Awake()
     {
         CollectType = ECollectable.FrogCollectible;
+        _animator = GetComponent<Animator>();
+        // _animator.SetBool(IsIdleHash, true);
     }
 
     void Start()
@@ -26,13 +34,26 @@ public class FrogCollection : CollectableItemBase
 
         var stat = other.GetComponent<StatManager>();
 
-        if(stat == null)
+        if (stat == null)
         {
             Debug.Log("Stat null");
             return false;
         }
-        
+
         return stat.IncreaseMaxHP(healAmount);
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        _animator.SetTrigger(IsCollectedTrigHash);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Frog");
+        OnInteract(collision);
+    }
+
+    public void AfterCollectAnimation()
+    {
+
+        PoolObjectManager.Instance.Return(spawnType, gameObject);
     }
 }
 

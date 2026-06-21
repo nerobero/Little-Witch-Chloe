@@ -78,7 +78,6 @@ public class GameManager : MonoSingletonBase<GameManager>
             _objectives.Add(ECollectable.FrogCollectible, 1);
         }
 
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Frog");
         OnObjectivesCollected?.Invoke(ECollectable.FrogCollectible, _objectives[ECollectable.FrogCollectible]);
     }
 
