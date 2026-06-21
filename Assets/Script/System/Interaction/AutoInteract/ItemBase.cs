@@ -23,7 +23,7 @@ public abstract class ItemBase : MonoBehaviour
     protected abstract bool OnInteract(Collider2D other);
 
 
-    protected void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (OnInteract(collision)) 
             PoolObjectManager.Instance.Return(spawnType, this.gameObject);
