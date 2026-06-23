@@ -12,7 +12,9 @@ public class StatManager : MonoBehaviour
     [SerializeField] protected float maxHP;
     [SerializeField] protected float currentHP;
     [SerializeField] protected EElementType mainCharacElement;
-    [SerializeField] protected string OnTakenDamageEvent = "";
+    public string OnTakenDamageEvent = "";
+    protected const string OnDamageDeflected = "event:/SFX/Reflect";
+    protected const string OnCritDamage = "event:/SFX/Crit";
     public EElementType CharacterElement => mainCharacElement;
 
     public float MaxHP => maxHP;
@@ -63,10 +65,13 @@ public class StatManager : MonoBehaviour
         float actualDamage = CalculateActualDamage(damageAmount, damageElement, mainCharacElement);
 
         if (IsDead || actualDamage <= 0.0f)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(OnDamageDeflected);
             return false;
+        }
 
         currentHP = Mathf.Clamp(currentHP - actualDamage, 0.0f, maxHP);
-        FMODUnity.RuntimeManager.PlayOneShot(OnTakenDamageEvent);
+        FMODUnity.RuntimeManager.PlayOneShot(damageAmount < actualDamage ? OnCritDamage : OnTakenDamageEvent);
         this.OnHPChanged?.Invoke(currentHP, maxHP, instigator);
 
         if (currentHP == 0.0f)
