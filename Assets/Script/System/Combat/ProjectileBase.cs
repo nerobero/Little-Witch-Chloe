@@ -90,7 +90,7 @@ public class ProjectileBase : MonoBehaviour
         var stats = other.gameObject.GetComponent<StatManager>();
         if (stats != null)
         {
-            if (stats.TakeDamage(instigator, dealtDamage, elementType))
+            if (stats.TakeDamageHelper(instigator, dealtDamage, elementType))
             {
                 //2. stop movement and disable collider so it doesn't retrigger
                 _projRB.linearVelocity = Vector2.zero;

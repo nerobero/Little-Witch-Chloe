@@ -20,7 +20,7 @@ public class MushroomMineAttack : EnemyAttack
         PlayerStatManager targetStat = target.GetComponent<PlayerStatManager>();
         if(targetStat != null)
         {
-            targetStat.TakeDamage(gameObject, damageAmount, _elementType);
+            targetStat.TakeDamageHelper(gameObject, damageAmount, _elementType);
         }
     }
 }

@@ -145,6 +145,6 @@ public class MovingObstacleBase : MonoBehaviour
 
         var Stat = other.GetComponent<StatManager>();
 
-        Stat.TakeDamage(gameObject, damageAmount, Types.EElementType.None);
+        Stat.TakeDamageHelper(gameObject, damageAmount, Types.EElementType.None);
     }
 }

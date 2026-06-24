@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using Types;
+using System.Collections;
 
 /// <summary>
 /// Base class for managing the character's stats.
@@ -24,6 +25,8 @@ public class StatManager : MonoBehaviour
     public event Action<float, float, GameObject> OnHPChanged;
     public event Action OnDeath;
     public event Action OnHeal;
+
+    protected Coroutine DOTRoutine;
 
     // Is dead
     public bool IsDead { get; protected set; }
@@ -51,6 +54,30 @@ public class StatManager : MonoBehaviour
     // {
 
     // }
+
+    /// <summary>
+    /// the base method to help managing take damage logic.
+    /// this function has double ways to takedamage and dot damage.
+    /// </summary>
+    /// <param name="instigator"></param>
+    /// <param name="damageAmount"></param>
+    /// <param name="damageElement"></param>
+    /// <param name="isDOT"></param>
+    /// <param name="duration"></param>
+    /// <param name="interval"></param>
+    /// <returns></returns>
+    public virtual bool TakeDamageHelper(GameObject instigator, float damageAmount, EElementType damageElement,
+                                            bool isDOT = false, float duration = 0f, float interval = 0f)
+    {
+        if(isDOT)
+        {
+            return TakeDOTDamage(instigator, damageAmount, duration, interval, damageElement);
+        }
+        else
+        {
+            return TakeDamage(instigator, damageAmount, damageElement);
+        }
+    }
 
     /// <summary>
     /// the base method of taking damage
@@ -216,4 +243,29 @@ public class StatManager : MonoBehaviour
     protected void InvokeOnHPChanged(float current, float max, GameObject instigator)
         => OnHPChanged?.Invoke(current, max, instigator);
 
+
+    public virtual bool TakeDOTDamage(GameObject instigator, float damageAmount, float duration, float interval, EElementType damageElement)
+    {
+        if(IsDead) return false;
+
+        // Use coroutine for apply dot damage.
+        StartCoroutine(ApplyDOT(instigator, damageAmount, duration, interval, damageElement));
+
+        return true;
+    }
+
+    protected IEnumerator ApplyDOT(GameObject instigator, float totalDamage, float duration, float interval, EElementType damageElement)
+    {
+        float damagePerTick = totalDamage / (duration / interval);
+        float elapsedTime = 0.0f;
+
+        while(elapsedTime < duration)
+        {
+            TakeDamage(instigator, damagePerTick, damageElement);
+            
+            yield return new WaitForSeconds(interval);
+
+            elapsedTime += interval;
+        }
+    }
 }

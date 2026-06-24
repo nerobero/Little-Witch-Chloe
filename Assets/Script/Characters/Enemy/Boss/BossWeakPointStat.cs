@@ -29,10 +29,11 @@ public class BossWeakPointStat : EnemyCharacterBase
     {
         base.Death();
 
-        Invoke("Recover", 10);
+        // Call reactivate function after 10 seconds for reactivate the weak point.
+        Invoke("Reactivate", 10);
     }
 
-    private void Recover()
+    private void Reactivate()
     {
         IsDead = false;
         currentHP = maxHP;
