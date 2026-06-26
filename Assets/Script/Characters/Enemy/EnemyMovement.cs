@@ -33,6 +33,7 @@ public class EnemyMovement : MonoBehaviour
     [Header("Ground Detection")]
     [SerializeField] protected float groundCheckDistance = 0.5f;
     [SerializeField] protected float obstacleDistance = 0.5f;
+    [SerializeField] protected float heightDistance = 2f;
     //[SerializeField] protected LayerMask platformLayer = gameObject.layer;
 
     [SerializeField] protected LayerMask bgLayer;
@@ -59,6 +60,8 @@ public class EnemyMovement : MonoBehaviour
     // enemy's sprite renderer:
     protected SpriteRenderer _spriteRender;
     protected PolygonCollider2D  myCollider;
+
+    [SerializeField] protected bool isArrived = true;
 
 
     // @TODO: Add a serialized private/public PlayerAnimControl class reference here
@@ -147,8 +150,8 @@ public class EnemyMovement : MonoBehaviour
             CheckGround();
 
             // Check if arrived to the target position
-            if(isChasing)
-                CheckArrived();
+            //if(isChasing)
+            CheckArrived();
 
 
         }
@@ -222,7 +225,7 @@ public class EnemyMovement : MonoBehaviour
     protected bool IsOnGround()
     {
         LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, layerParam);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, heightDistance, layerParam);
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.2f, ~(1 << gameObject.layer));
         return hit.collider != null;
     }
@@ -243,9 +246,9 @@ public class EnemyMovement : MonoBehaviour
         Vector2 frontVec = new Vector2(rb.position.x + groundCheckDistance * MoveDir * speed,
         rb.position.y);
 
-        Debug.DrawRay(frontVec, Vector3.down * 1.0f, new Color(1, 0, 0));
+        Debug.DrawRay(frontVec, Vector3.down * heightDistance, new Color(1, 0, 0));
 
-        RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1.0f,
+        RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, heightDistance,
         layerParam);
 
         // If the next position is cliff, then change its direction
@@ -257,14 +260,30 @@ public class EnemyMovement : MonoBehaviour
 
     protected virtual void CheckArrived()
     {
-        // Check if the move to the target location is completed
-        if(Vector2.Distance(transform.position, targetPosition) <= 0.01f)
+        if(isChasing)
         {
-            // Cancel all invoke function
-            //CancelInvoke();
+            // Check if the move to the target location is completed
+            if(Vector2.Distance(transform.position, targetPosition) <= 0.01f)
+            {
+                isArrived = true;
+                // reset the spawn position to current position
+                //spawnPosition = transform.position;
+                // Cancel all invoke function
+                //CancelInvoke();
 
-            // Think next behavior immediately.
-            Think();
+                // Think next behavior immediately.
+                //Think();
+            }
+            
+        }
+        // if it is not chasing
+        else
+        {
+            // compare the x values.
+            if(Mathf.Abs(transform.position.x - targetPosition.x) <= 0.01f)
+            {
+                isArrived = true;
+            }
         }
     }
 
@@ -302,7 +321,11 @@ public class EnemyMovement : MonoBehaviour
     public virtual void Think()
     {
         //Debug.Log("Monster Move: Think");
-        SetMoveDirection(Random.Range(-1, 2)); // -1 : left, 0: stop, 1: right
+        if(isArrived)
+        {
+            SetMoveDirection(Random.Range(-1, 2)); // -1 : left, 0: stop, 1: right
+            //isArrived = false;
+        }
 
         //float nextThinkTime = Random.Range(2.0f, 5.0f);
 

@@ -46,7 +46,9 @@ public class PlayerAnimController : BaseCharacterAnimController
         PlayerStatManager playerStat = GetComponent<PlayerStatManager>();
         
         playerStat.OnDeath -= SetToDead;
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        Debug.Log("DeathFinish");
+        UIManager.Instance.Show<UIGameOverHUD>();
     }
 
 

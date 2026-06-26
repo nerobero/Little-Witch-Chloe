@@ -11,18 +11,18 @@ public class LesserSpiritController : CorruptController
             
                 // HERE ATTACK LOGIC
                 AttackStart();
-                Invoke("Think", 2);
+                //Invoke("Think", 0.5f);
             break;
             case EMonsterState.Chase:
                 //enemyMove.MoveToTarget();
-                Invoke("Think", 2);
+                //Invoke("Think", 0.5f);
             break;
             case EMonsterState.Idle:
-                CancelInvoke();
+                //CancelInvoke();
             break;
             default:
                 enemyMove.Think();
-                Invoke("Think", 2);
+                //Invoke("Think", 0.5f);
             break;
 
         }

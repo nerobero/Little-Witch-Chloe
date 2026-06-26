@@ -1,6 +1,7 @@
 using UnityEngine;
 using Types;
 using Unity.VisualScripting;
+using System.Collections;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class EnemyControllerBase : MonoBehaviour
@@ -54,6 +55,8 @@ public class EnemyControllerBase : MonoBehaviour
     [SerializeField] protected float targetTimer = 0f;
     [SerializeField] protected const float FORGET_TIME = 5f;
 
+    protected Coroutine thinkRoutine;
+
     #region Setup
     protected virtual void Awake()
     {
@@ -69,7 +72,8 @@ public class EnemyControllerBase : MonoBehaviour
     {
         enemyState = EMonsterState.Idle;
         enemyMove = GetComponent<EnemyMovement>();
-        Invoke("Think", 1);
+        //Invoke("Think", 1);
+        thinkRoutine = StartCoroutine(ThinkRoutine(0.5f));
     }
     #endregion
 
@@ -163,7 +167,7 @@ public class EnemyControllerBase : MonoBehaviour
                 if(_hasTarget)
                 {
                     enemyMove.StopChasing();
-                    Think();
+                    //Think();
                 }
                 _hasTarget = false;
                 return;
@@ -175,16 +179,16 @@ public class EnemyControllerBase : MonoBehaviour
     {
         if(enemyMove != null)
         {      
-            // 기즈모 색상 설정 (원하는 색으로 변경 가능)
+            // Gizmo color settings (can be changed to desired color)
             Gizmos.color = Color.red;
 
-            // OverlapBox와 동일한 위치, 크기, 회전값을 사용하여 박스 그리기
-            // eyePoint가 로컬 좌표라면 transform.TransformPoint(eyePoint)를 사용해야 정확합니다.
+            // Draw a box using the same position, size, and rotation values ​​as the OverlapBox
+            // If eyePoint is a local coordinate, you must use transform.TransformPoint(eyePoint) for accuracy.
             Vector3 worldEyePoint = transform.TransformPoint(eyePoint); 
             
             Gizmos.DrawWireCube(worldEyePoint, new Vector3(viewDistance, viewHeight, 0));
 
-            // --- 2. 시야각(FOV) 영역 그리기 (노란 부채꼴) ---
+            // --- 2. Drawing the Field of View (FOV) area (yellow fan) ---
             Gizmos.color = Color.yellow;
             float cosThreshold = Mathf.Cos(viewAngle * 0.5f * Mathf.Deg2Rad); 
 
@@ -198,15 +202,15 @@ public class EnemyControllerBase : MonoBehaviour
                 forward = dirToPlayer; 
             }
         
-            // 시야의 양 끝 방향 계산 (Z축 회전)
+            // Calculate the direction of both ends of the field of view (Rotate Z axis)
             Vector3 leftBoundary = Quaternion.Euler(0, 0, viewAngle * 0.5f) * forward;
             Vector3 rightBoundary = Quaternion.Euler(0, 0, -viewAngle * 0.5f) * forward;
 
-            // 양 끝 선 그리기 (길이는 viewDistance 활용)
+            // Draw lines at both ends (Use viewDistance for length)
             Gizmos.DrawRay(worldEyePoint, leftBoundary * viewDistance / 2);
             Gizmos.DrawRay(worldEyePoint, rightBoundary * viewDistance / 2);
             
-            // 부채꼴 끝부분 연결 (선택 사항)
+            // Connecting the ends of the fan shape
             Gizmos.DrawLine(worldEyePoint + leftBoundary * viewDistance / 2, worldEyePoint + rightBoundary * viewDistance / 2);
         }
     }
@@ -246,7 +250,7 @@ public class EnemyControllerBase : MonoBehaviour
             enemyMove.MoveToTarget(position);
         }
         
-        Think();
+        //Think();
     }
 
     protected virtual void onAttack()
@@ -263,28 +267,35 @@ public class EnemyControllerBase : MonoBehaviour
         }
     }
 
+    protected IEnumerator ThinkRoutine(float interval)
+    {
+        while(!enemyStat.IsDead)
+        {
+            Think();
+            yield return new WaitForSeconds(interval);
+        }
+    }
+
     // AI behavior
     protected virtual void Think()
     {
         switch(enemyState)
         {
             case EMonsterState.Attack:
-                enemyMove.CancelInvoke();
-
                 // HERE ATTACK LOGIC
                 FireProjectile();
-                Invoke("Think", 2);
+                //Invoke("Think", 0.5f);
             break;
             case EMonsterState.Chase:
                 //enemyMove.MoveToTarget();
-                Invoke("Think", 2);
+                //Invoke("Think", 0.5f);
             break;
             case EMonsterState.Idle:
-                CancelInvoke();
+                //CancelInvoke();
             break;
             default:
                 enemyMove.Think();
-                Invoke("Think", 2);
+                //Invoke("Think", 0.5f);
             break;
 
         }
@@ -296,7 +307,8 @@ public class EnemyControllerBase : MonoBehaviour
         enabled = true;
         enemyMove.enabled = true;
         enemyState = EMonsterState.Patrol;
-        Think();
+        thinkRoutine = StartCoroutine(ThinkRoutine(0.5f));
+        //Think();
     }
 
     protected virtual void OnBecameInvisible()
@@ -305,6 +317,7 @@ public class EnemyControllerBase : MonoBehaviour
         enabled = false;
         enemyMove.enabled = false;
         enemyState = EMonsterState.Idle;
+        StopCoroutine(thinkRoutine);
     }
 
     void OnEnable()

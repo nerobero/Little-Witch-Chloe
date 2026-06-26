@@ -28,9 +28,9 @@ public class PopupHUD : UIBase
 
         // _languages.AddOptions(languageLists);
 
-        SubscribeEvents();
+        //SubscribeEvents();
 
-        Hide();
+        //Hide();
     }
 
     // Update is called once per frame
