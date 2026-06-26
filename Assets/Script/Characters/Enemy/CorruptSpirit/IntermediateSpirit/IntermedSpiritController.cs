@@ -11,18 +11,18 @@ public class IntermedSpiritController : CorruptController
                 //CancelInvoke();
                 //enemyMove.AnimController.SetToIsAttacking(true);
                 AttackStart();
-                Invoke("Think", 1);
+                //Invoke("Think", 0.5f);
                 break;
             case EMonsterState.Chase:
                 // enemyMove.MoveToTarget();
-                Invoke("Think", 2);
+                //Invoke("Think", 0.5f);
                 break;
             case EMonsterState.Idle:
-                CancelInvoke();
+                //CancelInvoke();
                 break;
             default:
                 enemyMove.Think();
-                Invoke("Think", 2);
+                //Invoke("Think", 0.5f);
                 break;
 
         }

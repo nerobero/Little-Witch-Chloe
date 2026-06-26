@@ -43,7 +43,7 @@ public class BossEnemyStatManager : StatManager
 
     public void KnockedDown()
     {
-        TakeDamage(this.gameObject, weakPointStat.MaxHP, EElementType.None);
+        TakeDamage(this.gameObject, weakPointStat.MaxHP * 2, EElementType.None);
         //Stun();
     }
 

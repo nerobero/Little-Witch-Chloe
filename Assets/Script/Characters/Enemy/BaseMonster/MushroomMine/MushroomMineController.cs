@@ -149,14 +149,14 @@ public class MushroomMineController : BaseMonsterController
             case EMonsterState.Attack:
                 // HERE ATTACK LOGIC
                 FireProjectile();
-                Invoke("Think", 2);
+                //Invoke("Think", 0.5f);
             break;
             case EMonsterState.Chase:
                 //enemyMove.MoveToTarget();
-                Invoke("Think", 2);
+                //Invoke("Think", 0.5f);
             break;
             case EMonsterState.Idle:
-                CancelInvoke();
+                //CancelInvoke();
             break;
 
         }

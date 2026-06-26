@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 7286354838306838483}
   - component: {fileID: 7368415690644533781}
   - component: {fileID: 4006131871943602470}
+  - component: {fileID: 6301456163277751742}
   m_Layer: 5
   m_Name: PlayerHUD
   m_TagString: Untagged
@@ -194,6 +195,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6301456163277751742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024030307680042007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0.5
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!1 &2389787923472161709
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7415697602793485526, guid: 1b9d977ca4ee49640b25ffab1b891393, type: 3}
       propertyPath: m_fontSize
-      value: 35
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7415697602793485526, guid: 1b9d977ca4ee49640b25ffab1b891393, type: 3}
       propertyPath: m_fontSizeMax
@@ -781,12 +805,16 @@ PrefabInstance:
       value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 7415697602793485526, guid: 1b9d977ca4ee49640b25ffab1b891393, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415697602793485526, guid: 1b9d977ca4ee49640b25ffab1b891393, type: 3}
       propertyPath: m_charWidthMaxAdj
       value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 7415697602793485526, guid: 1b9d977ca4ee49640b25ffab1b891393, type: 3}
       propertyPath: m_enableAutoSizing
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

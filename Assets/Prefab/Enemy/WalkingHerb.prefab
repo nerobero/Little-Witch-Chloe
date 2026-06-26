@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: 1405234689079182277}
   - component: {fileID: -2818862869753585158}
   - component: {fileID: 758179304421394627}
-  - component: {fileID: 677038978277088000}
   - component: {fileID: 6889917183156871703}
+  - component: {fileID: 7307904855233207214}
   m_Layer: 9
   m_Name: WalkingHerb
   m_TagString: Untagged
@@ -280,43 +280,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAnimController
   IsFacingRight: 1
---- !u!114 &677038978277088000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8043046792835732294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20a8682e72f08f1488c28a0726905449, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
-  shouldStop: 0
-  IsEnabled: 1
-  originalSpeed: 3
-  jumpHeight: 1
-  flyForce: 0
-  minDistance: 2
-  maxDistance: 3
-  speedIncFactor: 1.2
-  groundCheckDistance: 0.5
-  obstacleDistance: 0.5
-  bgLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  fgLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  fgEnemyLayer:
-    serializedVersion: 2
-    m_Bits: 16384
-  bgEnemyLayer:
-    serializedVersion: 2
-    m_Bits: 32768
-  _isBackground: 0
-  targetPosition: {x: 0, y: 0}
-  isChasing: 0
 --- !u!114 &6889917183156871703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +306,45 @@ MonoBehaviour:
   viewHeight: 5
   viewAngle: 45
   targetTimer: 0
+--- !u!114 &7307904855233207214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8043046792835732294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181d035de88924d44a00396e281b14aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseMonsterMovement
+  shouldStop: 0
+  IsEnabled: 1
+  originalSpeed: 3
+  jumpHeight: 1
+  flyForce: 0
+  minDistance: 2
+  maxDistance: 3
+  speedIncFactor: 1.2
+  groundCheckDistance: 0.5
+  obstacleDistance: 0.5
+  heightDistance: 2
+  bgLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  fgLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  fgEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+  bgEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 32768
+  _isBackground: 0
+  targetPosition: {x: 0, y: 0}
+  isChasing: 0
+  isArrived: 1
 --- !u!1001 &3437537476233459647
 PrefabInstance:
   m_ObjectHideFlags: 0

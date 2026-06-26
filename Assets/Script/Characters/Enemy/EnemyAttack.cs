@@ -85,6 +85,7 @@ public class EnemyAttack : MonoBehaviour
         // _animController?.SetToIsAttacking(true);
         //_animController.SetToIsAttacking();
         projectile.OnFired(_firePoint, _aimAngleDeg, isBackground, gameObject);
+        //projectile.SetDirection(_aimDirection);
     }
 
     /// <summary>
@@ -93,7 +94,7 @@ public class EnemyAttack : MonoBehaviour
     /// <param name="chargeRatio"></param>
     public virtual void FireCharged(float chargeRatio)
     {
-
+        
     }
 
     /// <summary>
