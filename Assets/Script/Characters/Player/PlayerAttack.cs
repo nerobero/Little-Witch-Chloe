@@ -35,8 +35,10 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float _orbitRadius; // the radius of which the shoot point will rotate around Chloe
     private Vector2 _aimDirection = Vector2.up; // for storing the current aim direction
     private float _aimAngleDeg = 0f;
+    private bool _isCrossPlatform = false;
 
     public bool isBackground;
+    
     public Vector2 AimDirection => _aimDirection;
 
     private void Awake()
@@ -83,6 +85,11 @@ public class PlayerAttack : MonoBehaviour
         return _firePointObject.enabled;
     }
 
+    public void EnableCrossPlatformAttack(bool isEnabled)
+    {
+        _isCrossPlatform = isEnabled;
+    } 
+
     /// <summary>
     /// Shoots normal damage projectiles. 
     /// </summary>
@@ -97,7 +104,8 @@ public class PlayerAttack : MonoBehaviour
             _ATKTimeSnapshot = Time.time;
             // _animController?.SetToIsAttacking(true);
             _animController.SetToIsAttacking();
-            projectile.OnFired(_firePoint, _aimAngleDeg, isBackground, gameObject);
+            bool isProjectileBG = isBackground ^ _isCrossPlatform;
+            projectile.OnFired(_firePoint, _aimAngleDeg, isProjectileBG, gameObject);
         }
 
     }

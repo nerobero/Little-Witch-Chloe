@@ -163,6 +163,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AttackAcross"",
+                    ""type"": ""Button"",
+                    ""id"": ""5566895b-2eff-4311-9a95-be696aba3a2e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -319,6 +328,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""767fd31e-3224-460d-90c5-feb093bc1fdf"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackAcross"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -335,6 +355,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_BaseInputAction_Interact = m_BaseInputAction.FindAction("Interact", throwIfNotFound: true);
         m_BaseInputAction_ChangeWeapon = m_BaseInputAction.FindAction("ChangeWeapon", throwIfNotFound: true);
         m_BaseInputAction_Pause = m_BaseInputAction.FindAction("Pause", throwIfNotFound: true);
+        m_BaseInputAction_AttackAcross = m_BaseInputAction.FindAction("AttackAcross", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
@@ -423,6 +444,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_BaseInputAction_Interact;
     private readonly InputAction m_BaseInputAction_ChangeWeapon;
     private readonly InputAction m_BaseInputAction_Pause;
+    private readonly InputAction m_BaseInputAction_AttackAcross;
     /// <summary>
     /// Provides access to input actions defined in input action map "BaseInputAction".
     /// </summary>
@@ -466,6 +488,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BaseInputAction/Pause".
         /// </summary>
         public InputAction @Pause => m_Wrapper.m_BaseInputAction_Pause;
+        /// <summary>
+        /// Provides access to the underlying input action "BaseInputAction/AttackAcross".
+        /// </summary>
+        public InputAction @AttackAcross => m_Wrapper.m_BaseInputAction_AttackAcross;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -516,6 +542,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @AttackAcross.started += instance.OnAttackAcross;
+            @AttackAcross.performed += instance.OnAttackAcross;
+            @AttackAcross.canceled += instance.OnAttackAcross;
         }
 
         /// <summary>
@@ -551,6 +580,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @AttackAcross.started -= instance.OnAttackAcross;
+            @AttackAcross.performed -= instance.OnAttackAcross;
+            @AttackAcross.canceled -= instance.OnAttackAcross;
         }
 
         /// <summary>
@@ -647,5 +679,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPause(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "AttackAcross" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAttackAcross(InputAction.CallbackContext context);
     }
 }

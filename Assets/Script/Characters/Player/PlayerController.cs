@@ -249,5 +249,19 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
             }
         }
     }
+
+    public void OnAttackAcross(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            _playerAttack.EnableCrossPlatformAttack(true);
+            Debug.Log("[Cross Platform Attack] Enabled");
+        }
+        else if (context.canceled)
+        {
+            _playerAttack.EnableCrossPlatformAttack(false);
+            Debug.Log("[Cross Platform Attack] Disabled");
+        }
+    }
     #endregion
 }

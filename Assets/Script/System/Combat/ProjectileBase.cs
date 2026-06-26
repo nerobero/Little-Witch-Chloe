@@ -20,6 +20,8 @@ public class ProjectileBase : MonoBehaviour
 
     private Collider2D _collider;
     private Rigidbody2D _projRB;
+    private SpriteRenderer _spriteRenderer;
+    private Collider2D _instigatorCollider;
 
     private float _firedTimeSnapshot = -1f;
     private float _fireAngleSnapShot = 0f;
@@ -41,13 +43,11 @@ public class ProjectileBase : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         _projRB = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _projRB.gravityScale = 0f;
 
-        // fgLayer = LayerMask.NameToLayer("ForegroundProjectile");
-        // bgLayer = LayerMask.NameToLayer("BackgroundProjectile");
-
-        // Physics2D.IgnoreLayerCollision(fgLayer, LayerMask.NameToLayer("Background Platform"), true);
-        // Physics2D.IgnoreLayerCollision(bgLayer, LayerMask.NameToLayer("Foreground Platform"), true);
+        fgLayer = LayerMask.NameToLayer("ForegroundProjectile");
+        bgLayer = LayerMask.NameToLayer("BackgroundProjectile");
     }
 
     private void Update()
@@ -146,10 +146,18 @@ public class ProjectileBase : MonoBehaviour
         //resetting the snapshot values back to their default before returning it to the pool
         _firedTimeSnapshot = -1f;
         _isFired = false;
+
+        // clear the per-collider ignore so the next instigator isn't affected by stale pairs
+        if (_instigatorCollider != null)
+        {
+            Physics2D.IgnoreCollision(_collider, _instigatorCollider, false);
+            _instigatorCollider = null;
+        }
+        instigator = null;
+
         // reset the anim state to its default as well before returning it to the pool:
         PoolObjectManager.Instance.Return(spawnType, gameObject);
         _animator.SetBool(IsResetHash, true);
-        //Physics2D.IgnoreLayerCollision(this.gameObject.layer, layer, false);
     }
 
     /// <summary>
@@ -158,12 +166,12 @@ public class ProjectileBase : MonoBehaviour
     /// </summary>
     public void OnFired(Transform firePointTransform, float fireAngle, bool FiredAtBackground, GameObject Instigator)
     {
-        Collider2D instigatorCollider = Instigator.GetComponent<Collider2D>();
+        _instigatorCollider = Instigator.GetComponent<Collider2D>();
 
-        if (_collider != null && instigatorCollider != null)
+        if (_collider != null && _instigatorCollider != null)
         {
             // Set to ignore collisions between the projectile collider and the owner collider
-            Physics2D.IgnoreCollision(_collider, instigatorCollider);
+            Physics2D.IgnoreCollision(_collider, _instigatorCollider);
         }
 
         _collider.enabled = true;
@@ -173,7 +181,8 @@ public class ProjectileBase : MonoBehaviour
 
         isBackground = FiredAtBackground;
         instigator = Instigator;
-        //gameObject.layer = isBackground ? bgLayer : fgLayer;
+        gameObject.layer = isBackground ? bgLayer : fgLayer;
+        _spriteRenderer.sortingOrder = isBackground ? -1 : 1;
         _projRB.AddForce(firePointTransform.up * speed, ForceMode2D.Impulse);
         FMODUnity.RuntimeManager.PlayOneShot(fmodEventName);
         _firedTimeSnapshot = Time.time; // taking a snapshot of the time at which it was fired
