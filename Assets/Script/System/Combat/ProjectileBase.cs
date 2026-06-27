@@ -46,8 +46,8 @@ public class ProjectileBase : MonoBehaviour
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _projRB.gravityScale = 0f;
 
-        fgLayer = LayerMask.NameToLayer("ForegroundProjectile");
-        bgLayer = LayerMask.NameToLayer("BackgroundProjectile");
+        fgLayer = LayerMask.NameToLayer("Foreground_Projectiles");
+        bgLayer = LayerMask.NameToLayer("Background_Projectiles");
     }
 
     private void Update()
