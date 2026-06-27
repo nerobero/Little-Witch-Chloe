@@ -73,7 +73,7 @@ public class EnemyControllerBase : MonoBehaviour
         enemyState = EMonsterState.Idle;
         enemyMove = GetComponent<EnemyMovement>();
         //Invoke("Think", 1);
-        thinkRoutine = StartCoroutine(ThinkRoutine(0.5f));
+        //thinkRoutine = StartCoroutine(ThinkRoutine(0.5f));
     }
     #endregion
 
