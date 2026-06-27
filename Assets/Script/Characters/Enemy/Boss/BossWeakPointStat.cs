@@ -31,10 +31,13 @@ public class BossWeakPointStat : EnemyCharacterBase
 
         // Call reactivate function after 10 seconds for reactivate the weak point.
         Invoke("Reactivate", 10);
+
+        gameObject.SetActive(false); // Use this logic until our animation asset is ready?
     }
 
     private void Reactivate()
     {
+        gameObject.SetActive(true);
         IsDead = false;
         currentHP = maxHP;
     }
