@@ -12,6 +12,7 @@ public class GameManager : MonoSingletonBase<GameManager>
     private HashSet<ELevelType> unlockedLevels = new HashSet<ELevelType>();
     private ELevelType _currentLevel;
     public ELevelType CurrentLevel => _currentLevel;
+    public HashSet<ELevelType> UnlockedLevels => unlockedLevels;
 
     // Activated spells by scroll.
     private HashSet<EAbilityType> _unlockedAbilities = new HashSet<EAbilityType>();

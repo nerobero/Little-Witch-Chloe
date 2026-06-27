@@ -38,6 +38,13 @@ namespace Types
         Seen,       // Some monsters have a separate interaction with the player when 'seen'
     }
 
+    public enum EBossState
+    {
+        None = 0,
+        Idle,       // Normal State(Not in the boss field)
+        Attack,     // Attack
+        Anger,      // HP under 50%
+    }
 
     /// <summary>
     /// Defines a type of pool object that can be spawned

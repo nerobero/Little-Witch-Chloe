@@ -71,7 +71,7 @@ public class SaveManager : MonoSingletonBase<SaveManager>
             savePlayerData.savedRotation = transform.rotation;
             savePlayerData.savedScale = transform.localScale;
 
-            savePlayerData.unlockedAbility = GameManager.Instance.GetUnlockedAbilities.ToList<EAbilityType>();
+            savePlayerData.unlockedAbility = GameManager.Instance.GetUnlockedAbilities.ToList<EAbilityType>(); 
             savePlayerData.spellList = playerAttack.GetUnlockedSpell();
             savePlayerData.unlockedAbility = GameManager.Instance.GetUnlockedAbilitiesList;
             savePlayerData.spellList = new List<ESpawnType>(playerAttack.GetUnlockedSpell());
@@ -104,6 +104,14 @@ public class SaveManager : MonoSingletonBase<SaveManager>
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (_pendingData == null) return;
+        
+        ApplyAllGameData(_pendingData);
+        _pendingData = null; // initialize after applied
+    }
+
+    public void ApplyAllGameData()
     {
         if (_pendingData == null) return;
         

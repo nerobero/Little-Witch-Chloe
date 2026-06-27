@@ -27,7 +27,7 @@ public class UIGameOverHUD : UIBase
     // Save button click event
     public void OnRetryButtonClicked()
     {
-        //SaveManager.Instance.SavePlayerData();
+        LevelManager.Instance.RestartCurrentLevel();
     }
 
     public void OnExitClicked()
