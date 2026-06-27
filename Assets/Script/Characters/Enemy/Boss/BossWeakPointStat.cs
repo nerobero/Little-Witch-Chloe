@@ -6,24 +6,24 @@ using Types;
 /// </summary>
 public class BossWeakPointStat : EnemyCharacterBase
 {
-    // public override bool TakeDamage(GameObject instigator, float damageAmount, EElementType damageElement)
-    // {
-    //     if (IsDead || damageAmount <= 0.0f)
-    //         return false;
+    public override bool TakeDamage(GameObject instigator, float damageAmount, EElementType damageElement)
+    {
+        if (IsDead || damageAmount <= 0.0f)
+            return false;
 
-    //     float actualDamage = CalculateActualDamage(damageAmount, damageElement, mainCharacElement);
+        float actualDamage = CalculateActualDamage(damageAmount, damageElement, mainCharacElement);
 
-    //     currentHP = Mathf.Clamp(currentHP - actualDamage, 0.0f, maxHP);
-    //     FMODUnity.RuntimeManager.PlayOneShot(OnTakenDamageEvent);
-    //     InvokeOnHPChanged(currentHP, maxHP, instigator);
+        currentHP = Mathf.Clamp(currentHP - actualDamage, 0.0f, maxHP);
+        FMODUnity.RuntimeManager.PlayOneShot(OnTakenDamageEvent);
+        InvokeOnHPChanged(currentHP, maxHP, instigator);
 
-    //     if (currentHP == 0.0f)
-    //     {
-    //         Death();
-    //     }
+        if (currentHP == 0.0f)
+        {
+            Death();
+        }
 
-    //     return true;
-    // }
+        return true;
+    }
 
     public override void Death()
     {
