@@ -2,12 +2,8 @@ using UnityEngine;
 
 public class BaseMonsterMovement : EnemyMovement
 {
-    protected Vector2 spawnPosition;
-
     protected override void Start()
     {
-        // Memory the spawn point
-        spawnPosition = transform.position;
         base.Start();
     }
 

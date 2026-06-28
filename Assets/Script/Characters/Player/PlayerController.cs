@@ -6,7 +6,7 @@ using System;
 /// Captures/caches the raw input values from the user and passes the values 
 /// to the appropriate class references for value processing.
 /// </summary>
-public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActions
+public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActions, IResetable
 {
     private static PlayerController _instance;
     public static PlayerController Instance => _instance;
@@ -263,5 +263,19 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
             Debug.Log("[Cross Platform Attack] Disabled");
         }
     }
+    #endregion
+
+    #region Reset
+    public void ResetState()
+    {
+        //call BaseInputAction.AddCallbacks(this)
+        _inputContext.BaseInputAction.AddCallbacks(this);
+
+        // enable the input action binding
+        _inputContext.BaseInputAction.Enable();
+
+        _playerMove.OnFlyStopped += OnFlyStopped;
+    }
+
     #endregion
 }

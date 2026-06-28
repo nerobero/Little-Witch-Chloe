@@ -270,4 +270,9 @@ public class StatManager : MonoBehaviour
             elapsedTime += interval;
         }
     }
+    public virtual void ResetState()
+    {
+        IsDead = false;
+        currentHP = maxHP;
+    }
 }

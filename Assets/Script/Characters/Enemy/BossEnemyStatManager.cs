@@ -47,5 +47,9 @@ public class BossEnemyStatManager : StatManager
         //Stun();
     }
 
-
+    public override void ResetState()
+    {
+        base.ResetState();
+        weakPointStat.ResetState();
+    }
 }

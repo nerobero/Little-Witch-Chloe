@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using System.Collections;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class EnemyControllerBase : MonoBehaviour
+public class EnemyControllerBase : MonoBehaviour, IResetable
 {
     #region ReferenceClasses
     // Handler for enemy's movement
@@ -379,5 +379,11 @@ public class EnemyControllerBase : MonoBehaviour
         
     }
 
-    
+    public virtual void ResetState()
+    {
+        gameObject.SetActive(true);
+        enemyMove.ResetState();
+        enemyStat.ResetState();
+        thinkRoutine = StartCoroutine(ThinkRoutine(0.5f));
+    }
 }

@@ -54,6 +54,8 @@ public class EnemyMovement : MonoBehaviour
     [Header("Patrol Settings")]
     public Vector2 targetPosition;
     public bool isChasing;
+    
+    protected Vector2 spawnPosition;
 
     // Physics body for 2D object
     protected Rigidbody2D rb;
@@ -109,6 +111,9 @@ public class EnemyMovement : MonoBehaviour
         //sr = GetComponent<SpriteRenderer>();
         //Invoke("Think", 1);
         GetGroundLayer();
+        
+        // Memory the spawn point
+        spawnPosition = transform.position;
     }
     
     /// <summary>
@@ -376,5 +381,11 @@ public class EnemyMovement : MonoBehaviour
         */
 
         OnBlinkFinished.Invoke(targetPosition);
+    }
+
+    public virtual void ResetState()
+    {
+        transform.position = spawnPosition;
+        AnimController.Reset();
     }
 }

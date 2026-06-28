@@ -31,7 +31,7 @@ public class PlayerStatManager : StatManager
 
     public void ApplyAllGameData(float savedMaxHP, float savedCurrentHP, float savedCurrentStamina)
     {
-        base.ApplyAllGameData(savedMaxHP, savedCurrentHP);
+        ApplyAllGameData(savedMaxHP, savedCurrentHP);
         this.currentStamina = savedCurrentStamina;
     }
     #endregion
@@ -82,5 +82,11 @@ public class PlayerStatManager : StatManager
         OnStaminaChanged?.Invoke(currentStamina, maxStamina);
 
         return true;
+    }
+
+    public override void ResetState()
+    {
+        base.ResetState();
+        currentStamina = maxStamina;
     }
 }
