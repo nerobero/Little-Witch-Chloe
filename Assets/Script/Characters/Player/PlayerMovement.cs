@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask fgLayer;
     [SerializeField] private LayerMask bgPlayerLayer;
     [SerializeField] private LayerMask fgPlayerLayer;
+    private float xOffset = 0.89f * 2f;
+
     private int orderInLayer;
     private float speed;
     private float curJumpHeight;
@@ -261,7 +263,6 @@ public class PlayerMovement : MonoBehaviour
 
         //2. find the surface to get teleport to:
         float camHalfHeight = Camera.main.orthographicSize;
-        float xOffset = 0.89f * 2f;
 
         // 2a. flipping the xOffset based on the character's move direction
         // and whether the character is in the background or not:

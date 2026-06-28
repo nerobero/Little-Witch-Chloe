@@ -13,6 +13,8 @@ public class PlayerAnimController : BaseCharacterAnimController
 
     private static readonly int IsDeadHash = Animator.StringToHash("IsDead");
     private static readonly int DeadOneShot = Animator.StringToHash("DeadOneShot");
+    private static readonly int HurtOneShot = Animator.StringToHash("IsHurtTrig");
+
 
     private static readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
     private static readonly int IsAttackingTrigHash = Animator.StringToHash("IsAttackingTrig");
@@ -29,6 +31,7 @@ public class PlayerAnimController : BaseCharacterAnimController
         playerAttack = GetComponent<PlayerAttack>();
 
         playerStat.OnDeath += SetToDead;
+        playerStat.OnTakeDamage += SetToIsHurt;
     }
 
     /// <summary>
@@ -46,6 +49,7 @@ public class PlayerAnimController : BaseCharacterAnimController
         PlayerStatManager playerStat = GetComponent<PlayerStatManager>();
         
         playerStat.OnDeath -= SetToDead;
+        playerStat.OnTakeDamage -= SetToIsHurt;
         //gameObject.SetActive(false);
         Debug.Log("DeathFinish");
         UIManager.Instance.Show<UIGameOverHUD>();
@@ -67,6 +71,11 @@ public class PlayerAnimController : BaseCharacterAnimController
     {
         _animator.SetBool(IsDeadHash, true);
         _animator.SetTrigger(DeadOneShot);
+    }
+
+    public void SetToIsHurt()
+    {
+        _animator.SetTrigger(HurtOneShot);
     }
 
     public void SetToIsAttacking()

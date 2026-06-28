@@ -43,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,19 +109,28 @@ TextureImporter:
       name: cha_sprite_sheet_chloe_hurt_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 25
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 11, y: -2}
+        - {x: 11, y: 6}
+        - {x: 8, y: 16}
+        - {x: -10, y: 16}
+        - {x: -12, y: 9}
+        - {x: -12, y: -11}
+        - {x: -11, y: -12}
+        - {x: 2, y: -15}
+        - {x: 8, y: -15}
+      tessellationDetail: 0
       bones: []
-      spriteID: f2cf43162d7b99080800000000000000
+      spriteID: 03e56b491b8b5b94b9f9693eb358a7be
       internalID: -9180104251216167889
       vertices: []
       indices: 
@@ -131,19 +140,28 @@ TextureImporter:
       name: cha_sprite_sheet_chloe_hurt_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 32
         y: 0
-        width: 29
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 11, y: -8}
+        - {x: 13, y: -5}
+        - {x: 13, y: 11}
+        - {x: 10, y: 16}
+        - {x: -7, y: 16}
+        - {x: -14, y: 9}
+        - {x: -14, y: -12}
+        - {x: -8, y: -15}
+        - {x: 10, y: -15}
+      tessellationDetail: 0
       bones: []
-      spriteID: 238ab87d324e92b40800000000000000
+      spriteID: c20cab5350f2e6b4399e970a61964c92
       internalID: 5416110869480974386
       vertices: []
       indices: 
@@ -153,19 +171,27 @@ TextureImporter:
       name: cha_sprite_sheet_chloe_hurt_2
       rect:
         serializedVersion: 2
-        x: 65
+        x: 64
         y: 0
-        width: 29
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 13, y: -11}
+        - {x: 13, y: 12}
+        - {x: 9, y: 15}
+        - {x: -11, y: 15}
+        - {x: -14, y: 9}
+        - {x: -14, y: -14}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+      tessellationDetail: 0
       bones: []
-      spriteID: fda9b84e06d016000800000000000000
+      spriteID: 295445e2d29d97f41a8d9142cd02a38c
       internalID: 27317782543309535
       vertices: []
       indices: 
@@ -175,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f7ce3ac365f1f8d47bc824e28e79afbb
     internalID: 0
     vertices: []
     indices: 
@@ -183,7 +209,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       cha_sprite_sheet_chloe_hurt_0: -9180104251216167889
       cha_sprite_sheet_chloe_hurt_1: 5416110869480974386

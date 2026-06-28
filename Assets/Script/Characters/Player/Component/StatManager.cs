@@ -25,6 +25,7 @@ public class StatManager : MonoBehaviour
     public event Action<float, float, GameObject> OnHPChanged;
     public event Action OnDeath;
     public event Action OnHeal;
+    public event Action OnTakeDamage;
 
     protected Coroutine DOTRoutine;
 
@@ -100,6 +101,7 @@ public class StatManager : MonoBehaviour
         currentHP = Mathf.Clamp(currentHP - actualDamage, 0.0f, maxHP);
         FMODUnity.RuntimeManager.PlayOneShot(damageAmount < actualDamage ? OnCritDamage : OnTakenDamageEvent);
         this.OnHPChanged?.Invoke(currentHP, maxHP, instigator);
+        OnTakeDamage?.Invoke();
 
         if (currentHP == 0.0f)
         {
