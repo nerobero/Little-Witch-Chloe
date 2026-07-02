@@ -3,12 +3,13 @@ using Types;
 
 public class EnemyCharacterBase : StatManager
 {
+    EnemyHPWidget enemyHP;
     protected override void Start()
     {
         base.Start();
         OnTakenDamageEvent = "event:/SFX/EnemyDamaged";
 
-        var enemyHP = GetComponent<EnemyHPWidget>();
+        enemyHP = GetComponent<EnemyHPWidget>();
 
         if(enemyHP == null)
         {
@@ -31,5 +32,12 @@ public class EnemyCharacterBase : StatManager
             animController.Hurt();
         }
         return result;
+    }
+
+    public override void ResetState()
+    {
+        base.ResetState();
+
+        enemyHP?.SetTarget();
     }
 }

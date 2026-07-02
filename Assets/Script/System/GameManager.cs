@@ -253,4 +253,9 @@ public class GameManager : MonoSingletonBase<GameManager>
     }
 
     #endregion
+
+    public void ResetState()
+    {
+        _unlockedAbilities.Clear();
+    }
 }

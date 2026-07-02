@@ -46,7 +46,7 @@ public class UIGameOverHUD : UIBase
 
     protected override void UnsubscribeEvents()
     {
-        
+        Debug.Log("Game Over HUD unsubscribe");
     }
 
     #endregion

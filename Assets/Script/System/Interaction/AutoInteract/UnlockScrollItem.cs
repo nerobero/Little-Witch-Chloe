@@ -10,7 +10,7 @@ public class UnlockScrollItem : ScrollItem
         var playerControllerComp = other.gameObject.GetComponent<PlayerController>();
         if (playerControllerComp == null) 
         {
-            Debug.Log("Player Null");
+           // Debug.Log("Player Null");
            return false; // cannot get the component, then return false
         }
 
@@ -18,7 +18,7 @@ public class UnlockScrollItem : ScrollItem
 
         if(other.gameObject.layer != layer) 
         {
-            Debug.Log("object null");
+            //Debug.Log("object null");
             return false;
         }
 

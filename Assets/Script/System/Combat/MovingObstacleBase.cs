@@ -5,7 +5,7 @@ using UnityEngine;
 /// including the player and the NPCs.
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
-public class MovingObstacleBase : MonoBehaviour
+public class MovingObstacleBase : MonoBehaviour, IResetable
 {
     protected Rigidbody2D _objRB;
     //protected bool isBackground = false;
@@ -30,6 +30,9 @@ public class MovingObstacleBase : MonoBehaviour
     protected int _bgLayerIndex => (int)Mathf.Log(bgLayer.value, 2);
     protected int _fgLayerIndex => (int)Mathf.Log(fgLayer.value, 2);
 
+    protected Vector3 spawnPosition;
+    protected Quaternion spawnRotation;
+
     private void Awake()
     {
         _objRB = GetComponent<Rigidbody2D>();
@@ -39,6 +42,8 @@ public class MovingObstacleBase : MonoBehaviour
 
     protected void Start()
     {
+        spawnPosition = gameObject.transform.position;
+        spawnRotation = gameObject.transform.rotation;
         int orderInLayer = isBackground ? 0 : 2;
         _spriteRender.sortingOrder = orderInLayer;
         SetMoveDirection(originalDirection);
@@ -146,5 +151,12 @@ public class MovingObstacleBase : MonoBehaviour
         var Stat = other.GetComponent<StatManager>();
 
         Stat.TakeDamageHelper(gameObject, damageAmount, Types.EElementType.None);
+    }
+
+    public void ResetState()
+    {
+        gameObject.transform.position = spawnPosition;
+        gameObject.transform.rotation = spawnRotation;
+        gameObject.SetActive(false);
     }
 }

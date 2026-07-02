@@ -101,9 +101,11 @@ public class PlayerMovement : MonoBehaviour
                 new Vector3(Mathf.Sign(transform.localScale.x) * originalScale.x, originalScale.y, 1);
     }
 
-    public void ApplyAllGameData(bool isBackground)
+    public void ApplyAllGameData(bool isBackground, Vector3 savedPosition, Quaternion savedRotation, Vector3 savedScale)
     {
         _isBackground = isBackground;
+        int layerIndex = (int)Mathf.Log(_isBackground ? bgPlayerLayer : fgPlayerLayer, 2);
+        gameObject.layer = layerIndex;
         ChangeOrderInLayer();
     }
 
@@ -328,4 +330,13 @@ public class PlayerMovement : MonoBehaviour
         canBlink = true;
     }
     #endregion
+
+    public void ResetState()
+    {
+        _animController.ResetState();
+        _isBackground = false;
+        int layerIndex = (int)Mathf.Log(_isBackground ? bgPlayerLayer : fgPlayerLayer, 2);
+        gameObject.layer = layerIndex;
+        ChangeOrderInLayer();
+    }
 }

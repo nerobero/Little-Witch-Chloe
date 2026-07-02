@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     public event Action<bool> onBlinked;
     public PlayerMovement PlayerMove => _playerMove;
+    private Vector3 spawnPosition;
+    private Quaternion spawnRotation;
 
     #region Setup
     private void Awake()
@@ -67,6 +69,13 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         _mainCamera = Camera.main;
 
         _playerAttack.isBackground = _playerMove.IsBackground;
+    }
+
+    private void Start()
+    {
+        spawnPosition = gameObject.transform.position;
+        spawnRotation = gameObject.transform.rotation;
+        UIManager.Instance.Get<UIPlayerHUD>().Initialize(); 
     }
 
     private void OnEnable()
@@ -269,12 +278,20 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     public void ResetState()
     {
         //call BaseInputAction.AddCallbacks(this)
-        _inputContext.BaseInputAction.AddCallbacks(this);
+        // _inputContext.BaseInputAction.AddCallbacks(this);
 
-        // enable the input action binding
-        _inputContext.BaseInputAction.Enable();
+        // // enable the input action binding
+        // _inputContext.BaseInputAction.Enable();
 
-        _playerMove.OnFlyStopped += OnFlyStopped;
+        //_playerMove.OnFlyStopped += OnFlyStopped;
+
+        _playerAttack.ResetState();
+        _playerMove.ResetState();
+        GetComponent<PlayerStatManager>()?.ResetState();
+
+        gameObject.transform.position = spawnPosition + new Vector3(0f, 1f, 0f);
+        gameObject.transform.rotation = spawnRotation;
+        UIManager.Instance.Get<UIPlayerHUD>().Initialize(); 
     }
 
     #endregion

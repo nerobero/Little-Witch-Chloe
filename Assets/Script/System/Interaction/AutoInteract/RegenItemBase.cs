@@ -38,4 +38,10 @@ public abstract class RegenItemBase : ItemBase
     {
         PoolObjectManager.Instance.Get(base.spawnType);
     }
+
+    public override void ResetState()
+    {
+        CancelInvoke("Regenerate");
+        base.ResetState();
+    }
 }

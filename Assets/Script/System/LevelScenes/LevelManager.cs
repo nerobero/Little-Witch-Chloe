@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Types;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,10 +11,17 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class LevelManager : MonoSingletonBase<LevelManager>
 {
+    private List<SceneBase> sceneBases = new List<SceneBase>();
+
     protected override void Awake()
     {
         dontDestroy = true;
         base.Awake();
+    }
+
+    public void Register(SceneBase instance)
+    {
+        sceneBases.Add(instance);
     }
 
     private void OnEnable()
@@ -38,10 +46,17 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
     private IEnumerator RestartLevelCoroutine()
     {
-        int sceneCount = SceneManager.sceneCount;
+        //int sceneCount = SceneManager.sceneCount;
+
         //List<string> subScenes = new List<string>(GameManager.Instance.UnlockedLevels);
-        List<ELevelType> subScenes = new List<ELevelType>(GameManager.Instance.UnlockedLevels);
-        string persistentSceneName = SceneManager.GetActiveScene().name;
+        //List<ELevelType> subScenes = new List<ELevelType>(GameManager.Instance.UnlockedLevels);
+        //string persistentSceneName = SceneManager.GetActiveScene().name;
+
+        foreach(SceneBase scene in sceneBases)
+        {
+            scene.ResetScene();
+            yield return null;
+        }
 
         // for (int i = 0; i < sceneCount; i++)
         // {
@@ -49,25 +64,31 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         //     if (scene.name != persistentSceneName) subScenes.Add(scene.name);
         // }
 
-        foreach (ELevelType sceneType in subScenes)
-        {
-            yield return SceneManager.UnloadSceneAsync((int)sceneType);
-        }
+        // Not use unload => use respawn? object pooling.
+        // foreach (ELevelType sceneType in subScenes)
+        // {
+        //     yield return SceneManager.UnloadSceneAsync((int)sceneType);
+        // }
+        // IEnumerable<IResetable> interactables = Object.FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IResetable>();
 
-        //System.GC.Collect();
-        yield return Resources.UnloadUnusedAssets();
+        // yield return Resources.UnloadUnusedAssets();
 
         bool hasSave = SaveManager.Instance.LoadSaveGame();
 
-        List<ELevelType> scenesToReload = new List<ELevelType>(GameManager.Instance.UnlockedLevels);
+        // List<ELevelType> scenesToReload = new List<ELevelType>(GameManager.Instance.UnlockedLevels);
 
-        // 2. Reload sub scenes.
-        foreach (ELevelType sceneType in scenesToReload)
-        {
-            yield return SceneManager.LoadSceneAsync((int)sceneType, LoadSceneMode.Additive);
-        }
+        // // 2. Reload sub scenes.
+        // foreach (ELevelType sceneType in scenesToReload)
+        // {
+        //     yield return SceneManager.LoadSceneAsync((int)sceneType, LoadSceneMode.Additive);
+        // }
 
         if(hasSave)
             SaveManager.Instance.ApplyAllGameData();
+
+        
+        //yield return new WaitForSeconds(0.1f);
+
+        UIManager.Instance.Hide<UIGameOverHUD>();
     }
 }

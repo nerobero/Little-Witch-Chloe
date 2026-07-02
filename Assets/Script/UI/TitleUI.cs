@@ -15,14 +15,18 @@ public class TitleUI : MonoBehaviour
     public void OnClickStart()
     {
         Debug.Log("Start");
-        SceneManager.LoadSceneAsync(sceneName);
+        //SceneManager.LoadSceneAsync(sceneName);
+        EventManager.Instance.ReqLevelLoad(Types.ELevelType.MainGame);
     }
 
     public void OnClickLoad()
     {
         Debug.Log("Load");
         if (SaveManager.Instance.LoadSaveGame())
+        {
             SceneManager.LoadSceneAsync(sceneName);
+            
+        }
         else
             Debug.Log("none save data");
     }

@@ -88,5 +88,6 @@ public class PlayerStatManager : StatManager
     {
         base.ResetState();
         currentStamina = maxStamina;
+        OnStaminaChanged?.Invoke(currentStamina, maxStamina);
     }
 }

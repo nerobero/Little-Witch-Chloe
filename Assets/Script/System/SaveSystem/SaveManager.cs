@@ -123,9 +123,9 @@ public class SaveManager : MonoSingletonBase<SaveManager>
     {
         if(playerAttack)
         {
-            playerAttack.gameObject.transform.position = savePlayerData.savedPosition;
-            playerAttack.gameObject.transform.rotation = savePlayerData.savedRotation;
-            playerAttack.gameObject.transform.localScale = savePlayerData.savedScale;
+            // playerAttack.gameObject.transform.position = savePlayerData.savedPosition;
+            // playerAttack.gameObject.transform.rotation = savePlayerData.savedRotation;
+            // playerAttack.gameObject.transform.localScale = savePlayerData.savedScale;
             
             foreach(Types.EAbilityType unlocked in savePlayerData.unlockedAbility)
             {
@@ -141,7 +141,8 @@ public class SaveManager : MonoSingletonBase<SaveManager>
 
         if(playerMove)
         {
-            playerMove.ApplyAllGameData(savePlayerData.isInBackground);
+            playerMove.ApplyAllGameData(savePlayerData.isInBackground,
+                        new Transform(savePlayerData.savedPosition, savePlayerData.savedRotation, savePlayerData.savedScale));
         }
 
         if(playerState)

@@ -36,4 +36,9 @@ public class ScrollItem : ItemBase
 
         return playerAttackComp.UnlockSpell(_spellType);
     }
+
+    public override void ResetState()
+    {
+        gameObject.SetActive(true);
+    }
 }

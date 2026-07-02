@@ -10,6 +10,10 @@ public class BaseCharacterAnimController : MonoBehaviour
 {
     protected static readonly int IdleHash = Animator.StringToHash("IdleHash");
     protected static readonly int WalkingHash = Animator.StringToHash("IsWalking");
+    
+    protected static readonly int IsDeadHash = Animator.StringToHash("IsDead");
+    protected static readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
+    protected static readonly int IsAttackingTrigHash = Animator.StringToHash("IsAttackingTrig");
     // protected static readonly int BlinkingHash = Animator.StringToHash("IsBlinking");
 
     protected Animator _animator;
@@ -41,5 +45,18 @@ public class BaseCharacterAnimController : MonoBehaviour
         _animator.SetBool(WalkingHash, isWalking);
 
         _animator.SetBool(IdleHash, !isWalking);
+    }
+
+    public virtual void ResetState()
+    {
+        _animator.SetBool(IsDeadHash, false);
+        _animator.SetBool(IsAttackingHash, false);
+
+        Vector2 localScale2D = transform.localScale;
+        if(localScale2D.x < 0f)
+        {
+            localScale2D.x *= -1f;
+            transform.localScale = localScale2D;
+        }
     }
 }

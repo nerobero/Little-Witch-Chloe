@@ -11,10 +11,12 @@ public class UIPlayerHUD : UIBase
     [SerializeField] private Image _blinkImg;  
     [SerializeField] private TextMeshProUGUI _objectivesText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private bool isInitialized = false;
+
     protected override void Start()
     {
         base.Start();
-        SubscribeEvents();
+        //SubscribeEvents();
     }
 
     // Update is called once per frame
@@ -23,14 +25,26 @@ public class UIPlayerHUD : UIBase
         
     }
 
+    public void Initialize()
+    {
+        OnEnable();
+    }
+
     #region EventSubscription
     protected override void SubscribeEvents()
     {
+        Debug.Log("Player HUD Subscribe");
+
+        // prevent re-initialize
+        if(isInitialized) return;
+
         if(PlayerController.Instance == null) return;
 
         var playerStat = PlayerController.Instance.GetComponent<PlayerStatManager>();
 
         if(playerStat == null) return;
+        Debug.Log("PlayerStat Passed");
+
         var playerMove = PlayerController.Instance.GetComponent<PlayerMovement>();
 
         if(playerMove == null) return;
@@ -45,7 +59,8 @@ public class UIPlayerHUD : UIBase
         playerMove.OnBlinkCooldown += UpdateBlinkCooldown;
 
         GameManager.Instance.OnObjectivesCollected += UpdateObjectives;
-        
+
+        isInitialized = true;
     }
 
     protected override void UnsubscribeEvents()
@@ -64,6 +79,8 @@ public class UIPlayerHUD : UIBase
 
         playerMove.OnBlinkCooldown -= UpdateBlinkCooldown;
         GameManager.Instance.OnObjectivesCollected -= UpdateObjectives;
+
+        isInitialized = false;
     }
     #endregion
 

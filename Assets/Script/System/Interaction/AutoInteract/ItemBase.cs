@@ -7,7 +7,7 @@ using Types;
 /// </summary>
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Collider2D))]
-public abstract class ItemBase : MonoBehaviour
+public abstract class ItemBase : MonoBehaviour, IResetable
 {
     protected ESpawnType spawnType;
     
@@ -27,5 +27,10 @@ public abstract class ItemBase : MonoBehaviour
     {
         if (OnInteract(collision)) 
             PoolObjectManager.Instance.Return(spawnType, this.gameObject);
+    }
+
+    public virtual void ResetState()
+    {
+        PoolObjectManager.Instance.Get(spawnType);
     }
 }

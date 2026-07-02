@@ -285,7 +285,7 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             // compare the x values.
-            if(Mathf.Abs(transform.position.x - targetPosition.x) <= 0.01f)
+            if(Mathf.Abs(transform.position.x - targetPosition.x) <= 0.01f || MoveDir == 0f)
             {
                 isArrived = true;
             }
@@ -386,6 +386,6 @@ public class EnemyMovement : MonoBehaviour
     public virtual void ResetState()
     {
         transform.position = spawnPosition;
-        AnimController.Reset();
+        AnimController.ResetState();
     }
 }

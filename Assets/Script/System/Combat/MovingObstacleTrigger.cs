@@ -27,7 +27,7 @@ public class MovingObstacleTrigger : EventTriggerBase
          int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
 
         // it only reacts if the collider is player
-        if(other.gameObject.layer != layer)
+        if(other.gameObject.layer == layer)
         {
             obsScript.SetIsBackground(isBackground);
             obstacle.SetActive(true);

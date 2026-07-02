@@ -11,13 +11,13 @@ public class PlayerAnimController : BaseCharacterAnimController
     private static readonly int IsFlyingHash = Animator.StringToHash("IsFlying");
     private static readonly int FlyTickHash = Animator.StringToHash("FlyTick");
 
-    private static readonly int IsDeadHash = Animator.StringToHash("IsDead");
+   // private static readonly int IsDeadHash = Animator.StringToHash("IsDead");
     private static readonly int DeadOneShot = Animator.StringToHash("DeadOneShot");
     private static readonly int HurtOneShot = Animator.StringToHash("IsHurtTrig");
 
 
-    private static readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
-    private static readonly int IsAttackingTrigHash = Animator.StringToHash("IsAttackingTrig");
+    //private static readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
+    //private static readonly int IsAttackingTrigHash = Animator.StringToHash("IsAttackingTrig");
 
     private static readonly int IsBlinkStartTrigHash = Animator.StringToHash("IsBlinkStartTrig");
 
@@ -91,5 +91,14 @@ public class PlayerAnimController : BaseCharacterAnimController
     public void SetToIsBlinkingStartTrig()
     {
         _animator.SetTrigger(IsBlinkStartTrigHash);
+    }
+
+    public override void ResetState()
+    {
+        PlayerStatManager playerStat = GetComponent<PlayerStatManager>();
+        playerStat.OnDeath += SetToDead;
+        playerStat.OnTakeDamage += SetToIsHurt;
+
+        base.ResetState();
     }
 }

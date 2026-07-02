@@ -274,5 +274,6 @@ public class StatManager : MonoBehaviour
     {
         IsDead = false;
         currentHP = maxHP;
+        OnHPChanged?.Invoke(currentHP, maxHP, gameObject);
     }
 }

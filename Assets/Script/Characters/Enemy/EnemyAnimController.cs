@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class EnemyAnimController : BaseCharacterAnimController
 {
-    protected static readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
-    protected static readonly int IsAttackingTrigHash = Animator.StringToHash("IsAttackingTrig");
+    //protected static readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
+    //protected static readonly int IsAttackingTrigHash = Animator.StringToHash("IsAttackingTrig");
 
-    protected static readonly int IsDeadHash = Animator.StringToHash("IsDead");
+    //protected static readonly int IsDeadHash = Animator.StringToHash("IsDead");
     
     protected static readonly int HurtHash = Animator.StringToHash("IsHurt");
 
@@ -39,10 +39,13 @@ public class EnemyAnimController : BaseCharacterAnimController
         gameObject.SetActive(false);
     }
 
-    public virtual void Reset()
+    public override void ResetState()
     {
-        _animator.SetBool(IsDeadHash, false);
-        _animator.SetBool(IsAttackingHash, false);
+        base.ResetState();
+
+        EnemyCharacterBase enemyStat = GetComponent<EnemyCharacterBase>();
+        
+        enemyStat.OnDeath += SetToDead;
     }
 
     public virtual void SetToIsAttacking(bool isAttacking)

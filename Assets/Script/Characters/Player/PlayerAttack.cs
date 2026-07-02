@@ -218,4 +218,13 @@ public class PlayerAttack : MonoBehaviour
     // }
 
     #endregion 
+
+    public void ResetState()
+    {
+        _spellList = new Dictionary<ESpawnType, bool>()
+        {
+            {ESpawnType.FireBall, true}, {ESpawnType.WaterBall, true},
+            {ESpawnType.PoisonBall, false}, {ESpawnType.ElectricBall, false}, {ESpawnType.LightBall, false}
+        };
+    }
 }
