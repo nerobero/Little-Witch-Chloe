@@ -139,6 +139,15 @@ public class PlayerMovement : MonoBehaviour
     }
 
     /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="newOffset"></param>
+    public void SetBlinkXOffset(float newOffset)
+    {
+        xOffset = newOffset < 0f ? 0f : newOffset;
+    }
+
+    /// <summary>
     /// Is the character on the ground platform?
     /// </summary>
     /// <returns>true if the raycast hits an object</returns>
