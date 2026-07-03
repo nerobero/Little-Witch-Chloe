@@ -142,7 +142,7 @@ public class SaveManager : MonoSingletonBase<SaveManager>
         if(playerMove)
         {
             playerMove.ApplyAllGameData(savePlayerData.isInBackground,
-                        new Transform(savePlayerData.savedPosition, savePlayerData.savedRotation, savePlayerData.savedScale));
+                        savePlayerData.savedPosition, savePlayerData.savedRotation, savePlayerData.savedScale);
         }
 
         if(playerState)
