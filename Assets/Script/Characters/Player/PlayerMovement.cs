@@ -103,6 +103,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void ApplyAllGameData(bool isBackground, Vector3 savedPosition, Quaternion savedRotation, Vector3 savedScale)
     {
+
+        gameObject.transform.position = savedPosition;
+        gameObject.transform.rotation = savedRotation;
+        
         _isBackground = isBackground;
         int layerIndex = (int)Mathf.Log(_isBackground ? bgPlayerLayer : fgPlayerLayer, 2);
         gameObject.layer = layerIndex;
