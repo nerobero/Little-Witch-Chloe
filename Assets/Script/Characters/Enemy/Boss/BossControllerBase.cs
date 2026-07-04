@@ -3,6 +3,18 @@ using Types;
 
 public class BossControllerBase : EnemyControllerBase
 {
+    void OnEnable()
+    {
+        BossEnemyStatManager bossStat = (BossEnemyStatManager)enemyStat;
+        bossStat.OnStunned += enemyMove.Stun;
+    }
+
+    void OnDisable()
+    {
+        BossEnemyStatManager bossStat = (BossEnemyStatManager)enemyStat;
+        bossStat.OnStunned -= enemyMove.Stun;
+    }
+
     protected override void Think()
     {
         switch(enemyState)

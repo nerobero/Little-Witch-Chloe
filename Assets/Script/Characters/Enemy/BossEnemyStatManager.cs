@@ -9,6 +9,8 @@ public class BossEnemyStatManager : EnemyCharacterBase
 {
     [SerializeField] private BossWeakPointStat weakPointStat;
 
+    public Action<float> onStunned;
+
     protected override void Start()
     {
         base.Start();
@@ -44,7 +46,9 @@ public class BossEnemyStatManager : EnemyCharacterBase
     public void KnockedDown()
     {
         TakeDamage(this.gameObject, weakPointStat.MaxHP * 2, EElementType.None);
-        //Stun();
+        
+        // hard coding? <= should change
+        onStunned?.Invoke(2f);
     }
 
     public override void ResetState()
