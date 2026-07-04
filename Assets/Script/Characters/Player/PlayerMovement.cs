@@ -6,40 +6,18 @@ using UnityEngine;
 /// Processes the movement and the physics of the player character
 /// given the vector/axis values from the player controller.
 /// </summary>
-[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerStatManager))]
 [RequireComponent(typeof(PlayerAnimController))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : BaseCharacterMovement
 {
 
     // These values are exposed states for others to read:
-    public bool IsGrounded => IsOnGround();
-    public float MoveDir { get; private set; }
     public event Action OnFlyStopped;
 
     [Header("Movement values")]
-    [SerializeField] private float originalSpeed;
-    [SerializeField] private float jumpHeight;
     [SerializeField] private float flyForce;
-    [SerializeField] private LayerMask bgLayer;
-    [SerializeField] private LayerMask fgLayer;
     [SerializeField] private LayerMask bgPlayerLayer;
     [SerializeField] private LayerMask fgPlayerLayer;
-    private float xOffset = 0.89f * 2f;
-
-    private int orderInLayer;
-    private float speed;
-    private float curJumpHeight;
-    public int OrderInLayer => orderInLayer;
-    private Vector3 originalScale;
-
-    private Rigidbody2D _rb; // Physics body for 2D object
-    private bool _isBackground = false; //by default, you're already on 
-    public bool IsBackground => _isBackground;
-
-    private int _playerLayer => gameObject.layer;
-    private int _bgLayerIndex => (int)Mathf.Log(bgLayer.value, 2);
-    private int _fgLayerIndex => (int)Mathf.Log(fgLayer.value, 2);
 
     // stamina related component ref here:
     private PlayerStatManager _statManager;
@@ -49,14 +27,13 @@ public class PlayerMovement : MonoBehaviour
 
     // player's sprite renderer:
     [SerializeField] private SpriteRenderer _childSpriteRender;
-    private SpriteRenderer _spriteRender;
     
     [SerializeField] private float blinkCooldownTime = 3.0f;
     private bool canBlink = true;
     public event Action<float> OnBlinkCooldown;
 
 
-    private void Awake()
+    protected override void Awake()
     {
         // makes sure that we auto-get the reference for the rigidbody at runtime:
         _rb = GetComponent<Rigidbody2D>();
@@ -76,30 +53,50 @@ public class PlayerMovement : MonoBehaviour
         // Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, _isBackground);
 
         originalScale = transform.localScale;
+        heightDistance = 1.5f;
+        myLayer = "Player";
     }
 
-    private void Start()
-    {
-        ChangeOrderInLayer();
-    }
+    // protected override void Start()
+    // {
+    //     string groundLayerName = LayerMask.LayerToName(GetGroundLayer());
 
-    /// <summary>
-    /// Set the gameobject's orderInLayer -1 or 0 based on whether
-    /// the character is in the background or not.
-    /// </summary>
-    private void ChangeOrderInLayer()
-    {
-        orderInLayer = _isBackground ? -1 : 1;
-        _spriteRender.sortingOrder = orderInLayer;
-        _childSpriteRender.sortingOrder = orderInLayer;
+    //     if (groundLayerName.Contains("_"))
+    //     {
+    //         // 1. Check the ground is Foreground or Background
+    //         string groundPrefix = groundLayerName.Split('_')[0];
+    //         bool isForeground = (groundPrefix == "Foreground");
 
-        // Change speed, jump height and scale
-        speed = _isBackground ? originalSpeed * 0.7f : originalSpeed;
-        curJumpHeight = _isBackground ? jumpHeight * 0.7f : jumpHeight;
-        transform.localScale = 
-            _isBackground ? new Vector3(transform.localScale.x * 0.75f, 0.75f, 1) : 
-                new Vector3(Mathf.Sign(transform.localScale.x) * originalScale.x, originalScale.y, 1);
-    }
+    //         // 2. Request a layer number of the "player" (e.g., "floor") from the manager.
+    //         // 예: 바닥이 Background_Platform이면, 나는 Background_Player 레이어 번호를 가져옴
+    //         int nextMyLayer = LayerManager.Instance.GetLayer(isForeground, "Player");
+
+    //         // 3. 내 레이어 변경
+    //         gameObject.layer = nextMyLayer;
+            
+    //         Debug.Log($"Because the layer of the platform is {groundLayerName}, change my layer as {LayerMask.LayerToName(nextMyLayer)}.");
+    //     }
+
+    //     ChangeOrderInLayer();
+    // }
+
+    // /// <summary>
+    // /// Set the gameobject's orderInLayer -1 or 0 based on whether
+    // /// the character is in the background or not.
+    // /// </summary>
+    // protected override void ChangeOrderInLayer()
+    // {
+    //     orderInLayer = _isBackground ? -1 : 1;
+    //     _spriteRender.sortingOrder = orderInLayer;
+    //     _childSpriteRender.sortingOrder = orderInLayer;
+
+    //     // Change speed, jump height and scale
+    //     speed = _isBackground ? originalSpeed * 0.7f : originalSpeed;
+    //     curJumpHeight = _isBackground ? jumpHeight * 0.7f : jumpHeight;
+    //     transform.localScale = 
+    //         _isBackground ? new Vector3(transform.localScale.x * 0.75f, 0.75f, 1) : 
+    //             new Vector3(Mathf.Sign(transform.localScale.x) * originalScale.x, originalScale.y, 1);
+    // }
 
     public void ApplyAllGameData(bool isBackground, Vector3 savedPosition, Quaternion savedRotation, Vector3 savedScale)
     {
@@ -147,33 +144,33 @@ public class PlayerMovement : MonoBehaviour
         xOffset = newOffset < 0f ? 0f : newOffset;
     }
 
-    /// <summary>
-    /// Is the character on the ground platform?
-    /// </summary>
-    /// <returns>true if the raycast hits an object</returns>
-    private bool IsOnGround()
-    {
-        LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, layerParam);
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, ~(1 << gameObject.layer));
-        return hit.collider != null;
-    }
+    // /// <summary>
+    // /// Is the character on the ground platform?
+    // /// </summary>
+    // /// <returns>true if the raycast hits an object</returns>
+    // protected override bool IsOnGround()
+    // {
+    //     LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
+    //     RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, layerParam);
+    //     //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, ~(1 << gameObject.layer));
+    //     return hit.collider != null;
+    // }
 
-    /// <summary>
-    /// Gets the index of the layermask that the player is currently standing on.
-    /// </summary>
-    /// <returns>the index of the current layermask the player is standing on</returns>
-    private int GetGroundLayer()
-    {
-        //Debug.DrawRay(transform.position, Vector2.down, new Color(0, 1, 0), 2.0f);
-        LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, layerParam);
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, ~(1 << gameObject.layer));
+    // /// <summary>
+    // /// Gets the index of the layermask that the player is currently standing on.
+    // /// </summary>
+    // /// <returns>the index of the current layermask the player is standing on</returns>
+    // protected override int GetGroundLayer()
+    // {
+    //     //Debug.DrawRay(transform.position, Vector2.down, new Color(0, 1, 0), 2.0f);
+    //     LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
+    //     RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, layerParam);
+    //     //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, ~(1 << gameObject.layer));
 
 
-        //Debug.Log($"hit.collider: {hit.collider}, playerLayer: {_playerLayer}, hit.layer: {hit.collider.gameObject.layer}");
-        return hit.collider != null ? hit.collider.gameObject.layer : _playerLayer;
-    }
+    //     //Debug.Log($"hit.collider: {hit.collider}, playerLayer: {_playerLayer}, hit.layer: {hit.collider.gameObject.layer}");
+    //     return hit.collider != null ? hit.collider.gameObject.layer : _playerLayer;
+    // }
 
     /// <summary>
     /// Sets the player's move direction. Also flips the character via anim controller
@@ -182,9 +179,9 @@ public class PlayerMovement : MonoBehaviour
     /// 1 = right
     /// </summary>
     /// <param name="direction">the direction value in float</param>
-    public void SetMoveDirection(float direction)
+    public override void SetMoveDirection(float direction)
     {
-        MoveDir = direction;
+        base.SetMoveDirection(direction);
         _animController.FlipCharacter(direction);
     }
 
@@ -192,7 +189,7 @@ public class PlayerMovement : MonoBehaviour
     /// Adds force to the character to have it jump.
     /// Only works if the character is currently grounded.
     /// </summary>
-    public void Jump()
+    public override void Jump()
     {
         if (IsGrounded)
         {
@@ -344,7 +341,7 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
-    public void ResetState()
+    public override void ResetState()
     {
         _animController.ResetState();
         _isBackground = false;

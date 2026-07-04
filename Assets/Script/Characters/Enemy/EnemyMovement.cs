@@ -8,48 +8,31 @@ using Random = UnityEngine.Random;
 /// Handles velocity, ground detection, and basic movement.
 /// Specific monster types inherit and implement their own AI behavior.
 /// </summary>
-[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(EnemyAnimController))]
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : BaseCharacterMovement
 {
     // These values are exposed states for others to read:
-    public bool IsGrounded => IsOnGround();
-    public float MoveDir { get; protected set; }
     public bool shouldStop;
 
     public bool IsEnabled = true;
 
     [Header("Movement values")]
-    [SerializeField] protected float originalSpeed;
-    [SerializeField] protected float jumpHeight;
-    [SerializeField] protected float flyForce;
     [SerializeField] protected float minDistance = 2f; // minimum 2 grid
     [SerializeField] protected float maxDistance = 3f; // maximum 3 grid
     [SerializeField] protected float speedIncFactor = 1f;
-    protected float speed;
-    protected float curJumpHeight;
-    protected Vector3 originalScale;
 
     [Header("Ground Detection")]
     [SerializeField] protected float groundCheckDistance = 0.5f;
     [SerializeField] protected float obstacleDistance = 0.5f;
-    [SerializeField] protected float heightDistance = 2f;
-    //[SerializeField] protected LayerMask platformLayer = gameObject.layer;
+    //[SerializeField] protected override float heightDistance = 2f;
+    //[SerializeField] protected LayerMask _characterLayer = gameObject.layer;
 
-    [SerializeField] protected LayerMask bgLayer;
-    [SerializeField] protected LayerMask fgLayer;
     [SerializeField] protected LayerMask fgEnemyLayer;
     [SerializeField] protected LayerMask bgEnemyLayer;
     public event Action<Vector2> OnBlinkFinished;
-    protected int platformLayer => gameObject.layer;
-    protected int _bgLayerIndex => (int)Mathf.Log(bgLayer.value, 2);
-    protected int _fgLayerIndex => (int)Mathf.Log(fgLayer.value, 2);
     
-    [SerializeField] protected bool _isBackground = false; 
-    public bool IsBackground => _isBackground;
     protected EnemyAnimController _animController;
     public EnemyAnimController AnimController => _animController;
-    protected int orderInLayer;
 
     [Header("Patrol Settings")]
     public Vector2 targetPosition;
@@ -58,9 +41,7 @@ public class EnemyMovement : MonoBehaviour
     protected Vector2 spawnPosition;
 
     // Physics body for 2D object
-    protected Rigidbody2D rb;
     // enemy's sprite renderer:
-    protected SpriteRenderer _spriteRender;
     protected PolygonCollider2D  myCollider;
 
     [SerializeField] protected bool isArrived = true;
@@ -68,15 +49,13 @@ public class EnemyMovement : MonoBehaviour
 
     // @TODO: Add a serialized private/public PlayerAnimControl class reference here
 
-    protected virtual void Awake()
+    protected override void Awake()
     {
         // makes sure that we auto-get the reference for the rigidbody at runtime:
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<PolygonCollider2D >();
         
-        //Physics2D.IgnoreLayerCollision(myCollider.layer, _bgLayerIndex, !_isBackground);
-        //Physics2D.IgnoreLayerCollision(platformLayer, _fgLayerIndex, _isBackground);
-        Physics2D.IgnoreLayerCollision(platformLayer, platformLayer, true);
+        Physics2D.IgnoreLayerCollision(_characterLayer, _characterLayer, true);
 
         //
         _spriteRender = GetComponent<SpriteRenderer>();
@@ -85,54 +64,42 @@ public class EnemyMovement : MonoBehaviour
         int layerIndex = (int)Mathf.Log(_isBackground ? bgEnemyLayer : fgEnemyLayer, 2);
         gameObject.layer = layerIndex;
 
-        // if(_isBackground)
-        // {
-        //     myCollider.includeLayers |= (1 << _bgLayerIndex);
-        //     myCollider.includeLayers &= ~(1 << _fgLayerIndex);
-        //     myCollider.excludeLayers |= (1 << _fgLayerIndex);
-        //     myCollider.excludeLayers &= ~(1 << _bgLayerIndex);
-        // }
-        // else
-        // {
-        //     myCollider.includeLayers |= (1 << _fgLayerIndex);
-        //     myCollider.includeLayers &= ~(1 << _bgLayerIndex);
-        //     myCollider.excludeLayers |= (1 << _bgLayerIndex);
-        //     myCollider.excludeLayers &= ~(1 << _fgLayerIndex);
-        // }
-
         originalScale = transform.localScale;
         speed = originalSpeed;
-        
-        ChangeOrderInLayer();
+        heightDistance = 2f;
+        myLayer = "Enemy";
+        //ChangeOrderInLayer();
     }
 
-    protected virtual void Start()
+    protected override void Start()
     {
         //sr = GetComponent<SpriteRenderer>();
         //Invoke("Think", 1);
-        GetGroundLayer();
+        //GetGroundLayer();
+
+        base.Start();
         
         // Memory the spawn point
         spawnPosition = transform.position;
     }
     
-    /// <summary>
-    /// Set the gameobject's orderInLayer -1 or 0 based on whether
-    /// the character is in the background or not.
-    /// </summary>
-    protected void ChangeOrderInLayer()
-    {
+    // /// <summary>
+    // /// Set the gameobject's orderInLayer -1 or 0 based on whether
+    // /// the character is in the background or not.
+    // /// </summary>
+    // protected override void ChangeOrderInLayer()
+    // {
 
-        orderInLayer = _isBackground ? -1 : 1;
-        _spriteRender.sortingOrder = orderInLayer;
+    //     orderInLayer = _isBackground ? -1 : 1;
+    //     _spriteRender.sortingOrder = orderInLayer;
 
-        // Change speed, jump height and scale
-        speed = _isBackground ? originalSpeed * 0.7f : originalSpeed;
-        curJumpHeight = _isBackground ? jumpHeight * 0.7f : jumpHeight;
-        transform.localScale = 
-            _isBackground ? new Vector3(transform.localScale.x * 0.75f, 0.75f, 1) : 
-                new Vector3(Mathf.Sign(transform.localScale.x) * originalScale.x, originalScale.y, 1);
-    }
+    //     // Change speed, jump height and scale
+    //     speed = _isBackground ? originalSpeed * 0.7f : originalSpeed;
+    //     curJumpHeight = _isBackground ? jumpHeight * 0.7f : jumpHeight;
+    //     transform.localScale = 
+    //         _isBackground ? new Vector3(transform.localScale.x * 0.75f, 0.75f, 1) : 
+    //             new Vector3(Mathf.Sign(transform.localScale.x) * originalScale.x, originalScale.y, 1);
+    // }
 
     // Physics is based on time (in seconds), thus we should use FixedUpdate
     // which is not called per-tick.
@@ -143,7 +110,7 @@ public class EnemyMovement : MonoBehaviour
             if(shouldStop) return;
 
             // Apply calculated velocity
-            rb.linearVelocity = new Vector2(MoveDir * speed, rb.linearVelocity.y); 
+            _rb.linearVelocity = new Vector2(MoveDir * speed, _rb.linearVelocity.y); 
 
             // Check obstacles for jump
             if(IsGrounded)
@@ -157,8 +124,6 @@ public class EnemyMovement : MonoBehaviour
             // Check if arrived to the target position
             //if(isChasing)
             CheckArrived();
-
-
         }
     }
 
@@ -205,51 +170,29 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    // protected virtual void OnCollisionEnter2D(Collision2D collision)
+    // protected bool IsOnGround()
     // {
-
-    //     int ignoreTargetLayer = _isBackground ? _fgLayerIndex : _bgLayerIndex;
-
-    //     // Check the floor collider's layer
-    //     if (collision.gameObject.layer == ignoreTargetLayer)
-    //     {
-    //         if(_ignoredColliders.Contains(collision.collider)) return;
-
-    //         // Ignore the tile
-    //         Physics2D.IgnoreCollision(myCollider, collision.collider, true);
-    //         _ignoredColliders.Add(collision.collider);
-
-    //         return;
-    //     }
-        
-    //     // don't ignore the tile
-    //     Physics2D.IgnoreCollision(myCollider, collision.collider, false);
-    //     _ignoredColliders.Remove(collision.collider);
+    //     LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
+    //     RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, heightDistance, layerParam);
+    //     //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.2f, ~(1 << gameObject.layer));
+    //     return hit.collider != null;
     // }
 
-    protected bool IsOnGround()
-    {
-        LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, heightDistance, layerParam);
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.2f, ~(1 << gameObject.layer));
-        return hit.collider != null;
-    }
 
-
-    protected int GetGroundLayer()
-    {
-        LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, layerParam);
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, ~(1 << gameObject.layer));
-        return hit.collider != null ? hit.collider.gameObject.layer : platformLayer;
-    }
+    // protected int GetGroundLayer()
+    // {
+    //     LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
+    //     RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, layerParam);
+    //     //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, ~(1 << gameObject.layer));
+    //     return hit.collider != null ? hit.collider.gameObject.layer : _characterLayer;
+    // }
 
     protected virtual void CheckGround()
     {
         LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
         // Platform check
-        Vector2 frontVec = new Vector2(rb.position.x + groundCheckDistance * MoveDir * speed,
-        rb.position.y);
+        Vector2 frontVec = new Vector2(_rb.position.x + groundCheckDistance * MoveDir * speed,
+        _rb.position.y);
 
         Debug.DrawRay(frontVec, Vector3.down * heightDistance, new Color(1, 0, 0));
 
@@ -349,18 +292,17 @@ public class EnemyMovement : MonoBehaviour
         //Invoke("Think", 3);
     }
 
-    public virtual void SetMoveDirection(float direction)
+    public override void SetMoveDirection(float direction)
     {
-        MoveDir = direction;
+        base.SetMoveDirection(direction);
         _animController.FlipCharacter(-MoveDir);
     }
 
-    public virtual void Jump()
+    public override void Jump()
     {
         if (IsGrounded)
         {
-            //Debug.Log("Jump!");
-            rb.AddForce(Vector2.up * curJumpHeight, ForceMode2D.Impulse);
+            _rb.AddForce(Vector2.up * curJumpHeight, ForceMode2D.Impulse);
         }
 
         // BONUS logic here if needed:
@@ -383,7 +325,7 @@ public class EnemyMovement : MonoBehaviour
         OnBlinkFinished.Invoke(targetPosition);
     }
 
-    public virtual void ResetState()
+    public override void ResetState()
     {
         transform.position = spawnPosition;
         AnimController.ResetState();

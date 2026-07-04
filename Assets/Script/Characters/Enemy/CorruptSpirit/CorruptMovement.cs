@@ -57,7 +57,7 @@ public class CorruptMovement : EnemyMovement
             xOffset = _isBackground ? xOffset : -xOffset;
 
         
-        Vector2 origin = new Vector2(rb.position.x + xOffset, rb.position.y);
+        Vector2 origin = new Vector2(_rb.position.x + xOffset, _rb.position.y);
         Debug.DrawRay(origin + Vector2.up * camHalfHeight, Vector2.down * camHalfHeight * 2f, new Color(0, 0, 1), 2.0f);
         RaycastHit2D hitresult = Physics2D.Raycast(origin + Vector2.up * camHalfHeight,
                 Vector2.down, camHalfHeight * 2f, layerParam);
@@ -78,7 +78,7 @@ public class CorruptMovement : EnemyMovement
         gameObject.layer = layerIndex;
 
         //5. reposition the player character:
-        rb.position = new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
+        _rb.position = new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
 
         // 6. Change the order layer
         ChangeOrderInLayer();
