@@ -31,7 +31,7 @@ public class BaseCharacterMovement : MonoBehaviour
     protected Rigidbody2D _rb; // Physics body for 2D object
     [SerializeField] protected bool _isBackground = false; //by default, you're already on 
     public bool IsBackground => _isBackground;
-    protected string myLayer;
+    protected string myLayer = "NPC";
 
     protected int _characterLayer => gameObject.layer;
     protected int _bgLayerIndex => (int)Mathf.Log(bgLayer.value, 2);
@@ -55,22 +55,25 @@ public class BaseCharacterMovement : MonoBehaviour
 
     protected virtual void Start()
     {
-        string groundLayerName = LayerMask.LayerToName(GetGroundLayer());
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, _bgLayerIndex | _fgLayerIndex);
+
+        Debug.Log(hit.collider);
+
+        string groundLayerName = LayerMask.LayerToName(hit.collider != null ? hit.collider.gameObject.layer : _characterLayer);
 
         if (groundLayerName.Contains("_"))
         {
             // 1. Check the ground is Foreground or Background
             string groundPrefix = groundLayerName.Split('_')[0];
-            bool isForeground = (groundPrefix == "Foreground");
+            _isBackground = (groundPrefix == "Background");
 
             // 2. Request a layer number of the "player/enemy" (e.g., "floor") from the manager.
             // 예: 바닥이 Background_Platform이면, 나는 Background_Player 레이어 번호를 가져옴
-            int nextMyLayer = LayerManager.Instance.GetLayer(isForeground, myLayer);
-
-            // 3. 내 레이어 변경
+            int nextMyLayer = LayerManager.Instance.GetLayer(_isBackground, myLayer);
+           
             gameObject.layer = nextMyLayer;
             
-            Debug.Log($"Because the layer of the platform is {groundLayerName}, change my layer as {LayerMask.LayerToName(nextMyLayer)}.");
+            Debug.Log($"{GetType().Name}: Because the layer of the platform is {groundLayerName}, change my layer as {LayerMask.LayerToName(nextMyLayer)}.");
         }
 
         ChangeOrderInLayer();

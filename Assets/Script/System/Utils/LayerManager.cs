@@ -32,16 +32,16 @@ public class LayerManager : MonoSingletonBase<LayerManager>
         }
     }
 
-    public int GetLayer(bool isForeground, string typeName)
+    public int GetLayer(bool isBackground, string typeName)
     {
-        var targetDict = isForeground ? foregroundLayers : backgroundLayers;
+        var targetDict = isBackground ? backgroundLayers : foregroundLayers;
 
         if (targetDict.TryGetValue(typeName, out int layerIndex))
         {
             return layerIndex;
         }
 
-        Debug.LogWarning($"[LayerManager] {(isForeground ? "Foreground" : "Background")}_{typeName} no Layer!");
+        Debug.LogWarning($"[LayerManager] {(isBackground ? "Background" : "Foreground")}_{typeName} no Layer!");
         return 0; 
     }
 }
