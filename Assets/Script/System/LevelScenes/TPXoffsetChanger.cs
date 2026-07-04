@@ -7,7 +7,13 @@ public class TPXoffsetChanger : MonoBehaviour
 {
     [SerializeField] private float degAngle = 0f;
 
+    // Is the teleport limited to one point of the platform?
+    // False by default.
+    public bool IsLimitTeleport = false;
+
     private bool _hasInteracted = false;
+
+    private IBlinkStrategy _strategy;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,7 +21,15 @@ public class TPXoffsetChanger : MonoBehaviour
 
         if (movementComp != null && !_hasInteracted)
         {
-            // calculate the cosine 
+            // pass in different strategy classes for different cases of teleport calculation:
+            if (IsLimitTeleport)
+            {
+                
+            }
+            else
+            {
+                
+            }
         }
     }
 }

@@ -37,8 +37,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.08, y: 2.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3387865071293112304}
   - {fileID: 2481214021082140418}
@@ -270,6 +270,7 @@ MonoBehaviour:
   speedIncFactor: 1
   groundCheckDistance: 0.5
   obstacleDistance: 0.5
+  heightDistance: 2
   bgLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -285,6 +286,7 @@ MonoBehaviour:
   _isBackground: 1
   targetPosition: {x: 0, y: 0}
   isChasing: 0
+  isArrived: 1
 --- !u!114 &7916854309380687958
 MonoBehaviour:
   m_ObjectHideFlags: 0

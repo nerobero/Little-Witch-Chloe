@@ -90,7 +90,7 @@ public class PlayerMovement : BaseCharacterMovement
     //     _spriteRender.sortingOrder = orderInLayer;
     //     _childSpriteRender.sortingOrder = orderInLayer;
 
-    //     // Change speed, jump height and scale
+        // Change speed, jump height and scale
     //     speed = _isBackground ? originalSpeed * 0.7f : originalSpeed;
     //     curJumpHeight = _isBackground ? jumpHeight * 0.7f : jumpHeight;
     //     transform.localScale = 
@@ -271,7 +271,6 @@ public class PlayerMovement : BaseCharacterMovement
             Debug.LogWarning("cannot teleport.");
             return;
         }
-        //Debug.Log($"Collided: {collided.gameObject.layer}, Player: {currLayer}");
 
         //2. find the surface to get teleport to:
         float camHalfHeight = Camera.main.orthographicSize;
@@ -285,7 +284,6 @@ public class PlayerMovement : BaseCharacterMovement
 
         // 2b. using raycast to determine where on the surface the character can 'blink' to:
         Vector2 origin = new Vector2(_rb.position.x + xOffset, _rb.position.y);
-        // Debug.DrawRay(origin + Vector2.up * camHalfHeight, Vector2.down * camHalfHeight * 2f, new Color(0, 0, 1), 2.0f);
         RaycastHit2D hitresult = Physics2D.Raycast(origin + Vector2.up * camHalfHeight,
                 Vector2.down, camHalfHeight * 2f, layerParam);
         if (hitresult.collider == null)
@@ -304,8 +302,6 @@ public class PlayerMovement : BaseCharacterMovement
         // and enabling the colliders for the destination ground:
         int layerIndex = (int)Mathf.Log(_isBackground ? bgPlayerLayer : fgPlayerLayer, 2);
         gameObject.layer = layerIndex;
-        // Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, !_isBackground);
-        // Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, _isBackground);
 
         //5. reposition the player character:
         
