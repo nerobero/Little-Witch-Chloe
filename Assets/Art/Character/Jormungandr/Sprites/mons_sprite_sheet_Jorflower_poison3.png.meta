@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 20530ba66e7278546a315cc78c9c4f9d
+guid: c3597eb183adf164a8290e8d4d209318
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4176609659178358752
-    second: cha_sprite_sheet_chloe_attack2_0
+      213: -323568361455870597
+    second: mons_sprite_sheet_Jorflower_poison3_0
   - first:
-      213: 6713218997943846317
-    second: cha_sprite_sheet_chloe_attack2_1
+      213: 1613894665367048008
+    second: mons_sprite_sheet_Jorflower_poison3_1
+  - first:
+      213: -278458206915136340
+    second: mons_sprite_sheet_Jorflower_poison3_2
+  - first:
+      213: -7967195475700920699
+    second: mons_sprite_sheet_Jorflower_poison3_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -78,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_attack2_0
+      name: mons_sprite_sheet_Jorflower_poison3_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 24
-        height: 32
+        x: 51
+        y: 103
+        width: 43
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0286533c4a3b906c0800000000000000
-      internalID: -4176609659178358752
+      spriteID: b7d1ed22a44728bf0800000000000000
+      internalID: -323568361455870597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_attack2_1
+      name: mons_sprite_sheet_Jorflower_poison3_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 0
-        width: 24
-        height: 32
+        x: 209
+        y: 103
+        width: 45
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +146,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da5c8d74c152a2d50800000000000000
-      internalID: 6713218997943846317
+      spriteID: 84fc91ab5a4b56610800000000000000
+      internalID: 1613894665367048008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_Jorflower_poison3_2
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 107
+        width: 45
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca4f7047cb7b22cf0800000000000000
+      internalID: -278458206915136340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_Jorflower_poison3_3
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 109
+        width: 46
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58e4fb64de5de6190800000000000000
+      internalID: -7967195475700920699
       vertices: []
       indices: 
       edges: []
@@ -160,8 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cha_sprite_sheet_chloe_attack2_0: -4176609659178358752
-      cha_sprite_sheet_chloe_attack2_1: 6713218997943846317
+      mons_sprite_sheet_Jorflower_poison3_0: -323568361455870597
+      mons_sprite_sheet_Jorflower_poison3_1: 1613894665367048008
+      mons_sprite_sheet_Jorflower_poison3_2: -278458206915136340
+      mons_sprite_sheet_Jorflower_poison3_3: -7967195475700920699
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

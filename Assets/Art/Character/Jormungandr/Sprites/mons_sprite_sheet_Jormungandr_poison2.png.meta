@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 20530ba66e7278546a315cc78c9c4f9d
+guid: 2e6a45752d7ff304c840d99a5353bd20
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4176609659178358752
-    second: cha_sprite_sheet_chloe_attack2_0
+      213: -4396167914120083567
+    second: mons_sprite_sheet_Jormungandr_poison2_0
   - first:
-      213: 6713218997943846317
-    second: cha_sprite_sheet_chloe_attack2_1
+      213: -5260950939385438225
+    second: mons_sprite_sheet_Jormungandr_poison2_1
+  - first:
+      213: 5610863786387062169
+    second: mons_sprite_sheet_Jormungandr_poison2_2
+  - first:
+      213: -3620358708625863959
+    second: mons_sprite_sheet_Jormungandr_poison2_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -78,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_attack2_0
+      name: mons_sprite_sheet_Jormungandr_poison2_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 27
         y: 0
-        width: 24
-        height: 32
+        width: 117
+        height: 154
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0286533c4a3b906c0800000000000000
-      internalID: -4176609659178358752
+      spriteID: 19707e1f29cadf2c0800000000000000
+      internalID: -4396167914120083567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_attack2_1
+      name: mons_sprite_sheet_Jormungandr_poison2_1
       rect:
         serializedVersion: 2
-        x: 35
+        x: 172
         y: 0
-        width: 24
-        height: 32
+        width: 132
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +146,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da5c8d74c152a2d50800000000000000
-      internalID: 6713218997943846317
+      spriteID: fef5c2d8ef85df6b0800000000000000
+      internalID: -5260950939385438225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_Jormungandr_poison2_2
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 0
+        width: 163
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99d34b6d2eacddd40800000000000000
+      internalID: 5610863786387062169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_Jormungandr_poison2_3
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 0
+        width: 122
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ea0ddc9fe6e1cdc0800000000000000
+      internalID: -3620358708625863959
       vertices: []
       indices: 
       edges: []
@@ -160,8 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cha_sprite_sheet_chloe_attack2_0: -4176609659178358752
-      cha_sprite_sheet_chloe_attack2_1: 6713218997943846317
+      mons_sprite_sheet_Jormungandr_poison2_0: -4396167914120083567
+      mons_sprite_sheet_Jormungandr_poison2_1: -5260950939385438225
+      mons_sprite_sheet_Jormungandr_poison2_2: 5610863786387062169
+      mons_sprite_sheet_Jormungandr_poison2_3: -3620358708625863959
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

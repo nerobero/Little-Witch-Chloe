@@ -1,13 +1,22 @@
 fileFormatVersion: 2
-guid: 20530ba66e7278546a315cc78c9c4f9d
+guid: 7d2d81ce020ad3d498dbdfe620cbbc62
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4176609659178358752
-    second: cha_sprite_sheet_chloe_attack2_0
+      213: 5732038466841448472
+    second: mons_sprite_sheet_Jorflower_idle_0
   - first:
-      213: 6713218997943846317
-    second: cha_sprite_sheet_chloe_attack2_1
+      213: -5275981195087217790
+    second: mons_sprite_sheet_Jorflower_idle_1
+  - first:
+      213: -1298912425309511258
+    second: mons_sprite_sheet_Jorflower_idle_2
+  - first:
+      213: 3455886040335025946
+    second: mons_sprite_sheet_Jorflower_idle_3
+  - first:
+      213: -2668295238975555987
+    second: mons_sprite_sheet_Jorflower_idle_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -78,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_attack2_0
+      name: mons_sprite_sheet_Jorflower_idle_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 24
-        height: 32
+        x: 51
+        y: 109
+        width: 46
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +127,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0286533c4a3b906c0800000000000000
-      internalID: -4176609659178358752
+      spriteID: 81095fead9a4c8f40800000000000000
+      internalID: 5732038466841448472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cha_sprite_sheet_chloe_attack2_1
+      name: mons_sprite_sheet_Jorflower_idle_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 0
-        width: 24
-        height: 32
+        x: 212
+        y: 107
+        width: 45
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +149,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da5c8d74c152a2d50800000000000000
-      internalID: 6713218997943846317
+      spriteID: 28b7f217e03f7c6b0800000000000000
+      internalID: -5275981195087217790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_Jorflower_idle_2
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 109
+        width: 46
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a1e517f70659fde0800000000000000
+      internalID: -1298912425309511258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_Jorflower_idle_3
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 109
+        width: 46
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a17866a2b06c5ff20800000000000000
+      internalID: 3455886040335025946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_Jorflower_idle_4
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 107
+        width: 46
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d66fefc0e9f48fad0800000000000000
+      internalID: -2668295238975555987
       vertices: []
       indices: 
       edges: []
@@ -160,8 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cha_sprite_sheet_chloe_attack2_0: -4176609659178358752
-      cha_sprite_sheet_chloe_attack2_1: 6713218997943846317
+      mons_sprite_sheet_Jorflower_idle_0: 5732038466841448472
+      mons_sprite_sheet_Jorflower_idle_1: -5275981195087217790
+      mons_sprite_sheet_Jorflower_idle_2: -1298912425309511258
+      mons_sprite_sheet_Jorflower_idle_3: 3455886040335025946
+      mons_sprite_sheet_Jorflower_idle_4: -2668295238975555987
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
