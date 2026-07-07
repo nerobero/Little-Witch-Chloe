@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -12,6 +14,7 @@ public class BaseCharacterMovement : MonoBehaviour
     // These values are exposed states for others to read:
     public bool IsGrounded => IsOnGround();
     public float MoveDir { get; protected set; }
+    protected bool couldMove = true;
 
     [Header("Movement values")]
     [SerializeField] protected float originalSpeed;
@@ -39,6 +42,14 @@ public class BaseCharacterMovement : MonoBehaviour
 
     // player's sprite renderer:
     protected SpriteRenderer _spriteRender;
+
+    protected Coroutine stunRoutines;
+    protected Coroutine rootedRoutines;
+
+    protected WaitForSecondsTracked remainStunTime;
+    
+
+    protected Coroutine slowedRoutines;
 
     protected virtual void Awake()
     {
@@ -141,5 +152,38 @@ public class BaseCharacterMovement : MonoBehaviour
     public virtual void ResetState()
     {
         
+    }
+
+    public virtual void Stun(float duration)
+    {
+        couldMove = false;
+
+        if(stunRoutines != null)
+        {
+            // remaining time is over than duration than refresh stun.
+            if(remainStunTime.TimeRemaining <= duration)
+            {
+                StopCoroutine(stunRoutines);
+                remainStunTime = null;
+            }
+            // else, ignore the stun.
+            else
+            {
+                return;
+            }
+        }
+
+        stunRoutines = StartCoroutine(StunTimer(duration));
+    }
+
+    protected virtual IEnumerator StunTimer(float duration)
+    {
+        remainStunTime =  new WaitForSecondsTracked(duration);
+        yield return remainStunTime;
+
+
+        couldMove = true;
+        stunRoutines = null;
+        remainStunTime = null;
     }
 }
