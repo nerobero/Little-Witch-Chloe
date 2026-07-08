@@ -22,7 +22,7 @@ public class NormalBlinkStrategy : IBlinkStrategy
         _angle = angle;
     }
 
-    public Vector2 ProcessTeleport(float alpha, bool isBackground, bool isFacingRight, Transform characOrigin, Transform platformOrigin)
+    public Vector2 ProcessTeleport(float alpha, bool isBackground, bool isFacingRight, Transform characOrigin, Transform platformOrigin = null)
     {
         //1. finding if there is any teleportable platform within the given radius 
         LayerMask layerParam = isBackground ? _fgLayer : _bgLayer;

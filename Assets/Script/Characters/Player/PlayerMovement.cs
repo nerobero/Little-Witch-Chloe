@@ -31,6 +31,7 @@ public class PlayerMovement : BaseCharacterMovement
     [SerializeField] private float blinkCooldownTime = 3.0f;
     private bool canBlink = true;
     public event Action<float> OnBlinkCooldown;
+    private IBlinkStrategy _blinkStrat;
 
 
     protected override void Awake()
@@ -49,6 +50,7 @@ public class PlayerMovement : BaseCharacterMovement
         // ignoring the background platform in the beginning
         int layerIndex = (int)Mathf.Log(_isBackground ? bgPlayerLayer : fgPlayerLayer, 2);
         gameObject.layer = layerIndex;
+        _blinkStrat = new NormalBlinkStrategy();
         // Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, !_isBackground);
         // Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, _isBackground);
 
@@ -262,35 +264,35 @@ public class PlayerMovement : BaseCharacterMovement
         
         if(!canBlink) return;
 
-        //1. finding if there is any teleportable platform within the given radius 
-        LayerMask layerParam = _isBackground ? fgLayer : bgLayer;
-        Collider2D collided = Physics2D.OverlapCircle(transform.position, 15.0f, layerParam);
-        int currLayer = GetGroundLayer();
-        if (collided == null || collided.gameObject.layer == currLayer)
-        {
-            Debug.LogWarning("cannot teleport.");
-            return;
-        }
+        // //1. finding if there is any teleportable platform within the given radius 
+        // LayerMask layerParam = _isBackground ? fgLayer : bgLayer;
+        // Collider2D collided = Physics2D.OverlapCircle(transform.position, 15.0f, layerParam);
+        // int currLayer = GetGroundLayer();
+        // if (collided == null || collided.gameObject.layer == currLayer)
+        // {
+        //     Debug.LogWarning("cannot teleport.");
+        //     return;
+        // }
 
-        //2. find the surface to get teleport to:
-        float camHalfHeight = Camera.main.orthographicSize;
+        // //2. find the surface to get teleport to:
+        // float camHalfHeight = Camera.main.orthographicSize;
 
-        // 2a. flipping the xOffset based on the character's move direction
-        // and whether the character is in the background or not:
-        if (_animController._isFacingRight)
-            xOffset = _isBackground ? -xOffset : xOffset;
-        else
-            xOffset = _isBackground ? xOffset : -xOffset;
+        // // 2a. flipping the xOffset based on the character's move direction
+        // // and whether the character is in the background or not:
+        // if (_animController._isFacingRight)
+        //     xOffset = _isBackground ? -xOffset : xOffset;
+        // else
+        //     xOffset = _isBackground ? xOffset : -xOffset;
 
-        // 2b. using raycast to determine where on the surface the character can 'blink' to:
-        Vector2 origin = new Vector2(_rb.position.x + xOffset, _rb.position.y);
-        RaycastHit2D hitresult = Physics2D.Raycast(origin + Vector2.up * camHalfHeight,
-                Vector2.down, camHalfHeight * 2f, layerParam);
-        if (hitresult.collider == null)
-        {
-            Debug.Log("Null");
-            return;
-        }
+        // // 2b. using raycast to determine where on the surface the character can 'blink' to:
+        // Vector2 origin = new Vector2(_rb.position.x + xOffset, _rb.position.y);
+        // RaycastHit2D hitresult = Physics2D.Raycast(origin + Vector2.up * camHalfHeight,
+        //         Vector2.down, camHalfHeight * 2f, layerParam);
+        // if (hitresult.collider == null)
+        // {
+        //     Debug.Log("Null");
+        //     return;
+        // }
 
         canBlink = false;
 
@@ -305,7 +307,8 @@ public class PlayerMovement : BaseCharacterMovement
 
         //5. reposition the player character:
         
-        _rb.position = new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
+        _rb.position = _blinkStrat.ProcessTeleport(2f, isBackground: _isBackground, 
+            isFacingRight: _animController.IsFacingRight, characOrigin: transform); //new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Blink");
 
 

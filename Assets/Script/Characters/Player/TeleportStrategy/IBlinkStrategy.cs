@@ -8,6 +8,6 @@ public interface IBlinkStrategy
 {
     public void SetUpStrategyParams(LayerMask fg, LayerMask bg, float angle);
     public Vector2 ProcessTeleport(float alpha, bool isBackground, bool isFacingRight,
-                                   Transform characOrigin, Transform platformOrigin);
+                                   Transform characOrigin, Transform platformOrigin = null);
 
 }
