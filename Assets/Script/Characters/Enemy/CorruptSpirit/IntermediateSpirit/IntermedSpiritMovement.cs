@@ -6,12 +6,7 @@ using UnityEngine;
 /// </summary>
 public class IntermedSpiritMovement : CorruptMovement
 {
-    private IntermedSpiritAnimController _castedAnimController;
-    protected override void Awake()
-    {
-        base.Awake();
-        _castedAnimController = _animController as IntermedSpiritAnimController;
-    }
+    protected new IntermedSpiritAnimController _animController;
 
     public override void SetMoveDirection(float direction)
     {
@@ -19,13 +14,8 @@ public class IntermedSpiritMovement : CorruptMovement
         _animController.FlipCharacter(-MoveDir);
     }
     
-    public override void MoveToTarget(Vector2 target)
-    {
-        base.MoveToTarget(target);
-        // _castedAnimController.SetToIdle();
-    }
     public override void OnBlinkCallback()
     {
-        _castedAnimController.SetToSeenTrans();
+        _animController.SetToSeenTrans();
     }
 }

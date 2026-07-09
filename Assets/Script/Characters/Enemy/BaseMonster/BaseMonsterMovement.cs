@@ -7,25 +7,36 @@ public class BaseMonsterMovement : EnemyMovement
         base.Start();
     }
 
-    public override void Think()
-    {
-        base.Think();
+    // public override void Think()
+    // {
+    //     base.Think();
 
-        if(isArrived)
-        {
-            //SetMoveDirection(MoveDir);
+    //     if(isArrived)
+    //     {
+    //         //SetMoveDirection(MoveDir);
 
-            float offsetX = MoveDir * Random.Range(minDistance, maxDistance);
-            float offsetY = MoveDir * Random.Range(minDistance, maxDistance);
+    //         float offsetX = MoveDir * Random.Range(minDistance, maxDistance);
+    //         float offsetY = MoveDir * Random.Range(minDistance, maxDistance);
             
-            // Make target position in 2~3 grids on the x-y axis from its spawn point.
-            targetPosition = spawnPosition + new Vector2(offsetX, offsetY);
+    //         // Make target position in 2~3 grids on the x-y axis from its spawn point.
+    //         targetPosition = spawnPosition + new Vector2(offsetX, offsetY);
 
-            Debug.Log(targetPosition);
+    //         Debug.Log(targetPosition);
 
-            isArrived = false;
-        }
-    }
+    //         isArrived = false;
+    //     }
+    // }
+
+    // protected override void Turn()
+    // {
+    //     base.Turn();
+
+    //     float offsetX = MoveDir * Random.Range(minDistance, maxDistance);
+    //     float offsetY = MoveDir * Random.Range(minDistance, maxDistance);
+        
+    //     // Make target position in 2~3 grids on the x-y axis from its spawn point.
+    //     targetPosition = spawnPosition + new Vector2(offsetX, offsetY);
+    // }
 
     protected override void CheckArrived()
     {

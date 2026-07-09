@@ -260,30 +260,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47d4da44e5ab7724aaddeb22a9409e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntermedSpiritMovement
-  shouldStop: 0
-  IsEnabled: 1
   originalSpeed: 1
   jumpHeight: 1
-  flyForce: 0
-  minDistance: 2
-  maxDistance: 3
-  speedIncFactor: 1
-  groundCheckDistance: 0.5
-  obstacleDistance: 0.5
-  heightDistance: 2
   bgLayer:
     serializedVersion: 2
     m_Bits: 128
   fgLayer:
     serializedVersion: 2
     m_Bits: 64
+  heightDistance: 2
+  _isBackground: 1
+  shouldStop: 0
+  IsEnabled: 1
+  minDistance: 2
+  maxDistance: 3
+  speedIncFactor: 1
+  groundCheckDistance: 0.5
+  obstacleDistance: 2
   fgEnemyLayer:
     serializedVersion: 2
     m_Bits: 16384
   bgEnemyLayer:
     serializedVersion: 2
     m_Bits: 32768
-  _isBackground: 1
   targetPosition: {x: 0, y: 0}
   isChasing: 0
   isArrived: 1

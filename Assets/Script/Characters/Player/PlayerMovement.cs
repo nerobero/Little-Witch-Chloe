@@ -51,54 +51,13 @@ public class PlayerMovement : BaseCharacterMovement
         int layerIndex = (int)Mathf.Log(_isBackground ? bgPlayerLayer : fgPlayerLayer, 2);
         gameObject.layer = layerIndex;
         _blinkStrat = new NormalBlinkStrategy();
-        // Physics2D.IgnoreLayerCollision(_playerLayer, _bgLayerIndex, !_isBackground);
-        // Physics2D.IgnoreLayerCollision(_playerLayer, _fgLayerIndex, _isBackground);
 
         originalScale = transform.localScale;
         heightDistance = 1.5f;
         myLayer = "Player";
+        
+        remainStunTime = new WaitForSecondsTracked(0f);
     }
-
-    // protected override void Start()
-    // {
-    //     string groundLayerName = LayerMask.LayerToName(GetGroundLayer());
-
-    //     if (groundLayerName.Contains("_"))
-    //     {
-    //         // 1. Check the ground is Foreground or Background
-    //         string groundPrefix = groundLayerName.Split('_')[0];
-    //         bool isForeground = (groundPrefix == "Foreground");
-
-    //         // 2. Request a layer number of the "player" (e.g., "floor") from the manager.
-    //         // 예: 바닥이 Background_Platform이면, 나는 Background_Player 레이어 번호를 가져옴
-    //         int nextMyLayer = LayerManager.Instance.GetLayer(isForeground, "Player");
-
-    //         // 3. 내 레이어 변경
-    //         gameObject.layer = nextMyLayer;
-            
-    //         Debug.Log($"Because the layer of the platform is {groundLayerName}, change my layer as {LayerMask.LayerToName(nextMyLayer)}.");
-    //     }
-
-    //     ChangeOrderInLayer();
-    // }
-
-    // /// <summary>
-    // /// Set the gameobject's orderInLayer -1 or 0 based on whether
-    // /// the character is in the background or not.
-    // /// </summary>
-    // protected override void ChangeOrderInLayer()
-    // {
-    //     orderInLayer = _isBackground ? -1 : 1;
-    //     _spriteRender.sortingOrder = orderInLayer;
-    //     _childSpriteRender.sortingOrder = orderInLayer;
-
-        // Change speed, jump height and scale
-    //     speed = _isBackground ? originalSpeed * 0.7f : originalSpeed;
-    //     curJumpHeight = _isBackground ? jumpHeight * 0.7f : jumpHeight;
-    //     transform.localScale = 
-    //         _isBackground ? new Vector3(transform.localScale.x * 0.75f, 0.75f, 1) : 
-    //             new Vector3(Mathf.Sign(transform.localScale.x) * originalScale.x, originalScale.y, 1);
-    // }
 
     public void ApplyAllGameData(bool isBackground, Vector3 savedPosition, Quaternion savedRotation, Vector3 savedScale)
     {
@@ -145,34 +104,6 @@ public class PlayerMovement : BaseCharacterMovement
     {
         xOffset = newOffset < 0f ? 0f : newOffset;
     }
-
-    // /// <summary>
-    // /// Is the character on the ground platform?
-    // /// </summary>
-    // /// <returns>true if the raycast hits an object</returns>
-    // protected override bool IsOnGround()
-    // {
-    //     LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
-    //     RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, layerParam);
-    //     //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, ~(1 << gameObject.layer));
-    //     return hit.collider != null;
-    // }
-
-    // /// <summary>
-    // /// Gets the index of the layermask that the player is currently standing on.
-    // /// </summary>
-    // /// <returns>the index of the current layermask the player is standing on</returns>
-    // protected override int GetGroundLayer()
-    // {
-    //     //Debug.DrawRay(transform.position, Vector2.down, new Color(0, 1, 0), 2.0f);
-    //     LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
-    //     RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, layerParam);
-    //     //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, ~(1 << gameObject.layer));
-
-
-    //     //Debug.Log($"hit.collider: {hit.collider}, playerLayer: {_playerLayer}, hit.layer: {hit.collider.gameObject.layer}");
-    //     return hit.collider != null ? hit.collider.gameObject.layer : _playerLayer;
-    // }
 
     /// <summary>
     /// Sets the player's move direction. Also flips the character via anim controller
@@ -264,55 +195,25 @@ public class PlayerMovement : BaseCharacterMovement
         
         if(!canBlink) return;
 
-        // //1. finding if there is any teleportable platform within the given radius 
-        // LayerMask layerParam = _isBackground ? fgLayer : bgLayer;
-        // Collider2D collided = Physics2D.OverlapCircle(transform.position, 15.0f, layerParam);
-        // int currLayer = GetGroundLayer();
-        // if (collided == null || collided.gameObject.layer == currLayer)
-        // {
-        //     Debug.LogWarning("cannot teleport.");
-        //     return;
-        // }
-
-        // //2. find the surface to get teleport to:
-        // float camHalfHeight = Camera.main.orthographicSize;
-
-        // // 2a. flipping the xOffset based on the character's move direction
-        // // and whether the character is in the background or not:
-        // if (_animController._isFacingRight)
-        //     xOffset = _isBackground ? -xOffset : xOffset;
-        // else
-        //     xOffset = _isBackground ? xOffset : -xOffset;
-
-        // // 2b. using raycast to determine where on the surface the character can 'blink' to:
-        // Vector2 origin = new Vector2(_rb.position.x + xOffset, _rb.position.y);
-        // RaycastHit2D hitresult = Physics2D.Raycast(origin + Vector2.up * camHalfHeight,
-        //         Vector2.down, camHalfHeight * 2f, layerParam);
-        // if (hitresult.collider == null)
-        // {
-        //     Debug.Log("Null");
-        //     return;
-        // }
-
         canBlink = false;
 
-        //3. flip the _isBackground value before we reposition the character:
+        // 1. flip the _isBackground value before we reposition the character:
         _animController.SetToIsBlinkingStartTrig();
         _isBackground = !_isBackground;
 
-        //4. ignoring the colliders of the source ground
+        // 2. ignoring the colliders of the source ground
         // and enabling the colliders for the destination ground:
         int layerIndex = (int)Mathf.Log(_isBackground ? bgPlayerLayer : fgPlayerLayer, 2);
         gameObject.layer = layerIndex;
 
-        //5. reposition the player character:
+        // 3. reposition the player character:
         
         _rb.position = _blinkStrat.ProcessTeleport(2f, isBackground: _isBackground, 
             isFacingRight: _animController.IsFacingRight, characOrigin: transform); //new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Blink");
 
 
-        //6. changing the order in layer:
+        // 4. changing the order in layer:
         ChangeOrderInLayer();
 
         

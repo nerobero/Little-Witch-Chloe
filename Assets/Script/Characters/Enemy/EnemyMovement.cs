@@ -24,8 +24,6 @@ public class EnemyMovement : BaseCharacterMovement
     [Header("Ground Detection")]
     [SerializeField] protected float groundCheckDistance = 0.5f;
     [SerializeField] protected float obstacleDistance = 0.5f;
-    //[SerializeField] protected override float heightDistance = 2f;
-    //[SerializeField] protected LayerMask _characterLayer = gameObject.layer;
 
     [SerializeField] protected LayerMask fgEnemyLayer;
     [SerializeField] protected LayerMask bgEnemyLayer;
@@ -37,6 +35,9 @@ public class EnemyMovement : BaseCharacterMovement
     [Header("Patrol Settings")]
     public Vector2 targetPosition;
     public bool isChasing;
+    
+    protected Vector2 offset;
+    protected Vector2 jumpOffset;
     
     protected Vector2 spawnPosition;
 
@@ -68,38 +69,20 @@ public class EnemyMovement : BaseCharacterMovement
         speed = originalSpeed;
         heightDistance = 2f;
         myLayer = "Enemy";
+        remainStunTime = new WaitForSecondsTracked(0f);
         //ChangeOrderInLayer();
     }
 
     protected override void Start()
     {
-        //sr = GetComponent<SpriteRenderer>();
-        //Invoke("Think", 1);
-        //GetGroundLayer();
-
         base.Start();
         
         // Memory the spawn point
         spawnPosition = transform.position;
+        
+        offset = new Vector2(0, -_spriteRender.bounds.extents.y);
+        jumpOffset = new Vector2(0, curJumpHeight);
     }
-    
-    // /// <summary>
-    // /// Set the gameobject's orderInLayer -1 or 0 based on whether
-    // /// the character is in the background or not.
-    // /// </summary>
-    // protected override void ChangeOrderInLayer()
-    // {
-
-    //     orderInLayer = _isBackground ? -1 : 1;
-    //     _spriteRender.sortingOrder = orderInLayer;
-
-    //     // Change speed, jump height and scale
-    //     speed = _isBackground ? originalSpeed * 0.7f : originalSpeed;
-    //     curJumpHeight = _isBackground ? jumpHeight * 0.7f : jumpHeight;
-    //     transform.localScale = 
-    //         _isBackground ? new Vector3(transform.localScale.x * 0.75f, 0.75f, 1) : 
-    //             new Vector3(Mathf.Sign(transform.localScale.x) * originalScale.x, originalScale.y, 1);
-    // }
 
     // Physics is based on time (in seconds), thus we should use FixedUpdate
     // which is not called per-tick.
@@ -122,7 +105,6 @@ public class EnemyMovement : BaseCharacterMovement
             CheckGround();
 
             // Check if arrived to the target position
-            //if(isChasing)
             CheckArrived();
         }
     }
@@ -135,18 +117,14 @@ public class EnemyMovement : BaseCharacterMovement
             LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
             Vector2 origin = transform.position;
             Vector2 dirVec = Vector2.right * MoveDir;
-            Vector2 offset = new Vector2(_spriteRender.bounds.extents.x * MoveDir, -_spriteRender.bounds.extents.y / 2.0f);
 
             // 1. Check obstacle (low raycast)
             RaycastHit2D lowHit = Physics2D.Raycast(origin + offset, dirVec, obstacleDistance, layerParam);
             Debug.DrawRay(origin + offset, dirVec * obstacleDistance, new Color(0, 1, 0));
 
             // 2. Check can vault the obstacle
-            RaycastHit2D highHit = Physics2D.Raycast(origin + new Vector2(0, curJumpHeight), dirVec, obstacleDistance, layerParam);
-            Debug.DrawRay(origin + new Vector2(0, curJumpHeight), dirVec * obstacleDistance, new Color(0, 0, 1));
-
-            // Debug.DrawRay(frontVec, Vector3.up, new Color(0, 1, 0));
-            // RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector2.up, 1.0f, layerParam);
+            RaycastHit2D highHit = Physics2D.Raycast(origin + jumpOffset, dirVec, obstacleDistance, layerParam);
+            Debug.DrawRay(origin + jumpOffset, dirVec * obstacleDistance, new Color(0, 0, 1));
 
             // If monster detects some obstacles, then jump
             if(lowHit.collider != null)
@@ -162,30 +140,8 @@ public class EnemyMovement : BaseCharacterMovement
                     Turn();
                 }
             }
-            // if(rayHit.collider != null && MoveDir != 0)
-            // {
-            //     Debug.Log($"Obstacle {rayHit.collider.name} Detected!");
-            //     Jump();
-            // }
         }
     }
-
-    // protected bool IsOnGround()
-    // {
-    //     LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
-    //     RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, heightDistance, layerParam);
-    //     //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.2f, ~(1 << gameObject.layer));
-    //     return hit.collider != null;
-    // }
-
-
-    // protected int GetGroundLayer()
-    // {
-    //     LayerMask layerParam = _isBackground ? bgLayer : fgLayer;
-    //     RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, layerParam);
-    //     //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, ~(1 << gameObject.layer));
-    //     return hit.collider != null ? hit.collider.gameObject.layer : _characterLayer;
-    // }
 
     protected virtual void CheckGround()
     {
@@ -211,7 +167,7 @@ public class EnemyMovement : BaseCharacterMovement
         if(isChasing)
         {
             // Check if the move to the target location is completed
-            if(Vector2.Distance(transform.position, targetPosition) <= 0.01f)
+            if(Vector2.Distance(transform.position, targetPosition) <= 0.05f)
             {
                 isArrived = true;
                 // reset the spawn position to current position
@@ -228,7 +184,7 @@ public class EnemyMovement : BaseCharacterMovement
         else
         {
             // compare the x values.
-            if(Mathf.Abs(transform.position.x - targetPosition.x) <= 0.01f || MoveDir == 0f)
+            if(Mathf.Abs(transform.position.x - targetPosition.x) <= 0.05f || MoveDir == 0f)
             {
                 isArrived = true;
             }
@@ -271,13 +227,21 @@ public class EnemyMovement : BaseCharacterMovement
         //Debug.Log("Monster Move: Think");
         if(isArrived)
         {
-            SetMoveDirection(Random.Range(-1, 2)); // -1 : left, 0: stop, 1: right
-            //isArrived = false;
+            int randDir = Random.Range(0, 100); // 0~50 : left, 51~100: right
+            SetMoveDirection(randDir > 50 ? 1 : -1); // -1 : left, 1 : right
+            
+            //SetMoveDirection(MoveDir);
+
+            float offsetX = MoveDir * Random.Range(minDistance, maxDistance);
+            float offsetY = MoveDir * Random.Range(minDistance, maxDistance);
+            
+            // Make target position in 2~3 grids on the x-y axis from its spawn point.
+            targetPosition = spawnPosition + new Vector2(offsetX, offsetY);
+
+            Debug.Log(gameObject + ": " + targetPosition);
+
+            isArrived = false;
         }
-
-        //float nextThinkTime = Random.Range(2.0f, 5.0f);
-
-        //Invoke("Think", nextThinkTime);
     }
 
     // Change the direction
@@ -285,11 +249,12 @@ public class EnemyMovement : BaseCharacterMovement
     {
         //Debug.Log("Monster Move: Turn");
         SetMoveDirection(MoveDir * -1f);
-        // Cancel all invoke function
-        //CancelInvoke();
-
-        // Think next behavior after 3 seconds.
-        //Invoke("Think", 3);
+        
+        float offsetX = MoveDir * Random.Range(minDistance, maxDistance);
+        float offsetY = MoveDir * Random.Range(minDistance, maxDistance);
+        
+        // Make target position in 2~3 grids on the x-y axis from its spawn point.
+        targetPosition = spawnPosition + new Vector2(offsetX, offsetY);
     }
 
     public override void SetMoveDirection(float direction)

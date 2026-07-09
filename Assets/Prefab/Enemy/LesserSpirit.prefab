@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.374, y: 0.03}
+  m_AnchoredPosition: {x: -0.374, y: -0.099}
   m_SizeDelta: {x: 0.9456, y: 0.5526}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!212 &6139647403758418630
@@ -415,30 +415,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45aef59a55382c94db8e2413037f4b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LesserSpiritMovement
-  shouldStop: 0
-  IsEnabled: 1
   originalSpeed: 1
   jumpHeight: 1
-  flyForce: 0
-  minDistance: 2
-  maxDistance: 3
-  speedIncFactor: 1
-  groundCheckDistance: 0.25
-  obstacleDistance: 0.25
-  heightDistance: 2
   bgLayer:
     serializedVersion: 2
     m_Bits: 128
   fgLayer:
     serializedVersion: 2
     m_Bits: 64
+  heightDistance: 2
+  _isBackground: 0
+  shouldStop: 0
+  IsEnabled: 1
+  minDistance: 1
+  maxDistance: 15
+  speedIncFactor: 1
+  groundCheckDistance: 0.25
+  obstacleDistance: 2
   fgEnemyLayer:
     serializedVersion: 2
     m_Bits: 16384
   bgEnemyLayer:
     serializedVersion: 2
     m_Bits: 32768
-  _isBackground: 0
   targetPosition: {x: 0, y: 0}
   isChasing: 0
   isArrived: 1

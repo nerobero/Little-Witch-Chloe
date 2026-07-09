@@ -62,11 +62,13 @@ public class BaseCharacterMovement : MonoBehaviour
 
         originalScale = transform.localScale;
         speed = originalSpeed;
+        remainStunTime = new WaitForSecondsTracked(0f);
     }
 
     protected virtual void Start()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, bgLayer | fgLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, _spriteRender.bounds.extents.y / 2f), Vector2.down, 10.0f, bgLayer | fgLayer);
+        Debug.DrawRay(transform.position - new Vector3(0, _spriteRender.bounds.extents.y / 2f), Vector2.down * 10f, new Color(1, 1, 0), 1000f);
 
         Debug.Log(hit.collider);
 
@@ -173,12 +175,12 @@ public class BaseCharacterMovement : MonoBehaviour
             }
         }
 
+        remainStunTime.Reset(duration);
         stunRoutines = StartCoroutine(StunTimer(duration));
     }
 
     protected virtual IEnumerator StunTimer(float duration)
     {
-        remainStunTime =  new WaitForSecondsTracked(duration);
         yield return remainStunTime;
 
 

@@ -22,7 +22,7 @@ public class JormungandrTail : MonoBehaviour
         _projRB.gravityScale = 0f;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         /*
         1. call the TakeDamage(gameObject, dealtDamage) interface function 
@@ -62,28 +62,6 @@ public class JormungandrTail : MonoBehaviour
         }
 
     }
-    
-    /// <summary>
-    /// Helper method that returns this gameobject to back to the pool
-    /// </summary>
-    private void ReturnToPool()
-    {
-        //resetting the snapshot values back to their default before returning it to the pool
-        //_firedTimeSnapshot = -1f;
-        //_isFired = false;
-
-        // clear the per-collider ignore so the next instigator isn't affected by stale pairs
-        if (_instigatorCollider != null)
-        {
-            Physics2D.IgnoreCollision(_collider, _instigatorCollider, false);
-            _instigatorCollider = null;
-        }
-        instigator = null;
-
-        // reset the anim state to its default as well before returning it to the pool:
-        PoolObjectManager.Instance.Return(spawnType, gameObject);
-        //_animator.SetBool(IsResetHash, true);
-    }
 
 
     public void StartAttack(Vector3 attackPosition, GameObject Instigator)
@@ -100,10 +78,5 @@ public class JormungandrTail : MonoBehaviour
         transform.position = attackPosition;
 
         //_projRB.AddForce(fireDirection * speed, ForceMode2D.Impulse);
-    }
-
-    public void StartAttack()
-    {
-        
     }
 }

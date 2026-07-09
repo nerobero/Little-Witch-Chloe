@@ -14,4 +14,9 @@ public class WaitForSecondsTracked : CustomYieldInstruction
     {
         targetTime = Time.time + duration;
     }
+
+    public void Reset(float duration)
+    {
+        targetTime = Time.time + duration;
+    }
 }

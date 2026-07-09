@@ -56,6 +56,7 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
     [SerializeField] protected const float FORGET_TIME = 5f;
 
     protected Coroutine thinkRoutine;
+    protected WaitForSecondsTracked _interval;
 
     #region Setup
     protected virtual void Awake()
@@ -65,6 +66,7 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
         enemyMove.OnBlinkFinished += ChangeStateToATKorChase;
         enemyAttack = GetComponent<EnemyAttack>();
         enemyStat = GetComponent<EnemyCharacterBase>();
+        _interval = new WaitForSecondsTracked(0f);
         // _animator = GetComponent<PlayerAnimator>();
     }
 
@@ -72,8 +74,6 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
     {
         enemyState = EMonsterState.Idle;
         enemyMove = GetComponent<EnemyMovement>();
-        //Invoke("Think", 1);
-        //thinkRoutine = StartCoroutine(ThinkRoutine(0.5f));
     }
     #endregion
 
@@ -267,12 +267,12 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
         }
     }
 
-    protected IEnumerator ThinkRoutine(float interval)
+    protected IEnumerator ThinkRoutine()
     {
         while(!enemyStat.IsDead)
         {
             Think();
-            yield return new WaitForSeconds(interval);
+            yield return _interval;
         }
     }
 
@@ -307,7 +307,8 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
         enabled = true;
         enemyMove.enabled = true;
         enemyState = EMonsterState.Patrol;
-        thinkRoutine = StartCoroutine(ThinkRoutine(0.5f));
+        _interval.Reset(0.5f);
+        thinkRoutine = StartCoroutine(ThinkRoutine());
         //Think();
     }
 
@@ -384,6 +385,7 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
         gameObject.SetActive(true);
         enemyMove.ResetState();
         enemyStat.ResetState();
-        thinkRoutine = StartCoroutine(ThinkRoutine(0.5f));
+        _interval.Reset(0.5f);
+        thinkRoutine = StartCoroutine(ThinkRoutine());
     }
 }

@@ -6,23 +6,36 @@ public class CorruptMovement : EnemyMovement
     protected override void Awake()
     {
         base.Awake();
+    }
     
-    }
-    public override void Think()
-    {
-        // Check Z axis 
+    // public override void Think()
+    // {
+    //     // Check Z axis 
 
-        base.Think();
-        // float offsetX = MoveDir * Random.Range(minDistance, maxDistance);
-        // float offsetY = MoveDir * Random.Range(minDistance, maxDistance);
+    //     base.Think();
+    //     // float offsetX = MoveDir * Random.Range(minDistance, maxDistance);
+    //     // float offsetY = MoveDir * Random.Range(minDistance, maxDistance);
         
-        // // Make target position in 2~3 grids on the x-y axis from its spawn point.
-        // Vector2 targetPosition = spawnPosition + new Vector2(offsetX, offsetY);
+    //     // // Make target position in 2~3 grids on the x-y axis from its spawn point.
+    //     //Vector2 targetPosition = spawnPosition + new Vector2(offsetX, offsetY);
 
-        // SetMoveDirection(MoveDir);
+    //     // SetMoveDirection(MoveDir);
 
+    //     if(isArrived)
+    //     {
+    //         //SetMoveDirection(MoveDir);
 
-    }
+    //         float offsetX = MoveDir * Random.Range(minDistance, maxDistance);
+    //         float offsetY = MoveDir * Random.Range(minDistance, maxDistance);
+            
+    //         // Make target position in 2~3 grids on the x-y axis from its spawn point.
+    //         targetPosition = spawnPosition + new Vector2(offsetX, offsetY);
+
+    //         Debug.Log(targetPosition);
+
+    //         isArrived = false;
+    //     }
+    // }
 
     public override void OnBlinkCallback()
     {
