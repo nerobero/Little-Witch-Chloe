@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// 
+/// Processes transitions and loading of levels
 /// </summary>
 public class LevelManager : MonoSingletonBase<LevelManager>
 {
@@ -26,12 +26,14 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
     private void OnEnable()
     {
-        EventManager.Instance.OnTransitionLevel += LoadLevelAdditively;
+        if (EventManager.Instance != null)
+            EventManager.Instance.OnTransitionLevel += LoadLevelAdditively;
     }
 
     private void OnDisable()
     {
-        EventManager.Instance.OnTransitionLevel -= LoadLevelAdditively;
+        if (EventManager.Instance != null)
+            EventManager.Instance.OnTransitionLevel -= LoadLevelAdditively;
     }
 
     private void LoadLevelAdditively(ELevelType levelType)

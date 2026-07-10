@@ -99,10 +99,10 @@ public class PlayerMovement : BaseCharacterMovement
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="newOffset"></param>
-    public void SetBlinkXOffset(float newOffset)
+    /// <param name="newStrat"></param>
+    public void SetBlinkStrat(IBlinkStrategy newStrat)
     {
-        xOffset = newOffset < 0f ? 0f : newOffset;
+        _blinkStrat = newStrat;
     }
 
     /// <summary>
@@ -208,7 +208,7 @@ public class PlayerMovement : BaseCharacterMovement
 
         // 3. reposition the player character:
         
-        _rb.position = _blinkStrat.ProcessTeleport(2f, isBackground: _isBackground, 
+        _rb.position = _blinkStrat.ProcessTeleport(1.5f, isBackground: _isBackground, 
             isFacingRight: _animController.IsFacingRight, characOrigin: transform); //new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Blink");
 

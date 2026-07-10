@@ -15,6 +15,14 @@ public class NormalBlinkStrategy : IBlinkStrategy
         _bgLayer = LayerMask.NameToLayer("Background Platform");
         _angle = 30f;
     }
+
+    public NormalBlinkStrategy(float angle)
+    {
+        _fgLayer = LayerMask.NameToLayer("Foreground Platform");
+        _bgLayer = LayerMask.NameToLayer("Background Platform");
+        _angle = angle;
+    }
+
     public void SetUpStrategyParams(LayerMask fg, LayerMask bg, float angle)
     {
         _fgLayer = fg;
