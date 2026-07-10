@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 7d2d81ce020ad3d498dbdfe620cbbc62
+guid: ddd6a0df4dd71f14bb0a7c5bd55037e3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5732038466841448472
-    second: mons_sprite_sheet_Jorflower_idle_0
+      213: -5381875166557144834
+    second: mons_sprite_sheet_Jorflower_poison1_0
   - first:
-      213: -5275981195087217790
-    second: mons_sprite_sheet_Jorflower_idle_1
+      213: -3177017827796791212
+    second: mons_sprite_sheet_Jorflower_poison1_1
   - first:
-      213: -1298912425309511258
-    second: mons_sprite_sheet_Jorflower_idle_2
+      213: -7730178283756661741
+    second: mons_sprite_sheet_Jorflower_poison1_2
   - first:
-      213: 3455886040335025946
-    second: mons_sprite_sheet_Jorflower_idle_3
-  - first:
-      213: -2668295238975555987
-    second: mons_sprite_sheet_Jorflower_idle_4
+      213: 5371781702599440538
+    second: mons_sprite_sheet_Jorflower_poison1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -87,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jorflower_idle_0
+      name: mons_sprite_sheet_Jorflower_poison1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -127,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81095fead9a4c8f40800000000000000
-      internalID: 5732038466841448472
+      spriteID: ef87dd7ec0dbf45b0800000000000000
+      internalID: -5381875166557144834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jorflower_idle_1
+      name: mons_sprite_sheet_Jorflower_poison1_1
       rect:
         serializedVersion: 2
         x: 160
@@ -149,14 +146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 28b7f217e03f7c6b0800000000000000
-      internalID: -5275981195087217790
+      spriteID: 450d6114e17f8e3d0800000000000000
+      internalID: -3177017827796791212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jorflower_idle_2
+      name: mons_sprite_sheet_Jorflower_poison1_2
       rect:
         serializedVersion: 2
         x: 320
@@ -171,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a1e517f70659fde0800000000000000
-      internalID: -1298912425309511258
+      spriteID: 314de32aec3e8b490800000000000000
+      internalID: -7730178283756661741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jorflower_idle_3
+      name: mons_sprite_sheet_Jorflower_poison1_3
       rect:
         serializedVersion: 2
         x: 480
@@ -193,30 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a17866a2b06c5ff20800000000000000
-      internalID: 3455886040335025946
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mons_sprite_sheet_Jorflower_idle_4
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d66fefc0e9f48fad0800000000000000
-      internalID: -2668295238975555987
+      spriteID: a98f1626ff66c8a40800000000000000
+      internalID: 5371781702599440538
       vertices: []
       indices: 
       edges: []
@@ -225,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f56d49eed5b65f742a40f62d5dfc073a
+    spriteID: d2a91c7c08bed4045bb6d734055f6a7c
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mons_sprite_sheet_Jorflower_idle_0: 5732038466841448472
-      mons_sprite_sheet_Jorflower_idle_1: -5275981195087217790
-      mons_sprite_sheet_Jorflower_idle_2: -1298912425309511258
-      mons_sprite_sheet_Jorflower_idle_3: 3455886040335025946
-      mons_sprite_sheet_Jorflower_idle_4: -2668295238975555987
+      mons_sprite_sheet_Jorflower_poison1_0: -5381875166557144834
+      mons_sprite_sheet_Jorflower_poison1_1: -3177017827796791212
+      mons_sprite_sheet_Jorflower_poison1_2: -7730178283756661741
+      mons_sprite_sheet_Jorflower_poison1_3: 5371781702599440538
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

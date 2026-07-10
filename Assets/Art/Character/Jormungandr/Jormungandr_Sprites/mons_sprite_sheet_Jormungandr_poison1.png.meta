@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 2e6a45752d7ff304c840d99a5353bd20
+guid: 8f86080f1ecd8964d80005590d7d1191
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4396167914120083567
-    second: mons_sprite_sheet_Jormungandr_poison2_0
+      213: -6066968970008036582
+    second: mons_sprite_sheet_Jormungandr_poison1_0
   - first:
-      213: -5260950939385438225
-    second: mons_sprite_sheet_Jormungandr_poison2_1
+      213: 3761699550665529152
+    second: mons_sprite_sheet_Jormungandr_poison1_1
   - first:
-      213: 5610863786387062169
-    second: mons_sprite_sheet_Jormungandr_poison2_2
+      213: -1549136461893763934
+    second: mons_sprite_sheet_Jormungandr_poison1_2
   - first:
-      213: -3620358708625863959
-    second: mons_sprite_sheet_Jormungandr_poison2_3
+      213: 3504310558649431155
+    second: mons_sprite_sheet_Jormungandr_poison1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jormungandr_poison2_0
+      name: mons_sprite_sheet_Jormungandr_poison1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 19707e1f29cadf2c0800000000000000
-      internalID: -4396167914120083567
+      spriteID: a1b7a5faddbcdcba0800000000000000
+      internalID: -6066968970008036582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jormungandr_poison2_1
+      name: mons_sprite_sheet_Jormungandr_poison1_1
       rect:
         serializedVersion: 2
         x: 160
@@ -146,14 +146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fef5c2d8ef85df6b0800000000000000
-      internalID: -5260950939385438225
+      spriteID: 0475a2d9fcd343430800000000000000
+      internalID: 3761699550665529152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jormungandr_poison2_2
+      name: mons_sprite_sheet_Jormungandr_poison1_2
       rect:
         serializedVersion: 2
         x: 320
@@ -168,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 99d34b6d2eacddd40800000000000000
-      internalID: 5610863786387062169
+      spriteID: 2ac7738789c508ae0800000000000000
+      internalID: -1549136461893763934
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jormungandr_poison2_3
+      name: mons_sprite_sheet_Jormungandr_poison1_3
       rect:
         serializedVersion: 2
         x: 480
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9ea0ddc9fe6e1cdc0800000000000000
-      internalID: -3620358708625863959
+      spriteID: 37433fee2efc1a030800000000000000
+      internalID: 3504310558649431155
       vertices: []
       indices: 
       edges: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c9285343d8571f449b9bfd6d48137797
+    spriteID: 4bc707225866bc140879d3a21e214d9c
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mons_sprite_sheet_Jormungandr_poison2_0: -4396167914120083567
-      mons_sprite_sheet_Jormungandr_poison2_1: -5260950939385438225
-      mons_sprite_sheet_Jormungandr_poison2_2: 5610863786387062169
-      mons_sprite_sheet_Jormungandr_poison2_3: -3620358708625863959
+      mons_sprite_sheet_Jormungandr_poison1_0: -6066968970008036582
+      mons_sprite_sheet_Jormungandr_poison1_1: 3761699550665529152
+      mons_sprite_sheet_Jormungandr_poison1_2: -1549136461893763934
+      mons_sprite_sheet_Jormungandr_poison1_3: 3504310558649431155
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
