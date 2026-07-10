@@ -105,7 +105,7 @@ public class BaseCharacterMovement : MonoBehaviour
         speed = _isBackground ? originalSpeed * 0.7f : originalSpeed;
         curJumpHeight = _isBackground ? jumpHeight * 0.7f : jumpHeight;
         transform.localScale = 
-            _isBackground ? new Vector3(transform.localScale.x * 0.75f, 0.75f, 1) : 
+            _isBackground ? new Vector3(transform.localScale.x * 0.75f, transform.localScale.y * 0.75f, 1) : 
                 new Vector3(Mathf.Sign(transform.localScale.x) * originalScale.x, originalScale.y, 1);
     }
 
