@@ -55,7 +55,7 @@ public class PopupHUD : UIBase
 
     public void OnClosePopupButtonClicked()
     {
-        Time.timeScale = 1.0f;
+        PauseManager.Instance.UnpauseGame();
         UIManager.Instance.Hide<PopupHUD>();
     }
 
