@@ -1,11 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IResetable
-{
-    void ResetState();
-}
-
 /// <summary>
 /// Component that manages the player save data-based 
 /// scene initialization.

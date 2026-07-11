@@ -43,7 +43,7 @@ namespace Types
         None = 0,
         Idle,       // Normal State(Not in the boss field)
         Attack,     // Attack
-        Anger,      // HP under 50%
+        Rampage,      // HP under 50%
     }
 
     /// <summary>
