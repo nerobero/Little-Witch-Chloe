@@ -42,7 +42,7 @@ public class NormalBlinkStrategy : IBlinkStrategy
             return Vector2.zero;
         }
 
-        float xOffset = Mathf.Cos(_angle) + alpha;
+        float xOffset = Mathf.Cos(Mathf.Deg2Rad*_angle) + alpha;
         //2. find the surface to get teleport to:
         // 2a. flipping the xOffset based on the character's move direction
         // and whether the character is in the background or not:
@@ -52,7 +52,13 @@ public class NormalBlinkStrategy : IBlinkStrategy
             xOffset = isBackground ? -xOffset : xOffset;
 
         // 2b. using raycast to determine where on the surface the character can 'blink' to:
-        Vector2 origin = new Vector2(characOrigin.position.x + xOffset, characOrigin.position.y);
+        // the vertical search band is centered on the nearest point on the target platform
+        // (rather than the character's current position) so that blinking while airborne
+        // (jumping/falling, where the character's y drifts) still lands near that platform
+        // instead of missing it or, for composite tilemap colliders, landing anywhere along
+        // the whole merged platform layer.
+        Vector2 nearestOnPlatform = collided.ClosestPoint(characOrigin.position);
+        Vector2 origin = new Vector2(characOrigin.position.x + xOffset, nearestOnPlatform.y);
         RaycastHit2D hitresult = Physics2D.Raycast(origin + Vector2.up * camHalfHeight,
                 Vector2.down, camHalfHeight * 2f, layerParam);
         if (hitresult.collider == null)
