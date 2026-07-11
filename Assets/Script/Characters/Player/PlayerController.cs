@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     #region ReferenceClasses
     // Reference to input-event binds
-    private PlayerInput _inputContext;
+    public PlayerInput InputContext;
 
     // Handler for player's movement
     private PlayerMovement _playerMove;
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         _instance = this;
 
         // create PlayerInput:
-        _inputContext = new PlayerInput();
+        InputContext = new PlayerInput();
 
         // Caching once, never having to re-fetch again:
         _playerMove = GetComponent<PlayerMovement>();
@@ -81,10 +81,10 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     private void OnEnable()
     {
         //call BaseInputAction.AddCallbacks(this)
-        _inputContext.BaseInputAction.AddCallbacks(this);
+        InputContext.BaseInputAction.AddCallbacks(this);
 
         // enable the input action binding
-        _inputContext.BaseInputAction.Enable();
+        InputContext.BaseInputAction.Enable();
 
         _playerMove.OnFlyStopped += OnFlyStopped;
 
@@ -93,9 +93,9 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     private void OnDisable()
     {
         //disable the input action binding
-        _inputContext.BaseInputAction.Disable();
+        InputContext.BaseInputAction.Disable();
 
-        _inputContext.BaseInputAction.RemoveCallbacks(this);
+        InputContext.BaseInputAction.RemoveCallbacks(this);
 
         _playerMove.OnFlyStopped -= OnFlyStopped;
     }
@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     {
         // when the controller is destroyed, we also dispose of the inputcontext
         // preventing any leftover memory references at runtime
-        _inputContext.Dispose();
+        InputContext.Dispose();
     }
     #endregion
 
@@ -246,13 +246,16 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         {
             if (!_optionMenuEnabled)
             {
-                Time.timeScale = 0f;
+                PauseManager.Instance.PauseGame();
                 UIManager.Instance.Show<PopupHUD>();
                 _optionMenuEnabled = true;
             }
             else
             {
-                Time.timeScale = 1f;
+                PauseManager.Instance.UnpauseGame();
+                
+                InputContext.BaseInputAction.Enable();
+                InputContext.UI.Disable();
                 UIManager.Instance.Hide<PopupHUD>();
                 _optionMenuEnabled = false;
             }
@@ -277,14 +280,6 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     #region Reset
     public void ResetState()
     {
-        //call BaseInputAction.AddCallbacks(this)
-        // _inputContext.BaseInputAction.AddCallbacks(this);
-
-        // // enable the input action binding
-        // _inputContext.BaseInputAction.Enable();
-
-        //_playerMove.OnFlyStopped += OnFlyStopped;
-
         _playerAttack.ResetState();
         _playerMove.ResetState();
         GetComponent<PlayerStatManager>()?.ResetState();
