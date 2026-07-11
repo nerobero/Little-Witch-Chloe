@@ -6,7 +6,7 @@ using System;
 /// Captures/caches the raw input values from the user and passes the values 
 /// to the appropriate class references for value processing.
 /// </summary>
-public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActions, IResetable
+public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActions, PlayerInput.IUIActions, IResetable
 {
     private static PlayerController _instance;
     public static PlayerController Instance => _instance;
@@ -88,6 +88,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
         _playerMove.OnFlyStopped += OnFlyStopped;
 
+        InputContext.UI.AddCallbacks(this);
     }
 
     private void OnDisable()
@@ -244,23 +245,88 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     {
         if (context.performed)
         {
-            if (!_optionMenuEnabled)
-            {
+            //if (!_optionMenuEnabled)
+            //{
                 PauseManager.Instance.PauseGame();
                 UIManager.Instance.Show<PopupHUD>();
-                _optionMenuEnabled = true;
-            }
-            else
-            {
-                PauseManager.Instance.UnpauseGame();
+                //_optionMenuEnabled = true;
+            //}
+            // else
+            // {
+            //     PauseManager.Instance.UnpauseGame();
                 
-                InputContext.BaseInputAction.Enable();
-                InputContext.UI.Disable();
-                UIManager.Instance.Hide<PopupHUD>();
-                _optionMenuEnabled = false;
-            }
+            //     InputContext.BaseInputAction.Enable();
+            //     InputContext.UI.Disable();
+            //     UIManager.Instance.Hide<PopupHUD>();
+            //     _optionMenuEnabled = false;
+            // }
         }
     }
+
+#region UI Input
+    public void OnUnpause(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PauseManager.Instance.UnpauseGame();
+                    
+            // InputContext.BaseInputAction.Enable();
+            // InputContext.UI.Disable();
+            UIManager.Instance.Hide<PopupHUD>();
+            //_optionMenuEnabled = false;
+        }
+    }
+
+    public void OnNavigate(InputAction.CallbackContext context)
+    {
+        //
+    }
+
+    public void OnSubmit(InputAction.CallbackContext context)
+    {
+        //
+    }
+
+    public void OnCancel(InputAction.CallbackContext context)
+    {
+        //
+    }
+
+    public void OnPoint(InputAction.CallbackContext context)
+    {
+        //
+    }
+
+    public void OnClick(InputAction.CallbackContext context)
+    {
+        //
+    }
+    public void OnScrollWheel(InputAction.CallbackContext context)
+    {
+        //
+    }
+
+    public void OnMiddleClick(InputAction.CallbackContext context)
+    {
+        //
+    }
+
+    public void OnRightClick(InputAction.CallbackContext context)
+    {
+        //
+    }
+
+    public void OnTrackedDevicePosition(InputAction.CallbackContext context)
+    {
+        //
+    }
+
+    public void OnTrackedDeviceOrientation(InputAction.CallbackContext context)
+    {
+        //
+    }
+    
+#endregion
 
     public void OnAttackAcross(InputAction.CallbackContext context)
     {
