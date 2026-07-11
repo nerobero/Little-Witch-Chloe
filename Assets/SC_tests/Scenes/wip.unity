@@ -497,6 +497,7 @@ GameObject:
   - component: {fileID: 133049533}
   - component: {fileID: 133049532}
   - component: {fileID: 133049531}
+  - component: {fileID: 133049536}
   m_Layer: 7
   m_Name: Tilemap
   m_TagString: Untagged
@@ -25813,6 +25814,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &133049536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133049529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7911241a8fd6a6848b43d7cf3a56b710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TileCollider
 --- !u!1001 &208957183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27343,6 +27356,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7100565863009182168, guid: 63e00708c1d5ef64392e606525b07a17, type: 3}
   m_PrefabInstance: {fileID: 1876293638}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1181688342
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1578031520422906872, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
+      propertyPath: m_Name
+      value: FallingRescueZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779900612753530281, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 51.094177
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779900612753530281, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.512026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779900612753530281, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779900612753530281, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779900612753530281, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779900612753530281, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779900612753530281, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779900612753530281, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779900612753530281, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779900612753530281, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372542712072771139, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
+      propertyPath: damageAmount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372542712072771139, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
+      propertyPath: tilemaps.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372542712072771139, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
+      propertyPath: 'tilemaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1470512270}
+    - target: {fileID: 7372542712072771139, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
+      propertyPath: 'tilemaps.Array.data[1]'
+      value: 
+      objectReference: {fileID: 133049536}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 814fbcfacb56e934cab4e91a701a17b1, type: 3}
 --- !u!4 &1256514035 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 110458805653573893, guid: e8aeb7f4d4442e14ca380b067c053942, type: 3}
@@ -47590,6 +47676,7 @@ GameObject:
   - component: {fileID: 1470512265}
   - component: {fileID: 1470512266}
   - component: {fileID: 1470512267}
+  - component: {fileID: 1470512270}
   m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
@@ -74350,6 +74437,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1470512270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470512263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7911241a8fd6a6848b43d7cf3a56b710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TileCollider
 --- !u!224 &1482257725 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6287765120938365995, guid: d4ae58aac6885a5468be691e18cea108, type: 3}
@@ -77317,3 +77416,4 @@ SceneRoots:
   - {fileID: 2055202367}
   - {fileID: 885516110}
   - {fileID: 879219487}
+  - {fileID: 1181688342}
