@@ -65,20 +65,25 @@ public class UIPlayerHUD : UIBase
 
     protected override void UnsubscribeEvents()
     {
-        if(PlayerController.Instance == null) return;
+        if(PlayerController.Instance != null)
+        {
+            var playerStat = PlayerController.Instance.GetComponent<PlayerStatManager>();
 
-        var playerStat = PlayerController.Instance.GetComponent<PlayerStatManager>();
+            if(playerStat != null)
+            {
+                playerStat.OnHPChanged -= UpdateHP;
+                playerStat.OnStaminaChanged -= UpdateStamina;
+                playerStat.OnDeath -= OnDeath;
+            }
 
-        playerStat.OnHPChanged -= UpdateHP;
-        playerStat.OnStaminaChanged -= UpdateStamina;
-        playerStat.OnDeath -= OnDeath;
+            var playerMove = PlayerController.Instance.GetComponent<PlayerMovement>();
 
-        var playerMove = PlayerController.Instance.GetComponent<PlayerMovement>();
+            if(playerMove != null)
+                playerMove.OnBlinkCooldown -= UpdateBlinkCooldown;
+        }
 
-        if(playerMove == null) return;
-
-        playerMove.OnBlinkCooldown -= UpdateBlinkCooldown;
-        GameManager.Instance.OnObjectivesCollected -= UpdateObjectives;
+        if(GameManager.Instance != null)
+            GameManager.Instance.OnObjectivesCollected -= UpdateObjectives;
 
         isInitialized = false;
     }

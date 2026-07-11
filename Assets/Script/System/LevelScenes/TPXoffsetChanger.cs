@@ -13,8 +13,6 @@ public class TPXoffsetChanger : MonoBehaviour
 
     private bool _hasInteracted = false;
 
-    private IBlinkStrategy _strategy;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var movementComp = collision.gameObject.GetComponent<PlayerMovement>();
@@ -24,7 +22,9 @@ public class TPXoffsetChanger : MonoBehaviour
             // pass in different strategy classes for different cases of teleport calculation:
             if (IsLimitTeleport)
             {
-                
+
+                var blink = degAngle <= 0f ? new NormalBlinkStrategy() : new NormalBlinkStrategy(degAngle);
+                movementComp.SetBlinkStrat(blink);
             }
             else
             {
