@@ -11,14 +11,6 @@ public class JormungandrController : BossControllerBase
 
     protected override void Attack()
     {
-        if(enemyMove.IsBackground)
-        {
-            
-        }
-        // Use Tail Attack
-        else
-        {
-            enemyAttack.TailAttack(enemyMove.targetPosition);
-        }
+        enemyAttack.Attack(enemyMove.targetPosition);
     }
 }

@@ -11,6 +11,7 @@ public class MushroomMineController : BaseMonsterController
     BoxCollider2D triggerCollider;
     //private int playerLayerIndex => (int)Mathf.Log(playerLayer.value, 2);
 
+    //protected new MushroomMineAttack enemyAttack;
 
     protected override void Start()
     {

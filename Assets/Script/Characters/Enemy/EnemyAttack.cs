@@ -45,6 +45,11 @@ public class EnemyAttack : MonoBehaviour
         
     }
 
+    public virtual void Attack(Vector3 targetPosition)
+    {
+        
+    }
+
     /// <summary>
     /// Rotates and re-positions the shoot-point based on the position of the mouse cursor.
     /// 1. normalizes the direction vector and set the _aimDirection as that value

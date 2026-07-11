@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -6,16 +7,23 @@ using UnityEngine;
 /// </summary>
 public class IntermedSpiritMovement : CorruptMovement
 {
-    protected new IntermedSpiritAnimController _animController;
+    //protected new IntermedSpiritAnimController _animController;
+    protected IntermedSpiritAnimController _spiritAnimController;
+
+    protected override void Start()
+    {
+        base.Start();
+        _spiritAnimController = _animController as IntermedSpiritAnimController;
+    }
 
     public override void SetMoveDirection(float direction)
     {
         MoveDir = direction;
-        _animController.FlipCharacter(-MoveDir);
+        _spiritAnimController.FlipCharacter(-MoveDir);
     }
     
     public override void OnBlinkCallback()
     {
-        _animController.SetToSeenTrans();
+        _spiritAnimController.SetToSeenTrans();
     }
 }

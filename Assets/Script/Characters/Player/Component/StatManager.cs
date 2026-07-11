@@ -6,7 +6,7 @@ using System.Collections;
 /// <summary>
 /// Base class for managing the character's stats.
 /// </summary>
-public class StatManager : MonoBehaviour
+public class StatManager : MonoBehaviour, IDamageable
 {
     // HP stats
     [Header("HP Settings")]

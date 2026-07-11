@@ -295,4 +295,9 @@ public class EnemyMovement : BaseCharacterMovement
         transform.position = spawnPosition;
         AnimController.ResetState();
     }
+
+    public virtual void Fallen()
+    {
+        transform.position = spawnPosition;
+    }
 }

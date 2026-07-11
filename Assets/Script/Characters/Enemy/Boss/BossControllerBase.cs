@@ -4,6 +4,8 @@ using Types;
 public class BossControllerBase : EnemyControllerBase
 {
     protected new BossAttack enemyAttack;
+    protected EBossState bossState;
+    protected GameObject target;
     
     void OnEnable()
     {
@@ -19,22 +21,21 @@ public class BossControllerBase : EnemyControllerBase
 
     protected override void Think()
     {
-        switch(enemyState)
+        switch(bossState)
         {
-            case EMonsterState.Attack:
+            case EBossState.Attack:
                 // HERE ATTACK LOGIC
                 Attack();
                 //Invoke("Think", 0.5f);
             break;
-            case EMonsterState.Chase:
-                //enemyMove.MoveToTarget();
-                //Invoke("Think", 0.5f);
+            case EBossState.Rampage:
+                Rampage();
             break;
-            case EMonsterState.Idle:
+            case EBossState.Idle:
                 //CancelInvoke();
             break;
             default:
-                enemyMove.Think();
+                //enemyMove.Think();
                 //Invoke("Think", 0.5f);
             break;
 
@@ -43,7 +44,12 @@ public class BossControllerBase : EnemyControllerBase
 
     protected virtual void Attack()
     {
-        FireProjectile();
+        enemyAttack.Attack(enemyMove.targetPosition);
+    }
+
+    protected virtual void Rampage()
+    {
+        enemyAttack.Rampage();
     }
 }
 // Collider hit box script? => hit detect => call damage? Two state synchronize the HP? <= event dispatcher? 

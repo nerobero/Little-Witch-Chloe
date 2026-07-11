@@ -388,4 +388,12 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
         _interval.Reset(0.5f);
         thinkRoutine = StartCoroutine(ThinkRoutine());
     }
+
+    
+    public virtual void Fallen()
+    {
+       enemyStat.TakeDamageHelper(null, enemyStat.MaxHP, EElementType.None);
+
+       enemyMove.Fallen();
+    }
 }

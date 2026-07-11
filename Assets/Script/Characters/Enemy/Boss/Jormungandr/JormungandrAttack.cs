@@ -14,4 +14,10 @@ public class JormungandrAttack : BossAttack
         tailRef.gameObject.SetActive(true);
         tailRef.StartAttack(targetPosition, gameObject);
     }
+
+    public override void Attack(Vector3 targetPosition)
+    {
+        
+        base.Attack(targetPosition);
+    }
 }
