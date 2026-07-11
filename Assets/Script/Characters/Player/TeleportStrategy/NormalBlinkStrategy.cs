@@ -47,9 +47,9 @@ public class NormalBlinkStrategy : IBlinkStrategy
         // 2a. flipping the xOffset based on the character's move direction
         // and whether the character is in the background or not:
         if (isFacingRight)
-            xOffset = isBackground ? -xOffset : xOffset;
-        else
             xOffset = isBackground ? xOffset : -xOffset;
+        else
+            xOffset = isBackground ? -xOffset : xOffset;
 
         // 2b. using raycast to determine where on the surface the character can 'blink' to:
         Vector2 origin = new Vector2(characOrigin.position.x + xOffset, characOrigin.position.y);
