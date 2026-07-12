@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 160
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -120,9 +120,16 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 68.88345, y: 22.908234}
+        - {x: 34, y: 54}
+        - {x: -20, y: 80}
+        - {x: -60, y: 53}
+        - {x: -24, y: -80}
+        - {x: 36, y: -80}
+        - {x: 65, y: -13}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 19707e1f29cadf2c0800000000000000
       internalID: -4396167914120083567
@@ -142,9 +149,16 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 68.88345, y: 22.908234}
+        - {x: 11, y: 80}
+        - {x: -68, y: 80}
+        - {x: -76, y: 40}
+        - {x: -24, y: -80}
+        - {x: 36, y: -80}
+        - {x: 65, y: -13}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: fef5c2d8ef85df6b0800000000000000
       internalID: -5260950939385438225
@@ -164,9 +178,16 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 68.88345, y: 22.908234}
+        - {x: 38, y: 80}
+        - {x: -60, y: 80}
+        - {x: -80, y: 51}
+        - {x: -24, y: -80}
+        - {x: 36, y: -80}
+        - {x: 65, y: -13}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 99d34b6d2eacddd40800000000000000
       internalID: 5610863786387062169
@@ -186,9 +207,16 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 68.88345, y: 22.908234}
+        - {x: 36, y: 80}
+        - {x: -80, y: 80}
+        - {x: -80, y: 30}
+        - {x: -24, y: -80}
+        - {x: 36, y: -80}
+        - {x: 65, y: -13}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 9ea0ddc9fe6e1cdc0800000000000000
       internalID: -3620358708625863959
@@ -208,7 +236,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":160.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       mons_sprite_sheet_Jormungandr_poison2_0: -4396167914120083567
       mons_sprite_sheet_Jormungandr_poison2_1: -5260950939385438225

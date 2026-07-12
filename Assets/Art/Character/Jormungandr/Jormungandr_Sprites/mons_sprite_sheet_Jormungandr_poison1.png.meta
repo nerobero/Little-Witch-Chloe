@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 160
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -112,7 +112,7 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_poison1_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
         width: 160
         height: 160
@@ -120,9 +120,29 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 71, y: -7}
+        - {x: 71, y: 34}
+        - {x: 46, y: 59}
+        - {x: -3, y: 58}
+        - {x: -33, y: 29}
+        - {x: -33, y: -44}
+        - {x: -17, y: -44}
+        - {x: -21, y: -80}
+        - {x: 33, y: -80}
+      physicsShape:
+      - - {x: 65, y: -12}
+        - {x: 65, y: 30}
+        - {x: 33, y: 56}
+        - {x: -6, y: 51}
+        - {x: -32, y: 12}
+        - {x: -31, y: -16}
+        - {x: 0, y: -15}
+        - {x: 19, y: -1}
+        - {x: -17, y: -68}
+        - {x: -21, y: -80}
+        - {x: 30, y: -80}
+      tessellationDetail: 0
       bones: []
       spriteID: a1b7a5faddbcdcba0800000000000000
       internalID: -6066968970008036582
@@ -142,9 +162,29 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 71, y: -7}
+        - {x: 71, y: 34}
+        - {x: 46, y: 59}
+        - {x: -3, y: 58}
+        - {x: -33, y: 29}
+        - {x: -33, y: -35}
+        - {x: -17, y: -35}
+        - {x: -21, y: -80}
+        - {x: 33, y: -80}
+      physicsShape:
+      - - {x: 65, y: -12}
+        - {x: 65, y: 30}
+        - {x: 33, y: 56}
+        - {x: -10, y: 46}
+        - {x: -32, y: 7}
+        - {x: -31, y: -18}
+        - {x: 0, y: -17}
+        - {x: 18, y: -10}
+        - {x: -15, y: -65}
+        - {x: -21, y: -80}
+        - {x: 30, y: -80}
+      tessellationDetail: 0
       bones: []
       spriteID: 0475a2d9fcd343430800000000000000
       internalID: 3761699550665529152
@@ -164,9 +204,30 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 62, y: -19}
+        - {x: 67, y: 26}
+        - {x: 36, y: 52}
+        - {x: 0, y: 51}
+        - {x: -36, y: 19}
+        - {x: -36, y: -25}
+        - {x: -30, y: -35}
+        - {x: -20, y: -35}
+        - {x: -23, y: -80}
+        - {x: 32, y: -80}
+      physicsShape:
+      - - {x: 60, y: -16}
+        - {x: 60, y: 26}
+        - {x: 30, y: 49}
+        - {x: -7, y: 44}
+        - {x: -32, y: 12}
+        - {x: -34, y: -23}
+        - {x: -3, y: -22}
+        - {x: 13, y: -19}
+        - {x: -18, y: -70}
+        - {x: -21, y: -80}
+        - {x: 30, y: -80}
+      tessellationDetail: 0
       bones: []
       spriteID: 2ac7738789c508ae0800000000000000
       internalID: -1549136461893763934
@@ -186,9 +247,28 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 72, y: 10}
+        - {x: 68, y: 27}
+        - {x: 45, y: 50}
+        - {x: 0, y: 51}
+        - {x: -36, y: 19}
+        - {x: -37, y: -19}
+        - {x: -24, y: -80}
+        - {x: 36, y: -80}
+      physicsShape:
+      - - {x: 60, y: -16}
+        - {x: 60, y: 26}
+        - {x: 30, y: 49}
+        - {x: -7, y: 44}
+        - {x: -32, y: 12}
+        - {x: -34, y: -23}
+        - {x: -3, y: -22}
+        - {x: 13, y: -19}
+        - {x: -18, y: -70}
+        - {x: -21, y: -80}
+        - {x: 30, y: -80}
+      tessellationDetail: 0
       bones: []
       spriteID: 37433fee2efc1a030800000000000000
       internalID: 3504310558649431155

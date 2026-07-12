@@ -123,7 +123,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 16, y: -1}
+        - {x: 16, y: 4}
+        - {x: 6, y: 8}
+        - {x: -12, y: 8}
+        - {x: -15, y: 7}
+        - {x: -15, y: 0}
+        - {x: -11, y: -7}
+        - {x: 0, y: -7}
       physicsShape:
       - - {x: 11, y: -1}
         - {x: 14, y: 0}
@@ -155,7 +163,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 15, y: -1}
+        - {x: 15, y: 5}
+        - {x: -6, y: 11}
+        - {x: -15, y: 11}
+        - {x: -15, y: 1}
+        - {x: -14, y: -9}
+        - {x: -11, y: -12}
+        - {x: -5, y: -12}
       physicsShape:
       - - {x: 13, y: 0}
         - {x: 13, y: 1}
@@ -185,7 +201,22 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: -5, y: -10}
+        - {x: -4, y: -8}
+        - {x: -4, y: -5}
+        - {x: 5, y: -5}
+        - {x: 11, y: -4}
+        - {x: 15, y: -1}
+        - {x: 15, y: 4}
+        - {x: 10, y: 11}
+        - {x: 2, y: 12}
+        - {x: -15, y: 12}
+        - {x: -15, y: -5}
+        - {x: -12, y: -5}
+        - {x: -12, y: -9}
+        - {x: -9, y: -12}
+        - {x: -8, y: -12}
       physicsShape:
       - - {x: 10, y: -1}
         - {x: 13, y: 0}
@@ -216,7 +247,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 15, y: -3}
+        - {x: 15, y: 3}
+        - {x: -10, y: 12}
+        - {x: -14, y: 12}
+        - {x: -15, y: 10}
+        - {x: -15, y: 3}
+        - {x: -10, y: -12}
       physicsShape:
       - - {x: 10, y: -1}
         - {x: 13, y: 0}
@@ -247,7 +285,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 15, y: -3}
+        - {x: 15, y: 2}
+        - {x: -9, y: 9}
+        - {x: -14, y: 12}
+        - {x: -16, y: 2}
+        - {x: -16, y: -1}
+        - {x: -9, y: -12}
+        - {x: -1, y: -5}
       physicsShape:
       - - {x: 10, y: -1}
         - {x: 13, y: 0}
