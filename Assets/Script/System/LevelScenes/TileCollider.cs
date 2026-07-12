@@ -8,11 +8,21 @@ public class TileCollider : MonoBehaviour
 
     private int targetPlayerLayer;
     public int TargetPlayerLayer => targetPlayerLayer;
+    private readonly float minDotProduct = Mathf.Cos(45f * Mathf.Deg2Rad);
 
     public void OnCollisionEnter2D(Collision2D other)
     {
+        Vector2 normal = other.GetContact(0).normal;
+
+        float dot = Vector2.Dot(Vector2.down, normal);
+
         if(other.gameObject.layer == targetPlayerLayer)
         {
+            if(dot < minDotProduct)
+            {
+                return;
+            }
+            
             lastPosition = other.gameObject.transform.position;
         }
     }
