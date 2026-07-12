@@ -52,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -126,9 +126,20 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 31.5, y: 21.5}
+        - {x: 17.5, y: 31.5}
+        - {x: -7.5, y: 31.5}
+        - {x: -14.5, y: 23.5}
+        - {x: -14.5, y: -21.300003}
+        - {x: -20.5, y: -16.5}
+        - {x: -30.5, y: -16.5}
+        - {x: -31.5, y: -17.5}
+        - {x: -31.5, y: -27.5}
+        - {x: -28.5, y: -31.5}
+        - {x: 31.5, y: -31.5}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 98f4663dac2634e00800000000000000
       internalID: 1027773763240218505
@@ -148,9 +159,20 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 31.5, y: 21.5}
+        - {x: 17.5, y: 31.5}
+        - {x: -7.5, y: 31.5}
+        - {x: -14.5, y: 23.5}
+        - {x: -14.5, y: -21.300003}
+        - {x: -20.5, y: -16.5}
+        - {x: -30.5, y: -16.5}
+        - {x: -31.5, y: -17.5}
+        - {x: -31.5, y: -27.5}
+        - {x: -28.5, y: -31.5}
+        - {x: 31.5, y: -31.5}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: f591de320ecccf380800000000000000
       internalID: -8936042297562424993
@@ -170,9 +192,20 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 31.5, y: 21.5}
+        - {x: 17.5, y: 31.5}
+        - {x: -7.5, y: 31.5}
+        - {x: -14.5, y: 23.5}
+        - {x: -14.5, y: -21.300003}
+        - {x: -20.5, y: -16.5}
+        - {x: -30.5, y: -16.5}
+        - {x: -31.5, y: -17.5}
+        - {x: -31.5, y: -27.5}
+        - {x: -28.5, y: -31.5}
+        - {x: 31.5, y: -31.5}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: cbefd3dcb9e0d5fc0800000000000000
       internalID: -3504628872698265924
