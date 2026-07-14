@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class ProjectileAttackStrategy : IEnemyAttackStrategy
+public class SummonAttackStrategy : IEnemyAttackStrategy
 {
     public event Action<bool> OnAttackComplete;
 
