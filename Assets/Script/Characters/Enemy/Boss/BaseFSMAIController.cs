@@ -7,20 +7,36 @@ using UnityEngine;
 /// </summary>
 public class BaseFSMAIController : MonoBehaviour
 {
-    private struct AttackEntry
+    public struct AttackEntry
     {
         public int AnimHash; //already hashed values for optimization reasons
         public IEnemyAttackStrategy Strategy;
+
+        public AttackEntry(int v, IEnemyAttackStrategy attackStrat) : this()
+        {
+            AnimHash = v;
+            Strategy = attackStrat;
+        }
     }
 
     // key = attack strat type
     // value = attack entry (anim hash, strategy)
-    private Dictionary<string, AttackEntry> attacklist = new();
+    protected Dictionary<string, AttackEntry> attacklist = new();
 
 
     private IEnemyAttackStrategy _currentStrat;
 
     private bool _isActing = false;
+
+    private void Awake()
+    {
+        OnAwake();
+    }
+
+    protected virtual void OnAwake()
+    {
+        Init();    
+    }
 
     protected virtual void Init() { }
 
