@@ -78,14 +78,64 @@ namespace Types
     }
 
     /// <summary>
-    /// Defines a type of buff that can be granted
+    /// Defines a type of buff or debuff effect that can be granted
     /// and be managed by the stat
     /// </summary>
-    public enum EBuffType
+    public enum EStatusEffectType
     {
         None = 0,
-        Empowere,
+        // Buff
+        AttackUp,
+        DefenseUp,
+        MoveSpeedUp,
+        AttackSpeedUp,
+        Shield,
 
+        // Debuff
+        Poison,
+        Burn,
+        Bleeding,
+        Slow,
+        DefenseDown,
+
+        // Crowd Control
+        Stun,
+        Freeze,
+        Root,
+        Silence,
+        Knockback,
+        Fear,
+        Blind,
+
+    }
+
+    public enum EStackRule
+    {
+        RefreshDuration, // if the same effect, refresh the duration
+        Stack,           // add the stacks
+        Replace,         // remove the older one, and apply the new one
+        Ignore           // ignore the newer one
+    }
+
+    /// <summary>
+    /// Defines a category of buff / debuff / Crowd Control effect that can be granted
+    /// </summary>
+    public enum EStatusEffectCategory
+    {
+        Buff,
+        Debuff,
+        CrowdControl,
+    }
+
+    [Flags]
+    public enum ECrowdControlType
+    {
+        None            = 0,
+        Rooted          = 1 << 0,
+        Stunned         = 1 << 1,
+        Silenced        = 1 << 2,
+        Blinded         = 1 << 3,
+        Knockedback     = 1 << 4,
     }
 
     /// <summary>
@@ -127,7 +177,7 @@ namespace Types
 }
 
 /// <summary>
-/// This is a global struct data namespace
+/// This is a global struct or class data namespace
 /// </summary>
 namespace Data
 {
@@ -254,4 +304,57 @@ namespace Data
         public SystemLanguage language;
     }
 
+    public struct BuffData
+    {
+        public StatManager owner;
+        public float lifeTime;
+        public Action onEnd;
+
+        public BuffData(StatManager owner, float lifeTime, Action onEnd)
+        {
+            this.owner = owner;
+            this.lifeTime = lifeTime;
+            this.onEnd = onEnd;
+        }
+    }
+    
+    [System.Serializable]
+    public abstract class StatusEffect
+    {
+        public StatManager owner;
+        [SerializeField] protected EStatusEffectType type;
+        public EStatusEffectType Type => type;
+        
+        [SerializeField] protected EStatusEffectCategory category;
+        public EStatusEffectCategory Category => category;
+
+        [SerializeField] protected Sprite icon;
+        public Sprite Icon => icon;
+
+        [SerializeField] protected float duration;
+        public float Duration => duration;
+
+        public float remainingTime { get; protected set;}
+
+        public StatusEffect(StatManager owner, EStatusEffectType type, EStatusEffectCategory category,
+                            Sprite icon, float duration)
+        {
+            
+        }
+
+        public virtual void Apply(StatManager target) { }
+
+        public virtual void Tick(StatManager target, float deltaTime)
+        {
+            remainingTime -= deltaTime;
+        }
+
+        public virtual void Expire()
+        {
+            remainingTime = 0.0f; 
+        }
+
+        public virtual void Remove(StatManager target) { }
+        
+    }
 }

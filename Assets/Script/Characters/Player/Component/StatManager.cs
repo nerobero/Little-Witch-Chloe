@@ -6,6 +6,7 @@ using System.Collections;
 /// <summary>
 /// Base class for managing the character's stats.
 /// </summary>
+//[RequireComponent(typeof(StatusEffectController))]
 public class StatManager : MonoBehaviour, IDamageable
 {
     // HP stats
@@ -17,9 +18,11 @@ public class StatManager : MonoBehaviour, IDamageable
     protected const string OnDamageDeflected = "event:/SFX/Reflect";
     protected const string OnCritDamage = "event:/SFX/Crit";
     public EElementType CharacterElement => mainCharacElement;
+    protected  ECrowdControlType CrowdControl;
 
     public float MaxHP => maxHP;
     public float CurrentHP => currentHP;
+    //public StatusEffectController StatusEffects { get; private set; }
 
     // Event system: can be used for UI changes or animation control
     public event Action<float, float, GameObject> OnHPChanged;
@@ -29,6 +32,8 @@ public class StatManager : MonoBehaviour, IDamageable
 
     protected Coroutine DOTRoutine;
 
+    public Buff BuffComp { get; protected set; }
+
     // Is dead
     public bool IsDead { get; protected set; }
 
@@ -36,6 +41,11 @@ public class StatManager : MonoBehaviour, IDamageable
     public bool IsBlink { get; protected set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    protected virtual void Awake()
+    {
+        BuffComp = GetComponent<Buff>();
+    }
+
     protected virtual void Start()
     {
         currentHP = maxHP;
@@ -89,10 +99,9 @@ public class StatManager : MonoBehaviour, IDamageable
     /// <returns>dealt or not</returns>
     public virtual bool TakeDamage(GameObject instigator, float damageAmount, EElementType damageElement)
     {
-        Debug.Log(IsDead);
         float actualDamage = CalculateActualDamage(damageAmount, damageElement, mainCharacElement);
 
-        if (IsDead || actualDamage <= 0.0f)
+        if (IsDead || IsBlink || actualDamage <= 0.0f)
         {
             FMODUnity.RuntimeManager.PlayOneShot(OnDamageDeflected);
             return false;
@@ -233,6 +242,26 @@ public class StatManager : MonoBehaviour, IDamageable
         return false;
     }
 
+    public virtual void AddCrowdControl(ECrowdControlType cc)
+    {
+        CrowdControl |= cc;
+        Debug.Log(CrowdControl + " and is applied the current " + cc + "? " + (HasCrowdControl(cc)? "yes" : "no"));
+    }
+
+    public virtual void RemoveCrowdControl(ECrowdControlType cc)
+    {
+        CrowdControl &= ~cc;
+    }
+
+    public virtual bool HasCrowdControl(ECrowdControlType cc)
+    {
+        return (CrowdControl & cc) != 0;
+    }
+
+    /// <summary>Applies a data-driven buff, debuff or crowd-control effect to this character.</summary>
+    //public virtual bool ApplyStatusEffect(StatusEffectData effect, GameObject source)
+    //    => StatusEffects != null && StatusEffects.Apply(effect, source);
+
     /// <summary>
     /// the base method of death
     /// </summary>
@@ -258,6 +287,7 @@ public class StatManager : MonoBehaviour, IDamageable
 
     protected IEnumerator ApplyDOT(GameObject instigator, float totalDamage, float duration, float interval, EElementType damageElement)
     {
+        WaitForSecondsTracked waitSeconds = new WaitForSecondsTracked(interval);
         float damagePerTick = totalDamage / (duration / interval);
         float elapsedTime = 0.0f;
 
@@ -265,15 +295,17 @@ public class StatManager : MonoBehaviour, IDamageable
         {
             TakeDamage(instigator, damagePerTick, damageElement);
             
-            yield return new WaitForSeconds(interval);
+            yield return waitSeconds;
 
             elapsedTime += interval;
         }
     }
+
     public virtual void ResetState()
     {
         IsDead = false;
         currentHP = maxHP;
+        BuffComp?.ResetState();
         OnHPChanged?.Invoke(currentHP, maxHP, gameObject);
     }
 }

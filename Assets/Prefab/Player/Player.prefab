@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 5171422981067558847}
   - component: {fileID: 8678417280865696272}
   - component: {fileID: 990224407702109210}
+  - component: {fileID: 9052242688809816332}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -157,8 +158,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5244638233950203186}
   m_Father: {fileID: 0}
@@ -219,13 +220,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   originalSpeed: 3
   jumpHeight: 3
-  flyForce: 6
   bgLayer:
     serializedVersion: 2
     m_Bits: 128
   fgLayer:
     serializedVersion: 2
     m_Bits: 64
+  heightDistance: 2
+  _isBackground: 0
+  flyForce: 6
   bgPlayerLayer:
     serializedVersion: 2
     m_Bits: 8192
@@ -251,7 +254,7 @@ MonoBehaviour:
   attackIdleTime: 1.5
   _firePointObject: {fileID: 1278601370393913022}
   _firePoint: {fileID: 5244638233950203186}
-  _orbitRadius: 1.05
+  _orbitRadius: 1.25
   isBackground: 0
 --- !u!212 &4564149981406015731
 SpriteRenderer:
@@ -383,6 +386,7 @@ MonoBehaviour:
   currentHP: 15
   mainCharacElement: 0
   OnTakenDamageEvent: 
+  crowdControl: 0
   maxStamina: 15
   currentStamina: 15
 --- !u!95 &7084486764173208723
@@ -493,3 +497,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c8c082f54a67f4daa8623085a54e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractiveDetector
+--- !u!114 &9052242688809816332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727798701954750557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5da357651daef442824f16ad72c2e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Buff
