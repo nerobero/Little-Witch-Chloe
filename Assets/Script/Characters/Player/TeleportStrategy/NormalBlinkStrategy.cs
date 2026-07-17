@@ -42,7 +42,7 @@ public class NormalBlinkStrategy : IBlinkStrategy
             return Vector2.zero;
         }
 
-        float xOffset = Mathf.Cos(Mathf.Deg2Rad*_angle) + alpha;
+        float xOffset = Mathf.Cos(Mathf.Deg2Rad*_angle);
         //2. find the surface to get teleport to:
         // 2a. flipping the xOffset based on the character's move direction
         // and whether the character is in the background or not:
