@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Types;
+using System.Collections.Generic;
 
 /// <summary>
 /// Base projectile objects that deals damage to characters.
@@ -17,6 +18,7 @@ public class ProjectileBase : MonoBehaviour
     [SerializeField] private ESpawnType spawnType;
     [SerializeField] private EElementType elementType;
     [SerializeField] private string fmodEventName = "";
+    //[SerializeField] private List<StatusEffectData> onHitStatusEffects = new();
 
     private Collider2D _collider;
     private Rigidbody2D _projRB;
@@ -37,6 +39,7 @@ public class ProjectileBase : MonoBehaviour
     private static readonly int IsResetHash = Animator.StringToHash("IsReset");
 
     protected GameObject instigator;
+    protected StatManager instigatorStat;
 
     private void Awake()
     {
@@ -86,12 +89,21 @@ public class ProjectileBase : MonoBehaviour
             }
         }
 
+        // if the current status is blinded, then miss the projectile
+        if(instigatorStat.HasCrowdControl(ECrowdControlType.Blinded))
+        {
+            return;
+        }
+
         //1. processing any potential damage:
         var stats = other.gameObject.GetComponent<StatManager>();
         if (stats != null)
         {
             if (stats.TakeDamageHelper(instigator, dealtDamage, elementType))
             {
+                // foreach (StatusEffectData effect in onHitStatusEffects)
+                //     stats.ApplyStatusEffect(effect, instigator);
+
                 //2. stop movement and disable collider so it doesn't retrigger
                 _projRB.linearVelocity = Vector2.zero;
                 _collider.enabled = false;
@@ -167,6 +179,7 @@ public class ProjectileBase : MonoBehaviour
     public void OnFired(Transform firePointTransform, float fireAngle, bool FiredAtBackground, GameObject Instigator)
     {
         _instigatorCollider = Instigator.GetComponent<Collider2D>();
+        instigatorStat = Instigator.GetComponent<StatManager>();
 
         if (_collider != null && _instigatorCollider != null)
         {

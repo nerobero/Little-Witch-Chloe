@@ -322,6 +322,7 @@ namespace Data
     public abstract class StatusEffect
     {
         public StatManager owner;
+        
         [SerializeField] protected EStatusEffectType type;
         public EStatusEffectType Type => type;
         
@@ -331,15 +332,26 @@ namespace Data
         [SerializeField] protected Sprite icon;
         public Sprite Icon => icon;
 
+        /// <summary>
+        /// The amount of buff/debuff(status) effect. (like N% slowed).
+        /// </summary>
+        [SerializeField] protected float magnitude;
+        public float Magnitude => magnitude;
+
         [SerializeField] protected float duration;
         public float Duration => duration;
 
         public float remainingTime { get; protected set;}
 
         public StatusEffect(StatManager owner, EStatusEffectType type, EStatusEffectCategory category,
-                            Sprite icon, float duration)
+                            Sprite icon, float magnitude, float duration)
         {
-            
+            this.owner = owner;
+            this.type = type;
+            this.category = category;
+            this.icon = icon;
+            this.magnitude = magnitude;
+            this.duration = duration;
         }
 
         public virtual void Apply(StatManager target) { }
