@@ -7,6 +7,7 @@ public class JormungandrFSMController : BaseFSMAIController
     public GameObject tailObject;
     [SerializeField] private int tailSummonCount = 1;
     [SerializeField] private float tailSummonTimeInterval = 1.5f;
+    public Transform summonRoot;
 
     public GameObject mushroomPrefab;
     [SerializeField] private int mushroomSummonCount = 1;
@@ -31,7 +32,11 @@ public class JormungandrFSMController : BaseFSMAIController
         );
         attacklist["summon1"] = new AttackEntry(
             Animator.StringToHash("SummonMushroom"),
-            new SummonAttackStrategy()
+            new SummonAttackStrategy(this, mushroomPrefab, shroomSummonTimeInterval, mushroomSummonCount,summonRoot.position)
+        );
+        attacklist["summon2"] = new AttackEntry(
+            Animator.StringToHash("SummonTail"),
+            new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, summonRoot.position)
         );
     }
 }
