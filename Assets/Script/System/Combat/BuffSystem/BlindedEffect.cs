@@ -5,8 +5,8 @@ using Data;
 [System.Serializable]
 public class BlindedEffect : StatusEffect
 {
-    public BlindedEffect(StatManager owner, float duration)
-        : base(owner, EStatusEffectType.Blind, EStatusEffectCategory.CrowdControl, null, duration)
+    public BlindedEffect(StatManager owner, float magnitude, float duration)
+        : base(owner, EStatusEffectType.Blind, EStatusEffectCategory.CrowdControl, null, magnitude, duration)
     {}
 
 
