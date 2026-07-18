@@ -1,17 +1,19 @@
 using UnityEngine;
 using Types;
+using Data;
 
 public class JormungandrPoison : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float dealtDamage;
     [SerializeField] private float duration;
+    [SerializeField] private float interval;
     [SerializeField] private ESpawnType spawnType;
     [SerializeField] private EElementType elementType;
     [SerializeField] private string fmodEventName = "";
 
     // For now, the effect is used by hard coded.
-    [SerializeField] private BlindedEffect effect;
+    [SerializeField] private StatusEffect effect;
 
     private Collider2D _collider;
     private SpriteRenderer _spriteRenderer;
@@ -54,7 +56,7 @@ public class JormungandrPoison : MonoBehaviour
         var stats = other.gameObject.GetComponent<StatManager>();
         if (stats != null)
         {
-            if (stats.TakeDamageHelper(instigator, dealtDamage, elementType, true, duration))
+            if (stats.TakeDamageHelper(instigator, dealtDamage, elementType, true, duration, interval))
             {
                 // 2. Adjust the debuff(blind)
                 stats.BuffComp.Add(effect);

@@ -18,7 +18,7 @@ public class StatManager : MonoBehaviour, IDamageable
     protected const string OnDamageDeflected = "event:/SFX/Reflect";
     protected const string OnCritDamage = "event:/SFX/Crit";
     public EElementType CharacterElement => mainCharacElement;
-    protected  ECrowdControlType CrowdControl;
+    [SerializeField] protected ECrowdControlType CrowdControl;
 
     public float MaxHP => maxHP;
     public float CurrentHP => currentHP;
@@ -237,9 +237,33 @@ public class StatManager : MonoBehaviour, IDamageable
     /// </summary>
     /// <param name="buffAmount"></param>
     /// <returns></returns>
-    public virtual bool Buff(float buffAmount)
+    public virtual void Buff(EStatusEffectCategory category, EStatusEffectType type, ECrowdControlType cc)
     {
-        return false;
+        switch(category)
+        {
+            case EStatusEffectCategory.Buff:
+            break;
+            case EStatusEffectCategory.Debuff:
+            break;
+            case EStatusEffectCategory.CrowdControl:
+            AddCrowdControl(cc);
+            break;
+        }
+    }
+
+    public virtual void RemoveBuff(EStatusEffectCategory category, EStatusEffectType type, ECrowdControlType cc)
+    {
+        switch(category)
+        {
+            case EStatusEffectCategory.Buff:
+            break;
+            case EStatusEffectCategory.Debuff:
+            break;
+            case EStatusEffectCategory.CrowdControl:
+            RemoveCrowdControl(cc);
+            break;
+        }
+        
     }
 
     public virtual void AddCrowdControl(ECrowdControlType cc)

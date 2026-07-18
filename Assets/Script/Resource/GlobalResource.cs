@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using UnityEngine;
 using Types;
+using Unity.VisualScripting;
 
 /// <summary>
 /// This is a global enum type namespace
@@ -318,10 +319,11 @@ namespace Data
         }
     }
     
+    [CreateAssetMenu(fileName = "StatusEffect", menuName = "ScriptableObject/StatusEffect")]
     [System.Serializable]
-    public abstract class StatusEffect
+    public class StatusEffect : ScriptableObject
     {
-        public StatManager owner;
+        public MonoBehaviour owner; // Monobehaviour?
         
         [SerializeField] protected EStatusEffectType type;
         public EStatusEffectType Type => type;
@@ -343,7 +345,7 @@ namespace Data
 
         public float remainingTime { get; protected set;}
 
-        public StatusEffect(StatManager owner, EStatusEffectType type, EStatusEffectCategory category,
+        public StatusEffect(MonoBehaviour owner, EStatusEffectType type, EStatusEffectCategory category,
                             Sprite icon, float magnitude, float duration)
         {
             this.owner = owner;
@@ -354,7 +356,11 @@ namespace Data
             this.duration = duration;
         }
 
-        public virtual void Apply(StatManager target) { }
+        public virtual void Apply(StatManager target)
+        {
+            Debug.Log("Applied");
+            target.Buff(category, type, ECrowdControlType.Blinded);
+        }
 
         public virtual void Tick(StatManager target, float deltaTime)
         {
@@ -366,7 +372,10 @@ namespace Data
             remainingTime = 0.0f; 
         }
 
-        public virtual void Remove(StatManager target) { }
+        public virtual void Remove(StatManager target)
+        {
+            target.RemoveBuff(category, type, ECrowdControlType.Blinded);
+        }
         
     }
 }

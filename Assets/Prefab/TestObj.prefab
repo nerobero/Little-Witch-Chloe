@@ -47,16 +47,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JormungandrPoison
   dealtDamage: 10
-  duration: 3
+  duration: 6
+  interval: 1
   spawnType: 8
   elementType: 3
   fmodEventName: 
-  effect:
-    owner: {fileID: 0}
-    type: 17
-    category: 2
-    icon: {fileID: 0}
-    duration: 3
+  effect: {fileID: 11400000, guid: 5c64da3f4a308e4499e070d6ba9531e7, type: 2}
 --- !u!61 &8144763900377698089
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using Data;
 [System.Serializable]
 public class BlindedEffect : StatusEffect
 {
-    public BlindedEffect(StatManager owner, float magnitude, float duration)
+    public BlindedEffect(MonoBehaviour owner, float magnitude, float duration)
         : base(owner, EStatusEffectType.Blind, EStatusEffectCategory.CrowdControl, null, magnitude, duration)
     {}
 
@@ -13,11 +13,11 @@ public class BlindedEffect : StatusEffect
     public override void Apply(StatManager target)
     {
         Debug.Log("Blind Applied");
-        target.AddCrowdControl(ECrowdControlType.Blinded);
+        target.Buff(category, type, ECrowdControlType.Blinded);
     }
 
     public override void Remove(StatManager target)
     {
-        target.RemoveCrowdControl(ECrowdControlType.Blinded);
+        target.RemoveBuff(category, type, ECrowdControlType.Blinded);
     }
 }
