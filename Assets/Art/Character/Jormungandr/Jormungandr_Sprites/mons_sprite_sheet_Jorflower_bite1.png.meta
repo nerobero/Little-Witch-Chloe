@@ -1,34 +1,25 @@
 fileFormatVersion: 2
-guid: 45a31b03c00aea344aa251a2c2380fe8
+guid: 46c79119e73ec5a43b87e4543c84ed07
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5708224959147281803
-    second: mons_sprite_sheet_Jormungandr_bite1_0
+      213: 2686331121744514197
+    second: mons_sprite_sheet_Jorflower_bite1_0
   - first:
-      213: 7973070383225557634
-    second: mons_sprite_sheet_Jormungandr_bite1_1
+      213: -5658684801536270760
+    second: mons_sprite_sheet_Jorflower_bite1_1
   - first:
-      213: -3585620485374851914
-    second: mons_sprite_sheet_Jormungandr_bite1_2
+      213: 2397607146701390290
+    second: mons_sprite_sheet_Jorflower_bite1_2
   - first:
-      213: 2410412576467054366
-    second: mons_sprite_sheet_Jormungandr_bite1_3
+      213: -781991753199300439
+    second: mons_sprite_sheet_Jorflower_bite1_3
   - first:
-      213: -3984109564882968818
-    second: mons_sprite_sheet_Jormungandr_bite1_4
+      213: 7765141602768554184
+    second: mons_sprite_sheet_Jorflower_bite1_4
   - first:
-      213: -3076814417474102079
-    second: mons_sprite_sheet_Jormungandr_bite1_5
-  - first:
-      213: -2765845935857414560
-    second: mons_sprite_sheet_Jormungandr_bite1_6
-  - first:
-      213: 4549852439468640032
-    second: mons_sprite_sheet_Jormungandr_bite1_7
-  - first:
-      213: -5426253544510578495
-    second: mons_sprite_sheet_Jormungandr_bite1_8
+      213: 7727856576889816737
+    second: mons_sprite_sheet_Jorflower_bite1_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jormungandr_bite1_0
+      name: mons_sprite_sheet_Jorflower_bite1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -136,31 +127,31 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 70, y: -3}
-        - {x: 37, y: -27}
-        - {x: 37, y: -42}
-        - {x: 56, y: -74}
-        - {x: 69, y: -74}
-        - {x: 80, y: -69}
-        - {x: 80, y: -3}
+      - - {x: 80, y: -19}
+        - {x: 80, y: 15}
+        - {x: 63, y: 15}
+        - {x: 57, y: 6}
+        - {x: 57, y: -13}
+        - {x: 64, y: -23}
+        - {x: 75, y: -23}
       physicsShape:
-      - - {x: 80, y: -65}
-        - {x: 80, y: -5}
-        - {x: 70, y: -5}
-        - {x: 39, y: -29}
-        - {x: 39, y: -45}
-        - {x: 58, y: -72}
-        - {x: 70, y: -72}
+      - - {x: 80, y: -19}
+        - {x: 80, y: 15}
+        - {x: 63, y: 15}
+        - {x: 57, y: 6}
+        - {x: 57, y: -13}
+        - {x: 64, y: -23}
+        - {x: 75, y: -23}
       tessellationDetail: 0
       bones: []
-      spriteID: b8d0efb5b50b73f40800000000000000
-      internalID: 5708224959147281803
+      spriteID: 59c88a42ce3c74520800000000000000
+      internalID: 2686331121744514197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jormungandr_bite1_1
+      name: mons_sprite_sheet_Jorflower_bite1_1
       rect:
         serializedVersion: 2
         x: 160
@@ -172,32 +163,31 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 80, y: -64}
-        - {x: 80, y: 1}
-        - {x: 49, y: 1}
-        - {x: 27, y: -23}
-        - {x: 27, y: -48}
-        - {x: 38, y: -70}
-        - {x: 49, y: -78}
-        - {x: 70, y: -78}
+      - - {x: 80, y: -13}
+        - {x: 80, y: 15}
+        - {x: 70, y: 20}
+        - {x: 49, y: 20}
+        - {x: 49, y: -12}
+        - {x: 56, y: -19}
+        - {x: 66, y: -19}
       physicsShape:
-      - - {x: 80, y: -64}
-        - {x: 80, y: 1}
-        - {x: 62, y: 0}
-        - {x: 27, y: -27}
-        - {x: 27, y: -39}
-        - {x: 49, y: -78}
-        - {x: 66, y: -78}
+      - - {x: 80, y: -13}
+        - {x: 80, y: 15}
+        - {x: 70, y: 20}
+        - {x: 49, y: 20}
+        - {x: 49, y: -12}
+        - {x: 56, y: -19}
+        - {x: 66, y: -19}
       tessellationDetail: 0
       bones: []
-      spriteID: 282d859354906ae60800000000000000
-      internalID: 7973070383225557634
+      spriteID: 85e578c67205871b0800000000000000
+      internalID: -5658684801536270760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jormungandr_bite1_2
+      name: mons_sprite_sheet_Jorflower_bite1_2
       rect:
         serializedVersion: 2
         x: 320
@@ -209,37 +199,31 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 80, y: -26}
-        - {x: 56, y: 8}
-        - {x: -52, y: 9}
-        - {x: -75, y: -3}
-        - {x: -75, y: -29}
-        - {x: -55, y: -69}
-        - {x: -40, y: -76}
-        - {x: 35, y: -80}
-        - {x: 80, y: -80}
+      - - {x: -12, y: -9}
+        - {x: -12, y: 16}
+        - {x: -29, y: 25}
+        - {x: -54, y: 25}
+        - {x: -54, y: -5}
+        - {x: -42, y: -13}
+        - {x: -27, y: -13}
       physicsShape:
-      - - {x: 80, y: -35}
-        - {x: 28, y: 4}
-        - {x: -36, y: 7}
-        - {x: -72, y: -18}
-        - {x: -75, y: -29}
-        - {x: -51, y: -69}
-        - {x: -42, y: -71}
-        - {x: -9, y: -45}
-        - {x: 17, y: -49}
-        - {x: 74, y: -80}
-        - {x: 80, y: -80}
+      - - {x: -12, y: -9}
+        - {x: -12, y: 16}
+        - {x: -29, y: 25}
+        - {x: -54, y: 25}
+        - {x: -54, y: -5}
+        - {x: -42, y: -13}
+        - {x: -27, y: -13}
       tessellationDetail: 0
       bones: []
-      spriteID: 6b44edd7a215d3ec0800000000000000
-      internalID: -3585620485374851914
+      spriteID: 2d103123ff2064120800000000000000
+      internalID: 2397607146701390290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jormungandr_bite1_3
+      name: mons_sprite_sheet_Jorflower_bite1_3
       rect:
         serializedVersion: 2
         x: 480
@@ -251,34 +235,35 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 80, y: -30}
-        - {x: 42, y: 8}
-        - {x: -36, y: 8}
-        - {x: -71, y: -16}
-        - {x: -71, y: -48}
-        - {x: 29, y: -80}
-        - {x: 80, y: -80}
+      - - {x: -8, y: -6}
+        - {x: -8, y: 11}
+        - {x: -13, y: 23}
+        - {x: -28, y: 26}
+        - {x: -45, y: 26}
+        - {x: -51, y: 16}
+        - {x: -51, y: -1}
+        - {x: -42, y: -12}
+        - {x: -22, y: -12}
       physicsShape:
-      - - {x: 80, y: -36}
-        - {x: 31, y: 5}
-        - {x: -35, y: 6}
-        - {x: -71, y: -23}
-        - {x: -59, y: -49}
-        - {x: -44, y: -51}
-        - {x: -4, y: -44}
-        - {x: 29, y: -53}
-        - {x: 74, y: -80}
-        - {x: 80, y: -80}
+      - - {x: -8, y: -6}
+        - {x: -8, y: 11}
+        - {x: -13, y: 23}
+        - {x: -28, y: 26}
+        - {x: -45, y: 26}
+        - {x: -51, y: 16}
+        - {x: -51, y: -1}
+        - {x: -42, y: -12}
+        - {x: -22, y: -12}
       tessellationDetail: 0
       bones: []
-      spriteID: e1fe376a771837120800000000000000
-      internalID: 2410412576467054366
+      spriteID: 9a05545c4aec525f0800000000000000
+      internalID: -781991753199300439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jormungandr_bite1_4
+      name: mons_sprite_sheet_Jorflower_bite1_4
       rect:
         serializedVersion: 2
         x: 640
@@ -290,32 +275,33 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 80, y: -11}
-        - {x: 67, y: -2}
-        - {x: 26, y: -2}
-        - {x: 10, y: -5}
-        - {x: -20, y: -32}
-        - {x: -20, y: -59}
-        - {x: 80, y: -62}
+      - - {x: 50, y: -20}
+        - {x: 50, y: 7}
+        - {x: 35, y: 14}
+        - {x: 15, y: 17}
+        - {x: 7, y: 8}
+        - {x: 7, y: -15}
+        - {x: 17, y: -24}
+        - {x: 40, y: -23}
       physicsShape:
-      - - {x: 80, y: -13}
-        - {x: 60, y: -6}
-        - {x: 26, y: -5}
-        - {x: -7, y: -27}
-        - {x: -21, y: -48}
-        - {x: -20, y: -58}
-        - {x: 33, y: -52}
-        - {x: 80, y: -62}
+      - - {x: 50, y: -20}
+        - {x: 50, y: 7}
+        - {x: 35, y: 14}
+        - {x: 15, y: 17}
+        - {x: 7, y: 8}
+        - {x: 7, y: -15}
+        - {x: 17, y: -24}
+        - {x: 40, y: -23}
       tessellationDetail: 0
       bones: []
-      spriteID: e0f1aee957995b8c0800000000000000
-      internalID: -3984109564882968818
+      spriteID: 8c880af652353cb60800000000000000
+      internalID: 7765141602768554184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jormungandr_bite1_5
+      name: mons_sprite_sheet_Jorflower_bite1_5
       rect:
         serializedVersion: 2
         x: 800
@@ -327,54 +313,23 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 80, y: -3}
-        - {x: 63, y: -4}
-        - {x: 51, y: -9}
-        - {x: 25, y: -33}
-        - {x: 23, y: -53}
-        - {x: 43, y: -56}
-        - {x: 80, y: -56}
+      - - {x: 80, y: -18}
+        - {x: 80, y: 13}
+        - {x: 47, y: 13}
+        - {x: 47, y: -16}
+        - {x: 55, y: -25}
+        - {x: 75, y: -25}
       physicsShape:
-      - - {x: 80, y: -3}
-        - {x: 51, y: -14}
-        - {x: 28, y: -33}
-        - {x: 23, y: -53}
-        - {x: 45, y: -53}
-        - {x: 80, y: -56}
+      - - {x: 80, y: -18}
+        - {x: 80, y: 13}
+        - {x: 47, y: 13}
+        - {x: 47, y: -16}
+        - {x: 55, y: -25}
+        - {x: 75, y: -25}
       tessellationDetail: 0
       bones: []
-      spriteID: 1ccd7a6c695fc45d0800000000000000
-      internalID: -3076814417474102079
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mons_sprite_sheet_Jormungandr_bite1_6
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 0
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline:
-      - - {x: 80, y: -27}
-        - {x: 69, y: -32}
-        - {x: 65, y: -54}
-        - {x: 80, y: -58}
-      physicsShape:
-      - - {x: 80, y: -29}
-        - {x: 67, y: -29}
-        - {x: 67, y: -56}
-        - {x: 80, y: -56}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06ec2c186cdbd99d0800000000000000
-      internalID: -2765845935857414560
+      spriteID: 1a60facdc9cde3b60800000000000000
+      internalID: 7727856576889816737
       vertices: []
       indices: 
       edges: []
@@ -383,7 +338,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: fe5eec719983d814bbedabf975e0ca8c
+    spriteID: 54a5c2d336c2f2244a1eb499c7c4587f
     internalID: 0
     vertices: []
     indices: 
@@ -395,13 +350,12 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":160.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      mons_sprite_sheet_Jormungandr_bite1_0: 5708224959147281803
-      mons_sprite_sheet_Jormungandr_bite1_1: 7973070383225557634
-      mons_sprite_sheet_Jormungandr_bite1_2: -3585620485374851914
-      mons_sprite_sheet_Jormungandr_bite1_3: 2410412576467054366
-      mons_sprite_sheet_Jormungandr_bite1_4: -3984109564882968818
-      mons_sprite_sheet_Jormungandr_bite1_5: -3076814417474102079
-      mons_sprite_sheet_Jormungandr_bite1_6: -2765845935857414560
+      mons_sprite_sheet_Jorflower_bite1_0: 2686331121744514197
+      mons_sprite_sheet_Jorflower_bite1_1: -5658684801536270760
+      mons_sprite_sheet_Jorflower_bite1_2: 2397607146701390290
+      mons_sprite_sheet_Jorflower_bite1_3: -781991753199300439
+      mons_sprite_sheet_Jorflower_bite1_4: 7765141602768554184
+      mons_sprite_sheet_Jorflower_bite1_5: 7727856576889816737
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
