@@ -1,5 +1,6 @@
 using UnityEngine;
 using Types;
+using NUnit.Framework.Interfaces;
 
 public class JormungandrFSMController : BaseFSMAIController
 {
@@ -13,11 +14,21 @@ public class JormungandrFSMController : BaseFSMAIController
     [SerializeField] private int mushroomSummonCount = 1;
     [SerializeField] private float shroomSummonTimeInterval = 1.5f;
 
+    public Animator flowerAnimator;
+
     protected override void OnAwake()
     {
         base.OnAwake();
 
     }
+
+    protected override (int animTriggerHash, IEnemyAttackStrategy strat) ChooseNextStrategy()
+    {
+        var strat = attacklist["melee"];
+        return (strat.AnimHash, strat.Strategy);
+    }
+
+
     protected override void Init()
     {
         base.Init();
@@ -26,10 +37,10 @@ public class JormungandrFSMController : BaseFSMAIController
             Animator.StringToHash("Melee"),
             new MeleeAttackStrategy(mouth, radius: 5f, damageAmount: 30f, EElementType.Water)
         );
-        attacklist["projectile"] = new AttackEntry(
-            Animator.StringToHash("Projectile"),
-            new ProjectileAttackStrategy()
-        );
+        // attacklist["projectile"] = new AttackEntry(
+        //     Animator.StringToHash("Projectile"),
+        //     new ProjectileAttackStrategy()
+        // );
         attacklist["summon1"] = new AttackEntry(
             Animator.StringToHash("SummonMushroom"),
             new SummonAttackStrategy(this, mushroomPrefab, shroomSummonTimeInterval, mushroomSummonCount,summonRoot.position)
@@ -38,5 +49,11 @@ public class JormungandrFSMController : BaseFSMAIController
             Animator.StringToHash("SummonTail"),
             new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, summonRoot.position)
         );
+    }
+
+    protected override void StartAttackStrat()
+    {
+        base.StartAttackStrat();
+        flowerAnimator.SetTrigger(_currentAnimHash);
     }
 }
