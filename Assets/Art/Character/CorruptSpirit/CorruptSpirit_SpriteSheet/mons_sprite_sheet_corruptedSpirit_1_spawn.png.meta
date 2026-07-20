@@ -99,7 +99,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,7 +135,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 28, y: -14}
+        - {x: -4, y: -14}
+        - {x: -28, y: -20}
+        - {x: -28, y: -31}
+        - {x: 28, y: -32}
       physicsShape:
       - - {x: 27, y: -23}
         - {x: 20, y: -16}
@@ -163,7 +168,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 28, y: -7}
+        - {x: -4, y: -7}
+        - {x: -32, y: -20}
+        - {x: -32, y: -31}
+        - {x: 28, y: -32}
       physicsShape:
       - - {x: 27, y: -23}
         - {x: 22, y: -11}
@@ -192,7 +202,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 25, y: -30}
+        - {x: 25, y: 3}
+        - {x: -9, y: 3}
+        - {x: -32, y: -2}
+        - {x: -32, y: -15}
+        - {x: -19, y: -32}
+        - {x: 24, y: -32}
       physicsShape:
       - - {x: 23, y: -14}
         - {x: 23, y: -6}
@@ -222,7 +239,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 26, y: 7}
+        - {x: 19, y: 19}
+        - {x: -32, y: 19}
+        - {x: -32, y: -32}
+        - {x: 20, y: -32}
       physicsShape:
       - - {x: 21, y: 7}
         - {x: 18, y: 17}
@@ -251,7 +273,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 25, y: 29}
+        - {x: 0, y: 29}
+        - {x: -23, y: 22}
+        - {x: -31, y: 14}
+        - {x: -31, y: 1}
+        - {x: -23, y: -32}
+        - {x: 25, y: -32}
       physicsShape:
       - - {x: 23, y: -24}
         - {x: 23, y: 20}
@@ -281,7 +310,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 25, y: -5}
+        - {x: 25, y: 17}
+        - {x: 16, y: 26}
+        - {x: 1, y: 26}
+        - {x: -32, y: 15}
+        - {x: -31, y: 2}
+        - {x: -16, y: -32}
+        - {x: 20, y: -32}
       physicsShape:
       - - {x: 23, y: 7}
         - {x: 23, y: 19}
@@ -312,7 +349,16 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 20, y: -31}
+        - {x: 25, y: 3}
+        - {x: 25, y: 20}
+        - {x: 20, y: 28}
+        - {x: -1, y: 28}
+        - {x: -31, y: 19}
+        - {x: -31, y: -2}
+        - {x: -21, y: -32}
+        - {x: 20, y: -32}
       physicsShape:
       - - {x: 23, y: 18}
         - {x: 18, y: 26}
@@ -342,7 +388,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 26, y: 22}
+        - {x: 21, y: 31}
+        - {x: -29, y: 27}
+        - {x: -30, y: 9}
+        - {x: -12, y: -32}
+        - {x: 24, y: -32}
       physicsShape:
       - - {x: 26, y: -23}
         - {x: 24, y: 26}
@@ -372,7 +424,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 26, y: 22}
+        - {x: 21, y: 31}
+        - {x: -30, y: 27}
+        - {x: -30, y: 9}
+        - {x: -12, y: -32}
+        - {x: 24, y: -32}
       physicsShape:
       - - {x: 26, y: -23}
         - {x: 24, y: 26}

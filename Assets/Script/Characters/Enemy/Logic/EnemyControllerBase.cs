@@ -344,7 +344,8 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
         enabled = false;
         enemyMove.enabled = false;
         enemyState = EMonsterState.Idle;
-        StopCoroutine(thinkRoutine);
+        StopAllCoroutines();
+        // StopCoroutine(thinkRoutine);
     }
 
     void OnEnable()
