@@ -16,6 +16,7 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
 
     // Handler for enemy's attack system
     protected EnemyAttack enemyAttack;
+    //protected StatusEffectController statusEffects;
 
     [SerializeField] protected EMonsterState enemyState;
     #endregion
@@ -66,6 +67,7 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
         enemyMove.OnBlinkFinished += ChangeStateToATKorChase;
         enemyAttack = GetComponent<EnemyAttack>();
         enemyStat = GetComponent<EnemyCharacterBase>();
+        //statusEffects = GetComponent<StatusEffectController>();
         _interval = new WaitForSecondsTracked(0f);
         // _animator = GetComponent<PlayerAnimator>();
     }
@@ -79,6 +81,8 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
 
     protected virtual void FixedUpdate()
     {
+        // if (statusEffects != null && statusEffects.IsStunned)
+        //     return;
             
         // Detect player as target
         DetectPlayer();
@@ -118,13 +122,17 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
                 float cosThreshold = Mathf.Cos(viewAngle * 0.5f * Mathf.Deg2Rad); 
 
                 //Vector2 forward = transform.right * enemyMove.MoveDir;
-                Vector2 dirToPlayer = (hit.transform.position - transform.position).normalized;
                 Vector2 baseForward = transform.right * enemyMove.MoveDir;
                 Vector2 forward = baseForward;
-                if (Vector2.Dot(baseForward, dirToPlayer) > 0f) 
+                Vector2 dirToPlayer = (hit.transform.position - transform.position).normalized;
+
+                if(_hasTarget)
                 {
-                    // Aligns the central axis of the field of view with the player (turns head to look).
-                    forward = dirToPlayer; 
+                    if (Vector2.Dot(baseForward, dirToPlayer) > 0f) 
+                    {
+                        // Aligns the central axis of the field of view with the player (turns head to look).
+                        forward = dirToPlayer; 
+                    }
                 }
 
                 // Calculate the angle of two vectors
@@ -137,12 +145,13 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
                     Vector2 dirToTarget = (hit.gameObject.transform.position - worldEyePoint).normalized;
                     float distsToTarget = Vector2.Distance(hit.gameObject.transform.position, transform.position);
 
-                    LayerMask mask = enemyMove.IsBackground ? LayerMask.GetMask("Background") : LayerMask.GetMask("Foreground");
+                    LayerMask mask = enemyMove.IsBackground ? LayerMask.GetMask("Background_Platform") : LayerMask.GetMask("Foreground_Platform");
 
                     // Do raycast for dectect the obstacles
                     RaycastHit2D rayHit = Physics2D.Raycast(worldEyePoint, dirToTarget, distsToTarget, mask);
 
-                    if(rayHit.collider != null)
+
+                    if(rayHit.collider == null)
                     {
                         // the player is in view triangle
                         PlayerDetected(false, hit.gameObject.transform.position);
@@ -177,42 +186,56 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
 
     protected void OnDrawGizmos()
     {
-        if(enemyMove != null)
-        {      
-            // Gizmo color settings (can be changed to desired color)
-            Gizmos.color = Color.red;
+        if (enemyMove == null)
+            return;
 
-            // Draw a box using the same position, size, and rotation values ​​as the OverlapBox
-            // If eyePoint is a local coordinate, you must use transform.TransformPoint(eyePoint) for accuracy.
-            Vector3 worldEyePoint = transform.TransformPoint(eyePoint); 
-            
-            Gizmos.DrawWireCube(worldEyePoint, new Vector3(viewDistance, viewHeight, 0));
+        Vector3 worldEyePoint = transform.TransformPoint(eyePoint);
 
-            // --- 2. Drawing the Field of View (FOV) area (yellow fan) ---
-            Gizmos.color = Color.yellow;
-            float cosThreshold = Mathf.Cos(viewAngle * 0.5f * Mathf.Deg2Rad); 
+        // OverlapBox
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(worldEyePoint, new Vector3(viewDistance, viewHeight, 0));
 
-            //Vector2 forward = transform.right * enemyMove.MoveDir;
-            Vector2 baseForward = transform.right * enemyMove.MoveDir;
-            Vector2 dirToPlayer = ((Vector3)enemyMove.targetPosition - transform.position).normalized;
-            Vector2 forward = baseForward;
-            if (Vector2.Dot(baseForward, dirToPlayer) > 0f) 
-            {
-                // Aligns the central axis of the field of view with the player (turns head to look).
-                forward = dirToPlayer; 
-            }
-        
-            // Calculate the direction of both ends of the field of view (Rotate Z axis)
-            Vector3 leftBoundary = Quaternion.Euler(0, 0, viewAngle * 0.5f) * forward;
-            Vector3 rightBoundary = Quaternion.Euler(0, 0, -viewAngle * 0.5f) * forward;
+        Vector2 baseForward = transform.right * enemyMove.MoveDir;
+        Vector2 forward = baseForward;
 
-            // Draw lines at both ends (Use viewDistance for length)
-            Gizmos.DrawRay(worldEyePoint, leftBoundary * viewDistance / 2);
-            Gizmos.DrawRay(worldEyePoint, rightBoundary * viewDistance / 2);
-            
-            // Connecting the ends of the fan shape
-            Gizmos.DrawLine(worldEyePoint + leftBoundary * viewDistance / 2, worldEyePoint + rightBoundary * viewDistance / 2);
+        Collider2D hit = Physics2D.OverlapBox(
+            worldEyePoint,
+            new Vector2(viewDistance, viewHeight),
+            0f,
+            playerLayer);
+
+        if (_hasTarget && hit != null)
+        {
+            Vector2 dirToPlayer =
+                (hit.transform.position - transform.position).normalized;
+
+            if (Vector2.Dot(baseForward, dirToPlayer) > 0f)
+                forward = dirToPlayer;
         }
+
+        // ===== FOV =====
+
+        Gizmos.color = Color.yellow;
+
+        Vector3 left =
+            Quaternion.Euler(0, 0, viewAngle * 0.5f) * forward;
+
+        Vector3 right =
+            Quaternion.Euler(0, 0, -viewAngle * 0.5f) * forward;
+
+        Gizmos.DrawLine(worldEyePoint, worldEyePoint + left * viewDistance);
+        Gizmos.DrawLine(worldEyePoint, worldEyePoint + right * viewDistance);
+        Gizmos.DrawLine(
+            worldEyePoint + left * viewDistance,
+            worldEyePoint + right * viewDistance);
+
+        // ===== Center Axis =====
+
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawRay(worldEyePoint, forward * viewDistance);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(worldEyePoint, baseForward * viewDistance);
     }
 
     protected virtual void PlayerDetected(bool bIsDifferentPlatform, Vector2 hitPosition)
@@ -256,6 +279,7 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
     protected virtual void onAttack()
     {
         if(enemyStat.IsDead) return;
+        //if(enemyStat.IsDead || (statusEffects != null && !statusEffects.CanAttack)) return;
         
         bool shouldFacingLeft = enemyMove.targetPosition.x < transform.position.x;
         // IsFacingRight of enemy is same as is facing left
@@ -279,6 +303,8 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
     // AI behavior
     protected virtual void Think()
     {
+        // if (statusEffects != null && !statusEffects.CanAttack)
+        //     return;
         switch(enemyState)
         {
             case EMonsterState.Attack:
