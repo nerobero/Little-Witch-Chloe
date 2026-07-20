@@ -17,9 +17,7 @@ public class JormungandrFSMController : BaseFSMAIController
 
     protected override void OnAwake()
     {
-        Debug.Log("[FSM] Jormungandr OnAwake");
         base.OnAwake();
-
     }
 
     protected override (int animTriggerHash, IEnemyAttackStrategy strat) ChooseNextStrategy()

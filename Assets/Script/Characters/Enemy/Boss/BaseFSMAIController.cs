@@ -75,6 +75,11 @@ public class BaseFSMAIController : MonoBehaviour
         _currentStrat.Attack(this.gameObject, _currentTarget);
     }
 
+    public void AttackEnd()
+    {
+        _currentStrat.AttackFinished();
+    }
+
     private void HandleAttackEnd(bool success)
     {
         _isActing = false;
