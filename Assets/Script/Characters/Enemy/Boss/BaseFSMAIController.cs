@@ -53,6 +53,7 @@ public class BaseFSMAIController : MonoBehaviour
 
     protected void Update()
     {
+        Debug.Log($"[FSM] Update tick, isActing={_isActing}");
         if (_isActing) return; // if already acting, then no need to process the rest of logic
 
         StartAttackStrat();

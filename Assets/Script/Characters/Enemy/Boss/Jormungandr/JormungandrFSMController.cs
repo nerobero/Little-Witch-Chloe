@@ -1,6 +1,5 @@
 using UnityEngine;
 using Types;
-using NUnit.Framework.Interfaces;
 
 public class JormungandrFSMController : BaseFSMAIController
 {
@@ -18,6 +17,7 @@ public class JormungandrFSMController : BaseFSMAIController
 
     protected override void OnAwake()
     {
+        Debug.Log("[FSM] Jormungandr OnAwake");
         base.OnAwake();
 
     }
