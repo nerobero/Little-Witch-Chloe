@@ -26,12 +26,17 @@ public class BaseFSMAIController : MonoBehaviour
     private GameObject _currentTarget;
 
     private IEnemyAttackStrategy _currentStrat;
-
+    
+    [Header("Animator - Main body")]
     public Animator _mainAnimator;
 
     private bool _isActing = false;
 
     protected int _currentAnimHash;
+
+    [Header("Cooldown time between action turn")]
+    [SerializeField] protected float actionCooldown = 1f;
+    private float _nextActionTime = 0f;
 
     private void Awake()
     {
@@ -54,7 +59,8 @@ public class BaseFSMAIController : MonoBehaviour
     protected void Update()
     {
         Debug.Log($"[FSM] Update tick, isActing={_isActing}");
-        if (_isActing) return; // if already acting, then no need to process the rest of logic
+        if (_isActing) return; // if already acting, then no need to process the rest of logic.
+        if (Time.time < _nextActionTime) return; //if in cooldown for this action turn, return
 
         StartAttackStrat();
     }
@@ -84,6 +90,7 @@ public class BaseFSMAIController : MonoBehaviour
     {
         _isActing = false;
         _currentStrat.OnAttackComplete -= HandleAttackEnd; //unsubscribing since this attack is done.
+        _nextActionTime = Time.time + actionCooldown; // start cooldown once the attack ends
 
         if (!success)
         {

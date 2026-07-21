@@ -26442,6 +26442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JormungandrFSMController
   _mainAnimator: {fileID: 325830972}
+  actionCooldown: 2
   mouth: {fileID: 1688524061}
   tailObject: {fileID: 4154287721773258411, guid: 2d50f00c17714724eb32b2cfe58d9116, type: 3}
   tailSummonCount: 1

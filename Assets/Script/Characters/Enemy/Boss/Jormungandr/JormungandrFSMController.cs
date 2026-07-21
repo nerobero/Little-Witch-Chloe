@@ -3,16 +3,21 @@ using Types;
 
 public class JormungandrFSMController : BaseFSMAIController
 {
+    [Header("Melee Attack Damage origin")]
     public Transform mouth;
+
+    [Header("Tail attack summon")]
     public GameObject tailObject;
     [SerializeField] private int tailSummonCount = 1;
     [SerializeField] private float tailSummonTimeInterval = 1.5f;
     public Transform summonRoot;
 
+    [Header("Mushroom mine summon")]
     public GameObject mushroomPrefab;
     [SerializeField] private int mushroomSummonCount = 1;
     [SerializeField] private float shroomSummonTimeInterval = 1.5f;
 
+    [Header("Animator - Flower")]
     public Animator flowerAnimator;
 
     protected override void OnAwake()
