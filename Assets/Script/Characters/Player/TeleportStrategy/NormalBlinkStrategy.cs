@@ -102,7 +102,7 @@ public class NormalBlinkStrategy : IBlinkStrategy
         if (hitresult.collider == null)
         {
             Debug.Log("Null");
-            return (false, Vector2.zero);
+            return (false, pos);
         }
 
         return (true, new Vector2(hitresult.point.x, hitresult.point.y + 1.0f));
