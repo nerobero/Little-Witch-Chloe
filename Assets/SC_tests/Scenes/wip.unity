@@ -680,6 +680,7 @@ GameObject:
   - component: {fileID: 133049532}
   - component: {fileID: 133049531}
   - component: {fileID: 133049536}
+  - component: {fileID: 133049537}
   m_Layer: 7
   m_Name: Tilemap
   m_TagString: Untagged
@@ -733,7 +734,7 @@ CompositeCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
@@ -26008,6 +26009,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7911241a8fd6a6848b43d7cf3a56b710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TileCollider
+--- !u!251 &133049537
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133049529}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 698128
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &206411984
 GameObject:
   m_ObjectHideFlags: 0
@@ -29350,11 +29370,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1165017382129071551, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 198.82
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 1165017382129071551, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.07453
+      value: 5.014531
       objectReference: {fileID: 0}
     - target: {fileID: 1165017382129071551, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: m_LocalPosition.z
@@ -49738,7 +49758,7 @@ Transform:
   m_GameObject: {fileID: 1364854595}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 198.82, y: 20.07453, z: -10}
+  m_LocalPosition: {x: -3, y: 5.014531, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -50344,6 +50364,7 @@ GameObject:
   - component: {fileID: 1470512266}
   - component: {fileID: 1470512267}
   - component: {fileID: 1470512270}
+  - component: {fileID: 1470512271}
   m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
@@ -50397,7 +50418,7 @@ CompositeCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
@@ -79032,6 +79053,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7911241a8fd6a6848b43d7cf3a56b710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TileCollider
+--- !u!251 &1470512271
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470512263}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 352000
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!224 &1482257725 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6287765120938365995, guid: d4ae58aac6885a5468be691e18cea108, type: 3}
@@ -82808,11 +82848,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8066750104543563746, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 198.82
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 8066750104543563746, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.96
+      value: 3.9
       objectReference: {fileID: 0}
     - target: {fileID: 8066750104543563746, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_LocalPosition.z
