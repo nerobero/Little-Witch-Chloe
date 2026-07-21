@@ -33,6 +33,7 @@ public class PlayerMovement : BaseCharacterMovement
     public event Action<float> OnBlinkCooldown;
     private IBlinkStrategy _blinkStrat;
 
+    WaitForFixedUpdate blinkCooldown = new WaitForFixedUpdate();
 
     protected override void Awake()
     {
@@ -92,6 +93,11 @@ public class PlayerMovement : BaseCharacterMovement
         // moving the rigidbody:
         // the y-axis remains constant here.
         _rb.linearVelocity = new Vector2(MoveDir * speed, _rb.linearVelocity.y);
+        // if (_statusEffects != null && !_statusEffects.CanMove)
+        //     MoveDir = 0f;
+
+        // _rb.linearVelocity = new Vector2(MoveDir * GetModifiedMoveSpeed(), _rb.linearVelocity.y);
+        
         // if MoveDir != 0, it means that the player is moving in either direction:
         _animController.SetToWalk(_rb.linearVelocity.x != 0f);
     }
@@ -124,6 +130,7 @@ public class PlayerMovement : BaseCharacterMovement
     /// </summary>
     public override void Jump()
     {
+        //if (_statusEffects != null && !_statusEffects.CanMove) return;
         if (IsGrounded)
         {
             _rb.AddForce(Vector2.up * curJumpHeight, ForceMode2D.Impulse);
@@ -140,6 +147,7 @@ public class PlayerMovement : BaseCharacterMovement
     /// </summary>
     public void StartFlying()
     {
+        //if (_statusEffects != null && !_statusEffects.CanMove) return;
         // if this function is called when the character is NOT set to fly,
         // then return.
         if (!PlayerController.Instance.IsFlying ||
@@ -173,6 +181,7 @@ public class PlayerMovement : BaseCharacterMovement
     /// </summary>
     public void FlyTick()
     {
+        //if (_statusEffects != null && !_statusEffects.CanMove) return;
         _rb.AddForce(Vector2.up * flyForce, ForceMode2D.Force);
         _statManager.UseStamina(0.01f);
     }
@@ -183,6 +192,7 @@ public class PlayerMovement : BaseCharacterMovement
     /// </summary>
     public void BlinkToOtherPlatform()
     {
+        //if (_statusEffects != null && !_statusEffects.CanCast) return;
         /*
         'Blinking' is basically the term for teleporting between the foreground and background platforms.
         We may need to have our own calculation system for determining where on the platform Chloe should
@@ -197,21 +207,30 @@ public class PlayerMovement : BaseCharacterMovement
 
         canBlink = false;
 
-        // 1. flip the _isBackground value before we reposition the character:
-        _animController.SetToIsBlinkingStartTrig();
-        _isBackground = !_isBackground;
 
+        bool enableBlink;
+        
+        // 3. reposition the player character:
+        (enableBlink, _rb.position) = _blinkStrat.ProcessTeleport(1.5f * 3f, _isBackground, 
+            _animController.IsFacingRight, transform); //new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
+
+        if(enableBlink == false)
+        {
+            StartCoroutine(BlinkCooltimeChk(blinkCooldownTime));
+            return;
+        }
+
+        _animController.SetToIsBlinkingStartTrig();
+        
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Blink");
+
+        // 1. flip the _isBackground value before we reposition the character:
+        _isBackground = !_isBackground;
+        
         // 2. ignoring the colliders of the source ground
         // and enabling the colliders for the destination ground:
         int layerIndex = (int)Mathf.Log(_isBackground ? bgPlayerLayer : fgPlayerLayer, 2);
         gameObject.layer = layerIndex;
-
-        // 3. reposition the player character:
-        
-        _rb.position = _blinkStrat.ProcessTeleport(1.5f, isBackground: _isBackground, 
-            isFacingRight: _animController.IsFacingRight, characOrigin: transform); //new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Blink");
-
 
         // 4. changing the order in layer:
         ChangeOrderInLayer();
@@ -234,7 +253,7 @@ public class PlayerMovement : BaseCharacterMovement
         {
             cool -= Time.deltaTime;
             OnBlinkCooldown?.Invoke(cool);
-            yield return new WaitForFixedUpdate();
+            yield return blinkCooldown;
         }
 
         canBlink = true;
