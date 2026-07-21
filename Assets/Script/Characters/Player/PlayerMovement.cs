@@ -208,17 +208,21 @@ public class PlayerMovement : BaseCharacterMovement
         canBlink = false;
 
 
-        bool enableBlink;
+        bool enableBlink = true;
+        Vector2 teleportLocation;
         
         // 3. reposition the player character:
-        (enableBlink, _rb.position) = _blinkStrat.ProcessTeleport(1.5f * 3f, _isBackground, 
+        (enableBlink, teleportLocation) = _blinkStrat.ProcessTeleport(1.5f * 3f, _isBackground, 
             _animController.IsFacingRight, transform); //new Vector2(hitresult.point.x, hitresult.point.y + 1.0f);
 
         if(enableBlink == false)
         {
+            Debug.Log("failed to teleport");
             StartCoroutine(BlinkCooltimeChk(blinkCooldownTime));
             return;
         }
+        
+        _rb.position = teleportLocation;
 
         _animController.SetToIsBlinkingStartTrig();
         
