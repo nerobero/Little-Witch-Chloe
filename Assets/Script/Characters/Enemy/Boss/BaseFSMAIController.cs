@@ -100,4 +100,9 @@ public class BaseFSMAIController : MonoBehaviour
     }
 
     protected virtual void HandleAttackFail() { }
+
+    public void PlaySFX(string eventPath)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(eventPath);
+    }
 }
