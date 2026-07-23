@@ -5,7 +5,7 @@
 			<value>Attack</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{bef4e1ba-0bc2-461e-a203-080fbfe6c056}</destination>
@@ -83,6 +83,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{cc5dd9ab-f063-4b13-bcdf-2f53a702b866}">
+		<property name="volume">
+			<value>-11</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{5e52266b-654b-4b50-8480-ad21ddcd54f8}</destination>
 		</relationship>
@@ -135,6 +138,8 @@
 	<object class="MixerBusEffectChain" id="{5e52266b-654b-4b50-8480-ad21ddcd54f8}">
 		<relationship name="effects">
 			<destination>{dc933b0b-57c6-4ca5-8938-fddd0a2fd9fc}</destination>
+			<destination>{d4f06b40-99dd-4b37-9e74-b67287378ee4}</destination>
+			<destination>{5a51f92c-635b-43fd-bf4c-286909467b9d}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{670a3883-cfe3-48d0-9183-7f94e1ba0f5e}" />
@@ -157,6 +162,22 @@
 	</object>
 	<object class="MixerBusPanner" id="{b48d5e72-b3af-4482-8054-57562f68384c}" />
 	<object class="MixerBusFader" id="{dc933b0b-57c6-4ca5-8938-fddd0a2fd9fc}" />
+	<object class="ChorusEffect" id="{d4f06b40-99dd-4b37-9e74-b67287378ee4}">
+		<property name="rate">
+			<value>11.5</value>
+		</property>
+		<property name="depth">
+			<value>71</value>
+		</property>
+	</object>
+	<object class="PannerEffect" id="{5a51f92c-635b-43fd-bf4c-286909467b9d}">
+		<property name="stereoPan">
+			<value>-2</value>
+		</property>
+		<property name="overridingOutputFormat">
+			<value>0</value>
+		</property>
+	</object>
 	<object class="RandomizerModulator" id="{761b4a7f-fcbe-44b9-aad1-bb5576fdd315}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>pitch</value>

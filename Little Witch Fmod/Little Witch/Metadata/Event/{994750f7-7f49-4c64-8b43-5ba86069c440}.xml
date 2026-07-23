@@ -92,6 +92,9 @@
 		<property name="length">
 			<value>0.70000000000000007</value>
 		</property>
+		<relationship name="fadeOutCurve">
+			<destination>{2dc41193-ab3c-4408-b290-324ea4bac8ca}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{501659d7-b31f-4ade-810b-c0a87a8e71ea}</destination>
 		</relationship>
@@ -117,12 +120,60 @@
 	</object>
 	<object class="MixerBusPanner" id="{fa960732-cc19-4846-80f4-fbafaa16de63}" />
 	<object class="MixerBusFader" id="{dca9d1c8-d34a-4c55-a50e-d74293f001e5}" />
+	<object class="FadeCurve" id="{2dc41193-ab3c-4408-b290-324ea4bac8ca}">
+		<relationship name="startPoint">
+			<destination>{51b12fc2-b1e5-44e2-b658-c322e9eecaaf}</destination>
+		</relationship>
+		<relationship name="endPoint">
+			<destination>{846a5c97-4679-4140-b8f3-358d97347258}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{f42c024e-5ca8-455f-9906-4d7a396a21bf}">
 		<relationship name="effects">
 			<destination>{756ddc97-a223-4cc1-89dd-407e48722c17}</destination>
+			<destination>{fe55a613-7c90-4e64-8660-759dd464183f}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{2dc02765-98ec-4b56-991a-3df7216c1ead}" />
 	<object class="MixerBusFader" id="{5597204b-94e0-4762-8050-df12d266ffea}" />
+	<object class="AutomationPoint" id="{51b12fc2-b1e5-44e2-b658-c322e9eecaaf}">
+		<property name="position">
+			<value>0.66000000000000003</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+		<property name="curveShape">
+			<value>0.25471893</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{846a5c97-4679-4140-b8f3-358d97347258}">
+		<property name="position">
+			<value>0.70000000000000007</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{756ddc97-a223-4cc1-89dd-407e48722c17}" />
+	<object class="SFXReverbEffect" id="{fe55a613-7c90-4e64-8660-759dd464183f}">
+		<property name="decayTime">
+			<value>7000</value>
+		</property>
+		<property name="earlyDelay">
+			<value>9.5</value>
+		</property>
+		<property name="HFReference">
+			<value>260</value>
+		</property>
+		<property name="HFDecayRatio">
+			<value>35</value>
+		</property>
+		<property name="diffusion">
+			<value>0</value>
+		</property>
+		<property name="lowShelfFrequency">
+			<value>24</value>
+		</property>
+	</object>
 </objects>
