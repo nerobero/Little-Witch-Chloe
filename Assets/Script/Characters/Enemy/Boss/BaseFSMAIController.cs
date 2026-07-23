@@ -56,6 +56,15 @@ public class BaseFSMAIController : MonoBehaviour
         return (-1, null);
     }
 
+    protected virtual void OnBecomeInvisible()
+    {
+        
+    }
+    protected virtual void OnBecomeVisible()
+    {
+        
+    }
+
     protected void Update()
     {
         Debug.Log($"[FSM] Update tick, isActing={_isActing}");
@@ -100,4 +109,9 @@ public class BaseFSMAIController : MonoBehaviour
     }
 
     protected virtual void HandleAttackFail() { }
+
+    public void PlaySFX(string eventPath)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(eventPath);
+    }
 }

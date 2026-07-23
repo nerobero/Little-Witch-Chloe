@@ -52,6 +52,10 @@ public class JormungandrFSMController : BaseFSMAIController
             Animator.StringToHash("SummonTail"),
             new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, summonRoot.position)
         );
+        attacklist["statusEffect"] = new AttackEntry(
+            Animator.StringToHash("StatusEffect"),
+             new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, summonRoot.position) // <-- TODO: CHANGE
+        );
     }
 
     protected override void StartAttackStrat()

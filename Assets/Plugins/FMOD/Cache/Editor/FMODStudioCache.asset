@@ -51,6 +51,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6506654287812630190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Moss
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Moss
+  Guid:
+    Data1: -1035046381
+    Data2: 1246100692
+    Data3: 1232165299
+    Data4: -201318344
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-5662479597483696475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,10 +93,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639177613218533059
+  lastModified: 639203566974559945
   FileSizes:
   - Name: Desktop
-    Value: 2144
+    Value: 2516
   Exists: 1
 --- !u!114 &-5201378617633771360
 MonoBehaviour:
@@ -92,7 +119,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -4533339184958613913}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -125,6 +152,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 118
+--- !u!114 &-4868734723604717519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Boss/Poison
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Boss/Poison
+  Guid:
+    Data1: 1056415139
+    Data2: 1112025088
+    Data3: 1095995011
+    Data4: -1792234747
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3233
+--- !u!114 &-4638753455169135653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Light
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Light
+  Guid:
+    Data1: -1148287570
+    Data2: 1242031147
+    Data3: 825319849
+    Data4: -413008160
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
 --- !u!114 &-4570746499296282627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,11 +248,38 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639177613218523088
+  lastModified: 639203566974529933
   FileSizes:
   - Name: Desktop
-    Value: 2764224
+    Value: 4253536
   Exists: 1
+--- !u!114 &-4262239082927796618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/Bog
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MUSIC/Bog
+  Guid:
+    Data1: 1531252569
+    Data2: 1267647341
+    Data3: -232933451
+    Data4: 421168086
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 92830
 --- !u!114 &-4184413156735936226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +336,33 @@ MonoBehaviour:
   - Intro
   - Main Loop
   Exists: 1
+--- !u!114 &-2928065123992906212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Boss/Bite
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Boss/Bite
+  Guid:
+    Data1: -1723379465
+    Data2: 1281654601
+    Data3: -1470413941
+    Data4: 1086613856
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 700
 --- !u!114 &-2229240101581684087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +471,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 530
+--- !u!114 &-154497354883251852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Boss/Tail
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Boss/Tail
+  Guid:
+    Data1: -1110827220
+    Data2: 1141678436
+    Data3: 2003771801
+    Data4: -638942940
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2900
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,7 +515,6 @@ MonoBehaviour:
   - {fileID: -4533339184958613913}
   EditorEvents:
   - {fileID: 6142487714096174096}
-  - {fileID: 6960171299260898979}
   - {fileID: 1117023723212729838}
   - {fileID: 5133411912280678294}
   - {fileID: 8617078764283670951}
@@ -366,7 +527,6 @@ MonoBehaviour:
   - {fileID: 5552169436202745280}
   - {fileID: 9075408797192579683}
   - {fileID: 2269557707669527772}
-  - {fileID: 6886015324967688675}
   - {fileID: -498052115779659504}
   - {fileID: -778238221030726468}
   - {fileID: -5169665001995409114}
@@ -379,6 +539,17 @@ MonoBehaviour:
   - {fileID: 2220808220529455601}
   - {fileID: -720488621865520185}
   - {fileID: -2229240101581684087}
+  - {fileID: -6506654287812630190}
+  - {fileID: -154497354883251852}
+  - {fileID: 4370576549740198930}
+  - {fileID: 359156517584299351}
+  - {fileID: -4868734723604717519}
+  - {fileID: -2928065123992906212}
+  - {fileID: 782357338292910050}
+  - {fileID: 4291028384036989573}
+  - {fileID: -4638753455169135653}
+  - {fileID: -4262239082927796618}
+  - {fileID: 3829088002759138142}
   EditorParameters:
   - {fileID: 2478196569288099822}
   - {fileID: 572125993231974450}
@@ -389,62 +560,107 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -5662479597483696475}
   cacheVersion: 131859
-  cacheTime: 639177613218533059
+  cacheTime: 639203566974559945
   SerializableEventsDict:
   - key: event:/MUSIC/test event
     index: 0
-  - key: event:/MasterVolumeSelect
-    index: 1
   - key: event:/MUSIC/Music Menu Select
-    index: 2
+    index: 1
   - key: event:/MUSIC/Forest Level
-    index: 3
+    index: 2
   - key: event:/SFX/Footstep
-    index: 4
+    index: 3
   - key: event:/SFX/Jump
-    index: 5
+    index: 4
   - key: event:/SFX/FlyStart
-    index: 6
+    index: 5
   - key: event:/SFX/Fire
-    index: 7
+    index: 6
   - key: event:/SFX/Fly
-    index: 8
+    index: 7
   - key: event:/SFX/Attack
-    index: 9
+    index: 8
   - key: event:/SFX/Water
-    index: 10
+    index: 9
   - key: event:/SFX/Mushroom Mine Grow
-    index: 11
+    index: 10
   - key: event:/SFX/Mushroom Mine Eplode
-    index: 12
+    index: 11
   - key: event:/SFX/Scroll
-    index: 13
-  - key: event:/SFX/Healing Berry
-    index: 14
+    index: 12
   - key: event:/SFX/EnemBall
-    index: 15
+    index: 13
   - key: event:/SFX/Blink
-    index: 16
+    index: 14
   - key: event:/SFX/Blink Enemy
-    index: 17
+    index: 15
   - key: event:/SFX/UI Back
-    index: 18
+    index: 16
   - key: event:/SFX/UI Hover
-    index: 19
+    index: 17
   - key: event:/SFX/Dialouge
-    index: 20
+    index: 18
   - key: event:/SFX/UI Select
-    index: 21
+    index: 19
   - key: event:/SFX/EnemyDamaged
-    index: 22
+    index: 20
   - key: event:/SFX/PlayerDamaged
-    index: 23
+    index: 21
   - key: event:/SFX/Frog
-    index: 24
+    index: 22
   - key: event:/SFX/Reflect
-    index: 25
+    index: 23
   - key: event:/SFX/Crit
+    index: 24
+  - key: event:/SFX/Moss
+    index: 25
+  - key: event:/SFX/Boss/Tail
     index: 26
+  - key: event:/SFX/Moss Sparkle
+    index: 27
+  - key: event:/SFX/MasterVolumeSelect
+    index: 28
+  - key: event:/SFX/Boss/Poison
+    index: 29
+  - key: event:/SFX/Boss/Bite
+    index: 30
+  - key: event:/SFX/Boss/Bite part 2
+    index: 31
+  - key: event:/SFX/Thunder
+    index: 32
+  - key: event:/SFX/Light
+    index: 33
+  - key: event:/MUSIC/Bog
+    index: 34
+  - key: event:/MUSIC/Game Over
+    index: 35
+--- !u!114 &359156517584299351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/MasterVolumeSelect
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/MasterVolumeSelect
+  Guid:
+    Data1: 242290579
+    Data2: 1279941716
+    Data3: -1437776456
+    Data4: 409033044
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 100
 --- !u!114 &572125993231974450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,6 +685,33 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &782357338292910050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Boss/Bite part 2
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Boss/Bite part 2
+  Guid:
+    Data1: 1394380791
+    Data2: 1320365760
+    Data3: 1480914561
+    Data4: 1205500839
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1454
 --- !u!114 &1088596644353178505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,7 +765,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 108
+  Length: 0
 --- !u!114 &1837545670875306430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,7 +792,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 2279
 --- !u!114 &1933628842657695574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,6 +898,87 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &3829088002759138142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/Game Over
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MUSIC/Game Over
+  Guid:
+    Data1: -129299637
+    Data2: 1252101665
+    Data3: -1399090304
+    Data4: 113136702
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 29511
+--- !u!114 &4291028384036989573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Thunder
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Thunder
+  Guid:
+    Data1: 1745148223
+    Data2: 1283147614
+    Data3: 1733386382
+    Data4: -1342663425
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3375
+--- !u!114 &4370576549740198930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Moss Sparkle
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Moss Sparkle
+  Guid:
+    Data1: 248921421
+    Data2: 1273661986
+    Data3: 1423264904
+    Data4: -2006499608
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4437
 --- !u!114 &5133411912280678294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -764,60 +1088,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 64387
---- !u!114 &6886015324967688675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Healing Berry
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/SFX/Healing Berry
-  Guid:
-    Data1: -721392485
-    Data2: 1292472508
-    Data3: -1390910592
-    Data4: -186489268
-  Banks:
-  - {fileID: -4533339184958613913}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &6960171299260898979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/MasterVolumeSelect
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/MasterVolumeSelect
-  Guid:
-    Data1: 242290579
-    Data2: 1279941716
-    Data3: -1437776456
-    Data4: 409033044
-  Banks:
-  - {fileID: -4533339184958613913}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 100
 --- !u!114 &7180939949566799510
 MonoBehaviour:
   m_ObjectHideFlags: 0
