@@ -9,7 +9,9 @@ using Data;
 public class Buff : MonoBehaviour
 {
     private StatManager owner;
-    private Dictionary<EStatusEffectType, StatusEffect> m_Buff = new Dictionary<EStatusEffectType, StatusEffect>();
+    //private Dictionary<EStatusEffectType, List<StatusEffect>> m_Buff = new Dictionary<EStatusEffectType, List<StatusEffect>>();
+    private Dictionary<ECrowdControlType, ActiveStatusEffect> m_ActiveCCEffects = new();
+    private List<ActiveStatusEffect> m_ActiveEffects = new();
 
     // This is for VFX(but we do not use maybe)
     //private Dictionary<EStatusEffectType, GameObject> m_Effects = new Dictionary<EStatusEffectType, GameObject>();
@@ -21,81 +23,174 @@ public class Buff : MonoBehaviour
 
     public void Update()
     {
-        if(m_Buff.Count == 0) return;
+        if(m_ActiveEffects.Count == 0) return;
 
-        foreach(var key in m_Buff.Keys.ToList())
+        foreach(var effect in m_ActiveEffects)
         {
-            var data = m_Buff[key];
+            effect.Tick(Time.deltaTime);
 
-            if(owner.IsDead)
+            if(effect.remainingTime <= 0)
             {
-               data.Expire(); 
-            }
-
-            data.Tick(owner, Time.deltaTime);
-            if(data.remainingTime <= 0)
-            {
-                Remove(key);
-            }
-            else
-            {
-                m_Buff[key] = data;
+                Remove(effect);
             }
         }
+
+        foreach(var pair in m_ActiveCCEffects)
+        {
+            pair.Value.Tick(Time.deltaTime);
+
+            if(pair.Value.remainingTime <= 0)
+            {
+                Remove(pair.Value);
+            }
+        }
+
+        // foreach(var key in m_Buff.Keys.ToList())
+        // {
+        //     var data = m_Buff[key];
+
+        //     if(owner.IsDead)
+        //     {
+        //        data.Expire(); 
+        //     }
+
+        //     data.Tick(owner, Time.deltaTime);
+
+        //     // it can't stacked.
+        //     if(data.remainingTime <= 0)
+        //     {
+        //         Remove(key);
+        //     }
+        //     else
+        //     {
+        //         m_Buff[key] = data;
+        //     }
+        // }
     }
 
-    public void Add(StatusEffect effect)
+    public void Add(ActiveStatusEffect effect)
     {
         Debug.Log("buff/debuff added");
-        if(m_Buff.ContainsKey(effect.Type))
-        {
-            effect.owner = this.owner;
-            m_Buff[effect.Type] = effect;
-        }
-        else
-        {
-            Debug.Log("no effects so add to buff dictionary");
-            effect.owner = this.owner;
-            //AttachEffect(type);
-            m_Buff.Add(effect.Type, effect);
-            effect.Apply(owner);
-        }
-    }
 
-    public void Remove(EStatusEffectType type)
-    {
-        if(!m_Buff.ContainsKey(type))
+        switch(effect.definition.Category)
         {
-            return;
+            // CrowdControl
+            case EStatusEffectCategory.CrowdControl:
+                if(m_ActiveCCEffects.ContainsKey(effect.definition.CCType))
+                {
+                    float remainTime = m_ActiveCCEffects[effect.definition.CCType].remainingTime;
+
+                    // Apply only if the duration of new one is greater than remaining time of current one.
+                    if(remainTime < effect.definition.Duration)
+                    {
+                        effect.SetOwner(owner);
+                        m_ActiveCCEffects[effect.definition.CCType] = effect;
+
+                        effect.Apply(owner);
+                    }
+                }
+                // there is no
+                else
+                {
+                    effect.SetOwner(owner);
+                    m_ActiveCCEffects.Add(effect.definition.CCType, effect);
+
+                    effect.Apply(owner);
+                }
+            break;
+            // Buff & Debuff
+            default:
+                effect.SetOwner(owner);
+                m_ActiveEffects.Add(effect);
+                effect.Apply(owner);
+            break;
         }
 
-        // This is the VFX effects
-        // if(m_Effects.ContainsKey(type))
+        // // if the same effect type is already applied
+        // if(m_Buff.ContainsKey(effect.definition.Type))
         // {
-        //     if(m_Effects[type] != null)
-        //     {
-        //         Destroy(m_Effects[type]);
-        //     }
-        //     m_Effects.Remove(type);
+        //     effect.SetOwner(this.owner);
+        //     m_Buff[effect.definition.Type] = effect;
         // }
-
-        m_Buff[type].Remove(owner);
-        m_Buff.Remove(type);
-        
+        // else
+        // {
+        //     Debug.Log("no effects so add to buff dictionary");
+        //     effect.owner = this.owner;
+        //     //AttachEffect(type);
+        //     m_Buff.Add(effect.Type, effect);
+        //     effect.Apply(owner);
+        // }
     }
+
+    public void Remove(ActiveStatusEffect effect)
+    {
+        effect.Remove(owner);
+
+        switch(effect.definition.Category)
+        {
+            case EStatusEffectCategory.CrowdControl:
+                ECrowdControlType type = effect.definition.CCType;
+                m_ActiveCCEffects.Remove(type);
+            break;
+            default:
+                m_ActiveEffects.Remove(effect);
+            break;
+        }
+    }
+
+    // public void Remove(EStatusEffectType type)
+    // {
+    //     if(!m_Buff.ContainsKey(type))
+    //     {
+    //         return;
+    //     }
+
+    //     // This is the VFX effects
+    //     // if(m_Effects.ContainsKey(type))
+    //     // {
+    //     //     if(m_Effects[type] != null)
+    //     //     {
+    //     //         Destroy(m_Effects[type]);
+    //     //     }
+    //     //     m_Effects.Remove(type);
+    //     // }
+
+    //     m_Buff[type].Remove(owner);
+    //     m_Buff.Remove(type);
+        
+    // }
 
     public void RemoveAll()
     {
-        foreach(var key in m_Buff.Keys.ToList())
+        foreach(var effect in m_ActiveEffects)
         {
-            Remove(key);
+            effect.Remove(owner);
         }
+
+        m_ActiveEffects.Clear();
+
+        foreach(var pair in m_ActiveCCEffects)
+        {
+            pair.Value.Remove(owner);
+        }
+
+        m_ActiveCCEffects.Clear();
+        // foreach(var key in m_Buff.Keys.ToList())
+        // {
+        //     Remove(key);
+        // }
     }
 
-    public List<EStatusEffectType> GetBuffAll()
+    public List<ECrowdControlType> GetAppliedCCAll()
     {
-        return m_Buff.Keys.ToList();
+        //return m_Buff.Keys.ToList();
+        return m_ActiveCCEffects.Keys.ToList();
     }
+
+    // public int GetEffectType(EStatusEffectType type)
+    // {
+    //     return m_ActiveEffectCounts[type];
+    // }
 
     // private void AttachEffect(EStatusEffectType type)
     // {

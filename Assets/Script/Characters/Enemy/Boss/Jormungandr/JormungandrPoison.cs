@@ -58,8 +58,12 @@ public class JormungandrPoison : MonoBehaviour
         {
             if (stats.TakeDamageHelper(instigator, dealtDamage, elementType, true, duration, interval))
             {
+                ActiveStatusEffect pooledEffect = PoolObjectManager.Instance.GetStatusEffect();
+
+                pooledEffect.SetEffect(effect);
+
                 // 2. Adjust the debuff(blind)
-                stats.BuffComp.Add(effect);
+                stats.BuffComp.Add(pooledEffect);
 
                 //3. play collision animation and wait for it to finish before pooling
                 gameObject.SetActive(false);

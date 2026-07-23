@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Types;
 using System.Collections;
+using Data;
 
 /// <summary>
 /// Base class for managing the character's stats.
@@ -237,33 +238,103 @@ public class StatManager : MonoBehaviour, IDamageable
     /// </summary>
     /// <param name="buffAmount"></param>
     /// <returns></returns>
-    public virtual void Buff(EStatusEffectCategory category, EStatusEffectType type, ECrowdControlType cc)
+    public virtual void Buff(StatusEffect effect)
     {
-        switch(category)
+        switch(effect.Category)
         {
             case EStatusEffectCategory.Buff:
+            AddBuff(effect.Type, effect.Magnitude);
             break;
             case EStatusEffectCategory.Debuff:
             break;
             case EStatusEffectCategory.CrowdControl:
-            AddCrowdControl(cc);
+            AddCrowdControl(effect.CCType);
             break;
         }
     }
 
-    public virtual void RemoveBuff(EStatusEffectCategory category, EStatusEffectType type, ECrowdControlType cc)
+    public virtual void RemoveBuff(StatusEffect effect)
     {
-        switch(category)
+        switch(effect.Category)
         {
             case EStatusEffectCategory.Buff:
+            DispelBuff(effect.Type, effect.Magnitude);
             break;
             case EStatusEffectCategory.Debuff:
             break;
             case EStatusEffectCategory.CrowdControl:
-            RemoveCrowdControl(cc);
+            RemoveCrowdControl(effect.CCType);
             break;
         }
         
+    }
+
+    public virtual void AddBuff(EStatusEffectType type, float magnitude)
+    {
+        switch(type)
+        {
+            case EStatusEffectType.AttackUp:
+            // Adjust the magnitude to attack component
+            break;
+            case EStatusEffectType.DefenseUp:
+            break;
+            case EStatusEffectType.MoveSpeedUp:
+            break;
+            case EStatusEffectType.AttackSpeedUp:
+            break;
+            case EStatusEffectType.Shield:
+            break;
+        }
+    }
+
+    public virtual void DispelBuff(EStatusEffectType type, float magnitude)
+    {
+        switch(type)
+        {
+            case EStatusEffectType.AttackUp:
+            
+            break;
+            case EStatusEffectType.DefenseUp:
+            break;
+            case EStatusEffectType.MoveSpeedUp:
+            break;
+            case EStatusEffectType.AttackSpeedUp:
+            break;
+            case EStatusEffectType.Shield:
+            break;
+        }
+    }
+
+    public virtual void AddDebuff(EStatusEffectType type, float magnitude)
+    {
+        switch(type)
+        {
+            case EStatusEffectType.AttackDown:
+            
+            break;
+            case EStatusEffectType.DefenseDown:
+            break;
+            case EStatusEffectType.Slow:
+            break;
+            case EStatusEffectType.AttackSpeedDown:
+            break;
+        }
+    }
+
+    public virtual void RemoveDebuff(EStatusEffectType type, float magnitude)
+    {
+        switch(type)
+        {
+            case EStatusEffectType.AttackDown:
+            
+            break;
+            case EStatusEffectType.DefenseDown:
+            break;
+            case EStatusEffectType.Slow:
+            break;
+            case EStatusEffectType.AttackSpeedDown:
+            break;
+        }
     }
 
     public virtual void AddCrowdControl(ECrowdControlType cc)

@@ -26,6 +26,8 @@ public class PoolObjectManager : MonoSingletonBase<PoolObjectManager>
     private Dictionary<ESpawnType, GameObject> prefabMap = new(); // for easier runtime access
     private Dictionary<ESpawnType, Queue<GameObject>> pools = new(); // key = pool object type, value = pool
 
+    private Stack<ActiveStatusEffect> statusPools = new();
+
     protected override void Awake()
     {
         dontDestroy = true;
@@ -54,6 +56,16 @@ public class PoolObjectManager : MonoSingletonBase<PoolObjectManager>
         return obj;
     }
 
+    public ActiveStatusEffect GetStatusEffect()
+    {
+        if(statusPools.Count > 0)
+        {
+            return statusPools.Pop();
+        }
+
+        return new ActiveStatusEffect();
+    }
+
     public void Return(ESpawnType type, GameObject obj)
     {
         if(!pools.ContainsKey(type))
@@ -63,6 +75,13 @@ public class PoolObjectManager : MonoSingletonBase<PoolObjectManager>
 
         obj.SetActive(false);
         pools[type].Enqueue(obj);
+    }
+
+    public void ReturnStatusEffect(ActiveStatusEffect effect)
+    {
+        effect.Reset();
+
+        statusPools.Push(effect);
     }
 
     GameObject CreateNew(ESpawnType type)

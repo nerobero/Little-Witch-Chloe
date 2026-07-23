@@ -93,11 +93,11 @@ namespace Types
         Shield,
 
         // Debuff
-        Poison,
-        Burn,
-        Bleeding,
-        Slow,
+        AttackDown,
         DefenseDown,
+        Slow,
+        AttackSpeedDown,
+        //Bleeding,
 
         // Crowd Control
         Stun,
@@ -331,6 +331,9 @@ namespace Data
         [SerializeField] protected EStatusEffectCategory category;
         public EStatusEffectCategory Category => category;
 
+        [SerializeField] protected ECrowdControlType ccType;
+        public ECrowdControlType CCType => ccType;
+
         [SerializeField] protected Sprite icon;
         public Sprite Icon => icon;
 
@@ -343,14 +346,15 @@ namespace Data
         [SerializeField] protected float duration;
         public float Duration => duration;
 
-        public float remainingTime { get; protected set;}
+        //public float remainingTime { get; protected set;}
 
         public StatusEffect(MonoBehaviour owner, EStatusEffectType type, EStatusEffectCategory category,
-                            Sprite icon, float magnitude, float duration)
+                            ECrowdControlType ccType, Sprite icon, float magnitude, float duration)
         {
             this.owner = owner;
             this.type = type;
             this.category = category;
+            this.ccType = ccType;
             this.icon = icon;
             this.magnitude = magnitude;
             this.duration = duration;
@@ -359,22 +363,22 @@ namespace Data
         public virtual void Apply(StatManager target)
         {
             Debug.Log("Applied");
-            target.Buff(category, type, ECrowdControlType.Blinded);
+            target.Buff(this);
         }
 
-        public virtual void Tick(StatManager target, float deltaTime)
-        {
-            remainingTime -= deltaTime;
-        }
+        // public virtual void Tick(StatManager target, float deltaTime)
+        // {
+        //     remainingTime -= deltaTime;
+        // }
 
-        public virtual void Expire()
-        {
-            remainingTime = 0.0f; 
-        }
+        // public virtual void Expire()
+        // {
+        //     remainingTime = 0.0f; 
+        // }
 
         public virtual void Remove(StatManager target)
         {
-            target.RemoveBuff(category, type, ECrowdControlType.Blinded);
+            target.RemoveBuff(this);
         }
         
     }
