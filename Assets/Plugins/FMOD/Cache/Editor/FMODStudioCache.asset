@@ -51,6 +51,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-8427135215669723243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Game Over
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Game Over
+  Guid:
+    Data1: -129299637
+    Data2: 1252101665
+    Data3: -1399090304
+    Data4: 113136702
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 29511
 --- !u!114 &-6506654287812630190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,10 +120,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639203566974559945
+  lastModified: 639204442924151164
   FileSizes:
   - Name: Desktop
-    Value: 2516
+    Value: 2700
   Exists: 1
 --- !u!114 &-5201378617633771360
 MonoBehaviour:
@@ -233,6 +260,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-4564508471171343689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Turnip Run
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Turnip Run
+  Guid:
+    Data1: -483599529
+    Data2: 1155345080
+    Data3: -37523795
+    Data4: 2007688590
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1989
 --- !u!114 &-4533339184958613913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,10 +302,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639203566974529933
+  lastModified: 639204442924116159
   FileSizes:
   - Name: Desktop
-    Value: 4253536
+    Value: 4271584
   Exists: 1
 --- !u!114 &-4262239082927796618
 MonoBehaviour:
@@ -498,6 +552,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2900
+--- !u!114 &-73818631061756973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Stop Music
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: snapshot:/Stop Music
+  Guid:
+    Data1: -1161594581
+    Data2: 1075992091
+    Data3: -1890035306
+    Data4: -336461340
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,7 +630,10 @@ MonoBehaviour:
   - {fileID: 4291028384036989573}
   - {fileID: -4638753455169135653}
   - {fileID: -4262239082927796618}
-  - {fileID: 3829088002759138142}
+  - {fileID: -4564508471171343689}
+  - {fileID: 3115869567897996959}
+  - {fileID: -73818631061756973}
+  - {fileID: -8427135215669723243}
   EditorParameters:
   - {fileID: 2478196569288099822}
   - {fileID: 572125993231974450}
@@ -560,7 +644,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -5662479597483696475}
   cacheVersion: 131859
-  cacheTime: 639203566974559945
+  cacheTime: 639204442924151164
   SerializableEventsDict:
   - key: event:/MUSIC/test event
     index: 0
@@ -632,8 +716,14 @@ MonoBehaviour:
     index: 33
   - key: event:/MUSIC/Bog
     index: 34
-  - key: event:/MUSIC/Game Over
+  - key: event:/SFX/Turnip Run
     index: 35
+  - key: event:/SFX/Death
+    index: 36
+  - key: snapshot:/Stop Music
+    index: 37
+  - key: event:/Game Over
+    index: 38
 --- !u!114 &359156517584299351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,7 +988,7 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
---- !u!114 &3829088002759138142
+--- !u!114 &3115869567897996959
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -908,23 +998,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/MUSIC/Game Over
+  m_Name: event:/SFX/Death
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/MUSIC/Game Over
+  Path: event:/SFX/Death
   Guid:
-    Data1: -129299637
-    Data2: 1252101665
-    Data3: -1399090304
-    Data4: 113136702
+    Data1: 633194028
+    Data2: 1293886080
+    Data3: 1361542321
+    Data4: -1636752210
   Banks:
   - {fileID: -4533339184958613913}
-  IsStream: 1
+  IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 29511
+  Length: 4490
 --- !u!114 &4291028384036989573
 MonoBehaviour:
   m_ObjectHideFlags: 0

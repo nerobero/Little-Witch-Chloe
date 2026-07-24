@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -28,6 +29,19 @@ public class SFXcontroller : MonoBehaviour {
     public void PlayMushroomExplodeSFX()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Mushroom Mine Eplode");
+
+    }
+    public void PlayTurnipRunSFX()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Turnip Run");
+
+
+    }
+    public void PlayDeathSFX()
+    {
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Death");
+
 
     }
 
