@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using Data;
+using Unity.VisualScripting;
+using FMODUnity;
 
 public class UIGameOverHUD : UIBase
 {
@@ -21,6 +23,10 @@ public class UIGameOverHUD : UIBase
     {
         Debug.Log("Game Over Show");
         base.Show();
+        FMOD.Studio.Bus masterBus = FMODUnity.RuntimeManager.GetBus("bus:/"); 
+        masterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Game Over");
+
     }
 
      #region Button click event
@@ -28,6 +34,8 @@ public class UIGameOverHUD : UIBase
     public void OnRetryButtonClicked()
     {
         LevelManager.Instance.RestartCurrentLevel();
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Forest Level",0);
+
     }
 
     public void OnExitClicked()
