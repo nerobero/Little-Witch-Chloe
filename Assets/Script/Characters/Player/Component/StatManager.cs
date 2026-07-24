@@ -246,6 +246,7 @@ public class StatManager : MonoBehaviour, IDamageable
             AddBuff(effect.Type, effect.Magnitude);
             break;
             case EStatusEffectCategory.Debuff:
+            AddDebuff(effect.Type, effect.Magnitude);
             break;
             case EStatusEffectCategory.CrowdControl:
             AddCrowdControl(effect.CCType);
@@ -261,12 +262,12 @@ public class StatManager : MonoBehaviour, IDamageable
             DispelBuff(effect.Type, effect.Magnitude);
             break;
             case EStatusEffectCategory.Debuff:
+            RemoveDebuff(effect.Type, effect.Magnitude);
             break;
             case EStatusEffectCategory.CrowdControl:
             RemoveCrowdControl(effect.CCType);
             break;
         }
-        
     }
 
     public virtual void AddBuff(EStatusEffectType type, float magnitude)

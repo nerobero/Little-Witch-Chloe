@@ -8,10 +8,10 @@ using Data;
 
 public class Buff : MonoBehaviour
 {
-    private StatManager owner;
+    public StatManager owner { get; private set; }
     //private Dictionary<EStatusEffectType, List<StatusEffect>> m_Buff = new Dictionary<EStatusEffectType, List<StatusEffect>>();
     private Dictionary<ECrowdControlType, ActiveStatusEffect> m_ActiveCCEffects = new();
-    private List<ActiveStatusEffect> m_ActiveEffects = new();
+    //private List<ActiveStatusEffect> m_ActiveEffects = new();
 
     // This is for VFX(but we do not use maybe)
     //private Dictionary<EStatusEffectType, GameObject> m_Effects = new Dictionary<EStatusEffectType, GameObject>();
@@ -21,52 +21,52 @@ public class Buff : MonoBehaviour
         owner = GetComponent<StatManager>();
     }
 
-    public void Update()
-    {
-        if(m_ActiveEffects.Count == 0) return;
+    // public void Update()
+    // {
+    //     if(m_ActiveEffects.Count == 0) return;
 
-        foreach(var effect in m_ActiveEffects)
-        {
-            effect.Tick(Time.deltaTime);
+    //     foreach(var effect in m_ActiveEffects)
+    //     {
+    //         effect.Tick(Time.deltaTime);
 
-            if(effect.remainingTime <= 0)
-            {
-                Remove(effect);
-            }
-        }
+    //         if(effect.remainingTime <= 0)
+    //         {
+    //             Remove(effect);
+    //         }
+    //     }
 
-        foreach(var pair in m_ActiveCCEffects)
-        {
-            pair.Value.Tick(Time.deltaTime);
+    //     foreach(var pair in m_ActiveCCEffects)
+    //     {
+    //         pair.Value.Tick(Time.deltaTime);
 
-            if(pair.Value.remainingTime <= 0)
-            {
-                Remove(pair.Value);
-            }
-        }
+    //         if(pair.Value.remainingTime <= 0)
+    //         {
+    //             Remove(pair.Value);
+    //         }
+    //     }
 
-        // foreach(var key in m_Buff.Keys.ToList())
-        // {
-        //     var data = m_Buff[key];
+    //     // foreach(var key in m_Buff.Keys.ToList())
+    //     // {
+    //     //     var data = m_Buff[key];
 
-        //     if(owner.IsDead)
-        //     {
-        //        data.Expire(); 
-        //     }
+    //     //     if(owner.IsDead)
+    //     //     {
+    //     //        data.Expire(); 
+    //     //     }
 
-        //     data.Tick(owner, Time.deltaTime);
+    //     //     data.Tick(owner, Time.deltaTime);
 
-        //     // it can't stacked.
-        //     if(data.remainingTime <= 0)
-        //     {
-        //         Remove(key);
-        //     }
-        //     else
-        //     {
-        //         m_Buff[key] = data;
-        //     }
-        // }
-    }
+    //     //     // it can't stacked.
+    //     //     if(data.remainingTime <= 0)
+    //     //     {
+    //     //         Remove(key);
+    //     //     }
+    //     //     else
+    //     //     {
+    //     //         m_Buff[key] = data;
+    //     //     }
+    //     // }
+    // }
 
     public void Add(ActiveStatusEffect effect)
     {
@@ -81,18 +81,21 @@ public class Buff : MonoBehaviour
                     float remainTime = m_ActiveCCEffects[effect.definition.CCType].remainingTime;
 
                     // Apply only if the duration of new one is greater than remaining time of current one.
-                    if(remainTime < effect.definition.Duration)
+                    if(remainTime >= effect.definition.Duration)
                     {
-                        effect.SetOwner(owner);
-                        m_ActiveCCEffects[effect.definition.CCType] = effect;
-
-                        effect.Apply(owner);
+                        return;
                     }
+
+                    BuffManager.Instance.Unregister(m_ActiveCCEffects[effect.definition.CCType]);
+                    //effect.SetOwner(this);
+                    m_ActiveCCEffects[effect.definition.CCType] = effect;
+
+                    //effect.Apply(owner);
                 }
                 // there is no
                 else
                 {
-                    effect.SetOwner(owner);
+                    effect.SetOwner(this);
                     m_ActiveCCEffects.Add(effect.definition.CCType, effect);
 
                     effect.Apply(owner);
@@ -100,11 +103,13 @@ public class Buff : MonoBehaviour
             break;
             // Buff & Debuff
             default:
-                effect.SetOwner(owner);
-                m_ActiveEffects.Add(effect);
+                effect.SetOwner(this);
+                //m_ActiveEffects.Add(effect);
                 effect.Apply(owner);
             break;
         }
+
+        BuffManager.Instance.Register(effect);
 
         // // if the same effect type is already applied
         // if(m_Buff.ContainsKey(effect.definition.Type))
@@ -126,16 +131,21 @@ public class Buff : MonoBehaviour
     {
         effect.Remove(owner);
 
-        switch(effect.definition.Category)
+        if(effect.definition.Category == EStatusEffectCategory.CrowdControl)
         {
-            case EStatusEffectCategory.CrowdControl:
-                ECrowdControlType type = effect.definition.CCType;
-                m_ActiveCCEffects.Remove(type);
-            break;
-            default:
-                m_ActiveEffects.Remove(effect);
-            break;
+            ECrowdControlType type = effect.definition.CCType;
+            m_ActiveCCEffects.Remove(type);
         }
+        // switch(effect.definition.Category)
+        // {
+        //     case EStatusEffectCategory.CrowdControl:
+        //         ECrowdControlType type = effect.definition.CCType;
+        //         m_ActiveCCEffects.Remove(type);
+        //     break;
+        //     default:
+        //         m_ActiveEffects.Remove(effect);
+        //     break;
+        // }
     }
 
     // public void Remove(EStatusEffectType type)
@@ -162,17 +172,19 @@ public class Buff : MonoBehaviour
 
     public void RemoveAll()
     {
-        foreach(var effect in m_ActiveEffects)
-        {
-            effect.Remove(owner);
-        }
+        // foreach(var effect in m_ActiveEffects)
+        // {
+        //     effect.Remove(owner);
+        // }
 
-        m_ActiveEffects.Clear();
+        // m_ActiveEffects.Clear();
 
-        foreach(var pair in m_ActiveCCEffects)
-        {
-            pair.Value.Remove(owner);
-        }
+        BuffManager.Instance.RemoveAll(this);
+
+        // foreach(var pair in m_ActiveCCEffects)
+        // {
+        //     pair.Value.Remove(owner);
+        // }
 
         m_ActiveCCEffects.Clear();
         // foreach(var key in m_Buff.Keys.ToList())
