@@ -32,6 +32,8 @@ public class BaseFSMAIController : MonoBehaviour
 
     private bool _isActing = false;
 
+    private bool _isActive = false;
+
     protected int _currentAnimHash;
 
     [Header("Cooldown time between action turn")]
@@ -56,22 +58,29 @@ public class BaseFSMAIController : MonoBehaviour
         return (-1, null);
     }
 
-    protected virtual void OnBecomeInvisible()
+    protected virtual void OnBecameInvisible()
     {
-        
+        _isActive = false;
     }
-    protected virtual void OnBecomeVisible()
+    protected virtual void OnBecameVisible()
     {
-        
+        _isActive = true;
     }
 
     protected void Update()
     {
         Debug.Log($"[FSM] Update tick, isActing={_isActing}");
-        if (_isActing) return; // if already acting, then no need to process the rest of logic.
+        if (_isActing || !_isActive) return; // if already acting, then no need to process the rest of logic.
         if (Time.time < _nextActionTime) return; //if in cooldown for this action turn, return
 
         StartAttackStrat();
+    }
+
+    protected void FixedUpdate()
+    {
+        if (_isActing || !_isActive) return;
+    
+        
     }
 
     protected virtual void StartAttackStrat()
