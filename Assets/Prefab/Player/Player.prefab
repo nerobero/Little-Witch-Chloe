@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 2359629239483136251}
   - component: {fileID: 4393072811821626836}
   - component: {fileID: 4564149981406015731}
-  - component: {fileID: 8045087993541427929}
+  - component: {fileID: 7213217908690932859}
   - component: {fileID: 7185458831767383663}
   - component: {fileID: 7084486764173208723}
   - component: {fileID: 2604971410333150992}
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a4f7f4ddd340541b4bc6bd4f51bf66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  originalSpeed: 3
+  originalSpeed: 5
   jumpHeight: 3
   bgLayer:
     serializedVersion: 2
@@ -315,8 +315,8 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!60 &8045087993541427929
-PolygonCollider2D:
+--- !u!70 &7213217908690932859
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -349,27 +349,9 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.875, y: 1}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.21191451, y: 0.4919488}
-      - {x: -0.44514388, y: 0.037041858}
-      - {x: -0.43440437, y: -0.34311837}
-      - {x: -0.28711414, y: -0.5111674}
-      - {x: 0.42403457, y: -0.5149508}
-      - {x: 0.43440437, y: -0.32311842}
-      - {x: 0.32163936, y: 0.032411642}
-      - {x: 0.18387434, y: 0.4934718}
-  m_UseDelaunayMesh: 1
+  m_Offset: {x: -0.000005086263, y: 0}
+  m_Size: {x: 0.5581767, y: 1}
+  m_Direction: 0
 --- !u!114 &7185458831767383663
 MonoBehaviour:
   m_ObjectHideFlags: 0
