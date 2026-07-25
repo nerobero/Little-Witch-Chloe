@@ -51,6 +51,7 @@ public class ActiveStatusEffect
 
     public void Remove(StatManager target)
     {
+        Debug.Log("Removed");
         definition.Remove(target);
 
         PoolObjectManager.Instance.ReturnStatusEffect(this);
