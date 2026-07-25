@@ -10,7 +10,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Animator))]
-public class ProjectileBase : MonoBehaviour
+public class ProjectileBase : MonoBehaviour, IResetable
 {
     [SerializeField] private float dealtDamage;
     [SerializeField] private float speed;
@@ -215,5 +215,13 @@ public class ProjectileBase : MonoBehaviour
         transform.localEulerAngles = new Vector3(0, 180f, _fireAngleSnapShot);
 
         _projRB.AddForce(fireDirection * speed, ForceMode2D.Impulse);
+    }
+
+    public void ResetState()
+    {
+        _projRB.linearVelocity = Vector2.zero;
+        _collider.enabled = false;
+
+        ReturnToPool();
     }
 }

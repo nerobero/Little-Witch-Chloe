@@ -58,5 +58,6 @@ public class BaseCharacterAnimController : MonoBehaviour
             localScale2D.x *= -1f;
             transform.localScale = localScale2D;
         }
+        IsFacingRight = !IsFacingRight;
     }
 }

@@ -22,6 +22,7 @@ public class UIGameOverHUD : UIBase
     public override void Show()
     {
         Debug.Log("Game Over Show");
+        PauseManager.Instance.PauseGame();
         base.Show();
         FMOD.Studio.Bus masterBus = FMODUnity.RuntimeManager.GetBus("bus:/"); 
         masterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
@@ -35,7 +36,7 @@ public class UIGameOverHUD : UIBase
     {
         LevelManager.Instance.RestartCurrentLevel();
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Forest Level",0);
-
+        PauseManager.Instance.UnpauseGame();
     }
 
     public void OnExitClicked()
