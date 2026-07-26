@@ -27679,6 +27679,7 @@ GameObject:
   - component: {fileID: 325830971}
   - component: {fileID: 325830976}
   - component: {fileID: 325830975}
+  - component: {fileID: 325830977}
   m_Layer: 14
   m_Name: Jormungandr
   m_TagString: Untagged
@@ -27790,6 +27791,7 @@ MonoBehaviour:
   mushroomSummonCount: 1
   shroomSummonTimeInterval: 1.5
   flowerAnimator: {fileID: 1154753912}
+  flower: {fileID: 1154753913}
 --- !u!4 &325830974
 Transform:
   m_ObjectHideFlags: 0
@@ -27892,6 +27894,24 @@ PolygonCollider2D:
       - {x: -1.25, y: -5}
       - {x: 1.875, y: -5}
   m_UseDelaunayMesh: 1
+--- !u!114 &325830977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325830970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f3c30e3970d794f867b7cbbfa613a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossEnemyStatManager
+  maxHP: 100
+  currentHP: 100
+  mainCharacElement: 8
+  OnTakenDamageEvent: 
+  CrowdControl: 0
+  weakPointStat: {fileID: 1154753916}
 --- !u!1 &329830374
 GameObject:
   m_ObjectHideFlags: 0
@@ -32175,6 +32195,7 @@ GameObject:
   - component: {fileID: 1154753912}
   - component: {fileID: 1154753915}
   - component: {fileID: 1154753914}
+  - component: {fileID: 1154753916}
   m_Layer: 14
   m_Name: Flower
   m_TagString: Untagged
@@ -32358,6 +32379,23 @@ PolygonCollider2D:
       - {x: -0.875, y: 1.75}
       - {x: 0.125, y: 1.75}
   m_UseDelaunayMesh: 1
+--- !u!114 &1154753916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154753910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbbae814e30d6aa4a9bbdabc0b6b12b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossWeakPointStat
+  maxHP: 30
+  currentHP: 30
+  mainCharacElement: 2
+  OnTakenDamageEvent: 
+  CrowdControl: 0
 --- !u!1 &1156642646
 GameObject:
   m_ObjectHideFlags: 0
@@ -33016,11 +33054,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1165017382129071551, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: 198.89
       objectReference: {fileID: 0}
     - target: {fileID: 1165017382129071551, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.014531
+      value: 19.29453
       objectReference: {fileID: 0}
     - target: {fileID: 1165017382129071551, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: m_LocalPosition.z
@@ -53882,7 +53920,7 @@ Transform:
   m_GameObject: {fileID: 1364854595}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 5.014531, z: -10}
+  m_LocalPosition: {x: 198.89, y: 19.29453, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -89549,11 +89587,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8066750104543563746, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: 198.89
       objectReference: {fileID: 0}
     - target: {fileID: 8066750104543563746, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.9
+      value: 18.18
       objectReference: {fileID: 0}
     - target: {fileID: 8066750104543563746, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_LocalPosition.z

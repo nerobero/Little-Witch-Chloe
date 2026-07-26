@@ -9,7 +9,7 @@ public class BackgroundController : MonoBehaviour
     public GameObject parallaxPoint;
     public float parallexEffectX; // 0.15 is good for the tree backgrounds.
     public float parallexEffectY;
-    public bool enableYParallax;
+    public bool enableYParallax = false;
 
     void Start()
     {

@@ -19,10 +19,14 @@ public class JormungandrFSMController : BaseFSMAIController
 
     [Header("Animator - Flower")]
     public Animator flowerAnimator;
+    public SpriteRenderer flower;
+
+    private BossEnemyStatManager _statManager;
 
     protected override void OnAwake()
     {
         base.OnAwake();
+        _statManager = GetComponent<BossEnemyStatManager>();
     }
 
     protected override (int animTriggerHash, IEnemyAttackStrategy strat) ChooseNextStrategy()
@@ -58,9 +62,25 @@ public class JormungandrFSMController : BaseFSMAIController
         );
     }
 
+    public void EnableFlower()
+    {
+        if (flower != null)
+            flower.enabled = true;
+
+        var idle = Animator.StringToHash("Idle");
+        _mainAnimator.SetBool(idle, true);
+        flowerAnimator.SetBool(idle, true);
+    }
+
+    public void DisableFlower()
+    {
+        if (flower != null)
+            flower.enabled = false;
+    }
+
     protected override void StartAttackStrat()
     {
         base.StartAttackStrat();
-        flowerAnimator.SetTrigger(_currentAnimHash);
+        TriggerAnimation(flowerAnimator,_currentAnimHash);
     }
 }

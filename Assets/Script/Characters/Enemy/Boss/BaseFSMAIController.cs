@@ -89,7 +89,7 @@ public class BaseFSMAIController : MonoBehaviour
         _currentStrat = result.strat; // may need to return a keyvalue pair rather than IEnemyAttackStrategy
         _currentStrat.OnAttackComplete += HandleAttackEnd;
         _currentAnimHash = result.animTriggerHash;
-        _mainAnimator.SetTrigger(_currentAnimHash); // <-- string as the hashed anim trigger 
+        TriggerAnimation(_mainAnimator, _currentAnimHash);
         _isActing = true;
 
     }
@@ -107,6 +107,7 @@ public class BaseFSMAIController : MonoBehaviour
     private void HandleAttackEnd(bool success)
     {
         _isActing = false;
+        
         _currentStrat.OnAttackComplete -= HandleAttackEnd; //unsubscribing since this attack is done.
         _nextActionTime = Time.time + actionCooldown; // start cooldown once the attack ends
 
@@ -115,6 +116,11 @@ public class BaseFSMAIController : MonoBehaviour
             // processes logic when the attack had been interrupted by a strong attack/stun:
             HandleAttackFail();
         }
+        else
+        {
+            var idle = Animator.StringToHash("Idle");
+            _mainAnimator.SetBool(idle, true);
+        }
     }
 
     protected virtual void HandleAttackFail() { }
@@ -122,5 +128,11 @@ public class BaseFSMAIController : MonoBehaviour
     public void PlaySFX(string eventPath)
     {
         FMODUnity.RuntimeManager.PlayOneShot(eventPath);
+    }
+
+    protected void TriggerAnimation(Animator animController, int animTrig)
+    {
+        if (animController != null)
+            animController.SetTrigger(animTrig);
     }
 }
