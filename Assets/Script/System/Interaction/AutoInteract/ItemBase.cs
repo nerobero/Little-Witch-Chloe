@@ -26,11 +26,13 @@ public abstract class ItemBase : MonoBehaviour, IResetable
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (OnInteract(collision)) 
-            PoolObjectManager.Instance.Return(spawnType, this.gameObject);
+            //PoolObjectManager.Instance.Return(spawnType, this.gameObject);
+            gameObject.SetActive(false);
     }
 
     public virtual void ResetState()
     {
-        PoolObjectManager.Instance.Get(spawnType);
+        //PoolObjectManager.Instance.Get(spawnType);
+        gameObject.SetActive(true);
     }
 }

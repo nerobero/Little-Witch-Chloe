@@ -16,8 +16,9 @@ public class FrogCollection : CollectableItemBase
     // private static readonly int IsIdleHash = Animator.StringToHash("IsIdle");
 
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         CollectType = ECollectable.FrogCollectible;
         _animator = GetComponent<Animator>();
         // _animator.SetBool(IsIdleHash, true);

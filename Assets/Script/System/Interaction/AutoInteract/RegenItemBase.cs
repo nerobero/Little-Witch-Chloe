@@ -36,7 +36,8 @@ public abstract class RegenItemBase : ItemBase
     /// </summary>
     private void Regenerate()
     {
-        PoolObjectManager.Instance.Get(base.spawnType);
+        //PoolObjectManager.Instance.Get(base.spawnType);
+        gameObject.SetActive(true);
     }
 
     public override void ResetState()

@@ -88,6 +88,11 @@ public class PoolObjectManager : MonoSingletonBase<PoolObjectManager>
     {
         var obj = Instantiate(prefabMap[type]);
         obj.SetActive(false);
+
+        var behaviour = obj.GetComponent<MonoBehaviour>();
+
+        LevelManager.Instance.RegisterInstance(behaviour);
+
         return obj;
     }
 }

@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     private PlayerAttack _playerAttack;
 
     private InteractionSystem _playerInteract;
+    //private StatusEffectController _statusEffects;
 
     private Camera _mainCamera;
     #endregion
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         // Caching once, never having to re-fetch again:
         _playerMove = GetComponent<PlayerMovement>();
         _playerAttack = GetComponent<PlayerAttack>();
+        //_statusEffects = GetComponent<StatusEffectController>();
 
         _playerInteract = GetComponent<InteractionSystem>();
 
@@ -76,6 +78,8 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         spawnPosition = gameObject.transform.position;
         spawnRotation = gameObject.transform.rotation;
         UIManager.Instance.Get<UIPlayerHUD>().Initialize(); 
+
+        GetComponent<PlayerStatManager>().OnDeath += Death;
     }
 
     private void OnEnable()
@@ -120,6 +124,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     // Calls PlayerMovement.Jump if the input has been performed
     public void OnJump(InputAction.CallbackContext context)
     {
+        //if (_statusEffects != null && !_statusEffects.CanMove) return;
         if (context.performed) _playerMove.Jump();
 
         /*
@@ -180,6 +185,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     public void OnAttack(InputAction.CallbackContext context)
     {
+        //if (_statusEffects != null && !_statusEffects.CanAttack) return;
         /*
         2026.04.15: 
         Combined input context catching for normal and charged attacks into one input callback
@@ -215,6 +221,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     public void OnBlink(InputAction.CallbackContext context)
     {
+        //if (_statusEffects != null && !_statusEffects.CanCast) return;
         if (context.performed)
         {
             _playerMove.BlinkToOtherPlatform();
@@ -230,6 +237,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     public void OnChangeWeapon(InputAction.CallbackContext context)
     {
+        //if (_statusEffects != null && !_statusEffects.CanCast) return;
         if (!context.performed) return;
 
         var controlName = context.control.name;
@@ -263,7 +271,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         }
     }
 
-#region UI Input
+    #region UI Input
     public void OnUnpause(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -326,7 +334,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         //
     }
     
-#endregion
+    #endregion
 
     public void OnAttackAcross(InputAction.CallbackContext context)
     {
@@ -341,7 +349,13 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
             Debug.Log("[Cross Platform Attack] Disabled");
         }
     }
-    #endregion
+#endregion
+
+    public void Death()
+    {
+        InputContext.BaseInputAction.Disable();
+        Instance.InputContext.UI.Enable();
+    }
 
     #region Reset
     public void ResetState()

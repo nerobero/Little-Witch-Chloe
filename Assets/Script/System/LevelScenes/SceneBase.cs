@@ -38,10 +38,21 @@ public class SceneBase : MonoBehaviour
 
     public void ResetScene()
     {
-        foreach(var resetable in resetables)
+        for(int i = resetables.Count - 1; i >= 0; --i)
         {
-            Debug.Log("SceneBase: " + resetable + " Reset!");
-            resetable.ResetState();
+            Debug.Log("SceneBase: " + resetables[i] + " Reset!");
+            resetables[i].ResetState();
+        }
+    }
+
+    public void Register(MonoBehaviour behaviour)
+    {
+        if (behaviour is IResetable resetable)
+        {
+            resetables.Add(resetable);
+            #if UNITY_EDITOR
+            check.Add(behaviour);
+            #endif
         }
     }
 

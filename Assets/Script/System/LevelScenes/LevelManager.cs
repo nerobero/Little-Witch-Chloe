@@ -22,6 +22,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
     public void Register(SceneBase instance)
     {
         sceneBases.Add(instance);
+        Debug.Log(sceneBases.Last());
     }
 
     private void OnEnable()
@@ -62,5 +63,17 @@ public class LevelManager : MonoSingletonBase<LevelManager>
             SaveManager.Instance.ApplyAllGameData();
 
         UIManager.Instance.Hide<UIGameOverHUD>();
+    }
+
+    public void RegisterInstance(MonoBehaviour behaviour)
+    {
+        int curlevel = (int)GameManager.Instance.CurrentLevel;
+
+        if(sceneBases.Count <= 0)
+        {
+            return;
+        }
+        
+        sceneBases[curlevel].Register(behaviour);
     }
 }

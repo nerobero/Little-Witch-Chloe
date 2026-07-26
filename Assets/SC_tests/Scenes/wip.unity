@@ -27939,7 +27939,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundController
   cam: {fileID: 1725118543}
-  parallexEffect: 0.12
+  parallaxPoint: {fileID: 0}
+  parallexEffectX: 0
+  parallexEffectY: 0
+  enableYParallax: 0
 --- !u!1 &334796954
 GameObject:
   m_ObjectHideFlags: 0
@@ -30855,7 +30858,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundController
   cam: {fileID: 1725118543}
-  parallexEffect: 0.15
+  parallaxPoint: {fileID: 0}
+  parallexEffectX: 0
+  parallexEffectY: 0
+  enableYParallax: 0
 --- !u!212 &892058384
 SpriteRenderer:
   serializedVersion: 2
@@ -32701,6 +32707,10 @@ PrefabInstance:
     - target: {fileID: 110458805653573893, guid: e8aeb7f4d4442e14ca380b067c053942, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062592795018319198, guid: e8aeb7f4d4442e14ca380b067c053942, type: 3}
+      propertyPath: _spellType
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5020401512242715676, guid: e8aeb7f4d4442e14ca380b067c053942, type: 3}
       propertyPath: m_Name
@@ -54114,12 +54124,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1875270486532918031, guid: 8579c2a5440b9824faa0fce7aa1a9db3, type: 3}
+      propertyPath: poolEntries.Array.data[8].type
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875270486532918031, guid: 8579c2a5440b9824faa0fce7aa1a9db3, type: 3}
       propertyPath: poolEntries.Array.data[7].spawnPrefab
       value: 
       objectReference: {fileID: 5886028441092481102, guid: e7aaced7417dfbc478d428416678ed67, type: 3}
     - target: {fileID: 1875270486532918031, guid: 8579c2a5440b9824faa0fce7aa1a9db3, type: 3}
+      propertyPath: poolEntries.Array.data[8].spawnPrefab
+      value: 
+      objectReference: {fileID: 458162909430274076, guid: 8fba6ae50b7bd1341a16811445f729e7, type: 3}
+    - target: {fileID: 1875270486532918031, guid: 8579c2a5440b9824faa0fce7aa1a9db3, type: 3}
       propertyPath: poolEntries.Array.data[7].initSpawnSize
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875270486532918031, guid: 8579c2a5440b9824faa0fce7aa1a9db3, type: 3}
+      propertyPath: poolEntries.Array.data[8].initSpawnSize
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4571515406585558468, guid: 8579c2a5440b9824faa0fce7aa1a9db3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -54366,7 +54388,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundController
   cam: {fileID: 1725118543}
-  parallexEffect: 0.1
+  parallaxPoint: {fileID: 0}
+  parallexEffectX: 0
+  parallexEffectY: 0
+  enableYParallax: 0
 --- !u!1 &1426579769
 GameObject:
   m_ObjectHideFlags: 0
@@ -54413,7 +54438,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundController
   cam: {fileID: 1725118543}
-  parallexEffect: 0.2
+  parallaxPoint: {fileID: 0}
+  parallexEffectX: 0
+  parallexEffectY: 0
+  enableYParallax: 0
 --- !u!212 &1426579772
 SpriteRenderer:
   serializedVersion: 2
@@ -84057,7 +84085,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundController
   cam: {fileID: 1725118543}
-  parallexEffect: 0.1
+  parallaxPoint: {fileID: 0}
+  parallexEffectX: 0
+  parallexEffectY: 0
+  enableYParallax: 0
 --- !u!1 &1569777631
 GameObject:
   m_ObjectHideFlags: 0
@@ -86866,7 +86897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1062592795018319198, guid: e8aeb7f4d4442e14ca380b067c053942, type: 3}
       propertyPath: _spellType
-      value: 1
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1062592795018319198, guid: e8aeb7f4d4442e14ca380b067c053942, type: 3}
       propertyPath: _unlockType
@@ -87173,7 +87204,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundController
   cam: {fileID: 1725118543}
-  parallexEffect: 0.05
+  parallaxPoint: {fileID: 0}
+  parallexEffectX: 0
+  parallexEffectY: 0
+  enableYParallax: 0
 --- !u!1 &1691147561
 GameObject:
   m_ObjectHideFlags: 0

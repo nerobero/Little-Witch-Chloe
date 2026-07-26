@@ -76,6 +76,8 @@ namespace Types
         ScrollItem,
         HPItem,
         StaminaItem,
+        Collections,
+        None, // the end and nothing
     }
 
     /// <summary>

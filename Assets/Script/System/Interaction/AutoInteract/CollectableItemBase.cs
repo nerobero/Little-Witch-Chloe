@@ -7,7 +7,11 @@ public class CollectableItemBase : ItemBase
     [SerializeField] protected LayerMask playerLayer;
     [SerializeField] protected bool isBackgroundItem = false;
     public ECollectable CollectType;
-
+    
+    protected virtual void Awake()
+    {
+        spawnType = ESpawnType.Collections;
+    }
 
     protected override bool OnInteract(Collider2D other)
     {

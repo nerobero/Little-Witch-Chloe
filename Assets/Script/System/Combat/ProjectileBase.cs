@@ -104,13 +104,7 @@ public class ProjectileBase : MonoBehaviour, IResetable
                 // foreach (StatusEffectData effect in onHitStatusEffects)
                 //     stats.ApplyStatusEffect(effect, instigator);
 
-                //2. stop movement and disable collider so it doesn't retrigger
-                _projRB.linearVelocity = Vector2.zero;
-                _collider.enabled = false;
-
-                //3. play collision animation and wait for it to finish before pooling
-                _animator.SetBool(IsResetHash, false);
-                _animator.SetTrigger(CollidedHash);
+                HitEvent();
                 StartCoroutine(ReturnToPoolAfterAnimation());
             }
             else
@@ -130,16 +124,21 @@ public class ProjectileBase : MonoBehaviour, IResetable
         }
         else
         {
-            //2. stop movement and disable collider so it doesn't retrigger
-            _projRB.linearVelocity = Vector2.zero;
-            _collider.enabled = false;
-
-            //3. play collision animation and wait for it to finish before pooling
-            _animator.SetBool(IsResetHash, false);
-            _animator.SetTrigger(CollidedHash);
+            HitEvent();
             StartCoroutine(ReturnToPoolAfterAnimation());
         }
 
+    }
+
+    protected void HitEvent()
+    {
+        //2. stop movement and disable collider so it doesn't retrigger
+        _projRB.linearVelocity = Vector2.zero;
+        _collider.enabled = false;
+
+        //3. play collision animation and wait for it to finish before pooling
+        _animator.SetBool(IsResetHash, false);
+        _animator.SetTrigger(CollidedHash);
     }
 
     private IEnumerator ReturnToPoolAfterAnimation()
@@ -155,6 +154,7 @@ public class ProjectileBase : MonoBehaviour, IResetable
     /// </summary>
     private void ReturnToPool()
     {
+        Debug.Log($"투사체 ReturnToPool 호출: {gameObject.GetInstanceID()}");
         //resetting the snapshot values back to their default before returning it to the pool
         _firedTimeSnapshot = -1f;
         _isFired = false;
@@ -178,6 +178,7 @@ public class ProjectileBase : MonoBehaviour, IResetable
     /// </summary>
     public void OnFired(Transform firePointTransform, float fireAngle, bool FiredAtBackground, GameObject Instigator)
     {
+        Debug.Log($"[투사체 발사] (ID: {gameObject.GetInstanceID()})");
         _instigatorCollider = Instigator.GetComponent<Collider2D>();
         instigatorStat = Instigator.GetComponent<StatManager>();
 
@@ -219,9 +220,18 @@ public class ProjectileBase : MonoBehaviour, IResetable
 
     public void ResetState()
     {
+        // Ignore objects that have already been returned
+        if(!_isFired)
+        {
+            return;
+        }
+
+        Debug.Log($"투사체 ResetState 호출: {gameObject.GetInstanceID()}, isFired: {_isFired}");
+        StopAllCoroutines();
         _projRB.linearVelocity = Vector2.zero;
         _collider.enabled = false;
-
+        
         ReturnToPool();
+        gameObject.SetActive(false);
     }
 }
