@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using Types;
+using Data;
 
 public class PlayerStatManager : StatManager
 {
@@ -13,6 +15,8 @@ public class PlayerStatManager : StatManager
     // Event system
     public event Action<float, float> OnStaminaChanged;
     public event Action OnStaminaOver;
+
+    private PlayerController controller;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
@@ -20,7 +24,7 @@ public class PlayerStatManager : StatManager
         base.Start();
         currentStamina = maxStamina;
         OnTakenDamageEvent = "event:/SFX/PlayerDamaged";
-        
+        controller = GetComponent<PlayerController>();
     }
 
     #region initialize
@@ -89,5 +93,25 @@ public class PlayerStatManager : StatManager
         base.ResetState();
         currentStamina = maxStamina;
         OnStaminaChanged?.Invoke(currentStamina, maxStamina);
+    }
+
+    public override void AddBuff(EStatusEffectType type, float magnitude)
+    {
+        controller.ApplyStatusEffect(type, magnitude);
+    }
+
+    public override void DispelBuff(EStatusEffectType type, float magnitude)
+    {
+        controller.RemoveStatusEffect(type, magnitude);
+    }
+
+    public override void AddDebuff(EStatusEffectType type, float magnitude)
+    {
+        controller.ApplyStatusEffect(type, magnitude);
+    }
+
+    public override void RemoveDebuff(EStatusEffectType type, float magnitude)
+    {
+        controller.RemoveStatusEffect(type, magnitude);
     }
 }

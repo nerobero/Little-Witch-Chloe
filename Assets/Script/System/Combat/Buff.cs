@@ -89,8 +89,6 @@ public class Buff : MonoBehaviour
                     BuffManager.Instance.Unregister(m_ActiveCCEffects[effect.definition.CCType]);
                     //effect.SetOwner(this);
                     m_ActiveCCEffects[effect.definition.CCType] = effect;
-
-                    //effect.Apply(owner);
                 }
                 // there is no
                 else
@@ -98,8 +96,8 @@ public class Buff : MonoBehaviour
                     effect.SetOwner(this);
                     m_ActiveCCEffects.Add(effect.definition.CCType, effect);
 
-                    effect.Apply(owner);
                 }
+                effect.Apply(owner);
             break;
             // Buff & Debuff
             default:

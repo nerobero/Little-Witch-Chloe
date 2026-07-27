@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Types;
 
 /// <summary>
 /// Processes the movement and the physics of the player character
@@ -40,8 +41,15 @@ public class BaseCharacterMovement : MonoBehaviour
     protected int _bgLayerIndex => (int)Mathf.Log(bgLayer.value, 2);
     protected int _fgLayerIndex => (int)Mathf.Log(fgLayer.value, 2);
 
+
+    public float SpeedMultiplier { get; private set; } = 1f;
+
+    public void AddSpeedMultiplier(float amount) => SpeedMultiplier += amount;
+    public void ReduceSpeedMultiplier(float amount) => SpeedMultiplier -= amount;
+
     // player's sprite renderer:
     protected SpriteRenderer _spriteRender;
+    //protected StatusEffectController _statusEffects;
 
     protected Coroutine stunRoutines;
     protected Coroutine rootedRoutines;
@@ -59,16 +67,17 @@ public class BaseCharacterMovement : MonoBehaviour
 
         //
         _spriteRender = GetComponent<SpriteRenderer>();
+        //_statusEffects = GetComponent<StatusEffectController>();
 
         originalScale = transform.localScale;
-        speed = originalSpeed;
+        speed = originalSpeed * SpeedMultiplier;
         remainStunTime = new WaitForSecondsTracked(0f);
     }
 
     protected virtual void Start()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, _spriteRender.bounds.extents.y / 2f), Vector2.down, 10.0f, bgLayer | fgLayer);
-        Debug.DrawRay(transform.position - new Vector3(0, _spriteRender.bounds.extents.y / 2f), Vector2.down * 10f, new Color(1, 1, 0), 1000f);
+        //Debug.DrawRay(transform.position - new Vector3(0, _spriteRender.bounds.extents.y / 2f), Vector2.down * 10f, new Color(1, 1, 0), 1000f);
 
         Debug.Log(hit.collider);
 
@@ -102,7 +111,7 @@ public class BaseCharacterMovement : MonoBehaviour
         _spriteRender.sortingOrder = orderInLayer;
 
         // Change speed, jump height and scale
-        speed = _isBackground ? originalSpeed * 0.7f : originalSpeed;
+        speed = _isBackground ? originalSpeed * 0.7f * SpeedMultiplier : originalSpeed * SpeedMultiplier;
         curJumpHeight = _isBackground ? jumpHeight * 0.7f : jumpHeight;
         transform.localScale = 
             _isBackground ? new Vector3(transform.localScale.x * 0.75f, transform.localScale.y * 0.75f, 1) : 
@@ -143,6 +152,7 @@ public class BaseCharacterMovement : MonoBehaviour
     public virtual void SetMoveDirection(float direction)
     {
         MoveDir = direction;
+        //MoveDir = _statusEffects != null && !_statusEffects.CanMove ? 0f : direction;
         //_animController.FlipCharacter(direction);
     }
 
@@ -150,6 +160,9 @@ public class BaseCharacterMovement : MonoBehaviour
     {
         // BONUS logic here if needed:
     }
+
+    // protected float GetModifiedMoveSpeed()
+    //     => speed * (_statusEffects != null ? _statusEffects.MoveSpeedMultiplier : 1f);
 
     public virtual void ResetState()
     {
@@ -183,9 +196,40 @@ public class BaseCharacterMovement : MonoBehaviour
     {
         yield return remainStunTime;
 
-
         couldMove = true;
         stunRoutines = null;
         remainStunTime = null;
     }
+
+    #region Buff/Debuff Status Effect
+    public void AppliedEffect(EStatusEffectType type, float magnitude)
+    {
+        switch(type)
+        {
+            case EStatusEffectType.MoveSpeedUp:
+                AddSpeedMultiplier(magnitude);
+            break;
+            case EStatusEffectType.Slow:
+                ReduceSpeedMultiplier(magnitude);
+            break;
+            default:
+            return;
+        }
+    }
+
+    public void RemoveEffect(EStatusEffectType type, float magnitude)
+    {
+        switch(type)
+        {
+            case EStatusEffectType.MoveSpeedUp:
+                ReduceSpeedMultiplier(magnitude);
+            break;
+            case EStatusEffectType.Slow:
+                AddSpeedMultiplier(magnitude);
+            break;
+            default:
+            return;
+        }
+    }
+    #endregion
 }

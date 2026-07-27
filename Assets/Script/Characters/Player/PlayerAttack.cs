@@ -16,6 +16,21 @@ public class PlayerAttack : MonoBehaviour
     // duration of inactivity before disabling the shoot-point
     [SerializeField] private float attackIdleTime = 1.5f;
 
+    [SerializeField] private float baseDamage = 10f;
+    [SerializeField] private float baseAttackSpeed = 1f;
+
+    public float DamageMultiplier { get; private set; } = 1f;
+    public float AttackSpeedMultiplier { get; private set; } = 1f;
+
+    public float FinalDamage => baseDamage * DamageMultiplier;
+    public float FinalAttackSpeed => baseAttackSpeed * AttackSpeedMultiplier;
+
+    public void AddDamageMultiplier(float amount) => DamageMultiplier += amount;
+    public void ReduceDamageMultiplier(float amount) => DamageMultiplier -= amount;
+    
+    public void AddAttackSpeedMultiplier(float amount) => AttackSpeedMultiplier += amount;
+    public void ReduceAttackSpeedMultiplier(float amount) => AttackSpeedMultiplier -= amount;
+
     private PlayerAnimController _animController;
 
     private float _ATKTimeSnapshot = -1f;
@@ -105,7 +120,7 @@ public class PlayerAttack : MonoBehaviour
             // _animController?.SetToIsAttacking(true);
             _animController.SetToIsAttacking();
             bool isProjectileBG = isBackground ^ _isCrossPlatform;
-            projectile.OnFired(_firePoint, _aimAngleDeg, isProjectileBG, gameObject);
+            projectile.OnFired(_firePoint, _aimAngleDeg, FinalDamage, isProjectileBG, gameObject);
         }
 
     }
@@ -227,4 +242,48 @@ public class PlayerAttack : MonoBehaviour
             {ESpawnType.PoisonBall, false}, {ESpawnType.ElectricBall, false}, {ESpawnType.LightBall, false}
         };
     }
+
+    #region Buff/Debuff Status Effect
+    public void AppliedEffect(EStatusEffectType type, float magnitude)
+    {
+        switch(type)
+        {
+            case EStatusEffectType.AttackUp:
+                AddDamageMultiplier(magnitude);
+            break;
+            case EStatusEffectType.AttackSpeedUp:
+                AddAttackSpeedMultiplier(magnitude);
+            break;
+            case EStatusEffectType.AttackDown:
+                ReduceDamageMultiplier(magnitude);
+            break;
+            case EStatusEffectType.AttackSpeedDown:
+                ReduceAttackSpeedMultiplier(magnitude);
+            break;
+            default:
+            return;
+        }
+    }
+
+    public void RemoveEffect(EStatusEffectType type, float magnitude)
+    {
+        switch(type)
+        {
+            case EStatusEffectType.AttackUp:
+            ReduceDamageMultiplier(magnitude);
+            break;
+            case EStatusEffectType.AttackSpeedUp:
+            ReduceAttackSpeedMultiplier(magnitude);
+            break;
+            case EStatusEffectType.AttackDown:
+            AddDamageMultiplier(magnitude);
+            break;
+            case EStatusEffectType.AttackSpeedDown:
+            AddAttackSpeedMultiplier(magnitude);
+            break;
+            default:
+            return;
+        }
+    }
+    #endregion
 }

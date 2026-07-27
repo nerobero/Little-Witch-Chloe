@@ -154,7 +154,6 @@ public class ProjectileBase : MonoBehaviour, IResetable
     /// </summary>
     private void ReturnToPool()
     {
-        Debug.Log($"투사체 ReturnToPool 호출: {gameObject.GetInstanceID()}");
         //resetting the snapshot values back to their default before returning it to the pool
         _firedTimeSnapshot = -1f;
         _isFired = false;
@@ -176,9 +175,8 @@ public class ProjectileBase : MonoBehaviour, IResetable
     /// Callback function that gets called when the character fires this
     /// projectile object from its attack point
     /// </summary>
-    public void OnFired(Transform firePointTransform, float fireAngle, bool FiredAtBackground, GameObject Instigator)
+    public void OnFired(Transform firePointTransform, float fireAngle, float damage, bool FiredAtBackground, GameObject Instigator)
     {
-        Debug.Log($"[투사체 발사] (ID: {gameObject.GetInstanceID()})");
         _instigatorCollider = Instigator.GetComponent<Collider2D>();
         instigatorStat = Instigator.GetComponent<StatManager>();
 
@@ -195,6 +193,7 @@ public class ProjectileBase : MonoBehaviour, IResetable
 
         isBackground = FiredAtBackground;
         instigator = Instigator;
+        dealtDamage = damage;
         gameObject.layer = isBackground ? bgLayer : fgLayer;
         _spriteRenderer.sortingOrder = isBackground ? -1 : 1;
         _projRB.AddForce(firePointTransform.up * speed, ForceMode2D.Impulse);
