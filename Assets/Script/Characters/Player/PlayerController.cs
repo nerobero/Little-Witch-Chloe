@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using Types;
 
 /// <summary>
 /// Captures/caches the raw input values from the user and passes the values 
@@ -369,5 +370,49 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         UIManager.Instance.Get<UIPlayerHUD>().Initialize(); 
     }
 
+    #endregion
+
+    #region StatusEffect
+    public void ApplyStatusEffect(EStatusEffectType type, float magnitude)
+    {
+        switch(type)
+        {
+            case EStatusEffectType.AttackUp:
+            case EStatusEffectType.AttackDown:
+            case EStatusEffectType.AttackSpeedUp:
+            case EStatusEffectType.AttackSpeedDown:
+                _playerAttack.AppliedEffect(type, magnitude);
+                break;
+            case EStatusEffectType.MoveSpeedUp:
+            case EStatusEffectType.Slow:
+                _playerMove.AppliedEffect(type, magnitude);
+                break;
+            case EStatusEffectType.DefenseUp:
+            case EStatusEffectType.Shield:
+            case EStatusEffectType.DefenseDown:
+            break;
+        }
+    }
+
+    public void RemoveStatusEffect(EStatusEffectType type, float magnitude)
+    {
+        switch(type)
+        {
+            case EStatusEffectType.AttackUp:
+            case EStatusEffectType.AttackDown:
+            case EStatusEffectType.AttackSpeedUp:
+            case EStatusEffectType.AttackSpeedDown:
+                _playerAttack.RemoveEffect(type, magnitude);
+            break;
+            case EStatusEffectType.MoveSpeedUp:
+            case EStatusEffectType.Slow:
+            _playerMove.RemoveEffect(type, magnitude);
+            break;
+            case EStatusEffectType.DefenseUp:
+            case EStatusEffectType.Shield:
+            case EStatusEffectType.DefenseDown:
+            break;
+        }
+    }
     #endregion
 }

@@ -423,4 +423,48 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
 
        enemyMove.Fallen();
     }
+
+    #region StatusEffect
+    public void ApplyStatusEffect(EStatusEffectType type, float magnitude)
+    {
+        switch(type)
+        {
+            case EStatusEffectType.AttackUp:
+            case EStatusEffectType.AttackDown:
+            case EStatusEffectType.AttackSpeedUp:
+            case EStatusEffectType.AttackSpeedDown:
+                enemyAttack.AppliedEffect(type, magnitude);
+                break;
+            case EStatusEffectType.MoveSpeedUp:
+            case EStatusEffectType.Slow:
+                enemyAttack.AppliedEffect(type, magnitude);
+                break;
+            case EStatusEffectType.DefenseUp:
+            case EStatusEffectType.Shield:
+            case EStatusEffectType.DefenseDown:
+            break;
+        }
+    }
+
+    public void RemoveStatusEffect(EStatusEffectType type, float magnitude)
+    {
+        switch(type)
+        {
+            case EStatusEffectType.AttackUp:
+            case EStatusEffectType.AttackDown:
+            case EStatusEffectType.AttackSpeedUp:
+            case EStatusEffectType.AttackSpeedDown:
+                enemyAttack.RemoveEffect(type, magnitude);
+            break;
+            case EStatusEffectType.MoveSpeedUp:
+            case EStatusEffectType.Slow:
+                enemyAttack.RemoveEffect(type, magnitude);
+            break;
+            case EStatusEffectType.DefenseUp:
+            case EStatusEffectType.Shield:
+            case EStatusEffectType.DefenseDown:
+            break;
+        }
+    }
+    #endregion
 }
