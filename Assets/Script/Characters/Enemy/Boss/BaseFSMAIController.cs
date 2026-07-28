@@ -1,24 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct AttackEntry
+{
+    public int AnimHash; //already hashed values for optimization reasons
+    public IEnemyAttackStrategy Strategy;
+
+    public AttackEntry(int v, IEnemyAttackStrategy attackStrat) : this()
+    {
+        AnimHash = v;
+        Strategy = attackStrat;
+    }
+}
+
 /// <summary>
 /// Base AIController class. Uses FSM pattern to determine the next move
 /// done by the owning agent
 /// </summary>
 public class BaseFSMAIController : MonoBehaviour
 {
-    public struct AttackEntry
-    {
-        public int AnimHash; //already hashed values for optimization reasons
-        public IEnemyAttackStrategy Strategy;
-
-        public AttackEntry(int v, IEnemyAttackStrategy attackStrat) : this()
-        {
-            AnimHash = v;
-            Strategy = attackStrat;
-        }
-    }
-
     // key = attack strat type
     // value = attack entry (anim hash, strategy)
     protected Dictionary<string, AttackEntry> attacklist = new();
@@ -26,9 +26,10 @@ public class BaseFSMAIController : MonoBehaviour
     private GameObject _currentTarget;
 
     private IEnemyAttackStrategy _currentStrat;
-    
+
     [Header("Animator - Main body")]
     public Animator _mainAnimator;
+    public Vector3 _eyePoint;
 
     private bool _isActing = false;
 
@@ -40,6 +41,11 @@ public class BaseFSMAIController : MonoBehaviour
     [SerializeField] protected float actionCooldown = 1f;
     private float _nextActionTime = 0f;
 
+    [Header("Detection")]
+    public LayerMask playerLayer;
+    [SerializeField] protected float viewDistance;
+    [SerializeField] protected float viewHeight;
+
     private void Awake()
     {
         OnAwake();
@@ -47,7 +53,7 @@ public class BaseFSMAIController : MonoBehaviour
 
     protected virtual void OnAwake()
     {
-        Init();    
+        Init();
     }
 
     protected virtual void Init() { }
@@ -61,7 +67,9 @@ public class BaseFSMAIController : MonoBehaviour
     protected virtual void OnBecameInvisible()
     {
         _isActive = false;
+        _currentTarget = null;
     }
+
     protected virtual void OnBecameVisible()
     {
         _isActive = true;
@@ -72,15 +80,28 @@ public class BaseFSMAIController : MonoBehaviour
         Debug.Log($"[FSM] Update tick, isActing={_isActing}");
         if (_isActing || !_isActive) return; // if already acting, then no need to process the rest of logic.
         if (Time.time < _nextActionTime) return; //if in cooldown for this action turn, return
+        if (_currentTarget == null) return;
 
         StartAttackStrat();
     }
 
     protected void FixedUpdate()
     {
-        if (_isActing || !_isActive) return;
-    
-        
+        if (!_isActive || _currentTarget != null) return;
+
+        Collider2D hit;
+
+        Vector3 worldEyePoint = transform.position;
+
+        hit = Physics2D.OverlapBox(worldEyePoint, new Vector2(viewDistance, viewHeight), 0.0f, playerLayer);
+
+
+        if (hit != null && hit.GetComponent<PlayerController>() != null)
+        {
+            _currentTarget = hit.gameObject;
+            Debug.Log("[FSM] Player detected!");
+            _isActive = true;
+        }
     }
 
     protected virtual void StartAttackStrat()
@@ -107,7 +128,7 @@ public class BaseFSMAIController : MonoBehaviour
     private void HandleAttackEnd(bool success)
     {
         _isActing = false;
-        
+
         _currentStrat.OnAttackComplete -= HandleAttackEnd; //unsubscribing since this attack is done.
         _nextActionTime = Time.time + actionCooldown; // start cooldown once the attack ends
 
