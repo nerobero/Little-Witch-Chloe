@@ -36,6 +36,8 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] protected float damageAmount;
 
     protected EnemyAnimController _animController;
+
+    protected EnemyCharacterBase _stat;
     
     protected float _ATKTimeSnapshot = -1f;
     protected float _chargedATKTimeSnapshot = -1f;
@@ -105,7 +107,7 @@ public class EnemyAttack : MonoBehaviour
         _ATKTimeSnapshot = Time.time;
         // _animController?.SetToIsAttacking(true);
         //_animController.SetToIsAttacking();
-        projectile.OnFired(_firePoint, _aimAngleDeg, FinalDamage, isBackground, gameObject);
+        projectile.OnFired(_firePoint, _aimAngleDeg, FinalDamage, isBackground, gameObject, _stat);
         //projectile.SetDirection(_aimDirection);
     }
 

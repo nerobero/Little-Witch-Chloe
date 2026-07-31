@@ -45,23 +45,23 @@ public class EnemyCharacterBase : StatManager
         enemyHP?.SetTarget();
     }
 
-    public override void AddBuff(EStatusEffectType type, float magnitude)
-    {
-        controller.ApplyStatusEffect(type, magnitude);
-    }
+    // public override void AddBuff(EStatusEffectType type, float magnitude, GameObject instigator)
+    // {
+    //     controller.ApplyStatusEffect(type, magnitude, instigator);
+    // }
 
-    public override void DispelBuff(EStatusEffectType type, float magnitude)
-    {
-        controller.RemoveStatusEffect(type, magnitude);
-    }
+    // public override void DispelBuff(EStatusEffectType type, float magnitude)
+    // {
+    //     controller.RemoveStatusEffect(type, magnitude);
+    // }
 
-    public override void AddDebuff(EStatusEffectType type, float magnitude)
-    {
-        controller.ApplyStatusEffect(type, magnitude);
-    }
+    // public override void AddDebuff(EStatusEffectType type, float magnitude, GameObject instigator)
+    // {
+    //     controller.ApplyStatusEffect(type, magnitude, instigator);
+    // }
 
-    public override void RemoveDebuff(EStatusEffectType type, float magnitude)
-    {
-        controller.RemoveStatusEffect(type, magnitude);
-    }
+    // public override void RemoveDebuff(EStatusEffectType type, float magnitude)
+    // {
+    //     controller.RemoveStatusEffect(type, magnitude);
+    // }
 }

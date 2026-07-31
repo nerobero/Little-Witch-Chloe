@@ -1,4 +1,6 @@
+using Data;
 using UnityEngine;
+using Types;
 
 public class CorruptMovement : EnemyMovement
 {
@@ -75,7 +77,7 @@ public class CorruptMovement : EnemyMovement
         RaycastHit2D hitresult = Physics2D.Raycast(origin + Vector2.up * camHalfHeight,
                 Vector2.down, camHalfHeight * 2f, layerParam);
 
-        layerParam = _isBackground ? bgLayer : fgLayer;
+        //layerParam = _isBackground ? bgLayer : fgLayer;
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, layerParam);
         if (hitresult.collider == null)
         {
@@ -104,4 +106,22 @@ public class CorruptMovement : EnemyMovement
     /// Set the gameobject's orderInLayer -1 or 0 based on whether
     /// the character is in the background or not.
     /// </summary>
+    
+    public virtual void Stun(float time)
+    {
+        ActiveStatusEffect pooledEffect = PoolObjectManager.Instance.GetStatusEffect();
+        var stat = GetComponent<StatManager>();
+
+        StatusEffect effect = new  StatusEffect(stat, EStatusEffectType.Stun, EStatusEffectCategory.CrowdControl,
+                            ECrowdControlType.Stunned, null, time, time);
+
+        pooledEffect.SetEffect(effect);
+        pooledEffect.SetInstigator(this.gameObject);
+
+        // 2. Adjust the debuff(blind)
+        stat.BuffComp.Add(pooledEffect);
+
+        //3. play collision animation and wait for it to finish before pooling
+        gameObject.SetActive(false);
+    }
 }

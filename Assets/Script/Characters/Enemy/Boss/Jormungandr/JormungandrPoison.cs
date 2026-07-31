@@ -61,6 +61,7 @@ public class JormungandrPoison : MonoBehaviour
                 ActiveStatusEffect pooledEffect = PoolObjectManager.Instance.GetStatusEffect();
 
                 pooledEffect.SetEffect(effect);
+                pooledEffect.SetInstigator(this.gameObject);
 
                 // 2. Adjust the debuff(blind)
                 stats.BuffComp.Add(pooledEffect);

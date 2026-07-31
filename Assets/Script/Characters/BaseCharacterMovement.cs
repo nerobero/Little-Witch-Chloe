@@ -169,67 +169,77 @@ public class BaseCharacterMovement : MonoBehaviour
         
     }
 
-    public virtual void Stun(float duration)
+    //public virtual void Stun(float duration)
+    public virtual void SetCouldMove(bool CouldMove)
     {
-        couldMove = false;
+        couldMove = CouldMove;
 
-        if(stunRoutines != null)
-        {
-            // remaining time is over than duration than refresh stun.
-            if(remainStunTime.TimeRemaining <= duration)
-            {
-                StopCoroutine(stunRoutines);
-                remainStunTime = null;
-            }
-            // else, ignore the stun.
-            else
-            {
-                return;
-            }
-        }
+        // if(stunRoutines != null)
+        // {
+        //     // remaining time is over than duration than refresh stun.
+        //     if(remainStunTime.TimeRemaining <= duration)
+        //     {
+        //         StopCoroutine(stunRoutines);
+        //         remainStunTime = null;
+        //     }
+        //     // else, ignore the stun.
+        //     else
+        //     {
+        //         return;
+        //     }
+        // }
 
-        remainStunTime.Reset(duration);
-        stunRoutines = StartCoroutine(StunTimer(duration));
+        // remainStunTime.Reset(duration);
+        // stunRoutines = StartCoroutine(StunTimer(duration));
     }
 
-    protected virtual IEnumerator StunTimer(float duration)
-    {
-        yield return remainStunTime;
+    // protected virtual IEnumerator StunTimer(float duration)
+    // {
+    //     yield return remainStunTime;
 
-        couldMove = true;
-        stunRoutines = null;
-        remainStunTime = null;
-    }
+    //     couldMove = true;
+    //     stunRoutines = null;
+    //     remainStunTime = null;
+    // }
 
-    #region Buff/Debuff Status Effect
-    public void AppliedEffect(EStatusEffectType type, float magnitude)
-    {
-        switch(type)
-        {
-            case EStatusEffectType.MoveSpeedUp:
-                AddSpeedMultiplier(magnitude);
-            break;
-            case EStatusEffectType.Slow:
-                ReduceSpeedMultiplier(magnitude);
-            break;
-            default:
-            return;
-        }
-    }
+    // #region Buff/Debuff Status Effect
+    // public void AppliedEffect(EStatusEffectType type, float magnitude)
+    // {
+    //     switch(type)
+    //     {
+    //         case EStatusEffectType.MoveSpeedUp:
+    //             AddSpeedMultiplier(magnitude);
+    //         break;
+    //         case EStatusEffectType.Slow:
+    //             ReduceSpeedMultiplier(magnitude);
+    //         break;
+    //         default:
+    //         return;
+    //     }
+    // }
 
-    public void RemoveEffect(EStatusEffectType type, float magnitude)
+    // public void RemoveEffect(EStatusEffectType type, float magnitude)
+    // {
+    //     switch(type)
+    //     {
+    //         case EStatusEffectType.MoveSpeedUp:
+    //             ReduceSpeedMultiplier(magnitude);
+    //         break;
+    //         case EStatusEffectType.Slow:
+    //             AddSpeedMultiplier(magnitude);
+    //         break;
+    //         default:
+    //         return;
+    //     }
+    // }
+    // #endregion
+
+    #region Knockedback
+    public void ApplyKnockback(Vector2 dir, float force)
     {
-        switch(type)
-        {
-            case EStatusEffectType.MoveSpeedUp:
-                ReduceSpeedMultiplier(magnitude);
-            break;
-            case EStatusEffectType.Slow:
-                AddSpeedMultiplier(magnitude);
-            break;
-            default:
-            return;
-        }
+        // SetCouldMove(false);
+        _rb.linearVelocity = Vector2.zero;
+        _rb.AddForce(dir * force, ForceMode2D.Impulse);
     }
     #endregion
 }

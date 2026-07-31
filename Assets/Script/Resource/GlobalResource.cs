@@ -362,10 +362,10 @@ namespace Data
             this.duration = duration;
         }
 
-        public virtual void Apply(StatManager target)
+        public virtual void Apply(StatManager target, GameObject instigator)
         {
             Debug.Log("Applied");
-            target.Buff(this);
+            target.Buff(this, instigator);
         }
 
         // public virtual void Tick(StatManager target, float deltaTime)

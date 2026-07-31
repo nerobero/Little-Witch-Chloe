@@ -238,18 +238,19 @@ public class StatManager : MonoBehaviour, IDamageable
     /// </summary>
     /// <param name="buffAmount"></param>
     /// <returns></returns>
-    public virtual void Buff(StatusEffect effect)
+    public virtual void Buff(StatusEffect effect, GameObject instigator)
     {
         switch(effect.Category)
         {
             case EStatusEffectCategory.Buff:
-            AddBuff(effect.Type, effect.Magnitude);
+            AddBuff(effect.Type, effect.Magnitude, instigator);
             break;
             case EStatusEffectCategory.Debuff:
-            AddDebuff(effect.Type, effect.Magnitude);
+            AddDebuff(effect.Type, effect.Magnitude, instigator);
             break;
             case EStatusEffectCategory.CrowdControl:
             AddCrowdControl(effect.CCType);
+            AddDebuff(effect.Type, effect.Magnitude, instigator);
             break;
         }
     }
@@ -266,25 +267,28 @@ public class StatManager : MonoBehaviour, IDamageable
             break;
             case EStatusEffectCategory.CrowdControl:
             RemoveCrowdControl(effect.CCType);
+            RemoveDebuff(effect.Type, effect.Magnitude);
             break;
         }
     }
 
-    public virtual void AddBuff(EStatusEffectType type, float magnitude)
+    public virtual void AddBuff(EStatusEffectType type, float magnitude, GameObject instigator)
     {
         switch(type)
         {
             case EStatusEffectType.AttackUp:
             // Adjust the magnitude to attack component
-            break;
+
+                break;
             case EStatusEffectType.DefenseUp:
-            break;
+                break;
             case EStatusEffectType.MoveSpeedUp:
-            break;
+                
+                break;
             case EStatusEffectType.AttackSpeedUp:
-            break;
+                break;
             case EStatusEffectType.Shield:
-            break;
+                break;
         }
     }
 
@@ -306,7 +310,7 @@ public class StatManager : MonoBehaviour, IDamageable
         }
     }
 
-    public virtual void AddDebuff(EStatusEffectType type, float magnitude)
+    public virtual void AddDebuff(EStatusEffectType type, float magnitude, GameObject instigator)
     {
         switch(type)
         {

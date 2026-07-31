@@ -53,11 +53,11 @@ public class BaseCharacterAnimController : MonoBehaviour
         _animator.SetBool(IsAttackingHash, false);
 
         Vector2 localScale2D = transform.localScale;
-        if(localScale2D.x < 0f)
+        if(IsFacingRight)
         {
             localScale2D.x *= -1f;
             transform.localScale = localScale2D;
+            IsFacingRight = !IsFacingRight;
         }
-        IsFacingRight = !IsFacingRight;
     }
 }

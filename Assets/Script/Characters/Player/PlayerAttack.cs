@@ -32,6 +32,7 @@ public class PlayerAttack : MonoBehaviour
     public void ReduceAttackSpeedMultiplier(float amount) => AttackSpeedMultiplier -= amount;
 
     private PlayerAnimController _animController;
+    private StatManager _stat;
 
     private float _ATKTimeSnapshot = -1f;
     private float _chargedATKTimeSnapshot = -1f;
@@ -62,6 +63,7 @@ public class PlayerAttack : MonoBehaviour
         _firePointObject.enabled = false;
 
         _animController = GetComponent<PlayerAnimController>();
+        _stat = GetComponent<StatManager>();
     }
 
     /// <summary>
@@ -120,7 +122,7 @@ public class PlayerAttack : MonoBehaviour
             // _animController?.SetToIsAttacking(true);
             _animController.SetToIsAttacking();
             bool isProjectileBG = isBackground ^ _isCrossPlatform;
-            projectile.OnFired(_firePoint, _aimAngleDeg, FinalDamage, isProjectileBG, gameObject);
+            projectile.OnFired(_firePoint, _aimAngleDeg, FinalDamage, isProjectileBG, gameObject, _stat);
         }
 
     }
@@ -243,47 +245,47 @@ public class PlayerAttack : MonoBehaviour
         };
     }
 
-    #region Buff/Debuff Status Effect
-    public void AppliedEffect(EStatusEffectType type, float magnitude)
-    {
-        switch(type)
-        {
-            case EStatusEffectType.AttackUp:
-                AddDamageMultiplier(magnitude);
-            break;
-            case EStatusEffectType.AttackSpeedUp:
-                AddAttackSpeedMultiplier(magnitude);
-            break;
-            case EStatusEffectType.AttackDown:
-                ReduceDamageMultiplier(magnitude);
-            break;
-            case EStatusEffectType.AttackSpeedDown:
-                ReduceAttackSpeedMultiplier(magnitude);
-            break;
-            default:
-            return;
-        }
-    }
+    // #region Buff/Debuff Status Effect
+    // public void AppliedEffect(EStatusEffectType type, float magnitude)
+    // {
+    //     switch(type)
+    //     {
+    //         case EStatusEffectType.AttackUp:
+    //             AddDamageMultiplier(magnitude);
+    //         break;
+    //         case EStatusEffectType.AttackSpeedUp:
+    //             AddAttackSpeedMultiplier(magnitude);
+    //         break;
+    //         case EStatusEffectType.AttackDown:
+    //             ReduceDamageMultiplier(magnitude);
+    //         break;
+    //         case EStatusEffectType.AttackSpeedDown:
+    //             ReduceAttackSpeedMultiplier(magnitude);
+    //         break;
+    //         default:
+    //         return;
+    //     }
+    // }
 
-    public void RemoveEffect(EStatusEffectType type, float magnitude)
-    {
-        switch(type)
-        {
-            case EStatusEffectType.AttackUp:
-            ReduceDamageMultiplier(magnitude);
-            break;
-            case EStatusEffectType.AttackSpeedUp:
-            ReduceAttackSpeedMultiplier(magnitude);
-            break;
-            case EStatusEffectType.AttackDown:
-            AddDamageMultiplier(magnitude);
-            break;
-            case EStatusEffectType.AttackSpeedDown:
-            AddAttackSpeedMultiplier(magnitude);
-            break;
-            default:
-            return;
-        }
-    }
-    #endregion
+    // public void RemoveEffect(EStatusEffectType type, float magnitude)
+    // {
+    //     switch(type)
+    //     {
+    //         case EStatusEffectType.AttackUp:
+    //         ReduceDamageMultiplier(magnitude);
+    //         break;
+    //         case EStatusEffectType.AttackSpeedUp:
+    //         ReduceAttackSpeedMultiplier(magnitude);
+    //         break;
+    //         case EStatusEffectType.AttackDown:
+    //         AddDamageMultiplier(magnitude);
+    //         break;
+    //         case EStatusEffectType.AttackSpeedDown:
+    //         AddAttackSpeedMultiplier(magnitude);
+    //         break;
+    //         default:
+    //         return;
+    //     }
+    // }
+    // #endregion
 }

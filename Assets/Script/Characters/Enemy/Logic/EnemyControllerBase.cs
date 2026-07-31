@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using System.Collections;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class EnemyControllerBase : MonoBehaviour, IResetable
+public class EnemyControllerBase : MonoBehaviour, IResetable, IStatusEffect
 {
     #region ReferenceClasses
     // Handler for enemy's movement
@@ -425,44 +425,107 @@ public class EnemyControllerBase : MonoBehaviour, IResetable
     }
 
     #region StatusEffect
-    public void ApplyStatusEffect(EStatusEffectType type, float magnitude)
+    public void ApplyStatusEffect(ActiveStatusEffect effect)
     {
-        switch(type)
+        switch(effect.definition.Type)
         {
             case EStatusEffectType.AttackUp:
+                enemyAttack.AddDamageMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.AttackDown:
+                enemyAttack.ReduceDamageMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.AttackSpeedUp:
+                enemyAttack.AddAttackSpeedMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.AttackSpeedDown:
-                enemyAttack.AppliedEffect(type, magnitude);
-                break;
+                enemyAttack.ReduceAttackSpeedMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.MoveSpeedUp:
+                enemyMove.AddSpeedMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.Slow:
-                enemyAttack.AppliedEffect(type, magnitude);
-                break;
+                enemyMove.ReduceSpeedMultiplier(effect.definition.Magnitude);
+            break;
+
+            // Not implemented
             case EStatusEffectType.DefenseUp:
             case EStatusEffectType.Shield:
             case EStatusEffectType.DefenseDown:
             break;
+
+            // CC
+            // These things make the character not be able to move.
+            case EStatusEffectType.Stun:
+                enemyStat.AddCrowdControl(effect.definition.CCType);
+                enemyMove.SetCouldMove(false);
+            break;
+            case EStatusEffectType.Root:
+                enemyStat.AddCrowdControl(effect.definition.CCType);
+                enemyMove.SetCouldMove(false);
+            break;
+            case EStatusEffectType.Knockback:
+                Vector2 knockbackDir = (transform.position - effect.instigator.transform.position).normalized;
+                enemyStat.AddCrowdControl(effect.definition.CCType);
+                enemyMove.ApplyKnockback(knockbackDir, effect.definition.Magnitude);
+            break;
+            case EStatusEffectType.Fear:
+                enemyStat.AddCrowdControl(effect.definition.CCType);
+            break;
+            case EStatusEffectType.Blind:
+                enemyStat.AddCrowdControl(effect.definition.CCType);
+            break;
+
         }
     }
 
-    public void RemoveStatusEffect(EStatusEffectType type, float magnitude)
+    //public void RemoveStatusEffect(EStatusEffectType type, float magnitude)
+    public void RemoveStatusEffect(ActiveStatusEffect effect)
     {
-        switch(type)
+        switch(effect.definition.Type)
         {
             case EStatusEffectType.AttackUp:
+                enemyAttack.ReduceDamageMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.AttackDown:
+                enemyAttack.AddDamageMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.AttackSpeedUp:
+                enemyAttack.ReduceAttackSpeedMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.AttackSpeedDown:
-                enemyAttack.RemoveEffect(type, magnitude);
+                enemyAttack.AddAttackSpeedMultiplier(effect.definition.Magnitude);
             break;
             case EStatusEffectType.MoveSpeedUp:
-            case EStatusEffectType.Slow:
-                enemyAttack.RemoveEffect(type, magnitude);
+                enemyMove.ReduceSpeedMultiplier(effect.definition.Magnitude);
             break;
+            case EStatusEffectType.Slow:
+                enemyMove.AddSpeedMultiplier(effect.definition.Magnitude);
+            break;
+
+            // Not implemented
             case EStatusEffectType.DefenseUp:
             case EStatusEffectType.Shield:
             case EStatusEffectType.DefenseDown:
+            break;
+            
+            // CC
+            case EStatusEffectType.Stun:
+                enemyStat.RemoveCrowdControl(effect.definition.CCType);
+                enemyMove.SetCouldMove(true);
+            break;
+            case EStatusEffectType.Root:
+                enemyStat.RemoveCrowdControl(effect.definition.CCType);
+                enemyMove.SetCouldMove(true);
+            break;
+            case EStatusEffectType.Knockback:
+                enemyStat.RemoveCrowdControl(effect.definition.CCType);
+            break;
+            case EStatusEffectType.Fear:
+                enemyStat.RemoveCrowdControl(effect.definition.CCType);
+            break;
+            case EStatusEffectType.Blind:
+                enemyStat.RemoveCrowdControl(effect.definition.CCType);
             break;
         }
     }

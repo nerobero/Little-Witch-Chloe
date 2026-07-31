@@ -7,7 +7,7 @@ using Types;
 /// Captures/caches the raw input values from the user and passes the values 
 /// to the appropriate class references for value processing.
 /// </summary>
-public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActions, PlayerInput.IUIActions, IResetable
+public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActions, PlayerInput.IUIActions, IResetable, IStatusEffect
 {
     private static PlayerController _instance;
     public static PlayerController Instance => _instance;
@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     private InteractionSystem _playerInteract;
     //private StatusEffectController _statusEffects;
+    private PlayerStatManager _playerStat;
 
     private Camera _mainCamera;
     #endregion
@@ -68,6 +69,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         //_statusEffects = GetComponent<StatusEffectController>();
 
         _playerInteract = GetComponent<InteractionSystem>();
+        _playerStat = GetComponent<PlayerStatManager>();
 
         _mainCamera = Camera.main;
 
@@ -80,7 +82,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         spawnRotation = gameObject.transform.rotation;
         UIManager.Instance.Get<UIPlayerHUD>().Initialize(); 
 
-        GetComponent<PlayerStatManager>().OnDeath += Death;
+        _playerStat.OnDeath += Death;
     }
 
     private void OnEnable()
@@ -363,7 +365,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     {
         _playerAttack.ResetState();
         _playerMove.ResetState();
-        GetComponent<PlayerStatManager>()?.ResetState();
+        _playerStat.ResetState();
 
         gameObject.transform.position = spawnPosition + new Vector3(0f, 1f, 0f);
         gameObject.transform.rotation = spawnRotation;
@@ -373,46 +375,162 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     #endregion
 
     #region StatusEffect
-    public void ApplyStatusEffect(EStatusEffectType type, float magnitude)
+
+
+    //public void ApplyStatusEffect(EStatusEffectType type, float magnitude, GameObject instigator)
+    public void ApplyStatusEffect(ActiveStatusEffect effect)
     {
-        switch(type)
+        switch(effect.definition.Type)
         {
             case EStatusEffectType.AttackUp:
+                _playerAttack.AddDamageMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.AttackDown:
+                _playerAttack.ReduceDamageMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.AttackSpeedUp:
+                _playerAttack.AddAttackSpeedMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.AttackSpeedDown:
-                _playerAttack.AppliedEffect(type, magnitude);
-                break;
+                _playerAttack.ReduceAttackSpeedMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.MoveSpeedUp:
+                _playerMove.AddSpeedMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.Slow:
-                _playerMove.AppliedEffect(type, magnitude);
-                break;
+                _playerMove.ReduceSpeedMultiplier(effect.definition.Magnitude);
+            break;
+
+            // Not implemented
             case EStatusEffectType.DefenseUp:
             case EStatusEffectType.Shield:
             case EStatusEffectType.DefenseDown:
             break;
+
+            // CC
+            // These things make the character not be able to move.
+            case EStatusEffectType.Stun:
+                Stun();
+                _playerStat.AddCrowdControl(effect.definition.CCType);
+                _playerMove.SetCouldMove(false);
+            break;
+            case EStatusEffectType.Root:
+                Rooted();
+                _playerStat.AddCrowdControl(effect.definition.CCType);
+                _playerMove.SetCouldMove(false);
+            break;
+            case EStatusEffectType.Knockback:
+                Stun();
+                _playerStat.AddCrowdControl(effect.definition.CCType);
+                Vector2 knockbackDir = (transform.position - effect.instigator.transform.position).normalized;
+                _playerMove.ApplyKnockback(knockbackDir, effect.definition.Magnitude);
+            break;
+            case EStatusEffectType.Fear:
+                Stun();
+                _playerStat.AddCrowdControl(effect.definition.CCType);
+            break;
+            case EStatusEffectType.Blind:
+                _playerStat.AddCrowdControl(effect.definition.CCType);
+            break;
+
         }
     }
 
-    public void RemoveStatusEffect(EStatusEffectType type, float magnitude)
+    //public void RemoveStatusEffect(EStatusEffectType type, float magnitude)
+    public void RemoveStatusEffect(ActiveStatusEffect effect)
     {
-        switch(type)
+        switch(effect.definition.Type)
         {
             case EStatusEffectType.AttackUp:
+                _playerAttack.ReduceDamageMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.AttackDown:
+                _playerAttack.AddDamageMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.AttackSpeedUp:
+                _playerAttack.ReduceAttackSpeedMultiplier(effect.definition.Magnitude);
+            break;
             case EStatusEffectType.AttackSpeedDown:
-                _playerAttack.RemoveEffect(type, magnitude);
+                _playerAttack.AddAttackSpeedMultiplier(effect.definition.Magnitude);
             break;
             case EStatusEffectType.MoveSpeedUp:
-            case EStatusEffectType.Slow:
-            _playerMove.RemoveEffect(type, magnitude);
+                _playerMove.ReduceSpeedMultiplier(effect.definition.Magnitude);
             break;
+            case EStatusEffectType.Slow:
+                _playerMove.AddSpeedMultiplier(effect.definition.Magnitude);
+            break;
+
+            // Not implemented
             case EStatusEffectType.DefenseUp:
             case EStatusEffectType.Shield:
             case EStatusEffectType.DefenseDown:
             break;
+            
+            // CC
+            case EStatusEffectType.Stun:
+                StunFinished();
+                _playerStat.RemoveCrowdControl(effect.definition.CCType);
+                _playerMove.SetCouldMove(true);
+            break;
+            case EStatusEffectType.Root:
+                _playerMove.SetCouldMove(true);
+                _playerStat.RemoveCrowdControl(effect.definition.CCType);
+                RootedFinished();
+            break;
+            case EStatusEffectType.Knockback:
+                _playerStat.RemoveCrowdControl(effect.definition.CCType);
+                StunFinished();
+            break;
+            case EStatusEffectType.Fear:
+                _playerStat.RemoveCrowdControl(effect.definition.CCType);
+                StunFinished();
+            break;
+            case EStatusEffectType.Blind:
+                _playerStat.RemoveCrowdControl(effect.definition.CCType);
+            break;
         }
+    }
+    #endregion
+
+    #region Stun
+    private void Stun()
+    {
+        InputContext.FindAction("MoveLeftRight").Disable();
+        InputContext.FindAction("Jump").Disable();
+        InputContext.FindAction("AimAttack").Disable();
+        InputContext.FindAction("Attack").Disable();
+        InputContext.FindAction("Blink").Disable();
+        InputContext.FindAction("Interact").Disable();
+        InputContext.FindAction("ChangeWeapon").Disable();
+        InputContext.FindAction("AttackAcross").Disable();
+    }
+
+    private void StunFinished()
+    {
+        InputContext.FindAction("MoveLeftRight").Enable();
+        InputContext.FindAction("Jump").Enable();
+        InputContext.FindAction("AimAttack").Enable();
+        InputContext.FindAction("Attack").Enable();
+        InputContext.FindAction("Blink").Enable();
+        InputContext.FindAction("Interact").Enable();
+        InputContext.FindAction("ChangeWeapon").Enable();
+        InputContext.FindAction("AttackAcross").Enable();
+    }
+    #endregion
+
+    #region Rooted
+    private void Rooted()
+    {
+        InputContext.FindAction("MoveLeftRight").Disable();
+        InputContext.FindAction("Jump").Disable();
+        InputContext.FindAction("Blink").Disable();
+    }
+
+    private void RootedFinished()
+    {
+        InputContext.FindAction("MoveLeftRight").Enable();
+        InputContext.FindAction("Jump").Enable();
+        InputContext.FindAction("Blink").Enable();
     }
     #endregion
 }

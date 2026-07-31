@@ -90,10 +90,17 @@ public class EnemyMovement : BaseCharacterMovement
     {
         if(IsEnabled)
         {
-            if(shouldStop) return;
+            // if (_statusEffects != null && !_statusEffects.CanMove)
+            // {
+            //     MoveDir = 0f;
+            //     _rb.linearVelocity = new Vector2(0f, _rb.linearVelocity.y);
+            //     return;
+            // }
+            if(shouldStop || !couldMove) return;
 
             // Apply calculated velocity
             _rb.linearVelocity = new Vector2(MoveDir * speed, _rb.linearVelocity.y); 
+            // _rb.linearVelocity = new Vector2(MoveDir * GetModifiedMoveSpeed(), _rb.linearVelocity.y); 
 
             // Check obstacles for jump
             if(IsGrounded)

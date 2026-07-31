@@ -9,6 +9,7 @@ public class ActiveStatusEffect
     public float remainingTime { get; private set; }
 
     public MonoBehaviour owner { get; private set; }
+    public GameObject instigator { get; private set; }
 
     public ActiveStatusEffect()
     {
@@ -33,10 +34,18 @@ public class ActiveStatusEffect
         this.owner = owner;
     }
 
-    public virtual void Apply(StatManager target)
+    public void SetInstigator(GameObject instigator)
+    {
+        this.instigator = instigator;
+    }
+
+    public virtual void Apply(MonoBehaviour target)
     {
         Debug.Log("Applied");
-        definition.Apply(target);
+        //definition.Apply(target, instigator);
+
+        var receiver = target.GetComponent<IStatusEffect>();
+        receiver?.ApplyStatusEffect(this);
     }
 
     public void Tick(float deltaTime)
@@ -52,7 +61,8 @@ public class ActiveStatusEffect
     public void Remove(StatManager target)
     {
         Debug.Log("Removed");
-        definition.Remove(target);
+        var receiver = target.GetComponent<IStatusEffect>();
+        receiver?.RemoveStatusEffect(this);
 
         PoolObjectManager.Instance.ReturnStatusEffect(this);
     }

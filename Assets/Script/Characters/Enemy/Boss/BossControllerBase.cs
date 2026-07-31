@@ -10,13 +10,15 @@ public class BossControllerBase : EnemyControllerBase
     void OnEnable()
     {
         BossEnemyStatManager bossStat = (BossEnemyStatManager)enemyStat;
-        bossStat.onStunned += enemyMove.Stun;
+        CorruptMovement bossMove = (CorruptMovement)enemyMove;
+        bossStat.onStunned += bossMove.Stun;
     }
 
     void OnDisable()
     {
         BossEnemyStatManager bossStat = (BossEnemyStatManager)enemyStat;
-        bossStat.onStunned -= enemyMove.Stun;
+        CorruptMovement bossMove = (CorruptMovement)enemyMove;
+        bossStat.onStunned -= bossMove.Stun;
     }
 
     protected override void Think()

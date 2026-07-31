@@ -175,10 +175,10 @@ public class ProjectileBase : MonoBehaviour, IResetable
     /// Callback function that gets called when the character fires this
     /// projectile object from its attack point
     /// </summary>
-    public void OnFired(Transform firePointTransform, float fireAngle, float damage, bool FiredAtBackground, GameObject Instigator)
+    public void OnFired(Transform firePointTransform, float fireAngle, float damage, bool FiredAtBackground, GameObject Instigator, StatManager instigatorStat)
     {
         _instigatorCollider = Instigator.GetComponent<Collider2D>();
-        instigatorStat = Instigator.GetComponent<StatManager>();
+        this.instigatorStat = instigatorStat;
 
         if (_collider != null && _instigatorCollider != null)
         {
