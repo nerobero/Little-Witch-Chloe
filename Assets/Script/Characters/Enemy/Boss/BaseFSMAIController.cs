@@ -23,7 +23,7 @@ public class BaseFSMAIController : MonoBehaviour
     // value = attack entry (anim hash, strategy)
     protected Dictionary<string, AttackEntry> attacklist = new();
 
-    private GameObject _currentTarget;
+    protected GameObject _currentTarget;
 
     private IEnemyAttackStrategy _currentStrat;
 
@@ -60,7 +60,6 @@ public class BaseFSMAIController : MonoBehaviour
 
     protected virtual (int animTriggerHash, IEnemyAttackStrategy strat) ChooseNextStrategy()
     {
-        // TODO: process logic to choose different strategies:
         return (-1, null);
     }
 
@@ -70,6 +69,13 @@ public class BaseFSMAIController : MonoBehaviour
         _currentTarget = null;
     }
 
+
+    protected virtual List<(string key, float probability)> CalculateProbability(float Temperature)
+    {
+        var probabilities = new List<(string key, float probability)>();
+        return probabilities;
+    }
+
     protected virtual void OnBecameVisible()
     {
         _isActive = true;
@@ -77,7 +83,7 @@ public class BaseFSMAIController : MonoBehaviour
 
     protected void Update()
     {
-        Debug.Log($"[FSM] Update tick, isActing={_isActing}");
+        // Debug.Log($"[FSM] Update tick, isActing={_isActing}");
         if (_isActing || !_isActive) return; // if already acting, then no need to process the rest of logic.
         if (Time.time < _nextActionTime) return; //if in cooldown for this action turn, return
         if (_currentTarget == null) return;
@@ -107,6 +113,7 @@ public class BaseFSMAIController : MonoBehaviour
     protected virtual void StartAttackStrat()
     {
         var result = ChooseNextStrategy();
+        if (result.strat == null) return;
         _currentStrat = result.strat; // may need to return a keyvalue pair rather than IEnemyAttackStrategy
         _currentStrat.OnAttackComplete += HandleAttackEnd;
         _currentAnimHash = result.animTriggerHash;

@@ -1,5 +1,8 @@
 using UnityEngine;
 using Types;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using Unity.Multiplayer.PlayMode;
 
 public class JormungandrFSMController : BaseFSMAIController
 {
@@ -20,8 +23,15 @@ public class JormungandrFSMController : BaseFSMAIController
     [Header("Animator - Flower")]
     public Animator flowerAnimator;
     public SpriteRenderer flower;
-
     private BossEnemyStatManager _statManager;
+
+    [Header("Graphs")]
+    public AnimationCurve HealthCurve;
+    public AnimationCurve DamageCurve;
+    public AnimationCurve DistanceCurve;
+    [SerializeField] private float HealthUtilWeight = 0.33f;
+    [SerializeField] private float DamageUtilWeight = 0.33f;
+    [SerializeField] private float DistanceUtilWeight = 0.33f; 
 
     protected override void OnAwake()
     {
@@ -29,6 +39,45 @@ public class JormungandrFSMController : BaseFSMAIController
         _statManager = GetComponent<BossEnemyStatManager>();
     }
 
+    protected override List<(string key, float probability)> CalculateProbability(float Temperature)
+    {
+        var probabilities = new List<(string key, float probability)>();
+        float UtilHealthCurve = HealthCurve.Evaluate(_statManager.CurrentHP);
+        float distance = Vector2.Distance(_currentTarget.transform.position, transform.position);
+        float UtilDistanceCurve = DistanceCurve.Evaluate(distance);
+
+        if (attacklist.Count == 0 || Temperature == 0f) return probabilities;
+
+        // 1. Calculating the raw util scores for each attack strategy
+        var rawUtils = new List<(string key, float util)>();
+        foreach (string key in attacklist.Keys)
+        {
+            var strat = attacklist[key];
+            float UtilDamage = DamageCurve.Evaluate(strat.Strategy.GetDamageNumber());
+            float TotalNormalUtil =
+                (HealthUtilWeight * UtilHealthCurve + DamageUtilWeight * UtilDamage + DistanceUtilWeight * UtilDistanceCurve) /
+                (HealthUtilWeight + DamageUtilWeight + DistanceUtilWeight);
+            rawUtils.Add((key, TotalNormalUtil));
+        }
+
+        // 2. Softmax probability conversion:
+        float maxUtil = float.NegativeInfinity;
+        foreach (var (_, util) in rawUtils) maxUtil = Mathf.Max(maxUtil, util);
+
+        float sumExp = 0f;
+        foreach (var (key, util) in rawUtils)
+        {
+            float exp = Mathf.Exp((util - maxUtil) / Temperature);
+            probabilities.Add((key, exp));
+            sumExp += exp;
+        }
+
+        // 3. Normalizing the softmax probabilities and saving the value:
+        for (int i = 0; i < probabilities.Count; i++)
+            probabilities[i] = (probabilities[i].key, probabilities[i].probability / sumExp);
+
+        return probabilities;
+    }
     protected override (int animTriggerHash, IEnemyAttackStrategy strat) ChooseNextStrategy()
     {
         var strat = attacklist["melee"];

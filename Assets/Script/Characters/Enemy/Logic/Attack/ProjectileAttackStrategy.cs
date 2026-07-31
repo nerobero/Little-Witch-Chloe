@@ -15,4 +15,8 @@ public class ProjectileAttackStrategy : IEnemyAttackStrategy
         throw new NotImplementedException();
     }
 
+    public float GetDamageNumber()
+    {
+        throw new NotImplementedException();
+    }
 }

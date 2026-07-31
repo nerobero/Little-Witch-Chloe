@@ -67,4 +67,9 @@ public class MeleeAttackStrategy : IEnemyAttackStrategy
         OnAttackComplete?.Invoke(true);
         return true;
     }
+
+    public float GetDamageNumber()
+    {
+        return _damageAmount;
+    }
 }

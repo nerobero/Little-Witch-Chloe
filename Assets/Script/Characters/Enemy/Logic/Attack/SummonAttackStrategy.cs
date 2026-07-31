@@ -114,4 +114,9 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         }
         _summonPool.Clear();
     }
+
+    public float GetDamageNumber()
+    {
+        return 0;
+    }
 }
