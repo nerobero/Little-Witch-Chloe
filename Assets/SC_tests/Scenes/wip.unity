@@ -27798,6 +27798,27 @@ MonoBehaviour:
   shroomSummonTimeInterval: 1.5
   flowerAnimator: {fileID: 1154753912}
   flower: {fileID: 1154753913}
+  HealthCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  DamageCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  DistanceCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  HealthUtilWeight: 0
+  DamageUtilWeight: 1
+  DistanceUtilWeight: 1
 --- !u!4 &325830974
 Transform:
   m_ObjectHideFlags: 0
