@@ -123,7 +123,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{eb805403-5903-4926-8dc0-4491156b8edc}">
 		<property name="volume">
-			<value>-14.5</value>
+			<value>-3.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -152,6 +152,7 @@
 	<object class="MixerBusEffectChain" id="{5edc79d0-58eb-4e6e-afcf-b68a24277752}">
 		<relationship name="effects">
 			<destination>{90932c83-c5d6-4319-8971-033bd2eaf0af}</destination>
+			<destination>{b32dc1d2-6c6c-4bf2-8166-15eb613dc4d5}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d9e60941-fe0c-4f4f-8a20-b81be2ec94ff}" />
@@ -164,6 +165,11 @@
 	</object>
 	<object class="MixerBusPanner" id="{c7dedb39-714f-442b-b507-64f69d2a5e18}" />
 	<object class="MixerBusFader" id="{90932c83-c5d6-4319-8971-033bd2eaf0af}" />
+	<object class="ObjectSpatialiserEffect" id="{b32dc1d2-6c6c-4bf2-8166-15eb613dc4d5}">
+		<property name="maximumDistance">
+			<value>8.19999981</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{329a8500-415b-4141-ada2-4dee905393b8}" />
 	<object class="DistortionEffect" id="{86187f3b-c044-41f4-b8b6-296e60d36058}">
 		<property name="level">

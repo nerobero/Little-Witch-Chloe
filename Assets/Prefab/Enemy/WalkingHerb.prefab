@@ -221,6 +221,7 @@ MonoBehaviour:
   currentHP: 10
   mainCharacElement: 2
   OnTakenDamageEvent: 
+  CrowdControl: 0
 --- !u!114 &4983372570207355703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4235ee690f9965c4685a044285a25b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SFXcontroller
+  WalkingHerb: {fileID: 8043046792835732294}
 --- !u!114 &1405234689079182277
 MonoBehaviour:
   m_ObjectHideFlags: 0
