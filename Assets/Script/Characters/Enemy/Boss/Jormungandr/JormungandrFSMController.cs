@@ -98,7 +98,7 @@ public class JormungandrFSMController : BaseFSMAIController
 
         attacklist["melee"] = new AttackEntry(
             Animator.StringToHash("Melee"),
-            new MeleeAttackStrategy(mouth, radius: 5f, damageAmount: 30f, EElementType.Water)
+            new MeleeAttackStrategy(mouth, radius: 5f, damageAmount: 1f, EElementType.Water)
         );
         // attacklist["projectile"] = new AttackEntry(
         //     Animator.StringToHash("Projectile"),

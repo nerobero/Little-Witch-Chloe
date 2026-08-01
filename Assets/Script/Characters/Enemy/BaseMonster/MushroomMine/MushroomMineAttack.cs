@@ -1,20 +1,8 @@
 using UnityEngine;
 using Types;
 
-public class MushroomMineAttack : EnemyAttack
+public class MushroomMineAttack : EnemyAttack, ISummonable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void Attack(GameObject target)
     {
         PlayerStatManager targetStat = target.GetComponent<PlayerStatManager>();
@@ -23,4 +11,10 @@ public class MushroomMineAttack : EnemyAttack
             targetStat.TakeDamageHelper(gameObject, damageAmount, _elementType);
         }
     }
+
+    public float GetDamageNumber() => damageAmount;
+
+    public void OnSummoned() { }
+
+    public void OnReturnedToPool() { }
 }

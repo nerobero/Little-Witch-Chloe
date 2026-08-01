@@ -1,7 +1,7 @@
 using UnityEngine;
 using Types;
 
-public class JormungandrTail : MonoBehaviour
+public class JormungandrTail : MonoBehaviour, ISummonable
 {
     [SerializeField] private float dealtDamage;
     [SerializeField] private ESpawnType spawnType;
@@ -78,5 +78,18 @@ public class JormungandrTail : MonoBehaviour
         transform.position = attackPosition;
 
         //_projRB.AddForce(fireDirection * speed, ForceMode2D.Impulse);
+    }
+
+    public float GetDamageNumber()
+    {
+        return dealtDamage;
+    }
+
+    public void OnSummoned()
+    {
+    }
+
+    public void OnReturnedToPool()
+    {
     }
 }

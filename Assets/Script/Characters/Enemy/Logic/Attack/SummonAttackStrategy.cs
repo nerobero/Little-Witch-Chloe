@@ -21,6 +21,9 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
     private MonoBehaviour _owner;
     private Coroutine _summonRoutine;
 
+    // cached from the prefab, since every pooled instance shares the same damage number
+    private ISummonable _summonable;
+
     public SummonAttackStrategy(MonoBehaviour owner, GameObject summonObj, float timeInterval, int poolSize, Vector3 position)
     {
         if (poolSize <= 0)
@@ -36,6 +39,8 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
 
         _owner = owner;
         _timeInterval = timeInterval;
+
+        _summonable = summonObj.GetComponent<ISummonable>();
 
         // initializing the pool:
         for (int i = 0; i < poolSize; i++)
@@ -76,6 +81,7 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
     {
         var obj = Get();
         obj.transform.position = _summonPosition;
+        obj.GetComponent<ISummonable>()?.OnSummoned();
     }
     private GameObject Get()
     {
@@ -90,6 +96,7 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
 
     private void Return(GameObject toReturn)
     {
+        toReturn.GetComponent<ISummonable>()?.OnReturnedToPool();
         toReturn.SetActive(false);
         _summonPool.Enqueue(toReturn);
     }
@@ -117,6 +124,6 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
 
     public float GetDamageNumber()
     {
-        return 0;
+        return _summonable?.GetDamageNumber() ?? 0;
     }
 }

@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbee3a7a5d142f5458e48ce063df0da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JormungandrTail
-  dealtDamage: 0
+  dealtDamage: 5
   spawnType: 1
   elementType: 8
   fmodEventName: 
@@ -183,7 +183,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 4.96875, y: 5}
+    oldSize: {x: 9.9375, y: 10}
     newSize: {x: 4.96875, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
