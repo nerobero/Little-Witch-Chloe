@@ -22,7 +22,6 @@ public class JormungandrFSMController : BaseFSMAIController
 
     [Header("Animator - Flower")]
     public Animator flowerAnimator;
-    public SpriteRenderer flower;
     private BossEnemyStatManager _statManager;
 
     [Header("Graphs")]
@@ -80,6 +79,8 @@ public class JormungandrFSMController : BaseFSMAIController
     }
     protected override (int animTriggerHash, IEnemyAttackStrategy strat) ChooseNextStrategy()
     {
+        var probabilities = CalculateProbability(0.25f);
+
         var strat = attacklist["melee"];
         return (strat.AnimHash, strat.Strategy);
     }
@@ -113,19 +114,11 @@ public class JormungandrFSMController : BaseFSMAIController
 
     public void EnableFlower()
     {
-        if (flower != null)
-            flower.enabled = true;
-
         var idle = Animator.StringToHash("Idle");
         _mainAnimator.SetBool(idle, true);
         flowerAnimator.SetBool(idle, true);
     }
 
-    public void DisableFlower()
-    {
-        if (flower != null)
-            flower.enabled = false;
-    }
 
     protected override void StartAttackStrat()
     {

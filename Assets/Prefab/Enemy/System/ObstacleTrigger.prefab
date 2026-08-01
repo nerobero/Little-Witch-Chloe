@@ -112,8 +112,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 4687403762188451996}
     m_Modifications:
     - target: {fileID: -7443782182028707148, guid: 8a6a01d17dce45141926f6ab4de9d600, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7443782182028707148, guid: 8a6a01d17dce45141926f6ab4de9d600, type: 3}
       propertyPath: damageAmount
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -886505604576408247, guid: 8a6a01d17dce45141926f6ab4de9d600, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 3306674955129658575, guid: 8a6a01d17dce45141926f6ab4de9d600, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
@@ -197,7 +205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3885863729201623160, guid: 8a6a01d17dce45141926f6ab4de9d600, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.69
+      value: -3.15
       objectReference: {fileID: 0}
     - target: {fileID: 3885863729201623160, guid: 8a6a01d17dce45141926f6ab4de9d600, type: 3}
       propertyPath: m_LocalPosition.y

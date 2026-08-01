@@ -1,40 +1,31 @@
 fileFormatVersion: 2
-guid: 0d6e510cf199ab54abaa5d1e05a28986
+guid: 0ebf77b0f4f7f9340837b42239eacb17
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3885153164601304443
-    second: effect_sprite_sheet_jorpoison_0
+      213: 1371122350584326021
+    second: mons_sprite_sheet_Jormungandr_dead_0
   - first:
-      213: 7720660233595343190
-    second: effect_sprite_sheet_jorpoison_1
+      213: -1702394183881585573
+    second: mons_sprite_sheet_Jormungandr_dead_1
   - first:
-      213: -8649461879344757859
-    second: effect_sprite_sheet_jorpoison_2
+      213: -802214550821504152
+    second: mons_sprite_sheet_Jormungandr_dead_2
   - first:
-      213: 2888161928983662336
-    second: effect_sprite_sheet_jorpoison_3
+      213: 7791976946969024773
+    second: mons_sprite_sheet_Jormungandr_dead_3
   - first:
-      213: -6953411526635147986
-    second: effect_sprite_sheet_jorpoison_4
+      213: -7564713295993557850
+    second: mons_sprite_sheet_Jormungandr_dead_4
   - first:
-      213: -8672036080499276959
-    second: effect_sprite_sheet_jorpoison_5
+      213: -361053050061481931
+    second: mons_sprite_sheet_Jormungandr_dead_5
   - first:
-      213: -7835840792736123561
-    second: effect_sprite_sheet_jorpoison_6
+      213: -8468685810217589780
+    second: mons_sprite_sheet_Jormungandr_dead_6
   - first:
-      213: -5004434310389933584
-    second: effect_sprite_sheet_jorpoison_7
-  - first:
-      213: -8008871617119410759
-    second: effect_sprite_sheet_jorpoison_8
-  - first:
-      213: -4708274982439788663
-    second: effect_sprite_sheet_jorpoison_9
-  - first:
-      213: -1776376030875221528
-    second: effect_sprite_sheet_jorpoison_10
+      213: 106663699595468015
+    second: mons_sprite_sheet_Jormungandr_dead_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -130,174 +121,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: effect_sprite_sheet_jorpoison_0
+      name: mons_sprite_sheet_Jormungandr_dead_0
       rect:
         serializedVersion: 2
-        x: 64
+        x: 49
         y: 0
-        width: 64
-        height: 64
+        width: 101
+        height: 136
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline:
-      - - {x: 29, y: -21}
-        - {x: 29, y: 10}
-        - {x: 16, y: 28}
-        - {x: -13, y: 28}
-        - {x: -26, y: 23}
-        - {x: -26, y: -21}
-        - {x: -22, y: -26}
-        - {x: 21, y: -26}
+      outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b75ab020836dae530800000000000000
-      internalID: 3885153164601304443
+      spriteID: 5876d2a6384370310800000000000000
+      internalID: 1371122350584326021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effect_sprite_sheet_jorpoison_1
+      name: mons_sprite_sheet_Jormungandr_dead_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 209
         y: 0
-        width: 64
-        height: 64
+        width: 99
+        height: 129
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline:
-      - - {x: 25, y: -22}
-        - {x: 25, y: 14}
-        - {x: 19, y: 28}
-        - {x: -15, y: 28}
-        - {x: -22, y: 6}
-        - {x: -22, y: -15}
-        - {x: -17, y: -20}
-        - {x: 3, y: -22}
+      outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6515fee939b452b60800000000000000
-      internalID: 7720660233595343190
+      spriteID: b5c0c0a6281ef58e0800000000000000
+      internalID: -1702394183881585573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effect_sprite_sheet_jorpoison_2
+      name: mons_sprite_sheet_Jormungandr_dead_2
       rect:
         serializedVersion: 2
-        x: 192
+        x: 366
         y: 0
-        width: 64
-        height: 64
+        width: 101
+        height: 125
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline:
-      - - {x: 25, y: -22}
-        - {x: 25, y: 14}
-        - {x: 19, y: 28}
-        - {x: -15, y: 28}
-        - {x: -29, y: -15}
-        - {x: -19, y: -22}
+      outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d938f5f5f30f6f780800000000000000
-      internalID: -8649461879344757859
+      spriteID: 86b72a8cd16fdd4f0800000000000000
+      internalID: -802214550821504152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effect_sprite_sheet_jorpoison_4
+      name: mons_sprite_sheet_Jormungandr_dead_3
       rect:
         serializedVersion: 2
-        x: 320
+        x: 529
         y: 0
-        width: 64
-        height: 64
+        width: 101
+        height: 125
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline:
-      - - {x: 26, y: -30}
-        - {x: 29, y: 29}
-        - {x: -26, y: 30}
-        - {x: -30, y: -3}
-        - {x: -26, y: -24}
+      outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e2d2ec9ae05808f90800000000000000
-      internalID: -6953411526635147986
+      spriteID: 5091f16efb9a22c60800000000000000
+      internalID: 7791976946969024773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effect_sprite_sheet_jorpoison_5
+      name: mons_sprite_sheet_Jormungandr_dead_4
       rect:
         serializedVersion: 2
-        x: 0
+        x: 689
         y: 0
-        width: 64
-        height: 64
+        width: 102
+        height: 121
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline:
-      - - {x: 19, y: -6}
-        - {x: 19, y: 5}
-        - {x: 13, y: 16}
-        - {x: -9, y: 15}
-        - {x: -12, y: 7}
-        - {x: -12, y: -2}
-        - {x: -10, y: -7}
-        - {x: 10, y: -9}
+      outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1634876912db6a780800000000000000
-      internalID: -8672036080499276959
+      spriteID: 6ac21ac365db40790800000000000000
+      internalID: -7564713295993557850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effect_sprite_sheet_jorpoison_8
+      name: mons_sprite_sheet_Jormungandr_dead_5
       rect:
         serializedVersion: 2
-        x: 256
+        x: 849
         y: 0
-        width: 64
-        height: 64
+        width: 101
+        height: 114
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline:
-      - - {x: 26, y: -30}
-        - {x: 29, y: 29}
-        - {x: 19, y: 29}
-        - {x: -9, y: 21}
-        - {x: -27, y: -11}
-        - {x: -16, y: -23}
+      outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9b5a3e172b5cad090800000000000000
-      internalID: -8008871617119410759
+      spriteID: 5389306f9284dfaf0800000000000000
+      internalID: -361053050061481931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_Jormungandr_dead_6
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 0
+        width: 102
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce3e697ef1f297a80800000000000000
+      internalID: -8468685810217589780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mons_sprite_sheet_Jormungandr_dead_7
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 0
+        width: 96
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fec11d4d112fa7100800000000000000
+      internalID: 106663699595468015
       vertices: []
       indices: 
       edges: []
@@ -306,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 41ba8039b7f58cc41a9bd19b317521b9
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -316,17 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      effect_sprite_sheet_jorpoison_0: 3885153164601304443
-      effect_sprite_sheet_jorpoison_1: 7720660233595343190
-      effect_sprite_sheet_jorpoison_10: -1776376030875221528
-      effect_sprite_sheet_jorpoison_2: -8649461879344757859
-      effect_sprite_sheet_jorpoison_3: 2888161928983662336
-      effect_sprite_sheet_jorpoison_4: -6953411526635147986
-      effect_sprite_sheet_jorpoison_5: -8672036080499276959
-      effect_sprite_sheet_jorpoison_6: -7835840792736123561
-      effect_sprite_sheet_jorpoison_7: -5004434310389933584
-      effect_sprite_sheet_jorpoison_8: -8008871617119410759
-      effect_sprite_sheet_jorpoison_9: -4708274982439788663
+      mons_sprite_sheet_Jormungandr_dead_0: 1371122350584326021
+      mons_sprite_sheet_Jormungandr_dead_1: -1702394183881585573
+      mons_sprite_sheet_Jormungandr_dead_2: -802214550821504152
+      mons_sprite_sheet_Jormungandr_dead_3: 7791976946969024773
+      mons_sprite_sheet_Jormungandr_dead_4: -7564713295993557850
+      mons_sprite_sheet_Jormungandr_dead_5: -361053050061481931
+      mons_sprite_sheet_Jormungandr_dead_6: -8468685810217589780
+      mons_sprite_sheet_Jormungandr_dead_7: 106663699595468015
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
