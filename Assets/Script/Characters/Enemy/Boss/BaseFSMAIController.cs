@@ -93,7 +93,7 @@ public class BaseFSMAIController : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        if (!_isActive || _currentTarget != null) return;
+        if (_isActive || _currentTarget != null) return;
 
         Collider2D hit;
 

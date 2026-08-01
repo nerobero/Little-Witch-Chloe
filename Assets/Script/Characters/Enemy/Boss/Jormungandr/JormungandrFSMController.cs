@@ -60,13 +60,10 @@ public class JormungandrFSMController : BaseFSMAIController
         }
 
         // 2. Softmax probability conversion:
-        float maxUtil = float.NegativeInfinity;
-        foreach (var (_, util) in rawUtils) maxUtil = Mathf.Max(maxUtil, util);
-
         float sumExp = 0f;
         foreach (var (key, util) in rawUtils)
         {
-            float exp = Mathf.Exp((util - maxUtil) / Temperature);
+            float exp = Mathf.Exp((util) / Temperature);
             probabilities.Add((key, exp));
             sumExp += exp;
         }
@@ -80,9 +77,18 @@ public class JormungandrFSMController : BaseFSMAIController
     protected override (int animTriggerHash, IEnemyAttackStrategy strat) ChooseNextStrategy()
     {
         var probabilities = CalculateProbability(0.25f);
+        float rand = 1f - Random.Range(0f, 1f);
+        foreach (var prob in probabilities)
+        {
+            if (rand <= prob.probability)
+            {
+                var strat = attacklist[prob.key];
+                Debug.Log($"[FSM] decision made: {prob.key}");
+                return (strat.AnimHash, strat.Strategy);
+            }
+        }
 
-        var strat = attacklist["melee"];
-        return (strat.AnimHash, strat.Strategy);
+        return (0, null);
     }
 
 
@@ -106,10 +112,10 @@ public class JormungandrFSMController : BaseFSMAIController
             Animator.StringToHash("SummonTail"),
             new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, summonRoot.position)
         );
-        attacklist["statusEffect"] = new AttackEntry(
-            Animator.StringToHash("StatusEffect"),
-             new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, summonRoot.position) // <-- TODO: CHANGE
-        );
+        // attacklist["statusEffect"] = new AttackEntry(
+        //     Animator.StringToHash("StatusEffect"),
+        //      new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, summonRoot.position) // <-- TODO: CHANGE
+        // );
     }
 
     public void EnableFlower()
