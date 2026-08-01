@@ -3,7 +3,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class SFXcontroller : MonoBehaviour {
-    
+
+    public GameObject WalkingHerb;
+
     public void PlayFootstepSFX()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Footstep");
@@ -33,7 +35,8 @@ public class SFXcontroller : MonoBehaviour {
     }
     public void PlayTurnipRunSFX()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Turnip Run");
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/Turnip Run", WalkingHerb);
+
 
 
     }
