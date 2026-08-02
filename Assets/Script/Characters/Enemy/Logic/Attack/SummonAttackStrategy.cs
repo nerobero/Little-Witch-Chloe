@@ -124,6 +124,7 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
 
     public float GetDamageNumber()
     {
-        return _summonable?.GetDamageNumber() ?? 0;
+        var score = _summonable?.GetDamageNumber() ?? 0;
+        return score * (float) _poolSize;
     }
 }

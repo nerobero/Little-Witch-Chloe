@@ -78,9 +78,11 @@ public class JormungandrFSMController : BaseFSMAIController
     {
         var probabilities = CalculateProbability(0.25f);
         float rand = 1f - Random.Range(0f, 1f);
+        float cumulative = 0f;
         foreach (var prob in probabilities)
         {
-            if (rand <= prob.probability)
+            cumulative += prob.probability;
+            if (rand <= cumulative)
             {
                 var strat = attacklist[prob.key];
                 Debug.Log($"[FSM] decision made: {prob.key}");
