@@ -205,17 +205,21 @@ TextureImporter:
       name: effext_sprite_sheet_Jorentrance_0
       rect:
         serializedVersion: 2
-        x: 527
+        x: 0
         y: 0
-        width: 110
-        height: 86
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 76, y: -53}
+        - {x: -55, y: -53}
+        - {x: -59, y: -80}
+        - {x: 78, y: -80}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 4781c13a8e12daa80800000000000000
       internalID: -8454063642451896204
@@ -227,17 +231,21 @@ TextureImporter:
       name: effext_sprite_sheet_Jorentrance_1
       rect:
         serializedVersion: 2
-        x: 573
-        y: 68
-        width: 7
-        height: 15
+        x: 160
+        y: 0
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 79, y: -80}
+        - {x: 68, y: -47}
+        - {x: -45, y: -31}
+        - {x: -73, y: -80}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 0c3cac31c31ba6d60800000000000000
       internalID: 7884308969253684160
@@ -249,17 +257,21 @@ TextureImporter:
       name: effext_sprite_sheet_Jorentrance_2
       rect:
         serializedVersion: 2
-        x: 589
-        y: 42
-        width: 8
-        height: 28
+        x: 320
+        y: 0
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: -42, y: -15}
+        - {x: -62, y: -80}
+        - {x: 78, y: -80}
+        - {x: 72, y: -19}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: eee5f059b80216fe0800000000000000
       internalID: -1197640242030485778
@@ -271,17 +283,21 @@ TextureImporter:
       name: effext_sprite_sheet_Jorentrance_3
       rect:
         serializedVersion: 2
-        x: 662
+        x: 480
         y: 0
-        width: 136
-        height: 69
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 78, y: -80}
+        - {x: 73, y: 0}
+        - {x: -46, y: 8}
+        - {x: -72, y: -80}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 9aec51436cd322520800000000000000
       internalID: 2675769050098159273
@@ -293,17 +309,21 @@ TextureImporter:
       name: effext_sprite_sheet_Jorentrance_4
       rect:
         serializedVersion: 2
-        x: 877
-        y: 25
-        width: 75
-        height: 53
+        x: 640
+        y: 0
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 78, y: -10}
+        - {x: -56, y: -15}
+        - {x: -59, y: -80}
+        - {x: 79, y: -80}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 7e6342f53d8595ab0800000000000000
       internalID: -5018882644870154521
@@ -315,17 +335,21 @@ TextureImporter:
       name: effext_sprite_sheet_Jorentrance_5
       rect:
         serializedVersion: 2
-        x: 342
+        x: 800
         y: 0
-        width: 136
-        height: 64
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 74, y: -1}
+        - {x: -27, y: -11}
+        - {x: -72, y: -80}
+        - {x: 78, y: -80}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: c0124bc5c3a2c4ab0800000000000000
       internalID: -5022593045683232500
@@ -337,17 +361,21 @@ TextureImporter:
       name: effext_sprite_sheet_Jorentrance_6
       rect:
         serializedVersion: 2
-        x: 392
-        y: 51
-        width: 6
-        height: 8
+        x: 960
+        y: 0
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: -61, y: -44}
+        - {x: -62, y: -80}
+        - {x: 78, y: -80}
+        - {x: 79, y: -29}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: cafca831f2e2ea330800000000000000
       internalID: 3723964721608183724
@@ -359,17 +387,21 @@ TextureImporter:
       name: effext_sprite_sheet_Jorentrance_7
       rect:
         serializedVersion: 2
-        x: 404
-        y: 39
-        width: 9
-        height: 21
+        x: 1120
+        y: 0
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: -64, y: -41}
+        - {x: -64, y: -80}
+        - {x: 80, y: -80}
+        - {x: 80, y: -26}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 24c916040ab126b00800000000000000
       internalID: 820248457223707714
@@ -381,592 +413,24 @@ TextureImporter:
       name: effext_sprite_sheet_Jorentrance_8
       rect:
         serializedVersion: 2
-        x: 1261
-        y: 16
-        width: 14
-        height: 37
+        x: 1280
+        y: 0
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 79, y: -35}
+        - {x: -61, y: -47}
+        - {x: -61, y: -80}
+        - {x: 78, y: -80}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 0f6356fb1ae8cbdf0800000000000000
       internalID: -163098661140220176
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_9
-      rect:
-        serializedVersion: 2
-        x: 207
-        y: 0
-        width: 97
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 22596338dcdb90ff0800000000000000
-      internalID: -69315628880194270
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_10
-      rect:
-        serializedVersion: 2
-        x: 847
-        y: 0
-        width: 110
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f3687b28b8b6f6c90800000000000000
-      internalID: -7174397434440219073
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_11
-      rect:
-        serializedVersion: 2
-        x: 979
-        y: 0
-        width: 140
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 02c5b3db3b96521c0800000000000000
-      internalID: -4529097629556319200
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_12
-      rect:
-        serializedVersion: 2
-        x: 1065
-        y: 31
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6343aa7daae7d46c0800000000000000
-      internalID: -4157527608765303754
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_13
-      rect:
-        serializedVersion: 2
-        x: 1176
-        y: 22
-        width: 29
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4417853e434d50560800000000000000
-      internalID: 7279457696331886916
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_14
-      rect:
-        serializedVersion: 2
-        x: 1198
-        y: 33
-        width: 17
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9680a7b0468a11380800000000000000
-      internalID: -9002229032494167959
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_15
-      rect:
-        serializedVersion: 2
-        x: 1224
-        y: 21
-        width: 19
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fa693496f53b74150800000000000000
-      internalID: 5856847062787921583
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_16
-      rect:
-        serializedVersion: 2
-        x: 1386
-        y: 0
-        width: 53
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 04f299c96705bd720800000000000000
-      internalID: 2871977657742470976
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_17
-      rect:
-        serializedVersion: 2
-        x: 22
-        y: 0
-        width: 136
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6c433f164b61c89f0800000000000000
-      internalID: -464971697532750650
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_18
-      rect:
-        serializedVersion: 2
-        x: 94
-        y: 14
-        width: 11
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 43393486a0fe4a5b0800000000000000
-      internalID: -5357894828686077132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_19
-      rect:
-        serializedVersion: 2
-        x: 294
-        y: 20
-        width: 10
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 42671e57dada3ca30800000000000000
-      internalID: 4234419035177055780
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_20
-      rect:
-        serializedVersion: 2
-        x: 907
-        y: 18
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d4f3d13833e676480800000000000000
-      internalID: -8906028570579746995
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_21
-      rect:
-        serializedVersion: 2
-        x: 1136
-        y: 0
-        width: 145
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 95374abf996407140800000000000000
-      internalID: 4715346437022708569
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_22
-      rect:
-        serializedVersion: 2
-        x: 1207
-        y: 11
-        width: 11
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f5ed0b420a3faf930800000000000000
-      internalID: 4177919473475444319
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_23
-      rect:
-        serializedVersion: 2
-        x: 1242
-        y: 14
-        width: 12
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b93c8ebcf9b2ee090800000000000000
-      internalID: -8003411522469968997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_24
-      rect:
-        serializedVersion: 2
-        x: 1299
-        y: 0
-        width: 46
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c203656e923418a60800000000000000
-      internalID: 7674489087253164076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_25
-      rect:
-        serializedVersion: 2
-        x: 1344
-        y: 0
-        width: 21
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 926f34f202e003730800000000000000
-      internalID: 3976694002362873385
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_26
-      rect:
-        serializedVersion: 2
-        x: 169
-        y: 0
-        width: 40
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 32218e6d0c935c8f0800000000000000
-      internalID: -520946681489386973
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_27
-      rect:
-        serializedVersion: 2
-        x: 202
-        y: 6
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a4cc12dfc8295d460800000000000000
-      internalID: 7265874708072090698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_28
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 17
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bf5efb763879fc180800000000000000
-      internalID: -9092882532000602629
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_29
-      rect:
-        serializedVersion: 2
-        x: 489
-        y: 0
-        width: 40
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5c78c64c01a577f10800000000000000
-      internalID: 2267379965465757637
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_30
-      rect:
-        serializedVersion: 2
-        x: 522
-        y: 6
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4ffd40633d38e3010800000000000000
-      internalID: 1170517896330534900
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_31
-      rect:
-        serializedVersion: 2
-        x: 809
-        y: 0
-        width: 40
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3bb661ff6e0a5bdd0800000000000000
-      internalID: -2470891906560267341
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_32
-      rect:
-        serializedVersion: 2
-        x: 842
-        y: 6
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3398484a2839bef00800000000000000
-      internalID: 1147172719411104051
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_33
-      rect:
-        serializedVersion: 2
-        x: 934
-        y: 7
-        width: 6
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 65e48c9081842f430800000000000000
-      internalID: 3815191102416768598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effext_sprite_sheet_Jorentrance_34
-      rect:
-        serializedVersion: 2
-        x: 1365
-        y: 1
-        width: 20
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 63e5073f433553240800000000000000
-      internalID: 4770810867156540982
       vertices: []
       indices: 
       edges: []
@@ -975,7 +439,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6554b5c91bb59144abbcf93712c785cc
     internalID: 0
     vertices: []
     indices: 
@@ -983,43 +447,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":160.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       effext_sprite_sheet_Jorentrance_0: -8454063642451896204
       effext_sprite_sheet_Jorentrance_1: 7884308969253684160
-      effext_sprite_sheet_Jorentrance_10: -7174397434440219073
-      effext_sprite_sheet_Jorentrance_11: -4529097629556319200
-      effext_sprite_sheet_Jorentrance_12: -4157527608765303754
-      effext_sprite_sheet_Jorentrance_13: 7279457696331886916
-      effext_sprite_sheet_Jorentrance_14: -9002229032494167959
-      effext_sprite_sheet_Jorentrance_15: 5856847062787921583
-      effext_sprite_sheet_Jorentrance_16: 2871977657742470976
-      effext_sprite_sheet_Jorentrance_17: -464971697532750650
-      effext_sprite_sheet_Jorentrance_18: -5357894828686077132
-      effext_sprite_sheet_Jorentrance_19: 4234419035177055780
       effext_sprite_sheet_Jorentrance_2: -1197640242030485778
-      effext_sprite_sheet_Jorentrance_20: -8906028570579746995
-      effext_sprite_sheet_Jorentrance_21: 4715346437022708569
-      effext_sprite_sheet_Jorentrance_22: 4177919473475444319
-      effext_sprite_sheet_Jorentrance_23: -8003411522469968997
-      effext_sprite_sheet_Jorentrance_24: 7674489087253164076
-      effext_sprite_sheet_Jorentrance_25: 3976694002362873385
-      effext_sprite_sheet_Jorentrance_26: -520946681489386973
-      effext_sprite_sheet_Jorentrance_27: 7265874708072090698
-      effext_sprite_sheet_Jorentrance_28: -9092882532000602629
-      effext_sprite_sheet_Jorentrance_29: 2267379965465757637
       effext_sprite_sheet_Jorentrance_3: 2675769050098159273
-      effext_sprite_sheet_Jorentrance_30: 1170517896330534900
-      effext_sprite_sheet_Jorentrance_31: -2470891906560267341
-      effext_sprite_sheet_Jorentrance_32: 1147172719411104051
-      effext_sprite_sheet_Jorentrance_33: 3815191102416768598
-      effext_sprite_sheet_Jorentrance_34: 4770810867156540982
       effext_sprite_sheet_Jorentrance_4: -5018882644870154521
       effext_sprite_sheet_Jorentrance_5: -5022593045683232500
       effext_sprite_sheet_Jorentrance_6: 3723964721608183724
       effext_sprite_sheet_Jorentrance_7: 820248457223707714
       effext_sprite_sheet_Jorentrance_8: -163098661140220176
-      effext_sprite_sheet_Jorentrance_9: -69315628880194270
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

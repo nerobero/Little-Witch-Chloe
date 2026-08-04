@@ -162,7 +162,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: -80, y: -80}
+        - {x: -80, y: 80}
+        - {x: 80, y: 80}
+        - {x: 80, y: -80}
       physicsShape: []
       tessellationDetail: 0
       bones: []
@@ -185,12 +189,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 80, y: -80}
-        - {x: 71, y: -54}
-        - {x: 40, y: -34}
-        - {x: 10, y: -34}
-        - {x: -21, y: -55}
-        - {x: -39, y: -80}
+      - - {x: 71, y: -80}
+        - {x: 70, y: -37}
+        - {x: -27, y: -37}
+        - {x: -27, y: -80}
       physicsShape:
       - - {x: 80, y: -80}
         - {x: 71, y: -54}
@@ -220,12 +222,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 72, y: -33}
-        - {x: 41, y: -6}
-        - {x: 4, y: -7}
-        - {x: -30, y: -28}
-        - {x: -38, y: -80}
-        - {x: 80, y: -80}
+      - - {x: 72, y: -9}
+        - {x: -32, y: -9}
+        - {x: -32, y: -80}
+        - {x: 72, y: -80}
       physicsShape:
       - - {x: 70, y: -33}
         - {x: 42, y: -9}
@@ -255,12 +255,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 79, y: -80}
-        - {x: 74, y: 11}
-        - {x: 38, y: 37}
-        - {x: -8, y: 35}
-        - {x: -26, y: 21}
-        - {x: -48, y: -80}
+      - - {x: 70, y: -80}
+        - {x: 70, y: 35}
+        - {x: -33, y: 35}
+        - {x: -35, y: -80}
       physicsShape:
       - - {x: 55, y: -80}
         - {x: 70, y: 9}
@@ -291,12 +289,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 79, y: -80}
-        - {x: 75, y: 18}
-        - {x: 39, y: 44}
-        - {x: -7, y: 42}
-        - {x: -25, y: 28}
-        - {x: -48, y: -80}
+      - - {x: 72, y: -80}
+        - {x: 72, y: 42}
+        - {x: -31, y: 42}
+        - {x: -32, y: -80}
       physicsShape:
       - - {x: 61, y: -39}
         - {x: 71, y: 15}
@@ -328,12 +324,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 79, y: -80}
-        - {x: 72, y: 25}
-        - {x: 41, y: 51}
-        - {x: -2, y: 49}
-        - {x: -29, y: 21}
-        - {x: -48, y: -80}
+      - - {x: 72, y: -80}
+        - {x: 72, y: 49}
+        - {x: -31, y: 49}
+        - {x: -33, y: -80}
       physicsShape:
       - - {x: 56, y: -43}
         - {x: 70, y: 23}
@@ -365,12 +359,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 79, y: -80}
-        - {x: 71, y: 34}
-        - {x: 40, y: 60}
-        - {x: -3, y: 58}
-        - {x: -30, y: 30}
-        - {x: -48, y: -80}
+      - - {x: 69, y: -80}
+        - {x: 69, y: 57}
+        - {x: -33, y: 56}
+        - {x: -33, y: -80}
       physicsShape:
       - - {x: 60, y: -22}
         - {x: 68, y: 31}
@@ -402,12 +394,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 79, y: -80}
-        - {x: 71, y: 26}
-        - {x: 40, y: 52}
-        - {x: -3, y: 50}
-        - {x: -30, y: 22}
-        - {x: -48, y: -80}
+      - - {x: 69, y: -80}
+        - {x: 69, y: 50}
+        - {x: -32, y: 50}
+        - {x: -32, y: -80}
       physicsShape:
       - - {x: 60, y: -30}
         - {x: 68, y: 23}
@@ -439,12 +429,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 79, y: -80}
-        - {x: 71, y: 34}
-        - {x: 40, y: 60}
-        - {x: -3, y: 58}
-        - {x: -30, y: 30}
-        - {x: -48, y: -80}
+      - - {x: 71, y: -80}
+        - {x: 71, y: 57}
+        - {x: -32, y: 57}
+        - {x: -32, y: -80}
       physicsShape:
       - - {x: 58, y: -30}
         - {x: 70, y: 30}

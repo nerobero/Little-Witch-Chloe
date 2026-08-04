@@ -124,17 +124,28 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_dead_0
       rect:
         serializedVersion: 2
-        x: 49
+        x: 0
         y: 0
-        width: 101
-        height: 136
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 71, y: 57}
+        - {x: -31, y: 56}
+        - {x: -32, y: -80}
+        - {x: 71, y: -80}
+      physicsShape:
+      - - {x: 66, y: -21}
+        - {x: 72, y: 55}
+        - {x: -8, y: 57}
+        - {x: -32, y: 20}
+        - {x: -32, y: -52}
+        - {x: -22, y: -80}
+        - {x: 35, y: -80}
+      tessellationDetail: 0
       bones: []
       spriteID: 5876d2a6384370310800000000000000
       internalID: 1371122350584326021
@@ -146,17 +157,30 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_dead_1
       rect:
         serializedVersion: 2
-        x: 209
+        x: 160
         y: 0
-        width: 99
-        height: 129
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 69, y: 50}
+        - {x: -31, y: 50}
+        - {x: -31, y: -80}
+        - {x: 69, y: -80}
+      physicsShape:
+      - - {x: 69, y: -50}
+        - {x: 69, y: 38}
+        - {x: 64, y: 50}
+        - {x: -11, y: 50}
+        - {x: -32, y: 18}
+        - {x: -32, y: -34}
+        - {x: -27, y: -54}
+        - {x: -21, y: -80}
+        - {x: 35, y: -80}
+      tessellationDetail: 0
       bones: []
       spriteID: b5c0c0a6281ef58e0800000000000000
       internalID: -1702394183881585573
@@ -168,17 +192,29 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_dead_2
       rect:
         serializedVersion: 2
-        x: 366
+        x: 320
         y: 0
-        width: 101
-        height: 125
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 68, y: 46}
+        - {x: -34, y: 46}
+        - {x: -34, y: -80}
+        - {x: 68, y: -80}
+      physicsShape:
+      - - {x: 68, y: -24}
+        - {x: 68, y: 23}
+        - {x: 39, y: 46}
+        - {x: -12, y: 46}
+        - {x: -33, y: 14}
+        - {x: -33, y: -37}
+        - {x: -36, y: -80}
+        - {x: 42, y: -80}
+      tessellationDetail: 0
       bones: []
       spriteID: 86b72a8cd16fdd4f0800000000000000
       internalID: -802214550821504152
@@ -190,17 +226,29 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_dead_3
       rect:
         serializedVersion: 2
-        x: 529
+        x: 480
         y: 0
-        width: 101
-        height: 125
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 71, y: 46}
+        - {x: -32, y: 46}
+        - {x: -32, y: -80}
+        - {x: 71, y: -80}
+      physicsShape:
+      - - {x: 71, y: -23}
+        - {x: 71, y: 23}
+        - {x: 46, y: 46}
+        - {x: -9, y: 46}
+        - {x: -32, y: 5}
+        - {x: -32, y: -28}
+        - {x: -18, y: -80}
+        - {x: 44, y: -80}
+      tessellationDetail: 0
       bones: []
       spriteID: 5091f16efb9a22c60800000000000000
       internalID: 7791976946969024773
@@ -212,17 +260,29 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_dead_4
       rect:
         serializedVersion: 2
-        x: 689
+        x: 640
         y: 0
-        width: 102
-        height: 121
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 73, y: 41}
+        - {x: -33, y: 41}
+        - {x: -33, y: -80}
+        - {x: 73, y: -80}
+      physicsShape:
+      - - {x: 73, y: -29}
+        - {x: 74, y: 17}
+        - {x: 44, y: 42}
+        - {x: -4, y: 42}
+        - {x: -31, y: 10}
+        - {x: -33, y: -37}
+        - {x: -15, y: -80}
+        - {x: 41, y: -80}
+      tessellationDetail: 0
       bones: []
       spriteID: 6ac21ac365db40790800000000000000
       internalID: -7564713295993557850
@@ -234,17 +294,29 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_dead_5
       rect:
         serializedVersion: 2
-        x: 849
+        x: 800
         y: 0
-        width: 101
-        height: 114
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 72, y: 35}
+        - {x: -34, y: 35}
+        - {x: -34, y: -80}
+        - {x: 72, y: -80}
+      physicsShape:
+      - - {x: 73, y: -35}
+        - {x: 72, y: 14}
+        - {x: 47, y: 35}
+        - {x: -12, y: 35}
+        - {x: -34, y: 12}
+        - {x: -34, y: -40}
+        - {x: -13, y: -80}
+        - {x: 50, y: -80}
+      tessellationDetail: 0
       bones: []
       spriteID: 5389306f9284dfaf0800000000000000
       internalID: -361053050061481931
@@ -256,17 +328,27 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_dead_6
       rect:
         serializedVersion: 2
-        x: 1009
+        x: 960
         y: 0
-        width: 102
-        height: 71
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 71, y: -8}
+        - {x: -31, y: -9}
+        - {x: -32, y: -80}
+        - {x: 71, y: -80}
+      physicsShape:
+      - - {x: 77, y: -40}
+        - {x: 57, y: -8}
+        - {x: 2, y: -8}
+        - {x: -27, y: -37}
+        - {x: -34, y: -80}
+        - {x: 69, y: -80}
+      tessellationDetail: 0
       bones: []
       spriteID: ce3e697ef1f297a80800000000000000
       internalID: -8468685810217589780
@@ -278,17 +360,27 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_dead_7
       rect:
         serializedVersion: 2
-        x: 1174
+        x: 1120
         y: 0
-        width: 96
-        height: 43
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 71, y: -35}
+        - {x: -27, y: -35}
+        - {x: -27, y: -80}
+        - {x: 71, y: -80}
+      physicsShape:
+      - - {x: 72, y: -57}
+        - {x: 43, y: -35}
+        - {x: -2, y: -35}
+        - {x: -25, y: -64}
+        - {x: -28, y: -80}
+        - {x: 71, y: -80}
+      tessellationDetail: 0
       bones: []
       spriteID: fec11d4d112fa7100800000000000000
       internalID: 106663699595468015
@@ -300,7 +392,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a77fd2a521a30804da1c49b184d6d64c
     internalID: 0
     vertices: []
     indices: 
@@ -308,7 +400,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":160.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       mons_sprite_sheet_Jormungandr_dead_0: 1371122350584326021
       mons_sprite_sheet_Jormungandr_dead_1: -1702394183881585573

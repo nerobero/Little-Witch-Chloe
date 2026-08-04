@@ -34,9 +34,9 @@ public class UIGameOverHUD : UIBase
     // Save button click event
     public void OnRetryButtonClicked()
     {
+        PauseManager.Instance.UnpauseGame();
         LevelManager.Instance.RestartCurrentLevel();
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Forest Level",0);
-        PauseManager.Instance.UnpauseGame();
     }
 
     public void OnExitClicked()

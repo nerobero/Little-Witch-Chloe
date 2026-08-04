@@ -127,17 +127,21 @@ TextureImporter:
       name: mons_sprite_sheet_Jorflower_dead_0
       rect:
         serializedVersion: 2
-        x: 48
-        y: 107
-        width: 49
-        height: 37
+        x: 0
+        y: 0
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 18, y: 65}
+        - {x: -32, y: 65}
+        - {x: -32, y: 26}
+        - {x: 18, y: 26}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: c6a34bf464992ebe0800000000000000
       internalID: -1449427602795906452
@@ -149,17 +153,21 @@ TextureImporter:
       name: mons_sprite_sheet_Jorflower_dead_1
       rect:
         serializedVersion: 2
-        x: 204
-        y: 79
-        width: 54
-        height: 60
+        x: 160
+        y: 0
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 19, y: -1}
+        - {x: 19, y: 60}
+        - {x: -36, y: 60}
+        - {x: -36, y: -1}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: b175cca45015bf250800000000000000
       internalID: 5979462013436057371
@@ -171,17 +179,21 @@ TextureImporter:
       name: mons_sprite_sheet_Jorflower_dead_2
       rect:
         serializedVersion: 2
-        x: 368
-        y: 70
-        width: 49
-        height: 65
+        x: 320
+        y: 0
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 17, y: -11}
+        - {x: 17, y: 55}
+        - {x: -32, y: 55}
+        - {x: -32, y: -11}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 1f8d3de2d80e27ee0800000000000000
       internalID: -1264701648357041935
@@ -193,17 +205,21 @@ TextureImporter:
       name: mons_sprite_sheet_Jorflower_dead_3
       rect:
         serializedVersion: 2
-        x: 512
-        y: 27
-        width: 71
-        height: 116
+        x: 480
+        y: 0
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: -48, y: -53}
+        - {x: 23, y: -53}
+        - {x: 23, y: 63}
+        - {x: -48, y: 63}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 690314eaecca3b450800000000000000
       internalID: 6103411923703902358
@@ -215,17 +231,21 @@ TextureImporter:
       name: mons_sprite_sheet_Jorflower_dead_4
       rect:
         serializedVersion: 2
-        x: 684
-        y: 34
-        width: 20
-        height: 52
+        x: 640
+        y: 0
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: -36, y: -46}
+        - {x: 21, y: -46}
+        - {x: 21, y: 42}
+        - {x: -36, y: 42}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 1687d6f81d244ec90800000000000000
       internalID: -7141509641280849823
@@ -237,86 +257,24 @@ TextureImporter:
       name: mons_sprite_sheet_Jorflower_dead_5
       rect:
         serializedVersion: 2
-        x: 695
-        y: 79
-        width: 22
-        height: 35
+        x: 800
+        y: 0
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: -31, y: -43}
+        - {x: 26, y: -43}
+        - {x: 26, y: 32}
+        - {x: -31, y: 32}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 9c43fbd8ac1a5da90800000000000000
       internalID: -7289742530495695671
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mons_sprite_sheet_Jorflower_dead_6
-      rect:
-        serializedVersion: 2
-        x: 708
-        y: 107
-        width: 14
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 874417445ee166720800000000000000
-      internalID: 2838990585148294264
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mons_sprite_sheet_Jorflower_dead_7
-      rect:
-        serializedVersion: 2
-        x: 717
-        y: 37
-        width: 189
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 743881e66efd10710800000000000000
-      internalID: 1657852318631625543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mons_sprite_sheet_Jorflower_dead_8
-      rect:
-        serializedVersion: 2
-        x: 720
-        y: 92
-        width: 12
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0f1166e67f6a78c70800000000000000
-      internalID: 8973324364198318576
       vertices: []
       indices: 
       edges: []
@@ -325,7 +283,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2fb7668a31becfb4097640eba242facd
     internalID: 0
     vertices: []
     indices: 
@@ -333,7 +291,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":160.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       mons_sprite_sheet_Jorflower_dead_0: -1449427602795906452
       mons_sprite_sheet_Jorflower_dead_1: 5979462013436057371
@@ -341,9 +301,6 @@ TextureImporter:
       mons_sprite_sheet_Jorflower_dead_3: 6103411923703902358
       mons_sprite_sheet_Jorflower_dead_4: -7141509641280849823
       mons_sprite_sheet_Jorflower_dead_5: -7289742530495695671
-      mons_sprite_sheet_Jorflower_dead_6: 2838990585148294264
-      mons_sprite_sheet_Jorflower_dead_7: 1657852318631625543
-      mons_sprite_sheet_Jorflower_dead_8: 8973324364198318576
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

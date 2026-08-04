@@ -124,17 +124,21 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_summon_0
       rect:
         serializedVersion: 2
-        x: 49
+        x: 0
         y: 0
-        width: 102
-        height: 137
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 72, y: 57}
+        - {x: -31, y: 56}
+        - {x: -31, y: -80}
+        - {x: 71, y: -80}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 734eeb4de3d035930800000000000000
       internalID: 4130659846737290295
@@ -146,17 +150,21 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_summon_1
       rect:
         serializedVersion: 2
-        x: 209
+        x: 160
         y: 0
-        width: 101
-        height: 136
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 71, y: 57}
+        - {x: -31, y: 57}
+        - {x: -31, y: -80}
+        - {x: 71, y: -80}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 71f9da4bf9751bd30800000000000000
       internalID: 4445430650634084119
@@ -168,17 +176,21 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_summon_2
       rect:
         serializedVersion: 2
-        x: 369
+        x: 320
         y: 0
-        width: 99
-        height: 136
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 69, y: 57}
+        - {x: -31, y: 57}
+        - {x: -31, y: -80}
+        - {x: 69, y: -80}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 34b8e339fd37d25f0800000000000000
       internalID: -779839756379976893
@@ -190,17 +202,21 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_summon_3
       rect:
         serializedVersion: 2
-        x: 529
+        x: 480
         y: 0
-        width: 99
-        height: 136
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 69, y: 57}
+        - {x: -31, y: 57}
+        - {x: -32, y: -80}
+        - {x: 69, y: -80}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 53f761d523694a050800000000000000
       internalID: 5810934562269069109
@@ -212,17 +228,21 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_summon_4
       rect:
         serializedVersion: 2
-        x: 689
+        x: 640
         y: 0
-        width: 101
-        height: 136
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 71, y: 57}
+        - {x: -32, y: 57}
+        - {x: -32, y: -80}
+        - {x: 70, y: -80}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 8051102a2542ba160800000000000000
       internalID: 7037758780020430088
@@ -234,17 +254,21 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_summon_5
       rect:
         serializedVersion: 2
-        x: 849
+        x: 800
         y: 0
-        width: 99
-        height: 136
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 69, y: 57}
+        - {x: -31, y: 57}
+        - {x: -33, y: -80}
+        - {x: 69, y: -80}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 7fbead90160965c80800000000000000
       internalID: -8334315313950954505
@@ -256,17 +280,21 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_summon_6
       rect:
         serializedVersion: 2
-        x: 1009
+        x: 960
         y: 0
-        width: 99
-        height: 136
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 68, y: -80}
+        - {x: 69, y: 57}
+        - {x: -32, y: 57}
+        - {x: -31, y: -80}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: d822693da1d907300800000000000000
       internalID: 247870718049919629
@@ -278,17 +306,21 @@ TextureImporter:
       name: mons_sprite_sheet_Jormungandr_summon_7
       rect:
         serializedVersion: 2
-        x: 1169
+        x: 1120
         y: 0
-        width: 102
-        height: 137
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 72, y: -80}
+        - {x: 72, y: 57}
+        - {x: -32, y: 57}
+        - {x: -32, y: -80}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 02fb5e331ed88b220800000000000000
       internalID: 2501905591382163232
@@ -300,7 +332,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 937505a08653eff41933a39a2d307987
     internalID: 0
     vertices: []
     indices: 
@@ -308,7 +340,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":160.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       mons_sprite_sheet_Jormungandr_summon_0: 4130659846737290295
       mons_sprite_sheet_Jormungandr_summon_1: 4445430650634084119
