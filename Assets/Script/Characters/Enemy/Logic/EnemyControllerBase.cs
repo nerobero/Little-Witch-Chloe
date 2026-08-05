@@ -76,6 +76,8 @@ public class EnemyControllerBase : MonoBehaviour, IResetable, IStatusEffect
     {
         enemyState = EMonsterState.Idle;
         enemyMove = GetComponent<EnemyMovement>();
+        
+        LevelManager.Instance.RegisterInstance(this);
     }
     #endregion
 

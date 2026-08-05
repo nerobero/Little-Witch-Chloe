@@ -78,6 +78,8 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     private void Start()
     {
+        LevelManager.Instance.RegisterInstance(this);
+
         spawnPosition = gameObject.transform.position;
         spawnRotation = gameObject.transform.rotation;
         UIManager.Instance.Get<UIPlayerHUD>().Initialize(); 
@@ -356,27 +358,24 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     public void Death()
     {
-        InputContext.BaseInputAction.Disable();
         Instance.InputContext.UI.Enable();
     }
 
     #region Reset
     public void ResetState()
     {
+        UIManager.Instance.Get<UIPlayerHUD>().Initialize(); 
         _playerAttack.ResetState();
         _playerMove.ResetState();
         _playerStat.ResetState();
 
         gameObject.transform.position = spawnPosition + new Vector3(0f, 1f, 0f);
         gameObject.transform.rotation = spawnRotation;
-        UIManager.Instance.Get<UIPlayerHUD>().Initialize(); 
     }
 
     #endregion
 
     #region StatusEffect
-
-
     //public void ApplyStatusEffect(EStatusEffectType type, float magnitude, GameObject instigator)
     public void ApplyStatusEffect(ActiveStatusEffect effect)
     {

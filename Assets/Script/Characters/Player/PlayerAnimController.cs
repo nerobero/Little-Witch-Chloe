@@ -71,6 +71,7 @@ public class PlayerAnimController : BaseCharacterAnimController
     {
         _animator.SetBool(IsDeadHash, true);
         _animator.SetTrigger(DeadOneShot);
+        PlayerController.Instance.InputContext.BaseInputAction.Disable();
     }
 
     public void SetToIsHurt()
