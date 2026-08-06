@@ -46,6 +46,7 @@ public class PlayerAnimController : BaseCharacterAnimController
 
     public virtual void OnDeathFinished()
     {
+        SoundManager.Instance.PlayGameOver();
         PlayerStatManager playerStat = GetComponent<PlayerStatManager>();
         
         playerStat.OnDeath -= SetToDead;
@@ -71,6 +72,7 @@ public class PlayerAnimController : BaseCharacterAnimController
     {
         _animator.SetBool(IsDeadHash, true);
         _animator.SetTrigger(DeadOneShot);
+        PlayerController.Instance.InputContext.BaseInputAction.Disable();
     }
 
     public void SetToIsHurt()

@@ -16,25 +16,25 @@ public class SceneBase : MonoBehaviour
     {
         LevelManager.Instance.Register(this);
         
-        Initialize();
+        //Initialize();
     }
 
-    public void Initialize()
-    {
-        Debug.Log("yeap");
-        var behaviours = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None);
+    // public void Initialize()
+    // {
+    //     Debug.Log("yeap");
+    //     var behaviours = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None);
 
-        foreach (var behaviour in behaviours)
-        {
-            if (behaviour is IResetable resetable)
-            {
-                resetables.Add(resetable);
-                #if UNITY_EDITOR
-                check.Add(behaviour);
-                #endif
-            }
-        }
-    }
+    //     foreach (var behaviour in behaviours)
+    //     {
+    //         if (behaviour is IResetable resetable)
+    //         {
+    //             resetables.Add(resetable);
+    //             #if UNITY_EDITOR
+    //             check.Add(behaviour);
+    //             #endif
+    //         }
+    //     }
+    // }
 
     public void ResetScene()
     {

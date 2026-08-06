@@ -24,10 +24,9 @@ public class UIGameOverHUD : UIBase
         Debug.Log("Game Over Show");
         PauseManager.Instance.PauseGame();
         base.Show();
-        FMOD.Studio.Bus masterBus = FMODUnity.RuntimeManager.GetBus("bus:/"); 
-        masterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Game Over");
-
+        // FMOD.Studio.Bus masterBus = FMODUnity.RuntimeManager.GetBus("bus:/"); 
+        // masterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        // FMODUnity.RuntimeManager.PlayOneShot("event:/Game Over");
     }
 
      #region Button click event
@@ -36,7 +35,8 @@ public class UIGameOverHUD : UIBase
     {
         PauseManager.Instance.UnpauseGame();
         LevelManager.Instance.RestartCurrentLevel();
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Forest Level",0);
+        SoundManager.Instance.RestartCurrentBGM();
+        //FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Forest Level",0);
     }
 
     public void OnExitClicked()

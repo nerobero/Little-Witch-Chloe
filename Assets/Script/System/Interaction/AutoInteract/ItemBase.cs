@@ -22,6 +22,10 @@ public abstract class ItemBase : MonoBehaviour, IResetable
     /// <returns>true if the interaction has been processed successfully</returns>
     protected abstract bool OnInteract(Collider2D other);
 
+    protected virtual void Start()
+    {
+        LevelManager.Instance.RegisterInstance(this);
+    }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {

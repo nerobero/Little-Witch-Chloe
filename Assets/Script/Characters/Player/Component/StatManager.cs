@@ -404,7 +404,7 @@ public class StatManager : MonoBehaviour, IDamageable
     public virtual void ResetState()
     {
         IsDead = false;
-        currentHP = maxHP;
+        this.currentHP = this.maxHP;
         BuffComp?.ResetState();
         OnHPChanged?.Invoke(currentHP, maxHP, gameObject);
     }

@@ -24,8 +24,9 @@ public class FrogCollection : CollectableItemBase
         // _animator.SetBool(IsIdleHash, true);
     }
 
-    void Start()
-    {
+    protected override void Start()
+    {  
+        base.Start();
         playerLayerIndex = (int)Mathf.Log(playerLayer.value, 2);
     }
 
