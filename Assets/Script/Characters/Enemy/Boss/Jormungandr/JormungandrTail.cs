@@ -12,7 +12,7 @@ public class JormungandrTail : MonoBehaviour, ISummonable
     private Rigidbody2D _projRB;
     private SpriteRenderer _spriteRenderer;
     private Collider2D _instigatorCollider;
-    protected GameObject instigator;
+    protected GameObject _instigator;
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class JormungandrTail : MonoBehaviour, ISummonable
         Debug.Log($"Collided: {other.gameObject}");
 
         // Get instigator's layer name and collided object's layer name
-        string instigatorLayerName = LayerMask.LayerToName(instigator.layer);
+        string instigatorLayerName = LayerMask.LayerToName(_instigator.layer);
 
         string targetLayerName = LayerMask.LayerToName(other.gameObject.layer);
 
@@ -51,23 +51,31 @@ public class JormungandrTail : MonoBehaviour, ISummonable
         var stats = other.gameObject.GetComponent<StatManager>();
         if (stats != null)
         {
-            if (stats.TakeDamageHelper(instigator, dealtDamage, elementType))
+            if (stats.TakeDamageHelper(_instigator, dealtDamage, elementType))
             {
                 //2. stop movement and disable collider so it doesn't retrigger
                 _projRB.linearVelocity = Vector2.zero;
                 _collider.enabled = false;
 
                 //3. play collision animation and wait for it to finish before pooling
+                // TODO: once a collision animation clip exists, move this call to an
+                // Animation Event on that clip instead of calling it immediately.
+                OnCollisionFinished();
             }
         }
 
+    }
+
+    public void OnCollisionFinished()
+    {
+        gameObject.SetActive(false);
     }
 
 
     public void StartAttack(Vector3 attackPosition, GameObject Instigator)
     {
         _instigatorCollider = Instigator.GetComponent<Collider2D>();
-        instigator = Instigator;
+        _instigator = Instigator;
 
         if (_collider != null && _instigatorCollider != null)
         {
@@ -87,9 +95,16 @@ public class JormungandrTail : MonoBehaviour, ISummonable
 
     public void OnSummoned()
     {
+        if (_collider != null) _collider.enabled = true;
     }
 
     public void OnReturnedToPool()
     {
     }
+
+    public void SetInstigator(GameObject instigator)
+    {
+        _instigator = instigator;
+    }
+
 }

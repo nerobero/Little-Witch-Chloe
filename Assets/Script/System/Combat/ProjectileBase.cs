@@ -90,7 +90,7 @@ public class ProjectileBase : MonoBehaviour, IResetable
         }
 
         // if the current status is blinded, then miss the projectile
-        if(instigatorStat.HasCrowdControl(ECrowdControlType.Blinded))
+        if(instigatorStat != null && instigatorStat.HasCrowdControl(ECrowdControlType.Blinded))
         {
             return;
         }

@@ -47,6 +47,10 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         {
             var obj = GameObject.Instantiate(summonObj);
             obj.SetActive(false);
+            
+            var returner = obj.AddComponent<PooledSummonReturner>();
+            returner.OnReturned += () => Return(obj);
+
             _summonPool.Enqueue(obj);
         }
 
@@ -81,7 +85,9 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
     {
         var obj = Get();
         obj.transform.position = _summonPosition;
-        obj.GetComponent<ISummonable>()?.OnSummoned();
+        var summonable = obj.GetComponent<ISummonable>();
+        summonable?.SetInstigator(_owner.gameObject);
+        summonable?.OnSummoned();
     }
     private GameObject Get()
     {
@@ -103,7 +109,8 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
 
     public bool AttackFinished()
     {
-        throw new NotImplementedException();
+        OnAttackComplete?.Invoke(true);
+        return true;
     }
 
     public void Dispose()

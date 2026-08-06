@@ -35,8 +35,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 8712778569972941626}
   - {fileID: 199196737950297765}
   - {fileID: 827937729307985703}
+  - {fileID: 3812175525069450400}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2203624764838935787
@@ -52,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JormungandrFSMController
   _mainAnimator: {fileID: 3158016189934655826}
-  _eyePoint: {x: 0, y: 0, z: 0}
+  _eyePoint: {fileID: 3812175525069450400}
   actionCooldown: 2
   playerLayer:
     serializedVersion: 2
@@ -63,7 +65,7 @@ MonoBehaviour:
   tailObject: {fileID: 4154287721773258411, guid: 2d50f00c17714724eb32b2cfe58d9116, type: 3}
   tailSummonCount: 1
   tailSummonTimeInterval: 1.5
-  summonRoot: {fileID: 0}
+  summonRoot: {fileID: 8712778569972941626}
   mushroomPrefab: {fileID: 2025196114555132397, guid: 9a7e896d13e1fa74897794bc9401f375, type: 3}
   mushroomSummonCount: 1
   shroomSummonTimeInterval: 1.5
@@ -327,6 +329,68 @@ MonoBehaviour:
   OnTakenDamageEvent: 
   CrowdControl: 0
   weakPointStat: {fileID: 8618553200119794830}
+--- !u!1 &3099675761454206212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8712778569972941626}
+  m_Layer: 0
+  m_Name: Jormungandr_Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8712778569972941626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3099675761454206212}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.33, y: -6.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7598581884716740003}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7330495314053055593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3812175525069450400}
+  m_Layer: 14
+  m_Name: Eyepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3812175525069450400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7330495314053055593}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -1.08, y: 0.77, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7598581884716740003}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &7360117915565711563
 GameObject:
   m_ObjectHideFlags: 0
