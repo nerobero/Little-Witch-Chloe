@@ -32563,7 +32563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1165017382129071551, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 198.91
+      value: 199.1
       objectReference: {fileID: 0}
     - target: {fileID: 1165017382129071551, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: m_LocalPosition.y
@@ -88980,7 +88980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8066750104543563746, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 198.91
+      value: 199.1
       objectReference: {fileID: 0}
     - target: {fileID: 8066750104543563746, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -92095,6 +92095,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: GameOverMusic.Path
+      value: event:/Game Over
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: GameOverMusic.Guid.Data1
+      value: -129299637
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: GameOverMusic.Guid.Data2
+      value: 1252101665
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: GameOverMusic.Guid.Data3
+      value: -1399090304
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: GameOverMusic.Guid.Data4
+      value: 113136702
+      objectReference: {fileID: 0}
     - target: {fileID: 3710721374135054121, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
       propertyPath: m_Name
       value: SoundManager
@@ -92259,7 +92279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1795833320865996219, guid: 995b0abd0315fdf479f9da25bb8d8df5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 198.91
+      value: 199.1
       objectReference: {fileID: 0}
     - target: {fileID: 1795833320865996219, guid: 995b0abd0315fdf479f9da25bb8d8df5, type: 3}
       propertyPath: m_LocalPosition.y

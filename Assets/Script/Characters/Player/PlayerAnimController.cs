@@ -46,6 +46,7 @@ public class PlayerAnimController : BaseCharacterAnimController
 
     public virtual void OnDeathFinished()
     {
+        SoundManager.Instance.PlayGameOver();
         PlayerStatManager playerStat = GetComponent<PlayerStatManager>();
         
         playerStat.OnDeath -= SetToDead;

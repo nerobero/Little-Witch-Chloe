@@ -1,5 +1,6 @@
 using FMOD.Studio;
 using FMODUnity;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -9,9 +10,10 @@ using UnityEngine;
 public class SoundManager : MonoSingletonBase<SoundManager>
 {
     [SerializeField] private EventReference MainMusic;
+    [SerializeField] private EventReference GameOverMusic;
     private EventInstance _eventInstance;
     private float _currentStateValue;
-
+    private bool _isStarted = false;
 
     protected override void Awake()
     {
@@ -21,9 +23,12 @@ public class SoundManager : MonoSingletonBase<SoundManager>
 
     private void HandleStartManagerEvent()
     {
+        if(_isStarted) return;
+        Debug.Log("HandleStartManagerEvent Called");
         if (MainMusic.IsNull) return;
         _eventInstance = RuntimeManager.CreateInstance(MainMusic);
         _eventInstance.start();
+        _isStarted = true;
     }
 
     private void Start() => HandleStartManagerEvent();
@@ -69,6 +74,7 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     {
         _eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         _eventInstance.release();
+        _isStarted = false;
     }
     protected override void OnDestroy()
     {
@@ -76,6 +82,25 @@ public class SoundManager : MonoSingletonBase<SoundManager>
         base.OnDestroy();
     }
     private void OnDisable() => HandleStopEvent();
+
+    public void PlayGameOver()
+    {
+        HandleStopEvent();
+
+        if (GameOverMusic.IsNull) return;
+        
+        _eventInstance = RuntimeManager.CreateInstance(GameOverMusic);
+        _eventInstance.start();
+    }
+
+    public void RestartCurrentBGM()
+    {
+        _eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        _eventInstance.release();
+
+        HandleStartManagerEvent();
+        //RuntimeManager.StudioSystem.setParameterByName("ForestLevel", _currentStateValue);
+    }
 
     #region Volume Setting
     public void SetMasterVolume(float volume)
