@@ -93,7 +93,7 @@ public class BaseFSMAIController : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        if (_isActive || _currentTarget != null) return;
+        if (!_isActive || _currentTarget != null) return;
 
         Collider2D hit;
 
@@ -109,6 +109,22 @@ public class BaseFSMAIController : MonoBehaviour
             _isActive = true;
         }
     }
+
+#if UNITY_EDITOR
+    protected void OnDrawGizmos()
+    {
+        Vector3 worldEyePoint = _eyePoint.position;
+        
+        // Overlap Box:
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(worldEyePoint, new Vector3(viewDistance, viewHeight, 0));
+        Vector2 forward = -transform.localScale.x * transform.right;
+
+        // Center Axis
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawRay(worldEyePoint, forward * viewDistance);
+    }
+#endif
 
     protected virtual void StartAttackStrat()
     {
@@ -144,11 +160,11 @@ public class BaseFSMAIController : MonoBehaviour
             // processes logic when the attack had been interrupted by a strong attack/stun:
             HandleAttackFail();
         }
-        else
-        {
-            var idle = Animator.StringToHash("Idle");
-            _mainAnimator.SetBool(idle, true);
-        }
+        // else
+        // {
+        //     var idle = Animator.StringToHash("Idle");
+        //     _mainAnimator.SetBool(idle, true);
+        // }
     }
 
     protected virtual void HandleAttackFail() { }
