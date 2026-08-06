@@ -169,12 +169,17 @@ public class PlayerAttack : MonoBehaviour
             Debug.Log($"{spell}: {active}");
         }
 
+        UIManager.Instance.Get<UIPlayerHUD>().UpdateProjectileList(unlockedType);
+
         return true;
     }
 
     public void SelectWeapon(int slot)
     {
-        SetCurrentSpell((ESpawnType)slot);
+        if(SetCurrentSpell((ESpawnType)slot))
+        {
+            UIManager.Instance.Get<UIPlayerHUD>().ProjectileSelected(slot);   
+        }
     }
 
     /// <summary>
@@ -190,6 +195,7 @@ public class PlayerAttack : MonoBehaviour
 
         // otherwise, set the given type as the current:
         _currentSpell = type;
+        
         return true;
     }
 

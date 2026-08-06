@@ -132,7 +132,14 @@ MonoBehaviour:
   _hpSlider: {fileID: 6459173841312485868}
   _staminaSlider: {fileID: 7389521924678674503}
   _blinkImg: {fileID: 6537434126719646711}
+  _projImgs:
+  - {fileID: -1549169085461933917, guid: c8f83f3811a2f094285a1e109af65007, type: 3}
+  - {fileID: -1040555935052331070, guid: bb8685653eb1fe54a97a0445245b2ea3, type: 3}
+  - {fileID: -507287486998007854, guid: a30f536defddd5d4fa55058ffa42de59, type: 3}
+  - {fileID: 0}
+  - {fileID: -2427782186436390306, guid: aceb9544f7410834bbff6e33e7f244fd, type: 3}
   _objectivesText: {fileID: 8205844329407482831}
+  isInitialized: 0
 --- !u!223 &7286354838306838483
 Canvas:
   m_ObjectHideFlags: 0
@@ -530,11 +537,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 65
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 65
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -588,6 +595,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_UnlockableSkillSlot (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2714310546175840161, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -632,11 +643,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 65
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 65
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -689,6 +700,30 @@ PrefabInstance:
     - target: {fileID: 1019103164157921420, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_Name
       value: UI_UnlockableSkillSlot (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1040555935052331070, guid: bb8685653eb1fe54a97a0445245b2ea3, type: 3}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714310546175840161, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -871,11 +906,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 65
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 65
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -977,11 +1012,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 65
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 65
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1035,6 +1070,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_UnlockableSkillSlot
       objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1549169085461933917, guid: c8f83f3811a2f094285a1e109af65007, type: 3}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714310546175840161, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1079,11 +1138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 65
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 65
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1136,6 +1195,30 @@ PrefabInstance:
     - target: {fileID: 1019103164157921420, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_Name
       value: UI_UnlockableSkillSlot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2427782186436390306, guid: aceb9544f7410834bbff6e33e7f244fd, type: 3}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714310546175840161, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1330,11 +1413,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 65
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 65
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1387,6 +1470,30 @@ PrefabInstance:
     - target: {fileID: 1019103164157921420, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_Name
       value: UI_UnlockableSkillSlot (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -507287486998007854, guid: a30f536defddd5d4fa55058ffa42de59, type: 3}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714310546175840161, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1589,11 +1696,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 65
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 65
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_LocalPosition.x

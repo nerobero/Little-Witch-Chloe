@@ -3,12 +3,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Types;
+using System.Collections.Generic;
 
 public class UIPlayerHUD : UIBase
 {
     [SerializeField] private Slider _hpSlider;
     [SerializeField] private Slider _staminaSlider;  
-    [SerializeField] private Image _blinkImg;  
+    [SerializeField] private Image _blinkImg;
+    [SerializeField] private List<Sprite> _projImgs;
     [SerializeField] private TextMeshProUGUI _objectivesText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private bool isInitialized = false;
@@ -17,12 +19,6 @@ public class UIPlayerHUD : UIBase
     {
         base.Start();
         //SubscribeEvents();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void Initialize()
@@ -112,5 +108,15 @@ public class UIPlayerHUD : UIBase
     public void UpdateObjectives(ECollectable types, int amount)
     {
         _objectivesText.text = amount.ToString();
+    }
+
+    public void UpdateProjectileList(ESpawnType projType)
+    {
+        
+    }
+
+    public void ProjectileSelected(int slot)
+    {
+        
     }
 }
