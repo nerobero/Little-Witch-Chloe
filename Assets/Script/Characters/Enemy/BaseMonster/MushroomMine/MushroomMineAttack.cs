@@ -3,6 +3,8 @@ using Types;
 
 public class MushroomMineAttack : EnemyAttack, ISummonable
 {
+    private GameObject _owner;
+
     public override void Attack(GameObject target)
     {
         PlayerStatManager targetStat = target.GetComponent<PlayerStatManager>();
@@ -17,4 +19,9 @@ public class MushroomMineAttack : EnemyAttack, ISummonable
     public void OnSummoned() { }
 
     public void OnReturnedToPool() { }
+
+    public void SetInstigator(GameObject instigator)
+    {
+        _owner = instigator;
+    }
 }

@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     {
         spawnPosition = gameObject.transform.position;
         spawnRotation = gameObject.transform.rotation;
-        UIManager.Instance.Get<UIPlayerHUD>().Initialize(); 
+        UIManager.Instance.Get<UIPlayerHUD>()?.Initialize(); 
 
         _playerStat.OnDeath += Death;
     }

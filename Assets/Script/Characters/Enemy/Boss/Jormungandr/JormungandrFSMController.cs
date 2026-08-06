@@ -107,11 +107,11 @@ public class JormungandrFSMController : BaseFSMAIController
         //     new ProjectileAttackStrategy()
         // );
         attacklist["summon1"] = new AttackEntry(
-            Animator.StringToHash("SummonMushroom"),
+            Animator.StringToHash("Summon"),
             new SummonAttackStrategy(this, mushroomPrefab, shroomSummonTimeInterval, mushroomSummonCount,summonRoot.position)
         );
         attacklist["summon2"] = new AttackEntry(
-            Animator.StringToHash("SummonTail"),
+            Animator.StringToHash("Summon"),
             new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, summonRoot.position)
         );
         // attacklist["statusEffect"] = new AttackEntry(

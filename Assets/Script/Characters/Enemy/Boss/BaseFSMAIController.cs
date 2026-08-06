@@ -29,7 +29,7 @@ public class BaseFSMAIController : MonoBehaviour
 
     [Header("Animator - Main body")]
     public Animator _mainAnimator;
-    public Vector3 _eyePoint;
+    public Transform _eyePoint;
 
     private bool _isActing = false;
 
@@ -97,7 +97,7 @@ public class BaseFSMAIController : MonoBehaviour
 
         Collider2D hit;
 
-        Vector3 worldEyePoint = transform.position;
+        Vector3 worldEyePoint = _eyePoint.position;
 
         hit = Physics2D.OverlapBox(worldEyePoint, new Vector2(viewDistance, viewHeight), 0.0f, playerLayer);
 
