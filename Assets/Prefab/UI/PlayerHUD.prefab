@@ -140,6 +140,8 @@ MonoBehaviour:
   - {fileID: -2427782186436390306, guid: aceb9544f7410834bbff6e33e7f244fd, type: 3}
   _objectivesText: {fileID: 8205844329407482831}
   isInitialized: 0
+  _projGroup: {fileID: 5890175972749198336}
+  _projLists: []
 --- !u!223 &7286354838306838483
 Canvas:
   m_ObjectHideFlags: 0
@@ -595,6 +597,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_UnlockableSkillSlot (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1019103164157921420, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449547462836438023, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -507287486998007854, guid: a30f536defddd5d4fa55058ffa42de59, type: 3}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2714310546175840161, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -701,6 +731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_UnlockableSkillSlot (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1019103164157921420, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -723,7 +757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2714310546175840161, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1070,6 +1104,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_UnlockableSkillSlot
       objectReference: {fileID: 0}
+    - target: {fileID: 1019103164157921420, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1092,7 +1130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2714310546175840161, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1196,6 +1234,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_UnlockableSkillSlot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1019103164157921420, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1218,7 +1260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2714310546175840161, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1471,6 +1513,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_UnlockableSkillSlot (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1019103164157921420, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1493,7 +1539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2714310546175840161, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

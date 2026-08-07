@@ -14,11 +14,29 @@ public class UIPlayerHUD : UIBase
     [SerializeField] private TextMeshProUGUI _objectivesText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private bool isInitialized = false;
+    [SerializeField] private GameObject _projGroup;
+
+    [SerializeField]private List<UISlotPanel> _projLists;
+    private int _currentProjIndex, _maxProjIndex = 0;
+
+    protected void Awake()
+    {
+        _projLists = new List<UISlotPanel>(_projGroup.GetComponentsInChildren<UISlotPanel>());
+        _currentProjIndex = 0;
+
+        foreach(var slot in _projLists)
+        {
+            slot.gameObject.SetActive(false);
+        }
+    }
 
     protected override void Start()
     {
         base.Start();
+
+        PlayerController.Instance.GetComponent<PlayerAttack>().Initialize();
         //SubscribeEvents();
+
     }
 
     public void Initialize()
@@ -112,11 +130,32 @@ public class UIPlayerHUD : UIBase
 
     public void UpdateProjectileList(ESpawnType projType)
     {
-        
+        int unlocked = (int)projType;
+        Debug.Log("PlayerHUD _maxProjIndex: "+ _maxProjIndex);
+        _projLists[_maxProjIndex].gameObject.SetActive(true);
+
+        _projLists[_maxProjIndex].OnSlotUnlocked(projType, _projImgs[unlocked]);
+        _maxProjIndex++;
     }
 
-    public void ProjectileSelected(int slot)
+    public (ESpawnType, EAbilityType) ProjectileSelected(int slot)
     {
-        
+        Debug.Log("PlayerHUD slot: "+ slot);
+        (ESpawnType projType, EAbilityType abilityType, bool flag) = _projLists[slot].OnSlotSelected();
+
+        if(flag)
+        {
+            if(slot == _currentProjIndex) 
+            {
+                return(projType, abilityType);
+            }
+            
+            _projLists[_currentProjIndex].OnSlotDeselected();
+            _currentProjIndex = slot;
+            return (projType, abilityType);
+        }
+
+        Debug.Log("PlayerHUD _currentProjIndex: "+ _currentProjIndex);
+        return (_projLists[_currentProjIndex].Type, _projLists[_currentProjIndex].AbilityType);
     }
 }

@@ -40,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
     private Dictionary<ESpawnType, bool> _spellList = new Dictionary<ESpawnType, bool>()
     {
         {ESpawnType.FireBall, true}, {ESpawnType.WaterBall, true},
-        {ESpawnType.PoisonBall, false}, {ESpawnType.ElectricBall, false}, {ESpawnType.LightBall, false}
+        {ESpawnType.ElectricBall, false}, {ESpawnType.PoisonBall, false}, {ESpawnType.LightBall, false}
     };
 
     private ESpawnType _currentSpell = ESpawnType.FireBall;
@@ -64,6 +64,19 @@ public class PlayerAttack : MonoBehaviour
 
         _animController = GetComponent<PlayerAnimController>();
         _stat = GetComponent<StatManager>();
+    }
+
+    public void Initialize()
+    {
+        foreach(var (spell, active) in _spellList)
+        {
+            if(active)
+            {
+                UIManager.Instance.Get<UIPlayerHUD>().UpdateProjectileList(spell);
+            }
+        }
+
+        UIManager.Instance.Get<UIPlayerHUD>().ProjectileSelected((int)_currentSpell);   
     }
 
     /// <summary>
@@ -176,10 +189,9 @@ public class PlayerAttack : MonoBehaviour
 
     public void SelectWeapon(int slot)
     {
-        if(SetCurrentSpell((ESpawnType)slot))
-        {
-            UIManager.Instance.Get<UIPlayerHUD>().ProjectileSelected(slot);   
-        }
+        (ESpawnType selected, _) = UIManager.Instance.Get<UIPlayerHUD>().ProjectileSelected(slot);   
+        
+        SetCurrentSpell(selected);
     }
 
     /// <summary>

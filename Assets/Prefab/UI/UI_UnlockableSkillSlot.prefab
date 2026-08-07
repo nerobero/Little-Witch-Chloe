@@ -84,6 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 406936802380315623}
+  - component: {fileID: 7658071162155102540}
   m_Layer: 5
   m_Name: UI_UnlockableSkillSlot
   m_TagString: Untagged
@@ -113,6 +114,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7658071162155102540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019103164157921420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b517ae429bb264d9327492a088bd1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UISlotPanel
+  root: {fileID: 1019103164157921420}
+  _iconImage: {fileID: 1767671574760802072}
+  _selectedImage: {fileID: 4098949034297221200}
 --- !u!1 &1449547462836438023
 GameObject:
   m_ObjectHideFlags: 0
