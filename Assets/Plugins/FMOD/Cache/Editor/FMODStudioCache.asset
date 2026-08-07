@@ -78,6 +78,61 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 29511
+--- !u!114 &-7778219492592491470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Death Mob
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Death Mob
+  Guid:
+    Data1: 1747860358
+    Data2: 1189394609
+    Data3: 756509840
+    Data4: -434849459
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 740
+--- !u!114 &-6963174366901918204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/Big J
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MUSIC/Big J
+  Guid:
+    Data1: 1654798980
+    Data2: 1272290486
+    Data3: -486752857
+    Data4: -177799324
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -3765567808500225972}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 168104
 --- !u!114 &-6506654287812630190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,10 +175,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639205146555413157
+  lastModified: 639216935280000000
   FileSizes:
   - Name: Desktop
-    Value: 2700
+    Value: 2884
   Exists: 1
 --- !u!114 &-5201378617633771360
 MonoBehaviour:
@@ -259,7 +314,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 638
 --- !u!114 &-4564508471171343689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +336,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -4533339184958613913}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -302,10 +357,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639205146555403183
+  lastModified: 639216935280000000
   FileSizes:
   - Name: Desktop
-    Value: 4271584
+    Value: 6332224
   Exists: 1
 --- !u!114 &-4262239082927796618
 MonoBehaviour:
@@ -361,6 +416,32 @@ MonoBehaviour:
   - Intro 1
   - Intro
   - Main Loop
+  Exists: 1
+--- !u!114 &-3765567808500225972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Big J/Part 1-2
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Part 1-2
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1390142932
+    data2: 3608949007
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Value A
+  - Value B
   Exists: 1
 --- !u!114 &-3674415779763435606
 MonoBehaviour:
@@ -443,7 +524,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 1750
 --- !u!114 &-778238221030726468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,7 +551,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1124
+  Length: 1750
 --- !u!114 &-720488621865520185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,7 +578,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 638
 --- !u!114 &-498052115779659504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,7 +605,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 530
+  Length: 638
 --- !u!114 &-154497354883251852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,17 +715,21 @@ MonoBehaviour:
   - {fileID: 3115869567897996959}
   - {fileID: -73818631061756973}
   - {fileID: -8427135215669723243}
+  - {fileID: 7492712399168677069}
+  - {fileID: -6963174366901918204}
+  - {fileID: -7778219492592491470}
   EditorParameters:
   - {fileID: 2478196569288099822}
   - {fileID: 572125993231974450}
   - {fileID: -8682843121785997153}
   - {fileID: -3674415779763435606}
+  - {fileID: 4496483528623089920}
   MasterBanks:
   - {fileID: -4533339184958613913}
   StringsBanks:
   - {fileID: -5662479597483696475}
   cacheVersion: 131859
-  cacheTime: 639205146555413157
+  cacheTime: 639216935280000000
   SerializableEventsDict:
   - key: event:/MUSIC/test event
     index: 0
@@ -724,6 +809,12 @@ MonoBehaviour:
     index: 37
   - key: event:/Game Over
     index: 38
+  - key: snapshot:/Duck Music
+    index: 39
+  - key: event:/MUSIC/Big J
+    index: 40
+  - key: event:/SFX/Death Mob
+    index: 41
 --- !u!114 &359156517584299351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,7 +973,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2279
+  Length: 638
 --- !u!114 &1933628842657695574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,7 +1000,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1100
+  Length: 1750
 --- !u!114 &2220808220529455601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,7 +1027,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 638
 --- !u!114 &2269557707669527772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1041,7 +1132,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 3375
+  Length: 3750
 --- !u!114 &4370576549740198930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1069,6 +1160,32 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4437
+--- !u!114 &4496483528623089920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Part 1-2
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Part 1-2
+  StudioPath: parameter:/Part 1-2
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1390142932
+    data2: 3608949007
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Value A
+  - Value B
+  Exists: 1
 --- !u!114 &5133411912280678294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,7 +1240,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 242
+  Length: 638
 --- !u!114 &5942722733934382461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,6 +1322,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2039
+--- !u!114 &7492712399168677069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Duck Music
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: snapshot:/Duck Music
+  Guid:
+    Data1: -1004680927
+    Data2: 1226549160
+    Data3: -1803851362
+    Data4: 913821085
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &7629706046212088009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,7 +1375,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 621
+  Length: 781
 --- !u!114 &8278512797665384931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1258,7 +1402,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 638
 --- !u!114 &8578821383406890684
 MonoBehaviour:
   m_ObjectHideFlags: 0
