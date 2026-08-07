@@ -12,7 +12,7 @@ public class TitleUI : UIBase
     private Button _exitButton;
     [SerializeField] private string sceneName = "wip";
 
-     /// <summary>
+    /// <summary>
     /// Subscribes events from the related systems.  
     /// </summary>
     protected override void SubscribeEvents()

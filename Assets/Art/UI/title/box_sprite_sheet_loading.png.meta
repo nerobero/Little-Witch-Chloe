@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c215a3a3732adcc4a96ce632610014dc
+guid: 056f1dc989a400a478ef37beedfd1a12
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7162429490278992031
-    second: Small Square Buttons_0
+      213: 5368922916901647678
+    second: box_sprite_sheet_loading_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,353 +100,313 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Small Square Buttons_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1677327a350f99c90800000000000000
-      internalID: -7162429490278992031
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Small Square Buttons_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a7484c88cd02a14d9eb1366438b9fdc
-      internalID: -749016996
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Small Square Buttons_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5ec5a8fe5235e0443b5d63b5a667c418
-      internalID: -2026833359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Small Square Buttons_3
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28ba4094a4332054e9c2426dcac8f358
-      internalID: -586014182
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Small Square Buttons_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 059e03e6c0ecbcd4aafa767ff44dfc23
-      internalID: -1753955263
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Small Square Buttons_5
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1ed9f68f35f3e74b8aeefed5dceee73
-      internalID: -809849009
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Small Square Buttons_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0cee4d352ce483e44ac2561f00e0c919
-      internalID: -650859354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Small Square Buttons_7
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f7b897d2e8363cb43814ee0d1ee965fb
-      internalID: -1281907341
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Small Square Buttons_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 11a727cdd0943dc4b94887222d27234d
-      internalID: -17707427
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Small Square Buttons_9
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5e94c670a19932c41917b80854e4c5d4
-      internalID: -486016941
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Small Square Buttons_10
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 75d2fe611cc96494485849728c64c26a
-      internalID: -847045466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Small Square Buttons_11
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb1a1e60e3de4b2429b379ea501bf2f7
-      internalID: -1613154115
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Small Square Buttons_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc6b4423eae2d96459f347ebb8fda503
-      internalID: -750677997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Small Square Buttons_13
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b3e132b52bf03d49a0b56348d27cc9f
-      internalID: 1452444736
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Small Square Buttons_14
+      name: box_sprite_sheet_loading_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 32, y: -22}
+        - {x: 32, y: 16}
+        - {x: -32, y: 16}
+        - {x: -32, y: -22}
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36a92d72289b7c6498f3f2a5586eccba
-      internalID: -142851283
+      spriteID: e35706872fe328a40800000000000000
+      internalID: 5368922916901647678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Small Square Buttons_15
+      name: box_sprite_sheet_loading_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 64
         y: 0
-        width: 16
-        height: 16
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 32, y: -22}
+        - {x: 32, y: 16}
+        - {x: -32, y: 16}
+        - {x: -32, y: -22}
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fadbe99e34d0fe458f544a80245def5
-      internalID: -1743553737
+      spriteID: 9b8155d21a5eca84bb6e894326b992eb
+      internalID: 898069601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: box_sprite_sheet_loading_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 32, y: -24}
+        - {x: 32, y: 14}
+        - {x: -32, y: 14}
+        - {x: -32, y: -24}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75df3c8da30973d429ceacf3e404b1a5
+      internalID: 255052941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: box_sprite_sheet_loading_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 32, y: -24}
+        - {x: 32, y: 14}
+        - {x: -32, y: 14}
+        - {x: -32, y: -24}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97aaf6b464ee4b9478f8254cbc869d0b
+      internalID: -1323256245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: box_sprite_sheet_loading_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 32, y: -22}
+        - {x: 32, y: 16}
+        - {x: -32, y: 16}
+        - {x: -32, y: -22}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f209d9083da66574ba4aeddb063318a6
+      internalID: 446951679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: box_sprite_sheet_loading_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 32, y: -22}
+        - {x: 32, y: 16}
+        - {x: -32, y: 16}
+        - {x: -32, y: -22}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b76caacd91a3941a75ea3792408717
+      internalID: -52784591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: box_sprite_sheet_loading_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 32, y: -24}
+        - {x: 32, y: 14}
+        - {x: -32, y: 14}
+        - {x: -32, y: -24}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9481759f58f784140a579e9d91a5b74b
+      internalID: -1581088503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: box_sprite_sheet_loading_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 32, y: -24}
+        - {x: 32, y: 14}
+        - {x: -32, y: 14}
+        - {x: -32, y: -24}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e69f26c37b6eb441a177445b844495c
+      internalID: 2088340821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: box_sprite_sheet_loading_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 32, y: -22}
+        - {x: 32, y: 16}
+        - {x: -32, y: 16}
+        - {x: -32, y: -22}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 905044f9c2762a941a3215379983875d
+      internalID: 1096678733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: box_sprite_sheet_loading_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 32, y: -22}
+        - {x: 32, y: 16}
+        - {x: -32, y: 16}
+        - {x: -32, y: -22}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63942904eac62c1468fb46c35e1a156f
+      internalID: -1423548997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: box_sprite_sheet_loading_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 32, y: -24}
+        - {x: 32, y: 14}
+        - {x: -32, y: 14}
+        - {x: -32, y: -24}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78f7591bebf4167498629c2061510157
+      internalID: 1740365214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: box_sprite_sheet_loading_11
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 32, y: -24}
+        - {x: 32, y: 14}
+        - {x: -32, y: 14}
+        - {x: -32, y: -24}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4c96c7c06dcd294a827d089acfd10fb
+      internalID: -749111777
       vertices: []
       indices: 
       edges: []
@@ -455,7 +415,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 69209a563b9138e48884a7f6ba9c4c62
+    spriteID: bce63bb1ff4d9044b81af8727e1f99af
     internalID: 0
     vertices: []
     indices: 
@@ -465,24 +425,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Small Square Buttons_0: -7162429490278992031
-      Small Square Buttons_1: -749016996
-      Small Square Buttons_10: -847045466
-      Small Square Buttons_11: -1613154115
-      Small Square Buttons_12: -750677997
-      Small Square Buttons_13: 1452444736
-      Small Square Buttons_14: -142851283
-      Small Square Buttons_15: -1743553737
-      Small Square Buttons_2: -2026833359
-      Small Square Buttons_3: -586014182
-      Small Square Buttons_4: -1753955263
-      Small Square Buttons_5: -809849009
-      Small Square Buttons_6: -650859354
-      Small Square Buttons_7: -1281907341
-      Small Square Buttons_8: -17707427
-      Small Square Buttons_9: -486016941
+      box_sprite_sheet_loading_0: 5368922916901647678
+      box_sprite_sheet_loading_1: 898069601
+      box_sprite_sheet_loading_10: 1740365214
+      box_sprite_sheet_loading_11: -749111777
+      box_sprite_sheet_loading_2: 255052941
+      box_sprite_sheet_loading_3: -1323256245
+      box_sprite_sheet_loading_4: 446951679
+      box_sprite_sheet_loading_5: -52784591
+      box_sprite_sheet_loading_6: -1581088503
+      box_sprite_sheet_loading_7: 2088340821
+      box_sprite_sheet_loading_8: 1096678733
+      box_sprite_sheet_loading_9: -1423548997
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

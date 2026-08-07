@@ -1,0 +1,329 @@
+fileFormatVersion: 2
+guid: 8d65d8f170f39494ebc049c5d6c2e288
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4675265426152271934
+    second: cha_sprite_sheet_frog_jump_1_0
+  - first:
+      213: -3895230511665040917
+    second: cha_sprite_sheet_frog_jump_1_1
+  - first:
+      213: -8009812565183656171
+    second: cha_sprite_sheet_frog_jump_1_2
+  - first:
+      213: -6727433786093506943
+    second: cha_sprite_sheet_frog_jump_1_3
+  - first:
+      213: 3439786658358550517
+    second: cha_sprite_sheet_frog_jump_1_4
+  - first:
+      213: 705897547248894655
+    second: cha_sprite_sheet_frog_jump_1_5
+  - first:
+      213: -4473229594823798388
+    second: cha_sprite_sheet_frog_jump_1_6
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cha_sprite_sheet_frog_jump_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -4, y: -15}
+        - {x: 4, y: -15}
+        - {x: 4, y: -5}
+        - {x: -4, y: -5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf47839dde1e1fb0800000000000000
+      internalID: -4675265426152271934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cha_sprite_sheet_frog_jump_1_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -4, y: -16}
+        - {x: 4, y: -16}
+        - {x: 4, y: -6}
+        - {x: -4, y: -6}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be131f9cc7c51f9c0800000000000000
+      internalID: -3895230511665040917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cha_sprite_sheet_frog_jump_1_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 10, y: -3}
+        - {x: -7, y: -3}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51f84c6e8ed67d090800000000000000
+      internalID: -8009812565183656171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cha_sprite_sheet_frog_jump_1_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -4, y: -14}
+        - {x: 13, y: -14}
+        - {x: 13, y: -3}
+        - {x: -4, y: -3}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18e6fe17d9a53a2a0800000000000000
+      internalID: -6727433786093506943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cha_sprite_sheet_frog_jump_1_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -6, y: -16}
+        - {x: 8, y: -16}
+        - {x: 8, y: -6}
+        - {x: -6, y: -6}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ffd692bdb39cbf20800000000000000
+      internalID: 3439786658358550517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cha_sprite_sheet_frog_jump_1_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -4, y: -15}
+        - {x: 4, y: -15}
+        - {x: 4, y: -5}
+        - {x: -4, y: -5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb20797441adbc900800000000000000
+      internalID: 705897547248894655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cha_sprite_sheet_frog_jump_1_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -4, y: -16}
+        - {x: 4, y: -16}
+        - {x: 4, y: -6}
+        - {x: -4, y: -6}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8153c93265ebe1c0800000000000000
+      internalID: -4473229594823798388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 32c87646be93ccb49afb4df92ed96ee0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      cha_sprite_sheet_frog_jump_1_0: -4675265426152271934
+      cha_sprite_sheet_frog_jump_1_1: -3895230511665040917
+      cha_sprite_sheet_frog_jump_1_2: -8009812565183656171
+      cha_sprite_sheet_frog_jump_1_3: -6727433786093506943
+      cha_sprite_sheet_frog_jump_1_4: 3439786658358550517
+      cha_sprite_sheet_frog_jump_1_5: 705897547248894655
+      cha_sprite_sheet_frog_jump_1_6: -4473229594823798388
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
