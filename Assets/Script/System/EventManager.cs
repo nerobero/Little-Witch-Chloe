@@ -28,7 +28,10 @@ public class EventManager : MonoSingletonBase<EventManager>
     public void ReqLevelLoad(ELevelType level)
     {
         if (GameManager.Instance.IsLevelUnlocked(level))
+        {
             OnTransitionLevel?.Invoke(level);
+            
+        }
         else OnLevelLoadFailed?.Invoke();
     }
 

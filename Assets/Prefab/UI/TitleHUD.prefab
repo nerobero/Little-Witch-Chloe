@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7783813424544337531, guid: d60b5abc19233e748873ef190c780646, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d60b5abc19233e748873ef190c780646, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3041358019587181804, guid: 1042259379f756240afcd0d475f95f93, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1042259379f756240afcd0d475f95f93, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -341,6 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9840b720100dca74082e51ddb8f2f258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitleUI
+  root: {fileID: 5370123826274843984}
   sceneName: wip
 --- !u!223 &2869032711060913223
 Canvas:

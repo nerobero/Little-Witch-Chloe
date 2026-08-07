@@ -14,9 +14,9 @@ public class UIPlayerHUD : UIBase
     [SerializeField] private TextMeshProUGUI _objectivesText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private bool isInitialized = false;
-    [SerializeField] private GameObject _projGroup;
+    [SerializeField] private GameObject _projGroup, _skillGroup;
 
-    [SerializeField]private List<UISlotPanel> _projLists;
+    [SerializeField]private List<UISlotPanel> _projLists, _skillLists;
     private int _currentProjIndex, _maxProjIndex = 0;
 
     protected void Awake()
@@ -25,6 +25,13 @@ public class UIPlayerHUD : UIBase
         _currentProjIndex = 0;
 
         foreach(var slot in _projLists)
+        {
+            slot.gameObject.SetActive(false);
+        }
+
+        _skillLists = new List<UISlotPanel>(_skillGroup.GetComponentsInChildren<UISlotPanel>());
+
+        foreach(var slot in _skillLists)
         {
             slot.gameObject.SetActive(false);
         }
@@ -128,6 +135,11 @@ public class UIPlayerHUD : UIBase
         _objectivesText.text = amount.ToString();
     }
 
+    public void UpdateSkillList()
+    {
+        
+    }
+
     public void UpdateProjectileList(ESpawnType projType)
     {
         int unlocked = (int)projType;
@@ -149,7 +161,7 @@ public class UIPlayerHUD : UIBase
             {
                 return(projType, abilityType);
             }
-            
+
             _projLists[_currentProjIndex].OnSlotDeselected();
             _currentProjIndex = slot;
             return (projType, abilityType);

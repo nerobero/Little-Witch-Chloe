@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class TitleUI : MonoBehaviour
+public class TitleUI : UIBase
 {
     private Button _startButton;
     private Button _loadButton;
@@ -12,11 +12,29 @@ public class TitleUI : MonoBehaviour
     private Button _exitButton;
     [SerializeField] private string sceneName = "wip";
 
+     /// <summary>
+    /// Subscribes events from the related systems.  
+    /// </summary>
+    protected override void SubscribeEvents()
+    {
+        
+    }
+
+    /// <summary>
+    /// Unsubscribes events from the related systems.
+    /// </summary>
+    protected override void UnsubscribeEvents()
+    {
+        
+    }
+
     public void OnClickStart()
     {
         Debug.Log("Start");
         //SceneManager.LoadSceneAsync(sceneName);
-        EventManager.Instance.ReqLevelLoad(Types.ELevelType.MainGame);
+        UIManager.Instance.Hide<TitleUI>();
+        EventManager.Instance.ReqLevelLoad(Types.ELevelType.Overworld);
+        
     }
 
     public void OnClickLoad()
@@ -25,7 +43,7 @@ public class TitleUI : MonoBehaviour
         if (SaveManager.Instance.LoadSaveGame())
         {
             SceneManager.LoadSceneAsync(sceneName);
-            
+            UIManager.Instance.Hide<TitleUI>();
         }
         else
             Debug.Log("none save data");

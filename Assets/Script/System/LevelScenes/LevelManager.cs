@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Types;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// Processes transitions and loading of levels
@@ -13,10 +15,14 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 {
     private List<SceneBase> sceneBases = new List<SceneBase>();
 
+    [SerializeField] private GameObject _loaderCanvas;
+    [SerializeField] private Slider _progressBar;
+
     protected override void Awake()
     {
         dontDestroy = true;
         base.Awake();
+        _loaderCanvas.SetActive(false);
     }
 
     public void Register(SceneBase instance)
@@ -37,9 +43,28 @@ public class LevelManager : MonoSingletonBase<LevelManager>
             EventManager.Instance.OnTransitionLevel -= LoadLevelAdditively;
     }
 
-    private void LoadLevelAdditively(ELevelType levelType)
+    private async void LoadLevelAdditively(ELevelType levelType)
     {
-        SceneManager.LoadSceneAsync((int)levelType, LoadSceneMode.Additive);
+        _progressBar.value = 0.0f;
+        Debug.Log(levelType);
+        var scene = SceneManager.LoadSceneAsync((int)levelType, LoadSceneMode.Additive);
+
+        scene.allowSceneActivation = false;
+        _loaderCanvas.SetActive(true);
+
+        Debug.Log("_loaderCanvas activated");
+
+        do
+        {
+            await Task.Delay(100);
+            _progressBar.value = scene.progress;
+            Debug.Log(scene.progress);
+        } while(scene.progress < 0.9f);
+
+        await Task.Delay(1000);
+
+        scene.allowSceneActivation = true;
+        _loaderCanvas.SetActive(false);
     }
 
     public void RestartCurrentLevel()
@@ -63,6 +88,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
             SaveManager.Instance.ApplyAllGameData();
 
         UIManager.Instance.Hide<UIGameOverHUD>();
+        
     }
 
     public void RegisterInstance(MonoBehaviour behaviour)
@@ -75,5 +101,23 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         }
         
         sceneBases[curlevel].Register(behaviour);
+    }
+
+    public async void LoadScene(string sceneName)
+    {
+        _progressBar.value = 0.0f;
+        var scene = SceneManager.LoadSceneAsync(sceneName);
+        scene.allowSceneActivation = false;
+
+        _loaderCanvas.SetActive(true);
+
+        do
+        {
+            await Task.Delay(100);
+            _progressBar.value = scene.progress;
+        } while(scene.progress < 0.9f);
+
+        scene.allowSceneActivation = true;
+        _loaderCanvas.SetActive(false);
     }
 }

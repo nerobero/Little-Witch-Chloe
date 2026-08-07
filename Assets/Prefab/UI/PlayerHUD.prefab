@@ -141,7 +141,9 @@ MonoBehaviour:
   _objectivesText: {fileID: 8205844329407482831}
   isInitialized: 0
   _projGroup: {fileID: 5890175972749198336}
+  _skillGroup: {fileID: 6049384783050240456}
   _projLists: []
+  _skillLists: []
 --- !u!223 &7286354838306838483
 Canvas:
   m_ObjectHideFlags: 0
@@ -1799,6 +1801,22 @@ PrefabInstance:
     - target: {fileID: 1019103164157921420, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
       propertyPath: m_Name
       value: UI_UnlockableSkillSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767671574760802072, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

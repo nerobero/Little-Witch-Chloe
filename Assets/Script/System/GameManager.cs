@@ -33,6 +33,8 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     protected override void Awake()
     {
+        unlockedLevels.Add(ELevelType.Intro);
+        unlockedLevels.Add(ELevelType.Overworld);
         dontDestroy = true;
         base.Awake();
     }
