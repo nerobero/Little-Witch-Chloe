@@ -7,9 +7,10 @@ public class BackgroundController : MonoBehaviour
     private Vector2 startPos;
     public Camera cam;
     public GameObject parallaxPoint;
+    public bool enableXParallax = false;
+    public bool enableYParallax = false;
     public float parallexEffectX; // 0.15 is good for the tree backgrounds.
     public float parallexEffectY;
-    public bool enableYParallax = false;
 
     void Start()
     {
@@ -30,17 +31,8 @@ public class BackgroundController : MonoBehaviour
         }
         
         Vector2 distance = Vector2.Scale(camPos, new Vector2(parallexEffectX, parallexEffectY));
-
-
-        if (enableYParallax)
-        {
-            transform.position = new Vector3(startPos.x + distance.x, startPos.y + distance.y, transform.position.z);
-        }
-        else
-        {
-            // only x-parallax on
-            transform.position = new Vector3(startPos.x + distance.x, startPos.y, transform.position.z);
-        }
+        
+        transform.position = new Vector3(enableXParallax ? startPos.x + distance.x : startPos.x , enableYParallax ? startPos.y + distance.y : startPos.y , transform.position.z);
 
     }
 }
