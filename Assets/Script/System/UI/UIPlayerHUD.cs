@@ -8,7 +8,8 @@ using System.Collections.Generic;
 public class UIPlayerHUD : UIBase
 {
     [SerializeField] private Slider _hpSlider;
-    [SerializeField] private Slider _staminaSlider;  
+    //[SerializeField] private Slider _staminaSlider;  
+    [SerializeField] private Image _staminaImg;  
     [SerializeField] private Image _blinkImg;
     [SerializeField] private List<Sprite> _projImgs;
     [SerializeField] private TextMeshProUGUI _objectivesText;
@@ -117,7 +118,8 @@ public class UIPlayerHUD : UIBase
 
     public void UpdateStamina(float current, float max)
     {
-        _staminaSlider.value = current / max;
+        //_staminaSlider.value = current / max;
+        _staminaImg.fillAmount = current / max;
     }
 
     public void OnDeath()
