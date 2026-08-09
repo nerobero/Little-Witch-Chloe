@@ -143,7 +143,7 @@ public class BaseFSMAIController : MonoBehaviour
         _currentStrat.Attack(this.gameObject, _currentTarget);
     }
 
-    public void AttackEnd()
+    public void AttackComplete()
     {
         Debug.Log($"[FSM] AttackEnd called, _currentStrat={_currentStrat}");
         _currentStrat.AttackFinished();
