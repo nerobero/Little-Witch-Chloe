@@ -11,14 +11,15 @@ public class UIPlayerHUD : UIBase
     //[SerializeField] private Slider _staminaSlider;  
     [SerializeField] private Image _staminaImg;  
     [SerializeField] private Image _blinkImg;
-    [SerializeField] private List<Sprite> _projImgs;
+    [SerializeField] private List<Sprite> _projImgs, _skillImgs;
     [SerializeField] private TextMeshProUGUI _objectivesText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private bool isInitialized = false;
     [SerializeField] private GameObject _projGroup, _skillGroup;
 
     [SerializeField]private List<UISlotPanel> _projLists, _skillLists;
-    private int _currentProjIndex, _maxProjIndex = 0;
+    [SerializeField]private int _currentProjIndex, _maxProjIndex = 0;
+    [SerializeField]private int _maxSkillIndex = 0;
 
     protected void Awake()
     {
@@ -137,9 +138,13 @@ public class UIPlayerHUD : UIBase
         _objectivesText.text = amount.ToString();
     }
 
-    public void UpdateSkillList()
+    public void UpdateSkillList(EAbilityType abilityType)
     {
-        
+        int unlocked = (int)abilityType;
+        _skillLists[_maxSkillIndex].gameObject.SetActive(true);
+
+        _skillLists[_maxSkillIndex].OnSlotUnlocked(abilityType, _skillImgs[unlocked - 1]);
+        this._maxSkillIndex++;
     }
 
     public void UpdateProjectileList(ESpawnType projType)
@@ -149,7 +154,9 @@ public class UIPlayerHUD : UIBase
         _projLists[_maxProjIndex].gameObject.SetActive(true);
 
         _projLists[_maxProjIndex].OnSlotUnlocked(projType, _projImgs[unlocked]);
-        _maxProjIndex++;
+        this._maxProjIndex++;
+        
+        Debug.Log("PlayerHUD _maxProjIndex Changed: "+ _maxProjIndex);
     }
 
     public (ESpawnType, EAbilityType) ProjectileSelected(int slot)
@@ -171,5 +178,16 @@ public class UIPlayerHUD : UIBase
 
         Debug.Log("PlayerHUD _currentProjIndex: "+ _currentProjIndex);
         return (_projLists[_currentProjIndex].Type, _projLists[_currentProjIndex].AbilityType);
+    }
+
+    public void SlotCooldown(float second, EAbilityType abilityType)
+    {
+        foreach(var slot in _skillLists)
+        {
+            if(slot.AbilityType == abilityType)
+            {
+                
+            }
+        }
     }
 }

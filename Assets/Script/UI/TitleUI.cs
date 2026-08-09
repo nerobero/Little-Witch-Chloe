@@ -33,7 +33,8 @@ public class TitleUI : UIBase
         Debug.Log("Start");
         //SceneManager.LoadSceneAsync(sceneName);
         UIManager.Instance.Hide<TitleUI>();
-        EventManager.Instance.ReqLevelLoad(Types.ELevelType.Overworld);
+        LevelManager.Instance.LoadScene(Types.ELevelType.MainGame, Types.ELevelType.Overworld);
+        // EventManager.Instance.ReqLevelLoad(Types.ELevelType.Overworld);
         
     }
 

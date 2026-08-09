@@ -1,3 +1,4 @@
+using System.Collections;
 using Types;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,12 +7,31 @@ public class UISlotPanel : UIBase
 {
     [SerializeField] private Image _iconImage;
     [SerializeField] private Image _selectedImage;
+    [SerializeField] private Image _cooldownImg;
     private ESpawnType _type = ESpawnType.None;
     private EAbilityType _abilityType = EAbilityType.None;
     private bool _activated = false;
+    private bool _isCooleddown = false;
+    private float cooltime = 0.0f, baseCooltime = 0.0f;
 
     public ESpawnType Type => _type;
     public EAbilityType AbilityType => _abilityType;
+
+    protected void FixedUpdate()
+    {
+        if(_isCooleddown)
+        {
+            cooltime -= Time.deltaTime;
+            
+            _cooldownImg.fillAmount = cooltime / baseCooltime;
+
+            if(cooltime <= 0.0f)
+            {
+                _isCooleddown = false;
+                cooltime = baseCooltime;
+            }
+        }
+    }
     
 
     /// <summary>
@@ -66,6 +86,7 @@ public class UISlotPanel : UIBase
         _type = type;
         _iconImage.gameObject.SetActive(true);
         _iconImage.sprite = icon;
+        _cooldownImg.sprite = icon;
         _activated = true;
     }
 
@@ -74,7 +95,15 @@ public class UISlotPanel : UIBase
         _type = ESpawnType.ScrollItem;
         _abilityType = type;
         _iconImage.sprite = icon;
+        _cooldownImg.sprite = icon;
         _iconImage.gameObject.SetActive(true);
         _activated = true;
+    }
+
+    public virtual void OnSlotCooledDown(float time)
+    {
+        cooltime = time;
+        baseCooltime = time;
+        _isCooleddown = true;
     }
 }

@@ -16,6 +16,7 @@ public class Buff : MonoBehaviour
     // This is for VFX(but we do not use maybe)
     //private Dictionary<EStatusEffectType, GameObject> m_Effects = new Dictionary<EStatusEffectType, GameObject>();
 
+    // 
     public event Action<ActiveStatusEffect> OnEffectAdded;
     public event Action<ActiveStatusEffect> OnEffectRemoved;
 
