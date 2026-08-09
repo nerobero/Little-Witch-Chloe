@@ -180,13 +180,13 @@ public class UIPlayerHUD : UIBase
         return (_projLists[_currentProjIndex].Type, _projLists[_currentProjIndex].AbilityType);
     }
 
-    public void SlotCooldown(float second, EAbilityType abilityType)
+    public void SlotCooldown(float time, EAbilityType abilityType)
     {
         foreach(var slot in _skillLists)
         {
             if(slot.AbilityType == abilityType)
             {
-                
+                slot.OnSlotCooledDown(time);
             }
         }
     }

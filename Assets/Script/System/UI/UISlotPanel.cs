@@ -29,6 +29,7 @@ public class UISlotPanel : UIBase
             {
                 _isCooleddown = false;
                 cooltime = baseCooltime;
+                _cooldownImg.gameObject.SetActive(false);
             }
         }
     }
@@ -102,6 +103,8 @@ public class UISlotPanel : UIBase
 
     public virtual void OnSlotCooledDown(float time)
     {
+        Debug.Log("Cooled down");
+        _cooldownImg.gameObject.SetActive(true);
         cooltime = time;
         baseCooltime = time;
         _isCooleddown = true;

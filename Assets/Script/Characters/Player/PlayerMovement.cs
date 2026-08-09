@@ -252,7 +252,7 @@ public class PlayerMovement : BaseCharacterMovement
     IEnumerator BlinkCooltimeChk(float cool)
     {
         Debug.Log("Cooltime start");
-        UIManager.Instance.Get<UIPlayerHUD>();
+        UIManager.Instance.Get<UIPlayerHUD>().SlotCooldown(cool, Types.EAbilityType.Blink);
 
         while (cool > 1.0f)
         {
