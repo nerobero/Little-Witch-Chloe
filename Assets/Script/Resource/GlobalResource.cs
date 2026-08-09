@@ -93,6 +93,7 @@ namespace Types
         MoveSpeedUp,
         AttackSpeedUp,
         Shield,
+        AntiPoisonFog,
 
         // Debuff
         AttackDown,

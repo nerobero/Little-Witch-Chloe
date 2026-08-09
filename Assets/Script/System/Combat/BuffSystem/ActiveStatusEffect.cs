@@ -53,6 +53,11 @@ public class ActiveStatusEffect
         remainingTime -= deltaTime;
     }
 
+    public void ExtendDuration(float amount)
+    {
+        remainingTime += amount;
+    }
+
     public virtual void Expire()
     {
         remainingTime = 0.0f; 

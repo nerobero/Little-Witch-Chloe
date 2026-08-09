@@ -145,11 +145,13 @@ public class BaseFSMAIController : MonoBehaviour
 
     public void AttackEnd()
     {
+        Debug.Log($"[FSM] AttackEnd called, _currentStrat={_currentStrat}");
         _currentStrat.AttackFinished();
     }
 
     private void HandleAttackEnd(bool success)
     {
+        Debug.Log($"[FSM] HandleAttackEnd called, success={success}");
         _isActing = false;
 
         _currentStrat.OnAttackComplete -= HandleAttackEnd; //unsubscribing since this attack is done.

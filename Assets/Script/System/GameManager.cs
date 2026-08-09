@@ -7,6 +7,11 @@ using Types;
 using UnityEngine;
 public class GameManager : MonoSingletonBase<GameManager>
 {
+    [Header("Anti-Fog Moss Settings")]
+    [SerializeField] private StatusEffect antiPoisonFogEffect;
+    private const int AntiFogMossCountPerActivation = 5;
+    private int _antiFogMossBatchCount = 0;
+    private ActiveStatusEffect _activeAntiPoisonFogEffect;
 
     // Unlocked levels during gameplay (excluding Intro and MainGame)
     private HashSet<ELevelType> unlockedLevels = new HashSet<ELevelType>();
@@ -97,7 +102,35 @@ public class GameManager : MonoSingletonBase<GameManager>
             _objectives[ECollectable.AntiFogMossPatch]++;
         else _objectives.Add(ECollectable.AntiFogMossPatch, 1);
 
+        _antiFogMossBatchCount++;
+
+        if (_antiFogMossBatchCount >= AntiFogMossCountPerActivation)
+        {
+            _antiFogMossBatchCount = 0;
+            ActivateAntiPoisonFogBuff();
+        }
+
         return true;
+    }
+
+    private void ActivateAntiPoisonFogBuff()
+    {
+        PlayerStatManager playerStat = PlayerController.Instance?.GetComponent<PlayerStatManager>();
+
+        if (playerStat == null) return;
+
+        // if the buff is still active, extend the remaining time instead of stacking a new one.
+        if (_activeAntiPoisonFogEffect != null && _activeAntiPoisonFogEffect.remainingTime > 0f)
+        {
+            _activeAntiPoisonFogEffect.ExtendDuration(antiPoisonFogEffect.Duration);
+            return;
+        }
+
+        ActiveStatusEffect pooledEffect = PoolObjectManager.Instance.GetStatusEffect();
+        pooledEffect.SetEffect(antiPoisonFogEffect);
+
+        playerStat.BuffComp.Add(pooledEffect);
+        _activeAntiPoisonFogEffect = pooledEffect;
     }
 
     public bool OnCommHerbCollected(ECollectable type)

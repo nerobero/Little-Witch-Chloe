@@ -24,6 +24,10 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
     // cached from the prefab, since every pooled instance shares the same damage number
     private ISummonable _summonable;
 
+    // summoned instances from this attack that are still out in the world;
+    // forced back to the pool once the attack completes
+    private readonly List<GameObject> _activeSummons = new();
+
     public SummonAttackStrategy(MonoBehaviour owner, GameObject summonObj, float timeInterval, int poolSize, Vector3 position)
     {
         if (poolSize <= 0)
@@ -47,10 +51,6 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         {
             var obj = GameObject.Instantiate(summonObj);
             obj.SetActive(false);
-            
-            var returner = obj.AddComponent<PooledSummonReturner>();
-            returner.OnReturned += () => Return(obj);
-
             _summonPool.Enqueue(obj);
         }
 
@@ -78,7 +78,7 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         }
 
         _summonRoutine = null;
-        OnAttackComplete?.Invoke(true);
+        AttackFinished();
     }
 
     private void Summon()
@@ -88,6 +88,7 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         var summonable = obj.GetComponent<ISummonable>();
         summonable?.SetInstigator(_owner.gameObject);
         summonable?.OnSummoned();
+        _activeSummons.Add(obj);
     }
     private GameObject Get()
     {
@@ -100,15 +101,20 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         return null;
     }
 
-    private void Return(GameObject toReturn)
-    {
-        toReturn.GetComponent<ISummonable>()?.OnReturnedToPool();
-        toReturn.SetActive(false);
-        _summonPool.Enqueue(toReturn);
-    }
-
     public bool AttackFinished()
     {
+        // force any summons still active from this attack back into the pool
+        foreach (var obj in _activeSummons)
+        {
+            if (obj != null)
+            {
+                obj.GetComponent<ISummonable>()?.OnReturnedToPool();
+                obj.SetActive(false);
+                _summonPool.Enqueue(obj);
+            }
+        }
+        _activeSummons.Clear();
+
         OnAttackComplete?.Invoke(true);
         return true;
     }

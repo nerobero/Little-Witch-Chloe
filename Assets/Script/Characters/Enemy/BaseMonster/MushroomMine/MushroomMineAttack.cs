@@ -4,6 +4,15 @@ using Types;
 public class MushroomMineAttack : EnemyAttack, ISummonable
 {
     private GameObject _owner;
+    private EnemyCharacterBase _stat;
+    private MushroomMineController _controller;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        _stat = GetComponent<EnemyCharacterBase>();
+        _controller = GetComponent<MushroomMineController>();
+    }
 
     public override void Attack(GameObject target)
     {
@@ -18,7 +27,11 @@ public class MushroomMineAttack : EnemyAttack, ISummonable
 
     public void OnSummoned() { }
 
-    public void OnReturnedToPool() { }
+    public void OnReturnedToPool()
+    {
+        _stat?.ResetState();
+        _controller?.ResetTrap();
+    }
 
     public void SetInstigator(GameObject instigator)
     {

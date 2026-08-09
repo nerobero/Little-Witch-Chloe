@@ -41,6 +41,9 @@ public class StatManager : MonoBehaviour, IDamageable
     // When blinking, the character is Invincible
     public bool IsBlink { get; protected set; }
 
+    // Immune to poison damage while the anti-poison fog buff is active
+    public bool IsPoisonImmune { get; protected set; }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected virtual void Awake()
     {
@@ -100,6 +103,12 @@ public class StatManager : MonoBehaviour, IDamageable
     /// <returns>dealt or not</returns>
     public virtual bool TakeDamage(GameObject instigator, float damageAmount, EElementType damageElement)
     {
+        if (IsPoisonImmune && damageElement == EElementType.Poison)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(OnDamageDeflected);
+            return false;
+        }
+
         float actualDamage = CalculateActualDamage(damageAmount, damageElement, mainCharacElement);
 
         if (IsDead || IsBlink || actualDamage <= 0.0f)
@@ -297,7 +306,7 @@ public class StatManager : MonoBehaviour, IDamageable
         switch(type)
         {
             case EStatusEffectType.AttackUp:
-            
+
             break;
             case EStatusEffectType.DefenseUp:
             break;
@@ -308,6 +317,11 @@ public class StatManager : MonoBehaviour, IDamageable
             case EStatusEffectType.Shield:
             break;
         }
+    }
+
+    public void SetPoisonImmune(bool isImmune)
+    {
+        IsPoisonImmune = isImmune;
     }
 
     public virtual void AddDebuff(EStatusEffectType type, float magnitude, GameObject instigator)
