@@ -339,6 +339,8 @@ namespace Data
 
         [SerializeField] protected Sprite icon;
         public Sprite Icon => icon;
+        [SerializeField] protected string effectName;
+        public string EffectName => effectName;
 
         /// <summary>
         /// The amount of buff/debuff(status) effect. (like N% slowed).
@@ -352,13 +354,14 @@ namespace Data
         //public float remainingTime { get; protected set;}
 
         public StatusEffect(MonoBehaviour owner, EStatusEffectType type, EStatusEffectCategory category,
-                            ECrowdControlType ccType, Sprite icon, float magnitude, float duration)
+                            ECrowdControlType ccType, Sprite icon, string effectName, float magnitude, float duration)
         {
             this.owner = owner;
             this.type = type;
             this.category = category;
             this.ccType = ccType;
             this.icon = icon;
+            this.effectName = effectName;
             this.magnitude = magnitude;
             this.duration = duration;
         }

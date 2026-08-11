@@ -4,7 +4,6 @@ using Types;
 public class MushroomMineAttack : EnemyAttack, ISummonable
 {
     private GameObject _owner;
-    private EnemyCharacterBase _stat;
     private MushroomMineController _controller;
 
     protected override void Awake()

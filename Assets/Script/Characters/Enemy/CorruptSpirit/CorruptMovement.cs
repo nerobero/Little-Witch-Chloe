@@ -111,9 +111,10 @@ public class CorruptMovement : EnemyMovement
     {
         ActiveStatusEffect pooledEffect = PoolObjectManager.Instance.GetStatusEffect();
         var stat = GetComponent<StatManager>();
+        Debug.Log("stunned");
 
-        StatusEffect effect = new  StatusEffect(stat, EStatusEffectType.Stun, EStatusEffectCategory.CrowdControl,
-                            ECrowdControlType.Stunned, null, time, time);
+        StatusEffect effect = new StatusEffect(stat, EStatusEffectType.Stun, EStatusEffectCategory.CrowdControl,
+                            ECrowdControlType.Stunned, null, "Stunned", time, time);
 
         pooledEffect.SetEffect(effect);
         pooledEffect.SetInstigator(this.gameObject);
