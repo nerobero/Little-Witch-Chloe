@@ -3,13 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Types;
+using Unity.VisualScripting;
 
 public class ProjectileAttackStrategy : IEnemyAttackStrategy
 {
     public event Action<bool> OnAttackComplete;
 
     private readonly MonoBehaviour _owner;
-    private readonly Transform _firePoint;
+    private Transform _firePoint;
+    private Vector2 _aimDir = Vector2.up;
+    private float _aimAngleDeg = 0f;
+    private float _orbitRadius = 1f;
     private readonly ESpawnType _projectileType;
     private readonly float _timeInterval;
     private readonly float _damageAmount;
@@ -25,7 +29,7 @@ public class ProjectileAttackStrategy : IEnemyAttackStrategy
     private readonly List<ProjectileBase> _activeProjectiles = new();
 
     public ProjectileAttackStrategy(MonoBehaviour owner, Transform firePoint, ESpawnType projType,
-                                    float timeInterval, float damageAmount, int shootCount,
+                                    float timeInterval, float damageAmount, int shootCount, float orbitRadius,
                                     bool firedAtBackground = false)
     {
         _owner = owner;
@@ -34,6 +38,7 @@ public class ProjectileAttackStrategy : IEnemyAttackStrategy
         _timeInterval = timeInterval;
         _damageAmount = damageAmount;
         _shootCount = shootCount;
+        _orbitRadius = orbitRadius;
         _firedAtBackground = firedAtBackground;
     }
 
@@ -66,20 +71,24 @@ public class ProjectileAttackStrategy : IEnemyAttackStrategy
     {
         if (_target == null) return;
 
-        var (_, aimAngle) = SetAimDirection(_firePoint.position, _target.transform.position);
+        SetAimDirection(_firePoint.position, _target.transform.position);
 
         var projectile = PoolObjectManager.Instance.Get(_projectileType).GetComponent<ProjectileBase>();
         var instigatorStat = _instigator.GetComponent<StatManager>();
 
-        projectile.OnFired(_firePoint, aimAngle, _damageAmount, _firedAtBackground, _instigator, instigatorStat);
+        projectile.OnFired(_firePoint, _aimAngleDeg, _damageAmount, _firedAtBackground, _instigator, instigatorStat);
         _activeProjectiles.Add(projectile);
     }
 
-    private (Vector2 direction, float angleDeg) SetAimDirection(Vector3 instigatorPos, Vector3 targetPos)
+    private void SetAimDirection(Vector3 instigatorPos, Vector3 targetPos)
     {
-        Vector2 aimDirection = ((Vector2)(targetPos - instigatorPos)).normalized;
-        float aimAngleDeg = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
-        return (aimDirection, aimAngleDeg);
+        Vector2 rawAimDir = (Vector2)(targetPos - instigatorPos);
+        _aimDir = Vector2.Normalize(rawAimDir);
+        
+        _aimAngleDeg = Mathf.Atan2(_aimDir.y, _aimDir.x) * Mathf.Rad2Deg;
+        _firePoint.position = (Vector2) _owner.gameObject.transform.position 
+                                        + _aimDir * _orbitRadius;
+        _firePoint.rotation = Quaternion.Euler(0,0,_aimAngleDeg - 90f);
     }
 
     public bool AttackFinished()
