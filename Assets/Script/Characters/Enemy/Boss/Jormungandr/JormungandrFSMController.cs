@@ -13,12 +13,13 @@ public class JormungandrFSMController : BaseFSMAIController
     public GameObject tailObject;
     [SerializeField] private int tailSummonCount = 1;
     [SerializeField] private float tailSummonTimeInterval = 1.5f;
-    public Transform summonRoot;
+    public Transform tailSummonRoot;
 
     [Header("Mushroom mine summon")]
     public GameObject mushroomPrefab;
     [SerializeField] private int mushroomSummonCount = 1;
     [SerializeField] private float shroomSummonTimeInterval = 1.5f;
+    public Transform shroomSummonRoot;
 
     [Header("Animator - Flower")]
     public Animator flowerAnimator;
@@ -108,11 +109,11 @@ public class JormungandrFSMController : BaseFSMAIController
         );
         attacklist["summon1"] = new AttackEntry(
             Animator.StringToHash("Summon"),
-            new SummonAttackStrategy(this, mushroomPrefab, shroomSummonTimeInterval, mushroomSummonCount,summonRoot.position)
+            new SummonAttackStrategy(this, mushroomPrefab, shroomSummonTimeInterval, mushroomSummonCount, shroomSummonRoot.position)
         );
         attacklist["summon2"] = new AttackEntry(
             Animator.StringToHash("Summon"),
-            new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, summonRoot.position)
+            new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, tailSummonRoot.position)
         );
         // attacklist["statusEffect"] = new AttackEntry(
         //     Animator.StringToHash("StatusEffect"),

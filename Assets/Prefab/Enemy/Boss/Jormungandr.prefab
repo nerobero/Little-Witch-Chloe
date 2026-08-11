@@ -63,12 +63,13 @@ MonoBehaviour:
   viewHeight: 10
   mouth: {fileID: 827937729307985703}
   tailObject: {fileID: 4154287721773258411, guid: 2d50f00c17714724eb32b2cfe58d9116, type: 3}
-  tailSummonCount: 1
+  tailSummonCount: 2
   tailSummonTimeInterval: 1.5
-  summonRoot: {fileID: 8712778569972941626}
+  tailSummonRoot: {fileID: 8712778569972941626}
   mushroomPrefab: {fileID: 2025196114555132397, guid: 9a7e896d13e1fa74897794bc9401f375, type: 3}
-  mushroomSummonCount: 1
+  mushroomSummonCount: 4
   shroomSummonTimeInterval: 1.5
+  shroomSummonRoot: {fileID: 0}
   flowerAnimator: {fileID: 2786573607476130584}
   HealthCurve:
     serializedVersion: 2
@@ -416,13 +417,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7360117915565711563}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.07, y: -0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7598581884716740003}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1818360608 &3371881061161115871
 PositionConstraint:
   m_ObjectHideFlags: 0
