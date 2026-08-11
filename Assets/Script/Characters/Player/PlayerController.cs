@@ -436,6 +436,8 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
             break;
 
         }
+
+        UIManager.Instance.Get<StatusEffectSlotContainer>().AddNewItem(effect);
     }
 
     //public void RemoveStatusEffect(EStatusEffectType type, float magnitude)

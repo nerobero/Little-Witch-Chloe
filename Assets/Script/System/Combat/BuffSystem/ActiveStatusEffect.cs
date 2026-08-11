@@ -1,6 +1,7 @@
 using UnityEngine;
 using Types;
 using Data;
+using System;
 
 public class ActiveStatusEffect
 {
@@ -10,6 +11,8 @@ public class ActiveStatusEffect
 
     public MonoBehaviour owner { get; private set; }
     public GameObject instigator { get; private set; }
+
+    public Action OnEffectExpired;
 
     public ActiveStatusEffect()
     {
@@ -68,6 +71,7 @@ public class ActiveStatusEffect
         Debug.Log("Removed");
         var receiver = target.GetComponent<IStatusEffect>();
         receiver?.RemoveStatusEffect(this);
+        OnEffectExpired?.Invoke();
 
         PoolObjectManager.Instance.ReturnStatusEffect(this);
     }
