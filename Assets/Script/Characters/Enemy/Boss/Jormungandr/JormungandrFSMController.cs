@@ -102,10 +102,10 @@ public class JormungandrFSMController : BaseFSMAIController
             Animator.StringToHash("Melee"),
             new MeleeAttackStrategy(mouth, radius: 5f, damageAmount: 1f, EElementType.Water)
         );
-        // attacklist["projectile"] = new AttackEntry(
-        //     Animator.StringToHash("Projectile"), 
-        //     new ProjectileAttackStrategy(this, mouth, ESpawnType.WaterBall, timeInterval: 1f, damageAmount: 3f, shootCount: 4)
-        // );
+        attacklist["projectile"] = new AttackEntry(
+            Animator.StringToHash("Projectile"), 
+            new ProjectileAttackStrategy(this, mouth, ESpawnType.WaterBall, timeInterval: 1f, damageAmount: 3f, orbitRadius: 5f, shootCount: 4)
+        );
         attacklist["summon1"] = new AttackEntry(
             Animator.StringToHash("Summon"),
             new SummonAttackStrategy(this, mushroomPrefab, shroomSummonTimeInterval, mushroomSummonCount,summonRoot.position)
