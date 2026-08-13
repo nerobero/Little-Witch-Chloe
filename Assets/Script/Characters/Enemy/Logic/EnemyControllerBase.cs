@@ -532,4 +532,18 @@ public class EnemyControllerBase : MonoBehaviour, IResetable, IStatusEffect
         }
     }
     #endregion
+
+    #region Stun
+    protected virtual void Stun()
+    {
+        enemyMove.SetCouldMove(false);
+        StopCoroutine(thinkRoutine);
+    }
+
+    protected virtual void StunFinished()
+    {
+        enemyMove.SetCouldMove(true);
+        thinkRoutine = StartCoroutine(ThinkRoutine());
+    }
+    #endregion
 }

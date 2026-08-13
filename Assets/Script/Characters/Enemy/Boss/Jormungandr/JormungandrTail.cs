@@ -7,6 +7,7 @@ public class JormungandrTail : MonoBehaviour, ISummonable
     [SerializeField] private ESpawnType spawnType;
     [SerializeField] private EElementType elementType;
     [SerializeField] private string fmodEventName = "";
+    private bool _isActive = true;
     
     private Collider2D _collider;
     private Rigidbody2D _projRB;
@@ -22,48 +23,60 @@ public class JormungandrTail : MonoBehaviour, ISummonable
         _projRB.gravityScale = 0f;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    // private void OnTriggerEnter2D(Collider2D other) 
+    // {
+    //     /*
+    //     1. call the TakeDamage(gameObject, dealtDamage) interface function 
+    //     2. change the anim state to collided.
+    //     3. call ReturnToPool()
+    //     */
+
+    //     Debug.Log($"Jormungandr tail Collided: {other.gameObject}");
+
+       
+
+    // }
+
+     // Call at the animation event
+    public void CheckHit()
     {
-        /*
-        1. call the TakeDamage(gameObject, dealtDamage) interface function 
-        2. change the anim state to collided.
-        3. call ReturnToPool()
-        */
+        if(!_isActive) return;
 
-        Debug.Log($"Collided: {other.gameObject}");
-
-        // Get instigator's layer name and collided object's layer name
-        string instigatorLayerName = LayerMask.LayerToName(_instigator.layer);
-
-        string targetLayerName = LayerMask.LayerToName(other.gameObject.layer);
-
-        // prevent team kill 
-        if (instigatorLayerName.Contains("Enemy"))
+        Collider2D[] results = Physics2D.OverlapBoxAll(
+            (Vector2)transform.position + GetComponent<BoxCollider2D>().offset,
+            GetComponent<BoxCollider2D>().size,
+            0f
+        );
+        
+        foreach (var col in results)
         {
-            if (targetLayerName.Contains("Enemy"))
+            // Get instigator's layer name and collided object's layer name
+            string instigatorLayerName = LayerMask.LayerToName(_instigator.layer);
+
+            string targetLayerName = LayerMask.LayerToName(col.gameObject.layer);
+
+            // // prevent team kill 
+            if (instigatorLayerName.Contains("Enemy"))
             {
-                Debug.Log("?");
-                return;
+                if (targetLayerName.Contains("Enemy"))
+                {
+                    Debug.Log("?");
+                    return;
+                }
+            }
+
+            //1. processing any potential damage:
+            var stats = col.gameObject.GetComponent<StatManager>();
+            if (stats != null)
+            {
+                if (stats.TakeDamageHelper(_instigator, dealtDamage, elementType))
+                {
+                    //2. stop movement and disable collider so it doesn't retrigger
+                    _projRB.linearVelocity = Vector2.zero;
+                    _isActive = false;
+                }
             }
         }
-
-        //1. processing any potential damage:
-        var stats = other.gameObject.GetComponent<StatManager>();
-        if (stats != null)
-        {
-            if (stats.TakeDamageHelper(_instigator, dealtDamage, elementType))
-            {
-                //2. stop movement and disable collider so it doesn't retrigger
-                _projRB.linearVelocity = Vector2.zero;
-                _collider.enabled = false;
-
-                //3. play collision animation and wait for it to finish before pooling
-                // TODO: once a collision animation clip exists, move this call to an
-                // Animation Event on that clip instead of calling it immediately.
-                OnCollisionFinished();
-            }
-        }
-
     }
 
     public void OnCollisionFinished()
@@ -76,6 +89,7 @@ public class JormungandrTail : MonoBehaviour, ISummonable
     {
         _instigatorCollider = Instigator.GetComponent<Collider2D>();
         _instigator = Instigator;
+        _isActive = true;
 
         if (_collider != null && _instigatorCollider != null)
         {
@@ -95,7 +109,8 @@ public class JormungandrTail : MonoBehaviour, ISummonable
 
     public void OnSummoned()
     {
-        if (_collider != null) _collider.enabled = true;
+        //if (_collider != null) _collider.enabled = true;
+        _isActive = true;
     }
 
     public void OnReturnedToPool()
