@@ -157,7 +157,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 282
+      y: 838
       width: 480
       height: 210
     spriteID: a0223b40b3327ac31bf0a2b90c4a1afc
@@ -168,7 +168,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 282}
+    uvTransform: {x: 4, y: 838}
   - name: CloudSprites
     originalName: 
     pivot: {x: 0.094827555, y: -1.8536584}
@@ -177,8 +177,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 910
+      x: 658
+      y: 4
       width: 232
       height: 82
     spriteID: 7cb346ec244047b008a59ec7849ad603
@@ -189,7 +189,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 910}
+    uvTransform: {x: 658, y: 4}
   - name: MidParallax
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -199,7 +199,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 764
+      y: 1924
       width: 480
       height: 78
     spriteID: 3657320089601ce50826f0d4f1f4705d
@@ -210,7 +210,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 764}
+    uvTransform: {x: 4, y: 1924}
   - name: FrontParallax
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -219,8 +219,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 850
+      x: 492
+      y: 332
       width: 480
       height: 52
     spriteID: 1b0b49ecd3a97389994fe1ea2392e814
@@ -231,7 +231,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 850}
+    uvTransform: {x: 492, y: 332}
   - name: BackParallax
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -241,7 +241,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 656
+      y: 1816
       width: 480
       height: 100
     spriteID: 8e9359783d442ec13b37b19e9602e77f
@@ -252,8 +252,155 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 656}
-  - name: Atmospheric
+    uvTransform: {x: 4, y: 1816}
+  - name: Ground
+    originalName: 
+    pivot: {x: 0.49685538, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 264
+      width: 477
+      height: 60
+    spriteID: 48bba1dbd4e1c42c794a6426a465911f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 492, y: 264}
+  - name: Trunk
+    originalName: 
+    pivot: {x: 0.2048611, y: -0.15879829}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1334
+      width: 288
+      height: 233
+    spriteID: 67517b99b7ecbab3587be9c6a571e075
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1334}
+  - name: Trunk2
+    originalName: 
+    pivot: {x: 0.5104167, y: -0.15879829}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1575
+      width: 288
+      height: 233
+    spriteID: 864a33673c46e8318abd53a8379b6ada
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1575}
+  - name: bottom
+    originalName: 
+    pivot: {x: 0.5122494, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 392
+      width: 449
+      height: 35
+    spriteID: b485d564f3485962e93f95207cfbcaa9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 492, y: 392}
+  - name: TreeTrunk
+    originalName: 
+    pivot: {x: 0.5189873, y: -0.071428575}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 4
+      width: 158
+      height: 252
+    spriteID: 9d33f96394df1acb08e2ba17575f60e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 492, y: 4}
+  - name: Trunk2
+    originalName: 
+    pivot: {x: -0.10050256, y: -0.011235955}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 283
+      y: 1056
+      width: 199
+      height: 267
+    spriteID: 79e18c14258e032fab303cada48e7d36
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 283, y: 1056}
+  - name: tree1
+    originalName: 
+    pivot: {x: 0.65682656, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1056
+      width: 271
+      height: 270
+    spriteID: 10e7ae266787de712a375f5de244cb90
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1056}
+  - name: Tree3
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -262,10 +409,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 500
+      y: 282
       width: 480
-      height: 148
-    spriteID: 3a0b05ed1742dcaa1860c8431d7c3b34
+      height: 270
+    spriteID: e69279832c8c5c44b9dc5da3b1363a1d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -273,7 +420,49 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 500}
+    uvTransform: {x: 4, y: 282}
+  - name: Tree2
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 560
+      width: 480
+      height: 270
+    spriteID: 81cfef05d1da71a31900c3ea6751d446
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 560}
+  - name: chloe
+    originalName: 
+    pivot: {x: 7.9615383, y: -0.96774197}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 980
+      y: 332
+      width: 26
+      height: 31
+    spriteID: bdb34f3cdf91c0445a5ae7a0977e4960
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 980, y: 332}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
@@ -418,31 +607,6 @@ ScriptedImporter:
     tileCells: []
     tileSetIndex: 0
     parentIndex: -1
-  - layerIndex: 6
-    uuid:
-      value0: 2092764013
-      value1: 0
-      value2: 0
-      value3: 0
-    guid: 0
-    name: Atmospheric
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: Atmospheric
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 0
-        width: 480
-        height: 148
-      spriteId: 3a0b05ed1742dcaa1860c8431d7c3b34
-    linkedCells: []
-    tileCells: []
-    tileSetIndex: 0
-    parentIndex: -1
   - layerIndex: 7
     uuid:
       value0: 3084133754
@@ -464,6 +628,320 @@ ScriptedImporter:
         width: 480
         height: 52
       spriteId: 1b0b49ecd3a97389994fe1ea2392e814
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 8
+    uuid:
+      value0: 3510864737
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Trees
+    layerFlags: 3
+    layerType: 1
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 9
+    uuid:
+      value0: 1149460293
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Background Trees
+    layerFlags: 3
+    layerType: 1
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 8
+  - layerIndex: 10
+    uuid:
+      value0: 4281784651
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Ground
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Ground
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 3
+        y: 0
+        width: 477
+        height: 60
+      spriteId: 48bba1dbd4e1c42c794a6426a465911f
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 9
+  - layerIndex: 11
+    uuid:
+      value0: 701500272
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Trunk
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Trunk
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 181
+        y: 37
+        width: 288
+        height: 233
+      spriteId: 67517b99b7ecbab3587be9c6a571e075
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 9
+  - layerIndex: 12
+    uuid:
+      value0: 3501480994
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Trunk2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Trunk2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 93
+        y: 37
+        width: 288
+        height: 233
+      spriteId: 864a33673c46e8318abd53a8379b6ada
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 9
+  - layerIndex: 13
+    uuid:
+      value0: 3382066440
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Midground Trees
+    layerFlags: 35
+    layerType: 1
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 8
+  - layerIndex: 14
+    uuid:
+      value0: 847067586
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: bottom
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: bottom
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 10
+        y: 0
+        width: 449
+        height: 35
+      spriteId: b485d564f3485962e93f95207cfbcaa9
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 13
+  - layerIndex: 15
+    uuid:
+      value0: 4038593977
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: TreeTrunk
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: TreeTrunk
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 158
+        y: 18
+        width: 158
+        height: 252
+      spriteId: 9d33f96394df1acb08e2ba17575f60e8
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 13
+  - layerIndex: 16
+    uuid:
+      value0: 903214841
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Trunk2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Trunk2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 260
+        y: 3
+        width: 199
+        height: 267
+      spriteId: 79e18c14258e032fab303cada48e7d36
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 13
+  - layerIndex: 17
+    uuid:
+      value0: 3869596592
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Foreground Trees
+    layerFlags: 3
+    layerType: 1
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 8
+  - layerIndex: 18
+    uuid:
+      value0: 1164319528
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: tree1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: tree1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 62
+        y: 0
+        width: 271
+        height: 270
+      spriteId: 10e7ae266787de712a375f5de244cb90
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 17
+  - layerIndex: 19
+    uuid:
+      value0: 1177995838
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree3
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree3
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 480
+        height: 270
+      spriteId: e69279832c8c5c44b9dc5da3b1363a1d
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 17
+  - layerIndex: 20
+    uuid:
+      value0: 2744079779
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 480
+        height: 270
+      spriteId: 81cfef05d1da71a31900c3ea6751d446
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 17
+  - layerIndex: 21
+    uuid:
+      value0: 2697342489
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: chloe
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: chloe
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 33
+        y: 30
+        width: 26
+        height: 31
+      spriteId: bdb34f3cdf91c0445a5ae7a0977e4960
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -498,4 +976,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 480, y: 270}
-  previousTextureSize: {x: 512, y: 1024}
+  previousTextureSize: {x: 1024, y: 2048}
