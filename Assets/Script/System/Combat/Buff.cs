@@ -88,6 +88,7 @@ public class Buff : MonoBehaviour
                     // Apply only if the duration of new one is greater than remaining time of current one.
                     if(remainTime >= effect.definition.Duration)
                     {
+                        PoolObjectManager.Instance.ReturnStatusEffect(effect);
                         return;
                     }
 
@@ -109,7 +110,7 @@ public class Buff : MonoBehaviour
                 if(m_ActiveStatusEffects.ContainsKey(effect.definition.Type))
                 {
                     m_ActiveStatusEffects[effect.definition.Type].ExtendDuration(effect.definition.Duration);
-
+                    PoolObjectManager.Instance.ReturnStatusEffect(effect);
                 }
                 else
                 {

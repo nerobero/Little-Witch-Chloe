@@ -7,7 +7,7 @@ using Types;
 /// </summary>
 public class AntiFogMossPatch : CollectableItemBase
 {
-    private void Awake()
+    protected override void Awake()
     {
         CollectType = ECollectable.AntiFogMossPatch;
     }
