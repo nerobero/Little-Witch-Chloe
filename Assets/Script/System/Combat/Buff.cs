@@ -11,6 +11,7 @@ public class Buff : MonoBehaviour
     public StatManager owner { get; private set; }
     //private Dictionary<EStatusEffectType, List<StatusEffect>> m_Buff = new Dictionary<EStatusEffectType, List<StatusEffect>>();
     private Dictionary<ECrowdControlType, ActiveStatusEffect> m_ActiveCCEffects = new();
+    private Dictionary<EStatusEffectType, ActiveStatusEffect> m_ActiveStatusEffects = new();
     //private List<ActiveStatusEffect> m_ActiveEffects = new();
 
     // This is for VFX(but we do not use maybe)
@@ -105,9 +106,19 @@ public class Buff : MonoBehaviour
             break;
             // Buff & Debuff
             default:
-                effect.SetOwner(this);
+                if(m_ActiveStatusEffects.ContainsKey(effect.definition.Type))
+                {
+                    m_ActiveStatusEffects[effect.definition.Type].ExtendDuration(effect.definition.Duration);
+
+                }
+                else
+                {
+                    effect.SetOwner(this);
+                    m_ActiveCCEffects.Add(effect.definition.CCType, effect);
+
+                    effect.Apply(owner);
+                }
                 //m_ActiveEffects.Add(effect);
-                effect.Apply(owner);
             break;
         }
 

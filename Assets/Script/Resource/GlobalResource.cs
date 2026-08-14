@@ -100,6 +100,7 @@ namespace Types
         DefenseDown,
         Slow,
         AttackSpeedDown,
+        Poison,
         //Bleeding,
 
         // Crowd Control
