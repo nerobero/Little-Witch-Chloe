@@ -8,6 +8,9 @@ using System;
 public class BossEnemyStatManager : EnemyCharacterBase
 {
     [SerializeField] private BossWeakPointStat weakPointStat;
+    [SerializeField] private float damage;
+    [SerializeField] private float damageInterval = 1f;
+    private float lastDamageTime = 0f;
 
     public Action<float> onStunned;
 
@@ -36,6 +39,17 @@ public class BossEnemyStatManager : EnemyCharacterBase
 
     //     return true;
     // }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        Debug.Log("[Jormungandr]" + collision);
+        if (LayerMask.LayerToName(collision.gameObject.layer).Contains("Player")
+        && Time.time >= lastDamageTime + damageInterval)
+        {
+            collision.gameObject.GetComponent<PlayerStatManager>().TakeDamageHelper(gameObject, damage, EElementType.None);
+            lastDamageTime = Time.time;
+        }
+    }
 
     public override void Death()
     {
