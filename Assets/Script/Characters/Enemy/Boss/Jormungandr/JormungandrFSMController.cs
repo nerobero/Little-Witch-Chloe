@@ -1,8 +1,6 @@
 using UnityEngine;
 using Types;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.Multiplayer.PlayMode;
 
 public class JormungandrFSMController : BaseFSMAIController
 {
@@ -20,6 +18,14 @@ public class JormungandrFSMController : BaseFSMAIController
     [SerializeField] private int mushroomSummonCount = 1;
     [SerializeField] private float shroomSummonTimeInterval = 1.5f;
     public Transform shroomSummonRoot;
+
+    [Header("Poison Fog summon")]
+    public GameObject poisonPrefab;
+    [SerializeField] private int fogSummonCount = 3;
+    [SerializeField] private float fogSummontimeInterval = 1.5f;
+    [SerializeField] private float summonRadius = 3f;
+    public Transform summonRoot;
+
 
     [Header("Animator - Flower")]
     public Animator flowerAnimator;
@@ -115,10 +121,10 @@ public class JormungandrFSMController : BaseFSMAIController
             Animator.StringToHash("Summon"),
             new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, tailSummonRoot.position)
         );
-        // attacklist["statusEffect"] = new AttackEntry(
-        //     Animator.StringToHash("StatusEffect"),
-        //      new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, summonRoot.position) // <-- TODO: CHANGE
-        // );
+        attacklist["statusEffect"] = new AttackEntry(
+            Animator.StringToHash("StatusEffect"),
+            new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, summonRoot.position) // <-- TODO: CHANGE
+        );
     }
 
     public void EnableFlower()

@@ -15,6 +15,9 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
     // the root position, may add arbitrary alpha values to randomize the position
     private Vector3 _summonPosition;
 
+    // radius around _summonPosition within which each summon's spawn point is randomized
+    private float _orbitRadius = 0f;
+
     private int _poolSize => _summonPool.Count;
 
     // owner used to run the summon coroutine, since this strategy is a plain C# class
@@ -57,6 +60,13 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         _summonPosition = position;
 
     }
+
+    public SummonAttackStrategy(MonoBehaviour owner, GameObject summonObj, float timeInterval, int poolSize, Vector3 position, float orbitRadius)
+        : this(owner, summonObj, timeInterval, poolSize, position)
+    {
+        _orbitRadius = orbitRadius;
+    }
+
     public bool Attack(GameObject instigator, GameObject target, bool useLastTarget = false)
     {
         if (_poolSize <= 0) return false;
@@ -84,7 +94,8 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
     private void Summon()
     {
         var obj = Get();
-        obj.transform.position = _summonPosition;
+        Vector2 randomOffset = UnityEngine.Random.insideUnitCircle * _orbitRadius;
+        obj.transform.position = _summonPosition + new Vector3(randomOffset.x, randomOffset.y, 0f);
         var summonable = obj.GetComponent<ISummonable>();
         summonable?.SetInstigator(_owner.gameObject);
         summonable?.OnSummoned();
