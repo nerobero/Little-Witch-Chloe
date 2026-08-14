@@ -105,6 +105,18 @@ public class ProjectileAttackStrategy : IEnemyAttackStrategy
         return true;
     }
 
+     public bool AttackInturrupted()
+    {
+        if(_projectileRoutine != null)
+        {
+            _owner.StopCoroutine(_projectileRoutine);
+            _projectileRoutine = null;
+        }
+
+        OnAttackComplete?.Invoke(false);
+        return true;
+    }
+
     public float GetDamageNumber()
     {
         return _damageAmount * _shootCount;

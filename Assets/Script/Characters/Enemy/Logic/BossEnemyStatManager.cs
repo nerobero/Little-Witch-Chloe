@@ -45,15 +45,34 @@ public class BossEnemyStatManager : EnemyCharacterBase
 
     public void KnockedDown()
     {
+        Debug.Log("Knockdown?");
         TakeDamage(this.gameObject, weakPointStat.MaxHP * 2, EElementType.None);
         
         // hard coding? <= should change
-        onStunned?.Invoke(2f);
+        // onStunned?.Invoke(2f);
+        ActiveStatusEffect pooledEffect = PoolObjectManager.Instance.GetStatusEffect();
+        var stat = GetComponent<StatManager>();
+        Debug.Log("stunned");
+
+        StatusEffect effect = new StatusEffect(stat, EStatusEffectType.Stun, EStatusEffectCategory.CrowdControl,
+                            ECrowdControlType.Stunned, null, "Stunned", 2f, 2f);
+
+        pooledEffect.SetEffect(effect);
+        pooledEffect.SetInstigator(this.gameObject);
+
+        // 2. Adjust the debuff(stun)
+        stat.BuffComp.Add(pooledEffect);
     }
 
     public override void ResetState()
     {
         base.ResetState();
+        if(weakPointStat.IsDead)
+        {
+            weakPointStat.gameObject.SetActive(true);
+        }
+        
+        weakPointStat.OnDeath += KnockedDown;
         weakPointStat.ResetState();
     }
 }

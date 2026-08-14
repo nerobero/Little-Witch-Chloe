@@ -119,6 +119,18 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         return true;
     }
 
+    public bool AttackInturrupted()
+    {
+        if(_summonRoutine != null)
+        {
+            _owner.StopCoroutine(_summonRoutine);
+            _summonRoutine = null;
+        }
+
+        OnAttackComplete?.Invoke(false);
+        return true;
+    }
+
     public void Dispose()
     {
         if (_summonRoutine != null && _owner != null)

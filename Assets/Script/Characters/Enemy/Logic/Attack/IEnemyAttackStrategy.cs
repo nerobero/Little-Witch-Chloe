@@ -11,5 +11,7 @@ public interface IEnemyAttackStrategy
     public bool Attack(GameObject instigator, GameObject target, bool useLastTarget = false);
     public bool AttackFinished();
 
+    public bool AttackInturrupted();
+
     public float GetDamageNumber();
 }

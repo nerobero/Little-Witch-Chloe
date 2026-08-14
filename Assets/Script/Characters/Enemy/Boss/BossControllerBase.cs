@@ -53,5 +53,15 @@ public class BossControllerBase : EnemyControllerBase
     {
         enemyAttack.Rampage();
     }
+
+    protected override void Stun()
+    {
+        base.Stun();
+    }
+
+    protected override void StunFinished()
+    {
+        base.StunFinished();
+    }
 }
 // Collider hit box script? => hit detect => call damage? Two state synchronize the HP? <= event dispatcher? 

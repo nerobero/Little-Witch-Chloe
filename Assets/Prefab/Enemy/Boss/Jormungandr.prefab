@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3016008214687807837}
   - component: {fileID: 3938055620756108778}
   - component: {fileID: 2149558293211233174}
+  - component: {fileID: 3072893440141706404}
   m_Layer: 14
   m_Name: Jormungandr
   m_TagString: Untagged
@@ -330,6 +331,18 @@ MonoBehaviour:
   OnTakenDamageEvent: 
   CrowdControl: 0
   weakPointStat: {fileID: 8618553200119794830}
+--- !u!114 &3072893440141706404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779692793529888941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5da357651daef442824f16ad72c2e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Buff
 --- !u!1 &3099675761454206212
 GameObject:
   m_ObjectHideFlags: 0
