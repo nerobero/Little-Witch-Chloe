@@ -71,6 +71,11 @@ MonoBehaviour:
   mushroomSummonCount: 4
   shroomSummonTimeInterval: 1.5
   shroomSummonRoot: {fileID: 0}
+  poisonPrefab: {fileID: 336138480100789427, guid: 23cbae6cdfcdc264aa75f5bbfa2b3120, type: 3}
+  fogSummonCount: 3
+  fogSummontimeInterval: 1.5
+  summonRadius: 3
+  summonRoot: {fileID: 199196737950297765}
   flowerAnimator: {fileID: 2786573607476130584}
   HealthCurve:
     serializedVersion: 2
@@ -332,6 +337,7 @@ MonoBehaviour:
   CrowdControl: 0
   weakPointStat: {fileID: 8618553200119794830}
   damage: 1
+  damageInterval: 1
 --- !u!114 &3072893440141706404
 MonoBehaviour:
   m_ObjectHideFlags: 0
