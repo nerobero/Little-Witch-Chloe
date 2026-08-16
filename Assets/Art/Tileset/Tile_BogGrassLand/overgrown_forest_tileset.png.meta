@@ -9171,42 +9171,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: overgrown_forest_tileset_294
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 24
-        width: 16
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline:
-      - - {x: -8, y: -4}
-        - {x: -8, y: 4}
-        - {x: 8, y: 4}
-        - {x: 8, y: -4}
-      physicsShape:
-      - - {x: 8, y: -1}
-        - {x: -4, y: -1}
-        - {x: -7, y: -3}
-        - {x: -7, y: -4}
-        - {x: 8, y: -4}
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac95294c6f4012e48a6e31338f6fd9f0
-      internalID: -1852667164
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: overgrown_forest_tileset_295
       rect:
         serializedVersion: 2
-        x: 128
-        y: 24
+        x: 160
+        y: 32
         width: 16
         height: 8
       alignment: 0
@@ -9220,7 +9189,7 @@ TextureImporter:
         - {x: 8, y: -4}
       physicsShape:
       - - {x: 8, y: -1}
-        - {x: -8, y: -1}
+        - {x: -2, y: -1}
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       tessellationDetail: 0
@@ -9250,8 +9219,8 @@ TextureImporter:
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       physicsShape:
-      - - {x: 8, y: -1}
-        - {x: -8, y: -1}
+      - - {x: 8, y: 4}
+        - {x: -8, y: -4}
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       tessellationDetail: 0
@@ -9280,10 +9249,10 @@ TextureImporter:
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       physicsShape:
-      - - {x: 1, y: -1}
-        - {x: -8, y: -1}
+      - - {x: 8, y: 4}
+        - {x: -8, y: 4}
         - {x: -8, y: -4}
-        - {x: 1, y: -4}
+        - {x: 8, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: 7773e7e28d57bc04f8084d4779b5d341
@@ -9491,12 +9460,7 @@ TextureImporter:
         - {x: -8, y: 4}
         - {x: 8, y: 4}
         - {x: 8, y: -4}
-      physicsShape:
-      - - {x: 8, y: -1}
-        - {x: -4, y: -1}
-        - {x: -7, y: -3}
-        - {x: -7, y: -4}
-        - {x: 8, y: -4}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: c1affed7da8974b41bc9ad5c32ef4813
@@ -9509,8 +9473,8 @@ TextureImporter:
       name: overgrown_forest_tileset_305
       rect:
         serializedVersion: 2
-        x: 304
-        y: 24
+        x: 336
+        y: 32
         width: 16
         height: 8
       alignment: 0
@@ -9524,7 +9488,7 @@ TextureImporter:
         - {x: 8, y: -4}
       physicsShape:
       - - {x: 8, y: -1}
-        - {x: -8, y: -1}
+        - {x: -3, y: -1}
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       tessellationDetail: 0
@@ -9554,8 +9518,8 @@ TextureImporter:
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       physicsShape:
-      - - {x: 8, y: -1}
-        - {x: -8, y: -1}
+      - - {x: 8, y: 4}
+        - {x: -8, y: -4}
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       tessellationDetail: 0
@@ -9584,10 +9548,10 @@ TextureImporter:
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       physicsShape:
-      - - {x: 1, y: -1}
-        - {x: -8, y: -1}
+      - - {x: 8, y: 4}
+        - {x: -8, y: 4}
         - {x: -8, y: -4}
-        - {x: 1, y: -4}
+        - {x: 8, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: 47eb286fe6106f5439002d1be489a388
@@ -9829,9 +9793,8 @@ TextureImporter:
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       physicsShape:
-      - - {x: 8, y: 4}
-        - {x: -7, y: 4}
-        - {x: -8, y: 3}
+      - - {x: 8, y: -1}
+        - {x: -8, y: -1}
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       tessellationDetail: 0
@@ -9861,7 +9824,8 @@ TextureImporter:
         - {x: 8, y: -4}
       physicsShape:
       - - {x: 8, y: 4}
-        - {x: -8, y: 4}
+        - {x: -1, y: -1}
+        - {x: -8, y: -1}
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       tessellationDetail: 0
@@ -9920,10 +9884,10 @@ TextureImporter:
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       physicsShape:
-      - - {x: 1, y: 4}
+      - - {x: 8, y: 4}
         - {x: -8, y: 4}
         - {x: -8, y: -4}
-        - {x: 1, y: -4}
+        - {x: 8, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: 2c2bfff3898e7fd4aba34134b3f403b4
@@ -10165,9 +10129,8 @@ TextureImporter:
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       physicsShape:
-      - - {x: 8, y: 4}
-        - {x: -7, y: 4}
-        - {x: -8, y: 3}
+      - - {x: 8, y: -1}
+        - {x: -3, y: -1}
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       tessellationDetail: 0
@@ -10197,7 +10160,8 @@ TextureImporter:
         - {x: 8, y: -4}
       physicsShape:
       - - {x: 8, y: 4}
-        - {x: -8, y: 4}
+        - {x: -2, y: -1}
+        - {x: -8, y: -1}
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       tessellationDetail: 0
@@ -10256,10 +10220,10 @@ TextureImporter:
         - {x: -8, y: -4}
         - {x: 8, y: -4}
       physicsShape:
-      - - {x: 1, y: 4}
+      - - {x: 8, y: 4}
         - {x: -8, y: 4}
         - {x: -8, y: -4}
-        - {x: 1, y: -4}
+        - {x: 8, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: ce6886830575e0d45817e17c577b3cc2
