@@ -22,7 +22,13 @@ public class UnlockScrollItem : ScrollItem
             return false;
         }
 
+        bool unlocked = GameManager.Instance.OnScrollCollected(_unlockType);
 
-        return GameManager.Instance.OnScrollCollected(_unlockType);
+        if(unlocked)
+        {
+            UIManager.Instance.Get<UIPlayerHUD>().UpdateSkillList(_unlockType);
+        }
+
+        return unlocked;
     }
 }

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: BlindedEffect
   m_EditorClassIdentifier: Assembly-CSharp:Data:StatusEffect
   owner: {fileID: 0}
-  type: 16
+  type: 17
   category: 2
   ccType: 8
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: c9a7d088cbd932b4e933466d3a06c4e8, type: 3}
+  effectName: Blinded
   magnitude: 0
   duration: 5

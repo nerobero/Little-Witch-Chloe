@@ -399,6 +399,9 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
             case EStatusEffectType.Slow:
                 _playerMove.ReduceSpeedMultiplier(effect.definition.Magnitude);
             break;
+            case EStatusEffectType.AntiPoisonFog:
+                _playerStat.SetPoisonImmune(true);
+            break;
 
             // Not implemented
             case EStatusEffectType.DefenseUp:
@@ -433,6 +436,8 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
             break;
 
         }
+
+        UIManager.Instance.Get<StatusEffectSlotContainer>().AddNewItem(effect);
     }
 
     //public void RemoveStatusEffect(EStatusEffectType type, float magnitude)
@@ -458,13 +463,16 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
             case EStatusEffectType.Slow:
                 _playerMove.AddSpeedMultiplier(effect.definition.Magnitude);
             break;
+            case EStatusEffectType.AntiPoisonFog:
+                _playerStat.SetPoisonImmune(false);
+            break;
 
             // Not implemented
             case EStatusEffectType.DefenseUp:
             case EStatusEffectType.Shield:
             case EStatusEffectType.DefenseDown:
             break;
-            
+
             // CC
             case EStatusEffectType.Stun:
                 StunFinished();

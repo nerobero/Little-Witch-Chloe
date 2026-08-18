@@ -37,7 +37,7 @@ public class PlayerAttack : MonoBehaviour
     private float _ATKTimeSnapshot = -1f;
     private float _chargedATKTimeSnapshot = -1f;
 
-    private Dictionary<ESpawnType, bool> _spellList = new Dictionary<ESpawnType, bool>()
+    [SerializeField] private Dictionary<ESpawnType, bool> _spellList = new Dictionary<ESpawnType, bool>()
     {
         {ESpawnType.FireBall, true}, {ESpawnType.WaterBall, true},
         {ESpawnType.ElectricBall, false}, {ESpawnType.PoisonBall, false}, {ESpawnType.LightBall, false}
@@ -70,6 +70,7 @@ public class PlayerAttack : MonoBehaviour
     {
         foreach(var (spell, active) in _spellList)
         {
+            Debug.Log(spell + "is " + active);
             if(active)
             {
                 UIManager.Instance.Get<UIPlayerHUD>().UpdateProjectileList(spell);

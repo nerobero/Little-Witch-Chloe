@@ -45,26 +45,27 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
     private async void LoadLevelAdditively(ELevelType levelType)
     {
-        _progressBar.value = 0.0f;
-        Debug.Log(levelType);
-        var scene = SceneManager.LoadSceneAsync((int)levelType, LoadSceneMode.Additive);
+        await SceneManager.LoadSceneAsync((int)levelType, LoadSceneMode.Additive);
+        // _progressBar.value = 0.0f;
+        // Debug.Log(levelType);
+        // var scene = SceneManager.LoadSceneAsync((int)levelType, LoadSceneMode.Additive);
 
-        scene.allowSceneActivation = false;
-        _loaderCanvas.SetActive(true);
+        // scene.allowSceneActivation = false;
+        // _loaderCanvas.SetActive(true);
 
-        Debug.Log("_loaderCanvas activated");
+        // Debug.Log("_loaderCanvas activated");
 
-        do
-        {
-            await Task.Delay(100);
-            _progressBar.value = scene.progress;
-            Debug.Log(scene.progress);
-        } while(scene.progress < 0.9f);
+        // do
+        // {
+        //     await Task.Delay(100);
+        //     _progressBar.value = scene.progress;
+        //     Debug.Log(scene.progress);
+        // } while(scene.progress < 0.9f);
 
-        await Task.Delay(1000);
+        // await Task.Delay(1000);
 
-        scene.allowSceneActivation = true;
-        _loaderCanvas.SetActive(false);
+        // scene.allowSceneActivation = true;
+        // _loaderCanvas.SetActive(false);
     }
 
     public void RestartCurrentLevel()
@@ -103,13 +104,16 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         sceneBases[curlevel].Register(behaviour);
     }
 
-    public async void LoadScene(string sceneName)
+    public async void LoadScene(ELevelType levelType, ELevelType curLevelType)
     {
         _progressBar.value = 0.0f;
-        var scene = SceneManager.LoadSceneAsync(sceneName);
+        _loaderCanvas.SetActive(true);
+
+        await SceneManager.LoadSceneAsync((int)levelType);
+
+        var scene = SceneManager.LoadSceneAsync((int)curLevelType, LoadSceneMode.Additive);
         scene.allowSceneActivation = false;
 
-        _loaderCanvas.SetActive(true);
 
         do
         {

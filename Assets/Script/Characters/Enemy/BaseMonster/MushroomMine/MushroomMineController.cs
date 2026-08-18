@@ -31,6 +31,16 @@ public class MushroomMineController : BaseMonsterController
 
     }
 
+    /// <summary>
+    /// Resets the trap so it can detonate again once respawned from the pool.
+    /// </summary>
+    public void ResetTrap()
+    {
+        isExploded = false;
+        _hasTarget = false;
+        enemyState = EMonsterState.Idle;
+    }
+
     // Box collider enter logic => growing ;; Think about after growing, using blink but inside the collider(trigger); it should shrink
     // => Use Event 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -187,6 +197,6 @@ public class MushroomMineController : BaseMonsterController
 
         // Return to pool
         gameObject.SetActive(false);
-        
+
     }
 }

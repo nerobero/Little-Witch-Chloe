@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3016008214687807837}
   - component: {fileID: 3938055620756108778}
   - component: {fileID: 2149558293211233174}
+  - component: {fileID: 3072893440141706404}
   m_Layer: 14
   m_Name: Jormungandr
   m_TagString: Untagged
@@ -63,12 +64,18 @@ MonoBehaviour:
   viewHeight: 10
   mouth: {fileID: 827937729307985703}
   tailObject: {fileID: 4154287721773258411, guid: 2d50f00c17714724eb32b2cfe58d9116, type: 3}
-  tailSummonCount: 1
+  tailSummonCount: 2
   tailSummonTimeInterval: 1.5
-  summonRoot: {fileID: 8712778569972941626}
+  tailSummonRoot: {fileID: 8712778569972941626}
   mushroomPrefab: {fileID: 2025196114555132397, guid: 9a7e896d13e1fa74897794bc9401f375, type: 3}
-  mushroomSummonCount: 1
+  mushroomSummonCount: 4
   shroomSummonTimeInterval: 1.5
+  shroomSummonRoot: {fileID: 0}
+  poisonPrefab: {fileID: 336138480100789427, guid: 23cbae6cdfcdc264aa75f5bbfa2b3120, type: 3}
+  fogSummonCount: 3
+  fogSummontimeInterval: 1.5
+  summonRadius: 3
+  summonRoot: {fileID: 199196737950297765}
   flowerAnimator: {fileID: 2786573607476130584}
   HealthCurve:
     serializedVersion: 2
@@ -329,6 +336,20 @@ MonoBehaviour:
   OnTakenDamageEvent: 
   CrowdControl: 0
   weakPointStat: {fileID: 8618553200119794830}
+  damage: 1
+  damageInterval: 1
+--- !u!114 &3072893440141706404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779692793529888941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5da357651daef442824f16ad72c2e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Buff
 --- !u!1 &3099675761454206212
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,13 +437,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7360117915565711563}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.07, y: -0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7598581884716740003}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1818360608 &3371881061161115871
 PositionConstraint:
   m_ObjectHideFlags: 0

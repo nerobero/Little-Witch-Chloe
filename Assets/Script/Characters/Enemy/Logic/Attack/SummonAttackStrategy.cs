@@ -15,6 +15,9 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
     // the root position, may add arbitrary alpha values to randomize the position
     private Vector3 _summonPosition;
 
+    // radius around _summonPosition within which each summon's spawn point is randomized
+    private float _orbitRadius = 0f;
+
     private int _poolSize => _summonPool.Count;
 
     // owner used to run the summon coroutine, since this strategy is a plain C# class
@@ -23,6 +26,10 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
 
     // cached from the prefab, since every pooled instance shares the same damage number
     private ISummonable _summonable;
+
+    // summoned instances from this attack that are still out in the world;
+    // forced back to the pool once the attack completes
+    private readonly List<GameObject> _activeSummons = new();
 
     public SummonAttackStrategy(MonoBehaviour owner, GameObject summonObj, float timeInterval, int poolSize, Vector3 position)
     {
@@ -47,16 +54,19 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         {
             var obj = GameObject.Instantiate(summonObj);
             obj.SetActive(false);
-            
-            var returner = obj.AddComponent<PooledSummonReturner>();
-            returner.OnReturned += () => Return(obj);
-
             _summonPool.Enqueue(obj);
         }
 
         _summonPosition = position;
 
     }
+
+    public SummonAttackStrategy(MonoBehaviour owner, GameObject summonObj, float timeInterval, int poolSize, Vector3 position, float orbitRadius)
+        : this(owner, summonObj, timeInterval, poolSize, position)
+    {
+        _orbitRadius = orbitRadius;
+    }
+
     public bool Attack(GameObject instigator, GameObject target, bool useLastTarget = false)
     {
         if (_poolSize <= 0) return false;
@@ -78,16 +88,18 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         }
 
         _summonRoutine = null;
-        OnAttackComplete?.Invoke(true);
+        AttackFinished();
     }
 
     private void Summon()
     {
         var obj = Get();
-        obj.transform.position = _summonPosition;
+        Vector2 randomOffset = UnityEngine.Random.insideUnitCircle * _orbitRadius;
+        obj.transform.position = _summonPosition + new Vector3(randomOffset.x, randomOffset.y, 0f);
         var summonable = obj.GetComponent<ISummonable>();
         summonable?.SetInstigator(_owner.gameObject);
         summonable?.OnSummoned();
+        _activeSummons.Add(obj);
     }
     private GameObject Get()
     {
@@ -100,16 +112,33 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         return null;
     }
 
-    private void Return(GameObject toReturn)
-    {
-        toReturn.GetComponent<ISummonable>()?.OnReturnedToPool();
-        toReturn.SetActive(false);
-        _summonPool.Enqueue(toReturn);
-    }
-
     public bool AttackFinished()
     {
+        // force any summons still active from this attack back into the pool
+        foreach (var obj in _activeSummons)
+        {
+            if (obj != null)
+            {
+                obj.GetComponent<ISummonable>()?.OnReturnedToPool();
+                obj.SetActive(false);
+                _summonPool.Enqueue(obj);
+            }
+        }
+        _activeSummons.Clear();
+
         OnAttackComplete?.Invoke(true);
+        return true;
+    }
+
+    public bool AttackInturrupted()
+    {
+        if(_summonRoutine != null)
+        {
+            _owner.StopCoroutine(_summonRoutine);
+            _summonRoutine = null;
+        }
+
+        OnAttackComplete?.Invoke(false);
         return true;
     }
 

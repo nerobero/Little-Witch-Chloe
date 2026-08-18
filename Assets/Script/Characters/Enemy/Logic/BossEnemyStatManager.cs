@@ -8,6 +8,9 @@ using System;
 public class BossEnemyStatManager : EnemyCharacterBase
 {
     [SerializeField] private BossWeakPointStat weakPointStat;
+    [SerializeField] private float damage;
+    [SerializeField] private float damageInterval = 1f;
+    private float lastDamageTime = 0f;
 
     public Action<float> onStunned;
 
@@ -37,6 +40,17 @@ public class BossEnemyStatManager : EnemyCharacterBase
     //     return true;
     // }
 
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        Debug.Log("[Jormungandr]" + collision);
+        if (LayerMask.LayerToName(collision.gameObject.layer).Contains("Player")
+        && Time.time >= lastDamageTime + damageInterval)
+        {
+            collision.gameObject.GetComponent<PlayerStatManager>().TakeDamageHelper(gameObject, damage, EElementType.None);
+            lastDamageTime = Time.time;
+        }
+    }
+
     public override void Death()
     {
         base.Death();
@@ -45,15 +59,34 @@ public class BossEnemyStatManager : EnemyCharacterBase
 
     public void KnockedDown()
     {
+        Debug.Log("Knockdown?");
         TakeDamage(this.gameObject, weakPointStat.MaxHP * 2, EElementType.None);
         
         // hard coding? <= should change
-        onStunned?.Invoke(2f);
+        // onStunned?.Invoke(2f);
+        ActiveStatusEffect pooledEffect = PoolObjectManager.Instance.GetStatusEffect();
+        var stat = GetComponent<StatManager>();
+        Debug.Log("stunned");
+
+        StatusEffect effect = new StatusEffect(stat, EStatusEffectType.Stun, EStatusEffectCategory.CrowdControl,
+                            ECrowdControlType.Stunned, null, "Stunned", 2f, 2f);
+
+        pooledEffect.SetEffect(effect);
+        pooledEffect.SetInstigator(this.gameObject);
+
+        // 2. Adjust the debuff(stun)
+        stat.BuffComp.Add(pooledEffect);
     }
 
     public override void ResetState()
     {
         base.ResetState();
+        if(weakPointStat.IsDead)
+        {
+            weakPointStat.gameObject.SetActive(true);
+        }
+        
+        weakPointStat.OnDeath += KnockedDown;
         weakPointStat.ResetState();
     }
 }

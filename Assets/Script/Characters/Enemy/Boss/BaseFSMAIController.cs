@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Types;
 
 public struct AttackEntry
 {
@@ -17,7 +18,7 @@ public struct AttackEntry
 /// Base AIController class. Uses FSM pattern to determine the next move
 /// done by the owning agent
 /// </summary>
-public class BaseFSMAIController : MonoBehaviour
+public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
 {
     // key = attack strat type
     // value = attack entry (anim hash, strategy)
@@ -29,22 +30,26 @@ public class BaseFSMAIController : MonoBehaviour
 
     [Header("Animator - Main body")]
     public Animator _mainAnimator;
+    protected static readonly int IsStunned = Animator.StringToHash("IsStunned");
     public Transform _eyePoint;
 
     private bool _isActing = false;
 
     private bool _isActive = false;
+    private bool _isStunned = false;
 
     protected int _currentAnimHash;
 
     [Header("Cooldown time between action turn")]
     [SerializeField] protected float actionCooldown = 1f;
-    private float _nextActionTime = 0f;
+    private float _nextActionTime = 0f, _nextRecoveryTime = 0f;
 
     [Header("Detection")]
     public LayerMask playerLayer;
     [SerializeField] protected float viewDistance;
     [SerializeField] protected float viewHeight;
+
+    protected BossEnemyStatManager bossStat;
 
     private void Awake()
     {
@@ -56,7 +61,12 @@ public class BaseFSMAIController : MonoBehaviour
         Init();
     }
 
-    protected virtual void Init() { }
+    protected virtual void Init()
+    {
+        LevelManager.Instance.RegisterInstance(this);
+        bossStat = GetComponent<BossEnemyStatManager>();
+        bossStat.onStunned += Stun;
+    }
 
     protected virtual (int animTriggerHash, IEnemyAttackStrategy strat) ChooseNextStrategy()
     {
@@ -84,6 +94,7 @@ public class BaseFSMAIController : MonoBehaviour
     protected void Update()
     {
         // Debug.Log($"[FSM] Update tick, isActing={_isActing}");
+        if (_isStunned) return;
         if (_isActing || !_isActive) return; // if already acting, then no need to process the rest of logic.
         if (Time.time < _nextActionTime) return; //if in cooldown for this action turn, return
         if (_currentTarget == null) return;
@@ -143,13 +154,15 @@ public class BaseFSMAIController : MonoBehaviour
         _currentStrat.Attack(this.gameObject, _currentTarget);
     }
 
-    public void AttackEnd()
+    public void AttackComplete()
     {
+        Debug.Log($"[FSM] AttackEnd called, _currentStrat={_currentStrat}");
         _currentStrat.AttackFinished();
     }
 
     private void HandleAttackEnd(bool success)
     {
+        Debug.Log($"[FSM] HandleAttackEnd called, success={success}");
         _isActing = false;
 
         _currentStrat.OnAttackComplete -= HandleAttackEnd; //unsubscribing since this attack is done.
@@ -178,5 +191,134 @@ public class BaseFSMAIController : MonoBehaviour
     {
         if (animController != null)
             animController.SetTrigger(animTrig);
+    }
+
+     #region StatusEffect
+    public void ApplyStatusEffect(ActiveStatusEffect effect)
+    {
+        switch(effect.definition.Type)
+        {
+            case EStatusEffectType.AttackUp:
+            //    enemyAttack.AddDamageMultiplier(effect.definition.Magnitude);
+            break;
+            case EStatusEffectType.AttackDown:
+            //    enemyAttack.ReduceDamageMultiplier(effect.definition.Magnitude);
+            break;
+            case EStatusEffectType.AttackSpeedUp:
+            //    enemyAttack.AddAttackSpeedMultiplier(effect.definition.Magnitude);
+            break;
+            case EStatusEffectType.AttackSpeedDown:
+            //    enemyAttack.ReduceAttackSpeedMultiplier(effect.definition.Magnitude);
+            break;
+            case EStatusEffectType.MoveSpeedUp:
+            //    enemyMove.AddSpeedMultiplier(effect.definition.Magnitude);
+            break;
+            case EStatusEffectType.Slow:
+            //    enemyMove.ReduceSpeedMultiplier(effect.definition.Magnitude);
+            break;
+
+            // Not implemented
+            case EStatusEffectType.DefenseUp:
+            case EStatusEffectType.Shield:
+            case EStatusEffectType.DefenseDown:
+            break;
+
+            // CC
+            // These things make the character not be able to move.
+            case EStatusEffectType.Stun:
+                Stun(effect.definition.Duration);
+            break;
+            case EStatusEffectType.Root:
+            //    enemyStat.AddCrowdControl(effect.definition.CCType);
+            //    enemyMove.SetCouldMove(false);
+            break;
+            case EStatusEffectType.Knockback:
+            //    Vector2 knockbackDir = (transform.position - effect.instigator.transform.position).normalized;
+            //    enemyStat.AddCrowdControl(effect.definition.CCType);
+            //    enemyMove.ApplyKnockback(knockbackDir, effect.definition.Magnitude);
+            break;
+            case EStatusEffectType.Fear:
+            //    enemyStat.AddCrowdControl(effect.definition.CCType);
+            break;
+            case EStatusEffectType.Blind:
+            //    enemyStat.AddCrowdControl(effect.definition.CCType);
+            break;
+
+        }
+    }
+
+    //public void RemoveStatusEffect(EStatusEffectType type, float magnitude)
+    public void RemoveStatusEffect(ActiveStatusEffect effect)
+    {
+        switch(effect.definition.Type)
+        {
+            case EStatusEffectType.AttackUp:
+            //    enemyAttack.ReduceDamageMultiplier(effect.definition.Magnitude);
+            break;
+            case EStatusEffectType.AttackDown:
+            //    enemyAttack.AddDamageMultiplier(effect.definition.Magnitude);
+            break;
+            case EStatusEffectType.AttackSpeedUp:
+            //    enemyAttack.ReduceAttackSpeedMultiplier(effect.definition.Magnitude);
+            break;
+            case EStatusEffectType.AttackSpeedDown:
+            //    enemyAttack.AddAttackSpeedMultiplier(effect.definition.Magnitude);
+            break;
+            case EStatusEffectType.MoveSpeedUp:
+            //    enemyMove.ReduceSpeedMultiplier(effect.definition.Magnitude);
+            break;
+            case EStatusEffectType.Slow:
+            //    enemyMove.AddSpeedMultiplier(effect.definition.Magnitude);
+            break;
+
+            // Not implemented
+            case EStatusEffectType.DefenseUp:
+            case EStatusEffectType.Shield:
+            case EStatusEffectType.DefenseDown:
+            break;
+            
+            // CC
+            case EStatusEffectType.Stun:
+                StunFinished();
+            break;
+            case EStatusEffectType.Root:
+            //    enemyStat.RemoveCrowdControl(effect.definition.CCType);
+            //    enemyMove.SetCouldMove(true);
+            break;
+            case EStatusEffectType.Knockback:
+            //    enemyStat.RemoveCrowdControl(effect.definition.CCType);
+            break;
+            case EStatusEffectType.Fear:
+            //    enemyStat.RemoveCrowdControl(effect.definition.CCType);
+            break;
+            case EStatusEffectType.Blind:
+            //    enemyStat.RemoveCrowdControl(effect.definition.CCType);
+            break;
+        }
+    }
+    #endregion
+
+    public void Stun(float time)
+    {
+        Debug.Log("[FSM] Stunned");
+        
+        _isStunned = true;
+        _mainAnimator.SetBool(IsStunned, true);
+
+        _currentStrat?.AttackInturrupted();
+    }
+
+    public void StunFinished()
+    {
+        Debug.Log("[FSM] Stunn Finished");
+        _isStunned = false;
+        _mainAnimator.SetBool(IsStunned, false);
+        _isActing = false;
+    }
+
+    public virtual void ResetState()
+    {
+        bossStat.ResetState();
+        bossStat.BuffComp.ResetState();
     }
 }

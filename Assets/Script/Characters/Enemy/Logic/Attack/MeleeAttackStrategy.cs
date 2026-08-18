@@ -64,7 +64,14 @@ public class MeleeAttackStrategy : IEnemyAttackStrategy
 
     public bool AttackFinished()
     {
+        Debug.Log("AttackFinished called?");
         OnAttackComplete?.Invoke(true);
+        return true;
+    }
+
+    public bool AttackInturrupted()
+    {
+        OnAttackComplete?.Invoke(false);
         return true;
     }
 

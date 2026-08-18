@@ -1,8 +1,6 @@
 using UnityEngine;
 using Types;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.Multiplayer.PlayMode;
 
 public class JormungandrFSMController : BaseFSMAIController
 {
@@ -13,12 +11,21 @@ public class JormungandrFSMController : BaseFSMAIController
     public GameObject tailObject;
     [SerializeField] private int tailSummonCount = 1;
     [SerializeField] private float tailSummonTimeInterval = 1.5f;
-    public Transform summonRoot;
+    public Transform tailSummonRoot;
 
     [Header("Mushroom mine summon")]
     public GameObject mushroomPrefab;
     [SerializeField] private int mushroomSummonCount = 1;
     [SerializeField] private float shroomSummonTimeInterval = 1.5f;
+    public Transform shroomSummonRoot;
+
+    [Header("Poison Fog summon")]
+    public GameObject poisonPrefab;
+    [SerializeField] private int fogSummonCount = 3;
+    [SerializeField] private float fogSummontimeInterval = 1.5f;
+    [SerializeField] private float summonRadius = 3f;
+    public Transform summonRoot;
+
 
     [Header("Animator - Flower")]
     public Animator flowerAnimator;
@@ -102,22 +109,23 @@ public class JormungandrFSMController : BaseFSMAIController
             Animator.StringToHash("Melee"),
             new MeleeAttackStrategy(mouth, radius: 5f, damageAmount: 1f, EElementType.Water)
         );
-        // attacklist["projectile"] = new AttackEntry(
-        //     Animator.StringToHash("Projectile"),
-        //     new ProjectileAttackStrategy()
-        // );
+        attacklist["projectile"] = new AttackEntry(
+            Animator.StringToHash("Projectile"), 
+            new ProjectileAttackStrategy(this, mouth, ESpawnType.WaterBall, timeInterval: 1f, damageAmount: 3f, orbitRadius: 5f, shootCount: 4)
+        );
         attacklist["summon1"] = new AttackEntry(
             Animator.StringToHash("Summon"),
-            new SummonAttackStrategy(this, mushroomPrefab, shroomSummonTimeInterval, mushroomSummonCount,summonRoot.position)
+            new SummonAttackStrategy(this, mushroomPrefab, shroomSummonTimeInterval, mushroomSummonCount, shroomSummonRoot.position)
         );
         attacklist["summon2"] = new AttackEntry(
             Animator.StringToHash("Summon"),
-            new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, summonRoot.position)
+            new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, tailSummonRoot.position)
         );
-        // attacklist["statusEffect"] = new AttackEntry(
-        //     Animator.StringToHash("StatusEffect"),
-        //      new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, summonRoot.position) // <-- TODO: CHANGE
-        // );
+        attacklist["statusEffect"] = new AttackEntry(
+            Animator.StringToHash("StatusEffect"),
+            new SummonAttackStrategy(this, poisonPrefab, timeInterval: fogSummontimeInterval, poolSize: fogSummonCount, 
+                                    position: summonRoot.position, orbitRadius: summonRadius)
+        );
     }
 
     public void EnableFlower()

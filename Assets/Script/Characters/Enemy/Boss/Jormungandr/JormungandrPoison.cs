@@ -17,6 +17,7 @@ public class JormungandrPoison : MonoBehaviour
 
     private Collider2D _collider;
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
     private Collider2D _instigatorCollider;
     protected GameObject instigator;
     
@@ -25,6 +26,7 @@ public class JormungandrPoison : MonoBehaviour
     {
         _collider = GetComponent<Collider2D>();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -56,6 +58,7 @@ public class JormungandrPoison : MonoBehaviour
         var stats = other.gameObject.GetComponent<StatManager>();
         if (stats != null)
         {
+            _animator?.SetTrigger("Collided");
             if (stats.TakeDamageHelper(instigator, dealtDamage, elementType, true, duration, interval))
             {
                 ActiveStatusEffect pooledEffect = PoolObjectManager.Instance.GetStatusEffect();
