@@ -53836,9 +53836,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1062592795018319198, guid: 661a82fa43e78a84190b8076da1e6151, type: 3}
+      propertyPath: isBackground
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5020401512242715676, guid: 661a82fa43e78a84190b8076da1e6151, type: 3}
       propertyPath: m_Name
       value: Book_Blinking
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020401512242715676, guid: 661a82fa43e78a84190b8076da1e6151, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -60867,9 +60875,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1062592795018319198, guid: e8aeb7f4d4442e14ca380b067c053942, type: 3}
+      propertyPath: isBackground
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5020401512242715676, guid: e8aeb7f4d4442e14ca380b067c053942, type: 3}
       propertyPath: m_Name
       value: Book_Flying
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020401512242715676, guid: e8aeb7f4d4442e14ca380b067c053942, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
