@@ -135,8 +135,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 492
-      y: 4
+      x: 426
+      y: 580
       width: 480
       height: 270
     spriteID: 412f54c4588ba6e4d881fb6dd1260ef3
@@ -147,7 +147,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 492, y: 4}
+    uvTransform: {x: 426, y: 580}
   - name: Clouds
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -156,8 +156,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 492
-      y: 824
+      x: 1446
+      y: 4
       width: 480
       height: 210
     spriteID: 116895a4d206ffc498809adf29f4a683
@@ -168,17 +168,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 492, y: 824}
+    uvTransform: {x: 1446, y: 4}
   - name: CloudSprites
     originalName: 
-    pivot: {x: 0.094827555, y: -1.8536586}
+    pivot: {x: 0.094827555, y: -1.8536587}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 698
-      y: 731
+      x: 914
+      y: 861
       width: 232
       height: 82
     spriteID: 56df33f9fdccae2448308b7dcd0f1961
@@ -189,7 +189,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 698, y: 731}
+    uvTransform: {x: 914, y: 861}
   - name: BackParallax
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -198,8 +198,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 492
-      y: 1042
+      x: 1446
+      y: 222
       width: 480
       height: 100
     spriteID: 0adac342689fa9747877d9a8d0f9f54b
@@ -210,7 +210,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 492, y: 1042}
+    uvTransform: {x: 1446, y: 222}
   - name: MidParallax
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -219,8 +219,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 492
-      y: 1150
+      x: 1446
+      y: 330
       width: 480
       height: 78
     spriteID: a4b083aa96616e748b47f94142da3531
@@ -231,7 +231,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 492, y: 1150}
+    uvTransform: {x: 1446, y: 330}
   - name: Atmospheric
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -240,8 +240,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 1848
+      x: 426
+      y: 858
       width: 480
       height: 148
     spriteID: 06c2627d3b886f546ab2bab0b4968539
@@ -252,7 +252,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 1848}
+    uvTransform: {x: 426, y: 858}
   - name: FrontParallax
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -261,8 +261,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 492
-      y: 1310
+      x: 1554
+      y: 490
       width: 480
       height: 52
     spriteID: 75706800824cc474694b7e134174f075
@@ -273,17 +273,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 492, y: 1310}
+    uvTransform: {x: 1554, y: 490}
   - name: chloe
     originalName: 
-    pivot: {x: 7.9615383, y: -0.9677419}
+    pivot: {x: 7.9615383, y: -0.96774197}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 980
-      y: 1370
+      x: 1240
+      y: 987
       width: 26
       height: 31
     spriteID: def216fa555d14b4c86d494fba65683a
@@ -294,7 +294,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 980, y: 1370}
+    uvTransform: {x: 1240, y: 987}
   - name: TestPlatform
     originalName: 
     pivot: {x: 0.8304498, y: 0}
@@ -303,8 +303,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 2004
+      x: 914
+      y: 951
       width: 289
       height: 16
     spriteID: fefcd697f137cf74298dfd88b9c9a180
@@ -315,7 +315,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 2004}
+    uvTransform: {x: 914, y: 951}
   - name: Tree FG Ground
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -324,8 +324,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 492
-      y: 1425
+      x: 1554
+      y: 605
       width: 480
       height: 44
     spriteID: f49c07ae0fe73cc44bc40163d800ff2a
@@ -336,17 +336,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 492, y: 1425}
+    uvTransform: {x: 1554, y: 605}
   - name: Tree FG Bush3
     originalName: 
-    pivot: {x: -1.1744186, y: -0.13235293}
+    pivot: {x: -1.1744186, y: -0.13235295}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 806
-      y: 552
+      x: 259
+      y: 791
       width: 86
       height: 68
     spriteID: 527507fe07cdd694dab621d949bd84b3
@@ -357,17 +357,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 806, y: 552}
+    uvTransform: {x: 259, y: 791}
   - name: Tree FG Bush2
     originalName: 
-    pivot: {x: 0.27368423, y: -0.24193548}
+    pivot: {x: 0.27368423, y: -0.24193549}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 806
-      y: 482
+      x: 1934
+      y: 136
       width: 95
       height: 62
     spriteID: cb0efade7b6d27e44a3f6a9f03ee7804
@@ -378,17 +378,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 806, y: 482}
+    uvTransform: {x: 1934, y: 136}
   - name: Tree FG Bush1
     originalName: 
-    pivot: {x: 1.7959185, y: -0.26229507}
+    pivot: {x: 1.7959185, y: -0.2622951}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 806
-      y: 413
+      x: 1934
+      y: 67
       width: 98
       height: 61
     spriteID: 606a441fb104b50469c291f0388b817b
@@ -399,7 +399,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 806, y: 413}
+    uvTransform: {x: 1934, y: 67}
   - name: Tree MG Ground
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -408,8 +408,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 492
-      y: 1370
+      x: 1554
+      y: 550
       width: 480
       height: 47
     spriteID: fd3408987c728f04f94e38bd183bd922
@@ -420,7 +420,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 492, y: 1370}
+    uvTransform: {x: 1554, y: 550}
   - name: Tree BG Ground
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -429,8 +429,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 492
-      y: 1236
+      x: 1554
+      y: 416
       width: 474
       height: 66
     spriteID: 50d9825ab8a6c9148bd4f6acaf80bd74
@@ -441,7 +441,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 492, y: 1236}
+    uvTransform: {x: 1554, y: 416}
   - name: Tree FG Rock3
     originalName: 
     pivot: {x: -2.8000002, y: 0}
@@ -450,8 +450,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 938
-      y: 779
+      x: 353
+      y: 791
       width: 50
       height: 31
     spriteID: b8c9198ad79c6924ea904ccc636bc631
@@ -462,7 +462,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 938, y: 779}
+    uvTransform: {x: 353, y: 791}
   - name: Tree FG Rock2
     originalName: 
     pivot: {x: -0.3461538, y: 0}
@@ -471,8 +471,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 806
-      y: 282
+      x: 1934
+      y: 330
       width: 104
       height: 60
     spriteID: f86ce13bce354ef46a513a5533c8d9a9
@@ -483,7 +483,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 806, y: 282}
+    uvTransform: {x: 1934, y: 330}
   - name: Tree FG Rock1
     originalName: 
     pivot: {x: 1.2947367, y: 0}
@@ -492,8 +492,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 923
-      y: 350
+      x: 1446
+      y: 774
       width: 95
       height: 50
     spriteID: d14230ee83ee7f041a095806b146d613
@@ -504,7 +504,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 923, y: 350}
+    uvTransform: {x: 1446, y: 774}
   - name: Tree FG 1
     originalName: 
     pivot: {x: 0.54830915, y: 0}
@@ -514,9 +514,9 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 580
+      y: 4
       width: 414
-      height: 626
+      height: 779
     spriteID: 344b20ebcd7b3f244be747d26752119e
     spriteBone: []
     spriteOutline: []
@@ -525,7 +525,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 580}
+    uvTransform: {x: 4, y: 4}
   - name: Tree FG 2
     originalName: 
     pivot: {x: 0.5849056, y: 0}
@@ -534,10 +534,10 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 1214
+      x: 914
+      y: 4
       width: 318
-      height: 626
+      height: 758
     spriteID: 8b215a854a836b541a8010971fcc2125
     spriteBone: []
     spriteOutline: []
@@ -546,7 +546,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 1214}
+    uvTransform: {x: 914, y: 4}
   - name: Tree MG Trunk 1
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -555,7 +555,7 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
+      x: 426
       y: 4
       width: 480
       height: 568
@@ -567,7 +567,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 426, y: 4}
   - name: Tree MG Trunk 2
     originalName: 
     pivot: {x: 0.85858595, y: 0}
@@ -576,8 +576,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 492
-      y: 282
+      x: 1240
+      y: 4
       width: 198
       height: 534
     spriteID: 970a54ae8b531ea45b02b0b44c4af032
@@ -588,7 +588,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 492, y: 282}
+    uvTransform: {x: 1240, y: 4}
   - name: Tree MG Rock 2
     originalName: 
     pivot: {x: 0.31192657, y: 0}
@@ -597,8 +597,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 806
-      y: 350
+      x: 1934
+      y: 4
       width: 109
       height: 55
     spriteID: 78c21d42bdd7505438516ddfcf808077
@@ -609,7 +609,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 806, y: 350}
+    uvTransform: {x: 1934, y: 4}
   - name: Tree MG Rock 1
     originalName: 
     pivot: {x: 3.1285715, y: 0}
@@ -618,8 +618,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 918
-      y: 282
+      x: 1154
+      y: 861
       width: 70
       height: 34
     spriteID: 173e97087cd9087488e3a131b532a93f
@@ -630,7 +630,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 918, y: 282}
+    uvTransform: {x: 1154, y: 861}
   - name: Tree MG Bush 1
     originalName: 
     pivot: {x: -0.522388, y: -0.025641026}
@@ -639,8 +639,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 330
-      y: 1655
+      x: 4
+      y: 791
       width: 134
       height: 78
     spriteID: 37f140d36ff0c2e42935fc65e3e2bdaa
@@ -651,17 +651,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 330, y: 1655}
+    uvTransform: {x: 4, y: 791}
   - name: Tree MG Bush 2
     originalName: 
-    pivot: {x: 1.9591837, y: -0.08433735}
+    pivot: {x: 1.9591837, y: -0.084337346}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 330
-      y: 1741
+      x: 1934
+      y: 222
       width: 98
       height: 83
     spriteID: 3d5c15fc398013745ac212fe71cf5eb2
@@ -672,17 +672,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 330, y: 1741}
+    uvTransform: {x: 1934, y: 222}
   - name: Tree BG Bush 1
     originalName: 
-    pivot: {x: 0.18723404, y: -0.39759037}
+    pivot: {x: 0.18723404, y: -0.39759034}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 698
-      y: 640
+      x: 914
+      y: 770
       width: 235
       height: 83
     spriteID: 38e751dcd429fca48a43771faf3b6966
@@ -693,17 +693,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 698, y: 640}
+    uvTransform: {x: 914, y: 770}
   - name: Tree BG Bush 2
     originalName: 
-    pivot: {x: 3.0757575, y: -0.44155848}
+    pivot: {x: 3.0757575, y: -0.44155845}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 941
-      y: 640
+      x: 1157
+      y: 770
       width: 66
       height: 77
     spriteID: dfff599e940e9404285cbaa430b74adc
@@ -714,7 +714,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 941, y: 640}
+    uvTransform: {x: 1157, y: 770}
   - name: Tree BG Rock 3
     originalName: 
     pivot: {x: -0.4380954, y: -0.60714287}
@@ -723,8 +723,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 912
-      y: 413
+      x: 146
+      y: 791
       width: 105
       height: 56
     spriteID: 427af41e91a14304487c46c6ce80af7c
@@ -735,7 +735,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 912, y: 413}
+    uvTransform: {x: 146, y: 791}
   - name: Tree BG Rock 2
     originalName: 
     pivot: {x: 3.727273, y: -1.025}
@@ -744,8 +744,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 938
-      y: 731
+      x: 1154
+      y: 903
       width: 55
       height: 40
     spriteID: 0ef34aa8ac23a4643a568ec7dcbd3a07
@@ -756,7 +756,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 938, y: 731}
+    uvTransform: {x: 1154, y: 903}
   - name: Tree BG Rock 1
     originalName: 
     pivot: {x: 5.6216216, y: -1.25}
@@ -765,8 +765,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 980
-      y: 1425
+      x: 353
+      y: 830
       width: 37
       height: 28
     spriteID: 599bc55b642c9e549974e2d350a10bfa
@@ -777,7 +777,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 980, y: 1425}
+    uvTransform: {x: 353, y: 830}
   - name: Tree BG Trunk 2
     originalName: 
     pivot: {x: 1.2290076, y: -0.062355656}
@@ -786,8 +786,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 330
-      y: 1214
+      x: 1240
+      y: 546
       width: 131
       height: 433
     spriteID: bead86ead0c56b04b8e059fe7ff56b93
@@ -798,17 +798,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 330, y: 1214}
+    uvTransform: {x: 1240, y: 546}
   - name: Tree BG Trunk 1
     originalName: 
-    pivot: {x: 0.059999947, y: -0.074285716}
+    pivot: {x: 0.059999947, y: -0.07428571}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 698
-      y: 282
+      x: 1446
+      y: 416
       width: 100
       height: 350
     spriteID: 7d0a624dbf3f732468588840d19af9d8
@@ -819,7 +819,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 698, y: 282}
+    uvTransform: {x: 1446, y: 416}
   spriteSheetImportData:
   - name: light parallax bg_0
     originalName: 
@@ -2769,7 +2769,7 @@ ScriptedImporter:
         x: 13
         y: 0
         width: 414
-        height: 626
+        height: 779
       spriteId: 344b20ebcd7b3f244be747d26752119e
     linkedCells: []
     tileCells: []
@@ -2794,7 +2794,7 @@ ScriptedImporter:
         x: 54
         y: 0
         width: 318
-        height: 626
+        height: 758
       spriteId: 8b215a854a836b541a8010971fcc2125
     linkedCells: []
     tileCells: []
@@ -2954,5 +2954,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 480, y: 626}
-  previousTextureSize: {x: 1024, y: 2048}
+  canvasSize: {x: 480, y: 786}
+  previousTextureSize: {x: 2048, y: 1024}
