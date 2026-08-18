@@ -33,7 +33,7 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 1
+    spriteMeshType: 0
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
     spritePixelsToUnits: 100
@@ -73,7 +73,7 @@ ScriptedImporter:
     applyGammaDecoding: 0
   previousAsepriteImporterSettings:
     fileImportMode: 1
-    importHiddenLayers: 0
+    importHiddenLayers: 1
     layerImportMode: 0
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
@@ -88,7 +88,7 @@ ScriptedImporter:
     generateSpriteAtlas: 1
   asepriteImporterSettings:
     fileImportMode: 1
-    importHiddenLayers: 0
+    importHiddenLayers: 1
     layerImportMode: 0
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639216955822824600
+  platformSettingsDirtyTick: 639223918734764900
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -135,6 +135,1415 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
+      x: 426
+      y: 580
+      width: 480
+      height: 270
+    spriteID: 412f54c4588ba6e4d881fb6dd1260ef3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 426, y: 580}
+  - name: Clouds
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1446
+      y: 4
+      width: 480
+      height: 210
+    spriteID: 116895a4d206ffc498809adf29f4a683
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1446, y: 4}
+  - name: CloudSprites
+    originalName: 
+    pivot: {x: 0.094827555, y: -1.8536587}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 914
+      y: 861
+      width: 232
+      height: 82
+    spriteID: 56df33f9fdccae2448308b7dcd0f1961
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 914, y: 861}
+  - name: BackParallax
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1446
+      y: 222
+      width: 480
+      height: 100
+    spriteID: 0adac342689fa9747877d9a8d0f9f54b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1446, y: 222}
+  - name: MidParallax
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1446
+      y: 330
+      width: 480
+      height: 78
+    spriteID: a4b083aa96616e748b47f94142da3531
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1446, y: 330}
+  - name: Atmospheric
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 426
+      y: 858
+      width: 480
+      height: 148
+    spriteID: 06c2627d3b886f546ab2bab0b4968539
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 426, y: 858}
+  - name: FrontParallax
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1554
+      y: 490
+      width: 480
+      height: 52
+    spriteID: 75706800824cc474694b7e134174f075
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1554, y: 490}
+  - name: chloe
+    originalName: 
+    pivot: {x: 7.9615383, y: -0.96774197}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1240
+      y: 987
+      width: 26
+      height: 31
+    spriteID: def216fa555d14b4c86d494fba65683a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1240, y: 987}
+  - name: TestPlatform
+    originalName: 
+    pivot: {x: 0.8304498, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 914
+      y: 951
+      width: 289
+      height: 16
+    spriteID: fefcd697f137cf74298dfd88b9c9a180
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 914, y: 951}
+  - name: Tree FG Ground
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1554
+      y: 605
+      width: 480
+      height: 44
+    spriteID: f49c07ae0fe73cc44bc40163d800ff2a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1554, y: 605}
+  - name: Tree FG Bush3
+    originalName: 
+    pivot: {x: -1.1744186, y: -0.13235295}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 259
+      y: 791
+      width: 86
+      height: 68
+    spriteID: 527507fe07cdd694dab621d949bd84b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 259, y: 791}
+  - name: Tree FG Bush2
+    originalName: 
+    pivot: {x: 0.27368423, y: -0.24193549}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1934
+      y: 136
+      width: 95
+      height: 62
+    spriteID: cb0efade7b6d27e44a3f6a9f03ee7804
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1934, y: 136}
+  - name: Tree FG Bush1
+    originalName: 
+    pivot: {x: 1.7959185, y: -0.2622951}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1934
+      y: 67
+      width: 98
+      height: 61
+    spriteID: 606a441fb104b50469c291f0388b817b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1934, y: 67}
+  - name: Tree MG Ground
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1554
+      y: 550
+      width: 480
+      height: 47
+    spriteID: fd3408987c728f04f94e38bd183bd922
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1554, y: 550}
+  - name: Tree BG Ground
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1554
+      y: 416
+      width: 474
+      height: 66
+    spriteID: 50d9825ab8a6c9148bd4f6acaf80bd74
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1554, y: 416}
+  - name: Tree FG Rock3
+    originalName: 
+    pivot: {x: -2.8000002, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 353
+      y: 791
+      width: 50
+      height: 31
+    spriteID: b8c9198ad79c6924ea904ccc636bc631
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 353, y: 791}
+  - name: Tree FG Rock2
+    originalName: 
+    pivot: {x: -0.3461538, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1934
+      y: 330
+      width: 104
+      height: 60
+    spriteID: f86ce13bce354ef46a513a5533c8d9a9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1934, y: 330}
+  - name: Tree FG Rock1
+    originalName: 
+    pivot: {x: 1.2947367, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1446
+      y: 774
+      width: 95
+      height: 50
+    spriteID: d14230ee83ee7f041a095806b146d613
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1446, y: 774}
+  - name: Tree FG 1
+    originalName: 
+    pivot: {x: 0.54830915, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 414
+      height: 779
+    spriteID: 344b20ebcd7b3f244be747d26752119e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Tree FG 2
+    originalName: 
+    pivot: {x: 0.5849056, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 914
+      y: 4
+      width: 318
+      height: 758
+    spriteID: 8b215a854a836b541a8010971fcc2125
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 914, y: 4}
+  - name: Tree MG Trunk 1
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 426
+      y: 4
+      width: 480
+      height: 568
+    spriteID: bd319e01505b551419de9e026a171c1f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 426, y: 4}
+  - name: Tree MG Trunk 2
+    originalName: 
+    pivot: {x: 0.85858595, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1240
+      y: 4
+      width: 198
+      height: 534
+    spriteID: 970a54ae8b531ea45b02b0b44c4af032
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1240, y: 4}
+  - name: Tree MG Rock 2
+    originalName: 
+    pivot: {x: 0.31192657, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1934
+      y: 4
+      width: 109
+      height: 55
+    spriteID: 78c21d42bdd7505438516ddfcf808077
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1934, y: 4}
+  - name: Tree MG Rock 1
+    originalName: 
+    pivot: {x: 3.1285715, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1154
+      y: 861
+      width: 70
+      height: 34
+    spriteID: 173e97087cd9087488e3a131b532a93f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1154, y: 861}
+  - name: Tree MG Bush 1
+    originalName: 
+    pivot: {x: -0.522388, y: -0.025641026}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 791
+      width: 134
+      height: 78
+    spriteID: 37f140d36ff0c2e42935fc65e3e2bdaa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 791}
+  - name: Tree MG Bush 2
+    originalName: 
+    pivot: {x: 1.9591837, y: -0.084337346}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1934
+      y: 222
+      width: 98
+      height: 83
+    spriteID: 3d5c15fc398013745ac212fe71cf5eb2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1934, y: 222}
+  - name: Tree BG Bush 1
+    originalName: 
+    pivot: {x: 0.18723404, y: -0.39759034}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 914
+      y: 770
+      width: 235
+      height: 83
+    spriteID: 38e751dcd429fca48a43771faf3b6966
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 914, y: 770}
+  - name: Tree BG Bush 2
+    originalName: 
+    pivot: {x: 3.0757575, y: -0.44155845}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1157
+      y: 770
+      width: 66
+      height: 77
+    spriteID: dfff599e940e9404285cbaa430b74adc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1157, y: 770}
+  - name: Tree BG Rock 3
+    originalName: 
+    pivot: {x: -0.4380954, y: -0.60714287}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 146
+      y: 791
+      width: 105
+      height: 56
+    spriteID: 427af41e91a14304487c46c6ce80af7c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 146, y: 791}
+  - name: Tree BG Rock 2
+    originalName: 
+    pivot: {x: 3.727273, y: -1.025}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1154
+      y: 903
+      width: 55
+      height: 40
+    spriteID: 0ef34aa8ac23a4643a568ec7dcbd3a07
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1154, y: 903}
+  - name: Tree BG Rock 1
+    originalName: 
+    pivot: {x: 5.6216216, y: -1.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 353
+      y: 830
+      width: 37
+      height: 28
+    spriteID: 599bc55b642c9e549974e2d350a10bfa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 353, y: 830}
+  - name: Tree BG Trunk 2
+    originalName: 
+    pivot: {x: 1.2290076, y: -0.062355656}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1240
+      y: 546
+      width: 131
+      height: 433
+    spriteID: bead86ead0c56b04b8e059fe7ff56b93
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1240, y: 546}
+  - name: Tree BG Trunk 1
+    originalName: 
+    pivot: {x: 0.059999947, y: -0.07428571}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1446
+      y: 416
+      width: 100
+      height: 350
+    spriteID: 7d0a624dbf3f732468588840d19af9d8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1446, y: 416}
+  spriteSheetImportData:
+  - name: light parallax bg_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 1987
+      width: 95
+      height: 50
+    spriteID: 6edb1caa27aaf1b4180cbd3bf6e77e76
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1895
+      width: 86
+      height: 68
+    spriteID: 47952ae22860cbc4b94e959ec5702b7b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 1917
+      width: 99
+      height: 62
+    spriteID: 322ad57c9bce63a4e9f9ba5f30c0eac5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1827
+      width: 104
+      height: 60
+    spriteID: eb4afe9251bc5aa4792bb812636998b9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 1667
+      width: 100
+      height: 243
+    spriteID: e1a87a9c603fa8f48a64f2d773fb79cd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_9
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1576
+      width: 128
+      height: 243
+    spriteID: f7354cf2d1f86cb4099603a2734eff5f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_10
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 278
+      y: 1725
+      width: 64
+      height: 22
+    spriteID: 8497fe3f511b86d4eb960ed135f7cf77
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_11
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 357
+      y: 1701
+      width: 123
+      height: 48
+    spriteID: be5872340592fd440b5cecf3d6bead44
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_12
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 248
+      y: 1667
+      width: 73
+      height: 28
+    spriteID: d9138809dfdfa484a84d178cf15c86a8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_13
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 1577
+      width: 66
+      height: 77
+    spriteID: aade2fe1f2212bb42aed1f051b1f7fed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_15
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 397
+      y: 1576
+      width: 76
+      height: 83
+    spriteID: 2ad2a1f9282d99d4b8f7386ed40534c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_16
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 238
+      y: 1578
+      width: 78
+      height: 47
+    spriteID: f95a7adec8c96384e85605e2a131a5a4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: TreeBG Ground
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1502
+      width: 474
+      height: 66
+    spriteID: 7dcdd9f62caa07541b153df5c4ad0ffd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_18
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1411
+      width: 98
+      height: 83
+    spriteID: e9ceb9caec7d8d84ebb93ef1e82c982f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_19
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 247
+      y: 1406
+      width: 134
+      height: 78
+    spriteID: cf8af6ad7e305d044904d6183096d530
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_20
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 389
+      y: 1406
+      width: 96
+      height: 62
+    spriteID: 7ab994b90011e9d4da9cbaf4e75a7ff7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: MidParallax
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1320
+      width: 480
+      height: 78
+    spriteID: 713c2245726a6c74a98559471cdfcb11
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: BackParallax
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1212
+      width: 480
+      height: 100
+    spriteID: 130de9f98c33e7b498bccbdc24afba25
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_24
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 934
+      width: 228
+      height: 270
+    spriteID: fa40823b8deb28a4a9b74208041262d1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_25
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 934
+      width: 166
+      height: 270
+    spriteID: 08b7201ca4eacac46aebf95143062fee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_26
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 778
+      width: 480
+      height: 148
+    spriteID: 02166b9ccb70610429ceaa28633975c0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_27
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 500
+      width: 280
+      height: 270
+    spriteID: f796bd70841f24f4abd7f3befd8a9b74
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_28
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 500
+      width: 186
+      height: 270
+    spriteID: 11f4db9680d3f4e41a588a041794e4fc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Clouds
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 282
+      width: 480
+      height: 210
+    spriteID: e992a109016402045a50ffc016020789
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_30
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 623
+      y: 231
+      width: 110
+      height: 55
+    spriteID: 47279627e922ee941a32bdf317646f9b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Background
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 480
+      height: 270
+    spriteID: b55e7dd72693f1b4d80d1008a663e17c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_32
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 231
+      width: 71
+      height: 34
+    spriteID: e0472f821f6ce0f45bf5b310bf917e69
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_35
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 168
+      width: 37
+      height: 28
+    spriteID: 110b5b59ccdf18346bb05fafbfe936d9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_36
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 629
+      y: 174
+      width: 55
+      height: 40
+    spriteID: 6deb0f5fc41434c439ada3bcb21ce591
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_37
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 723
+      y: 167
+      width: 105
+      height: 56
+    spriteID: 339c8d1718a412c48b0efbc160b82c89
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: TreeFG Ground
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 116
+      width: 464
+      height: 43
+    spriteID: cee63588561c49347a1ba592c3793128
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: light parallax bg_39
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 964
+      y: 116
+      width: 50
+      height: 31
+    spriteID: ea3f421fb45119746a47671cc190f359
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: TreeMG Ground
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 64
+      width: 480
+      height: 44
+    spriteID: bf643ddd71ef467489557be4087cee2b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: FrontParallax
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 4
+      width: 480
+      height: 52
+    spriteID: 26daec47fc709a146aa6aa4d09166b56
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  tileSetImportData:
+  - name: BG Layer
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
       x: 4
       y: 4
       width: 480
@@ -150,7 +1559,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Clouds
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.64285713}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -160,7 +1569,7 @@ ScriptedImporter:
       y: 282
       width: 480
       height: 210
-    spriteID: a0223b40b3327ac31bf0a2b90c4a1afc
+    spriteID: d09611f89369a644382cecf6162a8757
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -171,17 +1580,17 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 282}
   - name: CloudSprites
     originalName: 
-    pivot: {x: 0.094827555, y: -1.8536584}
+    pivot: {x: 1.0344827, y: 1.6463414}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 910
+      x: 248
+      y: 1678
       width: 232
       height: 82
-    spriteID: 7cb346ec244047b008a59ec7849ad603
+    spriteID: 9b18a806a8d265d40af09dead0f97fba
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -189,62 +1598,20 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 910}
-  - name: MidParallax
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 764
-      width: 480
-      height: 78
-    spriteID: 3657320089601ce50826f0d4f1f4705d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 764}
-  - name: FrontParallax
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 850
-      width: 480
-      height: 52
-    spriteID: 1b0b49ecd3a97389994fe1ea2392e814
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 850}
+    uvTransform: {x: 248, y: 1678}
   - name: BackParallax
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 1.35}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
       x: 4
-      y: 656
+      y: 1212
       width: 480
       height: 100
-    spriteID: 8e9359783d442ec13b37b19e9602e77f
+    spriteID: 3ddc495cd9bc3db4a8ea4af53bf82afb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -252,10 +1619,325 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 656}
+    uvTransform: {x: 4, y: 1212}
+  - name: MidParallax
+    originalName: 
+    pivot: {x: 0.5, y: 1.7307693}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1320
+      width: 480
+      height: 78
+    spriteID: ba7b256f67b619f4bab9c173874ded3e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1320}
   - name: Atmospheric
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.9121622}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 778
+      width: 480
+      height: 148
+    spriteID: d4aa1a9fa3b80ab4e83bc4af7bbda6f7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 778}
+  - name: FrontParallax
+    originalName: 
+    pivot: {x: 0.5, y: 2.5961537}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 4
+      width: 480
+      height: 52
+    spriteID: f253d68fffcd3594cac2cdf2f24586d0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 492, y: 4}
+  - name: Ground
+    originalName: 
+    pivot: {x: 0.5063291, y: 2.0454545}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1513
+      width: 474
+      height: 66
+    spriteID: 48bba1dbd4e1c42c794a6426a465911f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1513}
+  - name: bushes
+    originalName: 
+    pivot: {x: 0.7207207, y: 1.626506}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 1587
+      width: 333
+      height: 83
+    spriteID: ea2aaee68367d394587c44a4558cfaca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 140, y: 1587}
+  - name: Rocks
+    originalName: 
+    pivot: {x: 0.71428573, y: 2.4107144}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 243
+      width: 336
+      height: 56
+    spriteID: 76f19a0093eee26439b85449e046e362
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 492, y: 243}
+  - name: Trunk
+    originalName: 
+    pivot: {x: 1.875, y: 0.5555556}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1587
+      width: 128
+      height: 243
+    spriteID: 67517b99b7ecbab3587be9c6a571e075
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1587}
+  - name: Trunk2
+    originalName: 
+    pivot: {x: 2.4, y: 0.5555556}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 1678
+      width: 100
+      height: 243
+    spriteID: 864a33673c46e8318abd53a8379b6ada
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 140, y: 1678}
+  - name: bottom
+    originalName: 
+    pivot: {x: 0.51724136, y: 3.139535}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 192
+      width: 464
+      height: 43
+    spriteID: b485d564f3485962e93f95207cfbcaa9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 492, y: 192}
+  - name: Bushes
+    originalName: 
+    pivot: {x: 0.6366048, y: 1.3636364}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1406
+      width: 377
+      height: 99
+    spriteID: d7c49a5fbf2caf343ac0388fc39f7837
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1406}
+  - name: Trunk2
+    originalName: 
+    pivot: {x: 1.0526316, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 934
+      width: 228
+      height: 270
+    spriteID: 79e18c14258e032fab303cada48e7d36
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 934}
+  - name: Trunk2 Copy
+    originalName: 
+    pivot: {x: 1.4457831, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 934
+      width: 166
+      height: 270
+    spriteID: 3f6060770b036504eb834dd2fa1c0498
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 240, y: 934}
+  - name: Rocks
+    originalName: 
+    pivot: {x: 0.9958506, y: 2.4545455}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 366
+      width: 241
+      height: 55
+    spriteID: c15dab349176d1c41b96ec095e715687
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 492, y: 366}
+  - name: Ground
+    originalName: 
+    pivot: {x: 0.5031447, y: 3.0681818}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 140
+      width: 477
+      height: 44
+    spriteID: 12113f31125701948a6a100f00671449
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 492, y: 140}
+  - name: Bushes
+    originalName: 
+    pivot: {x: 0.661157, y: 1.9852941}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 64
+      width: 363
+      height: 68
+    spriteID: 4614ca4e12dd4684b82706b280efeba3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 492, y: 64}
+  - name: Tree1
+    originalName: 
+    pivot: {x: 0.85714287, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -263,9 +1945,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 500
-      width: 480
-      height: 148
-    spriteID: 3a0b05ed1742dcaa1860c8431d7c3b34
+      width: 280
+      height: 270
+    spriteID: 5d892fe60d5e77a4d83b39231cb54d07
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -274,8 +1956,69 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 500}
-  spriteSheetImportData: []
-  tileSetImportData: []
+  - name: Tree2
+    originalName: 
+    pivot: {x: 1.2903225, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 500
+      width: 186
+      height: 270
+    spriteID: 30f52bef11ea31c49b212aed55f37cac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 500}
+  - name: Rocks n stuff
+    originalName: 
+    pivot: {x: 0.80536914, y: 2.6470587}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 307
+      width: 298
+      height: 51
+    spriteID: 02529f30aeea58740a244dff2deb5ca7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 492, y: 307}
+  - name: leaves on rocks
+    originalName: 
+    pivot: {x: 0.76677316, y: 4.821429}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 492
+      y: 429
+      width: 313
+      height: 28
+    spriteID: 491561d44bfcb224ba8a932d9f0ff47f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 492, y: 429}
   asepriteLayers:
   - layerIndex: 0
     uuid:
@@ -297,7 +2040,7 @@ ScriptedImporter:
         y: 0
         width: 480
         height: 270
-      spriteId: e73d9692a8d70cb3f99f0e0a33ff6236
+      spriteId: 412f54c4588ba6e4d881fb6dd1260ef3
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -310,7 +2053,7 @@ ScriptedImporter:
       value3: 0
     guid: 0
     name: Clouds
-    layerFlags: 3
+    layerFlags: 35
     layerType: 1
     blendMode: 0
     cells: []
@@ -338,7 +2081,7 @@ ScriptedImporter:
         y: 0
         width: 480
         height: 210
-      spriteId: a0223b40b3327ac31bf0a2b90c4a1afc
+      spriteId: 116895a4d206ffc498809adf29f4a683
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -363,7 +2106,7 @@ ScriptedImporter:
         y: 152
         width: 232
         height: 82
-      spriteId: 7cb346ec244047b008a59ec7849ad603
+      spriteId: 56df33f9fdccae2448308b7dcd0f1961
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -388,7 +2131,7 @@ ScriptedImporter:
         y: 0
         width: 480
         height: 100
-      spriteId: 8e9359783d442ec13b37b19e9602e77f
+      spriteId: 0adac342689fa9747877d9a8d0f9f54b
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -413,7 +2156,7 @@ ScriptedImporter:
         y: 0
         width: 480
         height: 78
-      spriteId: 3657320089601ce50826f0d4f1f4705d
+      spriteId: a4b083aa96616e748b47f94142da3531
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -438,7 +2181,7 @@ ScriptedImporter:
         y: 0
         width: 480
         height: 148
-      spriteId: 3a0b05ed1742dcaa1860c8431d7c3b34
+      spriteId: 06c2627d3b886f546ab2bab0b4968539
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -451,7 +2194,7 @@ ScriptedImporter:
       value3: 0
     guid: 0
     name: FrontParallax
-    layerFlags: 35
+    layerFlags: 3
     layerType: 0
     blendMode: 0
     cells:
@@ -463,7 +2206,721 @@ ScriptedImporter:
         y: 0
         width: 480
         height: 52
-      spriteId: 1b0b49ecd3a97389994fe1ea2392e814
+      spriteId: 75706800824cc474694b7e134174f075
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 8
+    uuid:
+      value0: 3510864737
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Trees
+    layerFlags: 3
+    layerType: 1
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 9
+    uuid:
+      value0: 1149460293
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Background Trees
+    layerFlags: 35
+    layerType: 1
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 8
+  - layerIndex: 10
+    uuid:
+      value0: 2770942284
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree BG Ground
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree BG Ground
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 3
+        y: 0
+        width: 474
+        height: 66
+      spriteId: 50d9825ab8a6c9148bd4f6acaf80bd74
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 9
+  - layerIndex: 11
+    uuid:
+      value0: 766773558
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree BG Bush 1
+    layerFlags: 2
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree BG Bush 1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 196
+        y: 33
+        width: 235
+        height: 83
+      spriteId: 38e751dcd429fca48a43771faf3b6966
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 9
+  - layerIndex: 12
+    uuid:
+      value0: 766773559
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree BG Bush 2
+    layerFlags: 2
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree BG Bush 2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 37
+        y: 34
+        width: 66
+        height: 77
+      spriteId: dfff599e940e9404285cbaa430b74adc
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 9
+  - layerIndex: 13
+    uuid:
+      value0: 27510767
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree BG Rock 3
+    layerFlags: 2
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree BG Rock 3
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 286
+        y: 34
+        width: 105
+        height: 56
+      spriteId: 427af41e91a14304487c46c6ce80af7c
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 9
+  - layerIndex: 14
+    uuid:
+      value0: 27510768
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree BG Rock 2
+    layerFlags: 2
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree BG Rock 2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 35
+        y: 41
+        width: 55
+        height: 40
+      spriteId: 0ef34aa8ac23a4643a568ec7dcbd3a07
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 9
+  - layerIndex: 15
+    uuid:
+      value0: 27510765
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree BG Rock 1
+    layerFlags: 2
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree BG Rock 1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 32
+        y: 35
+        width: 37
+        height: 28
+      spriteId: 599bc55b642c9e549974e2d350a10bfa
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 9
+  - layerIndex: 16
+    uuid:
+      value0: 4050544873
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree BG Trunk 2
+    layerFlags: 2
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree BG Trunk 2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 79
+        y: 27
+        width: 131
+        height: 433
+      spriteId: bead86ead0c56b04b8e059fe7ff56b93
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 9
+  - layerIndex: 17
+    uuid:
+      value0: 158862104
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree BG Trunk 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree BG Trunk 1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 234
+        y: 26
+        width: 100
+        height: 350
+      spriteId: 7d0a624dbf3f732468588840d19af9d8
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 9
+  - layerIndex: 18
+    uuid:
+      value0: 3382066440
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Midground Trees
+    layerFlags: 35
+    layerType: 1
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 8
+  - layerIndex: 19
+    uuid:
+      value0: 3419566302
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree MG Ground
+    layerFlags: 2
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree MG Ground
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 480
+        height: 47
+      spriteId: fd3408987c728f04f94e38bd183bd922
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 18
+  - layerIndex: 20
+    uuid:
+      value0: 2809923252
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree MG Bush 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree MG Bush 1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 310
+        y: 2
+        width: 134
+        height: 78
+      spriteId: 37f140d36ff0c2e42935fc65e3e2bdaa
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 18
+  - layerIndex: 21
+    uuid:
+      value0: 3213207779
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree MG Bush 2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree MG Bush 2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 7
+        width: 98
+        height: 83
+      spriteId: 3d5c15fc398013745ac212fe71cf5eb2
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 18
+  - layerIndex: 22
+    uuid:
+      value0: 2247203678
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree MG Trunk 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree MG Trunk 1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 480
+        height: 568
+      spriteId: bd319e01505b551419de9e026a171c1f
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 18
+  - layerIndex: 23
+    uuid:
+      value0: 2247203677
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree MG Trunk 2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree MG Trunk 2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 70
+        y: 0
+        width: 198
+        height: 534
+      spriteId: 970a54ae8b531ea45b02b0b44c4af032
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 18
+  - layerIndex: 24
+    uuid:
+      value0: 480311014
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree MG Rock 2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree MG Rock 2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 206
+        y: 0
+        width: 109
+        height: 55
+      spriteId: 78c21d42bdd7505438516ddfcf808077
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 18
+  - layerIndex: 25
+    uuid:
+      value0: 3209194369
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree MG Rock 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree MG Rock 1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 21
+        y: 0
+        width: 70
+        height: 34
+      spriteId: 173e97087cd9087488e3a131b532a93f
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 18
+  - layerIndex: 26
+    uuid:
+      value0: 3869596592
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Foreground Trees
+    layerFlags: 35
+    layerType: 1
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 8
+  - layerIndex: 27
+    uuid:
+      value0: 3541909277
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree FG Ground
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree FG Ground
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 480
+        height: 44
+      spriteId: f49c07ae0fe73cc44bc40163d800ff2a
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 26
+  - layerIndex: 28
+    uuid:
+      value0: 482039563
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree FG Bush3
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree FG Bush3
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 341
+        y: 9
+        width: 86
+        height: 68
+      spriteId: 527507fe07cdd694dab621d949bd84b3
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 26
+  - layerIndex: 29
+    uuid:
+      value0: 2048123504
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree FG Bush2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree FG Bush2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 214
+        y: 15
+        width: 95
+        height: 62
+      spriteId: cb0efade7b6d27e44a3f6a9f03ee7804
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 26
+  - layerIndex: 30
+    uuid:
+      value0: 1644838977
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree FG Bush1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree FG Bush1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 64
+        y: 16
+        width: 98
+        height: 61
+      spriteId: 606a441fb104b50469c291f0388b817b
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 26
+  - layerIndex: 31
+    uuid:
+      value0: 504143537
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree FG 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree FG 1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 13
+        y: 0
+        width: 414
+        height: 779
+      spriteId: 344b20ebcd7b3f244be747d26752119e
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 26
+  - layerIndex: 32
+    uuid:
+      value0: 2070227478
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree FG 2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree FG 2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 54
+        y: 0
+        width: 318
+        height: 758
+      spriteId: 8b215a854a836b541a8010971fcc2125
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 26
+  - layerIndex: 33
+    uuid:
+      value0: 4037763810
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree FG Rock3
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree FG Rock3
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 380
+        y: 0
+        width: 50
+        height: 31
+      spriteId: b8c9198ad79c6924ea904ccc636bc631
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 26
+  - layerIndex: 34
+    uuid:
+      value0: 1308880455
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree FG Rock2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree FG Rock2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 276
+        y: 0
+        width: 104
+        height: 60
+      spriteId: f86ce13bce354ef46a513a5533c8d9a9
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 26
+  - layerIndex: 35
+    uuid:
+      value0: 905595928
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Tree FG Rock1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Tree FG Rock1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 117
+        y: 0
+        width: 95
+        height: 50
+      spriteId: d14230ee83ee7f041a095806b146d613
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: 26
+  - layerIndex: 36
+    uuid:
+      value0: 2697342489
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: chloe
+    layerFlags: 2
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: chloe
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 33
+        y: 30
+        width: 26
+        height: 31
+      spriteId: def216fa555d14b4c86d494fba65683a
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 37
+    uuid:
+      value0: 1114406349
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: TestPlatform
+    layerFlags: 2
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: TestPlatform
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 289
+        height: 16
+      spriteId: fefcd697f137cf74298dfd88b9c9a180
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -497,5 +2954,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 480, y: 270}
-  previousTextureSize: {x: 512, y: 1024}
+  canvasSize: {x: 480, y: 786}
+  previousTextureSize: {x: 2048, y: 1024}
