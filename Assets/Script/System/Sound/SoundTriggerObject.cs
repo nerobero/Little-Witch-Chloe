@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public enum BGMState
 {
-    Intro = 0,
+    Ambience = 0,
     IntroTrans = 1,
     MainLoop = 2, 
     EndTrans = 3,
@@ -21,7 +21,7 @@ public enum BGMState
 public class SoundTriggerObject : MonoBehaviour
 {
     [SerializeField] private BGMState bgmState;
-    private float _globalParam => (float) bgmState;
+    private float _globalParam => (float)bgmState;
 
     // private bool _hasInteracted = false;
 
@@ -30,12 +30,15 @@ public class SoundTriggerObject : MonoBehaviour
         Debug.Log($"[SoundTriggerObject] Hit: {collision.gameObject.name}");
         if (LayerMask.LayerToName(collision.gameObject.layer).Contains("Player"))
         {
+            if (bgmState == BGMState.Ambience)
+            {
+                SoundManager.Instance.PlayMainMusic();
+            }
+
             if (SoundManager.Instance.GetGlobalValue() != _globalParam)
             {
-                // _hasInteracted = true;
                 SoundManager.Instance.SetGlobalValue(_globalParam);
             }
-                
         }
     }
 }

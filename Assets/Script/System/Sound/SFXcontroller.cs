@@ -48,4 +48,19 @@ public class SFXcontroller : MonoBehaviour {
 
     }
 
+    public void UiHover()
+    {
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/MasterVolumeSelect");
+
+
+    }
+    public void UiClick()
+    {
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI Select");
+
+
+    }
+
 }
