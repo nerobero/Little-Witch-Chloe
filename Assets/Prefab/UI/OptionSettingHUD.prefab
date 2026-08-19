@@ -1835,11 +1835,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7387644949629056203, guid: a82aafbb701ffe7488b4e9a8fedb0b8d, type: 3}
       propertyPath: MasterHover.Path
-      value: event:/MasterVolumeSelect
+      value: event:/SFX/MasterVolumeSelect
       objectReference: {fileID: 0}
     - target: {fileID: 7387644949629056203, guid: a82aafbb701ffe7488b4e9a8fedb0b8d, type: 3}
       propertyPath: MasterSelect.Path
-      value: event:/MasterVolumeSelect
+      value: event:/SFX/MasterVolumeSelect
       objectReference: {fileID: 0}
     - target: {fileID: 7387644949629056203, guid: a82aafbb701ffe7488b4e9a8fedb0b8d, type: 3}
       propertyPath: MasterHover.Guid.Data1

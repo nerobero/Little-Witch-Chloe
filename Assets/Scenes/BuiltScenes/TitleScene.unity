@@ -521,6 +521,38 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4920907807776860083, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2023450495}
+    - target: {fileID: 4920907807776860083, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2023450495}
+    - target: {fileID: 4920907807776860083, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UiClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920907807776860083, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UiHover
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920907807776860083, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TitleUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920907807776860083, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TitleUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920907807776860083, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920907807776860083, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5112096402243723138, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.000061035156
@@ -640,8 +672,178 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5375028983578278400, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2023450501}
+    - targetCorrespondingSourceObject: {fileID: 1628679549532678504, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2023450500}
+    - targetCorrespondingSourceObject: {fileID: 6640197560153408385, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2023450499}
   m_SourcePrefab: {fileID: 100100000, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+--- !u!114 &2023450495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7020364908119188596, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+  m_PrefabInstance: {fileID: 2023450494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025259478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9840b720100dca74082e51ddb8f2f258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TitleUI
+--- !u!1 &2023450496 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6640197560153408385, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+  m_PrefabInstance: {fileID: 2023450494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2023450497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1628679549532678504, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+  m_PrefabInstance: {fileID: 2023450494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2023450498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5375028983578278400, guid: 16eb32aa6465e4e4a9ca28e67f4a5d36, type: 3}
+  m_PrefabInstance: {fileID: 2023450494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2023450499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023450496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2023450495}
+          m_TargetAssemblyTypeName: TitleUI, Assembly-CSharp
+          m_MethodName: UiClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2023450495}
+          m_TargetAssemblyTypeName: TitleUI, Assembly-CSharp
+          m_MethodName: UiHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &2023450500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023450497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2023450495}
+          m_TargetAssemblyTypeName: TitleUI, Assembly-CSharp
+          m_MethodName: UiClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2023450495}
+          m_TargetAssemblyTypeName: TitleUI, Assembly-CSharp
+          m_MethodName: UiHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &2023450501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023450498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2023450495}
+          m_TargetAssemblyTypeName: TitleUI, Assembly-CSharp
+          m_MethodName: UiClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2023450495}
+          m_TargetAssemblyTypeName: TitleUI, Assembly-CSharp
+          m_MethodName: UiHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &2086600682
 PrefabInstance:
   m_ObjectHideFlags: 0

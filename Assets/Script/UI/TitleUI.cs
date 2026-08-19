@@ -17,7 +17,7 @@ public class TitleUI : UIBase
     /// </summary>
     protected override void SubscribeEvents()
     {
-        
+
     }
 
     /// <summary>
@@ -25,7 +25,7 @@ public class TitleUI : UIBase
     /// </summary>
     protected override void UnsubscribeEvents()
     {
-        
+
     }
 
     public void OnClickStart()
@@ -35,7 +35,7 @@ public class TitleUI : UIBase
         UIManager.Instance.Hide<TitleUI>();
         LevelManager.Instance.LoadScene(Types.ELevelType.MainGame, Types.ELevelType.Overworld);
         // EventManager.Instance.ReqLevelLoad(Types.ELevelType.Overworld);
-        
+
     }
 
     public void OnClickLoad()
@@ -60,5 +60,20 @@ public class TitleUI : UIBase
     {
         Debug.Log("Exit");
         Application.Quit();
+    }
+
+    public void UiHover()
+    {
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/MasterVolumeSelect");
+
+
+    }
+    public void UiClick()
+    {
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI Select");
+
+
     }
 }
