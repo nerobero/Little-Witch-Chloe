@@ -65,6 +65,8 @@ public class JormungandrTail : MonoBehaviour, ISummonable
                 }
             }
 
+            if (!LayerManager.IsSameSide(_instigator, col.gameObject)) continue;
+
             //1. processing any potential damage:
             var stats = col.gameObject.GetComponent<StatManager>();
             if (stats != null)

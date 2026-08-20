@@ -33,7 +33,7 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
     protected static readonly int IsStunned = Animator.StringToHash("IsStunned");
     public Transform _eyePoint;
 
-    private bool _isActing = false;
+    protected bool _isActing = false;
 
     private bool _isActive = false;
     private bool _isStunned = false;

@@ -53,8 +53,11 @@ public class MeleeAttackStrategy : IEnemyAttackStrategy
 
         if (collided == null) return false;
 
-        var stat = useLastTarget ? target.GetComponent<StatManager>() : collided.gameObject.GetComponent<StatManager>();
-        
+        GameObject hitObject = useLastTarget ? target : collided.gameObject;
+        if (!LayerManager.IsSameSide(instigator, hitObject)) return false;
+
+        var stat = hitObject.GetComponent<StatManager>();
+
         if (stat == null) return false;
 
         stat.TakeDamage(instigator, _damageAmount, _damageType);

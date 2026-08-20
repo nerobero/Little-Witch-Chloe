@@ -42,6 +42,21 @@ public class LayerManager : MonoSingletonBase<LayerManager>
         }
 
         Debug.LogWarning($"[LayerManager] {(isBackground ? "Background" : "Foreground")}_{typeName} no Layer!");
-        return 0; 
+        return 0;
+    }
+
+    // Compares the Background_/Foreground_ prefix of each object's current layer,
+    // so attack logic can gate damage without caring about the specific type suffix.
+    public static bool IsSameSide(GameObject a, GameObject b)
+    {
+        string layerNameA = LayerMask.LayerToName(a.layer);
+        string layerNameB = LayerMask.LayerToName(b.layer);
+
+        if (string.IsNullOrEmpty(layerNameA) || string.IsNullOrEmpty(layerNameB)) return true;
+
+        string prefixA = layerNameA.Split('_')[0];
+        string prefixB = layerNameB.Split('_')[0];
+
+        return prefixA == prefixB;
     }
 }

@@ -31,6 +31,17 @@ public class JormungandrFSMController : BaseFSMAIController
     public Animator flowerAnimator;
     private BossEnemyStatManager _statManager;
 
+    [Header("Side switching")]
+    public Transform leftAnchor;
+    public Transform rightAnchor;
+    [SerializeField] private int minTurnsBetweenSwitch = 3;
+    [SerializeField] private int maxTurnsBetweenSwitch = 6;
+    private static readonly int SwitchSideHash = Animator.StringToHash("SwitchSides");
+    private int _turnsUntilSwitch;
+    private bool _currentSideIsRight;
+    private bool _forceMeleeNext;
+    private Vector3 _switchTargetPosition;
+
     [Header("Graphs")]
     public AnimationCurve HealthCurve;
     public AnimationCurve DamageCurve;
@@ -43,6 +54,10 @@ public class JormungandrFSMController : BaseFSMAIController
     {
         base.OnAwake();
         _statManager = GetComponent<BossEnemyStatManager>();
+
+        _currentSideIsRight = Vector2.Distance(transform.position, rightAnchor.position)
+            < Vector2.Distance(transform.position, leftAnchor.position);
+        _turnsUntilSwitch = Random.Range(minTurnsBetweenSwitch, maxTurnsBetweenSwitch + 1);
     }
 
     protected override List<(string key, float probability)> CalculateProbability(float Temperature)
@@ -83,6 +98,14 @@ public class JormungandrFSMController : BaseFSMAIController
     }
     protected override (int animTriggerHash, IEnemyAttackStrategy strat) ChooseNextStrategy()
     {
+        if (_forceMeleeNext)
+        {
+            _forceMeleeNext = false;
+            var melee = attacklist["melee"];
+            Debug.Log("[FSM] decision made: melee (forced after side switch)");
+            return (melee.AnimHash, melee.Strategy);
+        }
+
         var probabilities = CalculateProbability(0.25f);
         float rand = 1f - Random.Range(0f, 1f);
         float cumulative = 0f;
@@ -138,7 +161,48 @@ public class JormungandrFSMController : BaseFSMAIController
 
     protected override void StartAttackStrat()
     {
+        if (!_forceMeleeNext && _turnsUntilSwitch <= 0)
+        {
+            BeginSwitchSide();
+            return;
+        }
+
+        if (!_forceMeleeNext) _turnsUntilSwitch--;
+
         base.StartAttackStrat();
         TriggerAnimation(flowerAnimator,_currentAnimHash);
+    }
+
+    private void BeginSwitchSide()
+    {
+        _isActing = true;
+        _forceMeleeNext = true;
+
+        Transform target = _currentSideIsRight ? leftAnchor : rightAnchor;
+        _switchTargetPosition = target.position;
+
+        Debug.Log("[FSM] Switching sides...");
+
+        TriggerAnimation(_mainAnimator, SwitchSideHash);
+        TriggerAnimation(flowerAnimator, SwitchSideHash);
+    }
+
+    // Call at the animation event, once the switch clip visually lands on the other side.
+    public void SwitchSideComplete()
+    {
+        transform.position = _switchTargetPosition;
+        _currentSideIsRight = !_currentSideIsRight;
+        _turnsUntilSwitch = Random.Range(minTurnsBetweenSwitch, maxTurnsBetweenSwitch + 1);
+
+        // left side = background, right side = foreground
+        gameObject.layer = LayerManager.Instance.GetLayer(!_currentSideIsRight, "Enemy");
+
+        // by default (right side) Jormungandr faces left, so localScale.x is positive there
+        Vector3 scale = transform.localScale;
+        scale.x = _currentSideIsRight ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
+        transform.localScale = scale;
+
+        Debug.Log("[FSM] Switching sides completed!");
+        StartAttackStrat();
     }
 }
