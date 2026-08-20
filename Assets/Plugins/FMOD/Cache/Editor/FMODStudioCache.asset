@@ -175,10 +175,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639212110859915794
+  lastModified: 639228263111075368
   FileSizes:
   - Name: Desktop
-    Value: 2884
+    Value: 2894
   Exists: 1
 --- !u!114 &-5201378617633771360
 MonoBehaviour:
@@ -357,10 +357,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639227664226099699
+  lastModified: 639228263111040358
   FileSizes:
   - Name: Desktop
-    Value: 6334336
+    Value: 6144544
   Exists: 1
 --- !u!114 &-4262239082927796618
 MonoBehaviour:
@@ -676,7 +676,6 @@ MonoBehaviour:
   - {fileID: -5662479597483696475}
   - {fileID: -4533339184958613913}
   EditorEvents:
-  - {fileID: 6142487714096174096}
   - {fileID: 1117023723212729838}
   - {fileID: 5133411912280678294}
   - {fileID: 8617078764283670951}
@@ -718,6 +717,7 @@ MonoBehaviour:
   - {fileID: 7492712399168677069}
   - {fileID: -6963174366901918204}
   - {fileID: -7778219492592491470}
+  - {fileID: 5792088218432055631}
   EditorParameters:
   - {fileID: 2478196569288099822}
   - {fileID: 572125993231974450}
@@ -729,91 +729,91 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -5662479597483696475}
   cacheVersion: 131859
-  cacheTime: 639227664226099699
+  cacheTime: 639228263111075368
   SerializableEventsDict:
-  - key: event:/MUSIC/test event
-    index: 0
   - key: event:/MUSIC/Music Menu Select
-    index: 1
+    index: 0
   - key: event:/MUSIC/Forest Level
-    index: 2
+    index: 1
   - key: event:/SFX/Footstep
-    index: 3
+    index: 2
   - key: event:/SFX/Jump
-    index: 4
+    index: 3
   - key: event:/SFX/FlyStart
-    index: 5
+    index: 4
   - key: event:/SFX/Fire
-    index: 6
+    index: 5
   - key: event:/SFX/Fly
-    index: 7
+    index: 6
   - key: event:/SFX/Attack
-    index: 8
+    index: 7
   - key: event:/SFX/Water
-    index: 9
+    index: 8
   - key: event:/SFX/Mushroom Mine Grow
-    index: 10
+    index: 9
   - key: event:/SFX/Mushroom Mine Eplode
-    index: 11
+    index: 10
   - key: event:/SFX/Scroll
-    index: 12
+    index: 11
   - key: event:/SFX/EnemBall
-    index: 13
+    index: 12
   - key: event:/SFX/Blink
-    index: 14
+    index: 13
   - key: event:/SFX/Blink Enemy
-    index: 15
+    index: 14
   - key: event:/SFX/UI Back
-    index: 16
+    index: 15
   - key: event:/SFX/UI Hover
-    index: 17
+    index: 16
   - key: event:/SFX/Dialouge
-    index: 18
+    index: 17
   - key: event:/SFX/UI Select
-    index: 19
+    index: 18
   - key: event:/SFX/EnemyDamaged
-    index: 20
+    index: 19
   - key: event:/SFX/PlayerDamaged
-    index: 21
+    index: 20
   - key: event:/SFX/Frog
-    index: 22
+    index: 21
   - key: event:/SFX/Reflect
-    index: 23
+    index: 22
   - key: event:/SFX/Crit
-    index: 24
+    index: 23
   - key: event:/SFX/Moss
-    index: 25
+    index: 24
   - key: event:/SFX/Boss/Tail
-    index: 26
+    index: 25
   - key: event:/SFX/Moss Sparkle
-    index: 27
+    index: 26
   - key: event:/SFX/MasterVolumeSelect
-    index: 28
+    index: 27
   - key: event:/SFX/Boss/Poison
-    index: 29
+    index: 28
   - key: event:/SFX/Boss/Bite
-    index: 30
+    index: 29
   - key: event:/SFX/Boss/Bite part 2
-    index: 31
+    index: 30
   - key: event:/SFX/Thunder
-    index: 32
+    index: 31
   - key: event:/SFX/Light
-    index: 33
+    index: 32
   - key: event:/MUSIC/Bog
-    index: 34
+    index: 33
   - key: event:/SFX/Turnip Run
-    index: 35
+    index: 34
   - key: event:/SFX/Death
-    index: 36
+    index: 35
   - key: snapshot:/Stop Music
-    index: 37
+    index: 36
   - key: event:/Game Over
-    index: 38
+    index: 37
   - key: snapshot:/Duck Music
-    index: 39
+    index: 38
   - key: event:/MUSIC/Big J
-    index: 40
+    index: 39
   - key: event:/SFX/Death Mob
+    index: 40
+  - key: event:/MUSIC/Main Menu
     index: 41
 --- !u!114 &359156517584299351
 MonoBehaviour:
@@ -1241,6 +1241,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 638
+--- !u!114 &5792088218432055631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/Main Menu
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MUSIC/Main Menu
+  Guid:
+    Data1: -2112867386
+    Data2: 1292330055
+    Data3: -1450690633
+    Data4: 652028295
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 47647
 --- !u!114 &5942722733934382461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1268,33 +1295,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 526
---- !u!114 &6142487714096174096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/MUSIC/test event
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/MUSIC/test event
-  Guid:
-    Data1: 2052251722
-    Data2: 1141178769
-    Data3: -1825306201
-    Data4: -789503839
-  Banks:
-  - {fileID: -4533339184958613913}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 64387
 --- !u!114 &7180939949566799510
 MonoBehaviour:
   m_ObjectHideFlags: 0

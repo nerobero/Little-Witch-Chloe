@@ -7,12 +7,17 @@ using FMODUnity;
 [RequireComponent(typeof(Collider2D))]
 public class SoundTriggerObjectBog : MonoBehaviour
 {
+    [SerializeField] private EventReference bogMusicRef;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log($"[SoundTriggerObjectBog] Hit: {collision.gameObject.name}");
         if (LayerMask.LayerToName(collision.gameObject.layer).Contains("Player"))
         {
-            SoundManager.Instance.PlayBogMusic();
+            if (!SoundManager.Instance.IsTrackPlaying(bogMusicRef))
+            {
+                SoundManager.Instance.PlayBogMusic();
+            }
         }
     }
 }

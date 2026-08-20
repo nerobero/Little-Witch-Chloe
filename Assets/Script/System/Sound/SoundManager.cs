@@ -15,7 +15,7 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     private EventInstance _eventInstance;
     private float _currentStateValue;
     private bool _isStarted = false;
-
+    private EventReference _currentTrack;
     protected override void Awake()
     {
         dontDestroy = true;
@@ -88,10 +88,15 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     {
         HandleStopEvent();
         if (track.IsNull) return;
-
+        _currentTrack = track;
         _eventInstance = RuntimeManager.CreateInstance(track);
         _eventInstance.start();
         _isStarted = true;
+    }
+
+    public bool IsTrackPlaying(EventReference track)
+    {
+        return _isStarted && _currentTrack.Guid == track.Guid;
     }
 
     public void PlayMainMusic() => PlayTrack(MainMusic);
