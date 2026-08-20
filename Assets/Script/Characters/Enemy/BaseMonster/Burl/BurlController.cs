@@ -54,6 +54,7 @@ public class BurlController : BaseMonsterController
     // Damage logic
     private void Explode(GameObject target)
     {
+        Debug.Log($"Explode by {target}");
         isExploded = true;
         enemyState = EMonsterState.Dead;
 
