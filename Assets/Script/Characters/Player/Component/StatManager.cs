@@ -393,10 +393,10 @@ public class StatManager : MonoBehaviour, IDamageable
     {
         if(IsDead) return false;
 
-        if(damageElement == EElementType.Poison)
-        {
-            if(IsPoisonImmune) return true;
-        }
+        // if(damageElement == EElementType.Poison)
+        // {
+        //     if(IsPoisonImmune) return true;
+        // }
 
         // Use coroutine for apply dot damage.
         StartCoroutine(ApplyDOT(instigator, damageAmount, duration, interval, damageElement));

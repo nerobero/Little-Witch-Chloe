@@ -61,7 +61,7 @@ public class JormungandrTail : MonoBehaviour, ISummonable
                 if (targetLayerName.Contains("Enemy"))
                 {
                     Debug.Log("?");
-                    return;
+                    continue;
                 }
             }
 
