@@ -15,6 +15,8 @@ public class MushroomMineAttack : EnemyAttack, ISummonable
 
     public override void Attack(GameObject target)
     {
+        if (!LayerManager.IsSameSide(gameObject, target)) return;
+
         PlayerStatManager targetStat = target.GetComponent<PlayerStatManager>();
         if(targetStat != null)
         {

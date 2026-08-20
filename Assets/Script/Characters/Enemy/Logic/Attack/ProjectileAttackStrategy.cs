@@ -18,7 +18,6 @@ public class ProjectileAttackStrategy : IEnemyAttackStrategy
     private readonly float _timeInterval;
     private readonly float _damageAmount;
     private readonly int _shootCount;
-    private readonly bool _firedAtBackground;
 
     private Coroutine _projectileRoutine;
     private GameObject _instigator;
@@ -29,8 +28,7 @@ public class ProjectileAttackStrategy : IEnemyAttackStrategy
     private readonly List<ProjectileBase> _activeProjectiles = new();
 
     public ProjectileAttackStrategy(MonoBehaviour owner, Transform firePoint, ESpawnType projType,
-                                    float timeInterval, float damageAmount, int shootCount, float orbitRadius,
-                                    bool firedAtBackground = false)
+                                    float timeInterval, float damageAmount, int shootCount, float orbitRadius)
     {
         _owner = owner;
         _firePoint = firePoint;
@@ -39,7 +37,6 @@ public class ProjectileAttackStrategy : IEnemyAttackStrategy
         _damageAmount = damageAmount;
         _shootCount = shootCount;
         _orbitRadius = orbitRadius;
-        _firedAtBackground = firedAtBackground;
     }
 
     public bool Attack(GameObject instigator, GameObject target, bool useLastTarget = false)
@@ -76,7 +73,8 @@ public class ProjectileAttackStrategy : IEnemyAttackStrategy
         var projectile = PoolObjectManager.Instance.Get(_projectileType).GetComponent<ProjectileBase>();
         var instigatorStat = _instigator.GetComponent<StatManager>();
 
-        projectile.OnFired(_firePoint, _aimAngleDeg, _damageAmount, _firedAtBackground, _instigator, instigatorStat);
+        bool isBackground = LayerMask.LayerToName(_instigator.layer).StartsWith("Background");
+        projectile.OnFired(_firePoint, _aimAngleDeg, _damageAmount, isBackground, _instigator, instigatorStat);
         _activeProjectiles.Add(projectile);
     }
 
