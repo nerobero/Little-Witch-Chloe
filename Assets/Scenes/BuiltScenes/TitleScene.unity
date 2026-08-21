@@ -646,6 +646,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: BogMusic.Path
+      value: event:/MUSIC/Bog
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: MainMusic.Path
+      value: event:/MUSIC/Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: BogMusic.Guid.Data1
+      value: 1531252569
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: BogMusic.Guid.Data2
+      value: 1267647341
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: BogMusic.Guid.Data3
+      value: -232933451
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: BogMusic.Guid.Data4
+      value: 421168086
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: MainMusic.Guid.Data1
+      value: -2112867386
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: MainMusic.Guid.Data2
+      value: 1292330055
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: MainMusic.Guid.Data3
+      value: -1450690633
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: MainMusic.Guid.Data4
+      value: 652028295
+      objectReference: {fileID: 0}
     - target: {fileID: 3710721374135054121, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
       propertyPath: m_Name
       value: SoundManager
