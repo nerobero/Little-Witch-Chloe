@@ -4,7 +4,12 @@ using TMPro;
 public class SceneTitleUI : UIBase
 {
     [SerializeField] private TextMeshProUGUI _text;
- 
+
+    protected override void Start()
+    {
+        base.Start();
+        Hide();
+    }
 
     /// <summary>
     /// Subscribes events from the related systems.  
