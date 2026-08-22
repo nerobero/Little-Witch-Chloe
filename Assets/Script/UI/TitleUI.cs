@@ -61,4 +61,19 @@ public class TitleUI : UIBase
         Debug.Log("Exit");
         Application.Quit();
     }
+
+        public void UiHover()
+    {
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI Hover");
+
+
+    }
+    public void UiClick()
+    {
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI Select");
+
+
+    }
 }
