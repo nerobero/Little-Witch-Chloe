@@ -234,6 +234,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 764420163}
     - target: {fileID: 3954266305257083485, guid: 2509c79987c3a2b41a598ff0930d2640, type: 3}
+      propertyPath: dontDestroy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954266305257083485, guid: 2509c79987c3a2b41a598ff0930d2640, type: 3}
       propertyPath: _progressBar
       value: 
       objectReference: {fileID: 1866376147}
