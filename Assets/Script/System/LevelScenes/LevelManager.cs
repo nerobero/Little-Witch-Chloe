@@ -136,6 +136,8 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         scene.allowSceneActivation = true;
         GameManager.Instance.SetCurrentLevel(curLevelType);
         //_loaderCanvas.SetActive(false);
+
+
     }
 
     public void ChangeScene(ELevelType permanLevelType, ELevelType loadLevelType)
@@ -145,12 +147,14 @@ public class LevelManager : MonoSingletonBase<LevelManager>
             onStart: () =>
             {
                 Fade_img.blocksRaycasts = true;
+                SoundManager.Instance.StopAllMusic();
             },
             onComplete: ()=>
             {
                 UIManager.Instance.Hide<TitleUI>();
                 LoadScene(permanLevelType, loadLevelType);
             }));
+
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

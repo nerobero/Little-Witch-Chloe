@@ -175,10 +175,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639228263111075368
+  lastModified: 639229492890321124
   FileSizes:
   - Name: Desktop
-    Value: 2894
+    Value: 3004
   Exists: 1
 --- !u!114 &-5201378617633771360
 MonoBehaviour:
@@ -357,10 +357,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639228263111040358
+  lastModified: 639229492890266105
   FileSizes:
   - Name: Desktop
-    Value: 6144544
+    Value: 9098592
   Exists: 1
 --- !u!114 &-4262239082927796618
 MonoBehaviour:
@@ -525,6 +525,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1750
+--- !u!114 &-1862135328609955610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/Ambience_Abanddon
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MUSIC/Ambience_Abanddon
+  Guid:
+    Data1: 175760082
+    Data2: 1180845222
+    Data3: -1214390611
+    Data4: -122167248
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 3481496798924980209}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 112144
 --- !u!114 &-778238221030726468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,18 +746,20 @@ MonoBehaviour:
   - {fileID: -6963174366901918204}
   - {fileID: -7778219492592491470}
   - {fileID: 5792088218432055631}
+  - {fileID: -1862135328609955610}
   EditorParameters:
   - {fileID: 2478196569288099822}
   - {fileID: 572125993231974450}
   - {fileID: -8682843121785997153}
   - {fileID: -3674415779763435606}
   - {fileID: 4496483528623089920}
+  - {fileID: 6692589418853004028}
   MasterBanks:
   - {fileID: -4533339184958613913}
   StringsBanks:
   - {fileID: -5662479597483696475}
   cacheVersion: 131859
-  cacheTime: 639228263111075368
+  cacheTime: 639229492890321124
   SerializableEventsDict:
   - key: event:/MUSIC/Music Menu Select
     index: 0
@@ -815,6 +845,8 @@ MonoBehaviour:
     index: 40
   - key: event:/MUSIC/Main Menu
     index: 41
+  - key: event:/MUSIC/Ambience_Abanddon
+    index: 42
 --- !u!114 &359156517584299351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1106,6 +1138,32 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4490
+--- !u!114 &3481496798924980209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ambience_Abanddon/Stop Music Overworld
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Stop Music Overworld
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 259106951
+    data2: 1155445691
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Value A
+  - Value B
+  Exists: 1
 --- !u!114 &4291028384036989573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1295,6 +1353,32 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 526
+--- !u!114 &6692589418853004028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Stop Music Overworld
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Stop Music Overworld
+  StudioPath: parameter:/Stop Music Overworld
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 259106951
+    data2: 1155445691
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Value A
+  - Value B
+  Exists: 1
 --- !u!114 &7180939949566799510
 MonoBehaviour:
   m_ObjectHideFlags: 0

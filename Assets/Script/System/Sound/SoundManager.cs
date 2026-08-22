@@ -12,6 +12,7 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     [SerializeField] private EventReference MainMusic;
     [SerializeField] private EventReference BogMusic;
     [SerializeField] private EventReference GameOverMusic;
+    [SerializeField] private EventReference Overworld;
     private EventInstance _eventInstance;
     private float _currentStateValue;
     private bool _isStarted = false;
@@ -26,8 +27,8 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     {
         if(_isStarted) return;
         Debug.Log("HandleStartManagerEvent Called");
-        if (MainMusic.IsNull) return;
-        _eventInstance = RuntimeManager.CreateInstance(MainMusic);
+        if (Overworld.IsNull) return;
+        _eventInstance = RuntimeManager.CreateInstance(Overworld);
         _eventInstance.start();
         _isStarted = true;
     }
@@ -102,6 +103,7 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     public void PlayMainMusic() => PlayTrack(MainMusic);
     public void PlayBogMusic() => PlayTrack(BogMusic);
     public void PlayGameOver() => PlayTrack(GameOverMusic);
+    public void PlayOverworld() => PlayTrack(Overworld);
     public void RestartCurrentBGM()
     {
         _eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
