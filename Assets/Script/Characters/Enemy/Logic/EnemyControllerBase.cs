@@ -263,6 +263,8 @@ public class EnemyControllerBase : MonoBehaviour, IResetable, IStatusEffect
     {
         enemyMove.AnimController.SetToIsAttacking(true);
         
+        enemyAttack.isBackground = enemyMove.IsBackground;
+        
         if(isProjectile)
         {
             enemyState = EMonsterState.Attack;
