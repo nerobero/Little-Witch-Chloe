@@ -44,14 +44,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70591a65b82f7034290da3b56f1ae779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
-  dontDestroy: 1
+  dontDestroy: 0
   MainMusic:
     Guid:
-      Data1: -436705827
-      Data2: 1210747085
-      Data3: 985334197
-      Data4: -1636808202
-    Path: event:/MUSIC/Forest Level
+      Data1: -2112867386
+      Data2: 1292330055
+      Data3: -1450690633
+      Data4: 652028295
+    Path: event:/MUSIC/Main Menu
+  BogMusic:
+    Guid:
+      Data1: 1531252569
+      Data2: 1267647341
+      Data3: -232933451
+      Data4: 421168086
+    Path: event:/MUSIC/Bog
   GameOverMusic:
     Guid:
       Data1: -129299637

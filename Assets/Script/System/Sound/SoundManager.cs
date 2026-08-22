@@ -18,7 +18,7 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     private EventReference _currentTrack;
     protected override void Awake()
     {
-        dontDestroy = true;
+        dontDestroy = false;
         base.Awake();
     }
 
