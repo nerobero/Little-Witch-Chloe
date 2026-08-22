@@ -35,7 +35,7 @@ public class TitleUI : UIBase
         //UIManager.Instance.Hide<TitleUI>();
         LevelManager.Instance.ChangeScene(Types.ELevelType.MainGame, Types.ELevelType.Overworld);
         // EventManager.Instance.ReqLevelLoad(Types.ELevelType.Overworld);
-        
+
     }
 
     public void OnClickLoad()

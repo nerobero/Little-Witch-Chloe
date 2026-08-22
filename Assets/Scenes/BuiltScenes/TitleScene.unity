@@ -650,6 +650,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: Overworld.Path
+      value: event:/MUSIC/Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: Overworld.Guid.Data1
+      value: -2112867386
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: Overworld.Guid.Data2
+      value: 1292330055
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: Overworld.Guid.Data3
+      value: -1450690633
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: Overworld.Guid.Data4
+      value: 652028295
+      objectReference: {fileID: 0}
     - target: {fileID: 3710721374135054121, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
       propertyPath: m_Name
       value: SoundManager
