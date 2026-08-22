@@ -12,9 +12,13 @@ public class SceneBase : MonoBehaviour
     [SerializeField] private List<MonoBehaviour> check = new List<MonoBehaviour>();
     #endif
 
+    [SerializeField] private string FMODEvent = "";
+
     public void Start()
     {
         LevelManager.Instance.Register(this);
+
+        // @SHIORI: put the play fmod event logic here:
         
         //Initialize();
     }
