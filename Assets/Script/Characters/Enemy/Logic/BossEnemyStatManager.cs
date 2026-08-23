@@ -44,6 +44,7 @@ public class BossEnemyStatManager : EnemyCharacterBase
     void OnCollisionStay2D(Collision2D collision)
     {
         Debug.Log("[Jormungandr]" + collision);
+        if (IsDead) return;
         if (LayerMask.LayerToName(collision.gameObject.layer).Contains("Player")
         && Time.time >= lastDamageTime + damageInterval)
         {
