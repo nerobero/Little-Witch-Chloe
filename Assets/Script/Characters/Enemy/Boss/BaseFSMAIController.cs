@@ -31,6 +31,7 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
     [Header("Animator - Main body")]
     public Animator _mainAnimator;
     protected static readonly int IsStunned = Animator.StringToHash("IsStunned");
+    protected static readonly int IsDeadHash = Animator.StringToHash("IsDead");
     // one-shot entry into the Stunned-Intro state; IsStunned (level-based) drives everything after that
     protected static readonly int StunTrigger = Animator.StringToHash("StunTrigger");
     public Transform _eyePoint;
@@ -39,6 +40,7 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
 
     private bool _isActive = false;
     private bool _isStunned = false;
+    private bool _isDeadState = false;
 
     protected int _currentAnimHash;
 
@@ -68,6 +70,18 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
         LevelManager.Instance.RegisterInstance(this);
         bossStat = GetComponent<BossEnemyStatManager>();
         bossStat.onStunned += Stun;
+        bossStat.OnDeath += HandleDeath;
+    }
+
+    // Called once the body's own HP hits 0. Stops the FSM for good and plays the body's Dead animation.
+    protected virtual void HandleDeath()
+    {
+        Debug.Log("[FSM] Boss died");
+        _isDeadState = true;
+        bossStat.OnDeath -= HandleDeath;
+
+        _currentStrat?.AttackInturrupted();
+        _mainAnimator.SetBool(IsDeadHash, true);
     }
 
     protected virtual (int animTriggerHash, IEnemyAttackStrategy strat) ChooseNextStrategy()
@@ -96,6 +110,7 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
     protected void Update()
     {
         // Debug.Log($"[FSM] Update tick, isActing={_isActing}");
+        if (_isDeadState) return;
         if (_isStunned) return;
         if (_isActing || !_isActive) return; // if already acting, then no need to process the rest of logic.
         if (Time.time < _nextActionTime) return; //if in cooldown for this action turn, return

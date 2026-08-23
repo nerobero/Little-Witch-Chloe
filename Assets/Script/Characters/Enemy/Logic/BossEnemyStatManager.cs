@@ -64,6 +64,10 @@ public class BossEnemyStatManager : EnemyCharacterBase
         Debug.Log("Knockdown?");
         TakeDamage(this.gameObject, weakPointStat.MaxHP * 2, EElementType.None);
 
+        // the self-damage above may have been lethal - don't stun a boss that's already dead,
+        // or the Stun trigger fires on top of the Dead state and cancels the death animation
+        if (IsDead) return;
+
         // keeps the weak point's respawn timer in sync with how long the body is actually stunned for
         weakPointStat.SetReactivateDelay(stunDuration);
 
