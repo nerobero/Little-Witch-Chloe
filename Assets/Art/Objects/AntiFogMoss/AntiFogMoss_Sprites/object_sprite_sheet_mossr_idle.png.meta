@@ -1,0 +1,292 @@
+fileFormatVersion: 2
+guid: e0600b06a121b7e48bca9f0592765aff
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 260047741399808570
+    second: object_sprite_sheet_mossr_idle_0
+  - first:
+      213: -383478700422512418
+    second: object_sprite_sheet_mossr_idle_1
+  - first:
+      213: -5389333630354103606
+    second: object_sprite_sheet_mossr_idle_2
+  - first:
+      213: -9089933840683806293
+    second: object_sprite_sheet_mossr_idle_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: object_sprite_sheet_mossr_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -16, y: 12}
+        - {x: -17, y: 6}
+        - {x: -17, y: -6}
+        - {x: -10, y: -15}
+        - {x: 5, y: -15}
+        - {x: 17, y: -8}
+        - {x: 17, y: 11}
+        - {x: 9, y: 18}
+        - {x: -10, y: 15}
+      physicsShape:
+      - - {x: 14, y: -1}
+        - {x: 13, y: 5}
+        - {x: 7, y: 9}
+        - {x: -5, y: 9}
+        - {x: -13, y: 2}
+        - {x: -13, y: -3}
+        - {x: -8, y: -10}
+        - {x: 6, y: -10}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a37c20b00eb9300800000000000000
+      internalID: 260047741399808570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: object_sprite_sheet_mossr_idle_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 10, y: -14}
+        - {x: 18, y: -4}
+        - {x: 21, y: 5}
+        - {x: 20, y: 9}
+        - {x: 9, y: 16}
+        - {x: -15, y: 18}
+        - {x: -19, y: 11}
+        - {x: -19, y: 1}
+        - {x: -14, y: -13}
+        - {x: 0, y: -15}
+      physicsShape:
+      - - {x: 14, y: -2}
+        - {x: 13, y: 3}
+        - {x: 7, y: 8}
+        - {x: -4, y: 8}
+        - {x: -13, y: 1}
+        - {x: -13, y: -4}
+        - {x: -8, y: -11}
+        - {x: 6, y: -11}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed0436a572c9daaf0800000000000000
+      internalID: -383478700422512418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: object_sprite_sheet_mossr_idle_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 17, y: -7}
+        - {x: 20, y: 8}
+        - {x: 18, y: 11}
+        - {x: 6, y: 22}
+        - {x: 4, y: 22}
+        - {x: -9, y: 18}
+        - {x: -17, y: 12}
+        - {x: -17, y: -8}
+        - {x: -9, y: -14}
+        - {x: 9, y: -14}
+      physicsShape:
+      - - {x: 14, y: -1}
+        - {x: 13, y: 5}
+        - {x: 7, y: 9}
+        - {x: -5, y: 9}
+        - {x: -13, y: 2}
+        - {x: -13, y: -3}
+        - {x: -8, y: -10}
+        - {x: 6, y: -10}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac26daafd9d3535b0800000000000000
+      internalID: -5389333630354103606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: object_sprite_sheet_mossr_idle_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 17, y: -5}
+        - {x: 17, y: 5}
+        - {x: 10, y: 13}
+        - {x: -13, y: 18}
+        - {x: -16, y: 18}
+        - {x: -16, y: -10}
+        - {x: -7, y: -15}
+        - {x: 5, y: -15}
+      physicsShape:
+      - - {x: 14, y: -2}
+        - {x: 13, y: 3}
+        - {x: 7, y: 8}
+        - {x: -4, y: 8}
+        - {x: -13, y: 1}
+        - {x: -13, y: -4}
+        - {x: -8, y: -11}
+        - {x: 6, y: -11}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba15d3a15511ad180800000000000000
+      internalID: -9089933840683806293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d07dbb790a3961344b253ddacbc0949e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      object_sprite_sheet_mossr_idle_0: 260047741399808570
+      object_sprite_sheet_mossr_idle_1: -383478700422512418
+      object_sprite_sheet_mossr_idle_2: -5389333630354103606
+      object_sprite_sheet_mossr_idle_3: -9089933840683806293
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,319 @@
+fileFormatVersion: 2
+guid: 7be4d09ba16752342a8bd9fa8cc8e769
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4862092270853984586
+    second: object_sprite_sheet_mossr_dead_0
+  - first:
+      213: -2531778557380012130
+    second: object_sprite_sheet_mossr_dead_1
+  - first:
+      213: -9157905126635771065
+    second: object_sprite_sheet_mossr_dead_2
+  - first:
+      213: 3504599546198461902
+    second: object_sprite_sheet_mossr_dead_3
+  - first:
+      213: -622195143918216769
+    second: object_sprite_sheet_mossr_dead_4
+  - first:
+      213: 3321858852145570922
+    second: object_sprite_sheet_mossr_dead_5
+  - first:
+      213: -6811333122081360790
+    second: object_sprite_sheet_mossr_dead_6
+  - first:
+      213: -4140434987370351662
+    second: object_sprite_sheet_mossr_dead_7
+  - first:
+      213: 7951086943397170621
+    second: object_sprite_sheet_mossr_dead_8
+  - first:
+      213: 7410234104314461490
+    second: object_sprite_sheet_mossr_dead_9
+  - first:
+      213: 4464452914795129344
+    second: object_sprite_sheet_mossr_dead_10
+  - first:
+      213: -7528399347322688459
+    second: object_sprite_sheet_mossr_dead_11
+  - first:
+      213: -8547087426654909962
+    second: object_sprite_sheet_mossr_dead_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: object_sprite_sheet_mossr_dead_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -17, y: -6}
+        - {x: -10, y: -15}
+        - {x: 5, y: -15}
+        - {x: 17, y: -8}
+        - {x: 17, y: 11}
+        - {x: 16, y: 14}
+        - {x: 9, y: 18}
+        - {x: 7, y: 18}
+        - {x: -12, y: 14}
+        - {x: -15, y: 11}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a419c6de82f997340800000000000000
+      internalID: 4862092270853984586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: object_sprite_sheet_mossr_dead_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 10, y: -14}
+        - {x: 18, y: -4}
+        - {x: 18, y: 9}
+        - {x: 11, y: 15}
+        - {x: 9, y: 16}
+        - {x: -11, y: 18}
+        - {x: -16, y: 18}
+        - {x: -19, y: 11}
+        - {x: -19, y: -6}
+        - {x: -14, y: -15}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e97d965e0d05ddcd0800000000000000
+      internalID: -2531778557380012130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: object_sprite_sheet_mossr_dead_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 21, y: -6}
+        - {x: 21, y: 10}
+        - {x: 13, y: 19}
+        - {x: 8, y: 22}
+        - {x: 5, y: 23}
+        - {x: -12, y: 19}
+        - {x: -18, y: 11}
+        - {x: -19, y: 8}
+        - {x: -19, y: -5}
+        - {x: -10, y: -15}
+        - {x: 14, y: -15}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b6528dec598e080800000000000000
+      internalID: -9157905126635771065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: object_sprite_sheet_mossr_dead_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -30, y: -2}
+        - {x: -6.3042145, y: -29}
+        - {x: 14.710419, y: -29}
+        - {x: 30, y: -20}
+        - {x: 30, y: 17}
+        - {x: 18, y: 26}
+        - {x: -18.796173, y: 25.999996}
+        - {x: -30, y: 7}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd872718b6d2a030800000000000000
+      internalID: 3504599546198461902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: object_sprite_sheet_mossr_dead_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -30, y: -2}
+        - {x: -26, y: -29}
+        - {x: 31, y: -29}
+        - {x: 31, y: 24.173286}
+        - {x: 8, y: 31}
+        - {x: -23, y: 28}
+        - {x: -30, y: 11}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb918c920d48d57f0800000000000000
+      internalID: -622195143918216769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a8b306a8439597e44882d749e42cb4e9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      object_sprite_sheet_mossr_dead_0: 4862092270853984586
+      object_sprite_sheet_mossr_dead_1: -2531778557380012130
+      object_sprite_sheet_mossr_dead_2: -9157905126635771065
+      object_sprite_sheet_mossr_dead_3: 3504599546198461902
+      object_sprite_sheet_mossr_dead_4: -622195143918216769
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
