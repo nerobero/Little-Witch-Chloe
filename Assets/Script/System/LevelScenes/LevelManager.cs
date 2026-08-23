@@ -57,6 +57,8 @@ public class LevelManager : MonoSingletonBase<LevelManager>
     private async void LoadLevelAdditively(ELevelType levelType)
     {
         await SceneManager.LoadSceneAsync((int)levelType, LoadSceneMode.Additive);
+
+        SaveManager.Instance?.SavePlayerData();
         // _progressBar.value = 0.0f;
         // Debug.Log(levelType);
         // var scene = SceneManager.LoadSceneAsync((int)levelType, LoadSceneMode.Additive);
@@ -116,7 +118,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         sceneBase.Register(behaviour);
     }
 
-    public async void LoadScene(ELevelType levelType, ELevelType curLevelType)
+    public async void LoadScene(ELevelType levelType, ELevelType curLevelType, bool isSaveDataLoad)
     {
         _isFirstSceneLoad = true;
         _progressBar.value = 0.0f;
@@ -137,11 +139,19 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         GameManager.Instance.SetCurrentLevel(curLevelType);
         //_loaderCanvas.SetActive(false);
 
-
+        if(isSaveDataLoad)
+        {
+            SaveManager.Instance?.ApplyAllGameData();
+        }
+        else
+        {
+            SaveManager.Instance?.SavePlayerData();
+        }
     }
 
-    public void ChangeScene(ELevelType permanLevelType, ELevelType loadLevelType)
+    public void ChangeScene(ELevelType permanLevelType, ELevelType loadLevelType, bool isSaveDataLoad)
     {
+
         // Fade in
         StartCoroutine(Fade(Fade_img, 1f, fadeDuration,
             onStart: () =>
@@ -152,7 +162,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
             onComplete: ()=>
             {
                 UIManager.Instance.Hide<TitleUI>();
-                LoadScene(permanLevelType, loadLevelType);
+                LoadScene(permanLevelType, loadLevelType, isSaveDataLoad);
             }));
 
     }

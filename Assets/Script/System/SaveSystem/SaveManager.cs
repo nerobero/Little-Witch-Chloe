@@ -25,15 +25,15 @@ public class SaveManager : MonoSingletonBase<SaveManager>
         base.Awake();
     }
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+    // private void OnEnable()
+    // {
+    //     SceneManager.sceneLoaded += OnSceneLoaded;
+    // }
 
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+    // private void OnDisable()
+    // {
+    //     SceneManager.sceneLoaded -= OnSceneLoaded;
+    // }
 
     public bool LoadSaveGame()
     {
@@ -103,13 +103,13 @@ public class SaveManager : MonoSingletonBase<SaveManager>
         return savePlayerData;
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (_pendingData == null) return;
+    // private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    // {
+    //     if (_pendingData == null) return;
         
-        ApplyAllGameData(_pendingData);
-        _pendingData = null; // initialize after applied
-    }
+    //     ApplyAllGameData(_pendingData);
+    //     _pendingData = null; // initialize after applied
+    // }
 
     public void ApplyAllGameData()
     {
