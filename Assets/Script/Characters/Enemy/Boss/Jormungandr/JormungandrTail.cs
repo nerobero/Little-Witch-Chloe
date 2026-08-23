@@ -101,6 +101,7 @@ public class JormungandrTail : MonoBehaviour, ISummonable
 
         transform.position = attackPosition;
 
+
         //_projRB.AddForce(fireDirection * speed, ForceMode2D.Impulse);
     }
 
@@ -123,5 +124,13 @@ public class JormungandrTail : MonoBehaviour, ISummonable
     {
         _instigator = instigator;
     }
+    public void TailAttack()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Boss/Tail");
+
+
+    }
+
+
 
 }
