@@ -712,6 +712,20 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: TailAttack
+    data: 
+    objectReferenceParameter: {fileID: 4154287721773258411, guid: 2d50f00c17714724eb32b2cfe58d9116, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
+    functionName: 
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.16666667
     functionName: CheckHit
     data: 
