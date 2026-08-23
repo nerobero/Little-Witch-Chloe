@@ -25,8 +25,8 @@ public class InteractiveDetector : MonoBehaviour
         if (collision.TryGetComponent<IInteractable>(out var interactable)
            && CurrentInteractable == interactable)
         {
-            CurrentInteractable = null;
             CurrentInteractable.ShowInteractUI(false);
+            CurrentInteractable = null;
         }
     }
 }
