@@ -31,7 +31,12 @@ public abstract class ItemBase : MonoBehaviour, IResetable
     {
         if (OnInteract(collision)) 
             //PoolObjectManager.Instance.Return(spawnType, this.gameObject);
-            gameObject.SetActive(false);
+            ProcessCollection();
+    }
+
+    protected virtual void ProcessCollection()
+    {
+        gameObject.SetActive(false);
     }
 
     public virtual void ResetState()
