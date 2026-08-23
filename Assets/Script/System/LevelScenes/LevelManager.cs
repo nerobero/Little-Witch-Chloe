@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Types;
 using Unity.VisualScripting;
@@ -14,7 +13,7 @@ using TMPro;
 /// </summary>
 public class LevelManager : MonoSingletonBase<LevelManager>
 {
-    private List<SceneBase> sceneBases = new List<SceneBase>();
+    private Dictionary<ELevelType, SceneBase> sceneBases = new Dictionary<ELevelType, SceneBase>();
 
     [SerializeField] private GameObject _loaderCanvas;
     [SerializeField] private Slider _progressBar;
@@ -37,10 +36,10 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public void Register(SceneBase instance)
+    public void Register(ELevelType levelType, SceneBase instance)
     {
-        sceneBases.Add(instance);
-        Debug.Log(sceneBases.Last());
+        sceneBases[levelType] = instance;
+        Debug.Log($"Registered SceneBase for {levelType}: {instance}");
     }
 
     private void OnEnable()
@@ -87,7 +86,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
     private IEnumerator RestartLevelCoroutine()
     {
-        foreach(SceneBase scene in sceneBases)
+        foreach(SceneBase scene in sceneBases.Values)
         {
             scene.ResetScene();
             yield return null;
@@ -106,14 +105,15 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
     public void RegisterInstance(MonoBehaviour behaviour)
     {
-        int curlevel = (int)GameManager.Instance.CurrentLevel;
+        ELevelType curLevel = GameManager.Instance.CurrentLevel;
 
-        if(sceneBases.Count <= 0)
+        if(!sceneBases.TryGetValue(curLevel, out SceneBase sceneBase))
         {
+            Debug.LogWarning($"No SceneBase registered for level {curLevel}, cannot register {behaviour}");
             return;
         }
-        
-        sceneBases[curlevel].Register(behaviour);
+
+        sceneBase.Register(behaviour);
     }
 
     public async void LoadScene(ELevelType levelType, ELevelType curLevelType)

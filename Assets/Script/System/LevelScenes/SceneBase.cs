@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Types;
 using UnityEngine;
 
 /// <summary>
@@ -7,16 +8,17 @@ using UnityEngine;
 /// </summary>
 public class SceneBase : MonoBehaviour
 {
+    [SerializeField] private ELevelType levelType;
+    public ELevelType LevelType => levelType;
+
     private readonly List<IResetable> resetables = new List<IResetable>();
     #if UNITY_EDITOR
     [SerializeField] private List<MonoBehaviour> check = new List<MonoBehaviour>();
     #endif
 
-    [SerializeField] private string FMODEvent = "";
-
     public void Start()
     {
-        LevelManager.Instance.Register(this);
+        LevelManager.Instance.Register(levelType, this);
 
         // @SHIORI: put the play fmod event logic here:
         

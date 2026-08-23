@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 66b0b2b8692523b4b8c16a2f54d1099c
+guid: ac6283ee0baddd64eaa07aff2c7f0ffe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3300719651473189050
-    second: mons_sprite_sheet_Jorflower_stunned1_0
+      213: -7028417049331348032
+    second: mons_sprite_sheet_Jormungandr_stunned1_0
   - first:
-      213: 5126320265732662270
-    second: mons_sprite_sheet_Jorflower_stunned1_1
+      213: 1949227012615110872
+    second: mons_sprite_sheet_Jormungandr_stunned1_1
   - first:
-      213: -159253856789402616
-    second: mons_sprite_sheet_Jorflower_stunned1_2
+      213: 3358205397287989499
+    second: mons_sprite_sheet_Jormungandr_stunned1_2
   - first:
-      213: -7124682599137998801
-    second: mons_sprite_sheet_Jorflower_stunned1_3
+      213: 3793984148504397686
+    second: mons_sprite_sheet_Jormungandr_stunned1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jorflower_stunned1_0
+      name: mons_sprite_sheet_Jormungandr_stunned1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,33 +121,38 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 15, y: 45}
-        - {x: 15, y: 54}
-        - {x: 4, y: 68}
-        - {x: -4, y: 68}
-        - {x: -31, y: 54}
-        - {x: -31, y: 40}
-        - {x: -16, y: 29}
-        - {x: -3, y: 29}
+      - - {x: 69, y: -20}
+        - {x: 69, y: 29}
+        - {x: 39, y: 50}
+        - {x: -3, y: 50}
+        - {x: -32, y: 18}
+        - {x: -32, y: -27}
+        - {x: -12, y: -36}
+        - {x: -21, y: -80}
+        - {x: 37, y: -80}
       physicsShape:
-      - - {x: 16, y: 45}
-        - {x: 16, y: 48}
-        - {x: 5, y: 64}
-        - {x: 2, y: 64}
-        - {x: -28, y: 56}
-        - {x: -28, y: 46}
-        - {x: -16, y: 31}
-        - {x: -6, y: 28}
+      - - {x: 51.93495, y: -43.950115}
+        - {x: 66, y: -10}
+        - {x: 63, y: 22}
+        - {x: 37, y: 46}
+        - {x: 6, y: 47}
+        - {x: -23, y: 20}
+        - {x: -30.880257, y: -6.0744934}
+        - {x: -30, y: -25}
+        - {x: -4, y: -23}
+        - {x: 9, y: -34}
+        - {x: -21, y: -80}
+        - {x: 31, y: -80}
       tessellationDetail: 0
       bones: []
-      spriteID: 6471ac607fc7132d0800000000000000
-      internalID: -3300719651473189050
+      spriteID: 0cd4e498eeb067e90800000000000000
+      internalID: -7028417049331348032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jorflower_stunned1_1
+      name: mons_sprite_sheet_Jormungandr_stunned1_1
       rect:
         serializedVersion: 2
         x: 160
@@ -159,33 +164,38 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 19, y: 36}
-        - {x: 19, y: 48}
-        - {x: 7.9888306, y: 61}
-        - {x: -4, y: 61}
-        - {x: -27, y: 48}
-        - {x: -27, y: 30}
-        - {x: -12, y: 22}
-        - {x: 1, y: 22}
+      - - {x: 68, y: -21}
+        - {x: 68, y: 26}
+        - {x: 41, y: 46}
+        - {x: -3, y: 46}
+        - {x: -33, y: 16}
+        - {x: -34, y: -29}
+        - {x: -18, y: -40}
+        - {x: -25, y: -80}
+        - {x: 49, y: -80}
       physicsShape:
-      - - {x: 17, y: 41}
-        - {x: 17, y: 44}
-        - {x: 5, y: 58}
-        - {x: 2, y: 58}
-        - {x: -25, y: 44}
-        - {x: -26, y: 34}
-        - {x: -14, y: 25}
-        - {x: -4, y: 22}
+      - - {x: 51.93495, y: -43.950115}
+        - {x: 65, y: -10}
+        - {x: 61, y: 20}
+        - {x: 37, y: 41}
+        - {x: 6, y: 43}
+        - {x: -22, y: 19}
+        - {x: -30.880257, y: -6.0744934}
+        - {x: -29, y: -29}
+        - {x: -3, y: -27}
+        - {x: 10, y: -37}
+        - {x: -21, y: -80}
+        - {x: 31, y: -80}
       tessellationDetail: 0
       bones: []
-      spriteID: ef3a1eb0f19542740800000000000000
-      internalID: 5126320265732662270
+      spriteID: 8d00589f3ab0d0b10800000000000000
+      internalID: 1949227012615110872
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jorflower_stunned1_2
+      name: mons_sprite_sheet_Jormungandr_stunned1_2
       rect:
         serializedVersion: 2
         x: 320
@@ -197,33 +207,38 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 19, y: 37}
-        - {x: 19, y: 44}
-        - {x: 8, y: 59}
-        - {x: 2, y: 59}
-        - {x: -27, y: 43}
-        - {x: -27, y: 31}
-        - {x: -12, y: 20}
-        - {x: 1, y: 20}
+      - - {x: 72, y: -9}
+        - {x: 70, y: 30}
+        - {x: 43, y: 51}
+        - {x: -7, y: 50}
+        - {x: -32, y: 18}
+        - {x: -32, y: -27}
+        - {x: -17, y: -40}
+        - {x: -27, y: -80}
+        - {x: 44, y: -80}
       physicsShape:
-      - - {x: 18, y: 38}
-        - {x: 18, y: 42}
-        - {x: 7, y: 55}
-        - {x: 2, y: 55}
-        - {x: -24, y: 42}
-        - {x: -24, y: 30}
-        - {x: -14, y: 23}
-        - {x: -3, y: 20}
+      - - {x: 51.93495, y: -43.950115}
+        - {x: 66, y: -10}
+        - {x: 63, y: 22}
+        - {x: 37, y: 46}
+        - {x: 6, y: 47}
+        - {x: -23, y: 20}
+        - {x: -30.880257, y: -6.0744934}
+        - {x: -30, y: -25}
+        - {x: -4, y: -23}
+        - {x: 9, y: -34}
+        - {x: -21, y: -80}
+        - {x: 31, y: -80}
       tessellationDetail: 0
       bones: []
-      spriteID: 80ce4f406773acdf0800000000000000
-      internalID: -159253856789402616
+      spriteID: bf0762c240eba9e20800000000000000
+      internalID: 3358205397287989499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mons_sprite_sheet_Jorflower_stunned1_3
+      name: mons_sprite_sheet_Jormungandr_stunned1_3
       rect:
         serializedVersion: 2
         x: 480
@@ -235,27 +250,32 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 19, y: 38}
-        - {x: 19, y: 46}
-        - {x: 10, y: 60}
-        - {x: -3.0144653, y: 60}
-        - {x: -29, y: 53}
-        - {x: -29, y: 35}
-        - {x: -17, y: 21}
-        - {x: 1, y: 21}
+      - - {x: 72, y: 2}
+        - {x: 71, y: 36}
+        - {x: 46, y: 57}
+        - {x: 1, y: 57}
+        - {x: -35, y: 20}
+        - {x: -35, y: -24}
+        - {x: -8, y: -25}
+        - {x: -31, y: -80}
+        - {x: 42, y: -80}
       physicsShape:
-      - - {x: 18, y: 40}
-        - {x: 18, y: 44}
-        - {x: 6, y: 58}
-        - {x: 0, y: 58}
-        - {x: -25, y: 44}
-        - {x: -25, y: 33}
-        - {x: -15, y: 25}
-        - {x: -5, y: 22}
+      - - {x: 53, y: -39}
+        - {x: 67, y: -4}
+        - {x: 64, y: 28}
+        - {x: 38, y: 52}
+        - {x: 7, y: 53}
+        - {x: -22, y: 26}
+        - {x: -31, y: -4}
+        - {x: -29, y: -19}
+        - {x: -3, y: -17}
+        - {x: 10, y: -28}
+        - {x: -21, y: -80}
+        - {x: 31, y: -80}
       tessellationDetail: 0
       bones: []
-      spriteID: f2809fc9cea002d90800000000000000
-      internalID: -7124682599137998801
+      spriteID: 677411f4b70f6a430800000000000000
+      internalID: 3793984148504397686
       vertices: []
       indices: 
       edges: []
@@ -264,7 +284,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ec29eba8a05e9b446954a26a8b0e6717
+    spriteID: 9b0780a9086cabb4495670dc96b33e2f
     internalID: 0
     vertices: []
     indices: 
@@ -276,10 +296,10 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":160.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      mons_sprite_sheet_Jorflower_stunned1_0: -3300719651473189050
-      mons_sprite_sheet_Jorflower_stunned1_1: 5126320265732662270
-      mons_sprite_sheet_Jorflower_stunned1_2: -159253856789402616
-      mons_sprite_sheet_Jorflower_stunned1_3: -7124682599137998801
+      mons_sprite_sheet_Jormungandr_stunned1_0: -7028417049331348032
+      mons_sprite_sheet_Jormungandr_stunned1_1: 1949227012615110872
+      mons_sprite_sheet_Jormungandr_stunned1_2: 3358205397287989499
+      mons_sprite_sheet_Jormungandr_stunned1_3: 3793984148504397686
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

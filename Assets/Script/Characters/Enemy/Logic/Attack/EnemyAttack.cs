@@ -50,7 +50,7 @@ public class EnemyAttack : MonoBehaviour
     protected float _aimAngleDeg = 0f;
 
     public SpriteRenderer FirePointObj => _firePointObject;
-    protected bool isBackground;
+    public bool isBackground;
 
     protected virtual void Awake()
     {
@@ -107,6 +107,7 @@ public class EnemyAttack : MonoBehaviour
         _ATKTimeSnapshot = Time.time;
         // _animController?.SetToIsAttacking(true);
         //_animController.SetToIsAttacking();
+        Debug.Log(isBackground);
         projectile.OnFired(_firePoint, _aimAngleDeg, FinalDamage, isBackground, gameObject, _stat);
         //projectile.SetDirection(_aimDirection);
     }
