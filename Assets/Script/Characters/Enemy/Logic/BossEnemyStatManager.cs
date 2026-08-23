@@ -10,6 +10,7 @@ public class BossEnemyStatManager : EnemyCharacterBase
     [SerializeField] private BossWeakPointStat weakPointStat;
     [SerializeField] private float damage;
     [SerializeField] private float damageInterval = 1f;
+    [SerializeField] private float stunDuration = 2f;
     private float lastDamageTime = 0f;
 
     public Action<float> onStunned;
@@ -55,21 +56,23 @@ public class BossEnemyStatManager : EnemyCharacterBase
     {
         base.Death();
         weakPointStat.OnDeath -= KnockedDown;
+        weakPointStat.FinalizeDeath();
     }
 
     public void KnockedDown()
     {
         Debug.Log("Knockdown?");
         TakeDamage(this.gameObject, weakPointStat.MaxHP * 2, EElementType.None);
-        
-        // hard coding? <= should change
-        // onStunned?.Invoke(2f);
+
+        // keeps the weak point's respawn timer in sync with how long the body is actually stunned for
+        weakPointStat.SetReactivateDelay(stunDuration);
+
         ActiveStatusEffect pooledEffect = PoolObjectManager.Instance.GetStatusEffect();
         var stat = GetComponent<StatManager>();
         Debug.Log("stunned");
 
         StatusEffect effect = new StatusEffect(stat, EStatusEffectType.Stun, EStatusEffectCategory.CrowdControl,
-                            ECrowdControlType.Stunned, null, "Stunned", 2f, 2f);
+                            ECrowdControlType.Stunned, null, "Stunned", stunDuration, stunDuration);
 
         pooledEffect.SetEffect(effect);
         pooledEffect.SetInstigator(this.gameObject);
@@ -81,11 +84,7 @@ public class BossEnemyStatManager : EnemyCharacterBase
     public override void ResetState()
     {
         base.ResetState();
-        if(weakPointStat.IsDead)
-        {
-            weakPointStat.gameObject.SetActive(true);
-        }
-        
+
         weakPointStat.OnDeath += KnockedDown;
         weakPointStat.ResetState();
     }

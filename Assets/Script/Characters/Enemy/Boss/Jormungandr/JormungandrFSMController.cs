@@ -187,6 +187,19 @@ public class JormungandrFSMController : BaseFSMAIController
         TriggerAnimation(flowerAnimator, SwitchSideHash);
     }
 
+    public override void Stun(float time)
+    {
+        base.Stun(time);
+        flowerAnimator.SetBool(IsStunned, true);
+        flowerAnimator.SetTrigger(StunTrigger);
+    }
+
+    public override void StunFinished()
+    {
+        base.StunFinished();
+        flowerAnimator.SetBool(IsStunned, false);
+    }
+
     // Call at the animation event, once the switch clip visually lands on the other side.
     public void SwitchSideComplete()
     {

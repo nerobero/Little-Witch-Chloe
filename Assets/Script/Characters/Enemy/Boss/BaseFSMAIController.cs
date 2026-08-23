@@ -31,6 +31,8 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
     [Header("Animator - Main body")]
     public Animator _mainAnimator;
     protected static readonly int IsStunned = Animator.StringToHash("IsStunned");
+    // one-shot entry into the Stunned-Intro state; IsStunned (level-based) drives everything after that
+    protected static readonly int StunTrigger = Animator.StringToHash("StunTrigger");
     public Transform _eyePoint;
 
     protected bool _isActing = false;
@@ -298,21 +300,31 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
     }
     #endregion
 
-    public void Stun(float time)
+    public virtual void Stun(float time)
     {
         Debug.Log("[FSM] Stunned");
-        
+
         _isStunned = true;
         _mainAnimator.SetBool(IsStunned, true);
+        _mainAnimator.SetTrigger(StunTrigger);
 
         _currentStrat?.AttackInturrupted();
     }
 
-    public void StunFinished()
+    // Called when the status-effect buff timer runs out. Only flips the bool so the
+    // Animator can transition Loop -> End; the FSM stays suspended until the End clip's
+    // Animation Event calls StunAnimationComplete().
+    public virtual void StunFinished()
     {
-        Debug.Log("[FSM] Stunn Finished");
-        _isStunned = false;
+        Debug.Log("[FSM] Stun Finished (buff expired)");
         _mainAnimator.SetBool(IsStunned, false);
+    }
+
+    // Call via Animation Event at the end of the Stun-End clip.
+    public virtual void StunAnimationComplete()
+    {
+        Debug.Log("[FSM] Stun animation complete");
+        _isStunned = false;
         _isActing = false;
     }
 
