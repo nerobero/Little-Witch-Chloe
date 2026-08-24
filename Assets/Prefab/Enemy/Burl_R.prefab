@@ -197,6 +197,7 @@ MonoBehaviour:
   _firePointObject: {fileID: 0}
   _firePoint: {fileID: 0}
   _orbitRadius: 0
+  isBackground: 0
 --- !u!114 &2361115069222428360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +318,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.078125, y: 0.5625}
+    oldSize: {x: 4.3125, y: 2.25}
     newSize: {x: 0.9375, y: 0.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -325,10 +326,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.5390625, y: 0.28125}
-      - {x: -0.5390625, y: -0.28125}
-      - {x: 0.3828125, y: -0.28125}
-      - {x: 0.5390625, y: -0.171875}
-      - {x: 0.5390625, y: 0.1875}
-      - {x: 0.4140625, y: 0.28125}
+    - - {x: -2.15625, y: 1.125}
+      - {x: -2.15625, y: -1.125}
+      - {x: 1.53125, y: -1.125}
+      - {x: 2.15625, y: -0.6875}
+      - {x: 2.15625, y: 0.75}
+      - {x: 1.65625, y: 1.125}
   m_UseDelaunayMesh: 1

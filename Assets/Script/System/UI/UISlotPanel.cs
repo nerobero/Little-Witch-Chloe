@@ -1,13 +1,17 @@
 using System.Collections;
+using System.Collections.Generic;
 using Types;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UISlotPanel : UIBase
 {
-    [SerializeField] private Image _iconImage;
-    [SerializeField] private Image _selectedImage;
-    [SerializeField] private Image _cooldownImg;
+    public Image _iconImage;
+    public Image _selectedImage;
+    public Image _cooldownImg;
+    public Image _keyIconImg;
+    public Dictionary<EAbilityType, Sprite> _keyIconSprite;
+
     private ESpawnType _type = ESpawnType.None;
     private EAbilityType _abilityType = EAbilityType.None;
     private bool _activated = false;
@@ -80,12 +84,14 @@ public class UISlotPanel : UIBase
     public virtual void OnSlotUnlocked()
     {
         _iconImage.gameObject.SetActive(true);
+        _keyIconImg.gameObject.SetActive(true);
     }
 
     public virtual void OnSlotUnlocked(ESpawnType type, Sprite icon)
     {
         _type = type;
         _iconImage.gameObject.SetActive(true);
+        _keyIconImg.gameObject.SetActive(true);
         _iconImage.sprite = icon;
         _cooldownImg.sprite = icon;
         _activated = true;
@@ -98,6 +104,8 @@ public class UISlotPanel : UIBase
         _iconImage.sprite = icon;
         _cooldownImg.sprite = icon;
         _iconImage.gameObject.SetActive(true);
+        _keyIconImg.sprite = _keyIconSprite[type];
+        _keyIconImg.gameObject.SetActive(true);
         _activated = true;
     }
 
