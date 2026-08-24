@@ -138,12 +138,12 @@ public class UIPlayerHUD : UIBase
         _objectivesText.text = amount.ToString();
     }
 
-    public void UpdateSkillList(EAbilityType abilityType)
+    public void UpdateSkillList(EAbilityType abilityType, Sprite keyIcon)
     {
         int unlocked = (int)abilityType;
         _skillLists[_maxSkillIndex].gameObject.SetActive(true);
 
-        _skillLists[_maxSkillIndex].OnSlotUnlocked(abilityType, _skillImgs[unlocked - 1]);
+        _skillLists[_maxSkillIndex].OnSlotUnlocked(abilityType, _skillImgs[unlocked - 1], keyIcon);
         this._maxSkillIndex++;
     }
 

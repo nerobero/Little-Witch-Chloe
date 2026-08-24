@@ -10,7 +10,6 @@ public class UISlotPanel : UIBase
     public Image _selectedImage;
     public Image _cooldownImg;
     public Image _keyIconImg;
-    public Dictionary<EAbilityType, Sprite> _keyIconSprite;
 
     private ESpawnType _type = ESpawnType.None;
     private EAbilityType _abilityType = EAbilityType.None;
@@ -97,14 +96,14 @@ public class UISlotPanel : UIBase
         _activated = true;
     }
 
-    public virtual void OnSlotUnlocked(EAbilityType type, Sprite icon)
+    public virtual void OnSlotUnlocked(EAbilityType type, Sprite icon, Sprite keyIcon)
     {
         _type = ESpawnType.ScrollItem;
         _abilityType = type;
         _iconImage.sprite = icon;
         _cooldownImg.sprite = icon;
         _iconImage.gameObject.SetActive(true);
-        _keyIconImg.sprite = _keyIconSprite[type];
+        _keyIconImg.sprite = keyIcon;
         _keyIconImg.gameObject.SetActive(true);
         _activated = true;
     }

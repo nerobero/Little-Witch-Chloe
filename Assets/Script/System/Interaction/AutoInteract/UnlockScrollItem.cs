@@ -4,6 +4,7 @@ using UnityEngine;
 public class UnlockScrollItem : ScrollItem
 {
     [SerializeField] private EAbilityType _unlockType;
+    public Sprite _keyIconSprite;
 
     protected override bool OnInteract(Collider2D other)
     {
@@ -26,7 +27,7 @@ public class UnlockScrollItem : ScrollItem
 
         if(unlocked)
         {
-            UIManager.Instance.Get<UIPlayerHUD>().UpdateSkillList(_unlockType);
+            UIManager.Instance.Get<UIPlayerHUD>().UpdateSkillList(_unlockType, _keyIconSprite);
         }
 
         return unlocked;

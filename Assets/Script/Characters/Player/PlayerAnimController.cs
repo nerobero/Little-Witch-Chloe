@@ -11,7 +11,6 @@ public class PlayerAnimController : BaseCharacterAnimController
     private static readonly int IsFlyingHash = Animator.StringToHash("IsFlying");
     private static readonly int FlyTickHash = Animator.StringToHash("FlyTick");
 
-   // private static readonly int IsDeadHash = Animator.StringToHash("IsDead");
     private static readonly int DeadOneShot = Animator.StringToHash("DeadOneShot");
     private static readonly int HurtOneShot = Animator.StringToHash("IsHurtTrig");
 
