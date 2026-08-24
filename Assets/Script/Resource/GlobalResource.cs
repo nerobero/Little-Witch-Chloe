@@ -290,6 +290,32 @@ namespace Data
         };
     }
 
+    /// <summary>
+    /// System/UI text (e.g. message box content) keyed by a string ID.
+    /// </summary>
+    public struct SystemTextRow : IKeyedBinaryRecord
+    {
+        public string key;
+        public string text;
+        public string spriteKey; // Resources path to an optional accompanying sprite; empty if none
+
+        public string Key => key;
+
+        public void Serialize(BinaryWriter writer)
+        {
+            writer.Write(key);
+            writer.Write(text);
+            writer.Write(spriteKey ?? "");
+        }
+
+        public static SystemTextRow Deserialize(BinaryReader reader) => new SystemTextRow
+        {
+            key       = reader.ReadString(),
+            text      = reader.ReadString(),
+            spriteKey = reader.ReadString(),
+        };
+    }
+
     // Setting data : Master volume, graphics, input key?
     [System.Serializable]
     public class SettingData

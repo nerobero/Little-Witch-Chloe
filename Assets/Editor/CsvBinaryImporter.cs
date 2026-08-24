@@ -30,6 +30,13 @@ public class CsvBinaryImporter : AssetPostprocessor
                 collectableType = (ECollectable)(uint.TryParse(cols[1], out uint tidx) ? tidx : 0),
                 collectedCount  = int.TryParse(cols[2], out int amount) ? amount : 0,
             }),
+
+            ["MessageBoxData"] = csv => CsvToBinaryConverter.Convert(csv, cols => new SystemTextRow
+            {
+                key       = cols[0],
+                text      = cols[1],
+                spriteKey = cols.Length > 2 ? cols[2] : "",
+            }),
         };
 
     /// <summary>
