@@ -1,3 +1,4 @@
+using System;
 using Data;
 using TMPro;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class UIMessageBox : UIBase
     [SerializeField] private TMP_Text messageText;
     [SerializeField] private Image messageImage;
     [SerializeField] private Button closeButton;
+
+    private Action _onClosed;
 
     private void Awake()
     {
@@ -27,7 +30,8 @@ public class UIMessageBox : UIBase
     /// <summary>
     /// Shows the message box with the system text registered under the given key.
     /// </summary>
-    public void ShowMessage(string key)
+    /// <param name="onClosed">Invoked once, when the box is closed via the close button.</param>
+    public void ShowMessage(string key, Action onClosed = null)
     {
         SystemTextRow row = DataTableRegistry.Get<SystemTextRow>().GetByKey(key);
 
@@ -37,8 +41,14 @@ public class UIMessageBox : UIBase
         messageImage.sprite = sprite;
         messageImage.gameObject.SetActive(sprite != null);
 
+        _onClosed = onClosed;
         Show();
     }
 
-    private void OnCloseClicked() => Hide();
+    private void OnCloseClicked()
+    {
+        Hide();
+        _onClosed?.Invoke();
+        _onClosed = null;
+    }
 }
