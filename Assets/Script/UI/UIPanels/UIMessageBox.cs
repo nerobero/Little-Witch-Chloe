@@ -9,6 +9,11 @@ public class UIMessageBox : UIBase
     [SerializeField] private Image messageImage;
     [SerializeField] private Button closeButton;
 
+    private void Awake()
+    {
+        messageImage.gameObject.SetActive(false);
+    }
+
     protected override void SubscribeEvents()
     {
         closeButton.onClick.AddListener(OnCloseClicked);
