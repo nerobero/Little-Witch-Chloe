@@ -67,6 +67,12 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         _orbitRadius = orbitRadius;
     }
 
+    // just dummy
+    public void ChangeTargetPosition(Vector3 position)
+    {
+        _summonPosition = position;
+    }
+
     public bool Attack(GameObject instigator, GameObject target, bool useLastTarget = false)
     {
         if (_poolSize <= 0) return false;

@@ -116,6 +116,7 @@ public class JormungandrFSMController : BaseFSMAIController
             {
                 var strat = attacklist[prob.key];
                 Debug.Log($"[FSM] decision made: {prob.key}");
+                strat.Strategy.ChangeTargetPosition(_currentTarget.transform.position);
                 return (strat.AnimHash, strat.Strategy);
             }
         }

@@ -65,6 +65,12 @@ public class MeleeAttackStrategy : IEnemyAttackStrategy
         return true;
     }
 
+     // just dummy
+    public void ChangeTargetPosition(Vector3 position)
+    {
+        
+    }
+
     public bool AttackFinished()
     {
         Debug.Log("AttackFinished called?");

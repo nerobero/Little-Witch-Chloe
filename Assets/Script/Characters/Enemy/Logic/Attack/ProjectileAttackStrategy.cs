@@ -53,6 +53,12 @@ public class ProjectileAttackStrategy : IEnemyAttackStrategy
         return true;
     }
 
+    // just dummy
+    public void ChangeTargetPosition(Vector3 position)
+    {
+        
+    }
+
     private IEnumerator ShootCoroutine()
     {
         for (int i = 0; i < _shootCount; i++)

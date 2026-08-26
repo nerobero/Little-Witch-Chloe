@@ -92,6 +92,9 @@ public class ProjectileBase : MonoBehaviour, IResetable
         // if the current status is blinded, then miss the projectile
         if(instigatorStat != null && instigatorStat.HasCrowdControl(ECrowdControlType.Blinded))
         {
+            Debug.Log("Blinded");
+            HitEvent();
+            StartCoroutine(ReturnToPoolAfterAnimation());
             return;
         }
 
