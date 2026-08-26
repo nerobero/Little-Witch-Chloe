@@ -201,7 +201,7 @@ public class JormungandrFSMController : BaseFSMAIController
     }
 
     // Call at the animation event, once the switch clip visually lands on the other side.
-    public void SwitchSideComplete()
+    public void SwitchSideProgress()
     {
         transform.position = _switchTargetPosition;
         _currentSideIsRight = !_currentSideIsRight;
@@ -214,7 +214,10 @@ public class JormungandrFSMController : BaseFSMAIController
         Vector3 scale = transform.localScale;
         scale.x = _currentSideIsRight ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
         transform.localScale = scale;
+    }
 
+    public void SwitchSideComplete()
+    {
         Debug.Log("[FSM] Switching sides completed!");
         StartAttackStrat();
     }
