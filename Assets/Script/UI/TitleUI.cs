@@ -11,7 +11,7 @@ public class TitleUI : UIBase
     private Button _loadButton;
     private Button _settingButton;
     private Button _exitButton;
-    [SerializeField] private TextMeshProUGUI _errorText;
+    // [SerializeField] private TextMeshProUGUI _errorText;
     private CanvasGroup _error;
     [SerializeField] private string sceneName = "wip";
     private Coroutine ErrorRoutine;
@@ -19,8 +19,8 @@ public class TitleUI : UIBase
     protected override void Start()
     {
         base.Start();
-        _error = _errorText.GetComponent<CanvasGroup>();
-        _error.alpha = 0.0f;
+        // _error = _errorText.GetComponent<CanvasGroup>();
+        // _error.alpha = 0.0f;
     }
 
     /// <summary>
@@ -61,22 +61,23 @@ public class TitleUI : UIBase
         else
         {
             Debug.Log("none save data");
-            _errorText.text = "There is no save data";
-            if(ErrorRoutine != null)
-            {
-                StopCoroutine(ErrorRoutine);
-                ErrorRoutine = null;
-            }
+            UIManager.Instance.Get<UIMessageBox>().ShowMessage("NO_SAVE_DATA_TO_LOAD");
+            // _errorText.text = "There is no save data";
+            // if(ErrorRoutine != null)
+            // {
+            //     StopCoroutine(ErrorRoutine);
+            //     ErrorRoutine = null;
+            // }
 
-            ErrorRoutine = StartCoroutine(Fade(_error, 1.0f, 1.0f, 
-            onStart: () =>
-            {
+            // ErrorRoutine = StartCoroutine(Fade(_error, 1.0f, 1.0f, 
+            // onStart: () =>
+            // {
                 
-            },
-            onComplete: () =>
-            {
-                ErrorRoutine = StartCoroutine(Fade(_error, 0.0f, 3.0f));
-            }));
+            // },
+            // onComplete: () =>
+            // {
+            //     ErrorRoutine = StartCoroutine(Fade(_error, 0.0f, 3.0f));
+            // }));
         }
     }
 

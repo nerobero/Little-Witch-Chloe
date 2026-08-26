@@ -15,7 +15,7 @@ public interface IInteractable
 /// Abstract class that implements the IInteractable interface
 /// as well as shared Monobehavior functions.
 /// </summary>
-public abstract class InteractableBase : MonoBehaviour, IInteractable
+public abstract class InteractableBase : MonoBehaviour, IInteractable, IResetable
 {
     [SerializeField] private Sprite interactIcon;
     [SerializeField] private Vector2 interactIconOffset = new Vector2(0f, 1f);
@@ -90,5 +90,9 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
             size);
 
         return s_placeholderIconSprite;
+    }
+
+    public virtual void ResetState()
+    {
     }
 }
