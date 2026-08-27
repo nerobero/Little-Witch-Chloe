@@ -23,6 +23,7 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
     // owner used to run the summon coroutine, since this strategy is a plain C# class
     private MonoBehaviour _owner;
     private Coroutine _summonRoutine;
+    private float _summonRange;
 
     // cached from the prefab, since every pooled instance shares the same damage number
     private ISummonable _summonable;
@@ -30,6 +31,8 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
     // summoned instances from this attack that are still out in the world;
     // forced back to the pool once the attack completes
     private readonly List<GameObject> _activeSummons = new();
+
+    private WaitForSecondsTracked _waitTime;
 
     public SummonAttackStrategy(MonoBehaviour owner, GameObject summonObj, float timeInterval, int poolSize, Vector3 position)
     {
@@ -46,6 +49,7 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
 
         _owner = owner;
         _timeInterval = timeInterval;
+        _waitTime = new WaitForSecondsTracked(_timeInterval);
 
         _summonable = summonObj.GetComponent<ISummonable>();
 
@@ -61,22 +65,39 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
 
     }
 
-    public SummonAttackStrategy(MonoBehaviour owner, GameObject summonObj, float timeInterval, int poolSize, Vector3 position, float orbitRadius)
+    public SummonAttackStrategy(MonoBehaviour owner, GameObject summonObj, float timeInterval, int poolSize, Vector3 position, float orbitRadius = 0.0f, float summonRange = 0.0f)
         : this(owner, summonObj, timeInterval, poolSize, position)
     {
         _orbitRadius = orbitRadius;
-    }
-
-    // just dummy
-    public void ChangeTargetPosition(Vector3 position)
-    {
-        _summonPosition = position;
+        _summonRange = summonRange;
     }
 
     public bool Attack(GameObject instigator, GameObject target, bool useLastTarget = false)
     {
         if (_poolSize <= 0) return false;
         if (_summonRoutine != null) return false; // already summoning
+
+        BaseFSMAIController ai = (BaseFSMAIController)_owner;
+
+        if(_orbitRadius == 0.0f)
+        {
+            float randomOffset = UnityEngine.Random.Range(-5, 5);
+            _summonPosition.x = target.transform.position.x + randomOffset;
+            
+            if(ai.CurrentSideIsRight)
+            {
+                Mathf.Clamp(_summonPosition.x, ai.ForegroundMinX, ai.ForegroundMaxX);
+            }
+            // Left side
+            else
+            {
+                Mathf.Clamp(_summonPosition.x, ai.BackgroundMinX, ai.BackgroundMaxX);
+                _summonPosition.y += Mathf.Abs(ai.BackgroundY - ai.ForegroundY);
+            }
+
+
+            
+        }
 
         _summonRoutine = _owner.StartCoroutine(SummonRoutine());
 
@@ -90,7 +111,7 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         for (int i = 0; i < snapShot; i++)
         {
             Summon();
-            yield return new WaitForSeconds(_timeInterval);
+            yield return _waitTime;
         }
 
         _summonRoutine = null;

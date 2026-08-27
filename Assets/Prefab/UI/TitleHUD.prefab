@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6127871043643914370, guid: b5b49baf6455e824f980089fbcbf740c, type: 3}
+  m_Sprite: {fileID: -3911878839181810573, guid: b5b49baf6455e824f980089fbcbf740c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6127871043643914370, guid: b5b49baf6455e824f980089fbcbf740c, type: 3}
+  m_Sprite: {fileID: -3911878839181810573, guid: b5b49baf6455e824f980089fbcbf740c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6127871043643914370, guid: b5b49baf6455e824f980089fbcbf740c, type: 3}
+  m_Sprite: {fileID: -3911878839181810573, guid: b5b49baf6455e824f980089fbcbf740c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -719,7 +719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6127871043643914370, guid: b5b49baf6455e824f980089fbcbf740c, type: 3}
+  m_Sprite: {fileID: -3911878839181810573, guid: b5b49baf6455e824f980089fbcbf740c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -864,7 +864,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitleUI
   root: {fileID: 5370123826274843984}
-  _errorText: {fileID: 6688851885120957365}
   sceneName: wip
 --- !u!223 &2869032711060913223
 Canvas:
@@ -1918,7 +1917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1605975255594243515
 RectTransform:
   m_ObjectHideFlags: 0

@@ -10,8 +10,6 @@ public interface IEnemyAttackStrategy
     public event Action<bool> OnAttackComplete;
     public bool Attack(GameObject instigator, GameObject target, bool useLastTarget = false);
 
-    public void ChangeTargetPosition(Vector3 newPosition);
-
     public bool AttackFinished();
 
     public bool AttackInturrupted();

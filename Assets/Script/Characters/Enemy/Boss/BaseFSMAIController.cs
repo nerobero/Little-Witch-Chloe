@@ -55,6 +55,22 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
 
     protected BossEnemyStatManager bossStat;
 
+    [Header("BossField")]
+    [SerializeField] private Collider2D foregroundPlatform;
+    [SerializeField] private Collider2D backgroundPlatform;
+
+    public float ForegroundMinX => foregroundPlatform.bounds.min.x;
+    public float ForegroundMaxX => foregroundPlatform.bounds.max.x;
+    public float ForegroundY    => foregroundPlatform.bounds.max.y;
+    
+    public float BackgroundMinX => backgroundPlatform.bounds.min.x;
+    public float BackgroundMaxX => backgroundPlatform.bounds.max.x;
+    public float BackgroundY    => backgroundPlatform.bounds.max.y;
+
+    [Header("Side switching")]
+    protected bool _currentSideIsRight;
+    public bool CurrentSideIsRight => _currentSideIsRight;
+
     private void Awake()
     {
         OnAwake();
