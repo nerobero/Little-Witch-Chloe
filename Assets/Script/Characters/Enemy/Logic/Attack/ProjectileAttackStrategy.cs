@@ -27,6 +27,8 @@ public class ProjectileAttackStrategy : IEnemyAttackStrategy
     // forced back to the pool once the attack completes
     private readonly List<ProjectileBase> _activeProjectiles = new();
 
+    private WaitForSecondsTracked _waitTime;
+
     public ProjectileAttackStrategy(MonoBehaviour owner, Transform firePoint, ESpawnType projType,
                                     float timeInterval, float damageAmount, int shootCount, float orbitRadius)
     {
@@ -37,6 +39,7 @@ public class ProjectileAttackStrategy : IEnemyAttackStrategy
         _damageAmount = damageAmount;
         _shootCount = shootCount;
         _orbitRadius = orbitRadius;
+        _waitTime = new WaitForSecondsTracked(_timeInterval);
     }
 
     public bool Attack(GameObject instigator, GameObject target, bool useLastTarget = false)
@@ -53,18 +56,12 @@ public class ProjectileAttackStrategy : IEnemyAttackStrategy
         return true;
     }
 
-    // just dummy
-    public void ChangeTargetPosition(Vector3 position)
-    {
-        
-    }
-
     private IEnumerator ShootCoroutine()
     {
         for (int i = 0; i < _shootCount; i++)
         {
             Shoot();
-            yield return new WaitForSeconds(_timeInterval);
+            yield return _waitTime;
         }
         _projectileRoutine = null;
         AttackFinished();

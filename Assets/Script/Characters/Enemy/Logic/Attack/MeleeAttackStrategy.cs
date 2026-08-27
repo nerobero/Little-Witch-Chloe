@@ -16,6 +16,7 @@ public class MeleeAttackStrategy : IEnemyAttackStrategy
     private float _damageAmount = 0f;
 
     private EElementType _damageType;
+    private WaitForSecondsTracked _waitTime;
 
     public MeleeAttackStrategy(Transform startPoint, float radius, float damageAmount, EElementType damageType)
     {
@@ -63,12 +64,6 @@ public class MeleeAttackStrategy : IEnemyAttackStrategy
         stat.TakeDamage(instigator, _damageAmount, _damageType);
 
         return true;
-    }
-
-     // just dummy
-    public void ChangeTargetPosition(Vector3 position)
-    {
-        
     }
 
     public bool AttackFinished()

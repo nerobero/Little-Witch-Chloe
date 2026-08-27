@@ -12,6 +12,7 @@ public class JormungandrFSMController : BaseFSMAIController
     [SerializeField] private int tailSummonCount = 1;
     [SerializeField] private float tailSummonTimeInterval = 1.5f;
     public Transform tailSummonRoot;
+    public float summonRange = 5.0f; // share the value with mushroom mine.
 
     [Header("Mushroom mine summon")]
     public GameObject mushroomPrefab;
@@ -38,7 +39,6 @@ public class JormungandrFSMController : BaseFSMAIController
     [SerializeField] private int maxTurnsBetweenSwitch = 6;
     private static readonly int SwitchSideHash = Animator.StringToHash("SwitchSides");
     private int _turnsUntilSwitch;
-    private bool _currentSideIsRight;
     private bool _forceMeleeNext;
     private Vector3 _switchTargetPosition;
 
@@ -116,7 +116,6 @@ public class JormungandrFSMController : BaseFSMAIController
             {
                 var strat = attacklist[prob.key];
                 Debug.Log($"[FSM] decision made: {prob.key}");
-                strat.Strategy.ChangeTargetPosition(_currentTarget.transform.position);
                 return (strat.AnimHash, strat.Strategy);
             }
         }
@@ -139,11 +138,11 @@ public class JormungandrFSMController : BaseFSMAIController
         );
         attacklist["summon1"] = new AttackEntry(
             Animator.StringToHash("Summon"),
-            new SummonAttackStrategy(this, mushroomPrefab, shroomSummonTimeInterval, mushroomSummonCount, shroomSummonRoot.position)
+            new SummonAttackStrategy(this, mushroomPrefab, shroomSummonTimeInterval, mushroomSummonCount, shroomSummonRoot.position, summonRange: summonRange)
         );
         attacklist["summon2"] = new AttackEntry(
             Animator.StringToHash("Summon"),
-            new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, tailSummonRoot.position)
+            new SummonAttackStrategy(this, tailObject, tailSummonTimeInterval, tailSummonCount, tailSummonRoot.position, summonRange: summonRange)
         );
         attacklist["statusEffect"] = new AttackEntry(
             Animator.StringToHash("StatusEffect"),
