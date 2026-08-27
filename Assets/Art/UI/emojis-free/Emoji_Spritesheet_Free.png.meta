@@ -314,7 +314,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -336,7 +336,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1354,8 +1354,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_45
       rect:
         serializedVersion: 2
-        x: 64
-        y: 288
+        x: 0
+        y: 256
         width: 32
         height: 32
       alignment: 0
@@ -1376,8 +1376,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_46
       rect:
         serializedVersion: 2
-        x: 128
-        y: 288
+        x: 32
+        y: 256
         width: 32
         height: 32
       alignment: 0
@@ -1398,7 +1398,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_47
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 256
         width: 32
         height: 32
@@ -1420,7 +1420,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_48
       rect:
         serializedVersion: 2
-        x: 32
+        x: 96
         y: 256
         width: 32
         height: 32
@@ -1442,7 +1442,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_49
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 256
         width: 32
         height: 32
@@ -1464,8 +1464,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_50
       rect:
         serializedVersion: 2
-        x: 96
-        y: 256
+        x: 0
+        y: 224
         width: 32
         height: 32
       alignment: 0
@@ -1486,8 +1486,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_51
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
+        x: 32
+        y: 224
         width: 32
         height: 32
       alignment: 0
@@ -1508,7 +1508,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_52
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 224
         width: 32
         height: 32
@@ -1530,7 +1530,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_53
       rect:
         serializedVersion: 2
-        x: 32
+        x: 96
         y: 224
         width: 32
         height: 32
@@ -1552,7 +1552,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_54
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 224
         width: 32
         height: 32
@@ -1574,8 +1574,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_55
       rect:
         serializedVersion: 2
-        x: 96
-        y: 224
+        x: 0
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -1596,8 +1596,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_56
       rect:
         serializedVersion: 2
-        x: 128
-        y: 224
+        x: 32
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -1618,7 +1618,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_57
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 192
         width: 32
         height: 32
@@ -1640,7 +1640,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_58
       rect:
         serializedVersion: 2
-        x: 32
+        x: 96
         y: 192
         width: 32
         height: 32
@@ -1662,8 +1662,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_59
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
+        x: 0
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -1684,8 +1684,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_60
       rect:
         serializedVersion: 2
-        x: 96
-        y: 192
+        x: 32
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -1706,7 +1706,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_61
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 160
         width: 32
         height: 32
@@ -1728,7 +1728,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_62
       rect:
         serializedVersion: 2
-        x: 32
+        x: 96
         y: 160
         width: 32
         height: 32
@@ -1750,7 +1750,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_63
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 160
         width: 32
         height: 32
@@ -1772,8 +1772,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_64
       rect:
         serializedVersion: 2
-        x: 96
-        y: 160
+        x: 0
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -1794,8 +1794,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_65
       rect:
         serializedVersion: 2
-        x: 128
-        y: 160
+        x: 32
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -1816,7 +1816,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_66
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 128
         width: 32
         height: 32
@@ -1838,7 +1838,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_67
       rect:
         serializedVersion: 2
-        x: 32
+        x: 96
         y: 128
         width: 32
         height: 32
@@ -1860,7 +1860,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_68
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 128
         width: 32
         height: 32
@@ -1882,8 +1882,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_69
       rect:
         serializedVersion: 2
-        x: 96
-        y: 128
+        x: 0
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -1904,8 +1904,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_70
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 32
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -1926,7 +1926,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_71
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 96
         width: 32
         height: 32
@@ -1948,7 +1948,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_72
       rect:
         serializedVersion: 2
-        x: 32
+        x: 96
         y: 96
         width: 32
         height: 32
@@ -1970,8 +1970,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_73
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
+        x: 0
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -1992,8 +1992,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_74
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
+        x: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -2014,8 +2014,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_75
       rect:
         serializedVersion: 2
-        x: 128
-        y: 96
+        x: 64
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -2037,7 +2037,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -2059,7 +2059,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 64
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -2081,7 +2081,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -2102,7 +2102,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_79
       rect:
         serializedVersion: 2
-        x: 0
+        x: 96
         y: 32
         width: 32
         height: 32
@@ -2124,8 +2124,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_80
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 0
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -2146,8 +2146,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_81
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 32
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -2168,8 +2168,8 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_82
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
+        x: 64
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -2190,7 +2190,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_83
       rect:
         serializedVersion: 2
-        x: 0
+        x: 96
         y: 0
         width: 32
         height: 32
@@ -2212,7 +2212,7 @@ TextureImporter:
       name: Emoji_Spritesheet_Free_84
       rect:
         serializedVersion: 2
-        x: 32
+        x: 128
         y: 0
         width: 32
         height: 32
@@ -2226,72 +2226,6 @@ TextureImporter:
       bones: []
       spriteID: f60fdb2393efc6a70800000000000000
       internalID: 8821705291729858671
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Emoji_Spritesheet_Free_85
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 13a95a2dac65e0dd0800000000000000
-      internalID: -2517979712536077775
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Emoji_Spritesheet_Free_86
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0f12af5759e8cc750800000000000000
-      internalID: 6326588349129302512
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Emoji_Spritesheet_Free_87
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9422904ec056cb840800000000000000
-      internalID: 5241175172392231497
       vertices: []
       indices: 
       edges: []
@@ -2396,9 +2330,6 @@ TextureImporter:
       Emoji_Spritesheet_Free_82: 7498839680418869452
       Emoji_Spritesheet_Free_83: 3908775419434169594
       Emoji_Spritesheet_Free_84: 8821705291729858671
-      Emoji_Spritesheet_Free_85: -2517979712536077775
-      Emoji_Spritesheet_Free_86: 6326588349129302512
-      Emoji_Spritesheet_Free_87: 5241175172392231497
       Emoji_Spritesheet_Free_9: 6056907716621017966
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
