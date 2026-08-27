@@ -201,7 +201,7 @@ RectTransform:
   m_GameObject: {fileID: 5370123826274843984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7972846639431720778}
@@ -224,7 +224,7 @@ Canvas:
   m_GameObject: {fileID: 5370123826274843984}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 2
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -236,7 +236,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &553159587039878007
 MonoBehaviour:
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2192261034381798428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +480,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4158664329055806369, guid: 8b9478702e15a9b41af80f710cd80f3e, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 8237248665875105811}
     - target: {fileID: 4801750849563329671, guid: 8b9478702e15a9b41af80f710cd80f3e, type: 3}
       propertyPath: m_Name
       value: ProgressBar
@@ -494,3 +498,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4063964957689601297, guid: 8b9478702e15a9b41af80f710cd80f3e, type: 3}
   m_PrefabInstance: {fileID: 1804676632847801975}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8237248665875105811 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7736033876637423204, guid: 8b9478702e15a9b41af80f710cd80f3e, type: 3}
+  m_PrefabInstance: {fileID: 1804676632847801975}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
