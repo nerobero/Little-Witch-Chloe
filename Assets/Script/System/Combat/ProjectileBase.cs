@@ -123,6 +123,12 @@ public class ProjectileBase : MonoBehaviour, IResetable
                 //2. shooting:
                 OnFired(direction);
 
+                // Test reflecting
+                //Vector2 direction = ((Vector2)transform.position - _startPoint).normalized;
+                //Vector2 normal = other.GetContact(0).normal;
+                //Vector2 reflect = Vector2.Reflect(direction, normal);
+
+                //OnFired(reflect);
             }
         }
         else
@@ -215,7 +221,14 @@ public class ProjectileBase : MonoBehaviour, IResetable
             Physics2D.IgnoreCollision(_collider, instigatorCollider, false);
         }
 
-        transform.localEulerAngles = new Vector3(0, 180f, _fireAngleSnapShot);
+        // Change reflect sprite logic to use fire direction.
+        float angle = Mathf.Atan2(fireDirection.y, fireDirection.x) * Mathf.Rad2Deg;
+        transform.localEulerAngles = new Vector3(0, 0, angle);
+        //transform.localEulerAngles = new Vector3(0, 180f, _fireAngleSnapShot);
+
+        // Vector3 scale = transform.localScale;
+        // scale.x = Mathf.Abs(scale.x) * (fireDirection.x < 0 ? -1f : 1f);
+        // transform.localScale = scale;
 
         _projRB.AddForce(fireDirection * speed, ForceMode2D.Impulse);
     }

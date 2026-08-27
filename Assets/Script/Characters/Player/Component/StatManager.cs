@@ -111,7 +111,12 @@ public class StatManager : MonoBehaviour, IDamageable
 
         float actualDamage = CalculateActualDamage(damageAmount, damageElement, mainCharacElement);
 
-        if (IsDead || IsBlink || actualDamage <= 0.0f)
+        if(IsDead)
+        {
+            return true;
+        }
+
+        if (IsBlink || actualDamage <= 0.0f)
         {
             FMODUnity.RuntimeManager.PlayOneShot(OnDamageDeflected);
             return false;
