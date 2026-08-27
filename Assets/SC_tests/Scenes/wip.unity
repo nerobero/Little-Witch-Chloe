@@ -33167,7 +33167,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 92623015941429368, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: near clip plane
-      value: -0.5
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 92623015941429368, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: orthographic size
@@ -33175,11 +33175,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1165017382129071551, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 131.22
+      value: 193.23
       objectReference: {fileID: 0}
     - target: {fileID: 1165017382129071551, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.18
+      value: 19.259998
       objectReference: {fileID: 0}
     - target: {fileID: 1165017382129071551, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: m_LocalPosition.z
@@ -55018,9 +55018,9 @@ GameObject:
   - component: {fileID: 1470512264}
   - component: {fileID: 1470512269}
   - component: {fileID: 1470512268}
+  - component: {fileID: 1470512267}
   - component: {fileID: 1470512265}
   - component: {fileID: 1470512266}
-  - component: {fileID: 1470512267}
   - component: {fileID: 1470512270}
   - component: {fileID: 1470512271}
   m_Layer: 6
@@ -92370,11 +92370,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8066750104543563746, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 131.22
+      value: 193.23
       objectReference: {fileID: 0}
     - target: {fileID: 8066750104543563746, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.3
+      value: 17.38
       objectReference: {fileID: 0}
     - target: {fileID: 8066750104543563746, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -95350,6 +95350,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &2118438261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8807439420534013813, guid: b58492ffdeb4cf640ab3bf55594957f8, type: 3}
+  m_PrefabInstance: {fileID: 2138471463206358612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2123247125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95750,6 +95755,10 @@ PrefabInstance:
       value: Jormungandr
       objectReference: {fileID: 0}
     - target: {fileID: 2203624764838935787, guid: b58492ffdeb4cf640ab3bf55594957f8, type: 3}
+      propertyPath: flower
+      value: 
+      objectReference: {fileID: 2118438261}
+    - target: {fileID: 2203624764838935787, guid: b58492ffdeb4cf640ab3bf55594957f8, type: 3}
       propertyPath: leftAnchor
       value: 
       objectReference: {fileID: 541341836}
@@ -95773,6 +95782,14 @@ PrefabInstance:
       propertyPath: shroomSummonRoot
       value: 
       objectReference: {fileID: 2057931658}
+    - target: {fileID: 2203624764838935787, guid: b58492ffdeb4cf640ab3bf55594957f8, type: 3}
+      propertyPath: backgroundPlatform
+      value: 
+      objectReference: {fileID: 133049533}
+    - target: {fileID: 2203624764838935787, guid: b58492ffdeb4cf640ab3bf55594957f8, type: 3}
+      propertyPath: foregroundPlatform
+      value: 
+      objectReference: {fileID: 1470512267}
     - target: {fileID: 7598581884716740003, guid: b58492ffdeb4cf640ab3bf55594957f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 197.23114
@@ -95965,11 +95982,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1795833320865996219, guid: 995b0abd0315fdf479f9da25bb8d8df5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 131.22
+      value: 193.23
       objectReference: {fileID: 0}
     - target: {fileID: 1795833320865996219, guid: 995b0abd0315fdf479f9da25bb8d8df5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.18
+      value: 19.259998
       objectReference: {fileID: 0}
     - target: {fileID: 1795833320865996219, guid: 995b0abd0315fdf479f9da25bb8d8df5, type: 3}
       propertyPath: m_LocalPosition.z

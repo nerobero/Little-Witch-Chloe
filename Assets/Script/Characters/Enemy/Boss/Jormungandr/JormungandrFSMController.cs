@@ -30,6 +30,7 @@ public class JormungandrFSMController : BaseFSMAIController
 
     [Header("Animator - Flower")]
     public Animator flowerAnimator;
+    public GameObject flower;
     private BossEnemyStatManager _statManager;
 
     [Header("Side switching")]
@@ -209,6 +210,7 @@ public class JormungandrFSMController : BaseFSMAIController
 
         // left side = background, right side = foreground
         gameObject.layer = LayerManager.Instance.GetLayer(!_currentSideIsRight, "Enemy");
+        flower.layer = LayerManager.Instance.GetLayer(!_currentSideIsRight, "Enemy");
 
         // by default (right side) Jormungandr faces left, so localScale.x is positive there
         Vector3 scale = transform.localScale;
