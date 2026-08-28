@@ -25,14 +25,14 @@ public class SoundManager : MonoSingletonBase<SoundManager>
 
     private void HandleStartManagerEvent()
     {
-        if(_isStarted) return;
+        if (_isStarted) return;
         Debug.Log("HandleStartManagerEvent Called");
         if (Overworld.IsNull) return;
+        _currentTrack = Overworld;
         _eventInstance = RuntimeManager.CreateInstance(Overworld);
         _eventInstance.start();
         _isStarted = true;
     }
-
     private void Start() => HandleStartManagerEvent();
     private void OnEnable() => HandleStartManagerEvent();
 

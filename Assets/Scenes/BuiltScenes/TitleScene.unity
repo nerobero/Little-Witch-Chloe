@@ -753,8 +753,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: MainMusic.Path
+      value: event:/MUSIC/Forest Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
       propertyPath: Overworld.Path
       value: event:/MUSIC/Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: MainMusic.Guid.Data1
+      value: -436705827
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: MainMusic.Guid.Data2
+      value: 1210747085
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: MainMusic.Guid.Data3
+      value: 985334197
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+      propertyPath: MainMusic.Guid.Data4
+      value: -1636808202
       objectReference: {fileID: 0}
     - target: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
       propertyPath: Overworld.Guid.Data1

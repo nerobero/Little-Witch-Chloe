@@ -223,4 +223,25 @@ public class JormungandrFSMController : BaseFSMAIController
         Debug.Log("[FSM] Switching sides completed!");
         StartAttackStrat();
     }
+    public void Emerge()
+    {
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Boss/Emerge");
+
+
+    }
+    public void Death()
+    {
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Boss/Death");
+
+
+    }
+    public void Switch()
+    {
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Boss/Switch");
+
+
+    }
 }

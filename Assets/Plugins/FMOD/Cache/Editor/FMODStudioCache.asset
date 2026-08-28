@@ -175,10 +175,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639230165152224571
+  lastModified: 639235197003866141
   FileSizes:
   - Name: Desktop
-    Value: 3004
+    Value: 3148
   Exists: 1
 --- !u!114 &-5201378617633771360
 MonoBehaviour:
@@ -234,6 +234,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 118
+--- !u!114 &-5091711881090798595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Boss/Switch
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Boss/Switch
+  Guid:
+    Data1: -1475538037
+    Data2: 1076550049
+    Data3: -62949215
+    Data4: -222280532
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1108
 --- !u!114 &-4868734723604717519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,10 +384,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639230926997482979
+  lastModified: 639235197003816133
   FileSizes:
   - Name: Desktop
-    Value: 9098720
+    Value: 9180416
   Exists: 1
 --- !u!114 &-4262239082927796618
 MonoBehaviour:
@@ -607,6 +634,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 638
+--- !u!114 &-686873183628707587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Boss/Emerge
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Boss/Emerge
+  Guid:
+    Data1: -1530815495
+    Data2: 1226408674
+    Data3: -2051590247
+    Data4: 2086735645
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5066
 --- !u!114 &-498052115779659504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,6 +801,10 @@ MonoBehaviour:
   - {fileID: -7778219492592491470}
   - {fileID: 5792088218432055631}
   - {fileID: -1862135328609955610}
+  - {fileID: 5107891435194026977}
+  - {fileID: -686873183628707587}
+  - {fileID: -5091711881090798595}
+  - {fileID: 7120271133953780172}
   EditorParameters:
   - {fileID: 2478196569288099822}
   - {fileID: 572125993231974450}
@@ -759,7 +817,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -5662479597483696475}
   cacheVersion: 131859
-  cacheTime: 639230926997482979
+  cacheTime: 639235197003866141
   SerializableEventsDict:
   - key: event:/MUSIC/Music Menu Select
     index: 0
@@ -847,6 +905,14 @@ MonoBehaviour:
     index: 41
   - key: event:/MUSIC/Ambience_Abanddon
     index: 42
+  - key: event:/SFX/Boss/Death
+    index: 43
+  - key: event:/SFX/Boss/Emerge
+    index: 44
+  - key: event:/SFX/Boss/Switch
+    index: 45
+  - key: event:/SFX/Fall
+    index: 46
 --- !u!114 &359156517584299351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1244,6 +1310,33 @@ MonoBehaviour:
   - Value A
   - Value B
   Exists: 1
+--- !u!114 &5107891435194026977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Boss/Death
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Boss/Death
+  Guid:
+    Data1: -572436276
+    Data2: 1109851378
+    Data3: 1576196501
+    Data4: -120428576
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5066
 --- !u!114 &5133411912280678294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1379,6 +1472,33 @@ MonoBehaviour:
   - Value A
   - Value B
   Exists: 1
+--- !u!114 &7120271133953780172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Fall
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Fall
+  Guid:
+    Data1: 1748957460
+    Data2: 1239280450
+    Data3: 1215682958
+    Data4: 131493582
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &7180939949566799510
 MonoBehaviour:
   m_ObjectHideFlags: 0
