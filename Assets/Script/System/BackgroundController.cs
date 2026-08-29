@@ -18,7 +18,7 @@ public class BackgroundController : MonoBehaviour
         startPos = transform.position;
     }
 
-    void FixedUpdate()
+    void LateUpdate()
     {   
         //fallback to cam pos in worldspace if parallaxPoint is not set
         Vector2 camPos;
