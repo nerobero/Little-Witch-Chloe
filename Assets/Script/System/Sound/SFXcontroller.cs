@@ -61,5 +61,13 @@ public class SFXcontroller : MonoBehaviour {
 
 
     }
+    public void PlayDialouge()
+    {
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Dialouge");
+
+
+    }
+
 
 }
