@@ -31,13 +31,25 @@ public class BossLoading : MonoBehaviour
             Debug.Log("Exit");
             UIManager.Instance.Get<TransLoadingHUD>().Hide();
 
-            InvisibleWall.transform.position = 
-                new Vector3(
-                    gameObject.transform.position.x,
-                    other.transform.position.y + 2.0f, 
-                    0
-                );
+            StartCoroutine(CreateInvisibleWall(1.0f, other.transform.position));
         }
     }
 
+    IEnumerator CreateInvisibleWall(float time, Vector3 position)
+    {
+        float elapsed = 0.0f;
+
+        while(elapsed <= time)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        InvisibleWall.transform.position = 
+                new Vector3(
+                    transform.position.x,
+                    position.y, 
+                    0
+                );
+    }
 }
