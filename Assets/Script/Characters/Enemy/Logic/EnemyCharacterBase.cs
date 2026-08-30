@@ -7,6 +7,11 @@ public class EnemyCharacterBase : StatManager
 
     protected EnemyControllerBase controller;
 
+    [Header("BodyCollisionDamage")]
+    [SerializeField] protected float damage;
+    [SerializeField] protected float damageInterval = 1f;
+    private float lastDamageTime = 0f;
+
     protected override void Start()
     {
         base.Start();
@@ -22,6 +27,19 @@ public class EnemyCharacterBase : StatManager
         
         enemyHP.SetTarget();
     }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        Debug.Log("[Jormungandr]" + collision);
+        if (IsDead) return;
+        if (LayerMask.LayerToName(collision.gameObject.layer).Contains("Player")
+        && Time.time >= lastDamageTime + damageInterval)
+        {
+            collision.gameObject.GetComponent<PlayerStatManager>().TakeDamageHelper(gameObject, damage, EElementType.None);
+            lastDamageTime = Time.time;
+        }
+    }
+
 
     public override bool TakeDamage(GameObject instigator, float damageAmount, EElementType damageElement)
     {

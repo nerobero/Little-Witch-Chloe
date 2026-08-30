@@ -111,6 +111,7 @@ public class StatManager : MonoBehaviour, IDamageable
 
         float actualDamage = CalculateActualDamage(damageAmount, damageElement, mainCharacElement);
 
+        //Debug.Log($"TakeDamage(): {actualDamage}");
         if(IsDead)
         {
             return true;
