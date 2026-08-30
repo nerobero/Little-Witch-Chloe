@@ -243,6 +243,14 @@ public class PlayerMovement : BaseCharacterMovement
         StartCoroutine(BlinkCooltimeChk(blinkCooldownTime));
     }
 
+    public override void ForceToBeOnForeground()
+    {
+        base.ForceToBeOnForeground();
+        int layerIndex = (int)Mathf.Log(_isBackground ? bgPlayerLayer : fgPlayerLayer, 2);
+        gameObject.layer = layerIndex;
+        ChangeOrderInLayer();
+    }
+
     public int GetCurrentLayer()
     {
         return IsBackground ? _bgLayerIndex : _fgLayerIndex;

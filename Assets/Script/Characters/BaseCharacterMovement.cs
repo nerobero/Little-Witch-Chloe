@@ -101,6 +101,11 @@ public class BaseCharacterMovement : MonoBehaviour
         ChangeOrderInLayer();
     }
 
+    public virtual void ForceToBeOnForeground()
+    {
+        _isBackground = false;
+    }
+
     /// <summary>
     /// Set the gameobject's orderInLayer -1 or 0 based on whether
     /// the character is in the background or not.

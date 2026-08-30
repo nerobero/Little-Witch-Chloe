@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,12 +12,6 @@ public class BossLoading : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         // only work if the collider has player layer
@@ -24,6 +19,7 @@ public class BossLoading : MonoBehaviour
         {
             Debug.Log("Enter");
             UIManager.Instance.Get<TransLoadingHUD>().Show();
+            other.GetComponent<PlayerMovement>().ForceToBeOnForeground();
         }
     }
 
@@ -38,9 +34,10 @@ public class BossLoading : MonoBehaviour
             InvisibleWall.transform.position = 
                 new Vector3(
                     gameObject.transform.position.x,
-                    other.transform.position.y, 
+                    other.transform.position.y + 2.0f, 
                     0
                 );
         }
     }
+
 }
