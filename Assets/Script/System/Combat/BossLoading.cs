@@ -1,7 +1,10 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossLoading : MonoBehaviour
 {
+    [Header("World Settings")]
+    public GameObject InvisibleWall;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,6 +34,13 @@ public class BossLoading : MonoBehaviour
         {
             Debug.Log("Exit");
             UIManager.Instance.Get<TransLoadingHUD>().Hide();
+
+            InvisibleWall.transform.position = 
+                new Vector3(
+                    gameObject.transform.position.x,
+                    other.transform.position.y, 
+                    0
+                );
         }
     }
 }

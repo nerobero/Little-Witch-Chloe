@@ -81,7 +81,7 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
 
         if(_orbitRadius == 0.0f)
         {
-            float randomOffset = UnityEngine.Random.Range(-5, 5);
+            float randomOffset = UnityEngine.Random.Range(-_summonRange, _summonRange);
             _summonPosition.x = target.transform.position.x + randomOffset;
             
             if(ai.CurrentSideIsRight)
