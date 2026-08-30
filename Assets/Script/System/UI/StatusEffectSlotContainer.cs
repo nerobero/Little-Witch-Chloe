@@ -38,15 +38,25 @@ public class StatusEffectSlotContainer : UIBase
     
     public void AddNewItem(ActiveStatusEffect Effect)
     {
-        // 1. Instantiate the prefab
-        GameObject newSlot = Instantiate(slotPrefab);
+        UIStatusEffectSlot reusedSlot = UIManager.Instance.Get<UIStatusEffectSlot>();
 
-        // 2. Set parent with worldPositionStays = false
-        newSlot.transform.SetParent(layoutGroupRect, false);
+        if(reusedSlot == null)
+        {
+            // 1. Instantiate the prefab
+            GameObject newSlot = Instantiate(slotPrefab);
 
-        // 3. Force layout rebuild to update positions instantly
-        newSlot.GetComponent<UIStatusEffectSlot>().Init(Effect);
-        //ActiveSlots[Effect] = newSlot;
-        LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroupRect);
+            // 2. Set parent with worldPositionStays = false
+            newSlot.transform.SetParent(layoutGroupRect, false);
+
+            // 3. Force layout rebuild to update positions instantly
+            newSlot.GetComponent<UIStatusEffectSlot>().Init(Effect);
+            //ActiveSlots[Effect] = newSlot;
+            LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroupRect);    
+        }
+        else
+        {
+            reusedSlot.Show();
+            reusedSlot.Init(Effect);
+        }
     }
 }
