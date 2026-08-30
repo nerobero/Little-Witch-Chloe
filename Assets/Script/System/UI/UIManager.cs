@@ -16,7 +16,7 @@ public class UIManager : MonoSingletonBase<UIManager>
 
     protected override void Awake()
     {
-        dontDestroy = true;
+        dontDestroy = false;
         base.Awake();
     }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3220002040071757067}
   - component: {fileID: 4115123658760141937}
   - component: {fileID: 9096293484642182835}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TutorialSignPost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 284833446264588796}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.31, y: 3.99, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 53f2d9422f133ac49aa8da2379f1fed9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2f25b2d747bee54496640c1650caf9c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,17 +127,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.0625, y: 1.59375}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1.03125, y: 0.796875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.0625, y: 1.59375}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &9096293484642182835
 MonoBehaviour:
@@ -152,5 +152,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MessageBoxTrigger
   interactIcon: {fileID: -4657369681490478202, guid: 022cc958b96ee2040b7be9e80c99eb2c, type: 3}
-  interactIconOffset: {x: 0, y: 1.25}
-  messageDataKey: 
+  interactIconOffset: {x: 0, y: 1.5}
+  messageDataKey: TUTORIAL_TELEPORT

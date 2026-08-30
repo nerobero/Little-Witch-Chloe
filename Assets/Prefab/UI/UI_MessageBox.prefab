@@ -193,7 +193,6 @@ MonoBehaviour:
   root: {fileID: 3873922888655861451}
   messageText: {fileID: 8291827544799509195}
   messageImage: {fileID: 6654183852101982955}
-  closeButton: {fileID: 8568627764624145916}
 --- !u!1 &2595605236402886563
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +275,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6440180528558133148}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7928290653395268332}
+        m_TargetAssemblyTypeName: UIMessageBox, Assembly-CSharp
+        m_MethodName: OnCloseClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &5485415756847676946
 CanvasRenderer:
   m_ObjectHideFlags: 0

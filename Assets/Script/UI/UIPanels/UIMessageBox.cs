@@ -8,7 +8,6 @@ public class UIMessageBox : UIBase
 {
     [SerializeField] private TMP_Text messageText;
     [SerializeField] private Image messageImage;
-    [SerializeField] private Button closeButton;
 
     private Action _onClosed;
 
@@ -19,12 +18,12 @@ public class UIMessageBox : UIBase
 
     protected override void SubscribeEvents()
     {
-        closeButton.onClick.AddListener(OnCloseClicked);
+        // closeButton.onClick.AddListener(OnCloseClicked);
     }
 
     protected override void UnsubscribeEvents()
     {
-        closeButton.onClick.RemoveListener(OnCloseClicked);
+        // closeButton.onClick.RemoveListener(OnCloseClicked);
     }
 
     /// <summary>
@@ -45,7 +44,7 @@ public class UIMessageBox : UIBase
         Show();
     }
 
-    private void OnCloseClicked()
+    public void OnCloseClicked()
     {
         Hide();
         _onClosed?.Invoke();

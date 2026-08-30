@@ -237,6 +237,8 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     public void OnInteract(InputAction.CallbackContext context)
     {
+        // Button actions fire started/performed/canceled; only act once per press.
+        if (!context.performed) return;
         _playerInteract.Interact();
     }
 
