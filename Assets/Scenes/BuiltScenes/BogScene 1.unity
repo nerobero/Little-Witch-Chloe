@@ -431965,6 +431965,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jormungandr
       objectReference: {fileID: 0}
+    - target: {fileID: 2203624764838935787, guid: b58492ffdeb4cf640ab3bf55594957f8, type: 3}
+      propertyPath: backgroundPlatform
+      value: 
+      objectReference: {fileID: 1557325200}
+    - target: {fileID: 2203624764838935787, guid: b58492ffdeb4cf640ab3bf55594957f8, type: 3}
+      propertyPath: foregroundPlatform
+      value: 
+      objectReference: {fileID: 1659866530}
     - target: {fileID: 7598581884716740003, guid: b58492ffdeb4cf640ab3bf55594957f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 251.36
