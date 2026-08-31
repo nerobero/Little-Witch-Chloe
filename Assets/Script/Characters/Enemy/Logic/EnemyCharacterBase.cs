@@ -35,8 +35,12 @@ public class EnemyCharacterBase : StatManager
         if (LayerMask.LayerToName(collision.gameObject.layer).Contains("Player")
         && Time.time >= lastDamageTime + damageInterval)
         {
-            collision.gameObject.GetComponent<PlayerStatManager>().TakeDamageHelper(gameObject, damage, EElementType.None);
-            lastDamageTime = Time.time;
+            // only damage if they are in same side
+            if(LayerManager.IsSameSide(collision.gameObject, gameObject))
+            {
+                collision.gameObject.GetComponent<PlayerStatManager>().TakeDamageHelper(gameObject, damage, EElementType.None);
+                lastDamageTime = Time.time;
+            }
         }
     }
 

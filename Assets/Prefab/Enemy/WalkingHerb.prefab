@@ -222,6 +222,8 @@ MonoBehaviour:
   mainCharacElement: 2
   OnTakenDamageEvent: 
   CrowdControl: 0
+  damage: 1
+  damageInterval: 1
 --- !u!114 &4983372570207355703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,12 +265,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   chargeAttackCDtime: 0
   changeSpellCDtime: 0
+  baseDamage: 10
+  baseAttackSpeed: 1
   _currentSpell: 7
   _elementType: 2
   damageAmount: 0
   _firePointObject: {fileID: 0}
   _firePoint: {fileID: 0}
   _orbitRadius: 0
+  isBackground: 0
 --- !u!114 &758179304421394627
 MonoBehaviour:
   m_ObjectHideFlags: 0

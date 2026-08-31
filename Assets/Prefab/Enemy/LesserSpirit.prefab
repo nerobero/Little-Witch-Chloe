@@ -177,12 +177,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LesserSpiritAttack
   chargeAttackCDtime: 0
   changeSpellCDtime: 0
+  baseDamage: 10
+  baseAttackSpeed: 1
   _currentSpell: 11
   _elementType: 3
   damageAmount: 1
   _firePointObject: {fileID: 6139647403758418630}
   _firePoint: {fileID: 1901527055763118400}
   _orbitRadius: 1.05
+  isBackground: 0
 --- !u!50 &-781276781480723014
 Rigidbody2D:
   serializedVersion: 5
@@ -376,6 +379,9 @@ MonoBehaviour:
   currentHP: 5
   mainCharacElement: 3
   OnTakenDamageEvent: 
+  CrowdControl: 0
+  damage: 1
+  damageInterval: 1
 --- !u!114 &-1742412551515105769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,6 +463,9 @@ MonoBehaviour:
   currentHP: 20
   mainCharacElement: 0
   OnTakenDamageEvent: 
+  CrowdControl: 0
+  damage: 0
+  damageInterval: 1
 --- !u!114 &4983372570207355703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,6 +478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4235ee690f9965c4685a044285a25b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SFXcontroller
+  WalkingHerb: {fileID: 0}
 --- !u!114 &1405234689079182277
 MonoBehaviour:
   m_ObjectHideFlags: 0
