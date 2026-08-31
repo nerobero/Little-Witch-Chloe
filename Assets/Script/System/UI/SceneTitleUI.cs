@@ -5,9 +5,9 @@ public class SceneTitleUI : UIBase
 {
     [SerializeField] private TextMeshProUGUI _text;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         Hide();
     }
 

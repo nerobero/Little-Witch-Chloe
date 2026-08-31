@@ -52,7 +52,7 @@ public class LayerManager : MonoSingletonBase<LayerManager>
         string layerNameA = LayerMask.LayerToName(a.layer);
         string layerNameB = LayerMask.LayerToName(b.layer);
 
-        if (string.IsNullOrEmpty(layerNameA) || string.IsNullOrEmpty(layerNameB)) return true;
+        if (string.IsNullOrEmpty(layerNameA) || string.IsNullOrEmpty(layerNameB)) return false;
 
         string prefixA = layerNameA.Split('_')[0];
         string prefixB = layerNameB.Split('_')[0];

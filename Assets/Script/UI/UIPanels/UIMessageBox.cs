@@ -11,8 +11,9 @@ public class UIMessageBox : UIBase
 
     private Action _onClosed;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         messageImage.gameObject.SetActive(false);
     }
 

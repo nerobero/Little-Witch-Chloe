@@ -369,10 +369,10 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     #region Reset
     public void ResetState()
     {
-        UIManager.Instance.Get<UIPlayerHUD>().Initialize(); 
         _playerAttack.ResetState();
         _playerMove.ResetState();
         _playerStat.ResetState();
+        UIManager.Instance.Get<UIPlayerHUD>().Initialize(); 
 
         gameObject.transform.position = spawnPosition + new Vector3(0f, 1f, 0f);
         gameObject.transform.rotation = spawnRotation;

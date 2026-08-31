@@ -10,9 +10,9 @@ using FMODUnity;
 public class UIGameOverHUD : UIBase
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         //SubscribeEvents();
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class UIBase : MonoBehaviour
 {
     public GameObject root;
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         // self-registering to UIManager's panel registry:
         UIManager.Instance.Register(this);

@@ -21,8 +21,10 @@ public class UIPlayerHUD : UIBase
     [SerializeField]private int _currentProjIndex, _maxProjIndex = 0;
     [SerializeField]private int _maxSkillIndex = 0;
 
-    protected void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _projLists = new List<UISlotPanel>(_projGroup.GetComponentsInChildren<UISlotPanel>());
         _currentProjIndex = 0;
 
@@ -37,15 +39,6 @@ public class UIPlayerHUD : UIBase
         {
             slot.gameObject.SetActive(false);
         }
-    }
-
-    protected override void Start()
-    {
-        base.Start();
-
-        //PlayerController.Instance.GetComponent<PlayerAttack>().Initialize();
-        //SubscribeEvents();
-
     }
 
     public void Initialize()
@@ -195,12 +188,12 @@ public class UIPlayerHUD : UIBase
 
     public void ResetState()
     {
-        for(int i = _maxSkillIndex; i >= 0; --i)
+        for(int i = _maxSkillIndex - 1; i >= 0; --i)
         {
             _skillLists[i].gameObject.SetActive(false);
         }
 
-        for(int i = _maxProjIndex; i >= 0; --i)
+        for(int i = _maxProjIndex - 1; i >= 0; --i)
         {
             _projLists[i].gameObject.SetActive(false);
         }

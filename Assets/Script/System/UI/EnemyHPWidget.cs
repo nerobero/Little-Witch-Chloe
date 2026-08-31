@@ -9,10 +9,9 @@ public class EnemyHPWidget : UIBase
     [SerializeField] private Slider _hpSlider;
     public Slider HPSlider => _hpSlider;
     
-
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         _targetStat = GetComponent<EnemyCharacterBase>();
 
@@ -22,12 +21,6 @@ public class EnemyHPWidget : UIBase
         }
 
         // SetTarget(_targetStat);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     // Register the target.

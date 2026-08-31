@@ -28,14 +28,6 @@ public class StatusEffectSlotContainer : UIBase
         
     }
     
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    
     public void AddNewItem(ActiveStatusEffect Effect)
     {
         UIStatusEffectSlot reusedSlot = UIManager.Instance.Get<UIStatusEffectSlot>();

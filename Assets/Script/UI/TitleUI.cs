@@ -16,9 +16,9 @@ public class TitleUI : UIBase
     [SerializeField] private string sceneName = "wip";
     private Coroutine ErrorRoutine;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         // _error = _errorText.GetComponent<CanvasGroup>();
         // _error.alpha = 0.0f;
     }

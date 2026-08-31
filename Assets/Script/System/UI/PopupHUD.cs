@@ -13,9 +13,9 @@ public class PopupHUD : UIBase
     // [SerializeField] private TMP_Dropdown _languages;
     // List<string> languageLists;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         // _languages?.ClearOptions();
 
@@ -31,12 +31,6 @@ public class PopupHUD : UIBase
         //SubscribeEvents();
 
         //Hide();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     #region Button click event
