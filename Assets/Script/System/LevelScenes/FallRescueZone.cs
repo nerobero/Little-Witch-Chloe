@@ -17,7 +17,7 @@ public class FallRescueZone : MonoBehaviour
 
     [Header("Setting")]
     [SerializeField] private List<TileCollider> tilemaps;
-    [SerializeField] private float damageAmount;
+    [SerializeField] private float damageAmount = 1f;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -123,6 +123,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         _isFirstSceneLoad = true;
         _progressBar.value = 0.0f;
         _loaderCanvas.SetActive(true);
+        GameManager.Instance.SetCurrentLevel(curLevelType);
 
         await SceneManager.LoadSceneAsync((int)levelType);
 
@@ -136,7 +137,6 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         } while(scene.progress < 0.9f);
 
         scene.allowSceneActivation = true;
-        GameManager.Instance.SetCurrentLevel(curLevelType);
         //_loaderCanvas.SetActive(false);
 
         if(isSaveDataLoad)
