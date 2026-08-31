@@ -23,7 +23,7 @@ public class UIPlayerHUD : UIBase
 
     protected void Awake()
     {
-        _projLists = new List<UISlotPanel>(_projGroup.GetComponentsInChildren<UISlotPanel>());
+        _projLists = new List<UISlotPanel>(_projGroup.GetComponentsInChildren<UISlotPanel>(true));
         _currentProjIndex = 0;
 
         foreach(var slot in _projLists)
@@ -31,7 +31,7 @@ public class UIPlayerHUD : UIBase
             slot.gameObject.SetActive(false);
         }
 
-        _skillLists = new List<UISlotPanel>(_skillGroup.GetComponentsInChildren<UISlotPanel>());
+        _skillLists = new List<UISlotPanel>(_skillGroup.GetComponentsInChildren<UISlotPanel>(true));
 
         foreach(var slot in _skillLists)
         {
@@ -195,14 +195,14 @@ public class UIPlayerHUD : UIBase
 
     public void ResetState()
     {
-        for(int i = _maxSkillIndex; i >= 0; --i)
+        foreach(var slot in _skillLists)
         {
-            _skillLists[i].gameObject.SetActive(false);
+            slot.gameObject.SetActive(false);
         }
 
-        for(int i = _maxProjIndex; i >= 0; --i)
+        foreach(var slot in _projLists)
         {
-            _projLists[i].gameObject.SetActive(false);
+            slot.gameObject.SetActive(false);
         }
 
         _maxSkillIndex = 0;
