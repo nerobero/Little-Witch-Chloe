@@ -262,6 +262,7 @@ public class PlayerAttack : MonoBehaviour
             {ESpawnType.FireBall, true}, {ESpawnType.WaterBall, true},
             {ESpawnType.PoisonBall, false}, {ESpawnType.ElectricBall, false}, {ESpawnType.LightBall, false}
         };
+        GameManager.Instance.ResetState();
     }
 
     // #region Buff/Debuff Status Effect

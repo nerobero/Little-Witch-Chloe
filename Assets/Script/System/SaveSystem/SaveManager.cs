@@ -13,7 +13,6 @@ public class SaveManager : MonoSingletonBase<SaveManager>
     [SerializeField] private PlayerStatManager playerState;
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private PlayerMovement playerMove;
-    [SerializeField] private GameManager gameManager;
 
     private SavePlayerData _pendingData;
     
@@ -34,6 +33,14 @@ public class SaveManager : MonoSingletonBase<SaveManager>
     // {
     //     SceneManager.sceneLoaded -= OnSceneLoaded;
     // }
+    
+    public void Register(PlayerController controller)
+    {
+        playerController = controller;
+        playerState = controller.PlayerStat;
+        playerAttack = controller.PlayerAttack;
+        playerMove = controller.PlayerMove;
+    }
 
     public bool LoadSaveGame()
     {

@@ -21,10 +21,12 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     // Handler for player's attack system
     private PlayerAttack _playerAttack;
+    public PlayerAttack PlayerAttack => _playerAttack;
 
     private InteractionSystem _playerInteract;
     //private StatusEffectController _statusEffects;
     private PlayerStatManager _playerStat;
+    public PlayerStatManager PlayerStat => _playerStat;
 
     private Camera _mainCamera;
     #endregion
@@ -78,11 +80,12 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     private void Start()
     {
+        UIManager.Instance.Get<UIPlayerHUD>()?.Initialize(); 
         LevelManager.Instance.RegisterInstance(this);
+        SaveManager.Instance.Register(this);
 
         spawnPosition = gameObject.transform.position;
         spawnRotation = gameObject.transform.rotation;
-        UIManager.Instance.Get<UIPlayerHUD>()?.Initialize(); 
 
         _playerStat.OnDeath += Death;
     }

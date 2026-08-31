@@ -43,14 +43,16 @@ public class UIPlayerHUD : UIBase
     {
         base.Start();
 
-        PlayerController.Instance.GetComponent<PlayerAttack>().Initialize();
+        //PlayerController.Instance.GetComponent<PlayerAttack>().Initialize();
         //SubscribeEvents();
 
     }
 
     public void Initialize()
     {
+        ResetState();
         OnEnable();
+        PlayerController.Instance.GetComponent<PlayerAttack>().Initialize();
     }
 
     #region EventSubscription
@@ -189,5 +191,21 @@ public class UIPlayerHUD : UIBase
                 slot.OnSlotCooledDown(time);
             }
         }
+    }
+
+    public void ResetState()
+    {
+        for(int i = _maxSkillIndex; i >= 0; --i)
+        {
+            _skillLists[i].gameObject.SetActive(false);
+        }
+
+        for(int i = _maxProjIndex; i >= 0; --i)
+        {
+            _projLists[i].gameObject.SetActive(false);
+        }
+
+        _maxSkillIndex = 0;
+        _maxProjIndex = 0;
     }
 }
