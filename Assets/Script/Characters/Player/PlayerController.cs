@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using System.Collections;
 using Types;
 
 /// <summary>
@@ -80,7 +81,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
     private void Start()
     {
-        UIManager.Instance.Get<UIPlayerHUD>()?.Initialize(); 
+        StartCoroutine(InitializeHUDWhenReady());
         LevelManager.Instance.RegisterInstance(this);
         SaveManager.Instance.Register(this);
 
@@ -88,6 +89,36 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         spawnRotation = gameObject.transform.rotation;
 
         _playerStat.OnDeath += Death;
+    }
+
+    /// <summary>
+    /// Waits until the player HUD has registered itself with UIManager before
+    /// initializing it. UIPlayerHUD registers during its own Start(), and Unity
+    /// does not guarantee Start() ordering between GameObjects, so on some runs
+    /// this component's Start() runs first and Get<UIPlayerHUD>() returns null.
+    /// The old "?." call swallowed that case silently, leaving the HUD with no
+    /// projectile slots.
+    /// </summary>
+    private IEnumerator InitializeHUDWhenReady()
+    {
+        const float timeoutSeconds = 5f;
+        float waitedFor = 0f;
+
+        UIPlayerHUD hud = UIManager.Instance.Get<UIPlayerHUD>();
+        while (hud == null && waitedFor < timeoutSeconds)
+        {
+            yield return null;
+            waitedFor += Time.unscaledDeltaTime;
+            hud = UIManager.Instance.Get<UIPlayerHUD>();
+        }
+
+        if (hud == null)
+        {
+            Debug.LogError($"[PlayerController] UIPlayerHUD never registered with UIManager after {timeoutSeconds:0.#}s; projectile slots will not be initialized.");
+            yield break;
+        }
+
+        hud.Initialize();
     }
 
     private void OnEnable()

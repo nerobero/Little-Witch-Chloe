@@ -10,7 +10,7 @@ public class JormungandrPoison : MonoBehaviour
     [SerializeField] private float interval;
     [SerializeField] private ESpawnType spawnType;
     [SerializeField] private EElementType elementType;
-    [SerializeField] private string fmodEventName = "";
+    // [SerializeField] private string fmodEventName = "";
 
     // For now, the effect is used by hard coded.
     [SerializeField] private StatusEffect effect;
