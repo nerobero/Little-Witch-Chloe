@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -1582457922783524267}
   - component: {fileID: 2361115069222428360}
   - component: {fileID: -811343117510365311}
-  - component: {fileID: 942351765844813761}
+  - component: {fileID: 6249094034032641020}
   m_Layer: 9
   m_Name: Burl_L
   m_TagString: Untagged
@@ -294,7 +294,9 @@ MonoBehaviour:
   mainCharacElement: 0
   OnTakenDamageEvent: 
   CrowdControl: 0
---- !u!114 &942351765844813761
+  damage: 0
+  damageInterval: 1
+--- !u!114 &6249094034032641020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -303,9 +305,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2025196114555132397}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181d035de88924d44a00396e281b14aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d10b33ccfa402f41a01303db888760c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BaseMonsterMovement
+  m_EditorClassIdentifier: Assembly-CSharp::BurMovement
   originalSpeed: 0
   jumpHeight: 0
   bgLayer:

@@ -76,7 +76,11 @@ public class BaseCharacterMovement : MonoBehaviour
 
     protected virtual void Start()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, _spriteRender.bounds.extents.y / 2f), Vector2.down, 10.0f, bgLayer | fgLayer);
+        RaycastHit2D hit = Physics2D.Raycast(
+            transform.position - new Vector3(0, _spriteRender.bounds.extents.y / 2f),
+            Vector2.down,
+            10.0f,
+            bgLayer | fgLayer);
         //Debug.DrawRay(transform.position - new Vector3(0, _spriteRender.bounds.extents.y / 2f), Vector2.down * 10f, new Color(1, 1, 0), 1000f);
 
         Debug.Log(hit.collider);
