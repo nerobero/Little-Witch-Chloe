@@ -20,17 +20,25 @@ public class CollectableItemBase : ItemBase
 
     protected bool OnInteract_Helper(Collider2D other)
     {
-        int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
+        //int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
 
-        if(other.gameObject.layer != layer) return false;
 
-        PlayerMovement player = other.GetComponent<PlayerMovement>();
+        //PlayerMovement player = other.GetComponent<PlayerMovement>();
 
-        if(player == null) return false;
+        //if(player == null) return false;
 
-        if (this.isBackgroundItem != player.IsBackground) return false;
+        //if (this.isBackgroundItem != player.IsBackground) return false;
+        if(LayerMask.LayerToName(other.gameObject.layer).Contains("Player"))
+        {
+            if(LayerManager.IsSameSide(gameObject, other.gameObject))
+            {
+                Debug.Log($"{gameObject}: Pass IsSameSide");
+                return OnInteract_HelperImpl(other);
+            }
+        }
 
-        return OnInteract_HelperImpl(other);
+        Debug.Log($"{gameObject}: return OnInteract_Helper() false");
+        return false;
     } 
 
     protected virtual bool OnInteract_HelperImpl(Collider2D other)

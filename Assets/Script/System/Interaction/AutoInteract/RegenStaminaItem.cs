@@ -16,13 +16,17 @@ public class RegenStaminaItem : RegenItemBase
 
     protected override bool OnInteractHelper(Collider2D other)
     {
-        var playerStatMgrComp = other.gameObject.GetComponent<PlayerStatManager>();
-        if (playerStatMgrComp == null) return false;
 
-        int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
+        //int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
+        if(LayerManager.IsSameSide(gameObject, other.gameObject))
+        {
+            var playerStatMgrComp = other.gameObject.GetComponent<PlayerStatManager>();
+            if (playerStatMgrComp == null) return false;
+            
+            return playerStatMgrComp.ReplenishStamina(_replenishAmount);
+        }
+        return false;
 
-        if(other.gameObject.layer != layer) return false;
-
-        return playerStatMgrComp.ReplenishStamina(_replenishAmount);
+        //if(other.gameObject.layer != layer) return false;
     }
 }

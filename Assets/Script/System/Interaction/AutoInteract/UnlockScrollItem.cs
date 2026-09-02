@@ -8,28 +8,37 @@ public class UnlockScrollItem : ScrollItem
 
     protected override bool OnInteract(Collider2D other)
     {
-        var playerControllerComp = other.gameObject.GetComponent<PlayerController>();
-        if (playerControllerComp == null) 
+        if(LayerMask.LayerToName(other.gameObject.layer).Contains("Player"))
         {
-           // Debug.Log("Player Null");
-           return false; // cannot get the component, then return false
+            if(LayerManager.IsSameSide(gameObject, other.gameObject))
+            {
+                bool unlocked = GameManager.Instance.OnScrollCollected(_unlockType);
+                
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Scroll");
+                //return OnInteract_HelperImpl(other);
+                if(unlocked)
+                {
+                    UIManager.Instance.Get<UIPlayerHUD>().UpdateSkillList(_unlockType, _keyIconSprite);
+                }
+
+                return unlocked;
+            }
         }
+        // var playerControllerComp = other.gameObject.GetComponent<PlayerController>();
+        // if (playerControllerComp == null) 
+        // {
+        //    // Debug.Log("Player Null");
+        //    return false; // cannot get the component, then return false
+        // }
 
-        int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
+        // //int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
 
-        if(other.gameObject.layer != layer) 
-        {
-            //Debug.Log("object null");
-            return false;
-        }
+        // if(other.gameObject.layer != layer) 
+        // {
+        //     //Debug.Log("object null");
+        //     return false;
+        // }
 
-        bool unlocked = GameManager.Instance.OnScrollCollected(_unlockType);
-
-        if(unlocked)
-        {
-            UIManager.Instance.Get<UIPlayerHUD>().UpdateSkillList(_unlockType, _keyIconSprite);
-        }
-
-        return unlocked;
+        return false;
     }
 }

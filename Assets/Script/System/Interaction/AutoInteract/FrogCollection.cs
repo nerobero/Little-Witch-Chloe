@@ -32,6 +32,7 @@ public class FrogCollection : CollectableItemBase
 
     protected override bool OnInteract_HelperImpl(Collider2D other)
     {
+        Debug.Log($"{gameObject}: OnInteract_HelperImpl()");
         GameManager.Instance.OnFrogCollected();
 
         var stat = other.GetComponent<StatManager>();
@@ -47,8 +48,16 @@ public class FrogCollection : CollectableItemBase
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        if (OnInteract(collision))
+        {
+            //PoolObjectManager.Instance.Return(spawnType, this.gameObject);
+            ProcessCollection();
+        }
+    }
+
+    protected override void ProcessCollection()
+    {
         _animator.SetTrigger(IsCollectedTrigHash);
-        OnInteract(collision);
     }
 
     public void AfterCollectAnimation()

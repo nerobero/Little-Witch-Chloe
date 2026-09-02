@@ -17,13 +17,17 @@ public class RegenHPItem : RegenItemBase
 
     protected override bool OnInteractHelper(Collider2D other)
     {
-        var statManagerComp = other.gameObject.GetComponent<StatManager>();
-        if (statManagerComp == null) return false;
+        if(LayerManager.IsSameSide(gameObject, other.gameObject))
+        {
+            var statManagerComp = other.gameObject.GetComponent<StatManager>();
+            if (statManagerComp == null) return false;
+            
+            return statManagerComp.Heal(_healAmount);
+        }
+        return false;
         
-        int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
+        //int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
 
-        if(other.gameObject.layer != layer) return false;
-
-        return statManagerComp.Heal(_healAmount);
+        //if(other.gameObject.layer != layer) return false;
     }
 }

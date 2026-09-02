@@ -25,16 +25,23 @@ public class ScrollItem : ItemBase
     /// <returns>true if the new spell has been successfully unlocked</returns>
     protected override bool OnInteract(Collider2D other)
     {
-        var playerAttackComp = other.gameObject.GetComponent<PlayerAttack>();
-        if (playerAttackComp == null) return false; // cannot get the component, then return false
 
-        int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
+        //int layer = (int)Mathf.Log(isBackground ? bgPlayerLayer : fgPlayeLayer, 2);
 
-        if(other.gameObject.layer != layer) return false;
+        if(LayerManager.IsSameSide(gameObject, other.gameObject))
+        {
+            var playerAttackComp = other.gameObject.GetComponent<PlayerAttack>();
+            if (playerAttackComp == null) return false; // cannot get the component, then return false
+            
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Scroll");
+            //return OnInteract_HelperImpl(other);
+            return playerAttackComp.UnlockSpell(_spellType);
+        }
+        return false;
+
+        //if(other.gameObject.layer != layer) return false;
         
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Scroll");
 
-        return playerAttackComp.UnlockSpell(_spellType);
     }
 
     public override void ResetState()

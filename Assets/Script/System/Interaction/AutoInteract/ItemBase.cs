@@ -29,14 +29,22 @@ public abstract class ItemBase : MonoBehaviour, IResetable
 
         _spriteRender = GetComponent<SpriteRenderer>();
 
-        int bgLayer = LayerMask.NameToLayer("Background_Platform");
-        int fgLayer = LayerMask.NameToLayer("Foreground_Platform");
+        int bgLayer = LayerMask.GetMask("Background_Platform");
+        int fgLayer = LayerMask.GetMask("Foreground_Platform");
         string myLayer = "Interactables";
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, _spriteRender.bounds.extents.y / 2f), Vector2.down, 10.0f, bgLayer | fgLayer);
-        //Debug.DrawRay(transform.position - new Vector3(0, _spriteRender.bounds.extents.y / 2f), Vector2.down * 10f, new Color(1, 1, 0), 1000f);
+        int layerMask = (1 << bgLayer) | (1 << fgLayer) | ~(1 << gameObject.layer);
 
-        Debug.Log(hit.collider);
+        RaycastHit2D hit = Physics2D.Raycast(
+            transform.position,
+            Vector2.down,
+            10.0f,
+            bgLayer | fgLayer & ~(1 << gameObject.layer)
+        );
+        Debug.DrawRay(transform.position, Vector2.down * 10f, Color.brown, 1000f);
+
+        // Debug.Log($"ItemBase ({gameObject}): bgLayer = {LayerMask.LayerToName(bgLayer)} and fglayer = {LayerMask.LayerToName(fgLayer)}");
+        //Debug.Log($"ItemBase ({gameObject}): HitCollider = {hit.collider} and the layer = {LayerMask.LayerToName(hit.collider.gameObject.layer)}");
 
         string groundLayerName = LayerMask.LayerToName(hit.collider != null ? hit.collider.gameObject.layer : gameObject.layer);
 
@@ -52,7 +60,7 @@ public abstract class ItemBase : MonoBehaviour, IResetable
            
             gameObject.layer = nextMyLayer;
             
-            Debug.Log($"{GetType().Name}: Because the layer of the platform is {groundLayerName}, change my layer as {LayerMask.LayerToName(nextMyLayer)}.");
+            //Debug.Log($"{GetType().Name}: Because the layer of the platform is {groundLayerName}, change my layer as {LayerMask.LayerToName(nextMyLayer)}.");
         }
     }
 
