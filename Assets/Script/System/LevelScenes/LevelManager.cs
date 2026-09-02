@@ -94,7 +94,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
             yield return null;
         }
 
-        GameManager.Instance.ResetState();
+        //GameManager.Instance.ResetState();
         
         bool hasSave = SaveManager.Instance.LoadSaveGame();
 

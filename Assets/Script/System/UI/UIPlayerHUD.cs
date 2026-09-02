@@ -200,5 +200,6 @@ public class UIPlayerHUD : UIBase
 
         _maxSkillIndex = 0;
         _maxProjIndex = 0;
+        _objectivesText.text = GameManager.Instance.GetCollectedFrog().ToString();
     }
 }

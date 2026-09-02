@@ -11,10 +11,12 @@ public abstract class RegenItemBase : ItemBase
 
     protected override bool OnInteract(Collider2D other)
     {
+        if(!_canInteract) return false;
         // if the interaction went successful and this item has been regenerated 
         // successfully, return true.
         if (OnInteractHelper(other))
         {
+            _canInteract = false;
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Healing Berry");
             Invoke("Regenerate", _regenCDTime);
             return true;
@@ -36,6 +38,7 @@ public abstract class RegenItemBase : ItemBase
     /// </summary>
     private void Regenerate()
     {
+        _canInteract = true;
         //PoolObjectManager.Instance.Get(base.spawnType);
         gameObject.SetActive(true);
     }

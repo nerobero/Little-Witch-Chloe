@@ -15,6 +15,7 @@ public abstract class ItemBase : MonoBehaviour, IResetable
     [SerializeField] protected LayerMask fgPlayeLayer;
     [SerializeField] protected bool isBackground;
     protected SpriteRenderer _spriteRender;
+    protected bool _canInteract = true;
 
     /// <summary>
     /// Handles interaction logic. Can be overriden by the child classes.
@@ -73,6 +74,7 @@ public abstract class ItemBase : MonoBehaviour, IResetable
 
     protected virtual void ProcessCollection()
     {
+        _canInteract = false;
         gameObject.SetActive(false);
     }
 
@@ -80,5 +82,6 @@ public abstract class ItemBase : MonoBehaviour, IResetable
     {
         //PoolObjectManager.Instance.Get(spawnType);
         gameObject.SetActive(true);
+        _canInteract = true;
     }
 }

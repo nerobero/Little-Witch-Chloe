@@ -15,6 +15,8 @@ public class CollectableItemBase : ItemBase
 
     protected override bool OnInteract(Collider2D other)
     {
+        if(!_canInteract) return false;
+        
         return OnInteract_Helper(other);
     }
 

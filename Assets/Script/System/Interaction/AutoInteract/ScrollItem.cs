@@ -32,7 +32,7 @@ public class ScrollItem : ItemBase
         {
             var playerAttackComp = other.gameObject.GetComponent<PlayerAttack>();
             if (playerAttackComp == null) return false; // cannot get the component, then return false
-            
+
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Scroll");
             //return OnInteract_HelperImpl(other);
             return playerAttackComp.UnlockSpell(_spellType);
@@ -42,10 +42,5 @@ public class ScrollItem : ItemBase
         //if(other.gameObject.layer != layer) return false;
         
 
-    }
-
-    public override void ResetState()
-    {
-        gameObject.SetActive(true);
     }
 }

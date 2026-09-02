@@ -57,6 +57,7 @@ public class FrogCollection : CollectableItemBase
 
     protected override void ProcessCollection()
     {
+        _canInteract = false;
         _animator.SetTrigger(IsCollectedTrigHash);
     }
 

@@ -292,5 +292,6 @@ public class GameManager : MonoSingletonBase<GameManager>
     public void ResetState()
     {
         _unlockedAbilities.Clear();
+        _objectives.Clear();
     }
 }
