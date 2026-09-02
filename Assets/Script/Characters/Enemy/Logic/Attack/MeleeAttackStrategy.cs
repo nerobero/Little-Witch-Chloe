@@ -16,7 +16,6 @@ public class MeleeAttackStrategy : IEnemyAttackStrategy
     private float _damageAmount = 0f;
 
     private EElementType _damageType;
-    private WaitForSecondsTracked _waitTime;
 
     public MeleeAttackStrategy(Transform startPoint, float radius, float damageAmount, EElementType damageType)
     {
