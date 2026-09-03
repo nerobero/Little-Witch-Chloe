@@ -73,6 +73,7 @@ public class ProjectileBase : MonoBehaviour, IResetable
         */
 
         Debug.Log($"Collided: {other.gameObject}");
+        Vector3 position = other.transform.position;
 
         // Get instigator's layer name and collided object's layer name
         string instigatorLayerName = LayerMask.LayerToName(instigator.layer);
@@ -102,6 +103,8 @@ public class ProjectileBase : MonoBehaviour, IResetable
         var stats = other.gameObject.GetComponent<StatManager>();
         if (stats != null)
         {
+            other.collider.transform.position = position;
+            other.collider.attachedRigidbody.linearVelocity = Vector2.zero;
             if (stats.TakeDamageHelper(instigator, dealtDamage, elementType))
             {
                 // foreach (StatusEffectData effect in onHitStatusEffects)
@@ -136,7 +139,6 @@ public class ProjectileBase : MonoBehaviour, IResetable
             HitEvent();
             StartCoroutine(ReturnToPoolAfterAnimation());
         }
-
     }
 
     protected void HitEvent()
@@ -192,7 +194,7 @@ public class ProjectileBase : MonoBehaviour, IResetable
         if (_collider != null && _instigatorCollider != null)
         {
             // Set to ignore collisions between the projectile collider and the owner collider
-            Physics2D.IgnoreCollision(_collider, _instigatorCollider);
+            Physics2D.IgnoreCollision(_collider, _instigatorCollider, true);
         }
 
         _collider.enabled = true;
