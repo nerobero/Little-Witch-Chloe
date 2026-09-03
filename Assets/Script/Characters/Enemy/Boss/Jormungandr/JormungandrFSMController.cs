@@ -33,6 +33,12 @@ public class JormungandrFSMController : BaseFSMAIController
     public GameObject flower;
     private BossEnemyStatManager _statManager;
 
+    [Header("Animator - Water splash")]
+    // Parallel animator on the splash VFX object. Mirrors the FSM param names and only reacts
+    // to four of them: Entrance (default entry), IsDead, StunTrigger (stun intro), IsStunned
+    // going false (stun outro). See AM_Jormungandr for the state layout it copies.
+    public Animator splashAnimator;
+
     [Header("Side switching")]
     public Transform leftAnchor;
     public Transform rightAnchor;
@@ -157,6 +163,46 @@ public class JormungandrFSMController : BaseFSMAIController
         var idle = Animator.StringToHash("Idle");
         _mainAnimator.SetBool(idle, true);
         flowerAnimator.SetBool(idle, true);
+
+        // The flower is enabled on the last beat of the Entrance clip, so this is also where
+        // the entrance window closes and the FSM takes over.
+        EntranceComplete();
+    }
+
+    protected override void PlayEntranceAnimation()
+    {
+        base.PlayEntranceAnimation();
+        TriggerAnimation(flowerAnimator, EntranceTrigger);
+        TriggerAnimation(splashAnimator, EntranceTrigger);
+    }
+
+    // Base only drives IsDead on the body animator; the splash object has its own Dead state.
+    protected override void HandleDeath()
+    {
+        base.HandleDeath();
+        if (splashAnimator != null) splashAnimator.SetBool(IsDeadHash, true);
+    }
+
+    protected override void ResetEntranceState()
+    {
+        base.ResetEntranceState();
+
+        if (flowerAnimator != null)
+        {
+            flowerAnimator.ResetTrigger(EntranceTrigger);
+            flowerAnimator.ResetTrigger(StunTrigger);
+            flowerAnimator.SetBool(IsDeadHash, false);
+            flowerAnimator.SetBool(IsStunned, false);
+            flowerAnimator.SetBool(IdleBool, false);
+        }
+
+        if (splashAnimator != null)
+        {
+            splashAnimator.ResetTrigger(EntranceTrigger);
+            splashAnimator.ResetTrigger(StunTrigger);
+            splashAnimator.SetBool(IsDeadHash, false);
+            splashAnimator.SetBool(IsStunned, false);
+        }
     }
 
 
@@ -193,12 +239,19 @@ public class JormungandrFSMController : BaseFSMAIController
         base.Stun(time);
         flowerAnimator.SetBool(IsStunned, true);
         flowerAnimator.SetTrigger(StunTrigger);
+
+        if (splashAnimator != null)
+        {
+            splashAnimator.SetBool(IsStunned, true);
+            splashAnimator.SetTrigger(StunTrigger);
+        }
     }
 
     public override void StunFinished()
     {
         base.StunFinished();
         flowerAnimator.SetBool(IsStunned, false);
+        if (splashAnimator != null) splashAnimator.SetBool(IsStunned, false);
     }
 
     // Call at the animation event, once the switch clip visually lands on the other side.

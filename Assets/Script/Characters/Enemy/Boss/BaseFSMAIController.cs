@@ -34,6 +34,10 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
     protected static readonly int IsDeadHash = Animator.StringToHash("IsDead");
     // one-shot entry into the Stunned-Intro state; IsStunned (level-based) drives everything after that
     protected static readonly int StunTrigger = Animator.StringToHash("StunTrigger");
+    // one-shot entry into the boss's Entrance clip; fired by BossRealmEntranceTrigger (and again on level reset)
+    protected static readonly int EntranceTrigger = Animator.StringToHash("Entrance");
+    // set true by the Entrance clip's EnableFlower event; cleared on reset so the entrance can replay
+    protected static readonly int IdleBool = Animator.StringToHash("Idle");
     public Transform _eyePoint;
 
     protected bool _isActing = false;
@@ -41,6 +45,12 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
     private bool _isActive = false;
     private bool _isStunned = false;
     private bool _isDeadState = false;
+
+    // Entrance sequence: true while the Entrance clip is playing. Player detection is allowed
+    // during this window (so the first attack turn has a valid target) but attack selection is not.
+    private bool _inEntrance = false;
+    private bool _fightStarted = false;
+    private bool _detectionEnabled = false;
 
     protected int _currentAnimHash;
 
@@ -123,11 +133,52 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
         _isActive = true;
     }
 
+    #region Entrance
+
+    /// <summary>
+    /// Kicks off the boss's entrance: reveals it via the Entrance animation and lets the FSM
+    /// start detecting the player, while holding off attack selection until
+    /// <see cref="EntranceComplete"/> fires. Safe to call repeatedly - no-ops once the entrance
+    /// has already run (or the boss is dead). Wired from BossRealmEntranceTrigger and re-invoked
+    /// by <see cref="ResetState"/> on level reset.
+    /// </summary>
+    public void BeginEntrance()
+    {
+        if (_inEntrance || _fightStarted || _isDeadState) return;
+
+        _inEntrance = true;
+        _detectionEnabled = true;
+        _currentTarget = null;
+
+        PlayEntranceAnimation();
+    }
+
+    // Fires the Entrance trigger on the body animator. Overridden by bosses that drive extra
+    // animators in parallel (e.g. Jormungandr's flower).
+    protected virtual void PlayEntranceAnimation()
+    {
+        TriggerAnimation(_mainAnimator, EntranceTrigger);
+    }
+
+    /// <summary>
+    /// Call from an Animation Event on the last frame of the Entrance clip. Ends the entrance
+    /// window and hands control to the FSM.
+    /// </summary>
+    public void EntranceComplete()
+    {
+        _inEntrance = false;
+        _fightStarted = true;
+        _isActive = true;
+    }
+
+    #endregion
+
     protected void Update()
     {
         // Debug.Log($"[FSM] Update tick, isActing={_isActing}");
         if (_isDeadState) return;
         if (_isStunned) return;
+        if (_inEntrance) return; // entrance animation still playing; no attack selection yet
         if (_isActing || !_isActive) return; // if already acting, then no need to process the rest of logic.
         if (Time.time < _nextActionTime) return; //if in cooldown for this action turn, return
         if (_currentTarget == null) return;
@@ -137,7 +188,7 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
 
     protected void FixedUpdate()
     {
-        if (!_isActive || _currentTarget != null) return;
+        if ((!_isActive && !_detectionEnabled) || _currentTarget != null) return;
 
         Collider2D hit;
 
@@ -363,5 +414,33 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
     {
         bossStat.ResetState();
         bossStat.BuffComp.ResetState();
+
+        ResetEntranceState();
+        BeginEntrance();
+    }
+
+    // Rewinds the FSM to its pre-fight state so the entrance can replay on level reset.
+    // Overridden by bosses with extra animators to clear. Runs before BeginEntrance() so it
+    // never wipes the freshly-set Entrance trigger.
+    protected virtual void ResetEntranceState()
+    {
+        _inEntrance = false;
+        _fightStarted = false;
+        _detectionEnabled = false;
+        _isActing = false;
+        _isActive = false;
+        _isStunned = false;
+        _isDeadState = false;
+        _currentTarget = null;
+        _nextActionTime = 0f;
+
+        if (_mainAnimator != null)
+        {
+            _mainAnimator.ResetTrigger(EntranceTrigger);
+            _mainAnimator.ResetTrigger(StunTrigger);
+            _mainAnimator.SetBool(IsDeadHash, false);
+            _mainAnimator.SetBool(IsStunned, false);
+            _mainAnimator.SetBool(IdleBool, false);
+        }
     }
 }
