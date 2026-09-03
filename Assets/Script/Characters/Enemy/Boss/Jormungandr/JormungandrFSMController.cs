@@ -42,6 +42,11 @@ public class JormungandrFSMController : BaseFSMAIController
     [Header("Side switching")]
     public Transform leftAnchor;
     public Transform rightAnchor;
+    public SpriteRenderer bodySpriteRenderer;
+    public SpriteRenderer flowerSpriteRenderer;
+    public SpriteRenderer splashSpriteRenderer;
+    [SerializeField] private int foregroundSortingOrder = 2;
+    [SerializeField] private int backgroundSortingOrder = 0;
     [SerializeField] private int minTurnsBetweenSwitch = 3;
     [SerializeField] private int maxTurnsBetweenSwitch = 6;
     private static readonly int SwitchSideHash = Animator.StringToHash("SwitchSides");
@@ -264,6 +269,11 @@ public class JormungandrFSMController : BaseFSMAIController
         // left side = background, right side = foreground
         gameObject.layer = LayerManager.Instance.GetLayer(!_currentSideIsRight, "Enemy");
         flower.layer = LayerManager.Instance.GetLayer(!_currentSideIsRight, "Enemy");
+
+        int sortingOrder = _currentSideIsRight ? foregroundSortingOrder : backgroundSortingOrder;
+        if (bodySpriteRenderer != null) bodySpriteRenderer.sortingOrder = sortingOrder;
+        if (flowerSpriteRenderer != null) flowerSpriteRenderer.sortingOrder = sortingOrder;
+        if (splashSpriteRenderer != null) splashSpriteRenderer.sortingOrder = sortingOrder;
 
         // by default (right side) Jormungandr faces left, so localScale.x is positive there
         Vector3 scale = transform.localScale;
