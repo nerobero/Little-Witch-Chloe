@@ -533,10 +533,10 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 360
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 90
+  m_SideArc: 1
 --- !u!114 &15209033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12271,10 +12271,10 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 360
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 90
+  m_SideArc: 1
 --- !u!66 &174525149
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -136820,10 +136820,10 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 360
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 90
+  m_SideArc: 1
 --- !u!1 &502325551
 GameObject:
   m_ObjectHideFlags: 0
@@ -175853,10 +175853,10 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 360
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 90
+  m_SideArc: 1
 --- !u!114 &555568340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192692,6 +192692,7 @@ Transform:
   - {fileID: 679372624}
   - {fileID: 1156857882}
   - {fileID: 89580746}
+  - {fileID: 1054587256}
   m_Father: {fileID: 673184358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &891504991
@@ -199766,6 +199767,76 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1208098803076651914, guid: c2982e4e7e5b62d41b0cef63a7eeb42c, type: 3}
   m_PrefabInstance: {fileID: 1054188366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1054587255
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 887984874}
+    m_Modifications:
+    - target: {fileID: -2016108820230686149, guid: 603448c9d18eb2a4e83f7621a0b22b4b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2016108820230686149, guid: 603448c9d18eb2a4e83f7621a0b22b4b, type: 3}
+      propertyPath: m_Size.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497047541277560095, guid: 603448c9d18eb2a4e83f7621a0b22b4b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -59.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497047541277560095, guid: 603448c9d18eb2a4e83f7621a0b22b4b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -35.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497047541277560095, guid: 603448c9d18eb2a4e83f7621a0b22b4b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497047541277560095, guid: 603448c9d18eb2a4e83f7621a0b22b4b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497047541277560095, guid: 603448c9d18eb2a4e83f7621a0b22b4b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497047541277560095, guid: 603448c9d18eb2a4e83f7621a0b22b4b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497047541277560095, guid: 603448c9d18eb2a4e83f7621a0b22b4b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497047541277560095, guid: 603448c9d18eb2a4e83f7621a0b22b4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497047541277560095, guid: 603448c9d18eb2a4e83f7621a0b22b4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497047541277560095, guid: 603448c9d18eb2a4e83f7621a0b22b4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5631611951158445880, guid: 603448c9d18eb2a4e83f7621a0b22b4b, type: 3}
+      propertyPath: m_Name
+      value: InvisibleWall (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 603448c9d18eb2a4e83f7621a0b22b4b, type: 3}
+--- !u!4 &1054587256 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5497047541277560095, guid: 603448c9d18eb2a4e83f7621a0b22b4b, type: 3}
+  m_PrefabInstance: {fileID: 1054587255}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1054851805
 GameObject:
@@ -266874,10 +266945,10 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 360
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 90
+  m_SideArc: 1
 --- !u!114 &1378782190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320523,10 +320594,10 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 360
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 90
+  m_SideArc: 1
 --- !u!1 &1443059230
 GameObject:
   m_ObjectHideFlags: 0
@@ -326283,10 +326354,10 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 360
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 90
+  m_SideArc: 1
 --- !u!114 &1557325197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360831,10 +360902,10 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 360
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 90
+  m_SideArc: 1
 --- !u!1 &1597884209
 GameObject:
   m_ObjectHideFlags: 0
@@ -409010,10 +409081,10 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 360
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 90
+  m_SideArc: 1
 --- !u!1 &1648095236
 GameObject:
   m_ObjectHideFlags: 0
@@ -409844,10 +409915,10 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 360
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 90
+  m_SideArc: 1
 --- !u!114 &1659866527
 MonoBehaviour:
   m_ObjectHideFlags: 0
