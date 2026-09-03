@@ -27,6 +27,13 @@ public class BossRealmEntranceTrigger : MonoBehaviour
     [Tooltip("FMOD event for the boss battle BGM. Left null = no music started here.")]
     [SerializeField] private EventReference bossBGM;
 
+    [Tooltip("Before the boss BGM starts, stop every other event on bus:/MUSIC so the " +
+             "previous track (overworld / bog / etc.) doesn't keep playing underneath it.")]
+    [SerializeField] private bool stopOtherMusic = true;
+
+    [Tooltip("Let the previous music fade out instead of cutting immediately.")]
+    [SerializeField] private bool fadeOutOtherMusic = true;
+
     private bool _fired;
     private EventInstance _bgmInstance;
     private bool _bgmStarted;
@@ -63,6 +70,13 @@ public class BossRealmEntranceTrigger : MonoBehaviour
 
     private void StartBGM()
     {
+        // Kill whatever was playing first, so it doesn't get caught by the stop below.
+        if (stopOtherMusic)
+        {
+            RuntimeManager.StudioSystem.getBus("bus:/MUSIC", out var musicBus);
+            musicBus.stopAllEvents(fadeOutOtherMusic ? FMOD.Studio.STOP_MODE.ALLOWFADEOUT : FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
+
         if (bossBGM.IsNull) return;
 
         _bgmInstance = RuntimeManager.CreateInstance(bossBGM);
