@@ -702,6 +702,7 @@ GameObject:
   - component: {fileID: 5433261792591033592}
   - component: {fileID: 2417378067548395374}
   - component: {fileID: 8061401002121087686}
+  - component: {fileID: 183190636386850949}
   m_Layer: 14
   m_Name: WaterSplash
   m_TagString: Untagged
@@ -805,3 +806,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &183190636386850949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8959957957457369302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4482b2c6151dc645a91a5ac3076e83d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossAttackIndicator
+  _renderers: []
+  _autoHideAfter: 0
+  _hideOnDisable: 1
