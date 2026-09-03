@@ -12,7 +12,10 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
     private float _timeInterval = 1.5f;
     public event Action<bool> OnAttackComplete;
 
-    // the root position, may add arbitrary alpha values to randomize the position
+    // the fixed root position this strategy was configured with; never mutated after construction
+    private Vector3 _basePosition;
+
+    // the position computed for the current/most recent attack, derived fresh from _basePosition each time
     private Vector3 _summonPosition;
 
     // radius around _summonPosition within which each summon's spawn point is randomized
@@ -61,6 +64,7 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
             _summonPool.Enqueue(obj);
         }
 
+        _basePosition = position;
         _summonPosition = position;
 
     }
@@ -82,21 +86,23 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         if(_orbitRadius == 0.0f)
         {
             float randomOffset = UnityEngine.Random.Range(-_summonRange, _summonRange);
-            _summonPosition.x = target.transform.position.x + randomOffset;
-            
+            float x = target.transform.position.x + randomOffset;
+            float y = _basePosition.y;
+
             if(ai.CurrentSideIsRight)
             {
-                Mathf.Clamp(_summonPosition.x, ai.ForegroundMinX, ai.ForegroundMaxX);
+                x = Mathf.Clamp(x, ai.ForegroundMinX, ai.ForegroundMaxX);
             }
             // Left side
             else
             {
-                Mathf.Clamp(_summonPosition.x, ai.BackgroundMinX, ai.BackgroundMaxX);
-                _summonPosition.y += Mathf.Abs(ai.BackgroundY - ai.ForegroundY);
+                x = Mathf.Clamp(x, ai.BackgroundMinX, ai.BackgroundMaxX);
+                y += Mathf.Abs(ai.BackgroundY - ai.ForegroundY);
             }
 
-
-            
+            // recomputed fresh from _basePosition every attack, rather than mutated in place,
+            // so repeated background-side attacks don't keep stacking the Y offset
+            _summonPosition = new Vector3(x, y, _basePosition.z);
         }
 
         _summonRoutine = _owner.StartCoroutine(SummonRoutine());
@@ -123,6 +129,11 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         var obj = Get();
         Vector2 randomOffset = UnityEngine.Random.insideUnitCircle * _orbitRadius;
         obj.transform.position = _summonPosition + new Vector3(randomOffset.x, randomOffset.y, 0f);
+
+        // match the summoned object's layer to whichever side the instigator is currently on
+        bool isBackground = LayerMask.LayerToName(_owner.gameObject.layer).StartsWith("Background");
+        obj.layer = LayerManager.Instance.GetLayer(isBackground, "Enemy");
+
         var summonable = obj.GetComponent<ISummonable>();
         summonable?.SetInstigator(_owner.gameObject);
         summonable?.OnSummoned();

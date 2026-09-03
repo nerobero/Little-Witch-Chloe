@@ -29,7 +29,7 @@ public class BossLoading : MonoBehaviour
         if(LayerMask.LayerToName(other.gameObject.layer).Contains("Player"))
         {
             Debug.Log("Exit");
-            UIManager.Instance.Get<TransLoadingHUD>().Hide();
+            UIManager.Instance.Get<TransLoadingHUD>()?.Hide();
 
             StartCoroutine(CreateInvisibleWall(1.0f, other.transform.position));
         }
@@ -47,7 +47,7 @@ public class BossLoading : MonoBehaviour
 
         InvisibleWall.transform.position = 
                 new Vector3(
-                    transform.position.x,
+                    transform.position.x + 100f,
                     position.y, 
                     0
                 );
