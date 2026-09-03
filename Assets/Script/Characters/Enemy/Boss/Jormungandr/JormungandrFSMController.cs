@@ -45,8 +45,10 @@ public class JormungandrFSMController : BaseFSMAIController
     public SpriteRenderer bodySpriteRenderer;
     public SpriteRenderer flowerSpriteRenderer;
     public SpriteRenderer splashSpriteRenderer;
-    [SerializeField] private int foregroundSortingOrder = 2;
-    [SerializeField] private int backgroundSortingOrder = 0;
+    [SerializeField] private int bodyForegroundSortingOrder = 2;
+    [SerializeField] private int bodyBackgroundSortingOrder = 0;
+    [SerializeField] private int flowerSplashForegroundSortingOrder = 3;
+    [SerializeField] private int flowerSplashBackgroundSortingOrder = 1;
     [SerializeField] private int minTurnsBetweenSwitch = 3;
     [SerializeField] private int maxTurnsBetweenSwitch = 6;
     private static readonly int SwitchSideHash = Animator.StringToHash("SwitchSides");
@@ -270,10 +272,11 @@ public class JormungandrFSMController : BaseFSMAIController
         gameObject.layer = LayerManager.Instance.GetLayer(!_currentSideIsRight, "Enemy");
         flower.layer = LayerManager.Instance.GetLayer(!_currentSideIsRight, "Enemy");
 
-        int sortingOrder = _currentSideIsRight ? foregroundSortingOrder : backgroundSortingOrder;
-        if (bodySpriteRenderer != null) bodySpriteRenderer.sortingOrder = sortingOrder;
-        if (flowerSpriteRenderer != null) flowerSpriteRenderer.sortingOrder = sortingOrder;
-        if (splashSpriteRenderer != null) splashSpriteRenderer.sortingOrder = sortingOrder;
+        int bodySortingOrder = _currentSideIsRight ? bodyForegroundSortingOrder : bodyBackgroundSortingOrder;
+        int flowerSplashSortingOrder = _currentSideIsRight ? flowerSplashForegroundSortingOrder : flowerSplashBackgroundSortingOrder;
+        if (bodySpriteRenderer != null) bodySpriteRenderer.sortingOrder = bodySortingOrder;
+        if (flowerSpriteRenderer != null) flowerSpriteRenderer.sortingOrder = flowerSplashSortingOrder;
+        if (splashSpriteRenderer != null) splashSpriteRenderer.sortingOrder = flowerSplashSortingOrder;
 
         // by default (right side) Jormungandr faces left, so localScale.x is positive there
         Vector3 scale = transform.localScale;

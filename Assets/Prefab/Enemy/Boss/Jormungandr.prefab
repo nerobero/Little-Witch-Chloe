@@ -85,6 +85,11 @@ MonoBehaviour:
   splashAnimator: {fileID: 8061401002121087686}
   leftAnchor: {fileID: 0}
   rightAnchor: {fileID: 0}
+  bodySpriteRenderer: {fileID: 1411941810838209060}
+  flowerSpriteRenderer: {fileID: 2132558607545537040}
+  splashSpriteRenderer: {fileID: 2417378067548395374}
+  foregroundSortingOrder: 2
+  backgroundSortingOrder: 0
   minTurnsBetweenSwitch: 3
   maxTurnsBetweenSwitch: 6
   HealthCurve:
