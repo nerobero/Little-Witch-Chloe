@@ -6,6 +6,8 @@ public class SFXcontroller : MonoBehaviour {
 
     public GameObject WalkingHerb;
 
+    public static object Instance { get; internal set; }
+
     public void PlayFootstepSFX()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Footstep");
@@ -65,6 +67,13 @@ public class SFXcontroller : MonoBehaviour {
     {
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Dialouge");
+
+
+    }
+    public void PlayPoisonCloud()
+    {
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Poison Cloud");
 
 
     }

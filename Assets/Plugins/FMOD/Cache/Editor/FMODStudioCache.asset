@@ -175,10 +175,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639235934693768330
+  lastModified: 639238771217207858
   FileSizes:
   - Name: Desktop
-    Value: 3148
+    Value: 3202
   Exists: 1
 --- !u!114 &-5201378617633771360
 MonoBehaviour:
@@ -384,10 +384,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639235934693758356
+  lastModified: 639238771217157846
   FileSizes:
   - Name: Desktop
-    Value: 9180416
+    Value: 9436448
   Exists: 1
 --- !u!114 &-4262239082927796618
 MonoBehaviour:
@@ -805,6 +805,7 @@ MonoBehaviour:
   - {fileID: -686873183628707587}
   - {fileID: -5091711881090798595}
   - {fileID: 7120271133953780172}
+  - {fileID: 1427287984970666075}
   EditorParameters:
   - {fileID: 2478196569288099822}
   - {fileID: 572125993231974450}
@@ -817,7 +818,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -5662479597483696475}
   cacheVersion: 131859
-  cacheTime: 639235934693768330
+  cacheTime: 639238771217207858
   SerializableEventsDict:
   - key: event:/MUSIC/Music Menu Select
     index: 0
@@ -913,6 +914,8 @@ MonoBehaviour:
     index: 45
   - key: event:/SFX/Fall
     index: 46
+  - key: event:/SFX/Poison Cloud
+    index: 47
 --- !u!114 &359156517584299351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,6 +1048,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1427287984970666075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Poison Cloud
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Poison Cloud
+  Guid:
+    Data1: -2002284025
+    Data2: 1254444878
+    Data3: -1620259148
+    Data4: 253319688
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1125
 --- !u!114 &1837545670875306430
 MonoBehaviour:
   m_ObjectHideFlags: 0

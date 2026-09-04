@@ -1,6 +1,8 @@
 using UnityEngine;
 using Types;
 using Data;
+using FMOD.Studio;
+using FMODUnity;
 
 public class JormungandrPoison : MonoBehaviour
 {
@@ -10,7 +12,6 @@ public class JormungandrPoison : MonoBehaviour
     [SerializeField] private float interval;
     [SerializeField] private ESpawnType spawnType;
     [SerializeField] private EElementType elementType;
-    // [SerializeField] private string fmodEventName = "";
 
     // For now, the effect is used by hard coded.
     [SerializeField] private StatusEffect effect;
@@ -31,6 +32,7 @@ public class JormungandrPoison : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Poison Cloud");
         /*
         1. call the TakeDamage(gameObject, dealtDamage) interface function 
         2. change the anim state to collided.
