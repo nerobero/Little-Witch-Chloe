@@ -119,6 +119,9 @@
 		<property name="length">
 			<value>0.90000000000000002</value>
 		</property>
+		<property name="volume">
+			<value>5.5</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{f6a25d8d-80c5-4cb1-a5fc-eb40703bc00d}</destination>
 		</relationship>
@@ -129,6 +132,9 @@
 		</property>
 		<property name="length">
 			<value>0.90000000000000002</value>
+		</property>
+		<property name="volume">
+			<value>5</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{f6a25d8d-80c5-4cb1-a5fc-eb40703bc00d}</destination>
@@ -150,7 +156,7 @@
 	</object>
 	<object class="SnapshotModule" id="{6808f48a-3cd5-4325-9253-2cd15c131fe1}">
 		<property name="length">
-			<value>1.75</value>
+			<value>1.28125</value>
 		</property>
 		<relationship name="fadeOutCurve">
 			<destination>{c0aaa166-3799-4ab5-85d9-b7e6ebc17dad}</destination>
@@ -224,7 +230,7 @@
 	<object class="MixerBusFader" id="{dc118056-fcd8-4f31-a457-919018b7d8a0}" />
 	<object class="AutomationPoint" id="{be8fe00c-d9cd-4d57-9fb8-97f345a2f92d}">
 		<property name="position">
-			<value>1</value>
+			<value>1.1000000000000001</value>
 		</property>
 		<property name="value">
 			<value>100</value>
@@ -232,7 +238,7 @@
 	</object>
 	<object class="AutomationPoint" id="{87ed8294-122c-4ba7-b9bc-5b6c0edfe092}">
 		<property name="position">
-			<value>1.75</value>
+			<value>1.28125</value>
 		</property>
 		<property name="value">
 			<value>0</value>

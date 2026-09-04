@@ -821,6 +821,9 @@
 		<property name="timelockedOffset">
 			<value>18.352937499999999</value>
 		</property>
+		<property name="volume">
+			<value>3</value>
+		</property>
 		<relationship name="fadeInCurve">
 			<destination>{b774b2e4-b3f4-455c-a873-3c06c6dc59a0}</destination>
 		</relationship>
@@ -839,6 +842,9 @@
 		</property>
 	</object>
 	<object class="EventMixerGroup" id="{0755e4ae-2126-4428-a90b-95f0abebab73}">
+		<property name="volume">
+			<value>-0.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>

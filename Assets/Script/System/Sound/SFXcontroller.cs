@@ -5,6 +5,12 @@ using UnityEngine;
 public class SFXcontroller : MonoBehaviour {
 
     public GameObject WalkingHerb;
+    private void Awake()
+    {
+        // Auto-assign to this object if not already set in the Inspector
+        if (WalkingHerb == null)
+            WalkingHerb = gameObject;
+    }
 
     public static object Instance { get; internal set; }
 

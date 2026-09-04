@@ -130,7 +130,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{7efea727-cd51-45e3-b927-1b691ead839b}">
 		<property name="volume">
-			<value>-8</value>
+			<value>-6</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -147,7 +147,7 @@
 	</object>
 	<object class="SnapshotModule" id="{e88d12e5-105d-4198-ade7-fe69a444565b}">
 		<property name="length">
-			<value>1.75</value>
+			<value>0.9375</value>
 		</property>
 		<relationship name="fadeOutCurve">
 			<destination>{c8e2a2ea-963b-4a8b-9672-69a944229f58}</destination>
@@ -232,7 +232,7 @@
 	<object class="MixerBusFader" id="{b1e1d575-e3a7-49ed-80e4-2b16caca2221}" />
 	<object class="AutomationPoint" id="{53274693-b603-43c0-91da-71b72591137b}">
 		<property name="position">
-			<value>1</value>
+			<value>0.21875</value>
 		</property>
 		<property name="value">
 			<value>100</value>
@@ -240,7 +240,7 @@
 	</object>
 	<object class="AutomationPoint" id="{e8e14672-3b33-492c-a7ab-e3555c1438be}">
 		<property name="position">
-			<value>1.75</value>
+			<value>0.9375</value>
 		</property>
 		<property name="value">
 			<value>0</value>
