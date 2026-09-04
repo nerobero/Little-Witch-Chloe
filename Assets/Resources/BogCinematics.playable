@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalEmitter
-  m_Time: 6.266666666666667
+  m_Time: 6.583333333333333
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: f5a4e5b33019cc34b8e476a0cf9dc7b6, type: 2}
@@ -1332,25 +1332,7 @@ MonoBehaviour:
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1458,25 +1440,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1693,7 +1657,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 2996301418511957014}
-    m_Duration: 6.566666666666666
+    m_Duration: 6.583333333333333
     m_TimeScale: 1
     m_ParentTrack: {fileID: -1112234217808377302}
     m_EaseInDuration: 0
@@ -2714,7 +2678,7 @@ MonoBehaviour:
     m_Start: 5.5
     m_ClipIn: 3.8666666666666667
     m_Asset: {fileID: -3673021095862092453}
-    m_Duration: 1.0666666666666664
+    m_Duration: 1.083333333333333
     m_TimeScale: 1
     m_ParentTrack: {fileID: 5660831700543722213}
     m_EaseInDuration: 0
@@ -2941,7 +2905,7 @@ MonoBehaviour:
     m_Start: 5.483333333333333
     m_ClipIn: 0
     m_Asset: {fileID: -303473310764072000}
-    m_Duration: 1.5333333333333332
+    m_Duration: 1.0999999999999996
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7935754852788147430}
     m_EaseInDuration: 0

@@ -21,7 +21,7 @@ public class JormungandrPoison : MonoBehaviour
     private Animator _animator;
     private Collider2D _instigatorCollider;
     protected GameObject instigator;
-    
+
 
     private void Awake()
     {
@@ -32,14 +32,11 @@ public class JormungandrPoison : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Poison Cloud");
         /*
         1. call the TakeDamage(gameObject, dealtDamage) interface function 
         2. change the anim state to collided.
         3. call ReturnToPool()
         */
-
-        Debug.Log($"Collided: {other.gameObject}");
 
         // Get instigator's layer name and collided object's layer name
         // string instigatorLayerName = LayerMask.LayerToName(instigator.layer);
@@ -60,6 +57,7 @@ public class JormungandrPoison : MonoBehaviour
         var stats = other.gameObject.GetComponent<StatManager>();
         if (stats != null)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Poison Cloud");
             _animator?.SetTrigger("Collided");
             if (stats.TakeDamageHelper(instigator, dealtDamage, elementType, true, duration, interval))
             {
@@ -69,7 +67,7 @@ public class JormungandrPoison : MonoBehaviour
                 pooledEffect.SetInstigator(this.gameObject);
 
                 // 2. Adjust the debuff(blind)
-                stats.BuffComp.Add(pooledEffect);
+                stats.BuffComp?.Add(pooledEffect);
 
                 //3. play collision animation and wait for it to finish before pooling
                 gameObject.SetActive(false);
