@@ -61,6 +61,7 @@ public class ProjectileAttackStrategy : IEnemyAttackStrategy
         for (int i = 0; i < _shootCount; i++)
         {
             Shoot();
+            _waitTime.Reset(_timeInterval);
             yield return _waitTime;
         }
         _projectileRoutine = null;
