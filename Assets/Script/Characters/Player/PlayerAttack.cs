@@ -176,14 +176,17 @@ public class PlayerAttack : MonoBehaviour
     {
         if (!_spellList.ContainsKey(unlockedType)) return false;
 
+        if(_spellList[unlockedType] == false)
+        {
+            UIManager.Instance.Get<UIPlayerHUD>().UpdateProjectileList(unlockedType);
+        }
+
         _spellList[unlockedType] = true;
 
         foreach(var (spell, active) in _spellList)
         {
             Debug.Log($"{spell}: {active}");
         }
-
-        UIManager.Instance.Get<UIPlayerHUD>().UpdateProjectileList(unlockedType);
 
         return true;
     }

@@ -171,6 +171,8 @@ public class UIPlayerHUD : UIBase
             return (projType, abilityType);
         }
 
+        // slot is not activated
+        _projLists[_currentProjIndex].OnSlotSelected();
         Debug.Log("PlayerHUD _currentProjIndex: "+ _currentProjIndex);
         return (_projLists[_currentProjIndex].Type, _projLists[_currentProjIndex].AbilityType);
     }
@@ -200,6 +202,7 @@ public class UIPlayerHUD : UIBase
 
         _maxSkillIndex = 0;
         _maxProjIndex = 0;
+        _currentProjIndex = 0;
         _objectivesText.text = GameManager.Instance.GetCollectedFrog().ToString();
     }
 }
