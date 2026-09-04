@@ -66,8 +66,8 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
     protected BossEnemyStatManager bossStat;
 
     [Header("BossField")]
-    [SerializeField] private Collider2D foregroundPlatform;
-    [SerializeField] private Collider2D backgroundPlatform;
+    [SerializeField] private CompositeCollider2D foregroundPlatform;
+    [SerializeField] private CompositeCollider2D backgroundPlatform;
 
     public float ForegroundMinX => foregroundPlatform.bounds.min.x;
     public float ForegroundMaxX => foregroundPlatform.bounds.max.x;
