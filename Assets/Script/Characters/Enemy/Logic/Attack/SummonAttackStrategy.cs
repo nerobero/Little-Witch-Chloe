@@ -88,7 +88,9 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
             float randomOffset = UnityEngine.Random.Range(-_summonRange, _summonRange);
             float x = target.transform.position.x + randomOffset;
             float y = _basePosition.y;
-
+            // Debug.Log($"SummonAttackStrat:{_summonable} _summonRange={_summonRange}, x={x}, y={y}");
+            // Debug.Log($"SummonAttackStrat:{_summonable} ForeminX={ai.ForegroundMinX}, ForemaxX={ai.ForegroundMaxX}, BackMinX={ai.BackgroundMinX}, BackMaxX={ai.BackgroundMaxX}");
+            // Debug.Log($"SummonAttackStrat:{_summonable} ForeY={ai.ForegroundY}, BackY={ai.BackgroundY}");
             if(ai.CurrentSideIsRight)
             {
                 x = Mathf.Clamp(x, ai.ForegroundMinX, ai.ForegroundMaxX);
@@ -99,7 +101,7 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
                 x = Mathf.Clamp(x, ai.BackgroundMinX, ai.BackgroundMaxX);
                 y += Mathf.Abs(ai.BackgroundY - ai.ForegroundY);
             }
-
+            //Debug.Log($"SummonAttackStrat:{_summonable} _summonRange={_summonRange}, x changed={x}, y changed={y}");
             // recomputed fresh from _basePosition every attack, rather than mutated in place,
             // so repeated background-side attacks don't keep stacking the Y offset
             _summonPosition = new Vector3(x, y, _basePosition.z);
@@ -117,6 +119,7 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         for (int i = 0; i < snapShot; i++)
         {
             Summon();
+            _waitTime.Reset(_timeInterval);
             yield return _waitTime;
         }
 

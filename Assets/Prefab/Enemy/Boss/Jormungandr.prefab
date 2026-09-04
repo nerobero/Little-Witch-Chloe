@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 204.84, y: 20.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8712778569972941626}
@@ -61,8 +61,8 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 12544
-  viewDistance: 10
-  viewHeight: 10
+  viewDistance: 30
+  viewHeight: 20
   foregroundPlatform: {fileID: 0}
   backgroundPlatform: {fileID: 0}
   mouth: {fileID: 827937729307985703}
@@ -88,8 +88,10 @@ MonoBehaviour:
   bodySpriteRenderer: {fileID: 1411941810838209060}
   flowerSpriteRenderer: {fileID: 2132558607545537040}
   splashSpriteRenderer: {fileID: 2417378067548395374}
-  foregroundSortingOrder: 2
-  backgroundSortingOrder: 0
+  bodyForegroundSortingOrder: 2
+  bodyBackgroundSortingOrder: 0
+  flowerSplashForegroundSortingOrder: 3
+  flowerSplashBackgroundSortingOrder: 1
   minTurnsBetweenSwitch: 3
   maxTurnsBetweenSwitch: 6
   HealthCurve:
@@ -236,7 +238,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6532526077692146155, guid: db785d2fb9fe0fd4bb6b50b8cc61ac89, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -345,15 +347,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f3c30e3970d794f867b7cbbfa613a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossEnemyStatManager
-  maxHP: 100
-  currentHP: 100
+  maxHP: 300
+  currentHP: 300
   mainCharacElement: 8
   OnTakenDamageEvent: 
   CrowdControl: 0
   damage: 1
   damageInterval: 1
   weakPointStat: {fileID: 8618553200119794830}
-  stunDuration: 2
+  stunDuration: 2.5
 --- !u!114 &3072893440141706404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,7 +393,7 @@ Transform:
   m_GameObject: {fileID: 3099675761454206212}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.33, y: -6.44, z: 0}
+  m_LocalPosition: {x: -5.46, y: -4.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -454,7 +456,7 @@ Transform:
   m_GameObject: {fileID: 7360117915565711563}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.07, y: -0.23, z: 0}
+  m_LocalPosition: {x: -0.06999237, y: -0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -563,7 +565,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5732038466841448472, guid: 7d2d81ce020ad3d498dbdfe620cbbc62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -689,8 +691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbae814e30d6aa4a9bbdabc0b6b12b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossWeakPointStat
-  maxHP: 30
-  currentHP: 30
+  maxHP: 45
+  currentHP: 45
   mainCharacElement: 2
   OnTakenDamageEvent: 
   CrowdControl: 0
