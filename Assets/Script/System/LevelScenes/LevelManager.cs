@@ -32,6 +32,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
     {
         dontDestroy = true;
         base.Awake();
+        if (Instance != this) return;
         _loaderCanvas.SetActive(false);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -151,17 +152,19 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
     public void ChangeScene(ELevelType permanLevelType, ELevelType loadLevelType, bool isSaveDataLoad)
     {
-
         // Fade in
         StartCoroutine(Fade(Fade_img, 1f, fadeDuration,
             onStart: () =>
             {
+                Fade_img.gameObject.SetActive(true);
                 Fade_img.blocksRaycasts = true;
+                Fade_img.alpha = 0f;
                 SoundManager.Instance.StopAllMusic();
             },
             onComplete: ()=>
             {
                 UIManager.Instance.Hide<TitleUI>();
+                Fade_img.blocksRaycasts = false;
                 LoadScene(permanLevelType, loadLevelType, isSaveDataLoad);
             }));
 
@@ -169,6 +172,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log($"LevelManager: OnSceneLoaded()");
         Debug.Log($"_isFirstSceneLoad: {_isFirstSceneLoad}");
         if (_isFirstSceneLoad)
         {
@@ -200,7 +204,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         StartCoroutine(Fade(SceneTitle_img, 1f, fadeDuration,
         onStart: () =>
         {
-            
+            SceneTitle_img.gameObject.SetActive(true);
         },
         onComplete: () =>
         {
@@ -208,6 +212,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
             onComplete: () =>
             {
                 SceneTitle_img.gameObject.SetActive(false);
+                _isFirstSceneLoad = true;
             })); 
         }));
         
@@ -233,5 +238,16 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
         group.alpha = targetAlpha;
         onComplete?.Invoke();
+    }
+
+    public void GoToTitle()
+    {
+        StopAllCoroutines();
+        SceneTitle_img.gameObject.SetActive(true);
+        SceneTitle_img.alpha = 1f;
+        Fade_img.gameObject.SetActive(true);
+        Fade_img.alpha = 0f;
+        Fade_img.blocksRaycasts = false;
+        _isFirstSceneLoad = true;
     }
 }

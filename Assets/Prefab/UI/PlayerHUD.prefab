@@ -145,8 +145,6 @@ MonoBehaviour:
   isInitialized: 0
   _projGroup: {fileID: 5890175972749198336}
   _skillGroup: {fileID: 6049384783050240456}
-  _projSlotPrefab: {fileID: 7658071162155102540, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
-  _skillSlotPrefab: {fileID: 7658071162155102540, guid: ca88bf105fdd90c4cb8eeadf25b7a2f8, type: 3}
   _projLists: []
   _skillLists: []
   _currentProjIndex: 0
@@ -975,7 +973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: 1b9d977ca4ee49640b25ffab1b891393, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.94835335
+      value: 0.9983534
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: 1b9d977ca4ee49640b25ffab1b891393, type: 3}
       propertyPath: m_AnchorMax.y
@@ -983,7 +981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: 1b9d977ca4ee49640b25ffab1b891393, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.77300006
+      value: 0.8230001
       objectReference: {fileID: 0}
     - target: {fileID: 406936802380315623, guid: 1b9d977ca4ee49640b25ffab1b891393, type: 3}
       propertyPath: m_AnchorMin.y

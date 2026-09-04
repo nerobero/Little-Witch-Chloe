@@ -50,6 +50,10 @@ public class PopupHUD : UIBase
         }
         else
         {
+            PlayerController.Instance.InputContext.UI.Disable();
+            PlayerController.Instance.InputContext.BaseInputAction.Enable();
+            LevelManager.Instance.GoToTitle();
+            PauseManager.Instance.UnpauseGame();
             SceneManager.LoadScene("TitleScene");
         }
     }
@@ -64,8 +68,28 @@ public class PopupHUD : UIBase
     {
         Application.Quit(0);
     }
-    
+
     #endregion
+
+    public override void Show()
+    {
+        if(PlayerController.Instance != null)
+        {
+            PlayerController.Instance.InputContext.UI.Enable();
+            PlayerController.Instance.InputContext.BaseInputAction.Disable();
+        }
+        base.Show();
+    }
+
+    public override void Hide()
+    {
+        if(PlayerController.Instance != null)
+        {
+            PlayerController.Instance.InputContext.UI.Disable();
+            PlayerController.Instance.InputContext.BaseInputAction.Enable();
+        }
+        base.Hide();
+    }
 
     #region EventSubscription
     protected override void SubscribeEvents()
