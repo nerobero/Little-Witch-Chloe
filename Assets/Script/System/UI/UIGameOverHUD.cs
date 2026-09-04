@@ -41,6 +41,10 @@ public class UIGameOverHUD : UIBase
 
     public void OnExitClicked()
     {
+        PlayerController.Instance.InputContext.UI.Disable();
+        PlayerController.Instance.InputContext.BaseInputAction.Enable();
+        LevelManager.Instance.GoToTitle();
+        PauseManager.Instance.UnpauseGame();
         SceneManager.LoadScene("TitleScene");
     }
     
