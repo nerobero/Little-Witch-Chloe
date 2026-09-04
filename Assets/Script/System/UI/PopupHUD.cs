@@ -44,7 +44,14 @@ public class PopupHUD : UIBase
     public void OnReturnMenuButtonClicked()
     {
         // Change Scene(title scene)
-        SceneManager.LoadScene("TitleScene");
+        if(GameManager.Instance.GetCurrentLevel() == Types.ELevelType.Intro)
+        {
+            Hide();
+        }
+        else
+        {
+            SceneManager.LoadScene("TitleScene");
+        }
     }
 
     public void OnClosePopupButtonClicked()

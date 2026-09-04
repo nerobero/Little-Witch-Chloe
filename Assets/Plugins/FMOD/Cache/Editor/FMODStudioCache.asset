@@ -175,7 +175,7 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639240590731950837
+  lastModified: 639241199126639448
   FileSizes:
   - Name: Desktop
     Value: 3246
@@ -384,7 +384,7 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639240590731905829
+  lastModified: 639241199126639448
   FileSizes:
   - Name: Desktop
     Value: 9439104
@@ -805,8 +805,8 @@ MonoBehaviour:
   - {fileID: -686873183628707587}
   - {fileID: -5091711881090798595}
   - {fileID: 7120271133953780172}
-  - {fileID: 1427287984970666075}
-  - {fileID: 8705689864233345872}
+  - {fileID: 3301440562566369206}
+  - {fileID: 8831303060559051115}
   EditorParameters:
   - {fileID: 2478196569288099822}
   - {fileID: 572125993231974450}
@@ -819,7 +819,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -5662479597483696475}
   cacheVersion: 131859
-  cacheTime: 639240590731950837
+  cacheTime: 639241199126639448
   SerializableEventsDict:
   - key: event:/MUSIC/Music Menu Select
     index: 0
@@ -1237,6 +1237,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4490
+--- !u!114 &3301440562566369206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Poison Cloud
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Poison Cloud
+  Guid:
+    Data1: -2002284025
+    Data2: 1254444878
+    Data3: -1620259148
+    Data4: 253319688
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1125
 --- !u!114 &3481496798924980209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1695,6 +1722,33 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 0
 --- !u!114 &8705689864233345872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Turnip Run 2
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Turnip Run 2
+  Guid:
+    Data1: 1094004316
+    Data2: 1105615414
+    Data3: -1200730188
+    Data4: 1102940017
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &8831303060559051115
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

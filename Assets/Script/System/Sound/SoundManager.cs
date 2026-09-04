@@ -21,6 +21,10 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     {
         dontDestroy = false;
         base.Awake();
+
+        RuntimeManager.StudioSystem.setParameterByName("Master Volume", 0.5f);
+        RuntimeManager.StudioSystem.setParameterByName("MUSIC Volume", 0.5f);
+        RuntimeManager.StudioSystem.setParameterByName("SFX Volume", 0.5f);
     }
 
     private void HandleStartManagerEvent()
