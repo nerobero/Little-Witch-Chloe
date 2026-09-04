@@ -17,6 +17,20 @@ public class UIMessageBox : UIBase
         messageImage.gameObject.SetActive(false);
     }
 
+    public override void Show()
+    {
+        PlayerController.Instance.InputContext.UI.Enable();
+        PlayerController.Instance.InputContext.BaseInputAction.Disable();
+        base.Show();
+    }
+
+    public override void Hide()
+    {
+        PlayerController.Instance.InputContext.UI.Disable();
+        PlayerController.Instance.InputContext.BaseInputAction.Enable();
+        base.Hide();
+    }
+
     protected override void SubscribeEvents()
     {
         // closeButton.onClick.AddListener(OnCloseClicked);

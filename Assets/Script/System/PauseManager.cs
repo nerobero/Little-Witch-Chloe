@@ -8,8 +8,11 @@ public class PauseManager : MonoSingletonBase<PauseManager>
     {
         IsPaused = true;
         
-        PlayerController.Instance.InputContext.BaseInputAction.Disable();
-        PlayerController.Instance.InputContext.UI.Enable();
+        if(PlayerController.Instance != null)
+        {
+            PlayerController.Instance.InputContext.BaseInputAction.Disable();
+            PlayerController.Instance.InputContext.UI.Enable();
+        }
         Time.timeScale = 0f;
 
     }
@@ -18,8 +21,12 @@ public class PauseManager : MonoSingletonBase<PauseManager>
     {
         IsPaused = false;
 
-        PlayerController.Instance.InputContext.UI.Disable();
-        PlayerController.Instance.InputContext.BaseInputAction.Enable();
+        
+        if(PlayerController.Instance != null)
+        {
+            PlayerController.Instance.InputContext.UI.Disable();
+            PlayerController.Instance.InputContext.BaseInputAction.Enable();
+        }
         Time.timeScale = 1f;
     }
 }

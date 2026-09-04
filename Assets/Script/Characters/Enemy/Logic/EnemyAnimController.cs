@@ -69,7 +69,7 @@ public class EnemyAnimController : BaseCharacterAnimController
             {
                 Vector2 localScale2D = transform.localScale;
                 localScale2D.x = IsFacingRight ? 1f : -1f;
-                enemyHPWidget.HPSlider.transform.localScale = localScale2D;
+                //enemyHPWidget.HPSlider.transform.localScale = localScale2D;
             }
         }
 

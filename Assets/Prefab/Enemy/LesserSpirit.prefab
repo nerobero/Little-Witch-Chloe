@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 5613224481609003455}
   - component: {fileID: -1052823039766081648}
   - component: {fileID: 27742681977949169}
-  - component: {fileID: 6791857494548737101}
   - component: {fileID: -1742412551515105769}
   - component: {fileID: -902512691818760491}
   - component: {fileID: 6644432538697428835}
@@ -363,25 +362,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LesserSpiritAnimController
   IsFacingRight: 1
---- !u!114 &6791857494548737101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8043046792835732294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23688b6cd11cbdc4da7632c1ebf24e45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LesserSpiritStat
-  maxHP: 5
-  currentHP: 5
-  mainCharacElement: 3
-  OnTakenDamageEvent: 
-  CrowdControl: 0
-  damage: 1
-  damageInterval: 1
 --- !u!114 &-1742412551515105769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,10 +441,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacterBase
   maxHP: 20
   currentHP: 20
-  mainCharacElement: 0
+  mainCharacElement: 3
   OnTakenDamageEvent: 
   CrowdControl: 0
-  damage: 0
+  damage: 1
   damageInterval: 1
 --- !u!114 &4983372570207355703
 MonoBehaviour:

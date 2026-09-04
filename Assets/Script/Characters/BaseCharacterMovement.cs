@@ -123,8 +123,8 @@ public class BaseCharacterMovement : MonoBehaviour
         speed = _isBackground ? originalSpeed * 0.7f * SpeedMultiplier : originalSpeed * SpeedMultiplier;
         curJumpHeight = _isBackground ? jumpHeight * 0.7f : jumpHeight;
         transform.localScale = 
-            _isBackground ? new Vector3(transform.localScale.x * 0.75f, transform.localScale.y * 0.75f, 1) : 
-                new Vector3(Mathf.Sign(transform.localScale.x) * originalScale.x, originalScale.y, 1);
+            _isBackground ? new Vector3(transform.localScale.x * 0.75f, transform.localScale.y * 0.75f, transform.localScale.z * 0.75f) : 
+                new Vector3(Mathf.Sign(transform.localScale.x) * originalScale.x, originalScale.y, originalScale.z);
     }
 
     protected virtual bool IsOnGround()

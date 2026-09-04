@@ -115,6 +115,7 @@ public class ProjectileBase : MonoBehaviour, IResetable
             }
             else
             {
+                Physics2D.IgnoreCollision(_collider, _instigatorCollider, false);
                 // DEFLECT the projectile using the normal vector
                 _projRB.linearVelocity = Vector2.zero;
                 Vector2 otherTransform = other.gameObject.transform.position;
