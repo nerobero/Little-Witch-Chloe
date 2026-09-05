@@ -84,7 +84,22 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
     public void RestartCurrentLevel()
     {
-        StartCoroutine(RestartLevelCoroutine());
+        StartCoroutine(Fade(Fade_img, 1f, fadeDuration,
+            onStart: () =>
+            {
+                Fade_img.gameObject.SetActive(true);
+                Fade_img.blocksRaycasts = true;
+                Fade_img.alpha = 0f;
+                _progressBar.value = 0.0f;
+                _loaderCanvas.SetActive(true);
+                SoundManager.Instance.StopAllMusic();
+            },
+            onComplete: ()=>
+            {
+                UIManager.Instance.Hide<UIGameOverHUD>();
+                Fade_img.blocksRaycasts = false;
+                StartCoroutine(RestartLevelCoroutine());
+            }));
     }
 
     private IEnumerator RestartLevelCoroutine()
@@ -92,8 +107,10 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         foreach(SceneBase scene in sceneBases.Values)
         {
             scene.ResetScene();
+            _progressBar.value = 0.9f;
             yield return null;
         }
+        _progressBar.value = 1.0f;
 
         //GameManager.Instance.ResetState();
         
@@ -102,8 +119,17 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         if(hasSave)
             SaveManager.Instance.ApplyAllGameData();
 
-        UIManager.Instance.Hide<UIGameOverHUD>();
-        
+        // Fade out
+        StartCoroutine(Fade(Fade_img, 0f, fadeDuration,
+            onStart: () =>
+            {
+                _loaderCanvas.SetActive(false);
+            },
+            onComplete: ()=>
+            {
+                Fade_img.gameObject.SetActive(false);
+                ShowSceneTitle();
+            }));
     }
 
     public void RegisterInstance(MonoBehaviour behaviour)
