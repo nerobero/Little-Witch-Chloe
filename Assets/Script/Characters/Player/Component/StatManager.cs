@@ -399,6 +399,12 @@ public class StatManager : MonoBehaviour, IDamageable
     {
         if(IsDead) return false;
 
+        if (IsPoisonImmune && damageElement == EElementType.Poison)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(OnDamageDeflected);
+            return false;
+        }
+
         // if(damageElement == EElementType.Poison)
         // {
         //     if(IsPoisonImmune) return true;
