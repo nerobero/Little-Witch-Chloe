@@ -67,12 +67,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -125,17 +125,25 @@ TextureImporter:
         _0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 2
-        width: 7
-        height: 7
+        x: 0
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 4, y: -3}
+        - {x: 4, y: 1}
+        - {x: 1, y: 2}
+        - {x: -2, y: 2}
+        - {x: -5, y: -1}
+        - {x: -5, y: -3}
+        - {x: -1, y: -7}
+        - {x: 2, y: -7}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 398f1968156f4c080800000000000000
       internalID: -9167932111408990061
@@ -148,17 +156,24 @@ TextureImporter:
         _1
       rect:
         serializedVersion: 2
-        x: 20
-        y: 3
-        width: 7
-        height: 7
+        x: 16
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 4, y: -3}
+        - {x: 4, y: 3}
+        - {x: -3, y: 3}
+        - {x: -5, y: 2}
+        - {x: -5, y: -3}
+        - {x: -1, y: -6}
+        - {x: 2, y: -6}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: e6cdfd81c2c7f7500800000000000000
       internalID: 396171821069622382
@@ -171,17 +186,24 @@ TextureImporter:
         _2
       rect:
         serializedVersion: 2
-        x: 36
-        y: 3
-        width: 7
-        height: 7
+        x: 32
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 4, y: -3}
+        - {x: 4, y: 3}
+        - {x: -3, y: 3}
+        - {x: -5, y: 2}
+        - {x: -5, y: -3}
+        - {x: -1, y: -6}
+        - {x: 2, y: -6}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: d14425aef83c2f780800000000000000
       internalID: -8650636911346301923
@@ -194,17 +216,25 @@ TextureImporter:
         _3
       rect:
         serializedVersion: 2
-        x: 52
-        y: 2
-        width: 24
-        height: 6
+        x: 48
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 4, y: -4}
+        - {x: 4, y: -2}
+        - {x: 1, y: 1}
+        - {x: -2, y: 1}
+        - {x: -5, y: -2}
+        - {x: -5, y: -4}
+        - {x: -2, y: -7}
+        - {x: 1, y: -7}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 2ec8220bc47647c30800000000000000
       internalID: 4356220318644341986
@@ -217,17 +247,25 @@ TextureImporter:
         _4
       rect:
         serializedVersion: 2
-        x: 84
-        y: 2
-        width: 7
-        height: 6
+        x: 64
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 5, y: -4}
+        - {x: 5, y: -1}
+        - {x: 2, y: 0}
+        - {x: -3, y: 0}
+        - {x: -6, y: -3}
+        - {x: -6, y: -4}
+        - {x: -3, y: -7}
+        - {x: 4, y: -7}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: ac00f12f0c80fdcd0800000000000000
       internalID: -2531294840770068278
@@ -240,20 +278,59 @@ TextureImporter:
         _5
       rect:
         serializedVersion: 2
-        x: 100
-        y: 2
-        width: 7
-        height: 7
+        x: 80
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 4, y: -4}
+        - {x: 4, y: -2}
+        - {x: 1, y: 1}
+        - {x: -2, y: 1}
+        - {x: -5, y: -2}
+        - {x: -5, y: -4}
+        - {x: -2, y: -7}
+        - {x: 1, y: -7}
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 403590dbe5b401e50800000000000000
       internalID: 6778000309463110404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dialog box character finished talking click to continue indicator - spritesheet
+        _6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 4, y: -3}
+        - {x: 4, y: 1}
+        - {x: 1, y: 2}
+        - {x: -2, y: 2}
+        - {x: -5, y: -1}
+        - {x: -5, y: -3}
+        - {x: -1, y: -7}
+        - {x: 2, y: -7}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c135d9494b18fa4a81f3f8b14207db6
+      internalID: -375944326
       vertices: []
       indices: 
       edges: []
@@ -270,7 +347,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       dialog box character finished talking click to continue indicator - spritesheet _0: -9167932111408990061
       dialog box character finished talking click to continue indicator - spritesheet _1: 396171821069622382
@@ -278,6 +357,7 @@ TextureImporter:
       dialog box character finished talking click to continue indicator - spritesheet _3: 4356220318644341986
       dialog box character finished talking click to continue indicator - spritesheet _4: -2531294840770068278
       dialog box character finished talking click to continue indicator - spritesheet _5: 6778000309463110404
+      dialog box character finished talking click to continue indicator - spritesheet _6: -375944326
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
