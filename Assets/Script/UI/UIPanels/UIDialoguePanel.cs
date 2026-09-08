@@ -102,7 +102,7 @@ public class UIDialoguePanel : UIBase
 
     public void OnNextDialogue()
     {
-        DialogueSystem.Instance.UpdateLineIndex();
+        DialogueSystem.Instance.Advance();
         UpdateUI();
     }
     #endregion

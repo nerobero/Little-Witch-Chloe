@@ -263,12 +263,21 @@ namespace Data
         };
     }
 
+    /// <summary>
+    /// One line of dialogue. Rows are looked up by <see cref="currentridx"/>,
+    /// so IDs only need to be unique - they can be grouped per conversation with
+    /// gaps between blocks, and rows do not need to be sorted or contiguous.
+    /// </summary>
     public struct DialogueRow : IBinaryRecord
     {
+        /// <summary>Unique ID of this line. Used as the lookup key.</summary>
         public uint currentridx;
+        /// <summary>Display name of the speaker; also the key into the speaker-to-sprite registry.</summary>
         public string speakerName;
         public string dialogueText;
+        /// <summary>ID (<see cref="currentridx"/>) of the line that follows this one. Ignored when <see cref="hasDialogueEnded"/> is true.</summary>
         public uint nextridx;
+        /// <summary>True on the final line of a chain.</summary>
         public bool hasDialogueEnded;
 
         public void Serialize(BinaryWriter writer)
