@@ -179,6 +179,22 @@ namespace Types
         // ===========  Moss Patches for Bog Level ===========
         AntiFogMossPatch,
     }
+
+    /// <summary>
+    /// Facial expression shown on a dialogue speaker's portrait.
+    /// <see cref="Unspecified"/> means "hold whatever expression the speaker's
+    /// previous line set" (Neutral if they have not spoken yet).
+    /// </summary>
+    public enum EEmotion
+    {
+        Unspecified = 0,
+        Neutral,
+        Happy,
+        Sad,
+        Angry,
+        Surprised,
+        Scared,
+    }
 }
 
 /// <summary>
@@ -274,6 +290,8 @@ namespace Data
         public uint currentridx;
         /// <summary>Display name of the speaker; also the key into the speaker-to-sprite registry.</summary>
         public string speakerName;
+        /// <summary>Expression for the speaker's portrait on this line. <see cref="Types.EEmotion.Unspecified"/> keeps the previous one.</summary>
+        public Types.EEmotion emotion;
         public string dialogueText;
         /// <summary>ID (<see cref="currentridx"/>) of the line that follows this one. Ignored when <see cref="hasDialogueEnded"/> is true.</summary>
         public uint nextridx;
@@ -284,6 +302,7 @@ namespace Data
         {
             writer.Write(currentridx);
             writer.Write(speakerName);
+            writer.Write((uint)emotion);
             writer.Write(dialogueText);
             writer.Write(nextridx);
             writer.Write(hasDialogueEnded);
@@ -293,6 +312,7 @@ namespace Data
         {
             currentridx      = reader.ReadUInt32(),
             speakerName      = reader.ReadString(),
+            emotion          = (Types.EEmotion)reader.ReadUInt32(),
             dialogueText     = reader.ReadString(),
             nextridx         = reader.ReadUInt32(),
             hasDialogueEnded = reader.ReadBoolean(),

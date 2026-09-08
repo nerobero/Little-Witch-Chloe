@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Data;
+using Types;
 using UnityEngine;
 
 /// <summary>
@@ -15,6 +16,10 @@ public class DialogueSystem : MonoSingletonBase<DialogueSystem>
 
     // Every dialogue row, keyed by its line ID for O(1) lookup.
     private readonly Dictionary<uint, DialogueRow> _linesById = new();
+
+    // Last explicit emotion seen for each speaker in the current chain, so a line
+    // with EEmotion.Unspecified can keep the speaker's previous expression.
+    private readonly Dictionary<string, EEmotion> _emotionBySpeaker = new();
 
     private uint _currentId;
     private string _prevSpeakerName = "";
@@ -48,6 +53,7 @@ public class DialogueSystem : MonoSingletonBase<DialogueSystem>
 
         _currentId = startLineId;
         _prevSpeakerName = "";
+        _emotionBySpeaker.Clear();
         IsPlaying = true;
 
         DialogueStarted?.Invoke();
@@ -56,14 +62,32 @@ public class DialogueSystem : MonoSingletonBase<DialogueSystem>
     /// <summary>
     /// Returns the line currently being shown.
     /// </summary>
-    /// <returns>current speaker, current line text, and whether this speaker is
-    /// the same as the previous line's speaker</returns>
-    public (string speaker, string dialogueText, bool IsSameSpeaker) ReturnDialogueLine()
+    /// <returns>current speaker, current line text, whether this speaker is the
+    /// same as the previous line's speaker, and the resolved portrait emotion</returns>
+    public (string speaker, string dialogueText, bool isSameSpeaker, EEmotion emotion) ReturnDialogueLine()
     {
         DialogueRow row = _linesById[_currentId];
         string currentSpeaker = row.speakerName;
         string currentLine = row.dialogueText;
-        return (currentSpeaker, currentLine, currentSpeaker.Equals(_prevSpeakerName));
+        return (currentSpeaker, currentLine, currentSpeaker.Equals(_prevSpeakerName), ResolveEmotion(row));
+    }
+
+    /// <summary>
+    /// Turns a row's raw <see cref="DialogueRow.emotion"/> into a concrete emotion:
+    /// an explicit value is used as-is and remembered for that speaker; Unspecified
+    /// falls back to the speaker's last explicit emotion, or Neutral if they have none.
+    /// </summary>
+    private EEmotion ResolveEmotion(DialogueRow row)
+    {
+        if (row.emotion != EEmotion.Unspecified)
+        {
+            _emotionBySpeaker[row.speakerName] = row.emotion;
+            return row.emotion;
+        }
+
+        return _emotionBySpeaker.TryGetValue(row.speakerName, out EEmotion last)
+            ? last
+            : EEmotion.Neutral;
     }
 
     /// <summary>

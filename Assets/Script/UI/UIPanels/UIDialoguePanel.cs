@@ -43,7 +43,7 @@ public class UIDialoguePanel : UIBase
 
     private void SetFirstLine()
 {
-    (string firstSpeaker, string dialogue, _) = DialogueSystem.Instance.ReturnDialogueLine();
+    (string firstSpeaker, string dialogue, _, _) = DialogueSystem.Instance.ReturnDialogueLine();
     
     // Check the first speaker
     if (firstSpeaker.Equals(speakerName[0].text))
@@ -73,7 +73,7 @@ public class UIDialoguePanel : UIBase
 
     private void UpdateUI()
     {
-        (string speaker, string dialogue, bool isSameSpeaker) = DialogueSystem.Instance.ReturnDialogueLine();
+        (string speaker, string dialogue, bool isSameSpeaker, _) = DialogueSystem.Instance.ReturnDialogueLine();
 
         if (isSameSpeaker)
         {

@@ -19,9 +19,11 @@ public class CsvBinaryImporter : AssetPostprocessor
             {
                 currentridx      = uint.TryParse(cols[0], out uint ridx)  ? ridx  : 0,
                 speakerName      = cols[1],
-                dialogueText     = cols[2],
-                nextridx         = uint.TryParse(cols[3], out uint next)  ? next  : 0,
-                hasDialogueEnded = bool.TryParse(cols[4], out bool ended) ? ended : false,
+                // Accepts the enum name ("Happy", case-insensitive) or its numeric value; blank -> Unspecified.
+                emotion          = Enum.TryParse(cols[2], true, out EEmotion emo) ? emo : EEmotion.Unspecified,
+                dialogueText     = cols[3],
+                nextridx         = uint.TryParse(cols[4], out uint next)  ? next  : 0,
+                hasDialogueEnded = bool.TryParse(cols[5], out bool ended) ? ended : false,
             }),
 
             ["CommissionData"] = csv => CsvToBinaryConverter.Convert(csv, cols => new CollectableData
