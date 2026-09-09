@@ -1,13 +1,14 @@
 using System.Collections;
 using FMOD.Studio;
 using FMODUnity;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
 /// Invisible trigger volume placed at the mouth of a boss arena. 
 /// </summary>
 [RequireComponent(typeof(BoxCollider2D))]
-public class BossRealmEntranceTrigger : MonoBehaviour
+public class BossRealmEntranceTrigger : MonoBehaviour, IResetable
 {
     [Tooltip("Boss FSM controller to wake up when the player enters the realm.")]
     [SerializeField] private BaseFSMAIController boss;
@@ -38,6 +39,11 @@ public class BossRealmEntranceTrigger : MonoBehaviour
     private EventInstance _bgmInstance;
     private bool _bgmStarted;
 
+    protected void Start()
+    {
+        LevelManager.Instance.RegisterInstance(this);
+    }
+
     // Editor convenience: make sure the collider is a trigger when the component is added.
     private void Reset()
     {
@@ -56,6 +62,7 @@ public class BossRealmEntranceTrigger : MonoBehaviour
         }
 
         _fired = true;
+        SaveManager.Instance?.SavePlayerData();
         StartCoroutine(RunSequence());
     }
 
@@ -70,22 +77,26 @@ public class BossRealmEntranceTrigger : MonoBehaviour
 
     private void StartBGM()
     {
+        Debug.Log("StartBGM");
         // Kill whatever was playing first, so it doesn't get caught by the stop below.
         if (stopOtherMusic)
         {
-            RuntimeManager.StudioSystem.getBus("bus:/MUSIC", out var musicBus);
-            musicBus.stopAllEvents(fadeOutOtherMusic ? FMOD.Studio.STOP_MODE.ALLOWFADEOUT : FMOD.Studio.STOP_MODE.IMMEDIATE);
+            SoundManager.Instance.StopAllMusic(fadeOutOtherMusic);
+            // RuntimeManager.StudioSystem.getBus("bus:/MUSIC", out var musicBus);
+            // musicBus.stopAllEvents(fadeOutOtherMusic ? FMOD.Studio.STOP_MODE.ALLOWFADEOUT : FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
 
         if (bossBGM.IsNull) return;
 
-        _bgmInstance = RuntimeManager.CreateInstance(bossBGM);
-        _bgmInstance.start();
-        _bgmStarted = true;
+        _bgmStarted = SoundManager.Instance.PlayMusic(bossBGM);
+        // _bgmInstance = RuntimeManager.CreateInstance(bossBGM);
+        // _bgmInstance.start();
+        // _bgmStarted = true;
     }
 
     private void ActivateBoss()
     {
+        Debug.Log("ActivateBoss");
         for (int i = 0; i < realmObjects.Length; i++)
         {
             if (realmObjects[i] != null) realmObjects[i].SetActive(true);
@@ -100,5 +111,11 @@ public class BossRealmEntranceTrigger : MonoBehaviour
         if (!_bgmStarted) return;
         _bgmInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         _bgmInstance.release();
+    }
+
+    public void ResetState()
+    {
+        _bgmStarted = false;
+        _fired = false;
     }
 }

@@ -4,7 +4,6 @@ public class CameraLockTrigger : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"Enter: {other.tag}");
         // only work if the collider has player layer
         if(LayerMask.LayerToName(other.gameObject.layer).Contains("Player"))
         {
@@ -16,7 +15,7 @@ public class CameraLockTrigger : MonoBehaviour
             new Vector3(
                 gameObject.transform.position.x,
                 gameObject.transform.position.y,
-                camController.gameObject.transform.position.z
+                camController.offset.z
             );
 
             other.gameObject.transform.position = gameObject.transform.position;

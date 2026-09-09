@@ -30,8 +30,8 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     private void HandleStartManagerEvent()
     {
         if (_isStarted) return;
-        Debug.Log("HandleStartManagerEvent Called");
         if (Overworld.IsNull) return;
+        Debug.Log("HandleStartManagerEvent Called");
         _currentTrack = Overworld;
         _eventInstance = RuntimeManager.CreateInstance(Overworld);
         _eventInstance.start();
@@ -108,6 +108,16 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     public void PlayBogMusic() => PlayTrack(BogMusic);
     public void PlayGameOver() => PlayTrack(GameOverMusic);
     public void PlayOverworld() => PlayTrack(Overworld);
+    public bool PlayMusic(EventReference track)
+    {
+        if (track.IsNull) return false;
+        _currentTrack = track;
+        _eventInstance = RuntimeManager.CreateInstance(track);
+        _eventInstance.start();
+        _isStarted = true;
+        return _isStarted;
+    }
+
     public void RestartCurrentBGM()
     {
         _eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
@@ -122,6 +132,7 @@ public class SoundManager : MonoSingletonBase<SoundManager>
         musicBus.stopAllEvents(allowFadeout
             ? FMOD.Studio.STOP_MODE.ALLOWFADEOUT
             : FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _isStarted = false;
     }
 
 

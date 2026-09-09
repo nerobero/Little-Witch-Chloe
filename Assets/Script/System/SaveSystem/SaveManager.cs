@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using Data;
 using Types;
 using System.Linq;
+using System.Threading.Tasks;
 
 public class SaveManager : MonoSingletonBase<SaveManager>
 {
@@ -17,6 +18,12 @@ public class SaveManager : MonoSingletonBase<SaveManager>
     private SavePlayerData _pendingData;
     
     private string savePlayerPath = "savePlayerData.json";
+
+    public bool IsPlayerReady =>
+            playerController != null &&
+            playerState != null &&
+            playerAttack != null &&
+            playerMove != null;
 
     protected override void Awake()
     {
@@ -40,15 +47,30 @@ public class SaveManager : MonoSingletonBase<SaveManager>
         playerState = controller.PlayerStat;
         playerAttack = controller.PlayerAttack;
         playerMove = controller.PlayerMove;
+        Debug.Log("Registered!");
     }
 
     public bool LoadSaveGame()
     {
-        if (!PlayerPrefs.HasKey("PlayerData")) return false;
+        if (!PlayerPrefsExt.HasKey("PlayerData")) return false;
     
         _pendingData = PlayerPrefsExt.GetObject<SavePlayerData>("PlayerData", null);
         return _pendingData != null;
         //LoadPlayerData();
+    }
+
+    public async Task<bool> WaitForPlayerReadyAsync(int maxFrames = 300)
+    {
+        for (int frame = 0; frame < maxFrames; frame++)
+        {
+            if (IsPlayerReady)
+                return true;
+
+            await Task.Yield();
+        }
+
+        Debug.LogError("[SaveManager] Player registration timed out.");
+        return false;
     }
 
     public virtual void SavePlayerData()
@@ -77,6 +99,7 @@ public class SaveManager : MonoSingletonBase<SaveManager>
             savePlayerData.savedPosition = transform.position;
             savePlayerData.savedRotation = transform.rotation;
             savePlayerData.savedScale = transform.localScale;
+            Debug.Log($"savePlayerPosition: {savePlayerData.savedPosition}");
 
             savePlayerData.unlockedAbility = GameManager.Instance.GetUnlockedAbilities.ToList<EAbilityType>(); 
             savePlayerData.spellList = playerAttack.GetUnlockedSpell();

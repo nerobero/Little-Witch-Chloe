@@ -59,6 +59,10 @@ public class LevelManager : MonoSingletonBase<LevelManager>
     {
         await SceneManager.LoadSceneAsync((int)levelType, LoadSceneMode.Additive);
 
+        if (!await SaveManager.Instance.WaitForPlayerReadyAsync())
+            return;
+                
+        GameManager.Instance.SetCurrentLevel(levelType);
         SaveManager.Instance?.SavePlayerData();
         // _progressBar.value = 0.0f;
         // Debug.Log(levelType);
@@ -168,10 +172,16 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
         if(isSaveDataLoad)
         {
+            if (!await SaveManager.Instance.WaitForPlayerReadyAsync())
+                return;
+            
             SaveManager.Instance?.ApplyAllGameData();
         }
         else
         {
+            if (!await SaveManager.Instance.WaitForPlayerReadyAsync())
+                return;
+
             SaveManager.Instance?.SavePlayerData();
         }
     }

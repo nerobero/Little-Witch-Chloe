@@ -416,7 +416,8 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
         bossStat.BuffComp.ResetState();
 
         ResetEntranceState();
-        BeginEntrance();
+        gameObject.SetActive(false);
+        //BeginEntrance();
     }
 
     // Rewinds the FSM to its pre-fight state so the entrance can replay on level reset.
