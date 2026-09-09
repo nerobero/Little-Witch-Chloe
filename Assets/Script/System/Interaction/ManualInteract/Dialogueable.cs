@@ -17,11 +17,8 @@ public class Dialogueable : InteractableBase
 
     protected override void Interact_Impl()
     {
-        DialogueSystem.Instance.StartDialogue(startLineId);
-
-        // Only spend a one-shot trigger if the chain actually began
-        // (StartDialogue no-ops on an unknown ID).
-        if (DialogueSystem.Instance.IsPlaying)
+        // Only spend a one-shot trigger if the chain actually began.
+        if (DialogueTriggerUtil.TryStart(startLineId))
             _consumed = true;
     }
 
