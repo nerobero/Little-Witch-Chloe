@@ -29,7 +29,8 @@ public class EnemyHPWidget : UIBase
         //_targetStat = stat;
         Show();
 
-        UpdateHP(_targetStat.CurrentHP, _targetStat.MaxHP, null);
+        if (_targetStat != null)
+            UpdateHP(_targetStat.CurrentHP, _targetStat.MaxHP, null);
 
         SubscribeEvents();
     }
