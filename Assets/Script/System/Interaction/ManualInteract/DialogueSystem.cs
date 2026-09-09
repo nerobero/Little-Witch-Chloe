@@ -106,6 +106,14 @@ public class DialogueSystem : MonoSingletonBase<DialogueSystem>
             return;
         }
 
+        if (!_linesById.ContainsKey(row.nextridx))
+        {
+            Debug.LogError($"[DialogueSystem] Line {_currentId} points to missing nextridx {row.nextridx}; ending dialogue. (Stale DialogueLinesData.bytes?)");
+            IsPlaying = false;
+            DialogueEnded?.Invoke();
+            return;
+        }
+
         _currentId = row.nextridx;
     }
 
