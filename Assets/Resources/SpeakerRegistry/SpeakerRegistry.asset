@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d2b94e765463d48ab355d511667453, type: 3}
+  m_Name: SpeakerRegistry
+  m_EditorClassIdentifier: Assembly-CSharp::SpeakerRegistry
+  entries:
+  - speakerName: Chloe
+    portraits:
+    - emotion: 1
+      sprite: {fileID: -748715930859883094, guid: 185d973e1eb1c874dbb18db498de9d5d, type: 3}
+    - emotion: 2
+      sprite: {fileID: 215910505598797564, guid: 185d973e1eb1c874dbb18db498de9d5d, type: 3}
+    - emotion: 3
+      sprite: {fileID: 4389893373541963333, guid: 185d973e1eb1c874dbb18db498de9d5d, type: 3}
+    - emotion: 5
+      sprite: {fileID: -5183531851262191796, guid: 185d973e1eb1c874dbb18db498de9d5d, type: 3}
+  - speakerName: Charlie
+    portraits:
+    - emotion: 1
+      sprite: {fileID: 1027773763240218505, guid: e1dee006adcdace468019a40587a5182, type: 3}
+    - emotion: 2
+      sprite: {fileID: -3504628872698265924, guid: e1dee006adcdace468019a40587a5182, type: 3}
+    - emotion: 3
+      sprite: {fileID: -8936042297562424993, guid: e1dee006adcdace468019a40587a5182, type: 3}

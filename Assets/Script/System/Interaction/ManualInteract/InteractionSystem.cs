@@ -27,9 +27,11 @@ public class InteractionSystem : MonoBehaviour
 
     /// <summary>
     /// Checks if there is a valid interactable near the owner's vicinity.
+    /// Interaction is also blocked entirely while a dialogue is playing.
     /// </summary>
     /// <returns>true if the current interactable is not null and interactable</returns>
     private bool CanInteractWith()
-        => _detector.CurrentInteractable != null &&
+        => !DialogueSystem.Instance.IsPlaying &&
+        _detector.CurrentInteractable != null &&
         _detector.CurrentInteractable.CanInteract();
 }

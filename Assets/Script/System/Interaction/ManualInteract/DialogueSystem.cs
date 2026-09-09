@@ -110,21 +110,22 @@ public class DialogueSystem : MonoSingletonBase<DialogueSystem>
     }
 
     /// <summary>
-    /// Walks the chain from <paramref name="startLineId"/> and returns the distinct
-    /// speaker names in first-seen order, capped at 2 (the panel's portrait count).
+    /// Walks the chain from the line currently pointed at (call right after
+    /// <see cref="StartDialogue"/>) and returns the distinct speaker names in
+    /// first-seen order, capped at 2 (the panel's portrait count).
     /// </summary>
-    public List<string> GetChainSpeakers(uint startLineId)
+    public List<string> GetChainSpeakers()
     {
         var speakers = new List<string>(2);
         var visited = new HashSet<uint>();
 
-        uint id = startLineId;
+        uint id = _currentId;
         while (visited.Add(id) && _linesById.TryGetValue(id, out DialogueRow row))
         {
             if (!speakers.Contains(row.speakerName))
             {
                 if (speakers.Count >= 2)
-                    Debug.LogWarning($"[DialogueSystem] Chain at ID {startLineId} has 3+ speakers; '{row.speakerName}' will not get a portrait slot.");
+                    Debug.LogWarning($"[DialogueSystem] Chain at ID {_currentId} has 3+ speakers; '{row.speakerName}' will not get a portrait slot.");
                 else
                     speakers.Add(row.speakerName);
             }

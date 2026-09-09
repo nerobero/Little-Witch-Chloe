@@ -1,109 +1,139 @@
-using System.Data.Common;
 using TMPro;
+using Types;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// The on-screen dialogue panel. Listens for <see cref="DialogueSystem.DialogueStarted"/>,
+/// builds itself from the chain that is starting (1 speaker -> monologue layout,
+/// 2 -> dialogue layout), then renders one line at a time as the player advances.
+/// </summary>
 public class UIDialoguePanel : UIBase
 {
-    private Image mainPanel;
+    [Header("Backgrounds")]
+    [SerializeField] private GameObject bgDialogue;   // 2-portrait background
+    [SerializeField] private GameObject bgMonologue;  // 1-portrait background
 
-    [Header("Speaker")]
+    [Header("Speaker slots (index 0 = slot 1, index 1 = slot 2)")]
+    [SerializeField] private GameObject[] speakerGroup = new GameObject[2]; // Group_Speaker1 / 2
+    [SerializeField] private GameObject[] dialogueBox = new GameObject[2];  // DialogueBox1 / 2
     [SerializeField] private TMP_Text[] speakerName = new TMP_Text[2];
     [SerializeField] private Image[] speakerSprite = new Image[2];
     [SerializeField] private TMP_Text[] dialogueText = new TMP_Text[2];
     [SerializeField] private Image[] speechBubble = new Image[2];
 
-    [Header("Color Settings")]
-    [SerializeField] private Color fgColor;
-    [SerializeField] private Color bgColor;
-    // To memory speaker index
-    private int currentSpeakerIndex; // 0 : left, 1 : right
-    
+    [Header("Portraits")]
+    [SerializeField] private SpeakerRegistry speakerRegistry;
+
+    [Header("Speech bubble colors")]
+    [SerializeField] private Color fgColor = Color.white;
+    [SerializeField] private Color bgColor = Color.gray;
+
+    // Speaker name occupying each slot; _slotSpeaker[1] is null during a monologue.
+    private readonly string[] _slotSpeaker = new string[2];
+    // Slot whose speech bubble currently has focus.
+    private int _currentSlot;
+
     #region EventSubscription
     protected override void SubscribeEvents()
     {
+        DialogueSystem.Instance.DialogueStarted += HandleDialogueStarted;
         DialogueSystem.Instance.DialogueEnded += base.Hide;
     }
 
     protected override void UnsubscribeEvents()
     {
+        DialogueSystem.Instance.DialogueStarted -= HandleDialogueStarted;
         DialogueSystem.Instance.DialogueEnded -= base.Hide;
     }
     #endregion
 
-    public void Initialize(string _speakerName1, string _speakerName2, Sprite sprite1, Sprite sprite2)
+    /// <summary>
+    /// Configures the panel for the chain that just started, then shows its first line.
+    /// </summary>
+    private void HandleDialogueStarted()
     {
-        speakerName[0].SetText(_speakerName1);
-        speakerName[1].SetText(_speakerName2);
-        speakerSprite[0].sprite = sprite1;
-        speakerSprite[1].sprite = sprite2;
-
-        SetFirstLine();
-    }
-
-    private void SetFirstLine()
-{
-    (string firstSpeaker, string dialogue, _, _) = DialogueSystem.Instance.ReturnDialogueLine();
-    
-    // Check the first speaker
-    if (firstSpeaker.Equals(speakerName[0].text))
-    {
-        currentSpeakerIndex = 0;
-    }
-    else if (firstSpeaker.Equals(speakerName[1].text))
-    {
-        currentSpeakerIndex = 1;
-    }
-    else
-    {
-        // default. (error exception)
-        currentSpeakerIndex = 0;
-    }
-    
-    // Set current speaker's speechbubble to be on the top
-    speechBubble[currentSpeakerIndex].color = fgColor;
-    speechBubble[currentSpeakerIndex].transform.SetAsFirstSibling();
-    
-    dialogueText[currentSpeakerIndex].SetText(dialogue);
-
-    // Set non speaker's speechbubble to be on the bottom
-    int otherIndex = currentSpeakerIndex == 0 ? 1 : 0;
-    speechBubble[otherIndex].color = bgColor;
-}
-
-    private void UpdateUI()
-    {
-        (string speaker, string dialogue, bool isSameSpeaker, _) = DialogueSystem.Instance.ReturnDialogueLine();
-
-        if (isSameSpeaker)
+        var speakers = DialogueSystem.Instance.GetChainSpeakers();
+        if (speakers.Count == 0)
         {
-            dialogueText[currentSpeakerIndex].SetText(dialogue);
-
+            Debug.LogError("[UIDialoguePanel] Dialogue started with no speakers.");
             return;
         }
 
-        // Change the prev speaker bubble's color to be background color
-        speechBubble[currentSpeakerIndex].color = bgColor;
+        bool isMonologue = speakers.Count == 1;
 
-        // Change the index
-        currentSpeakerIndex += 1;
+        bgMonologue.SetActive(isMonologue);
+        bgDialogue.SetActive(!isMonologue);
 
-        if(currentSpeakerIndex >= 2)
+        AssignSlot(0, speakers[0]);
+        if (isMonologue)
+            ClearSlot(1);
+        else
+            AssignSlot(1, speakers[1]);
+
+        // Focus starts on slot 0; RenderLine moves it if the first line is slot 1.
+        _currentSlot = 0;
+        speechBubble[0].color = fgColor;
+        if (!isMonologue)
+            speechBubble[1].color = bgColor;
+
+        Show();
+        RenderLine();
+    }
+
+    private void AssignSlot(int slot, string speaker)
+    {
+        _slotSpeaker[slot] = speaker;
+        speakerName[slot].SetText(speaker);
+        speakerGroup[slot].SetActive(true);
+        dialogueBox[slot].SetActive(true);
+    }
+
+    private void ClearSlot(int slot)
+    {
+        _slotSpeaker[slot] = null;
+        speakerGroup[slot].SetActive(false);
+        dialogueBox[slot].SetActive(false);
+    }
+
+    /// <summary>
+    /// Renders the line <see cref="DialogueSystem"/> currently points at into the
+    /// matching speaker slot. No-ops once the dialogue has ended - the final line
+    /// is dismissed by one more Next click, which raises DialogueEnded first.
+    /// </summary>
+    private void RenderLine()
+    {
+        if (!DialogueSystem.Instance.IsPlaying)
+            return;
+
+        (string speaker, string dialogue, _, EEmotion emotion)
+            = DialogueSystem.Instance.ReturnDialogueLine();
+
+        int slot = SlotFor(speaker);
+
+        if (speakerRegistry != null)
+            speakerSprite[slot].sprite = speakerRegistry.Get(speaker, emotion);
+
+        dialogueText[slot].SetText(dialogue);
+
+        if (slot != _currentSlot)
         {
-            currentSpeakerIndex = 0;
+            speechBubble[_currentSlot].color = bgColor;
+            _currentSlot = slot;
         }
 
-        // Change the current speaker bubble's color to be foreground color
-        speechBubble[currentSpeakerIndex].color = fgColor;
-        // And Set the bubble to be on the top.
-        speechBubble[currentSpeakerIndex].transform.SetAsFirstSibling();
+        speechBubble[slot].color = fgColor;
+        speechBubble[slot].transform.SetAsFirstSibling();
     }
-    #region ButtonListeners
 
+    // Unknown speakers (and every line of a monologue) resolve to slot 0.
+    private int SlotFor(string speaker) => speaker == _slotSpeaker[1] ? 1 : 0;
+
+    #region ButtonListeners
     public void OnNextDialogue()
     {
         DialogueSystem.Instance.Advance();
-        UpdateUI();
+        RenderLine();
     }
     #endregion
 }
