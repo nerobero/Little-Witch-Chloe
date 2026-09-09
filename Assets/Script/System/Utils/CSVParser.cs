@@ -37,15 +37,20 @@ public static class CSVParser
 
             if (c == '"')
             {
-                // "" inside a quoted field → escaped literal quote
+                // Only use quotes here to decide whether a newline splits the row;
+                // pass the characters through verbatim so ParseRow can do the real
+                // field parsing (dropping them here would expose commas inside a
+                // quoted field as separators).
                 if (inQuotes && i + 1 < text.Length && text[i + 1] == '"')
                 {
+                    current.Append('"');
                     current.Append('"');
                     i++;
                 }
                 else
                 {
                     inQuotes = !inQuotes;
+                    current.Append('"');
                 }
             }
             else if ((c == '\n' || c == '\r') && !inQuotes)

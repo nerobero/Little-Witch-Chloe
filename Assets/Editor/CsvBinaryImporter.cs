@@ -82,6 +82,11 @@ public class CsvBinaryImporter : AssetPostprocessor
                 continue;
             }
 
+            // Force Unity to re-read the file from disk first: an external edit
+            // (e.g. adding quotes around a field) may not have been reimported yet,
+            // in which case LoadAssetAtPath would hand us stale text.
+            AssetDatabase.ImportAsset(csvPath, ImportAssetOptions.ForceUpdate);
+
             TextAsset csv = AssetDatabase.LoadAssetAtPath<TextAsset>(csvPath);
             results.Add(ProcessEntry(kvp.Key, csv, kvp.Value));
         }
