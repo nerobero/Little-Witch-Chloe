@@ -169,19 +169,17 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
         scene.allowSceneActivation = true;
         //_loaderCanvas.SetActive(false);
+        
+        if (!await SaveManager.Instance.WaitForPlayerReadyAsync())
+            return;
 
         if(isSaveDataLoad)
         {
-            if (!await SaveManager.Instance.WaitForPlayerReadyAsync())
-                return;
             
             SaveManager.Instance?.ApplyAllGameData();
         }
         else
         {
-            if (!await SaveManager.Instance.WaitForPlayerReadyAsync())
-                return;
-
             SaveManager.Instance?.SavePlayerData();
         }
     }
