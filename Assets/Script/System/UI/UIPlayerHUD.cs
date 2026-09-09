@@ -11,7 +11,7 @@ public class UIPlayerHUD : UIBase
     //[SerializeField] private Slider _staminaSlider;  
     [SerializeField] private Image _staminaImg;  
     [SerializeField] private Image _blinkImg;
-    [SerializeField] private List<Sprite> _projImgs, _skillImgs;
+    [SerializeField] private List<Sprite> _projImgs;
     [SerializeField] private TextMeshProUGUI _objectivesText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private bool isInitialized = false;
@@ -20,6 +20,7 @@ public class UIPlayerHUD : UIBase
     [SerializeField]private List<UISlotPanel> _projLists, _skillLists;
     [SerializeField]private int _currentProjIndex, _maxProjIndex = 0;
     [SerializeField]private int _maxSkillIndex = 0;
+    [SerializeField]private AbilityIconDatabase abilityIconDatabase;
 
     protected override void Awake()
     {
@@ -133,13 +134,22 @@ public class UIPlayerHUD : UIBase
         _objectivesText.text = amount.ToString();
     }
 
-    public void UpdateSkillList(EAbilityType abilityType, Sprite keyIcon)
+    public void UpdateSkillList(EAbilityType abilityType)
     {
         int unlocked = (int)abilityType;
         _skillLists[_maxSkillIndex].gameObject.SetActive(true);
 
-        _skillLists[_maxSkillIndex].OnSlotUnlocked(abilityType, _skillImgs[unlocked - 1], keyIcon);
-        this._maxSkillIndex++;
+        if(abilityIconDatabase != null)
+        {
+            Sprite icon = abilityIconDatabase.GetAbilityIcon(abilityType);
+            if(icon != null)
+            {
+                Sprite keyIcon = abilityIconDatabase.GetKeyIcon(abilityType);
+                _skillLists[_maxSkillIndex].OnSlotUnlocked(abilityType, icon, keyIcon);  
+            }
+            this._maxSkillIndex++;
+        }
+        //_skillLists[_maxSkillIndex].OnSlotUnlocked(abilityType, _skillImgs[unlocked - 1], keyIcon);
     }
 
     public void UpdateProjectileList(ESpawnType projType)

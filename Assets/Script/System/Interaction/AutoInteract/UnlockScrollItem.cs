@@ -18,7 +18,7 @@ public class UnlockScrollItem : ScrollItem
                 //return OnInteract_HelperImpl(other);
                 if(unlocked)
                 {
-                    UIManager.Instance.Get<UIPlayerHUD>().UpdateSkillList(_unlockType, _keyIconSprite);
+                    UIManager.Instance.Get<UIPlayerHUD>().UpdateSkillList(_unlockType);
                 }
 
                 return unlocked;
