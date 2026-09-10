@@ -5,8 +5,25 @@ currentridx,speakerName,emotion,dialogueText,nextridx,hasDialogueEnded
 103,Chloe,,"<i>To make 250mL of Affection Potion, you'll need...</i>",104,FALSE
 104,Chloe,,Yeah yeah. I know this already.,105,FALSE
 105,Chloe,,"5 cherries, 3 sparkle frogs, 6 oranges, and...",106,FALSE
-106,Chloe,Sad,and...the FLOWER of the dread Jormungandr!,107,FALSE
+106,Chloe,Sad,and...the FLOWER of the dreaded Jormungandr!,107,FALSE
 107,Chloe,,"Man...I'm about to piss my pants just thinking about it, but I can't let Charlie fall for someone else. ",108,FALSE
-108,Chloe,,"I've waited, what, 5 years just to get him to notice me. I can't wait any longer!",109,FALSE
+108,Chloe,Neutral,"I've waited, what, 5 years just to get him to notice me. I can't wait any longer!",109,FALSE
 109,Chloe,Neutral,...Okay. I'm ready. This shouldn't be too hard.,110,FALSE
-110,Chloe,,Let's make that Affection Potion for Charlie.,,TRUE
+110,Chloe,,Let's make that Affection Potion for Charlie.,200,TRUE
+200,Chloe,Neutral,A python. Does that mean...,201,FALSE
+201,Chloe,Sad,<b>JORMUNGANDR IS DOWN THERE?</b>,202,FALSE
+202,Chloe,,OKAY I'M NOT READY THOUGH IHAVETOGOBUTIMNOTREADY,203,FALSE
+203,Chloe,Surprised,...? What is that?,204,TRUE
+300,Chloe,Neutral,Hey Charlie!,301,FALSE
+301,Charlie,Neutral,"Mmm? Oh, it's <i>you</i>.",302,FALSE
+302,Charlie,,Where were you? You were gone for few days. I was worried.,303,FALSE
+303,Chloe,Surprised,Huh? You were worried about me? Why?,304,FALSE
+304,Charlie,Neutral,Hm? Why wouldn't I be? ,305,FALSE
+305,Chloe,Surprised,...?,306,FALSE
+306,Charlie,Neutral,"Anyways, what's up? Did you need help with something?",307,FALSE
+307,Chloe,Neutral,"Oh no, I just wanted to give this juice(?) I made for you. It took me awhile, but hope you like it.",308,FALSE
+308,Charlie,Happy,"Sweet! Thank you, I love how you always know what I need. But...",309,FALSE
+309,Charlie,Neutral,"Seriously, please don't go into dangerous places anymore. I don't want to see you hurt. I...I care about you. Way more than you think.",310,FALSE
+310,Chloe,Surprised,Oh. OH. <i>(He didn't even drink the potion yet. Why is he so sweet to me all of a sudden?)</i>,311,FALSE
+311,Chloe,Happy,"W-wait. By you caring about me, you mean...you...",312,FALSE
+312,Charlie,Happy,"Yes. I care about you, because I like you.",,TRUE
