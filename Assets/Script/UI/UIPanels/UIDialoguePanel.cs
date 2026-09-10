@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using Types;
 using UnityEngine;
@@ -33,6 +34,8 @@ public class UIDialoguePanel : UIBase
     private readonly string[] _slotSpeaker = new string[2];
     // Slot whose speech bubble currently has focus.
     private int _currentSlot;
+    private bool isTypeWriting = false;
+    private Coroutine typewriting;
 
     #region EventSubscription
     protected override void SubscribeEvents()
@@ -64,6 +67,9 @@ public class UIDialoguePanel : UIBase
     {
         PlayerController.Instance.InputContext.UI.Disable();
         PlayerController.Instance.InputContext.BaseInputAction.Enable();
+        StopCoroutine(typewriting);
+        typewriting = null;
+        isTypeWriting = false;
         base.Hide();
     }
 
@@ -133,7 +139,15 @@ public class UIDialoguePanel : UIBase
         if (speakerRegistry != null)
             speakerSprite[slot].sprite = speakerRegistry.Get(speaker, emotion);
 
-        dialogueText[slot].SetText(dialogue);
+        if(isTypeWriting)
+        {
+            dialogueText[slot].maxVisibleCharacters = dialogue.Length;
+        }
+        //dialogueText[slot].SetText(dialogue);
+        else
+        {
+            typewriting = StartCoroutine(TypeTextEffect(slot, dialogue));
+        }
 
         if (slot != _currentSlot)
         {
@@ -145,14 +159,40 @@ public class UIDialoguePanel : UIBase
         speechBubble[slot].transform.SetAsFirstSibling();
     }
 
+    IEnumerator TypeTextEffect(int slot, string dialogue)
+    {
+        isTypeWriting = true;
+        dialogueText[slot].SetText(dialogue);
+
+        dialogueText[slot].maxVisibleCharacters = 0;
+
+        for(int i = 0; i <= dialogue.Length; ++i)
+        {
+            dialogueText[slot].maxVisibleCharacters = i;
+            yield return null;
+        }
+
+        isTypeWriting = false;
+    }
+
     // Unknown speakers (and every line of a monologue) resolve to slot 0.
     private int SlotFor(string speaker) => speaker == _slotSpeaker[1] ? 1 : 0;
 
     #region ButtonListeners
     public void OnNextDialogue()
     {
-        DialogueSystem.Instance.Advance();
-        RenderLine();
+        if(isTypeWriting)
+        {
+            StopCoroutine(typewriting);
+            typewriting = null;
+            RenderLine();
+            isTypeWriting = false;
+        }
+        else
+        {
+            DialogueSystem.Instance.Advance();
+            RenderLine();
+        }
     }
     #endregion
 }
