@@ -159,7 +159,10 @@ public class SaveManager : MonoSingletonBase<SaveManager>
             
             foreach(Types.EAbilityType unlocked in savePlayerData.unlockedAbility)
             {
-                GameManager.Instance.OnScrollCollected(unlocked);
+                if(GameManager.Instance.OnScrollCollected(unlocked))
+                {
+                    UIManager.Instance.Get<UIPlayerHUD>().UpdateSkillList(unlocked);
+                }
             }
 
             foreach(Types.ESpawnType spell in savePlayerData.spellList)

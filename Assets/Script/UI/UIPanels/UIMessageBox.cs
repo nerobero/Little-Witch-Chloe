@@ -19,15 +19,21 @@ public class UIMessageBox : UIBase
 
     public override void Show()
     {
-        PlayerController.Instance.InputContext.UI.Enable();
-        PlayerController.Instance.InputContext.BaseInputAction.Disable();
+        if(PlayerController.Instance != null)
+        {
+            PlayerController.Instance.InputContext.UI.Enable();
+            PlayerController.Instance.InputContext.BaseInputAction.Disable();
+        }
         base.Show();
     }
 
     public override void Hide()
     {
-        PlayerController.Instance.InputContext.UI.Disable();
-        PlayerController.Instance.InputContext.BaseInputAction.Enable();
+        if(PlayerController.Instance != null)
+        {
+            PlayerController.Instance.InputContext.UI.Disable();
+            PlayerController.Instance.InputContext.BaseInputAction.Enable();
+        }
         base.Hide();
     }
 

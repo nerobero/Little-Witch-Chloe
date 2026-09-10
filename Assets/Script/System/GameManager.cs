@@ -184,9 +184,12 @@ public class GameManager : MonoSingletonBase<GameManager>
         {
             _objectives.Add(data.collectableType, data.collectedCount);
 
-            if(data.collectedCount == CommisionManager.Instance.GetTargetCount(_currentLevel, data.collectableType))
+            if(CommisionManager.Instance != null)
             {
-                allCollectedObjectivesCounts++;
+                if(data.collectedCount == CommisionManager.Instance.GetTargetCount(_currentLevel, data.collectableType))
+                {
+                    allCollectedObjectivesCounts++;
+                }
             }
         }
     }

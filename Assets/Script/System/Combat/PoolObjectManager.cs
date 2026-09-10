@@ -32,11 +32,7 @@ public class PoolObjectManager : MonoSingletonBase<PoolObjectManager>
     {
         dontDestroy = true;
         base.Awake();
-    }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
-    {
         // initializes the pools:
         foreach (var entry in poolEntries)
         {
@@ -46,6 +42,12 @@ public class PoolObjectManager : MonoSingletonBase<PoolObjectManager>
             for (int i = 0; i < entry.initSpawnSize; i++)
                 pools[entry.type].Enqueue(CreateNew(entry.type));
         }
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Start()
+    {
+        
     }
 
     public GameObject Get(ESpawnType type)
