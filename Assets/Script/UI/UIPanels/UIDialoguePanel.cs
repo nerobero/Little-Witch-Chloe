@@ -38,15 +38,34 @@ public class UIDialoguePanel : UIBase
     protected override void SubscribeEvents()
     {
         DialogueSystem.Instance.DialogueStarted += HandleDialogueStarted;
-        DialogueSystem.Instance.DialogueEnded += base.Hide;
+        DialogueSystem.Instance.DialogueEnded += Hide;
     }
 
     protected override void UnsubscribeEvents()
     {
         DialogueSystem.Instance.DialogueStarted -= HandleDialogueStarted;
-        DialogueSystem.Instance.DialogueEnded -= base.Hide;
+        DialogueSystem.Instance.DialogueEnded -= Hide;
     }
     #endregion
+
+    /// <summary>
+    /// While the panel is up, gameplay input is off and the UI action map is on
+    /// (so the Next button receives mouse clicks) - same swap the other blocking
+    /// panels use. The character keeps its Animator state and settles to idle.
+    /// </summary>
+    public override void Show()
+    {
+        PlayerController.Instance.InputContext.UI.Enable();
+        PlayerController.Instance.InputContext.BaseInputAction.Disable();
+        base.Show();
+    }
+
+    public override void Hide()
+    {
+        PlayerController.Instance.InputContext.UI.Disable();
+        PlayerController.Instance.InputContext.BaseInputAction.Enable();
+        base.Hide();
+    }
 
     /// <summary>
     /// Configures the panel for the chain that just started, then shows its first line.

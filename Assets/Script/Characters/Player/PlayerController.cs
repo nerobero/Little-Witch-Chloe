@@ -132,9 +132,6 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         _playerMove.OnFlyStopped += OnFlyStopped;
 
         InputContext.UI.AddCallbacks(this);
-
-        DialogueSystem.Instance.DialogueStarted += FreezeForDialogue;
-        DialogueSystem.Instance.DialogueEnded += UnfreezeForDialogue;
     }
 
     private void OnDisable()
@@ -145,9 +142,6 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         InputContext.BaseInputAction.RemoveCallbacks(this);
 
         _playerMove.OnFlyStopped -= OnFlyStopped;
-
-        DialogueSystem.Instance.DialogueStarted -= FreezeForDialogue;
-        DialogueSystem.Instance.DialogueEnded -= UnfreezeForDialogue;
     }
 
     private void OnDestroy()
@@ -580,37 +574,6 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         InputContext.FindAction("MoveLeftRight").Enable();
         InputContext.FindAction("Jump").Enable();
         InputContext.FindAction("Blink").Enable();
-    }
-    #endregion
-
-    #region DialogueFreeze
-    private void FreezeForDialogue() => SetGameplayInputEnabled(false);
-    private void UnfreezeForDialogue() => SetGameplayInputEnabled(true);
-
-    /// <summary>
-    /// Toggles gameplay input (movement, jump, attacks, abilities) while a
-    /// dialogue is on screen. Mirrors the action set in <see cref="Stun"/> minus
-    /// Interact/Pause. The Animator is left untouched, so the character simply
-    /// settles into its idle state once movement input stops.
-    /// </summary>
-    private void SetGameplayInputEnabled(bool enabled)
-    {
-        if (!enabled)
-            _playerMove.SetMoveDirection(0f); // drop any held direction so it eases to idle
-
-        void Apply(string action)
-        {
-            if (enabled) InputContext.FindAction(action).Enable();
-            else InputContext.FindAction(action).Disable();
-        }
-
-        Apply("MoveLeftRight");
-        Apply("Jump");
-        Apply("AimAttack");
-        Apply("Attack");
-        Apply("Blink");
-        Apply("ChangeWeapon");
-        Apply("AttackAcross");
     }
     #endregion
 }
