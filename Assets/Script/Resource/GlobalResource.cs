@@ -157,10 +157,13 @@ namespace Types
 
     public enum ELevelType
     {
-        Intro = 0,
-        MainGame,
-        Overworld,
-        BogLevel,
+        Intro = 0, // used for Title Scene (no practical use)
+        MainGame, // used for MainScene (no practical use)
+        Overworld, // Overworld, not playable level
+        BogLevel, // 1st playable level: plant, poison, darkness, water
+        FireCaveLevel, // 2nd playable level: fire, poison, darkness
+        WinterMountainLevel, // 3rd playable level: ice, water, darkness 
+
 
         // Last for level amount
         Count,
