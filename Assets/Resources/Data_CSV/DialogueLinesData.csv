@@ -5,17 +5,17 @@ currentridx,speakerName,emotion,dialogueText,nextridx,hasDialogueEnded
 103,Chloe,,"<i>To make 250mL of Affection Potion, you'll need...</i>",104,FALSE
 104,Chloe,,Yeah yeah. I know this already.,105,FALSE
 105,Chloe,,"5 cherries, 3 sparkle frogs, 6 oranges, and...",106,FALSE
-106,Chloe,Sad,and...the FLOWER of the dreaded Jormungandr!,107,FALSE
-107,Chloe,,"Man...I'm about to piss my pants just thinking about it, but I can't let Charlie fall for someone else. ",108,FALSE
+106,Chloe,Sad,and...the FLOWER of the dreaded <style=BossName>Jormungandr</style>!,107,FALSE
+107,Chloe,,"Man...I'm about to piss my pants just thinking about it, but I can't let <style=CharacName>Charlie</style> fall for someone else. ",108,FALSE
 108,Chloe,Neutral,"I've waited, what, 5 years just to get him to notice me. I can't wait any longer!",109,FALSE
 109,Chloe,Neutral,...Okay. I'm ready. This shouldn't be too hard.,110,FALSE
-110,Chloe,,Let's make that Affection Potion for Charlie.,200,TRUE
+110,Chloe,,Let's make that Affection Potion for <style=CharacName>Charlie</style>.,200,TRUE
 200,Chloe,Neutral,A python. Does that mean...,201,FALSE
-201,Chloe,Sad,<b>JORMUNGANDR IS DOWN THERE?</b>,202,FALSE
+201,Chloe,Sad,<style=BossName>JORMUNGANDR</style> <b>IS DOWN THERE?</b>,202,FALSE
 202,Chloe,,OKAY I'M NOT READY THOUGH IHAVETOGOBUTIMNOTREADY,203,FALSE
 203,Chloe,Surprised,...? What is that?,204,TRUE
-300,Chloe,Neutral,Hey Charlie!,301,FALSE
-301,Charlie,Neutral,"Mmm? Oh, it's <i>you</i>.",302,FALSE
+300,Chloe,Neutral,Hey <style=CharacName>Charlie</style>!,301,FALSE
+301,Charlie,Neutral,"Mmm? Oh, it's you. <style=ChloeName>Chloe</style>.",302,FALSE
 302,Charlie,,Where were you? You were gone for few days. I was worried.,303,FALSE
 303,Chloe,Surprised,Huh? You were worried about me? Why?,304,FALSE
 304,Charlie,Neutral,Hm? Why wouldn't I be? ,305,FALSE
