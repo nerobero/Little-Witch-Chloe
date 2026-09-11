@@ -178,6 +178,10 @@ namespace Types
         CommFeverHerb,
         // ===========  Moss Patches for Bog Level ===========
         AntiFogMossPatch,
+        // ===========  Love Potion Ingredients (placeholder names) ===========
+        PotionIngredientA,
+        PotionIngredientB,
+        PotionIngredientC,
     }
 
     /// <summary>
@@ -276,6 +280,34 @@ namespace Data
             levelType       = (ELevelType)reader.ReadUInt32(),
             collectableType = (ECollectable)reader.ReadUInt32(),
             collectedCount  = reader.ReadInt32(),
+        };
+    }
+
+    /// <summary>
+    /// One (level, ingredient type, required amount) row for the love potion
+    /// ingredient objectives. Same shape as <see cref="CollectableData"/>, kept as its
+    /// own record type so it can be registered as a separate <see cref="DataTableRegistry"/>
+    /// table — each level only needs rows for the ingredient types it actually uses.
+    /// </summary>
+    [System.Serializable]
+    public class LovePotionIngredientData : IBinaryRecord
+    {
+        public ELevelType levelType;
+        public ECollectable collectableType;
+        public int requiredCount = 0;
+
+        public void Serialize(BinaryWriter writer)
+        {
+            writer.Write((uint)levelType);
+            writer.Write((uint)collectableType);
+            writer.Write(requiredCount);
+        }
+
+        public static LovePotionIngredientData Deserialize(BinaryReader reader) => new LovePotionIngredientData
+        {
+            levelType       = (ELevelType)reader.ReadUInt32(),
+            collectableType = (ECollectable)reader.ReadUInt32(),
+            requiredCount   = reader.ReadInt32(),
         };
     }
 

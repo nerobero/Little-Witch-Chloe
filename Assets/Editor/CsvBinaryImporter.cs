@@ -28,9 +28,16 @@ public class CsvBinaryImporter : AssetPostprocessor
 
             ["CommissionData"] = csv => CsvToBinaryConverter.Convert(csv, cols => new CollectableData
             {
-                levelType       = (ELevelType)(uint.TryParse(cols[0], out uint lidx) ? lidx : 0),
-                collectableType = (ECollectable)(uint.TryParse(cols[1], out uint tidx) ? tidx : 0),
+                levelType       = ParseLevelType(cols[0]),
+                collectableType = ParseCollectable(cols[1]),
                 collectedCount  = int.TryParse(cols[2], out int amount) ? amount : 0,
+            }),
+
+            ["LovePotionData"] = csv => CsvToBinaryConverter.Convert(csv, cols => new LovePotionIngredientData
+            {
+                levelType       = ParseLevelType(cols[0]),
+                collectableType = ParseCollectable(cols[1]),
+                requiredCount   = int.TryParse(cols[2], out int amount) ? amount : 0,
             }),
 
             ["MessageBoxData"] = csv => CsvToBinaryConverter.Convert(csv, cols => new SystemTextRow
@@ -133,4 +140,14 @@ public class CsvBinaryImporter : AssetPostprocessor
         if (bytes.Length < 4) return 0;
         return BitConverter.ToInt32(bytes, 0);
     }
+
+    /// <summary>Accepts the enum name ("BogLevel", case-insensitive) or its numeric value; blank/invalid -> 0.</summary>
+    private static ELevelType ParseLevelType(string col) =>
+        Enum.TryParse(col, true, out ELevelType level) ? level :
+        (ELevelType)(uint.TryParse(col, out uint lidx) ? lidx : 0);
+
+    /// <summary>Accepts the enum name ("CommDigestHerb", case-insensitive) or its numeric value; blank/invalid -> 0.</summary>
+    private static ECollectable ParseCollectable(string col) =>
+        Enum.TryParse(col, true, out ECollectable type) ? type :
+        (ECollectable)(uint.TryParse(col, out uint tidx) ? tidx : 0);
 }

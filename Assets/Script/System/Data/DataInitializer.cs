@@ -12,6 +12,7 @@ public static class DataInitializer
     {
         DataTableRegistry.Register<DialogueRow>("DialogueLinesData", DialogueRow.Deserialize);
         DataTableRegistry.Register<CollectableData>("CommissionData", CollectableData.Deserialize);
+        DataTableRegistry.Register<LovePotionIngredientData>("LovePotionData", LovePotionIngredientData.Deserialize);
         DataTableRegistry.Register<SystemTextRow>("MessageBoxData", SystemTextRow.Deserialize);
     }
 }
