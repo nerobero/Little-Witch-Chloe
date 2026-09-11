@@ -414011,10 +414011,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1597884210}
     m_Modifications:
-    - target: {fileID: 692755051800096274, guid: 55768058707bb4b4eba26a0cd57d290a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2024030307680042007, guid: 55768058707bb4b4eba26a0cd57d290a, type: 3}
       propertyPath: m_Name
       value: UI_DialoguePanel
@@ -414098,14 +414094,6 @@ PrefabInstance:
     - target: {fileID: 6287765120938365995, guid: 55768058707bb4b4eba26a0cd57d290a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7286354838306838483, guid: 55768058707bb4b4eba26a0cd57d290a, type: 3}
-      propertyPath: m_TargetDisplay
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7286354838306838483, guid: 55768058707bb4b4eba26a0cd57d290a, type: 3}
-      propertyPath: m_VertexColorAlwaysGammaSpace
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

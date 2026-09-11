@@ -703,7 +703,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -741,7 +741,7 @@ MonoBehaviour:
   - {fileID: 4879745656052074819}
   speechBubble:
   - {fileID: 4996650059788584573}
-  - {fileID: 0}
+  - {fileID: 5326495760919391824}
   speakerRegistry: {fileID: 11400000, guid: 6005f066a3b1ba647a4320773866afd7, type: 2}
   fgColor: {r: 1, g: 1, b: 1, a: 1}
   bgColor: {r: 0.7921569, g: 0.6901961, b: 0.6901961, a: 1}
@@ -1199,7 +1199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1398133811198067923
 RectTransform:
   m_ObjectHideFlags: 0

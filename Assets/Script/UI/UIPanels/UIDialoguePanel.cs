@@ -46,6 +46,9 @@ public class UIDialoguePanel : UIBase
 
     protected override void UnsubscribeEvents()
     {
+        if (DialogueSystem.Instance == null)
+            return;
+
         DialogueSystem.Instance.DialogueStarted -= HandleDialogueStarted;
         DialogueSystem.Instance.DialogueEnded -= Hide;
     }
@@ -91,10 +94,15 @@ public class UIDialoguePanel : UIBase
         bgDialogue.SetActive(!isMonologue);
 
         AssignSlot(0, speakers[0]);
+        dialogueBox[0].SetActive(true);
         if (isMonologue)
             ClearSlot(1);
         else
+        {
             AssignSlot(1, speakers[1]);
+            // Speaker 2's box stays hidden until they actually get a line (RenderLine reveals it).
+            dialogueBox[1].SetActive(false);
+        }
 
         // Focus starts on slot 0; RenderLine moves it if the first line is slot 1.
         _currentSlot = 0;
@@ -111,7 +119,6 @@ public class UIDialoguePanel : UIBase
         _slotSpeaker[slot] = speaker;
         speakerName[slot].SetText(speaker);
         speakerGroup[slot].SetActive(true);
-        dialogueBox[slot].SetActive(true);
     }
 
     private void ClearSlot(int slot)
@@ -135,6 +142,7 @@ public class UIDialoguePanel : UIBase
             = DialogueSystem.Instance.ReturnDialogueLine();
 
         int slot = SlotFor(speaker);
+        dialogueBox[slot].SetActive(true);
 
         if (speakerRegistry != null)
             speakerSprite[slot].sprite = speakerRegistry.Get(speaker, emotion);
@@ -156,7 +164,7 @@ public class UIDialoguePanel : UIBase
         }
 
         speechBubble[slot].color = fgColor;
-        speechBubble[slot].transform.SetAsFirstSibling();
+        speechBubble[slot].transform.SetAsLastSibling();
     }
 
     IEnumerator TypeTextEffect(int slot, string dialogue)
