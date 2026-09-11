@@ -182,9 +182,11 @@ namespace Types
         // ===========  Moss Patches for Bog Level ===========
         AntiFogMossPatch,
         // ===========  Love Potion Ingredients (placeholder names) ===========
-        PotionIngredientA,
-        PotionIngredientB,
-        PotionIngredientC,
+        FruitA,
+        FruitB,
+        JorFlower, // can be only collected from Jormungandr
+        FireCore, // arbitrary for 2nd level
+        Winterberry, // arbitrary for 3rd level
     }
 
     /// <summary>
