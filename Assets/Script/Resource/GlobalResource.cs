@@ -234,6 +234,13 @@ namespace Data
         public float currentMaxHP;
         public float currentStamina;
 
+        // ============== LOVE POTION PROGRESS (current level) ==================
+        public List<SavedObjectiveData> loveIngredientObjectives;
+        public float loveBenchmarkProgress;
+        public float loveDamagePenalty;
+        public bool lovePotionMade;
+        public float loveProgressValue; // cached aggregate progress-bar value
+
         // ============== LOGISTICS =======================
         public DateTime currentTime;
     }

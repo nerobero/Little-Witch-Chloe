@@ -74,7 +74,7 @@ public class PlayerAnimController : BaseCharacterAnimController
         PlayerController.Instance.InputContext.BaseInputAction.Disable();
     }
 
-    public void SetToIsHurt()
+    public void SetToIsHurt(float damageAmount)
     {
         _animator.SetTrigger(HurtOneShot);
     }

@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         spawnRotation = gameObject.transform.rotation;
 
         _playerStat.OnDeath += Death;
+        GameManager.Instance.SubscribeToPlayerDamage(_playerStat);
     }
 
     /// <summary>

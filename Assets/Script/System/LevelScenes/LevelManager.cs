@@ -175,11 +175,12 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
         if(isSaveDataLoad)
         {
-            
+
             SaveManager.Instance?.ApplyAllGameData();
         }
         else
         {
+            GameManager.Instance.ResetLovePotionProgressForLevel();
             SaveManager.Instance?.SavePlayerData();
         }
     }

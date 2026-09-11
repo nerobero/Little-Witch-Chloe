@@ -49,4 +49,22 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
     {
         return objectives[currentLevel].Count;
     }
+
+    /// <summary>
+    /// Gets the total required ingredient amount across all types for a level,
+    /// used to compute the ingredient-collection share of the level's progress bar.
+    /// </summary>
+    /// <param name="currentLevel"></param>
+    /// <returns></returns>
+    public int GetTotalRequiredCount(ELevelType currentLevel)
+    {
+        if (!objectives.ContainsKey(currentLevel))
+            return 0;
+
+        int total = 0;
+        foreach (ObjectiveData data in objectives[currentLevel])
+            total += data.collectedCount;
+
+        return total;
+    }
 }
