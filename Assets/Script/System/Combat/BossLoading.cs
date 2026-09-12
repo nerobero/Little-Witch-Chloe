@@ -18,7 +18,7 @@ public class BossLoading : MonoBehaviour
         if(LayerMask.LayerToName(other.gameObject.layer).Contains("Player"))
         {
             Debug.Log("Enter");
-            UIManager.Instance.Get<TransLoadingHUD>().Show();
+            UIManager.Instance.Get<TransLoadingHUD>()?.Show();
             other.GetComponent<PlayerMovement>().ForceToBeOnForeground();
         }
     }
