@@ -16,14 +16,17 @@ public class SceneBase : MonoBehaviour
     [SerializeField] private List<MonoBehaviour> check = new List<MonoBehaviour>();
     #endif
 
-    public void Start()
+    private void Awake()
     {
         LevelManager.Instance.Register(levelType, this);
-
-        // @SHIORI: put the play fmod event logic here:
-        
-        //Initialize();
     }
+
+    // private void Start()
+    // {
+    //     // @SHIORI: put the play fmod event logic here:
+        
+    //     //Initialize();
+    // }
 
     // public void Initialize()
     // {

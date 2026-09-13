@@ -39,6 +39,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
     public void Register(ELevelType levelType, SceneBase instance)
     {
+        GameManager.Instance.SetCurrentLevel(levelType);
         sceneBases[levelType] = instance;
         Debug.Log($"Registered SceneBase for {levelType}: {instance}");
     }
@@ -62,7 +63,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         if (!await SaveManager.Instance.WaitForPlayerReadyAsync())
             return;
                 
-        GameManager.Instance.SetCurrentLevel(levelType);
+        //GameManager.Instance.SetCurrentLevel(levelType);
         SaveManager.Instance?.SavePlayerData();
         // _progressBar.value = 0.0f;
         // Debug.Log(levelType);
@@ -154,7 +155,6 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         _isFirstSceneLoad = true;
         _progressBar.value = 0.0f;
         _loaderCanvas.SetActive(true);
-        GameManager.Instance.SetCurrentLevel(curLevelType);
 
         await SceneManager.LoadSceneAsync((int)levelType);
 
@@ -167,8 +167,12 @@ public class LevelManager : MonoSingletonBase<LevelManager>
             _progressBar.value = scene.progress;
         } while(scene.progress < 0.9f);
 
+        // The target scene is ready but has not been activated yet.
+        // Update this before activation so OnSceneLoaded reads the new level.
         scene.allowSceneActivation = true;
-        //_loaderCanvas.SetActive(false);
+        await scene;
+
+        Debug.Log($"CurrentLevel: {GameManager.Instance.GetCurrentLevel()}");
         
         if (!await SaveManager.Instance.WaitForPlayerReadyAsync())
             return;
