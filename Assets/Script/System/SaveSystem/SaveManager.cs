@@ -193,13 +193,13 @@ public class SaveManager : MonoSingletonBase<SaveManager>
             GameManager.Instance.onLevelUnlocked(unlockedLevel);
         }
 
+        GameManager.Instance.SetCurrentLevel(savePlayerData.currentLevel);
         GameManager.Instance.LoadObjectiveData(savePlayerData.objectives);
         GameManager.Instance.LoadLoveIngredientObjectiveData(savePlayerData.loveIngredientObjectives);
         GameManager.Instance.LoadLoveBenchmarkProgress(savePlayerData.loveBenchmarkProgress);
         GameManager.Instance.LoadLoveDamagePenalty(savePlayerData.loveDamagePenalty);
         GameManager.Instance.LoadLovePotionMade(savePlayerData.lovePotionMade);
         GameManager.Instance.LoadLovePotionProgress(savePlayerData.loveProgressValue);
-        GameManager.Instance.SetCurrentLevel(savePlayerData.currentLevel);
-        GameManager.Instance.LoadDefeatedBosses(savePlayerData.defeatedBosses); 
+        GameManager.Instance.LoadDefeatedBosses(savePlayerData.defeatedBosses);
     }
 }

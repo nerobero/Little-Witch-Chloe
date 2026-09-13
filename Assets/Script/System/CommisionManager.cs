@@ -36,7 +36,11 @@ public class CommisionManager : MonoSingletonBase<CommisionManager>
     /// <returns></returns>
     public int GetTargetCount(ELevelType currentLevel, ECollectable herbType)
     {
-        ObjectiveData data = objectives[currentLevel].Find(x => x.collectableType == herbType);
+        // Levels without any configured commissions (e.g. Overworld) have no entry here.
+        if (!objectives.TryGetValue(currentLevel, out List<ObjectiveData> levelObjectives))
+            return -1;
+
+        ObjectiveData data = levelObjectives.Find(x => x.collectableType == herbType);
 
         return data.collectedCount;
     }
@@ -48,6 +52,6 @@ public class CommisionManager : MonoSingletonBase<CommisionManager>
     /// <returns></returns>
     public int GetObjectivesTypeAmount(ELevelType currentLevel)
     {
-        return objectives[currentLevel].Count;
+        return objectives.TryGetValue(currentLevel, out List<ObjectiveData> levelObjectives) ? levelObjectives.Count : 0;
     }
 }

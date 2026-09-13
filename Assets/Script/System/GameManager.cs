@@ -196,6 +196,7 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     public void LoadObjectiveData(List<SavedObjectiveData> savedData)
     {
+        _objectives.Clear(); 
         foreach(SavedObjectiveData data in savedData)
         {
             _objectives.Add(data.collectableType, data.collectedCount);
