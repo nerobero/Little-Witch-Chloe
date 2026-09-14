@@ -7,7 +7,11 @@ public class CollectableItemBase : ItemBase
     [SerializeField] protected LayerMask playerLayer;
     [SerializeField] protected bool isBackgroundItem = false;
     public ECollectable CollectType;
-    
+
+    [Header("Collection Systems")]
+    [SerializeField] protected bool isCommissionHerb = false;
+    [SerializeField] protected bool isLovePotionIngredient = false;
+
     protected virtual void Awake()
     {
         spawnType = ESpawnType.Collections;
@@ -45,6 +49,25 @@ public class CollectableItemBase : ItemBase
 
     protected virtual bool OnInteract_HelperImpl(Collider2D other)
     {
-        return true;
+        return DispatchCollectionEvents();
+    }
+
+    /// <summary>
+    /// Notifies GameManager of this item's collection for whichever systems
+    /// (commission herb / love potion ingredient) it's flagged as belonging to.
+    /// Subclasses that override OnInteract_HelperImpl with their own logic
+    /// (e.g. FrogCollection) must call this explicitly to still participate.
+    /// </summary>
+    protected bool DispatchCollectionEvents()
+    {
+        bool collected = false;
+
+        if (isCommissionHerb)
+            collected |= GameManager.Instance.OnCommHerbCollected(CollectType);
+
+        if (isLovePotionIngredient)
+            collected |= GameManager.Instance.OnLoveIngredientCollected(CollectType);
+
+        return collected;
     }
 }

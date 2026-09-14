@@ -34,6 +34,7 @@ public class FrogCollection : CollectableItemBase
     {
         Debug.Log($"{gameObject}: OnInteract_HelperImpl()");
         GameManager.Instance.OnFrogCollected();
+        DispatchCollectionEvents();
 
         var stat = other.GetComponent<StatManager>();
 

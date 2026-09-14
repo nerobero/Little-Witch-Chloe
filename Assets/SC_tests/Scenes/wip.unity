@@ -31750,6 +31750,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossRealmEntranceTrigger
   boss: {fileID: 2138471463206358613}
   realmObjects: []
+  bgmDelay: 0
+  bossActivateDelay: 0
+  bossBGM:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  stopOtherMusic: 1
+  fadeOutOtherMusic: 1
 --- !u!61 &970191906
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33422,11 +33433,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1165017382129071551, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 188.46
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1165017382129071551, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.21
+      value: 5.24
       objectReference: {fileID: 0}
     - target: {fileID: 1165017382129071551, guid: 57bd1ce9b89835940b42a8d1b6653314, type: 3}
       propertyPath: m_LocalPosition.z
@@ -92617,11 +92628,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8066750104543563746, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 188.46
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 8066750104543563746, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.33
+      value: 3.36
       objectReference: {fileID: 0}
     - target: {fileID: 8066750104543563746, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -96301,11 +96312,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1795833320865996219, guid: 995b0abd0315fdf479f9da25bb8d8df5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 188.46
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1795833320865996219, guid: 995b0abd0315fdf479f9da25bb8d8df5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.21
+      value: 5.24
       objectReference: {fileID: 0}
     - target: {fileID: 1795833320865996219, guid: 995b0abd0315fdf479f9da25bb8d8df5, type: 3}
       propertyPath: m_LocalPosition.z

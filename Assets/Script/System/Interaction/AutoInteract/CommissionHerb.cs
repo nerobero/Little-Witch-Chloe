@@ -6,8 +6,9 @@ using UnityEngine;
 /// </summary>
 public class CommissionHerb : CollectableItemBase
 {
-    protected override bool OnInteract_HelperImpl(Collider2D other)
+    protected override void Awake()
     {
-        return GameManager.Instance.OnCommHerbCollected(CollectType);
+        base.Awake();
+        isCommissionHerb = true;
     }
 }
