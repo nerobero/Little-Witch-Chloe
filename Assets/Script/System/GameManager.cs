@@ -35,10 +35,10 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     // Love potion progress-bar related fields
     [Header("Love Potion Progress Weights")]
-    [SerializeField] private float ingredientProgressWeight = 0.2f;
-    [SerializeField] private float benchmarkProgressWeight = 0.5f;
-    [SerializeField] private float damageProgressWeight = 0.5f;
-    [SerializeField] private float potionMadeBonus = 0.3f;
+    [SerializeField] private float ingredientProgressWeight = 0.25f;
+    [SerializeField] private float benchmarkProgressWeight = 0.25f;
+    [SerializeField] private float damageProgressWeight = 0.1f;
+    [SerializeField] private float potionMadeBonus = 0.5f;
 
     public event Action<float> OnLovePotionProgressChanged;
 

@@ -81,6 +81,10 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
     protected bool _currentSideIsRight;
     public bool CurrentSideIsRight => _currentSideIsRight;
 
+    [Header("Death Drop")]
+    [SerializeField] private GameObject dropItemPrefab;
+    [SerializeField] private Transform dropPoint;
+
     private void Awake()
     {
         OnAwake();
@@ -408,6 +412,21 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
         Debug.Log("[FSM] Stun animation complete");
         _isStunned = false;
         _isActing = false;
+    }
+
+    // Call via Animation Event on the last frame of the Dead clip. Drops loot then
+    // deactivates the whole hierarchy (body + any child animators, e.g. Jormungandr's flower/splash).
+    public virtual void DeathAnimationComplete()
+    {
+        Debug.Log("[FSM] Death animation complete");
+
+        if (dropItemPrefab != null)
+        {
+            Vector3 spawnPos = dropPoint != null ? dropPoint.position : transform.position;
+            GameObject.Instantiate(dropItemPrefab, spawnPos, Quaternion.identity);
+        }
+
+        gameObject.SetActive(false);
     }
 
     public virtual void ResetState()

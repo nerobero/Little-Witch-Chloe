@@ -313,6 +313,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LovePotionProgressWidget
   root: {fileID: 8467353385381600875}
   _progressSlider: {fileID: 591152172987754488}
+  _emoteRoot: {fileID: 5678730098638510245}
+  _emoteIcon: {fileID: 2471396169497588253}
+  _sadEmoteSprite: {fileID: 6056907716621017966, guid: b5b49baf6455e824f980089fbcbf740c, type: 3}
+  _happyEmoteSprite: {fileID: 5756946994958534759, guid: b5b49baf6455e824f980089fbcbf740c, type: 3}
+  _inLoveEmoteSprite: {fileID: -3508091743459091672, guid: b5b49baf6455e824f980089fbcbf740c, type: 3}
+  _emoteDisplayDuration: 1.5
+  _significantIncreaseThreshold: 0.4
+  _charlieProfile: {fileID: 1120854383118053402}
+  _neutralProfileSprite: {fileID: 1027773763240218505, guid: e1dee006adcdace468019a40587a5182, type: 3}
+  _sadProfileSprite: {fileID: -8936042297562424993, guid: e1dee006adcdace468019a40587a5182, type: 3}
+  _happyProfileSprite: {fileID: -3504628872698265924, guid: e1dee006adcdace468019a40587a5182, type: 3}
+  _trendWindowSize: 4
 --- !u!1 &5664289874074987762
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8366897203706429243
 RectTransform:
   m_ObjectHideFlags: 0
