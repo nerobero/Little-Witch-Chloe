@@ -13,7 +13,8 @@ public class LovePotionItem : ItemBase
     {
         if(LayerMask.LayerToName(other.gameObject.layer).Contains("Player"))
         {
-            GameManager.Instance.OnLovePotionMade();            
+            GameManager.Instance.OnLovePotionMade();      
+            return true;      
         }
 
         return false;
