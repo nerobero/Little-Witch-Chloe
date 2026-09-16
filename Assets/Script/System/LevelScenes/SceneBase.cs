@@ -12,6 +12,7 @@ public class SceneBase : MonoBehaviour
     public ELevelType LevelType => levelType;
 
     private readonly List<IResetable> resetables = new List<IResetable>();
+    [SerializeField] private int benchMarkAmount = 0;
     #if UNITY_EDITOR
     [SerializeField] private List<MonoBehaviour> check = new List<MonoBehaviour>();
     #endif
@@ -63,6 +64,16 @@ public class SceneBase : MonoBehaviour
             check.Add(behaviour);
             #endif
         }
+    }
+
+    public void RegisterBenchMark()
+    {
+        benchMarkAmount++;
+    }
+
+    public int GetTotalBenchMarkAmount()
+    {
+        return benchMarkAmount;
     }
 
     // public void ApplyAllGameData()

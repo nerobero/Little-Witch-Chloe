@@ -37,12 +37,49 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+#region Instance Registration
     public void Register(ELevelType levelType, SceneBase instance)
     {
         GameManager.Instance.SetCurrentLevel(levelType);
         sceneBases[levelType] = instance;
         Debug.Log($"Registered SceneBase for {levelType}: {instance}");
     }
+
+    public void RegisterInstance(MonoBehaviour behaviour)
+    {
+        ELevelType curLevel = GameManager.Instance.CurrentLevel;
+
+        if(!sceneBases.TryGetValue(curLevel, out SceneBase sceneBase))
+        {
+            Debug.LogWarning($"No SceneBase registered for level {curLevel}, cannot register {behaviour}");
+            return;
+        }
+
+        sceneBase.Register(behaviour);
+    }
+
+    public void RegisterBenchMark(ELevelType level)
+    {
+        if(!sceneBases.TryGetValue(level, out SceneBase sceneBase))
+        {
+            Debug.LogWarning($"No SceneBase registered for level {level}, cannot register");
+            return;
+        }
+
+        sceneBase.RegisterBenchMark();
+    }
+
+    public int GetTotalBenchmarksForLevel(ELevelType level)
+    {
+        if(!sceneBases.TryGetValue(level, out SceneBase sceneBase))
+        {
+            Debug.LogWarning($"No SceneBase registered for level {level}, cannot register");
+            return 0;
+        }
+
+        return sceneBase.GetTotalBenchMarkAmount();
+    }
+#endregion
 
     private void OnEnable()
     {
@@ -56,6 +93,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
             EventManager.Instance.OnTransitionLevel -= LoadLevelAdditively;
     }
 
+#region Level Load and Loading HUD
     private async void LoadLevelAdditively(ELevelType levelType)
     {
         await SceneManager.LoadSceneAsync((int)levelType, LoadSceneMode.Additive);
@@ -135,19 +173,6 @@ public class LevelManager : MonoSingletonBase<LevelManager>
                 Fade_img.gameObject.SetActive(false);
                 ShowSceneTitle();
             }));
-    }
-
-    public void RegisterInstance(MonoBehaviour behaviour)
-    {
-        ELevelType curLevel = GameManager.Instance.CurrentLevel;
-
-        if(!sceneBases.TryGetValue(curLevel, out SceneBase sceneBase))
-        {
-            Debug.LogWarning($"No SceneBase registered for level {curLevel}, cannot register {behaviour}");
-            return;
-        }
-
-        sceneBase.Register(behaviour);
     }
 
     public async void LoadScene(ELevelType levelType, ELevelType curLevelType, bool isSaveDataLoad)
@@ -289,4 +314,5 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         Fade_img.blocksRaycasts = false;
         _isFirstSceneLoad = true;
     }
+#endregion
 }
