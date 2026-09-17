@@ -66,7 +66,7 @@ public class CollectableItemBase : ItemBase
             collected |= GameManager.Instance.OnCommHerbCollected(CollectType);
 
         if (isLovePotionIngredient)
-            collected |= GameManager.Instance.OnLoveIngredientCollected(CollectType);
+            collected |= LovePotionManager.Instance.OnLoveIngredientCollected(CollectType);
 
         return collected;
     }

@@ -209,7 +209,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         }
         else
         {
-            GameManager.Instance.ResetLovePotionProgressForLevel();
+            LovePotionManager.Instance.ResetLovePotionProgressForLevel();
             SaveManager.Instance?.SavePlayerData();
         }
     }

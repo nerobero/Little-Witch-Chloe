@@ -16,7 +16,7 @@ public class LovePotionProgressWidget : UIBase
     [SerializeField] private Sprite _sadEmoteSprite;
     [SerializeField] private Sprite _happyEmoteSprite;
     [SerializeField] private Sprite _inLoveEmoteSprite;
-    [SerializeField] private float _emoteDisplayDuration = 1.5f;
+    [SerializeField] private float _emoteDisplayDuration = 2.5f;
     [SerializeField] private float _significantIncreaseThreshold = 0.4f;
 
     [Header("Charlie Profile")]
@@ -35,16 +35,16 @@ public class LovePotionProgressWidget : UIBase
     #region EventSubscription
     protected override void SubscribeEvents()
     {
-        if (GameManager.Instance == null) return;
+        if (LovePotionManager.Instance == null) return;
 
-        GameManager.Instance.OnLovePotionProgressChanged += UpdateProgress;
-        UpdateProgress(GameManager.Instance.CurrentLovePotionProgress);
+        LovePotionManager.Instance.OnLovePotionProgressChanged += UpdateProgress;
+        UpdateProgress(LovePotionManager.Instance.CurrentLovePotionProgress);
     }
 
     protected override void UnsubscribeEvents()
     {
-        if (GameManager.Instance != null)
-            GameManager.Instance.OnLovePotionProgressChanged -= UpdateProgress;
+        if (LovePotionManager.Instance != null)
+            LovePotionManager.Instance.OnLovePotionProgressChanged -= UpdateProgress;
     }
     #endregion
 

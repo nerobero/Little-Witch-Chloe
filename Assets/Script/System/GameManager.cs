@@ -33,24 +33,14 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     private List<string> defeatedBosses = new List<string>();
 
-    // Love potion progress-bar related fields
-    [Header("Love Potion Progress Weights")]
-    [SerializeField] private float ingredientProgressWeight = 0.25f;
-    [SerializeField] private float benchmarkProgressWeight = 0.25f;
-    [SerializeField] private float damageProgressWeight = 0.1f;
-    [SerializeField] private float potionMadeBonus = 0.5f;
-
-    public event Action<float> OnLovePotionProgressChanged;
-
-    private Dictionary<ECollectable, int> _loveIngredientObjectives = new Dictionary<ECollectable, int>();
-    private float _benchmarkProgress = 0f; // 0..1, accumulated via OnLevelBenchmarkPassed
+    // Damage taken while pursuing the love potion (feeds LovePotionManager's progress calc).
+    // Kept here (rather than in LovePotionManager) since GameManager already owns the
+    // player-damage subscription lifecycle; LovePotionManager reacts via OnDamageProgressPenaltyChanged.
+    public event Action<float> OnDamageProgressPenaltyChanged;
     private float _damageProgressPenalty = 0f; // 0..1, accumulated as a fraction of max HP lost
-    private bool _lovePotionMade = false;
-    private float _currentLovePotionProgress = 0f;
     private StatManager _subscribedPlayerStat;
 
-    public float CurrentLovePotionProgress => _currentLovePotionProgress;
-
+    public float DamageProgressPenalty => _damageProgressPenalty;
 
     protected override void Awake()
     {
@@ -222,22 +212,7 @@ public class GameManager : MonoSingletonBase<GameManager>
     }
     #endregion
 
-    #region LovePotionProgress
-
-    public bool OnLoveIngredientCollected(ECollectable type)
-    {
-        if (_loveIngredientObjectives.ContainsKey(type))
-        {
-            _loveIngredientObjectives[type]++;
-        }
-        else
-        {
-            _loveIngredientObjectives.Add(type, 1);
-        }
-
-        RecalculateLovePotionProgress();
-        return true;
-    }
+    #region DamageProgressPenalty
 
     public void SubscribeToPlayerDamage(StatManager playerStat)
     {
@@ -257,99 +232,25 @@ public class GameManager : MonoSingletonBase<GameManager>
         if (_subscribedPlayerStat == null || _subscribedPlayerStat.MaxHP <= 0f) return;
 
         _damageProgressPenalty = Mathf.Clamp01(_damageProgressPenalty + damageAmount / _subscribedPlayerStat.MaxHP);
-        RecalculateLovePotionProgress();
-    }
-
-    // Stub: no caller yet. Wire this up once the level benchmark/checkpoint system exists;
-    // it should pass the normalized (0..1) share of the benchmark budget that passing this
-    // benchmark represents (e.g. 1 / totalBenchmarksForLevel).
-    public void OnLevelBenchmarkPassed(float normalizedIncrement)
-    {
-        _benchmarkProgress = Mathf.Clamp01(_benchmarkProgress + normalizedIncrement);
-        RecalculateLovePotionProgress();
-    }
-
-    // Stub: no caller yet. Wire this up once the love potion crafting/brewing system exists.
-    public void OnLovePotionMade()
-    {
-        _lovePotionMade = true;
-        RecalculateLovePotionProgress();
-    }
-
-    private void RecalculateLovePotionProgress()
-    {
-        int totalCollected = 0;
-        foreach (int count in _loveIngredientObjectives.Values)
-            totalCollected += count;
-
-        int totalRequired = LovePotionManager.Instance != null
-            ? LovePotionManager.Instance.GetTotalRequiredCount(_currentLevel)
-            : 0;
-
-        float ingredientRatio = totalRequired > 0 ? Mathf.Clamp01((float)totalCollected / totalRequired) : 0f;
-
-        float progress = ingredientRatio * ingredientProgressWeight
-            + _benchmarkProgress * benchmarkProgressWeight
-            + (_lovePotionMade ? potionMadeBonus : 0f)
-            - _damageProgressPenalty * damageProgressWeight;
-
-        _currentLovePotionProgress = Mathf.Clamp01(progress);
-        OnLovePotionProgressChanged?.Invoke(_currentLovePotionProgress);
+        OnDamageProgressPenaltyChanged?.Invoke(_damageProgressPenalty);
     }
 
     /// <summary>
-    /// Resets per-level love potion progress. Call when freshly entering a level
+    /// Resets per-level damage penalty. Call when freshly entering a level
     /// (not when restoring one from a save).
     /// </summary>
-    public void ResetLovePotionProgressForLevel()
+    public void ResetDamageProgressPenalty()
     {
-        _loveIngredientObjectives.Clear();
-        _benchmarkProgress = 0f;
         _damageProgressPenalty = 0f;
-        _lovePotionMade = false;
-        RecalculateLovePotionProgress();
+        OnDamageProgressPenaltyChanged?.Invoke(_damageProgressPenalty);
     }
-
-    public List<SavedObjectiveData> GetLoveIngredientObjectiveData()
-    {
-        List<SavedObjectiveData> data = new List<SavedObjectiveData>();
-        foreach (KeyValuePair<ECollectable, int> objective in _loveIngredientObjectives)
-        {
-            data.Add(new SavedObjectiveData(objective.Key, objective.Value));
-        }
-
-        return data;
-    }
-
-    public void LoadLoveIngredientObjectiveData(List<SavedObjectiveData> savedData)
-    {
-        _loveIngredientObjectives.Clear();
-
-        if (savedData == null) return;
-
-        foreach (SavedObjectiveData data in savedData)
-        {
-            _loveIngredientObjectives[data.collectableType] = data.collectedCount;
-        }
-    }
-
-    public float GetLoveBenchmarkProgress() => _benchmarkProgress;
-    public void LoadLoveBenchmarkProgress(float value) => _benchmarkProgress = value;
 
     public float GetLoveDamagePenalty() => _damageProgressPenalty;
-    public void LoadLoveDamagePenalty(float value) => _damageProgressPenalty = value;
 
-    public bool GetLovePotionMade() => _lovePotionMade;
-    public void LoadLovePotionMade(bool value) => _lovePotionMade = value;
-
-    public float GetLovePotionProgress() => _currentLovePotionProgress;
-
-    // Restores the cached progress value directly (rather than recomputing) so the
-    // UI reflects the exact saved value immediately on load.
-    public void LoadLovePotionProgress(float value)
+    public void LoadLoveDamagePenalty(float value)
     {
-        _currentLovePotionProgress = value;
-        OnLovePotionProgressChanged?.Invoke(_currentLovePotionProgress);
+        _damageProgressPenalty = value;
+        OnDamageProgressPenaltyChanged?.Invoke(_damageProgressPenalty);
     }
 
     #endregion
@@ -445,6 +346,6 @@ public class GameManager : MonoSingletonBase<GameManager>
     {
         _unlockedAbilities.Clear();
         _objectives.Clear();
-        ResetLovePotionProgressForLevel();
+        LovePotionManager.Instance?.ResetLovePotionProgressForLevel();
     }
 }

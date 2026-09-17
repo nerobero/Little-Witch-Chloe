@@ -32,7 +32,7 @@ public class BenchMark : MonoBehaviour, IResetable
             isPassed = true;
             int totalBenchmarksForLevel = LevelManager.Instance.GetTotalBenchmarksForLevel(levelType);
             float normalizedIncrement = 1.0f / totalBenchmarksForLevel;
-            GameManager.Instance.OnLevelBenchmarkPassed(normalizedIncrement);
+            LovePotionManager.Instance.OnLevelBenchmarkPassed(normalizedIncrement);
         }
     }
 
