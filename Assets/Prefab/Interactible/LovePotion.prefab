@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2763213635585211840}
   - component: {fileID: 8798428445665095959}
   - component: {fileID: 4807451909408316340}
+  - component: {fileID: 7328846205499533716}
+  - component: {fileID: 3139405399875913945}
   m_Layer: 0
   m_Name: LovePotion
   m_TagString: Untagged
@@ -83,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 0c7fa1c1744184241bdf9e4aedf0e1b8, type: 3}
+  m_Sprite: {fileID: 1043884687533825383, guid: 52bf600cf929e474eaf4aae046b01c2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -148,3 +150,60 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   isBackground: 0
+--- !u!320 &7328846205499533716
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9169097736380440220}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 47bcd21e8d0af284dae18cbfd36b7cc0, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 4662916939084333928, guid: 47bcd21e8d0af284dae18cbfd36b7cc0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 8729353922848508985, guid: 47bcd21e8d0af284dae18cbfd36b7cc0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2009139279344002790, guid: 47bcd21e8d0af284dae18cbfd36b7cc0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3460865331727471925, guid: 47bcd21e8d0af284dae18cbfd36b7cc0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8809191016249007204, guid: 47bcd21e8d0af284dae18cbfd36b7cc0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: -3260197640247077973, guid: 47bcd21e8d0af284dae18cbfd36b7cc0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -1361075541405887901, guid: 47bcd21e8d0af284dae18cbfd36b7cc0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6973900989240166150, guid: 47bcd21e8d0af284dae18cbfd36b7cc0, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!95 &3139405399875913945
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9169097736380440220}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 963112cb0cf77ab42a011dcc8554ae54, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
