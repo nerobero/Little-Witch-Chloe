@@ -70,9 +70,12 @@ public class UIDialoguePanel : UIBase
     {
         PlayerController.Instance.InputContext.UI.Disable();
         PlayerController.Instance.InputContext.BaseInputAction.Enable();
-        StopCoroutine(typewriting);
-        typewriting = null;
-        isTypeWriting = false;
+        if(typewriting != null)
+        {
+            StopCoroutine(typewriting);
+            typewriting = null;
+            isTypeWriting = false;
+        }
         base.Hide();
     }
 
