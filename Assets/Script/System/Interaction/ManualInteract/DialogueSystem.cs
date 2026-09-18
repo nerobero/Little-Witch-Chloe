@@ -13,6 +13,7 @@ public class DialogueSystem : MonoSingletonBase<DialogueSystem>
 {
     public event Action DialogueEnded;
     public event Action DialogueStarted;
+    public event Func<bool> NextRequested;
 
     // Every dialogue row, keyed by its line ID for O(1) lookup.
     private readonly Dictionary<uint, DialogueRow> _linesById = new();
@@ -143,5 +144,23 @@ public class DialogueSystem : MonoSingletonBase<DialogueSystem>
         }
 
         return speakers;
+    }
+
+    public bool RequestNext()
+    {
+        if(NextRequested == null)
+        {
+            return false;
+        }
+
+        foreach(Func<bool> handler in NextRequested.GetInvocationList())
+        {
+            if(handler())
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

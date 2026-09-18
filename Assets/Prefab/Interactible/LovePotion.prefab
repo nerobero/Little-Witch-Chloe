@@ -150,6 +150,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   isBackground: 0
+  _director: {fileID: 7328846205499533716}
 --- !u!320 &7328846205499533716
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -160,7 +161,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 47bcd21e8d0af284dae18cbfd36b7cc0, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -182,6 +183,8 @@ PlayableDirector:
   - key: {fileID: -1361075541405887901, guid: 47bcd21e8d0af284dae18cbfd36b7cc0, type: 2}
     value: {fileID: 0}
   - key: {fileID: 6973900989240166150, guid: 47bcd21e8d0af284dae18cbfd36b7cc0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7393518686017003066, guid: 47bcd21e8d0af284dae18cbfd36b7cc0, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
