@@ -35,16 +35,16 @@ public class LovePotionProgressWidget : UIBase
     #region EventSubscription
     protected override void SubscribeEvents()
     {
-        if (LovePotionManager.Instance == null) return;
+        if (GameManager.Instance == null) return;
 
-        LovePotionManager.Instance.OnLovePotionProgressChanged += UpdateProgress;
-        UpdateProgress(LovePotionManager.Instance.CurrentLovePotionProgress);
+        GameManager.Instance.OnLovePotionProgressChanged += UpdateProgress;
+        UpdateProgress(GameManager.Instance.CurrentLovePotionProgress);
     }
 
     protected override void UnsubscribeEvents()
     {
-        if (LovePotionManager.Instance != null)
-            LovePotionManager.Instance.OnLovePotionProgressChanged -= UpdateProgress;
+        if (GameManager.Instance != null)
+            GameManager.Instance.OnLovePotionProgressChanged -= UpdateProgress;
     }
     #endregion
 

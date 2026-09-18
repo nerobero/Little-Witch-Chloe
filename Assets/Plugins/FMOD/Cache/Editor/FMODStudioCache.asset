@@ -160,6 +160,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6481229180935572184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Pickup
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Pickup
+  Guid:
+    Data1: -314471481
+    Data2: 1142692694
+    Data3: -1143016295
+    Data4: -982260284
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3627
 --- !u!114 &-5662479597483696475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,10 +202,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639241210459447250
+  lastModified: 639252638607564225
   FileSizes:
   - Name: Desktop
-    Value: 3246
+    Value: 3282
   Exists: 1
 --- !u!114 &-5201378617633771360
 MonoBehaviour:
@@ -384,10 +411,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639241539357856162
+  lastModified: 639252638607554256
   FileSizes:
   - Name: Desktop
-    Value: 9439296
+    Value: 9450368
   Exists: 1
 --- !u!114 &-4262239082927796618
 MonoBehaviour:
@@ -807,6 +834,7 @@ MonoBehaviour:
   - {fileID: 7120271133953780172}
   - {fileID: 3301440562566369206}
   - {fileID: 8831303060559051115}
+  - {fileID: -6481229180935572184}
   EditorParameters:
   - {fileID: 2478196569288099822}
   - {fileID: 572125993231974450}
@@ -819,7 +847,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -5662479597483696475}
   cacheVersion: 131859
-  cacheTime: 639241539357856162
+  cacheTime: 639252638607564225
   SerializableEventsDict:
   - key: event:/MUSIC/Music Menu Select
     index: 0
@@ -919,6 +947,8 @@ MonoBehaviour:
     index: 47
   - key: event:/SFX/Turnip Run 2
     index: 48
+  - key: event:/SFX/Pickup
+    index: 49
 --- !u!114 &359156517584299351
 MonoBehaviour:
   m_ObjectHideFlags: 0

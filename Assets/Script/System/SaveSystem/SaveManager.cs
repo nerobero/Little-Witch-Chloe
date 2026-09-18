@@ -125,10 +125,10 @@ public class SaveManager : MonoSingletonBase<SaveManager>
 
         savePlayerData.objectives = GameManager.Instance.GetObjectiveData();
         savePlayerData.loveIngredientObjectives = LovePotionManager.Instance.GetLoveIngredientObjectiveData();
-        savePlayerData.loveBenchmarkProgress = LovePotionManager.Instance.GetLoveBenchmarkProgress();
+        savePlayerData.loveBenchmarkProgress = GameManager.Instance.GetLoveBenchmarkProgress();
         savePlayerData.loveDamagePenalty = GameManager.Instance.GetLoveDamagePenalty();
         savePlayerData.lovePotionMade = LovePotionManager.Instance.GetLovePotionMade();
-        savePlayerData.loveProgressValue = LovePotionManager.Instance.GetLovePotionProgress();
+        savePlayerData.loveProgressValue = GameManager.Instance.GetLovePotionProgress();
         savePlayerData.currentLevel = GameManager.Instance.GetCurrentLevel();
         savePlayerData.unlockedLevels = GameManager.Instance.GetUnlockedLevel();
         savePlayerData.defeatedBosses = GameManager.Instance.GetDefeatedBosses();
@@ -196,10 +196,10 @@ public class SaveManager : MonoSingletonBase<SaveManager>
         GameManager.Instance.SetCurrentLevel(savePlayerData.currentLevel);
         GameManager.Instance.LoadObjectiveData(savePlayerData.objectives);
         LovePotionManager.Instance.LoadLoveIngredientObjectiveData(savePlayerData.loveIngredientObjectives);
-        LovePotionManager.Instance.LoadLoveBenchmarkProgress(savePlayerData.loveBenchmarkProgress);
+        GameManager.Instance.LoadLoveBenchmarkProgress(savePlayerData.loveBenchmarkProgress);
         GameManager.Instance.LoadLoveDamagePenalty(savePlayerData.loveDamagePenalty);
         LovePotionManager.Instance.LoadLovePotionMade(savePlayerData.lovePotionMade);
-        LovePotionManager.Instance.LoadLovePotionProgress(savePlayerData.loveProgressValue);
+        GameManager.Instance.LoadLovePotionProgress(savePlayerData.loveProgressValue);
         GameManager.Instance.LoadDefeatedBosses(savePlayerData.defeatedBosses);
     }
 }

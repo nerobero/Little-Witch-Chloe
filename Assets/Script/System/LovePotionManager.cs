@@ -4,25 +4,21 @@ using Types;
 using Data;
 using UnityEngine;
 
+/// <summary>
+/// Owns the love potion's own recipe state: ingredients collected so far and whether
+/// the potion has been crafted. Cross-cutting inputs to the overall progress bar
+/// (level benchmarks, player damage taken) and the combined total live in
+/// <see cref="GameManager"/> instead, since they don't have a more specific owner.
+/// </summary>
 public class LovePotionManager : MonoSingletonBase<LovePotionManager>
 {
-    private Dictionary<ELevelType, List<ObjectiveData>> objectives;
+    private Dictionary<ELevelType, List<ObjectiveData>> _levelObjectives;
 
-    [Header("Love Potion Progress Weights")]
-    [SerializeField] private float ingredientProgressWeight = 0.25f;
-    [SerializeField] private float benchmarkProgressWeight = 0.25f;
-    [SerializeField] private float damageProgressWeight = 0.1f;
-    [SerializeField] private float potionMadeBonus = 0.5f;
-
-    public event Action<float> OnLovePotionProgressChanged;
-
-    private Dictionary<ECollectable, int> _loveIngredientObjectives = new Dictionary<ECollectable, int>();
-    private float _benchmarkProgress = 0f; // 0..1, accumulated via OnLevelBenchmarkPassed
-    private float _damageProgressPenalty = 0f; // cached mirror of GameManager.DamageProgressPenalty
+    private Dictionary<ECollectable, int> _collectedIngredients = new Dictionary<ECollectable, int>();
     private bool _lovePotionMade = false;
-    private float _currentLovePotionProgress = 0f;
 
-    public float CurrentLovePotionProgress => _currentLovePotionProgress;
+    /// <summary>Fired whenever ingredient collection or the crafted flag changes, so GameManager can recompute the total.</summary>
+    public event Action OnLovePotionStateChanged;
 
     protected override void Awake()
     {
@@ -31,37 +27,17 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
         ReadObjectives();
     }
 
-    private void OnEnable()
-    {
-        if (GameManager.Instance == null) return;
-
-        GameManager.Instance.OnDamageProgressPenaltyChanged += HandleDamageProgressPenaltyChanged;
-        _damageProgressPenalty = GameManager.Instance.DamageProgressPenalty;
-    }
-
-    private void OnDisable()
-    {
-        if (GameManager.Instance != null)
-            GameManager.Instance.OnDamageProgressPenaltyChanged -= HandleDamageProgressPenaltyChanged;
-    }
-
-    private void HandleDamageProgressPenaltyChanged(float value)
-    {
-        _damageProgressPenalty = value;
-        RecalculateLovePotionProgress();
-    }
-
     private void ReadObjectives()
     {
-        objectives = new Dictionary<ELevelType, List<ObjectiveData>>();
+        _levelObjectives = new Dictionary<ELevelType, List<ObjectiveData>>();
         LovePotionIngredientData[] records = DataTableRegistry.Get<LovePotionIngredientData>().Records;
 
         foreach (LovePotionIngredientData data in records)
         {
-            if (!objectives.ContainsKey(data.levelType))
-                objectives[data.levelType] = new List<ObjectiveData>();
+            if (!_levelObjectives.ContainsKey(data.levelType))
+                _levelObjectives[data.levelType] = new List<ObjectiveData>();
 
-            objectives[data.levelType].Add(new ObjectiveData(data.collectableType, data.requiredCount));
+            _levelObjectives[data.levelType].Add(new ObjectiveData(data.collectableType, data.requiredCount));
         }
     }
 
@@ -73,7 +49,7 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
     /// <returns></returns>
     public int GetTargetCount(ELevelType currentLevel, ECollectable ingredientType)
     {
-        ObjectiveData data = objectives[currentLevel].Find(x => x.collectableType == ingredientType);
+        ObjectiveData data = _levelObjectives[currentLevel].Find(x => x.collectableType == ingredientType);
 
         return data.collectedCount;
     }
@@ -85,7 +61,7 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
     /// <returns></returns>
     public int GetObjectivesTypeAmount(ELevelType currentLevel)
     {
-        return objectives[currentLevel].Count;
+        return _levelObjectives[currentLevel].Count;
     }
 
     /// <summary>
@@ -96,86 +72,70 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
     /// <returns></returns>
     public int GetTotalRequiredCount(ELevelType currentLevel)
     {
-        if (!objectives.ContainsKey(currentLevel))
+        if (!_levelObjectives.ContainsKey(currentLevel))
             return 0;
 
         int total = 0;
-        foreach (ObjectiveData data in objectives[currentLevel])
+        foreach (ObjectiveData data in _levelObjectives[currentLevel])
             total += data.collectedCount;
 
         return total;
     }
 
-    #region LovePotionProgress
+    #region LovePotionState
 
     public bool OnLoveIngredientCollected(ECollectable type)
     {
-        if (_loveIngredientObjectives.ContainsKey(type))
+        if (_collectedIngredients.ContainsKey(type))
         {
-            _loveIngredientObjectives[type]++;
+            _collectedIngredients[type]++;
         }
         else
         {
-            _loveIngredientObjectives.Add(type, 1);
+            _collectedIngredients.Add(type, 1);
         }
 
-        RecalculateLovePotionProgress();
+        OnLovePotionStateChanged?.Invoke();
         return true;
-    }
-
-    // Stub: no caller yet. Wire this up once the level benchmark/checkpoint system exists;
-    // it should pass the normalized (0..1) share of the benchmark budget that passing this
-    // benchmark represents (e.g. 1 / totalBenchmarksForLevel).
-    public void OnLevelBenchmarkPassed(float normalizedIncrement)
-    {
-        _benchmarkProgress = Mathf.Clamp01(_benchmarkProgress + normalizedIncrement);
-        RecalculateLovePotionProgress();
     }
 
     public void OnLovePotionMade()
     {
         _lovePotionMade = true;
-        RecalculateLovePotionProgress();
-    }
-
-    private void RecalculateLovePotionProgress()
-    {
-        int totalCollected = 0;
-        foreach (int count in _loveIngredientObjectives.Values)
-            totalCollected += count;
-
-        int totalRequired = GameManager.Instance != null
-            ? GetTotalRequiredCount(GameManager.Instance.CurrentLevel)
-            : 0;
-
-        float ingredientRatio = totalRequired > 0 ? Mathf.Clamp01((float)totalCollected / totalRequired) : 0f;
-
-        float progress = ingredientRatio * ingredientProgressWeight
-            + _benchmarkProgress * benchmarkProgressWeight
-            + (_lovePotionMade ? potionMadeBonus : 0f)
-            - _damageProgressPenalty * damageProgressWeight;
-
-        _currentLovePotionProgress = Mathf.Clamp01(progress);
-        OnLovePotionProgressChanged?.Invoke(_currentLovePotionProgress);
+        OnLovePotionStateChanged?.Invoke();
     }
 
     /// <summary>
-    /// Resets per-level love potion progress. Call when freshly entering a level
-    /// (not when restoring one from a save).
+    /// Ratio (0..1) of ingredients collected so far against the level's total requirement.
     /// </summary>
-    public void ResetLovePotionProgressForLevel()
+    /// <param name="currentLevel"></param>
+    /// <returns></returns>
+    public float GetIngredientProgressRatio(ELevelType currentLevel)
     {
-        _loveIngredientObjectives.Clear();
-        _benchmarkProgress = 0f;
+        int totalCollected = 0;
+        foreach (int count in _collectedIngredients.Values)
+            totalCollected += count;
+
+        int totalRequired = GetTotalRequiredCount(currentLevel);
+
+        return totalRequired > 0 ? Mathf.Clamp01((float)totalCollected / totalRequired) : 0f;
+    }
+
+    /// <summary>
+    /// Resets per-level ingredient collection and the crafted flag. Call when freshly
+    /// entering a level (not when restoring one from a save).
+    /// </summary>
+    public void ResetIngredientState()
+    {
+        _collectedIngredients.Clear();
         _lovePotionMade = false;
-        GameManager.Instance?.ResetDamageProgressPenalty();
-        RecalculateLovePotionProgress();
+        OnLovePotionStateChanged?.Invoke();
     }
 
     public List<SavedObjectiveData> GetLoveIngredientObjectiveData()
     {
         List<SavedObjectiveData> data = new List<SavedObjectiveData>();
-        foreach (KeyValuePair<ECollectable, int> objective in _loveIngredientObjectives)
+        foreach (KeyValuePair<ECollectable, int> objective in _collectedIngredients)
         {
             data.Add(new SavedObjectiveData(objective.Key, objective.Value));
         }
@@ -185,30 +145,25 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
 
     public void LoadLoveIngredientObjectiveData(List<SavedObjectiveData> savedData)
     {
-        _loveIngredientObjectives.Clear();
+        _collectedIngredients.Clear();
 
-        if (savedData == null) return;
-
-        foreach (SavedObjectiveData data in savedData)
+        if (savedData != null)
         {
-            _loveIngredientObjectives[data.collectableType] = data.collectedCount;
+            foreach (SavedObjectiveData data in savedData)
+            {
+                _collectedIngredients[data.collectableType] = data.collectedCount;
+            }
         }
+
+        OnLovePotionStateChanged?.Invoke();
     }
 
-    public float GetLoveBenchmarkProgress() => _benchmarkProgress;
-    public void LoadLoveBenchmarkProgress(float value) => _benchmarkProgress = value;
-
     public bool GetLovePotionMade() => _lovePotionMade;
-    public void LoadLovePotionMade(bool value) => _lovePotionMade = value;
 
-    public float GetLovePotionProgress() => _currentLovePotionProgress;
-
-    // Restores the cached progress value directly (rather than recomputing) so the
-    // UI reflects the exact saved value immediately on load.
-    public void LoadLovePotionProgress(float value)
+    public void LoadLovePotionMade(bool value)
     {
-        _currentLovePotionProgress = value;
-        OnLovePotionProgressChanged?.Invoke(_currentLovePotionProgress);
+        _lovePotionMade = value;
+        OnLovePotionStateChanged?.Invoke();
     }
 
     #endregion
