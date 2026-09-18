@@ -49,7 +49,12 @@ public class CollectableItemBase : ItemBase
 
     protected virtual bool OnInteract_HelperImpl(Collider2D other)
     {
-        return DispatchCollectionEvents();
+        bool collected = DispatchCollectionEvents();
+
+        if (collected)
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/pickup");
+
+        return collected;
     }
 
     /// <summary>
