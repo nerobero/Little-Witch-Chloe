@@ -201,6 +201,12 @@ public class UIDialoguePanel : UIBase
         }
         else
         {
+            if(DialogueSystem.Instance.RequestNext())
+            {
+                RenderLine();
+                return;
+            }
+            
             DialogueSystem.Instance.Advance();
             RenderLine();
         }
