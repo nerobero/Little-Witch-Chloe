@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Types;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,7 +22,14 @@ public class CraftingQTE : MonoBehaviour
 
     private int _comboIndex;
     private bool _isActive;
+    private ELevelType _currentLevel;
 
+    /// <summary>Current combo index and total sequence length, so UI can render progress.</summary>
+    public event Action<int, int> OnComboProgress;
+    /// <summary>Fired when a wrong input resets combo progress back to 0.</summary>
+    public event Action OnComboReset;
+    /// <summary>Fired instead of starting the QTE when ingredients are insufficient.</summary>
+    public event Action OnQTEBlocked;
     public event Action OnQTESucceeded;
 
     private void OnEnable()
@@ -39,6 +47,15 @@ public class CraftingQTE : MonoBehaviour
     /// </summary>
     public void StartQTE()
     {
+        _currentLevel = GameManager.Instance.GetCurrentLevel();
+
+        if (!LovePotionManager.Instance.HasEnoughIngredients(_currentLevel))
+        {
+            Debug.LogWarning("[CraftingQTE] Missing required ingredients! Skipping QTE sequence.");
+            OnQTEBlocked?.Invoke();
+            return;
+        }
+
         ShuffleSequence();
         _comboIndex = 0;
         _isActive = true;
@@ -76,10 +93,13 @@ public class CraftingQTE : MonoBehaviour
 
             if (_comboIndex >= _sequence.Count)
                 CompleteQTE();
+            else
+                OnComboProgress?.Invoke(_comboIndex, _sequence.Count);
         }
         else
         {
             _comboIndex = 0;
+            OnComboReset?.Invoke();
         }
     }
 
@@ -89,6 +109,9 @@ public class CraftingQTE : MonoBehaviour
 
         PlayerController.Instance.InputContext.CraftQTE.Disable();
         PlayerController.Instance.InputContext.BaseInputAction.Enable();
+
+        LovePotionManager.Instance.ConsumeIngredients(_currentLevel);
+        LovePotionManager.Instance.OnLovePotionMade();
 
         OnQTESucceeded?.Invoke();
     }

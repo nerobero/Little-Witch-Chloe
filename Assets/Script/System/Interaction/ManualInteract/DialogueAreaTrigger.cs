@@ -12,7 +12,7 @@ public class DialogueAreaTrigger : EventTriggerBase, IResetable
     [Tooltip("ID (currentridx) of the first line to play.")]
     [SerializeField] private uint startLineId;
 
-    private bool _consumed;
+    private bool _beenTriggered;
 
     private void Start()
     {
@@ -25,7 +25,7 @@ public class DialogueAreaTrigger : EventTriggerBase, IResetable
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        if (_consumed)
+        if (_beenTriggered)
             return;
 
         // Layer-mask test (supports a mask with more than one player layer).
@@ -33,8 +33,8 @@ public class DialogueAreaTrigger : EventTriggerBase, IResetable
             return;
 
         if (DialogueTriggerUtil.TryStart(startLineId))
-            _consumed = true;
+            _beenTriggered = true;
     }
 
-    public void ResetState() => _consumed = false;
+    public void ResetState() => _beenTriggered = false;
 }
