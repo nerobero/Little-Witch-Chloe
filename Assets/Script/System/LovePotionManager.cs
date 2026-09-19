@@ -106,6 +106,46 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
     }
 
     /// <summary>
+    /// Checks whether enough of every required ingredient has been collected for the given level.
+    /// </summary>
+    /// <param name="currentLevel"></param>
+    /// <returns></returns>
+    public bool HasEnoughIngredients(ELevelType currentLevel)
+    {
+        if (!_levelObjectives.ContainsKey(currentLevel))
+            return true;
+
+        foreach (ObjectiveData data in _levelObjectives[currentLevel])
+        {
+            int collected = _collectedIngredients.TryGetValue(data.collectableType, out int count) ? count : 0;
+
+            if (collected < data.collectedCount)
+                return false;
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    /// Deducts the required amount of every ingredient for the given level. Call only after
+    /// <see cref="HasEnoughIngredients"/> has confirmed there's enough to consume.
+    /// </summary>
+    /// <param name="currentLevel"></param>
+    public void ConsumeIngredients(ELevelType currentLevel)
+    {
+        if (!_levelObjectives.ContainsKey(currentLevel))
+            return;
+
+        foreach (ObjectiveData data in _levelObjectives[currentLevel])
+        {
+            if (_collectedIngredients.TryGetValue(data.collectableType, out int count))
+                _collectedIngredients[data.collectableType] = Mathf.Max(0, count - data.collectedCount);
+        }
+
+        OnLovePotionStateChanged?.Invoke();
+    }
+
+    /// <summary>
     /// Ratio (0..1) of ingredients collected so far against the level's total requirement.
     /// </summary>
     /// <param name="currentLevel"></param>
