@@ -273,7 +273,7 @@
                     "name": "Submit",
                     "type": "Button",
                     "id": "28baeba1-be97-4335-9c04-51d3a7c12018",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -789,6 +789,78 @@
                     "action": "Unpause",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "CraftQTE",
+            "id": "2eb5c6c9-6dfd-4aeb-bd41-45927123a761",
+            "actions": [
+                {
+                    "name": "CraftingPotion",
+                    "type": "Value",
+                    "id": "a294b480-1d51-4047-acb2-d1a5f65f2bfe",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "217239bb-5d3f-4da6-846a-85a32bcd2cea",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CraftingPotion",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "5ec758ec-f47a-44f9-b639-5c1142cfeb00",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CraftingPotion",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "cde8e707-12c5-469d-8474-e187dbbb5e71",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CraftingPotion",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "d81bf4dd-c4ef-49d4-9009-7d721ec1470a",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CraftingPotion",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "c4e6c965-bb79-4d38-a19c-3663ad0b8055",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CraftingPotion",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

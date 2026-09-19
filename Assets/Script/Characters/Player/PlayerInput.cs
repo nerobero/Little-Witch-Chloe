@@ -359,7 +359,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""name"": ""Submit"",
                     ""type"": ""Button"",
                     ""id"": ""28baeba1-be97-4335-9c04-51d3a7c12018"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -877,6 +877,78 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""CraftQTE"",
+            ""id"": ""2eb5c6c9-6dfd-4aeb-bd41-45927123a761"",
+            ""actions"": [
+                {
+                    ""name"": ""CraftingPotion"",
+                    ""type"": ""Value"",
+                    ""id"": ""a294b480-1d51-4047-acb2-d1a5f65f2bfe"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""217239bb-5d3f-4da6-846a-85a32bcd2cea"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CraftingPotion"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""5ec758ec-f47a-44f9-b639-5c1142cfeb00"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CraftingPotion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""cde8e707-12c5-469d-8474-e187dbbb5e71"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CraftingPotion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""d81bf4dd-c4ef-49d4-9009-7d721ec1470a"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CraftingPotion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c4e6c965-bb79-4d38-a19c-3663ad0b8055"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CraftingPotion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -905,12 +977,16 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_Unpause = m_UI.FindAction("Unpause", throwIfNotFound: true);
+        // CraftQTE
+        m_CraftQTE = asset.FindActionMap("CraftQTE", throwIfNotFound: true);
+        m_CraftQTE_CraftingPotion = m_CraftQTE.FindAction("CraftingPotion", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
     {
         UnityEngine.Debug.Assert(!m_BaseInputAction.enabled, "This will cause a leak and performance issues, PlayerInput.BaseInputAction.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, PlayerInput.UI.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_CraftQTE.enabled, "This will cause a leak and performance issues, PlayerInput.CraftQTE.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1372,6 +1448,102 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="UIActions" /> instance referencing this action map.
     /// </summary>
     public UIActions @UI => new UIActions(this);
+
+    // CraftQTE
+    private readonly InputActionMap m_CraftQTE;
+    private List<ICraftQTEActions> m_CraftQTEActionsCallbackInterfaces = new List<ICraftQTEActions>();
+    private readonly InputAction m_CraftQTE_CraftingPotion;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "CraftQTE".
+    /// </summary>
+    public struct CraftQTEActions
+    {
+        private @PlayerInput m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public CraftQTEActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "CraftQTE/CraftingPotion".
+        /// </summary>
+        public InputAction @CraftingPotion => m_Wrapper.m_CraftQTE_CraftingPotion;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_CraftQTE; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="CraftQTEActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(CraftQTEActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="CraftQTEActions" />
+        public void AddCallbacks(ICraftQTEActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CraftQTEActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CraftQTEActionsCallbackInterfaces.Add(instance);
+            @CraftingPotion.started += instance.OnCraftingPotion;
+            @CraftingPotion.performed += instance.OnCraftingPotion;
+            @CraftingPotion.canceled += instance.OnCraftingPotion;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="CraftQTEActions" />
+        private void UnregisterCallbacks(ICraftQTEActions instance)
+        {
+            @CraftingPotion.started -= instance.OnCraftingPotion;
+            @CraftingPotion.performed -= instance.OnCraftingPotion;
+            @CraftingPotion.canceled -= instance.OnCraftingPotion;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="CraftQTEActions.UnregisterCallbacks(ICraftQTEActions)" />.
+        /// </summary>
+        /// <seealso cref="CraftQTEActions.UnregisterCallbacks(ICraftQTEActions)" />
+        public void RemoveCallbacks(ICraftQTEActions instance)
+        {
+            if (m_Wrapper.m_CraftQTEActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="CraftQTEActions.AddCallbacks(ICraftQTEActions)" />
+        /// <seealso cref="CraftQTEActions.RemoveCallbacks(ICraftQTEActions)" />
+        /// <seealso cref="CraftQTEActions.UnregisterCallbacks(ICraftQTEActions)" />
+        public void SetCallbacks(ICraftQTEActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CraftQTEActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CraftQTEActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="CraftQTEActions" /> instance referencing this action map.
+    /// </summary>
+    public CraftQTEActions @CraftQTE => new CraftQTEActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "BaseInputAction" which allows adding and removing callbacks.
     /// </summary>
@@ -1527,5 +1699,20 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnUnpause(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "CraftQTE" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="CraftQTEActions.AddCallbacks(ICraftQTEActions)" />
+    /// <seealso cref="CraftQTEActions.RemoveCallbacks(ICraftQTEActions)" />
+    public interface ICraftQTEActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "CraftingPotion" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCraftingPotion(InputAction.CallbackContext context);
     }
 }
