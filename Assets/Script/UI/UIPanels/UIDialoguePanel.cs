@@ -37,6 +37,14 @@ public class UIDialoguePanel : UIBase
     private bool isTypeWriting = false;
     private Coroutine typewriting;
 
+    protected override void Awake()
+    {
+        isStackable = true;
+        isInputDisable = true;
+
+        base.Awake();
+    }
+
     #region EventSubscription
     protected override void SubscribeEvents()
     {
@@ -68,8 +76,6 @@ public class UIDialoguePanel : UIBase
 
     public override void Hide()
     {
-        PlayerController.Instance.InputContext.UI.Disable();
-        PlayerController.Instance.InputContext.BaseInputAction.Enable();
         if(typewriting != null)
         {
             StopCoroutine(typewriting);

@@ -25,7 +25,7 @@ public class TimelineDialogue : MonoBehaviour
         TimelineAsset timelineAsset = director.playableAsset as TimelineAsset;
         if(timelineAsset == null)
         {
-            Debug.LogError("[TimelineDialogue of DialogueSystem] PlayableAsset이 Timeline이 아닙니다.");
+            Debug.LogError("[TimelineDialogue of DialogueSystem] PlayableAsset is not Timeline.");
             return;
         }
 
@@ -53,7 +53,7 @@ public class TimelineDialogue : MonoBehaviour
                 dialogueTimepoints.AddRange(timepoints);
                 
                 Debug.Log($"[TimelineDialogue of DialogueSystem] Signal Emitter number: {timepoints.Count}");
-                Debug.Log($"[TimelineDialogue of DialogueSystem] Signal Emitter 시간 추출: {string.Join(", ", timepoints)}");
+                Debug.Log($"[TimelineDialogue of DialogueSystem] Signal Emitter time: {string.Join(", ", timepoints)}");
                 break;
             }
         }

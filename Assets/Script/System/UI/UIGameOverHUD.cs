@@ -12,6 +12,9 @@ public class UIGameOverHUD : UIBase
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Awake()
     {
+        isStackable = true;
+        isPauseable = true;
+
         base.Awake();
 
         //SubscribeEvents();
@@ -22,6 +25,11 @@ public class UIGameOverHUD : UIBase
     public override void Show()
     {
         Debug.Log("Game Over Show");
+        if(PlayerController.Instance != null)
+        {
+            PlayerController.Instance.InputContext.BaseInputAction.Disable();
+            PlayerController.Instance.InputContext.UI.Enable();
+        }
         PauseManager.Instance.PauseGame();
         base.Show();
         // FMOD.Studio.Bus masterBus = FMODUnity.RuntimeManager.GetBus("bus:/"); 
@@ -33,6 +41,12 @@ public class UIGameOverHUD : UIBase
     // Save button click event
     public void OnRetryButtonClicked()
     {
+        if(PlayerController.Instance != null)
+        {
+            PlayerController.Instance.InputContext.UI.Disable();
+            PlayerController.Instance.InputContext.BaseInputAction.Enable();
+        }
+        
         PauseManager.Instance.UnpauseGame();
         LevelManager.Instance.RestartCurrentLevel();
         SoundManager.Instance.RestartCurrentBGM();

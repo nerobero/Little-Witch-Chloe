@@ -8,6 +8,8 @@ using UnityEngine;
 /// </summary>
 public class UIManager : MonoSingletonBase<UIManager>
 {
+    public Stack<UIBase> shownUI = new Stack<UIBase>();
+    public int currentSortOrder = 0; 
     // public static UIManager Instance { get; private set; }
     // private UIManager _instance;
 
@@ -24,7 +26,15 @@ public class UIManager : MonoSingletonBase<UIManager>
     /// Registers the UI Panel to this manager's registry
     /// </summary>
     /// <param name="panel">the UI panel to register</param>
-    public void Register(UIBase panel) => _uiPanels[panel.GetType()] = panel;
+    public void Register(UIBase panel)
+    {
+        _uiPanels[panel.GetType()] = panel;
+
+        if(panel.isStackable)
+        {
+            currentSortOrder++;
+        }
+    }
 
     /// <summary>
     /// Shows the UI Panel of the given kind from the registry.
@@ -32,6 +42,7 @@ public class UIManager : MonoSingletonBase<UIManager>
     /// <typeparam name="T">the type of UI panel (limited to the children of UIBase)</typeparam>
     public void Show<T>() where T : UIBase
     {
+        Debug.Log($"UIManager: currentSortingOrder: {currentSortOrder}");
         _uiPanels.TryGetValue(typeof(T), out var panel);
         panel?.Show(); // this gets executed only if the panel exists in the registry.
     }
@@ -44,6 +55,41 @@ public class UIManager : MonoSingletonBase<UIManager>
     {
         _uiPanels.TryGetValue(typeof(T), out var panel);
         panel?.Hide(); // this gets executed only if the panel exists in the registry.
+
+        bool elementsHavePause = false;
+        bool elementsHaveInputDisable = false;
+         
+        foreach (UIBase ui in shownUI)
+        {
+            if (ui != null && ui.isPauseable)
+            {
+                elementsHavePause = true;
+                break;
+            }
+        }
+
+        if (!elementsHavePause)
+        {
+            PauseManager.Instance.UnpauseGame();
+        }
+
+        foreach(UIBase ui in shownUI)
+        {
+            if(ui != null && ui.isInputDisable)
+            {
+                elementsHaveInputDisable = true;
+                break;
+            }
+        }
+
+        if(!elementsHaveInputDisable)
+        {
+            if(PlayerController.Instance != null)
+            {
+                PlayerController.Instance.InputContext.UI.Disable();
+                PlayerController.Instance.InputContext.BaseInputAction.Enable();
+            }
+        }
     }
 
     /// <summary>

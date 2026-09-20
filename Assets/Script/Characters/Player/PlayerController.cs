@@ -297,8 +297,8 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         {
             //if (!_optionMenuEnabled)
             //{
-                PauseManager.Instance.PauseGame();
                 UIManager.Instance.Show<PopupHUD>();
+                PauseManager.Instance.PauseGame();
                 //_optionMenuEnabled = true;
             //}
             // else
@@ -313,16 +313,37 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         }
     }
 
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            if(UIManager.Instance.Get<InventoryHUD>().root.activeSelf)
+            {
+                UIManager.Instance.Hide<InventoryHUD>();
+            }
+            UIManager.Instance.Show<InventoryHUD>();
+        }
+    }
+
     #region UI Input
     public void OnUnpause(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            PauseManager.Instance.UnpauseGame();
+            if(UIManager.Instance.Get<PopupHUD>().root.activeSelf)
+            {
+                UIManager.Instance.Hide<PopupHUD>();
+            }
+            else
+            {
+                UIManager.Instance.Show<PopupHUD>();
+                PauseManager.Instance.PauseGame();
+            }
+            //PauseManager.Instance.UnpauseGame();
                     
             // InputContext.BaseInputAction.Enable();
             // InputContext.UI.Disable();
-            UIManager.Instance.Hide<PopupHUD>();
+            //UIManager.Instance.Hide<PopupHUD>();
             //_optionMenuEnabled = false;
         }
     }

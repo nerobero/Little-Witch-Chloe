@@ -172,6 +172,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""a8113aac-4a76-4ec4-910d-dc37fe6c2c0d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -337,6 +346,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""AttackAcross"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a3bb0c72-ce67-45e1-a410-ac1cc59c6d53"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""73a87688-84cf-4dbe-8873-fdf01e72ab21"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -964,6 +995,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_BaseInputAction_ChangeWeapon = m_BaseInputAction.FindAction("ChangeWeapon", throwIfNotFound: true);
         m_BaseInputAction_Pause = m_BaseInputAction.FindAction("Pause", throwIfNotFound: true);
         m_BaseInputAction_AttackAcross = m_BaseInputAction.FindAction("AttackAcross", throwIfNotFound: true);
+        m_BaseInputAction_Inventory = m_BaseInputAction.FindAction("Inventory", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1071,6 +1103,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_BaseInputAction_ChangeWeapon;
     private readonly InputAction m_BaseInputAction_Pause;
     private readonly InputAction m_BaseInputAction_AttackAcross;
+    private readonly InputAction m_BaseInputAction_Inventory;
     /// <summary>
     /// Provides access to input actions defined in input action map "BaseInputAction".
     /// </summary>
@@ -1118,6 +1151,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BaseInputAction/AttackAcross".
         /// </summary>
         public InputAction @AttackAcross => m_Wrapper.m_BaseInputAction_AttackAcross;
+        /// <summary>
+        /// Provides access to the underlying input action "BaseInputAction/Inventory".
+        /// </summary>
+        public InputAction @Inventory => m_Wrapper.m_BaseInputAction_Inventory;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1171,6 +1208,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @AttackAcross.started += instance.OnAttackAcross;
             @AttackAcross.performed += instance.OnAttackAcross;
             @AttackAcross.canceled += instance.OnAttackAcross;
+            @Inventory.started += instance.OnInventory;
+            @Inventory.performed += instance.OnInventory;
+            @Inventory.canceled += instance.OnInventory;
         }
 
         /// <summary>
@@ -1209,6 +1249,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @AttackAcross.started -= instance.OnAttackAcross;
             @AttackAcross.performed -= instance.OnAttackAcross;
             @AttackAcross.canceled -= instance.OnAttackAcross;
+            @Inventory.started -= instance.OnInventory;
+            @Inventory.performed -= instance.OnInventory;
+            @Inventory.canceled -= instance.OnInventory;
         }
 
         /// <summary>
@@ -1614,6 +1657,13 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAttackAcross(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Inventory" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInventory(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

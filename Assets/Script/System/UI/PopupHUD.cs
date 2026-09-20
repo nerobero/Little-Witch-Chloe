@@ -15,6 +15,10 @@ public class PopupHUD : UIBase
 
     protected override void Awake()
     {
+        isStackable = true;
+        isPauseable = true;
+        isInputDisable = true;
+
         base.Awake();
 
         // _languages?.ClearOptions();
@@ -60,7 +64,7 @@ public class PopupHUD : UIBase
 
     public void OnClosePopupButtonClicked()
     {
-        PauseManager.Instance.UnpauseGame();
+        //PauseManager.Instance.UnpauseGame();
         UIManager.Instance.Hide<PopupHUD>();
     }
 
@@ -83,11 +87,6 @@ public class PopupHUD : UIBase
 
     public override void Hide()
     {
-        if(PlayerController.Instance != null)
-        {
-            PlayerController.Instance.InputContext.UI.Disable();
-            PlayerController.Instance.InputContext.BaseInputAction.Enable();
-        }
         base.Hide();
     }
 

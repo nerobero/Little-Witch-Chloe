@@ -13,6 +13,10 @@ public class UIMessageBox : UIBase
 
     protected override void Awake()
     {
+        isStackable = true;
+        isPauseable = true;
+        isInputDisable = true;
+
         base.Awake();
         messageImage.gameObject.SetActive(false);
     }
