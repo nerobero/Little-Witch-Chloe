@@ -8,7 +8,7 @@ public class InventoryHUD : UIBase
     public ItemIconDatabase itemIconDatabase;
     public int LastItemIndex = 0;
 
-    private ItemInventory inventoryData;
+    [SerializeField] private ItemInventory inventoryData;
 
     protected override void Awake()
     {
@@ -16,14 +16,16 @@ public class InventoryHUD : UIBase
         isPauseable = true;
         isInputDisable = true;
 
+        itemSlots = GetComponentsInChildren<ItemSlotPanel>(true);
+
         base.Awake();
         Hide();
     }
 
-    public void Register(ItemSlotPanel itemSlot)
-    {
-        itemSlots.Append(itemSlot);
-    }
+    // public void Register(ItemSlotPanel itemSlot)
+    // {
+    //     itemSlots.Append(itemSlot);
+    // }
 
     protected override void SubscribeEvents()
     {
@@ -39,6 +41,10 @@ public class InventoryHUD : UIBase
     {
         if(PlayerController.Instance != null)
         {
+            // if(inventoryData == null)
+            // {
+            //     inventoryData = PlayerController.Instance.Inventory;
+            // }
             PlayerController.Instance.InputContext.UI.Enable();
             PlayerController.Instance.InputContext.BaseInputAction.Disable();
         }

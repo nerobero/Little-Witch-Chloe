@@ -7,9 +7,11 @@ public class ItemSlotPanel : UIBase
     [SerializeField] private Image itemIcon;
     [SerializeField] private TMP_Text itemCountText;
 
-    private void Start()
+    protected override void Awake()
     {
-        UIManager.Instance.Get<InventoryHUD>()?.Register(this);
+        itemIcon.enabled = false;
+        itemCountText.SetText("");
+        base.Awake();
     }
 
     protected override void SubscribeEvents()

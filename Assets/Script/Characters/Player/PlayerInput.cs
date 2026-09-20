@@ -475,6 +475,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""79fcd229-f541-40c7-926a-1e1ce287f052"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -906,6 +915,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Unpause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""15736b00-4673-4c41-8268-ebbb8498a0ca"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2897d5f5-b332-4f37-81cd-9c1854e347ba"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1009,6 +1040,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_Unpause = m_UI.FindAction("Unpause", throwIfNotFound: true);
+        m_UI_Inventory = m_UI.FindAction("Inventory", throwIfNotFound: true);
         // CraftQTE
         m_CraftQTE = asset.FindActionMap("CraftQTE", throwIfNotFound: true);
         m_CraftQTE_CraftingPotion = m_CraftQTE.FindAction("CraftingPotion", throwIfNotFound: true);
@@ -1300,6 +1332,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_Unpause;
+    private readonly InputAction m_UI_Inventory;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -1355,6 +1388,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/Unpause".
         /// </summary>
         public InputAction @Unpause => m_Wrapper.m_UI_Unpause;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/Inventory".
+        /// </summary>
+        public InputAction @Inventory => m_Wrapper.m_UI_Inventory;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1414,6 +1451,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Unpause.started += instance.OnUnpause;
             @Unpause.performed += instance.OnUnpause;
             @Unpause.canceled += instance.OnUnpause;
+            @Inventory.started += instance.OnInventory;
+            @Inventory.performed += instance.OnInventory;
+            @Inventory.canceled += instance.OnInventory;
         }
 
         /// <summary>
@@ -1458,6 +1498,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Unpause.started -= instance.OnUnpause;
             @Unpause.performed -= instance.OnUnpause;
             @Unpause.canceled -= instance.OnUnpause;
+            @Inventory.started -= instance.OnInventory;
+            @Inventory.performed -= instance.OnInventory;
+            @Inventory.canceled -= instance.OnInventory;
         }
 
         /// <summary>
@@ -1749,6 +1792,13 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnUnpause(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Inventory" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInventory(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "CraftQTE" which allows adding and removing callbacks.

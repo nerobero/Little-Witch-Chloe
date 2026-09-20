@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     //private StatusEffectController _statusEffects;
     private PlayerStatManager _playerStat;
     public PlayerStatManager PlayerStat => _playerStat;
+    private ItemInventory _inventory;
+    public ItemInventory Inventory => _inventory;
 
     private Camera _mainCamera;
     #endregion
@@ -73,6 +75,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
 
         _playerInteract = GetComponent<InteractionSystem>();
         _playerStat = GetComponent<PlayerStatManager>();
+        _inventory = GetComponent<ItemInventory>();
 
         _mainCamera = Camera.main;
 
@@ -320,6 +323,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
             if(UIManager.Instance.Get<InventoryHUD>().root.activeSelf)
             {
                 UIManager.Instance.Hide<InventoryHUD>();
+                return;
             }
             UIManager.Instance.Show<InventoryHUD>();
         }
@@ -426,6 +430,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
         _playerMove.ResetState();
         _playerStat.ResetState();
         UIManager.Instance.Get<UIPlayerHUD>().Initialize(); 
+        _inventory.ResetState();
 
         gameObject.transform.position = spawnPosition + new Vector3(0f, 1f, 0f);
         gameObject.transform.rotation = spawnRotation;

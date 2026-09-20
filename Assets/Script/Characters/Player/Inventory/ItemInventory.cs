@@ -1,5 +1,6 @@
 using UnityEngine;
 using Types;
+using Unity.VisualScripting;
 
 public class ItemInventory : MonoBehaviour
 {
@@ -11,6 +12,16 @@ public class ItemInventory : MonoBehaviour
     public ItemSlot[] GetAllSlots() => itemSlots;
     public int GetSlotCount() => itemSlots.Length;
     public int GetLastItemIndex() => LastItemIndex;
+
+    private void Start()
+    {
+        int uiSlotCount = UIManager.Instance.Get<InventoryHUD>().itemSlots.Length;
+        itemSlots = new ItemSlot[uiSlotCount];
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            itemSlots[i] = new ItemSlot();
+        }
+    }
 
     public bool AddItem(ECollectable itemType, int amount = 1)
     {
@@ -48,4 +59,8 @@ public class ItemInventory : MonoBehaviour
         return 0;
     }
 
+    public void ResetState()
+    {
+        System.Array.Clear(itemSlots, 0, itemSlots.Length);
+    }
 }

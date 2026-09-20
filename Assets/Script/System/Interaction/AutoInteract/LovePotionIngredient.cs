@@ -10,4 +10,17 @@ public class LovePotionIngredient : CollectableItemBase
         base.Awake();
         isLovePotionIngredient = true;
     }
+
+    protected override bool OnInteract_HelperImpl(Collider2D other)
+    {
+        bool collected = DispatchCollectionEvents();
+
+        if (collected)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/pickup");
+            UIManager.Instance.Get<InventoryHUD>().AddItem(CollectType);
+        }
+
+        return collected;
+    }
 }
