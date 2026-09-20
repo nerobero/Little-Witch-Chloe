@@ -190304,7 +190304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5370123826274843984, guid: f4eb5df506d8cd746bb993d4b9fb31ed, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5656932105518334870, guid: f4eb5df506d8cd746bb993d4b9fb31ed, type: 3}
       propertyPath: m_Pivot.x
@@ -196563,6 +196563,7 @@ GameObject:
   - component: {fileID: 840394809}
   - component: {fileID: 840394808}
   - component: {fileID: 840394807}
+  - component: {fileID: 840394810}
   m_Layer: 0
   m_Name: CraftQTEArea
   m_TagString: Untagged
@@ -196608,6 +196609,8 @@ PlayableDirector:
     value: {fileID: 1543759828}
   - key: {fileID: -7032529698700819676, guid: bb9fe56e87de9d04cbddb22dd7c7495f, type: 2}
     value: {fileID: 1546397055}
+  - key: {fileID: -8825877409995203703, guid: bb9fe56e87de9d04cbddb22dd7c7495f, type: 2}
+    value: {fileID: 840394810}
   m_ExposedReferences:
     m_References:
     - 64a8c3d08a9a07d4e9d8d73da9348e57: {fileID: 1546397055}
@@ -196673,6 +196676,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 15.35, y: 8.46}
   m_EdgeRadius: 0
+--- !u!114 &840394810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840394805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 0}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &842655094
 GameObject:
   m_ObjectHideFlags: 0
