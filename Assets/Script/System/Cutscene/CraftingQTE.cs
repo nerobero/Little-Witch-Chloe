@@ -7,13 +7,12 @@ using UnityEngine.Playables;
 
 /// <summary>
 /// Owns the crafting cutscene beat: pauses the Timeline, hands the character off to its
-/// own looping crafting-idle Animator state, tracks the directional combo (reshuffled from
-/// the four cardinal directions each attempt), and resumes the Timeline on success.
+/// own looping Chloe_FlyTick Animator state (reached via SetToStartFlying's existing
+/// Idle -> StartFly -> FlyTick chain), tracks the directional combo (reshuffled from the
+/// four cardinal directions each attempt), and resumes the Timeline on success.
 /// </summary>
 public class CraftingQTE : MonoBehaviour
 {
-    private static readonly int IsCraftingTrigHash = Animator.StringToHash("IsCraftingTrig");
-
     private static readonly Vector2[] CardinalDirections =
     {
         Vector2.left,
@@ -24,7 +23,7 @@ public class CraftingQTE : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private PlayableDirector _director;
-    [SerializeField] private Animator _animator;
+    [SerializeField] private PlayerAnimController _animController;
 
     private readonly List<Vector2> _sequence = new List<Vector2>(CardinalDirections);
 
@@ -69,7 +68,8 @@ public class CraftingQTE : MonoBehaviour
         _isActive = true;
 
         _director.Pause();
-        _animator.SetTrigger(IsCraftingTrigHash);
+        _animController.SetToWalk(false); // forces Chloe_IdleAnim before the fly-in
+        _animController.SetToStartFlying(); // Chloe_StartFly -> Chloe_FlyTick (loops on its own)
 
         PlayerController.Instance.InputContext.BaseInputAction.Disable();
         PlayerController.Instance.InputContext.CraftQTE.Enable();

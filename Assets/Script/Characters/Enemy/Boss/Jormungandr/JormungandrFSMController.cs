@@ -27,6 +27,9 @@ public class JormungandrFSMController : BaseFSMAIController
     [SerializeField] private float summonRadius = 3f;
     public Transform summonRoot;
 
+    [Header("Crafting QTE handoff")]
+    [SerializeField] private Transform craftingQTESpawnPoint;
+
 
     [Header("Animator - Flower")]
     public Animator flowerAnimator;
@@ -188,6 +191,17 @@ public class JormungandrFSMController : BaseFSMAIController
     {
         base.HandleDeath();
         if (splashAnimator != null) splashAnimator.SetBool(IsDeadHash, true);
+    }
+
+    // Called via Animation Event on the last frame of the Dead clip (base drops loot and
+    // deactivates Jormungandr's hierarchy first). Relocates the player into the crafting
+    // QTE area now that the boss fight is over.
+    public override void DeathAnimationComplete()
+    {
+        base.DeathAnimationComplete();
+
+        if (craftingQTESpawnPoint != null)
+            PlayerController.Instance.PlayerMove.TeleportTo(craftingQTESpawnPoint.position);
     }
 
     protected override void ResetEntranceState()

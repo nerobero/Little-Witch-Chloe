@@ -40,6 +40,11 @@ public class BaseCharacterAnimController : MonoBehaviour
         }
     }
 
+    public void SetToIdle()
+    {
+        _animator.SetBool(IdleHash, true);
+    }
+
     public void SetToWalk(bool isWalking)
     {
         _animator.SetBool(WalkingHash, isWalking);

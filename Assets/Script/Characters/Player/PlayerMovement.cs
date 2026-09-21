@@ -187,8 +187,18 @@ public class PlayerMovement : BaseCharacterMovement
     }
 
     /// <summary>
+    /// Instantly relocates the player to a fixed position within the same scene
+    /// (e.g. handoff into the crafting QTE area) - a plain transform move, not the
+    /// physics-based Blink ability.
+    /// </summary>
+    public void TeleportTo(Vector3 position)
+    {
+        transform.position = position;
+    }
+
+    /// <summary>
     /// Checks if the player can 'blink' to another platform
-    /// and performs the action if so. 
+    /// and performs the action if so.
     /// </summary>
     public void BlinkToOtherPlatform()
     {
