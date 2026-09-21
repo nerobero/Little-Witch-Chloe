@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using Types;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 
 /// <summary>
-/// Tracks a directional combo during the crafting cutscene. The combo is reshuffled
-/// from the four cardinal directions at the start of every attempt.
+/// Owns the crafting cutscene beat: pauses the Timeline, hands the character off to its
+/// own looping crafting-idle Animator state, tracks the directional combo (reshuffled from
+/// the four cardinal directions each attempt), and resumes the Timeline on success.
 /// </summary>
 public class CraftingQTE : MonoBehaviour
 {
+    private static readonly int IsCraftingTrigHash = Animator.StringToHash("IsCraftingTrig");
+
     private static readonly Vector2[] CardinalDirections =
     {
         Vector2.left,
@@ -17,6 +21,10 @@ public class CraftingQTE : MonoBehaviour
         Vector2.up,
         Vector2.down,
     };
+
+    [Header("References")]
+    [SerializeField] private PlayableDirector _director;
+    [SerializeField] private Animator _animator;
 
     private readonly List<Vector2> _sequence = new List<Vector2>(CardinalDirections);
 
@@ -59,6 +67,9 @@ public class CraftingQTE : MonoBehaviour
         ShuffleSequence();
         _comboIndex = 0;
         _isActive = true;
+
+        _director.Pause();
+        _animator.SetTrigger(IsCraftingTrigHash);
 
         PlayerController.Instance.InputContext.BaseInputAction.Disable();
         PlayerController.Instance.InputContext.CraftQTE.Enable();
@@ -112,6 +123,8 @@ public class CraftingQTE : MonoBehaviour
 
         LovePotionManager.Instance.ConsumeIngredients(_currentLevel);
         LovePotionManager.Instance.OnLovePotionMade();
+
+        _director.Play();
 
         OnQTESucceeded?.Invoke();
     }
