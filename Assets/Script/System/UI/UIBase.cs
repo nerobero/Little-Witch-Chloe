@@ -36,22 +36,22 @@ public abstract class UIBase : MonoBehaviour
     /// </summary>
     public virtual void Show()
     {
-        if(!root.activeSelf)
+        if (!root.activeSelf)
         {
             Canvas canvas = GetComponent<Canvas>();
-            canvas.overrideSorting = true; 
+            canvas.overrideSorting = true;
 
             canvas.sortingOrder = UIManager.Instance.currentSortOrder;
             UIManager.Instance.currentSortOrder++;
 
-            if(isStackable)
+            if (isStackable)
             {
                 UIManager.Instance.shownUI.Push(this);
             }
         }
 
         root.SetActive(true);
-        
+
     }
 
     /// <summary>
@@ -61,40 +61,44 @@ public abstract class UIBase : MonoBehaviour
     /// </summary>
     public virtual void Hide()
     {
-        if(root.activeSelf)
+        if (root.activeSelf)
         {
             Canvas canvas = GetComponent<Canvas>();
-            canvas.overrideSorting = false; 
-
-            canvas.sortingOrder = 0;
-            UIManager.Instance.currentSortOrder--;
-            if(UIManager.Instance.currentSortOrder <= 0)
+            if (canvas != null)
             {
-                UIManager.Instance.currentSortOrder = 0;
-            }
+                canvas.overrideSorting = false;
 
-            if(isStackable)
-            {
-                if(UIManager.Instance.shownUI.Count > 0)
+                canvas.sortingOrder = 0;
+                UIManager.Instance.currentSortOrder--;
+                if (UIManager.Instance.currentSortOrder <= 0)
                 {
-                    UIManager.Instance.shownUI.Pop();
+                    UIManager.Instance.currentSortOrder = 0;
                 }
 
-                if(UIManager.Instance.shownUI.Count == 0)
+                if (isStackable)
                 {
-                    if(isInputDisable)
-                    {    
-                        if(PlayerController.Instance != null)
-                        {
-                            PlayerController.Instance.InputContext.UI.Disable();
-                            PlayerController.Instance.InputContext.BaseInputAction.Enable();
-                        }
+                    if (UIManager.Instance.shownUI.Count > 0)
+                    {
+                        UIManager.Instance.shownUI.Pop();
                     }
-                    PauseManager.Instance.UnpauseGame();
+
+                    if (UIManager.Instance.shownUI.Count == 0)
+                    {
+                        if (isInputDisable)
+                        {
+                            if (PlayerController.Instance != null)
+                            {
+                                PlayerController.Instance.InputContext.UI.Disable();
+                                PlayerController.Instance.InputContext.BaseInputAction.Enable();
+                            }
+                        }
+                        PauseManager.Instance.UnpauseGame();
+                    }
                 }
             }
+
+            root.SetActive(false);
         }
 
-        root.SetActive(false);
     }
 }
