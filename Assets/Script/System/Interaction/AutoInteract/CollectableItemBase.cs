@@ -52,7 +52,10 @@ public class CollectableItemBase : ItemBase
         bool collected = DispatchCollectionEvents();
 
         if (collected)
+        {
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/pickup");
+            UIManager.Instance.Get<InventoryHUD>().AddItem(CollectType);
+        }
 
         return collected;
     }

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class InventoryHUD : UIBase
 {
-    public ItemSlotPanel[] itemSlots;
+    [SerializeField] private GameObject herbGroups;
+    [SerializeField] private GameObject potionGroups;
+    public ItemSlotPanel[] ingredientItemSlots;
+    public ItemSlotPanel[] commisionItemSlots;
     public ItemIconDatabase itemIconDatabase;
     public int LastItemIndex = 0;
 
@@ -16,7 +19,8 @@ public class InventoryHUD : UIBase
         isPauseable = true;
         isInputDisable = true;
 
-        itemSlots = GetComponentsInChildren<ItemSlotPanel>(true);
+        commisionItemSlots = herbGroups.GetComponentsInChildren<ItemSlotPanel>(true);
+        ingredientItemSlots = potionGroups.GetComponentsInChildren<ItemSlotPanel>(true);
 
         base.Awake();
         Hide();
@@ -58,11 +62,18 @@ public class InventoryHUD : UIBase
 
     public void RefreshDisplay()
     {
-        for(int i = 0; i < itemSlots.Length; ++i)
+        for(int i = 0; i < ingredientItemSlots.Length; ++i)
         {
             // already used slot and the same item is in the same slot
-            ItemSlot slot = inventoryData.GetSlot(i);
-            itemSlots[i].Display(slot);
+            ItemSlot slot = inventoryData.GetIngredientSlot(i);
+            ingredientItemSlots[i].Display(slot);
+        }
+
+        for(int i = 0; i < commisionItemSlots.Length; ++i)
+        {
+            // already used slot and the same item is in the same slot
+            ItemSlot slot = inventoryData.GetCommisionSlot(i);
+            commisionItemSlots[i].Display(slot);
         }
     }
 

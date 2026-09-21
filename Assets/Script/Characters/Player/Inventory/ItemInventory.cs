@@ -4,42 +4,94 @@ using Unity.VisualScripting;
 
 public class ItemInventory : MonoBehaviour
 {
-    public ItemSlot[] itemSlots;
+    public ItemSlot[] ingredientItemSlots;
+    public ItemSlot[] commisionItemSlots;
     public ItemIconDatabase itemIconDatabase;
-    public int LastItemIndex = 0;
+    public int lastIngredientItemIndex = 0;
+    public int lastCommisionItemIndex = 0;
 
-    public ItemSlot GetSlot(int index) => itemSlots[index];
-    public ItemSlot[] GetAllSlots() => itemSlots;
-    public int GetSlotCount() => itemSlots.Length;
-    public int GetLastItemIndex() => LastItemIndex;
+    public ItemSlot GetIngredientSlot(int index) => ingredientItemSlots[index];
+    public ItemSlot[] GetAllIngredientSlots() => ingredientItemSlots;
+    public int GetIngredientSlotCount() => ingredientItemSlots.Length;
+    public int GetLastIngredientItemIndex() => lastIngredientItemIndex;
+
+    public ItemSlot GetCommisionSlot(int index) => commisionItemSlots[index];
+    public ItemSlot[] GetAllCommisionSlots() => commisionItemSlots;
+    public int GetCommisionSlotCount() => commisionItemSlots.Length;
+    public int GetLastCommisionItemIndex() => lastCommisionItemIndex;
 
     private void Start()
     {
-        int uiSlotCount = UIManager.Instance.Get<InventoryHUD>().itemSlots.Length;
-        itemSlots = new ItemSlot[uiSlotCount];
-        for (int i = 0; i < itemSlots.Length; i++)
+        // ingredient slot initialization
+        int uiSlotCount = UIManager.Instance.Get<InventoryHUD>().ingredientItemSlots.Length;
+        ingredientItemSlots = new ItemSlot[uiSlotCount];
+        for (int i = 0; i < ingredientItemSlots.Length; i++)
         {
-            itemSlots[i] = new ItemSlot();
+            ingredientItemSlots[i] = new ItemSlot();
+        }
+
+        // commisino slot initialization
+        uiSlotCount = UIManager.Instance.Get<InventoryHUD>().commisionItemSlots.Length;
+        commisionItemSlots = new ItemSlot[uiSlotCount];
+        for (int i = 0; i < commisionItemSlots.Length; i++)
+        {
+            commisionItemSlots[i] = new ItemSlot();
         }
     }
 
     public bool AddItem(ECollectable itemType, int amount = 1)
     {
-        for(int i = 0; i < LastItemIndex; ++i)
+        switch(itemType)
         {
-            // already used slot and the same item is in the same slot
-            if(itemSlots[i].isSlotUsed && itemSlots[i].item.itemType == itemType)
+            // commision herb
+            case ECollectable.CommDigestHerb:
+            case ECollectable.CommColdHerb:
+            case ECollectable.CommFeverHerb:
             {
-                itemSlots[i].AddItemToSlot(itemIconDatabase.GetItemData(itemType), amount);
-                return true;
-            }
-        }
+                for(int i = 0; i < lastCommisionItemIndex; ++i)
+                {
+                    // already used slot and the same item is in the same slot
+                    if(commisionItemSlots[i].isSlotUsed && commisionItemSlots[i].item.itemType == itemType)
+                    {
+                        commisionItemSlots[i].AddItemToSlot(itemIconDatabase.GetItemData(itemType), amount);
+                        return true;
+                    }
+                }
 
-        if(LastItemIndex < itemSlots.Length)
-        {
-            itemSlots[LastItemIndex].AddItemToSlot(itemIconDatabase.GetItemData(itemType), amount);
-            LastItemIndex++;
-            return true;    
+                if(lastCommisionItemIndex < commisionItemSlots.Length)
+                {
+                    commisionItemSlots[lastCommisionItemIndex].AddItemToSlot(itemIconDatabase.GetItemData(itemType), amount);
+                    lastCommisionItemIndex++;
+                    return true;    
+                }
+            }
+            break;
+
+            // love potion ingredient
+            case ECollectable.FruitA:
+            case ECollectable.FruitB:
+            case ECollectable.JorFlower:
+            case ECollectable.FireCore:
+            case ECollectable.Winterberry:
+            {    
+                for(int i = 0; i < lastIngredientItemIndex; ++i)
+                {
+                    // already used slot and the same item is in the same slot
+                    if(ingredientItemSlots[i].isSlotUsed && ingredientItemSlots[i].item.itemType == itemType)
+                    {
+                        ingredientItemSlots[i].AddItemToSlot(itemIconDatabase.GetItemData(itemType), amount);
+                        return true;
+                    }
+                }
+
+                if(lastIngredientItemIndex < ingredientItemSlots.Length)
+                {
+                    ingredientItemSlots[lastIngredientItemIndex].AddItemToSlot(itemIconDatabase.GetItemData(itemType), amount);
+                    lastIngredientItemIndex++;
+                    return true;    
+                }
+            }
+            break;
         }
 
         // inventory is fulled
@@ -48,11 +100,11 @@ public class ItemInventory : MonoBehaviour
 
     public int RemoveItem(ECollectable itemType, int amount = 1)
     {
-        for(int i = 0; i < itemSlots.Length; i++)
+        for(int i = 0; i < ingredientItemSlots.Length; i++)
         {
-            if(itemSlots[i].isSlotUsed && itemSlots[i].item.itemType == itemType)
+            if(ingredientItemSlots[i].isSlotUsed && ingredientItemSlots[i].item.itemType == itemType)
             {
-                return itemSlots[i].RemoveItem(amount);
+                return ingredientItemSlots[i].RemoveItem(amount);
             }
         }
 
@@ -61,6 +113,6 @@ public class ItemInventory : MonoBehaviour
 
     public void ResetState()
     {
-        System.Array.Clear(itemSlots, 0, itemSlots.Length);
+        System.Array.Clear(ingredientItemSlots, 0, ingredientItemSlots.Length);
     }
 }
