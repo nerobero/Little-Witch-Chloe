@@ -1,41 +1,45 @@
 using UnityEngine;
 using Types;
 using Unity.VisualScripting;
+using System.Collections.Generic;
 
 public class ItemInventory : MonoBehaviour
 {
-    public ItemSlot[] ingredientItemSlots;
-    public ItemSlot[] commisionItemSlots;
+    public List<ItemSlot> ingredientItemSlots = new List<ItemSlot>();
+    public List<ItemSlot> commisionItemSlots  = new List<ItemSlot>();
     public ItemIconDatabase itemIconDatabase;
     public int lastIngredientItemIndex = 0;
     public int lastCommisionItemIndex = 0;
 
     public ItemSlot GetIngredientSlot(int index) => ingredientItemSlots[index];
-    public ItemSlot[] GetAllIngredientSlots() => ingredientItemSlots;
-    public int GetIngredientSlotCount() => ingredientItemSlots.Length;
+    public List<ItemSlot> GetAllIngredientSlots() => ingredientItemSlots;
+    public int GetIngredientSlotCount() => ingredientItemSlots.Count;
     public int GetLastIngredientItemIndex() => lastIngredientItemIndex;
 
     public ItemSlot GetCommisionSlot(int index) => commisionItemSlots[index];
-    public ItemSlot[] GetAllCommisionSlots() => commisionItemSlots;
-    public int GetCommisionSlotCount() => commisionItemSlots.Length;
+    public List<ItemSlot> GetAllCommisionSlots() => commisionItemSlots;
+    public int GetCommisionSlotCount() => commisionItemSlots.Count;
     public int GetLastCommisionItemIndex() => lastCommisionItemIndex;
 
     private void Start()
     {
         // ingredient slot initialization
         int uiSlotCount = UIManager.Instance.Get<InventoryHUD>().ingredientItemSlots.Length;
-        ingredientItemSlots = new ItemSlot[uiSlotCount];
-        for (int i = 0; i < ingredientItemSlots.Length; i++)
+        // ingredientItemSlots = new ItemSlot[uiSlotCount];
+        for (int i = 0; i < uiSlotCount; i++)
         {
-            ingredientItemSlots[i] = new ItemSlot();
+
+           ingredientItemSlots.Add(new ItemSlot());
+            // ingredientItemSlots[i] = new ItemSlot();
         }
 
         // commisino slot initialization
         uiSlotCount = UIManager.Instance.Get<InventoryHUD>().commisionItemSlots.Length;
-        commisionItemSlots = new ItemSlot[uiSlotCount];
-        for (int i = 0; i < commisionItemSlots.Length; i++)
+        // commisionItemSlots = new ItemSlot[uiSlotCount];
+        for (int i = 0; i < uiSlotCount; i++)
         {
-            commisionItemSlots[i] = new ItemSlot();
+            commisionItemSlots.Add(new ItemSlot());
+            // commisionItemSlots[i] = new ItemSlot();
         }
     }
 
@@ -58,7 +62,7 @@ public class ItemInventory : MonoBehaviour
                     }
                 }
 
-                if(lastCommisionItemIndex < commisionItemSlots.Length)
+                if(lastCommisionItemIndex < commisionItemSlots.Count)
                 {
                     commisionItemSlots[lastCommisionItemIndex].AddItemToSlot(itemIconDatabase.GetItemData(itemType), amount);
                     lastCommisionItemIndex++;
@@ -84,7 +88,7 @@ public class ItemInventory : MonoBehaviour
                     }
                 }
 
-                if(lastIngredientItemIndex < ingredientItemSlots.Length)
+                if(lastIngredientItemIndex < ingredientItemSlots.Count)
                 {
                     ingredientItemSlots[lastIngredientItemIndex].AddItemToSlot(itemIconDatabase.GetItemData(itemType), amount);
                     lastIngredientItemIndex++;
@@ -100,7 +104,7 @@ public class ItemInventory : MonoBehaviour
 
     public int RemoveItem(ECollectable itemType, int amount = 1)
     {
-        for(int i = 0; i < ingredientItemSlots.Length; i++)
+        for(int i = 0; i < ingredientItemSlots.Count; i++)
         {
             if(ingredientItemSlots[i].isSlotUsed && ingredientItemSlots[i].item.itemType == itemType)
             {
@@ -113,6 +117,7 @@ public class ItemInventory : MonoBehaviour
 
     public void ResetState()
     {
-        System.Array.Clear(ingredientItemSlots, 0, ingredientItemSlots.Length);
+        ingredientItemSlots.Clear();
+        // System.Array.Clear(ingredientItemSlots, 0, ingredientItemSlots.Count);
     }
 }
