@@ -12,7 +12,7 @@ public class PlayerMovement : BaseCharacterMovement
 {
 
     // These values are exposed states for others to read:
-    public event Action OnFlyStopped;
+    public event Action OnFlyStopped; //
 
     [Header("Movement values")]
     [SerializeField] private float flyForce;
@@ -193,7 +193,43 @@ public class PlayerMovement : BaseCharacterMovement
     /// </summary>
     public void TeleportTo(Vector3 position)
     {
+        if (_moveCoroutine != null)
+        {
+            StopCoroutine(_moveCoroutine);
+            _moveCoroutine = null;
+        }
+
         transform.position = position;
+    }
+
+    private Coroutine _moveCoroutine;
+
+    /// <summary>
+    /// Smoothly moves the player to a fixed position over time (e.g. a scripted cutscene
+    /// beat) - a plain transform lerp, not physics-based. Cancels any move already in progress.
+    /// </summary>
+    public void MoveTo(Vector3 target, float duration)
+    {
+        if (_moveCoroutine != null)
+            StopCoroutine(_moveCoroutine);
+
+        _moveCoroutine = StartCoroutine(MoveToRoutine(target, duration));
+    }
+
+    private IEnumerator MoveToRoutine(Vector3 target, float duration)
+    {
+        Vector3 start = transform.position;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            transform.position = Vector3.Lerp(start, target, elapsed / duration);
+            yield return null;
+        }
+
+        transform.position = target;
+        _moveCoroutine = null;
     }
 
     /// <summary>

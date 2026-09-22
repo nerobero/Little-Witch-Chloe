@@ -49,28 +49,31 @@ public class CraftingQTE : MonoBehaviour
         PlayerController.Instance.InputContext.CraftQTE.CraftingPotion.performed -= HandleInput;
     }
 
+    public void StartQTEAnim()
+    {
+        _animController.SetToWalk(false); // forces Chloe_IdleAnim before the fly-in
+        _animController.SetToStartFlying(); // Chloe_StartFly -> Chloe_FlyTick (loops on its own)
+    }
+
     /// <summary>
     /// Triggered via Timeline Signal Emitter once the crafting loop starts.
     /// </summary>
     public void StartQTE()
     {
         _currentLevel = GameManager.Instance.GetCurrentLevel();
-
+#if !UNITY_EDITOR
         if (!LovePotionManager.Instance.HasEnoughIngredients(_currentLevel))
         {
             Debug.LogWarning("[CraftingQTE] Missing required ingredients! Skipping QTE sequence.");
             OnQTEBlocked?.Invoke();
             return;
         }
-
+#endif
         ShuffleSequence();
         _comboIndex = 0;
         _isActive = true;
 
         _director.Pause();
-        _animController.SetToWalk(false); // forces Chloe_IdleAnim before the fly-in
-        _animController.SetToStartFlying(); // Chloe_StartFly -> Chloe_FlyTick (loops on its own)
-
         PlayerController.Instance.InputContext.BaseInputAction.Disable();
         PlayerController.Instance.InputContext.CraftQTE.Enable();
     }

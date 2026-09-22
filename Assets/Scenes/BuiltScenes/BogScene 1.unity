@@ -22653,7 +22653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9169097736380440220, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -194255,6 +194255,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &773577658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 461113085811221476, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
+  m_PrefabInstance: {fileID: 213202456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &774227969
 GameObject:
   m_ObjectHideFlags: 0
@@ -198317,19 +198322,19 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: bb9fe56e87de9d04cbddb22dd7c7495f, type: 2}
-  m_InitialState: 0
+  m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: 928258983843441684, guid: bb9fe56e87de9d04cbddb22dd7c7495f, type: 2}
-    value: {fileID: 213202458}
   - key: {fileID: -2070809841607803637, guid: bb9fe56e87de9d04cbddb22dd7c7495f, type: 2}
     value: {fileID: 1543759828}
   - key: {fileID: -7032529698700819676, guid: bb9fe56e87de9d04cbddb22dd7c7495f, type: 2}
     value: {fileID: 1546397055}
   - key: {fileID: -8825877409995203703, guid: bb9fe56e87de9d04cbddb22dd7c7495f, type: 2}
     value: {fileID: 840394810}
+  - key: {fileID: 6480438696620863466, guid: bb9fe56e87de9d04cbddb22dd7c7495f, type: 2}
+    value: {fileID: 213202457}
   m_ExposedReferences:
     m_References:
     - 64a8c3d08a9a07d4e9d8d73da9348e57: {fileID: 1546397055}
@@ -198412,6 +198417,7 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 11400000, guid: f9e2408e0332e224fbb2562a891074ca, type: 2}
     - {fileID: 11400000, guid: 8f5ec32931390c1448945e363b32dcda, type: 2}
+    - {fileID: 11400000, guid: 178bb30d0250d1a4c93d785a52c3c46e, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls: []
@@ -198420,6 +198426,68 @@ MonoBehaviour:
         - m_Target: {fileID: 213202460}
           m_TargetAssemblyTypeName: PlayerAnimController, Assembly-CSharp
           m_MethodName: SetToIdle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1092713112}
+          m_TargetAssemblyTypeName: PlayerMoveWaypoint, Assembly-CSharp
+          m_MethodName: TeleportPlayerHere
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 213202459}
+          m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
+          m_MethodName: set_simulated
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 773577658}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1152021227}
+          m_TargetAssemblyTypeName: PlayerMoveWaypoint, Assembly-CSharp
+          m_MethodName: MovePlayerHere
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 840394811}
+          m_TargetAssemblyTypeName: CraftingQTE, Assembly-CSharp
+          m_MethodName: StartQTEAnim
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -198442,6 +198510,30 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1546397055}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1546397059}
+          m_TargetAssemblyTypeName: SignalParticlePlayer, Assembly-CSharp
+          m_MethodName: PlayParticles
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!114 &840394811
 MonoBehaviour:
@@ -210960,6 +211052,50 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1092713110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1092713111}
+  - component: {fileID: 1092713112}
+  m_Layer: 0
+  m_Name: Waypoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1092713111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092713110}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2130864557}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1092713112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092713110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ad5b319f6cd2349aff5af3ad4a40f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMoveWaypoint
 --- !u!1 &1094463300
 GameObject:
   m_ObjectHideFlags: 0
@@ -213154,6 +213290,50 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1152021225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1152021226}
+  - component: {fileID: 1152021227}
+  m_Layer: 0
+  m_Name: Waypoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1152021226
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152021225}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.08, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2130864557}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1152021227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152021225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ad5b319f6cd2349aff5af3ad4a40f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMoveWaypoint
 --- !u!1001 &1153170713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -350332,6 +350512,7 @@ GameObject:
   - component: {fileID: 1546397056}
   - component: {fileID: 1546397058}
   - component: {fileID: 1546397057}
+  - component: {fileID: 1546397059}
   m_Layer: 0
   m_Name: Particle
   m_TagString: Untagged
@@ -355158,6 +355339,18 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &1546397059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546397055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36aa9f5b085e1494a8c37c5634194ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SignalParticlePlayer
 --- !u!1 &1546404149
 GameObject:
   m_ObjectHideFlags: 0
@@ -469304,6 +469497,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 840394806}
+  - {fileID: 1092713111}
+  - {fileID: 1152021226}
   - {fileID: 1543759829}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
