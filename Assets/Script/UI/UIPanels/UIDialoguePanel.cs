@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using Types;
@@ -34,8 +35,10 @@ public class UIDialoguePanel : UIBase
     private readonly string[] _slotSpeaker = new string[2];
     // Slot whose speech bubble currently has focus.
     private int _currentSlot;
+    private bool pressed = false;
     private bool isTypeWriting = false;
     private Coroutine typewriting;
+    public Action onTypeWritingEnded;
 
     protected override void Awake()
     {
@@ -174,6 +177,7 @@ public class UIDialoguePanel : UIBase
 
         speechBubble[slot].color = fgColor;
         speechBubble[slot].transform.SetAsLastSibling();
+        pressed = false;
     }
 
     IEnumerator TypeTextEffect(int slot, string dialogue)
@@ -190,6 +194,7 @@ public class UIDialoguePanel : UIBase
         }
 
         isTypeWriting = false;
+        onTypeWritingEnded?.Invoke();
     }
 
     // Unknown speakers (and every line of a monologue) resolve to slot 0.
@@ -198,12 +203,16 @@ public class UIDialoguePanel : UIBase
     #region ButtonListeners
     public void OnNextDialogue()
     {
+        if(pressed) return;
+
+        pressed = true;
         if(isTypeWriting)
         {
             StopCoroutine(typewriting);
             typewriting = null;
             RenderLine();
             isTypeWriting = false;
+            onTypeWritingEnded?.Invoke();
         }
         else
         {
