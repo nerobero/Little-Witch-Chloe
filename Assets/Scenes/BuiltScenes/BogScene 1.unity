@@ -198335,6 +198335,8 @@ PlayableDirector:
     value: {fileID: 840394810}
   - key: {fileID: 6480438696620863466, guid: bb9fe56e87de9d04cbddb22dd7c7495f, type: 2}
     value: {fileID: 213202457}
+  - key: {fileID: 4284363626783162659, guid: bb9fe56e87de9d04cbddb22dd7c7495f, type: 2}
+    value: {fileID: 1293676454}
   m_ExposedReferences:
     m_References:
     - 64a8c3d08a9a07d4e9d8d73da9348e57: {fileID: 1546397055}
@@ -198463,6 +198465,18 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1865137341}
+          m_TargetAssemblyTypeName: UIPlayerHUD, Assembly-CSharp
+          m_MethodName: Hide
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -200071,7 +200085,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 868218852}
-  - component: {fileID: 868218854}
   - component: {fileID: 868218853}
   m_Layer: 0
   m_Name: BackParallax
@@ -200110,24 +200123,6 @@ SortingGroup:
   m_SortingOrder: 0
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0
---- !u!114 &868218854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868218851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bd6723864b40d248b60befb42b94909, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BackgroundController
-  cam: {fileID: 1241669791}
-  parallaxPoint: {fileID: 723135596}
-  enableXParallax: 1
-  enableYParallax: 0
-  parallexEffectX: 0.001
-  parallexEffectY: 0
 --- !u!1 &870960424
 GameObject:
   m_ObjectHideFlags: 0
@@ -205082,7 +205077,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 983715527}
-  - component: {fileID: 983715529}
   - component: {fileID: 983715528}
   m_Layer: 0
   m_Name: FrontParallax
@@ -205123,24 +205117,6 @@ SortingGroup:
   m_SortingOrder: 0
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0
---- !u!114 &983715529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983715526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bd6723864b40d248b60befb42b94909, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BackgroundController
-  cam: {fileID: 1241669791}
-  parallaxPoint: {fileID: 723135596}
-  enableXParallax: 1
-  enableYParallax: 1
-  parallexEffectX: 0.05
-  parallexEffectY: 0.06
 --- !u!1 &987370808
 GameObject:
   m_ObjectHideFlags: 0
@@ -219027,6 +219003,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1293676454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5370123826274843984, guid: f4eb5df506d8cd746bb993d4b9fb31ed, type: 3}
+  m_PrefabInstance: {fileID: 731534914}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1294806029
 GameObject:
   m_ObjectHideFlags: 0
@@ -356246,7 +356227,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1557020071}
   - component: {fileID: 1557020073}
-  - component: {fileID: 1557020072}
   m_Layer: 0
   m_Name: MidParallax
   m_TagString: Untagged
@@ -356272,24 +356252,6 @@ Transform:
   - {fileID: 74019246}
   m_Father: {fileID: 655565430}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1557020072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1557020070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bd6723864b40d248b60befb42b94909, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BackgroundController
-  cam: {fileID: 1241669791}
-  parallaxPoint: {fileID: 723135596}
-  enableXParallax: 1
-  enableYParallax: 0
-  parallexEffectX: 0.025
-  parallexEffectY: 0.05
 --- !u!210 &1557020073
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -455651,6 +455613,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6287765120938365995, guid: 79b0ba6dc1cc7a54e84e3704955861de, type: 3}
   m_PrefabInstance: {fileID: 1006984328}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1865137341 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8393862373991772850, guid: 79b0ba6dc1cc7a54e84e3704955861de, type: 3}
+  m_PrefabInstance: {fileID: 1006984328}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7e2cb747c9c264da7a01edb0f19f6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPlayerHUD
 --- !u!1001 &1867180724
 PrefabInstance:
   m_ObjectHideFlags: 0
