@@ -198322,7 +198322,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: bb9fe56e87de9d04cbddb22dd7c7495f, type: 2}
-  m_InitialState: 0
+  m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -198335,8 +198335,6 @@ PlayableDirector:
     value: {fileID: 840394810}
   - key: {fileID: 6480438696620863466, guid: bb9fe56e87de9d04cbddb22dd7c7495f, type: 2}
     value: {fileID: 213202457}
-  - key: {fileID: 4284363626783162659, guid: bb9fe56e87de9d04cbddb22dd7c7495f, type: 2}
-    value: {fileID: 1293676454}
   m_ExposedReferences:
     m_References:
     - 64a8c3d08a9a07d4e9d8d73da9348e57: {fileID: 1546397055}
@@ -198420,6 +198418,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f9e2408e0332e224fbb2562a891074ca, type: 2}
     - {fileID: 11400000, guid: 8f5ec32931390c1448945e363b32dcda, type: 2}
     - {fileID: 11400000, guid: 178bb30d0250d1a4c93d785a52c3c46e, type: 2}
+    - {fileID: 11400000, guid: 3adf5ba07bee60e4e931ef7fdeaf7cbc, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls: []
@@ -198476,6 +198475,18 @@ MonoBehaviour:
         - m_Target: {fileID: 1865137341}
           m_TargetAssemblyTypeName: UIPlayerHUD, Assembly-CSharp
           m_MethodName: Hide
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1293676455}
+          m_TargetAssemblyTypeName: TransLoadingHUD, Assembly-CSharp
+          m_MethodName: Show
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -198548,6 +198559,20 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 1
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1293676455}
+          m_TargetAssemblyTypeName: TransLoadingHUD, Assembly-CSharp
+          m_MethodName: FadeHide
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0.5
+            m_StringArgument: 
+            m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &840394811
 MonoBehaviour:
@@ -219003,11 +219028,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1293676454 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5370123826274843984, guid: f4eb5df506d8cd746bb993d4b9fb31ed, type: 3}
+--- !u!114 &1293676455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2015222164024086720, guid: f4eb5df506d8cd746bb993d4b9fb31ed, type: 3}
   m_PrefabInstance: {fileID: 731534914}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4100a4f38a2a164f8c0535c01da5031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TransLoadingHUD
 --- !u!1 &1294806029
 GameObject:
   m_ObjectHideFlags: 0
