@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a1dc9c109c33664d872aa4993ddcde8, type: 3}
+  m_Name: CraftQTESlot
+  m_EditorClassIdentifier: Assembly-CSharp::ItemIconDatabase
+  entries:
+  - itemType: 5
+    itemName: Cherry
+    itemIcon: {fileID: 21300000, guid: 7443045de2cf5574b9e899d779e14271, type: 3}
+  - itemType: 6
+    itemName: Orange
+    itemIcon: {fileID: 21300000, guid: bbb8630da29ba2c42a8fba881cffeb10, type: 3}
+  - itemType: 7
+    itemName: Jormungandr's Flower
+    itemIcon: {fileID: 5732038466841448472, guid: 7d2d81ce020ad3d498dbdfe620cbbc62, type: 3}
+  - itemType: 0
+    itemName: Sparkly Frog
+    itemIcon: {fileID: 912327286320114756, guid: 640236a1b5bd1ff41be128d528e5f6a1, type: 3}

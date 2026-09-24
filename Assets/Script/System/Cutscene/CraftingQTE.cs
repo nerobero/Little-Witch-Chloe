@@ -25,7 +25,8 @@ public class CraftingQTE : MonoBehaviour
     [SerializeField] private PlayableDirector _director;
     [SerializeField] private PlayerAnimController _animController;
 
-    private readonly List<Vector2> _sequence = new List<Vector2>(CardinalDirections);
+    private readonly List<Vector2> _sequence = new List<Vector2>();
+    private readonly List<ECollectable> _sequenceIngredients = new List<ECollectable>();
 
     private int _comboIndex;
     private bool _isActive;
@@ -69,24 +70,51 @@ public class CraftingQTE : MonoBehaviour
             return;
         }
 #endif
-        ShuffleSequence();
+        BuildSequence();
         _comboIndex = 0;
         _isActive = true;
 
         _director.Pause();
         PlayerController.Instance.InputContext.BaseInputAction.Disable();
         PlayerController.Instance.InputContext.CraftQTE.Enable();
+
+        UICraftingQTE ui = UIManager.Instance.Get<UICraftingQTE>();
+        ui.Initialize(_sequence, _sequenceIngredients);
+        ui.Show();
     }
 
     /// <summary>
-    /// Fisher-Yates shuffle of the four cardinal directions, done fresh each attempt.
+    /// Builds this attempt's combo: one direction/ingredient pair per required ingredient
+    /// type of the current level (capped to the four cardinal directions), shuffled together
+    /// so each slot's direction and ingredient icon stay tied to one another.
     /// </summary>
-    private void ShuffleSequence()
+    private void BuildSequence()
     {
-        for (int i = _sequence.Count - 1; i > 0; i--)
+        List<ECollectable> ingredients = LovePotionManager.Instance.GetObjectiveIngredients(_currentLevel);
+        int slotCount = Mathf.Min(ingredients.Count, CardinalDirections.Length);
+
+        List<Vector2> directions = new List<Vector2>(CardinalDirections);
+        ShuffleList(directions);
+        ShuffleList(ingredients);
+
+        _sequence.Clear();
+        _sequenceIngredients.Clear();
+        for (int i = 0; i < slotCount; i++)
+        {
+            _sequence.Add(directions[i]);
+            _sequenceIngredients.Add(ingredients[i]);
+        }
+    }
+
+    /// <summary>
+    /// Fisher-Yates shuffle, done fresh each attempt.
+    /// </summary>
+    private static void ShuffleList<T>(List<T> list)
+    {
+        for (int i = list.Count - 1; i > 0; i--)
         {
             int swapIndex = UnityEngine.Random.Range(0, i + 1);
-            (_sequence[i], _sequence[swapIndex]) = (_sequence[swapIndex], _sequence[i]);
+            (list[i], list[swapIndex]) = (list[swapIndex], list[i]);
         }
     }
 
@@ -127,6 +155,7 @@ public class CraftingQTE : MonoBehaviour
         LovePotionManager.Instance.ConsumeIngredients(_currentLevel);
         LovePotionManager.Instance.OnLovePotionMade();
 
+        UIManager.Instance.Get<UICraftingQTE>().Hide();
         _director.Play();
 
         OnQTESucceeded?.Invoke();

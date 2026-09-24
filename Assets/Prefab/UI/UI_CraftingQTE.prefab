@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 1862634938249440700}
   - component: {fileID: 4346386371198064685}
   - component: {fileID: 942166004116474350}
+  - component: {fileID: 7556592932477095739}
   m_Layer: 5
   m_Name: UI_CraftingQTE
   m_TagString: Untagged
@@ -147,6 +148,33 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7556592932477095739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2465594919297790156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f304cb7d4c4107419f3b3ee66775f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UICraftingQTE
+  root: {fileID: 2130855321909866319}
+  isStackable: 0
+  isPauseable: 0
+  isInputDisable: 0
+  _slotGroup: {fileID: 6127623841869124907}
+  _itemIconDatabase: {fileID: 11400000, guid: 4ab57705298a0e44fb0d114c697372c6, type: 2}
+  _directionKeySprites:
+  - direction: {x: 1, y: 0}
+    keySprite: {fileID: -5131799650079341723, guid: 022cc958b96ee2040b7be9e80c99eb2c, type: 3}
+  - direction: {x: 0, y: 1}
+    keySprite: {fileID: -4273987248210171899, guid: 022cc958b96ee2040b7be9e80c99eb2c, type: 3}
+  - direction: {x: -1, y: 0}
+    keySprite: {fileID: 4508224336728285508, guid: 022cc958b96ee2040b7be9e80c99eb2c, type: 3}
+  - direction: {x: 0, y: -1}
+    keySprite: {fileID: 4703671688645843670, guid: 022cc958b96ee2040b7be9e80c99eb2c, type: 3}
 --- !u!1 &6127623841869124907
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +457,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_CraftQTESlot
       objectReference: {fileID: 0}
+    - target: {fileID: 6740268721895973281, guid: 4e95b963e139453469e4bd2377f7661e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4273987248210171899, guid: 022cc958b96ee2040b7be9e80c99eb2c, type: 3}
     - target: {fileID: 7074160420891280786, guid: 4e95b963e139453469e4bd2377f7661e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

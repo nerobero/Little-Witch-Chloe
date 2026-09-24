@@ -65,6 +65,24 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
     }
 
     /// <summary>
+    /// Gets the ingredient types required for a level, e.g. for the crafting QTE to pair
+    /// each direction slot with the ingredient icon it represents.
+    /// </summary>
+    /// <param name="currentLevel"></param>
+    /// <returns></returns>
+    public List<ECollectable> GetObjectiveIngredients(ELevelType currentLevel)
+    {
+        if (!_levelObjectives.ContainsKey(currentLevel))
+            return new List<ECollectable>();
+
+        List<ECollectable> ingredients = new List<ECollectable>();
+        foreach (ObjectiveData data in _levelObjectives[currentLevel])
+            ingredients.Add(data.collectableType);
+
+        return ingredients;
+    }
+
+    /// <summary>
     /// Gets the total required ingredient amount across all types for a level,
     /// used to compute the ingredient-collection share of the level's progress bar.
     /// </summary>
