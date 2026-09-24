@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class TimelineDialogue : MonoBehaviour
 {
@@ -12,31 +13,14 @@ public class TimelineDialogue : MonoBehaviour
     private bool isTimelineDialogueActive;
     private bool waitingForNext;
     private bool passWaiting;
-    private int currentDialogueIndex = 0;
+    private int currentDialogueIndex = 3;
 
     private int cutIndex;
     private bool cutHeld;
+    [SerializeField] private BaseCharacterAnimController _animController;
 
-    // private void Update()
-    // {
-    //     if (!isTimelineDialogueActive || cutHeld) return;
-    //     if (cutIndex < cutEndTimes.Count && director.time >= cutEndTimes[cutIndex])
-    //     {
-    //         director.time = cutEndTimes[cutIndex];
-    //         director.playableGraph.GetRootPlayable(0).SetSpeed(0);
-    //         cutHeld = true;
-    //         Debug.Log($"[Update-based Pause] time={director.time}");
-    //     }
-    // }
-
-    private void OnEnable()
+    private void Start()
     {
-        Debug.Log($"TimelineDialogue: Bind with DialogueSystem in the OnEnable");
-        DialogueSystem.Instance.NextRequested += HandleNext;
-
-        director.played += OnDirectorPlayed;
-        director.paused += OnDirectorPaused;
-
         dialogueTimepoints.Clear();
 
         TimelineAsset timelineAsset = director.playableAsset as TimelineAsset;
@@ -46,7 +30,9 @@ public class TimelineDialogue : MonoBehaviour
             return;
         }
 
-        foreach(var track in timelineAsset.GetOutputTracks())
+        IEnumerable<TrackAsset> tracks = timelineAsset.GetOutputTracks();
+
+        foreach(var track in tracks)
         {
             // Find SignalTrack
             if(track is SignalTrack signalTrack)
@@ -75,11 +61,31 @@ public class TimelineDialogue : MonoBehaviour
             }
         }
 
-        
         if(dialogueTimepoints.Count > 0 && dialogueTimepoints[0] != 0)
         {
             dialogueTimepoints.Insert(0, 0);
         }
+        
+        // foreach(var track in tracks)
+        // {
+        //     if(track is AnimationTrack)
+        //     {
+        //         Object bound = director.GetGenericBinding(track);
+
+
+        //     }
+        // }
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log($"TimelineDialogue: Bind with DialogueSystem in the OnEnable");
+        DialogueSystem.Instance.NextRequested += HandleNext;
+
+        director.played += OnDirectorPlayed;
+        director.paused += OnDirectorPaused;
+
+        
     }
 
     private void OnDisable()
@@ -98,12 +104,6 @@ public class TimelineDialogue : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (isTimelineDialogueActive)
-            Debug.Log($"[TimelineDialogue] Update: state={director.state}, time={director.time}, speed={director.playableGraph.GetRootPlayable(0).GetSpeed()}, frame={Time.frameCount}");
-    }
-
     public void BeginDialogue(int startLineId)
     {
         if(DialogueSystem.Instance.IsPlaying)
@@ -119,7 +119,7 @@ public class TimelineDialogue : MonoBehaviour
         DialogueSystem.Instance.StartDialogue((uint)startLineId);
         isTimelineDialogueActive = DialogueSystem.Instance.IsPlaying;
 
-        currentDialogueIndex = 1;
+        currentDialogueIndex = 3;
         director.time = dialogueTimepoints[0];
         Debug.Log($"DialogueSystem : isTimelineDialogueActive = {isTimelineDialogueActive}");
     }
@@ -133,7 +133,9 @@ public class TimelineDialogue : MonoBehaviour
 
         // director?.Pause();
         waitingForNext = true;
-        director?.playableGraph.GetRootPlayable(0).SetSpeed(0);
+        //currentDialogueIndex++;
+        //director?.playableGraph.GetRootPlayable(0).SetSpeed(0);
+        director?.Pause();
         Debug.Log($"DialogueSystem : Pause CutScene, time={director.time}");
     }
 
@@ -163,7 +165,7 @@ public class TimelineDialogue : MonoBehaviour
         currentDialogueIndex++;
         if(currentDialogueIndex < dialogueTimepoints.Count)
         {
-            float nextTime = dialogueTimepoints[currentDialogueIndex] + 0.02f;
+            float nextTime = dialogueTimepoints[currentDialogueIndex];
             director.time = nextTime;
             Debug.Log($"[TimelineDialogue] Jump to {nextTime}s");
         }
@@ -173,9 +175,9 @@ public class TimelineDialogue : MonoBehaviour
             isTimelineDialogueActive = false;            
 
         waitingForNext = false;
-        director?.playableGraph.GetRootPlayable(0).SetSpeed(1);
+        //director?.playableGraph.GetRootPlayable(0).SetSpeed(1);
         director?.Resume();
-        Debug.Log($"[TimelineDialogue] director speed is {director?.playableGraph.GetRootPlayable(0).GetSpeed()}s");
+        //Debug.Log($"[TimelineDialogue] director speed is {director?.playableGraph.GetRootPlayable(0).GetSpeed()}s");
         return true;
     }
 
@@ -187,5 +189,17 @@ public class TimelineDialogue : MonoBehaviour
     private void OnDirectorPaused(PlayableDirector value)
     {
         Debug.Log($"DialogueSystem[Director] PAUSED / frame={Time.frameCount} / time={value.time}");
+    }
+
+    public void StartPauseAnim()
+    {
+        _animController.SetToWalk(false);
+        _animController.SetToIdle();
+    }
+
+    public void StartMoveAnim()
+    {
+        _animController.SetToWalk(true);
+        currentDialogueIndex++;
     }
 }
