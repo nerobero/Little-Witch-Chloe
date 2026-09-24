@@ -22669,7 +22669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9169097736380440220, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -198978,6 +198978,18 @@ MonoBehaviour:
         - m_Target: {fileID: 1546397059}
           m_TargetAssemblyTypeName: SignalParticlePlayer, Assembly-CSharp
           m_MethodName: PlayParticles
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 2477776416625318779}
+          m_TargetAssemblyTypeName: UICraftingQTE, Assembly-CSharp
+          m_MethodName: Show
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -471570,6 +471582,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4049452042624470593, guid: 38230b0425645bc42be3a29f2c62abd0, type: 3}
   m_PrefabInstance: {fileID: 2477776416625318777}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2477776416625318779 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7556592932477095739, guid: 38230b0425645bc42be3a29f2c62abd0, type: 3}
+  m_PrefabInstance: {fileID: 2477776416625318777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f304cb7d4c4107419f3b3ee66775f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UICraftingQTE
 --- !u!1001 &2554677446701372606
 PrefabInstance:
   m_ObjectHideFlags: 0
