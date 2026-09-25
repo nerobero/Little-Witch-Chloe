@@ -120,7 +120,7 @@ public class TimelineDialogue : MonoBehaviour
         isTimelineDialogueActive = DialogueSystem.Instance.IsPlaying;
 
         currentDialogueIndex = 3;
-        director.time = dialogueTimepoints[0];
+        //director.time = dialogueTimepoints[currentDialogueIndex];
         Debug.Log($"DialogueSystem : isTimelineDialogueActive = {isTimelineDialogueActive}");
     }
 
@@ -136,7 +136,7 @@ public class TimelineDialogue : MonoBehaviour
         //currentDialogueIndex++;
         //director?.playableGraph.GetRootPlayable(0).SetSpeed(0);
         director?.Pause();
-        Debug.Log($"DialogueSystem : Pause CutScene, time={director.time}");
+        Debug.Log($"DialogueSystem : Pause CutScene, time={director.time} (index: {currentDialogueIndex})");
     }
 
     private void FinishWaiting()
@@ -167,7 +167,7 @@ public class TimelineDialogue : MonoBehaviour
         {
             float nextTime = dialogueTimepoints[currentDialogueIndex];
             director.time = nextTime;
-            Debug.Log($"[TimelineDialogue] Jump to {nextTime}s");
+            Debug.Log($"[TimelineDialogue] Jump to {nextTime}s (index: {currentDialogueIndex})");
         }
         
         DialogueSystem.Instance.Advance();
