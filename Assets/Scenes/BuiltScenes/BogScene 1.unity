@@ -23759,7 +23759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &207691244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24231,6 +24231,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c39047208ced4b46bee87c5a2060aac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimController
+--- !u!212 &213202461 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4564149981406015731, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
+  m_PrefabInstance: {fileID: 213202456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &213202470 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2359629239483136251, guid: 782c5cb7fa4dd9d489f90a2fcd5bf9dc, type: 3}
@@ -192451,7 +192456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5370123826274843984, guid: f4eb5df506d8cd746bb993d4b9fb31ed, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5656932105518334870, guid: f4eb5df506d8cd746bb993d4b9fb31ed, type: 3}
       propertyPath: m_Pivot.x
@@ -198846,6 +198851,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 8f5ec32931390c1448945e363b32dcda, type: 2}
     - {fileID: 11400000, guid: 178bb30d0250d1a4c93d785a52c3c46e, type: 2}
     - {fileID: 11400000, guid: 3adf5ba07bee60e4e931ef7fdeaf7cbc, type: 2}
+    - {fileID: 11400000, guid: 06ebb3c9551a53c429bb8bd2a9f27ec4, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls: []
@@ -198919,6 +198925,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 213202461}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sortingOrder
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -199010,6 +199028,32 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0.5
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1092713112}
+          m_TargetAssemblyTypeName: PlayerMoveWaypoint, Assembly-CSharp
+          m_MethodName: MovePlayerHere
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1546397059}
+          m_TargetAssemblyTypeName: SignalParticlePlayer, Assembly-CSharp
+          m_MethodName: StopParticles
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -200584,7 +200628,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -87637703
   m_SortingLayer: -7
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0
 --- !u!1 &870960424
@@ -205578,7 +205622,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 1462833767
   m_SortingLayer: -5
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0
 --- !u!1 &987370808
@@ -356743,7 +356787,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -665974335
   m_SortingLayer: -6
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0
 --- !u!1 &1557325194
@@ -471459,6 +471503,10 @@ PrefabInstance:
     - target: {fileID: 2465594919297790156, guid: 38230b0425645bc42be3a29f2c62abd0, type: 3}
       propertyPath: m_Name
       value: UI_CraftingQTE
+      objectReference: {fileID: 0}
+    - target: {fileID: 2465594919297790156, guid: 38230b0425645bc42be3a29f2c62abd0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4049452042624470593, guid: 38230b0425645bc42be3a29f2c62abd0, type: 3}
       propertyPath: m_Pivot.x
