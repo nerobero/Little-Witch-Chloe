@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using Types;
 using UnityEngine;
 
@@ -12,11 +13,21 @@ public class UICraftingQTE : UIBase
         public Sprite keySprite;
     }
 
+    [SerializeField] private CraftingQTE _craftingQTE;
     [SerializeField] private GameObject _slotGroup;
     [SerializeField] private ItemIconDatabase _itemIconDatabase;
     [SerializeField] private List<DirectionKeySprite> _directionKeySprites;
 
+    [Header("Wrong Input Jitter")]
+    [SerializeField] private float _jitterDuration = 0.25f;
+    [SerializeField] private float _jitterStrength = 12f;
+    [SerializeField] private int _jitterVibrato = 20;
+    [SerializeField] private float _jitterRandomness = 90f;
+
     private readonly List<UICraftingQTESlot> _uiSlots = new List<UICraftingQTESlot>();
+
+    private RectTransform _slotGroupRect;
+    private Vector2 _slotGroupOriginalPos;
 
     /// <summary>
     /// Lays out one slot per (direction, ingredient) pair. Directions and ingredients are
@@ -47,6 +58,22 @@ public class UICraftingQTE : UIBase
             return;
 
         _uiSlots.AddRange(_slotGroup.GetComponentsInChildren<UICraftingQTESlot>(true));
+
+        _slotGroupRect = _slotGroup.GetComponent<RectTransform>();
+        _slotGroupOriginalPos = _slotGroupRect.anchoredPosition;
+    }
+
+    /// <summary>
+    /// Redraws the reshuffled sequence and jitters the slot group. Restarts the jitter
+    /// from scratch on every wrong input, even if a previous jitter is still playing.
+    /// </summary>
+    private void HandleComboReset(List<Vector2> sequence, List<ECollectable> ingredients)
+    {
+        Initialize(sequence, ingredients);
+
+        _slotGroupRect.DOKill();
+        _slotGroupRect.anchoredPosition = _slotGroupOriginalPos;
+        _slotGroupRect.DOShakeAnchorPos(_jitterDuration, _jitterStrength, _jitterVibrato, _jitterRandomness, false, true);
     }
 
     private Sprite GetKeySprite(Vector2 direction)
@@ -70,10 +97,12 @@ public class UICraftingQTE : UIBase
 
     protected override void SubscribeEvents()
     {
+        _craftingQTE.OnComboReset += HandleComboReset;
     }
 
     protected override void UnsubscribeEvents()
     {
+        _craftingQTE.OnComboReset -= HandleComboReset;
     }
 
 

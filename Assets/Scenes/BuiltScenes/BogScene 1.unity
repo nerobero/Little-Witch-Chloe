@@ -192456,7 +192456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5370123826274843984, guid: f4eb5df506d8cd746bb993d4b9fb31ed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5656932105518334870, guid: f4eb5df506d8cd746bb993d4b9fb31ed, type: 3}
       propertyPath: m_Pivot.x
@@ -198941,6 +198941,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1460472225}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: StopAllMusic
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1152021227}
@@ -199028,6 +199040,18 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0.5
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1460472225}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: PlayOverworld
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -333583,6 +333607,17 @@ PrefabInstance:
       addedObject: {fileID: 963689548}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+--- !u!114 &1460472225 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2490754875906846336, guid: 6ab4c6dd03bb8a6479bf87f1059a644f, type: 3}
+  m_PrefabInstance: {fileID: 1460472224}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70591a65b82f7034290da3b56f1ae779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundManager
 --- !u!1 &1461365293
 GameObject:
   m_ObjectHideFlags: 0
@@ -471620,6 +471655,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7556592932477095739, guid: 38230b0425645bc42be3a29f2c62abd0, type: 3}
+      propertyPath: _craftingQTE
+      value: 
+      objectReference: {fileID: 840394811}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

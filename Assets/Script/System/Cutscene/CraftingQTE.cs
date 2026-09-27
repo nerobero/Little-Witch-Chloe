@@ -34,8 +34,8 @@ public class CraftingQTE : MonoBehaviour
 
     /// <summary>Current combo index and total sequence length, so UI can render progress.</summary>
     public event Action<int, int> OnComboProgress;
-    /// <summary>Fired when a wrong input resets combo progress back to 0.</summary>
-    public event Action OnComboReset;
+    /// <summary>Fired when a wrong input resets combo progress back to 0, carrying the reshuffled sequence.</summary>
+    public event Action<List<Vector2>, List<ECollectable>> OnComboReset;
     /// <summary>Fired instead of starting the QTE when ingredients are insufficient.</summary>
     public event Action OnQTEBlocked;
     public event Action OnQTESucceeded;
@@ -140,8 +140,9 @@ public class CraftingQTE : MonoBehaviour
         }
         else
         {
+            BuildSequence();
             _comboIndex = 0;
-            OnComboReset?.Invoke();
+            OnComboReset?.Invoke(_sequence, _sequenceIngredients);
         }
     }
 
