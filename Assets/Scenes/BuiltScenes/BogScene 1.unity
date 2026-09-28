@@ -198776,6 +198776,8 @@ PlayableDirector:
     value: {fileID: 840394810}
   - key: {fileID: 6480438696620863466, guid: bb9fe56e87de9d04cbddb22dd7c7495f, type: 2}
     value: {fileID: 213202457}
+  - key: {fileID: 1269404186826395864, guid: bb9fe56e87de9d04cbddb22dd7c7495f, type: 2}
+    value: {fileID: 185503334}
   m_ExposedReferences:
     m_References:
     - 64a8c3d08a9a07d4e9d8d73da9348e57: {fileID: 1546397055}
@@ -199128,18 +199130,6 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 185503334}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
           m_CallState: 2
 --- !u!114 &840394811
 MonoBehaviour:

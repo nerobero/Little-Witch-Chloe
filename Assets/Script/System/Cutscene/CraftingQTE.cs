@@ -150,9 +150,6 @@ public class CraftingQTE : MonoBehaviour
     {
         _isActive = false;
 
-        PlayerController.Instance.InputContext.CraftQTE.Disable();
-        PlayerController.Instance.InputContext.BaseInputAction.Enable();
-
         LovePotionManager.Instance.ConsumeIngredients(_currentLevel);
         LovePotionManager.Instance.OnLovePotionMade();
 
@@ -164,6 +161,8 @@ public class CraftingQTE : MonoBehaviour
     public void ResetAnimation()
     {
         _animController.SetToStopFlying();
+        PlayerController.Instance.InputContext.CraftQTE.Disable();
+        PlayerController.Instance.InputContext.BaseInputAction.Enable();
     }
 
     private static Vector2 SnapToCardinal(Vector2 input)
