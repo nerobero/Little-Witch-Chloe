@@ -151,6 +151,11 @@ public class BaseCharacterMovement : MonoBehaviour
         return hit.collider != null ? hit.collider.gameObject.layer : _characterLayer;
     }
 
+    public virtual LayerMask GetGroundMask()
+    {
+       return _isBackground ? bgLayer : fgLayer;
+    }
+
     /// <summary>
     /// Sets the player's move direction. Also flips the character via anim controller
     /// -1 = left
