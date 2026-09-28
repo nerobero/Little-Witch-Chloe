@@ -77,7 +77,25 @@ namespace Types
         HPItem,
         StaminaItem,
         Collections,
+        // PC charged attack projectiles, one per normal spell above.
+        // Appended at the end (rather than next to their normal counterparts)
+        // so existing serialized ESpawnType values above are not renumbered.
+        ChargedFireBall,
+        ChargedWaterBall,
+        ChargedElectricBall,
+        ChargedPoisonBall,
+        ChargedLightBall,
         None, // the end and nothing
+    }
+
+    /// <summary>
+    /// Lifecycle phase of a charged attack projectile (<see cref="ChargedProjectileBase"/>).
+    /// </summary>
+    public enum EChargedProjectilePhase
+    {
+        Charge = 0,
+        Execute,
+        Dissipate,
     }
 
     /// <summary>

@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     #endregion
 
     [Header("Attack - Input hold duration")]
-    [SerializeField] private float chargeThreshold = 1.5f; // seconds to trigger a charged attack
+    [SerializeField] private float chargeThreshold = 3f; // seconds to trigger a charged attack
     [SerializeField] private float maxChargeTime = 3f;
     private float _attackPressTime = -1f;
 
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     // the charge logic is directly related to the actual timestamp,
     // which is not something that accumlates PER frame
     public float CurrentChargeRatio =>
-        _attackPressTime < 0f ? 0f : Mathf.Clamp01((Time.time - _attackPressTime / maxChargeTime));
+        _attackPressTime < 0f ? 0f : Mathf.Clamp01((Time.time - _attackPressTime) / maxChargeTime);
 
 
     // Jump => Flying transition related variables:

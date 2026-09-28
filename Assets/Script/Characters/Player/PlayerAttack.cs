@@ -1,4 +1,6 @@
 using UnityEngine;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using Types;
 
@@ -13,6 +15,10 @@ public class PlayerAttack : MonoBehaviour
     [Header("Chloe's attack stats")]
     [SerializeField] private float chargeAttackCDtime = 0f;
     [SerializeField] private float changeSpellCDtime = 0f;
+    private bool _canFireCharged = true;
+    public bool CanFireCharged => _canFireCharged;
+    // fired every tick while the charged attack is cooling down; remaining seconds
+    public event Action<float> OnChargedAttackCooldown;
     // duration of inactivity before disabling the shoot-point
     [SerializeField] private float attackIdleTime = 1.5f;
 
@@ -142,12 +148,61 @@ public class PlayerAttack : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Maps a normal castable spell to its charged-attack counterpart.
     /// </summary>
-    /// <param name="chargeRatio"></param>
+    private static ESpawnType GetChargedSpawnType(ESpawnType normalType)
+    {
+        switch (normalType)
+        {
+            case ESpawnType.FireBall: return ESpawnType.ChargedFireBall;
+            case ESpawnType.WaterBall: return ESpawnType.ChargedWaterBall;
+            case ESpawnType.ElectricBall: return ESpawnType.ChargedElectricBall;
+            case ESpawnType.PoisonBall: return ESpawnType.ChargedPoisonBall;
+            case ESpawnType.LightBall: return ESpawnType.ChargedLightBall;
+            default: return ESpawnType.None;
+        }
+    }
+
+    /// <summary>
+    /// Fires the charged attack for the currently selected spell type, then
+    /// starts the charged-attack cooldown. Only the charged attack is gated by
+    /// this cooldown - the normal attack remains usable while it is on cooldown.
+    /// </summary>
+    /// <param name="chargeRatio">how fully the attack was charged, 0.0 (min) - 1.0 (full)</param>
     public void FireCharged(float chargeRatio)
     {
+        if (!_canFireCharged) return;
 
+        ESpawnType chargedType = GetChargedSpawnType(_currentSpell);
+        if (chargedType == ESpawnType.None) return;
+
+        if (SetEnabledShootPoint(true))
+        {
+            var projectile = PoolObjectManager.Instance.Get(chargedType).GetComponent<ChargedProjectileBase>();
+            if (projectile == null) return;
+
+            _ATKTimeSnapshot = Time.time;
+            _chargedATKTimeSnapshot = Time.time;
+            _animController.SetToIsAttacking();
+            bool isProjectileBG = isBackground ^ _isCrossPlatform;
+            projectile.OnFired(_firePoint, _aimAngleDeg, FinalDamage, isProjectileBG, gameObject, _stat, chargeRatio);
+
+            StartCoroutine(ChargedAttackCooldownRoutine(chargeAttackCDtime));
+        }
+    }
+
+    private IEnumerator ChargedAttackCooldownRoutine(float cool)
+    {
+        _canFireCharged = false;
+
+        while (cool > 0f)
+        {
+            cool -= Time.deltaTime;
+            OnChargedAttackCooldown?.Invoke(Mathf.Max(cool, 0f));
+            yield return null;
+        }
+
+        _canFireCharged = true;
     }
 
     private void Update()
