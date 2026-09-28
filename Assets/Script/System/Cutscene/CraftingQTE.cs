@@ -161,6 +161,10 @@ public class CraftingQTE : MonoBehaviour
 
         OnQTESucceeded?.Invoke();
     }
+    public void ResetAnimation()
+    {
+        _animController.SetToStopFlying();
+    }
 
     private static Vector2 SnapToCardinal(Vector2 input)
     {

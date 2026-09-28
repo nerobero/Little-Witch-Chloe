@@ -22545,11 +22545,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3238275212811167906, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.07
+      value: 848.15
       objectReference: {fileID: 0}
     - target: {fileID: 3238275212811167906, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.32
+      value: 12.89
       objectReference: {fileID: 0}
     - target: {fileID: 3238275212811167906, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22585,11 +22585,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4359057531831849439, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 777.81
+      value: -36.61
       objectReference: {fileID: 0}
     - target: {fileID: 4359057531831849439, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.2
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807451909408316340, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
+      propertyPath: isBackground
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7328846205499533716, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
       propertyPath: m_SceneBindings.Array.size
@@ -22657,11 +22661,11 @@ PrefabInstance:
       objectReference: {fileID: 818867379}
     - target: {fileID: 8166473367356917606, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 780.04
+      value: -34.379993
       objectReference: {fileID: 0}
     - target: {fileID: 8166473367356917606, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.2
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: 9169097736380440220, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
       propertyPath: m_Name
@@ -22679,6 +22683,11 @@ PrefabInstance:
       addedObject: {fileID: 818867382}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
+--- !u!1 &185503334 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9169097736380440220, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
+  m_PrefabInstance: {fileID: 185503333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &186199402
 GameObject:
   m_ObjectHideFlags: 0
@@ -198852,6 +198861,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 178bb30d0250d1a4c93d785a52c3c46e, type: 2}
     - {fileID: 11400000, guid: 3adf5ba07bee60e4e931ef7fdeaf7cbc, type: 2}
     - {fileID: 11400000, guid: 06ebb3c9551a53c429bb8bd2a9f27ec4, type: 2}
+    - {fileID: 11400000, guid: fd5a6476b61f7e44fbf99200e57eaea3, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls: []
@@ -198951,10 +198961,22 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 1460472225}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: SetGlobalValue
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 1152021227}
           m_TargetAssemblyTypeName: PlayerMoveWaypoint, Assembly-CSharp
           m_MethodName: MovePlayerHere
@@ -199045,13 +199067,25 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1460472225}
           m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-          m_MethodName: PlayOverworld
+          m_MethodName: PlayMainMusic
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1460472225}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: SetGlobalValue
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 1
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -199080,6 +199114,32 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 840394811}
+          m_TargetAssemblyTypeName: CraftingQTE, Assembly-CSharp
+          m_MethodName: ResetAnimation
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 185503334}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!114 &840394811
 MonoBehaviour:
