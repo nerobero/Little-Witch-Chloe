@@ -99,6 +99,19 @@ namespace Types
     }
 
     /// <summary>
+    /// How a charged attack behaves during its Execute phase.
+    /// </summary>
+    public enum EChargedDeliveryMode
+    {
+        // travels for a flight duration, then settles in place and periodically
+        // bursts AoE damage around itself (e.g. a bomb that flies in, then keeps exploding)
+        Projectile = 0,
+        // never moves from the cast point (though it may spin in place cosmetically)
+        // and periodically bursts AoE damage around itself for the whole execute duration
+        Stationary,
+    }
+
+    /// <summary>
     /// Defines a type of buff or debuff effect that can be granted
     /// and be managed by the stat
     /// </summary>
