@@ -132,9 +132,19 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 12, y: 13}
+        - {x: -13, y: 13}
+        - {x: -13, y: -2}
+        - {x: -11, y: -12}
+        - {x: 12, y: -12}
+      physicsShape:
+      - - {x: 12, y: 13}
+        - {x: -13, y: 13}
+        - {x: -13, y: -2}
+        - {x: -11, y: -12}
+        - {x: 12, y: -12}
+      tessellationDetail: 0
       bones: []
       spriteID: 76f0bc3ffb82be4c0800000000000000
       internalID: -4257264217854636185
@@ -154,9 +164,19 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 15, y: 11}
+        - {x: 11, y: 14}
+        - {x: -15, y: 14}
+        - {x: -15, y: -13}
+        - {x: 13, y: -13}
+      physicsShape:
+      - - {x: 15, y: 11}
+        - {x: 11, y: 14}
+        - {x: -15, y: 14}
+        - {x: -15, y: -13}
+        - {x: 13, y: -13}
+      tessellationDetail: 0
       bones: []
       spriteID: be3442cf24f6bc580800000000000000
       internalID: -8805822312904113173
@@ -176,9 +196,19 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 17, y: 15}
+        - {x: 14, y: -14}
+        - {x: -15, y: -13}
+        - {x: -16, y: 14}
+        - {x: -8, y: 16}
+      physicsShape:
+      - - {x: 17, y: 15}
+        - {x: 14, y: -14}
+        - {x: -15, y: -13}
+        - {x: -16, y: 14}
+        - {x: -8, y: 16}
+      tessellationDetail: 0
       bones: []
       spriteID: 909d0686cd76c4c70800000000000000
       internalID: 8956647955274717449
@@ -198,9 +228,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: 14, y: -13}
+        - {x: 18, y: 16}
+        - {x: 2, y: 16}
+        - {x: -15, y: 12}
+        - {x: -17, y: -4}
+        - {x: -5, y: -15}
+      physicsShape:
+      - - {x: 14, y: -13}
+        - {x: 18, y: 16}
+        - {x: 2, y: 16}
+        - {x: -15, y: 12}
+        - {x: -17, y: -4}
+        - {x: -5, y: -15}
+      tessellationDetail: 0
       bones: []
       spriteID: 76d7fb9ba59271680800000000000000
       internalID: -8784507078522733209
