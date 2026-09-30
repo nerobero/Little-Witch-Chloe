@@ -43,6 +43,9 @@ public class ChargedProjectileBase : MonoBehaviour, IResetable
     [Header("Execute - periodic AoE damage (both modes)")]
     [SerializeField] private float damageTickInterval = 1f;
     [SerializeField] private float damageRadius = 1f;
+    // when true, the AoE burst uses a capsule shape (damageRadius + damageHalfHeight) instead of a circle
+    [SerializeField] private bool useCapsuleAoE = false;
+    [SerializeField] private float damageHalfHeight = 0f;
 
     private Collider2D _collider;
     private Rigidbody2D _projRB;
@@ -176,7 +179,11 @@ public class ChargedProjectileBase : MonoBehaviour, IResetable
     private void DealBurstDamage()
     {
         string instigatorLayerName = LayerMask.LayerToName(instigator.layer);
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, damageRadius);
+        // capsule size.x is the total length (the two end-cap centers are damageHalfHeight apart,
+        // plus a damageRadius cap on each end); size.y is the diameter of the rounded caps
+        Collider2D[] hits = useCapsuleAoE
+            ? Physics2D.OverlapCapsuleAll(transform.position, new Vector2(damageHalfHeight * 2f + damageRadius * 2f, damageRadius * 2f), CapsuleDirection2D.Vertical, 0f)
+            : Physics2D.OverlapCircleAll(transform.position, damageRadius);
 
         foreach (var hit in hits)
         {
@@ -229,6 +236,23 @@ public class ChargedProjectileBase : MonoBehaviour, IResetable
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, damageRadius);
+
+        if (useCapsuleAoE)
+            DrawWireCapsule2D(transform.position, damageRadius, damageHalfHeight);
+        else
+            Gizmos.DrawWireSphere(transform.position, damageRadius);
+    }
+
+    // Draws a horizontal capsule matching the shape passed to Physics2D.OverlapCapsuleAll:
+    // two end-cap circles of the given radius, their centers damageHalfHeight apart, joined by lines.
+    private static void DrawWireCapsule2D(Vector3 center, float capRadius, float halfHeight)
+    {
+        Vector3 up = center + new Vector3( 0f, halfHeight,0f);
+        Vector3 down = center - new Vector3(0f, halfHeight, 0f);
+
+        Gizmos.DrawWireSphere(up, capRadius);
+        Gizmos.DrawWireSphere(down, capRadius);
+        Gizmos.DrawLine(down + Vector3.right * capRadius, up + Vector3.right * capRadius);
+        Gizmos.DrawLine(down + Vector3.left * capRadius, up + Vector3.left * capRadius);
     }
 }

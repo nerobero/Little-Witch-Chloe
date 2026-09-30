@@ -202,10 +202,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639252638607564225
+  lastModified: 639259681419803604
   FileSizes:
   - Name: Desktop
-    Value: 3282
+    Value: 3326
   Exists: 1
 --- !u!114 &-5201378617633771360
 MonoBehaviour:
@@ -411,10 +411,10 @@ MonoBehaviour:
   Path: Little Witch Fmod/Little Witch/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639252638607554256
+  lastModified: 639259681419783653
   FileSizes:
   - Name: Desktop
-    Value: 9450368
+    Value: 9452256
   Exists: 1
 --- !u!114 &-4262239082927796618
 MonoBehaviour:
@@ -525,6 +525,33 @@ MonoBehaviour:
   - Intro
   - Main Loop
   Exists: 1
+--- !u!114 &-3593230624669038466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Healing Berry
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Healing Berry
+  Guid:
+    Data1: -2133425218
+    Data2: 1321877703
+    Data3: -1510980954
+    Data4: -448045319
+  Banks:
+  - {fileID: -4533339184958613913}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &-2928065123992906212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -835,6 +862,7 @@ MonoBehaviour:
   - {fileID: 3301440562566369206}
   - {fileID: 8831303060559051115}
   - {fileID: -6481229180935572184}
+  - {fileID: -3593230624669038466}
   EditorParameters:
   - {fileID: 2478196569288099822}
   - {fileID: 572125993231974450}
@@ -847,7 +875,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -5662479597483696475}
   cacheVersion: 131859
-  cacheTime: 639252638607564225
+  cacheTime: 639259681419803604
   SerializableEventsDict:
   - key: event:/MUSIC/Music Menu Select
     index: 0
@@ -949,6 +977,8 @@ MonoBehaviour:
     index: 48
   - key: event:/SFX/Pickup
     index: 49
+  - key: event:/SFX/Healing Berry
+    index: 50
 --- !u!114 &359156517584299351
 MonoBehaviour:
   m_ObjectHideFlags: 0
