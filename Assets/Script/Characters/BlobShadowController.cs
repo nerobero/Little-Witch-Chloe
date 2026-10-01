@@ -4,9 +4,9 @@ using UnityEngine;
 public class BlobShadowController : MonoBehaviour
 {
     public GameObject shadow;
-    //public RaycastHit hit;
     public float offset;
     private BaseCharacterMovement movementComp;
+    private SpriteRenderer shadowSR;
 
     [Header("size diff on the height")]
     public float maxHeight = 4f;                
@@ -17,6 +17,7 @@ public class BlobShadowController : MonoBehaviour
     private void Start()
     {
         movementComp = GetComponent<BaseCharacterMovement>();
+        shadowSR = shadow.GetComponent<SpriteRenderer>();
         _baseScale = shadow.transform.localScale;
     }
 
@@ -24,21 +25,31 @@ public class BlobShadowController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 origin = new Vector2(transform.position.x, transform.position.y - offset);
-        //Ray downRay = new Ray(new Vector3(this.transform.position.x, this.transform.position.y - offset, this.transform.position.z), -Vector3.up);
         RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, 20f, movementComp.GetGroundMask());
-        //Vector3 hitPosition = hit.point;
-        //shadow.transform.position = hitPosition;
 
         if (hit.collider)
         {
             shadow.SetActive(true);
             shadow.transform.position = new Vector3(origin.x, hit.point.y, shadow.transform.position.z);
 
-            float height = origin.y - hit.point.y;            
-            float t = Mathf.Clamp01(height / maxHeight);      
-            float multiplier = Mathf.Lerp(1f, minScaleMultiplier, t);
+            Debug.DrawLine(origin, hit.point, Color.red);
+            Debug.Log($"BlobShadowController: hit={hit.collider}");
+
+            // Change the scale of the shadow.
+            // height from the ground
+            float distance = hit.distance;
+            // 0: max height, 1: on the ground
+            float scaleRatio = Mathf.Clamp01(1 - (distance / maxHeight));
+            float multiplier = Mathf.Lerp(minScaleMultiplier, 1f, scaleRatio);
 
             shadow.transform.localScale = _baseScale * multiplier;
+
+            if(shadowSR != null)
+            {
+                Color newColor = shadowSR.color;
+                newColor.a = scaleRatio * 0.6f;
+                shadowSR.color = newColor;
+            }
         }
         else
         {
