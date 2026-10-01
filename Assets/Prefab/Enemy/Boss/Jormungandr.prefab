@@ -65,6 +65,8 @@ MonoBehaviour:
   viewHeight: 20
   foregroundPlatform: {fileID: 0}
   backgroundPlatform: {fileID: 0}
+  dropItemPrefab: {fileID: 0}
+  dropPoint: {fileID: 0}
   mouth: {fileID: 827937729307985703}
   tailObject: {fileID: 4154287721773258411, guid: 2d50f00c17714724eb32b2cfe58d9116, type: 3}
   tailSummonCount: 2
@@ -80,6 +82,7 @@ MonoBehaviour:
   fogSummontimeInterval: 1.5
   summonRadius: 3
   summonRoot: {fileID: 199196737950297765}
+  craftingQTESpawnPoint: {fileID: 0}
   flowerAnimator: {fileID: 2786573607476130584}
   flower: {fileID: 8807439420534013813}
   splashAnimator: {fileID: 8061401002121087686}
@@ -180,7 +183,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9633e3a17e8ed1549b2ab4a9d0a942ef, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0

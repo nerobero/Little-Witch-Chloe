@@ -114,7 +114,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d4f26395df87727419b4239a697b5e63, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -354,6 +354,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHPWidget
   root: {fileID: 3481167538700445719}
+  isStackable: 0
+  isPauseable: 0
+  isInputDisable: 0
   _hpSlider: {fileID: 3210559054453902021}
 --- !u!1 &5377933577493040639
 GameObject:

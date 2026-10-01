@@ -56,4 +56,14 @@ public class BlobShadowController : MonoBehaviour
             shadow.SetActive(false);
         }
     }
+
+    private void OnBecameVisible()
+    {
+        enabled = true;
+    }
+
+    private void OnBecameInvisible()
+    {
+        enabled = false;
+    }
 }

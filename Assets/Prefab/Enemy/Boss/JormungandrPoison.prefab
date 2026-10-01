@@ -52,7 +52,6 @@ MonoBehaviour:
   interval: 2
   spawnType: 10
   elementType: 3
-  fmodEventName: 
   effect: {fileID: 11400000, guid: 319d85f32ba39484aa46b21f6d50a717, type: 2}
 --- !u!212 &4187308178932024840
 SpriteRenderer:
@@ -170,7 +169,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d12f6380520feef40af0f86544bf3b52, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0

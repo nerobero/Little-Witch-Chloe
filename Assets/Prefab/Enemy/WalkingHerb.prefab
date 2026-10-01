@@ -194,7 +194,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2a04e44c41350e845aac85676408ab3b, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -250,6 +250,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHPWidget
   root: {fileID: 7698529043149096065}
+  isStackable: 0
+  isPauseable: 0
+  isInputDisable: 0
   _hpSlider: {fileID: 8509285954682480211}
 --- !u!114 &-2818862869753585158
 MonoBehaviour:

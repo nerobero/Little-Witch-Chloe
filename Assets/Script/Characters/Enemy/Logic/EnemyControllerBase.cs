@@ -74,8 +74,12 @@ public class EnemyControllerBase : MonoBehaviour, IResetable, IStatusEffect
 
     protected virtual void Start()
     {
-        enemyState = EMonsterState.Idle;
+        //enemyState = EMonsterState.Idle;
         enemyMove = GetComponent<EnemyMovement>();
+
+        enemyState = EMonsterState.Patrol;
+        _interval.Reset(0.5f);
+        thinkRoutine = StartCoroutine(ThinkRoutine());
         
         LevelManager.Instance.RegisterInstance(this);
     }
@@ -331,26 +335,26 @@ public class EnemyControllerBase : MonoBehaviour, IResetable, IStatusEffect
         }
     }
 
-    protected virtual void OnBecameVisible()
-    {
-        //Debug.Log("Become Visible");
-        enabled = true;
-        enemyMove.enabled = true;
-        enemyState = EMonsterState.Patrol;
-        _interval.Reset(0.5f);
-        thinkRoutine = StartCoroutine(ThinkRoutine());
-        //Think();
-    }
+    // protected virtual void OnBecameVisible()
+    // {
+    //     //Debug.Log("Become Visible");
+    //     enabled = true;
+    //     enemyMove.enabled = true;
+    //     enemyState = EMonsterState.Patrol;
+    //     _interval.Reset(0.5f);
+    //     thinkRoutine = StartCoroutine(ThinkRoutine());
+    //     //Think();
+    // }
 
-    protected virtual void OnBecameInvisible()
-    {
-        //Debug.Log("Become Invisible");
-        enabled = false;
-        enemyMove.enabled = false;
-        enemyState = EMonsterState.Idle;
-        StopAllCoroutines();
-        // StopCoroutine(thinkRoutine);
-    }
+    // protected virtual void OnBecameInvisible()
+    // {
+    //     //Debug.Log("Become Invisible");
+    //     enabled = false;
+    //     enemyMove.enabled = false;
+    //     enemyState = EMonsterState.Idle;
+    //     StopAllCoroutines();
+    //     // StopCoroutine(thinkRoutine);
+    // }
 
     void OnEnable()
     {
