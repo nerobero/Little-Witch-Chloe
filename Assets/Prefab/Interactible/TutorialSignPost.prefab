@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3220002040071757067}
   - component: {fileID: 4115123658760141937}
   - component: {fileID: 9096293484642182835}
-  m_Layer: 6
+  - component: {fileID: 3802816130069634567}
+  m_Layer: 2
   m_Name: TutorialSignPost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,3 +155,20 @@ MonoBehaviour:
   interactIcon: {fileID: -4657369681490478202, guid: 022cc958b96ee2040b7be9e80c99eb2c, type: 3}
   interactIconOffset: {x: 0, y: 1.5}
   messageDataKey: TUTORIAL_TELEPORT
+--- !u!114 &3802816130069634567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284833446264588796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96457dae21d2bae4f8a6cca272d8df1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseBlobShadow
+  shadow: {fileID: 0}
+  offset: 0
+  _baseScale: {x: 0, y: 0, z: 0}
+  maxHeight: 4
+  minScaleMultiplier: 0.4

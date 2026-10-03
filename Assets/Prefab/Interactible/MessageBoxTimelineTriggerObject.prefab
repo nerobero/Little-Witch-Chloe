@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8517981449151361720}
   - component: {fileID: 231004203450719339}
   - component: {fileID: 7226169508516360610}
+  - component: {fileID: -2640238117592752523}
   m_Layer: 0
   m_Name: MessageBoxTimelineTriggerObject
   m_TagString: Untagged
@@ -189,3 +190,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-2640238117592752523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9161637452318215616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96457dae21d2bae4f8a6cca272d8df1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseBlobShadow
+  shadow: {fileID: 0}

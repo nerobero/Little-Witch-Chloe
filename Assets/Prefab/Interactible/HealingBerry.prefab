@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 478252950240479567}
   - component: {fileID: 797874830303804685}
   - component: {fileID: 2279824744683370137}
+  - component: {fileID: -299003414327863015}
   m_Layer: 0
   m_Name: HealingBerry
   m_TagString: Untagged
@@ -150,3 +151,16 @@ MonoBehaviour:
   isBackground: 0
   _regenCDTime: 10
   _healAmount: 80
+--- !u!114 &-299003414327863015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3646741652251605535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96457dae21d2bae4f8a6cca272d8df1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseBlobShadow
+  shadow: {fileID: 0}

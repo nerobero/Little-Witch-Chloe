@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9196026481312181665}
   - component: {fileID: 8096314968843632084}
   - component: {fileID: 1062592795018319198}
+  - component: {fileID: -5308254240459117386}
   m_Layer: 0
   m_Name: Book_Blinking
   m_TagString: Untagged
@@ -242,3 +243,18 @@ MonoBehaviour:
   _spellType: 0
   _unlockType: 2
   _keyIconSprite: {fileID: 3400554552663347507, guid: 0c64e4f86464e584dbc36cc78a256ee8, type: 3}
+--- !u!114 &-5308254240459117386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5020401512242715676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96457dae21d2bae4f8a6cca272d8df1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseBlobShadow
+  shadow: {fileID: 0}
+  offset: 0.314
+  _baseScale: {x: 0.4, y: 0.1, z: 1}

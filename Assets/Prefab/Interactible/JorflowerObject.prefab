@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7524308087682134410}
   - component: {fileID: 3899274855192734880}
   - component: {fileID: 7209403004357551359}
+  - component: {fileID: -8298243595212714889}
   m_Layer: 20
   m_Name: JorflowerObject
   m_TagString: Untagged
@@ -193,3 +194,16 @@ MonoBehaviour:
   CollectType: 7
   isCommissionHerb: 0
   isLovePotionIngredient: 1
+--- !u!114 &-8298243595212714889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625002237836764037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96457dae21d2bae4f8a6cca272d8df1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseBlobShadow
+  shadow: {fileID: 0}

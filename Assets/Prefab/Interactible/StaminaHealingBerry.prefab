@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 478252950240479567}
   - component: {fileID: 797874830303804685}
   - component: {fileID: 6161764093800793986}
+  - component: {fileID: 4841527910385570630}
   m_Layer: 0
   m_Name: StaminaHealingBerry
   m_TagString: Untagged
@@ -150,3 +151,16 @@ MonoBehaviour:
   isBackground: 0
   _regenCDTime: 15
   _replenishAmount: 100
+--- !u!114 &4841527910385570630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3646741652251605535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96457dae21d2bae4f8a6cca272d8df1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseBlobShadow
+  shadow: {fileID: 0}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -5744250136451408671}
   - component: {fileID: 3031907569935045710}
   - component: {fileID: 8121092933681168478}
+  - component: {fileID: 2357733556034634837}
   m_Layer: 0
   m_Name: AntiFogMossPatch
   m_TagString: Untagged
@@ -118,6 +119,8 @@ MonoBehaviour:
     m_Bits: 12288
   isBackgroundItem: 0
   CollectType: 4
+  isCommissionHerb: 0
+  isLovePotionIngredient: 0
 --- !u!95 &3031907569935045710
 Animator:
   serializedVersion: 7
@@ -195,3 +198,18 @@ PolygonCollider2D:
       - {x: -0.25, y: -0.3125}
       - {x: 0.1875, y: -0.3125}
   m_UseDelaunayMesh: 1
+--- !u!114 &2357733556034634837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3646741652251605535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96457dae21d2bae4f8a6cca272d8df1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseBlobShadow
+  shadow: {fileID: 0}
+  offset: 0.412
+  _baseScale: {x: 0.8, y: 0.1, z: 1}

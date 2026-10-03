@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: -1959747358848095191}
   - component: {fileID: -4873093213515099141}
   - component: {fileID: 6613630320547042280}
+  - component: {fileID: 276939756699136409}
   m_Layer: 9
   m_Name: MushroomMine
   m_TagString: Untagged
@@ -89,7 +90,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6967324218527140787, guid: 63072e3826e163e4aaf5b694eb3343d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -382,3 +383,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SFXcontroller
   WalkingHerb: {fileID: 0}
+--- !u!114 &276939756699136409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025196114555132397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96457dae21d2bae4f8a6cca272d8df1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseBlobShadow
+  shadow: {fileID: 0}
+  offset: 0.344
+  _baseScale: {x: 0.7, y: 0.06, z: 1}
