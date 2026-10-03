@@ -103,9 +103,15 @@ public class PoolObjectManager : MonoSingletonBase<PoolObjectManager>
 
     public GameObject GetShadowObject()
     {
-        if(shadowPools.Count > 0)
+        while(shadowPools.Count > 0)
         {
-            return shadowPools.Pop();
+            var pooled = shadowPools.Pop();
+
+            // a pooled shadow stays parented to its last owner, so it is destroyed if that owner was destroyed
+            if(pooled != null)
+            {
+                return pooled;
+            }
         }
 
         var obj = Instantiate(shadowObj);
@@ -116,8 +122,10 @@ public class PoolObjectManager : MonoSingletonBase<PoolObjectManager>
 
     public void ReturnShadowObject(GameObject shadowObj)
     {
+        // Don't reparent here: this is called from OnDisable, and Unity forbids
+        // changing the parent while it is being deactivated. The next owner
+        // reparents the shadow in its OnEnable.
         shadowObj.SetActive(false);
-        shadowObj.transform.parent = null;
         shadowPools.Push(shadowObj);
     }
 }
