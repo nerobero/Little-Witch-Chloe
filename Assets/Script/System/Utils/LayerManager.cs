@@ -59,4 +59,19 @@ public class LayerManager : MonoSingletonBase<LayerManager>
 
         return prefixA == prefixB;
     }
+
+    public LayerMask GetGroundLayer(int layer)
+    {
+        string layerName = LayerMask.LayerToName(layer);
+
+        if(string.IsNullOrEmpty(layerName))
+        {
+            return 0;
+        }
+
+        string prefix = layerName.Split('_')[0];
+
+        string target = prefix + "_Platform";
+        return LayerMask.GetMask(target);
+    }
 }

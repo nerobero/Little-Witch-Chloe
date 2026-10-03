@@ -58,6 +58,7 @@ public class BaseCharacterMovement : MonoBehaviour
     
 
     protected Coroutine slowedRoutines;
+    public Action<int> onPlatformChanged;
 
     protected virtual void Awake()
     {
@@ -125,6 +126,8 @@ public class BaseCharacterMovement : MonoBehaviour
         transform.localScale = 
             _isBackground ? new Vector3(transform.localScale.x * 0.75f, transform.localScale.y * 0.75f, transform.localScale.z * 0.75f) : 
                 new Vector3(Mathf.Sign(transform.localScale.x) * originalScale.x, originalScale.y, originalScale.z);
+
+        onPlatformChanged?.Invoke(orderInLayer);
     }
 
     protected virtual bool IsOnGround()

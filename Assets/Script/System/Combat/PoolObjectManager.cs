@@ -28,6 +28,9 @@ public class PoolObjectManager : MonoSingletonBase<PoolObjectManager>
 
     private Stack<ActiveStatusEffect> statusPools = new();
 
+    private Stack<GameObject> shadowPools = new();
+    [SerializeField] private GameObject shadowObj;
+
     protected override void Awake()
     {
         dontDestroy = true;
@@ -96,5 +99,25 @@ public class PoolObjectManager : MonoSingletonBase<PoolObjectManager>
         LevelManager.Instance.RegisterInstance(behaviour);
 
         return obj;
+    }
+
+    public GameObject GetShadowObject()
+    {
+        if(shadowPools.Count > 0)
+        {
+            return shadowPools.Pop();
+        }
+
+        var obj = Instantiate(shadowObj);
+        obj.SetActive(false);
+
+        return obj;
+    }
+
+    public void ReturnShadowObject(GameObject shadowObj)
+    {
+        shadowObj.SetActive(false);
+        shadowObj.transform.parent = null;
+        shadowPools.Push(shadowObj);
     }
 }
