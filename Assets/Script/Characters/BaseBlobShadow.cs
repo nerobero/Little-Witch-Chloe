@@ -17,7 +17,7 @@ public class BaseBlobShadow : MonoBehaviour
     public float maxHeight = 4f;                
     [Range(0.1f, 1f)]
     public float minScaleMultiplier = 0.4f;
-
+    protected int sortingOrder;
 
     protected virtual void Awake()
     {
@@ -51,7 +51,6 @@ public class BaseBlobShadow : MonoBehaviour
             {
                 targetScale.x = originalWidth;
             }
-            targetScale.y = 0.2f;
             //shadow.transform.localScale = _baseScale;
             shadow.transform.localScale = targetScale;
             shadow.transform.parent = gameObject.transform;
@@ -62,6 +61,8 @@ public class BaseBlobShadow : MonoBehaviour
             shadowSR = shadow.GetComponent<SpriteRenderer>();
 
             CalculateShadowPosition();
+            
+            ChangeOrderInLayer(sortingOrder);
         }
 
         if(movementComp != null)
@@ -83,9 +84,10 @@ public class BaseBlobShadow : MonoBehaviour
         }
     }
 
-    protected void ChangeOrderInLayer(int order)
+    public void ChangeOrderInLayer(int order)
     {
         shadowSR.sortingOrder = order;
+        sortingOrder = order;
     }
 
     protected virtual void CalculateShadowPosition()
@@ -98,7 +100,6 @@ public class BaseBlobShadow : MonoBehaviour
         }
 
         //Vector2 origin = new Vector2(transform.position.x, transform.position.y - offset);
-        Debug.Log($"{gameObject}: groundLayer({groundLayer})");
         Vector2 origin = new Vector2(transform.position.x, transform.position.y + originalHeight / 2f);
         RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, 20f, groundLayer);
 
@@ -107,8 +108,9 @@ public class BaseBlobShadow : MonoBehaviour
             shadow.SetActive(true);
             shadow.transform.position = new Vector3(origin.x, hit.point.y, shadow.transform.position.z);
 
-            Debug.DrawLine(origin, hit.point, Color.red);
-            Debug.Log($"BlobShadowController: hit={hit.collider}");
+            // For Debug
+            // Debug.DrawLine(origin, hit.point, Color.red);
+            // Debug.Log($"BlobShadowController: hit={hit.collider}");
 
             // Change the scale of the shadow.
             // height from the ground

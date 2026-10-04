@@ -44,7 +44,8 @@ public abstract class ItemBase : MonoBehaviour, IResetable
         );
         Debug.DrawRay(transform.position, Vector2.down * 10f, Color.brown, 1000f);
 
-        // Debug.Log($"ItemBase ({gameObject}): bgLayer = {LayerMask.LayerToName(bgLayer)} and fglayer = {LayerMask.LayerToName(fgLayer)}");
+        // DEBUG
+        //Debug.Log($"ItemBase ({gameObject}): bgLayer = {LayerMask.LayerToName(bgLayer)} and fglayer = {LayerMask.LayerToName(fgLayer)}");
         //Debug.Log($"ItemBase ({gameObject}): HitCollider = {hit.collider} and the layer = {LayerMask.LayerToName(hit.collider.gameObject.layer)}");
 
         string groundLayerName = LayerMask.LayerToName(hit.collider != null ? hit.collider.gameObject.layer : gameObject.layer);
@@ -56,11 +57,24 @@ public abstract class ItemBase : MonoBehaviour, IResetable
             isBackground = (groundPrefix == "Background");
 
             // 2. Request a layer number of the "player/enemy" (e.g., "floor") from the manager.
-            // 예: 바닥이 Background_Platform이면, 나는 Background_Player 레이어 번호를 가져옴
             int nextMyLayer = LayerManager.Instance.GetLayer(isBackground, myLayer);
            
             gameObject.layer = nextMyLayer;
             
+            // Change sprite renderer's sorting order
+            int order = isBackground? -1 : 1;
+            SpriteRenderer sr = GetComponent<SpriteRenderer>();
+            if(sr != null)
+            {
+                sr.sortingOrder = order;
+            }
+
+            BaseBlobShadow shadow = GetComponent<BaseBlobShadow>();
+            if(shadow != null)
+            {
+                shadow.ChangeOrderInLayer(order);
+            }
+
             //Debug.Log($"{GetType().Name}: Because the layer of the platform is {groundLayerName}, change my layer as {LayerMask.LayerToName(nextMyLayer)}.");
         }
     }
