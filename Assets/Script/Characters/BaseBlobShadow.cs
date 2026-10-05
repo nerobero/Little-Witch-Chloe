@@ -78,9 +78,11 @@ public class BaseBlobShadow : MonoBehaviour
             movementComp.onPlatformChanged -= ChangeOrderInLayer;
         }
 
-        if(shadow != null)
+        // Instance is null while the application is quitting
+        var poolManager = PoolObjectManager.Instance;
+        if(shadow != null && poolManager != null)
         {
-            PoolObjectManager.Instance.ReturnShadowObject(shadow);
+            poolManager.ReturnShadowObject(shadow);
         }
     }
 
