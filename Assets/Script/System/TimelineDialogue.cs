@@ -11,6 +11,7 @@ public class TimelineDialogue : MonoBehaviour
     private List<float> cutEndTimes = new();
 
     private bool isTimelineDialogueActive;
+    private bool ownsDialogue;
     private bool waitingForNext;
     private bool passWaiting;
     private int currentDialogueIndex = 3;
@@ -79,29 +80,62 @@ public class TimelineDialogue : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log($"TimelineDialogue: Bind with DialogueSystem in the OnEnable");
-        DialogueSystem.Instance.NextRequested += HandleNext;
-
         director.played += OnDirectorPlayed;
         director.paused += OnDirectorPaused;
-
-        
     }
 
     private void OnDisable()
     {
-        if(DialogueSystem.Instance != null)
-        {
-            Debug.Log($"TimelineDialogue: unbind with DialogueSystem in the OnEnable");
-            DialogueSystem.Instance.NextRequested -= HandleNext;
-        }
+        director.played -= OnDirectorPlayed;
+        director.paused -= OnDirectorPaused;
+
+        // Covers being disabled/destroyed mid-dialogue.
+        UnbindDialogue();
+    }
+
+    /// <summary>
+    /// Subscribes to the dialogue flow. Only the instance whose signal called
+    /// <see cref="BeginDialogue"/> is ever bound, so with several TimelineDialogue
+    /// instances in a scene, a Next click reaches only the one that owns the chain.
+    /// </summary>
+    private void BindDialogue()
+    {
+        if(ownsDialogue)
+            return;
+
+        ownsDialogue = true;
+        DialogueSystem.Instance.NextRequested += HandleNext;
+        DialogueSystem.Instance.DialogueEnded += OnDialogueEnded;
 
         UIDialoguePanel ui = UIManager.Instance.Get<UIDialoguePanel>();
         if(ui != null)
+            ui.onTypeWritingEnded += FinishWaiting;
+    }
+
+    private void UnbindDialogue()
+    {
+        if(!ownsDialogue)
+            return;
+
+        ownsDialogue = false;
+
+        // Instances are null while the application is quitting.
+        if(DialogueSystem.Instance != null)
         {
-            Debug.Log($"TimelineDialogue: unbind with DialoguePanel.");
-            ui.onTypeWritingEnded -= FinishWaiting;
+            DialogueSystem.Instance.NextRequested -= HandleNext;
+            DialogueSystem.Instance.DialogueEnded -= OnDialogueEnded;
         }
+
+        UIManager uiManager = UIManager.Instance;
+        UIDialoguePanel ui = uiManager != null ? uiManager.Get<UIDialoguePanel>() : null;
+        if(ui != null)
+            ui.onTypeWritingEnded -= FinishWaiting;
+    }
+
+    private void OnDialogueEnded()
+    {
+        isTimelineDialogueActive = false;
+        UnbindDialogue();
     }
 
     public void BeginDialogue(int startLineId)
@@ -109,15 +143,14 @@ public class TimelineDialogue : MonoBehaviour
         if(DialogueSystem.Instance.IsPlaying)
             return;
 
-        UIDialoguePanel ui = UIManager.Instance.Get<UIDialoguePanel>();
-        if(ui != null)
-        {
-            Debug.Log($"TimelineDialogue: bind with DialoguePanel.");
-            ui.onTypeWritingEnded += FinishWaiting;
-        }
+        BindDialogue();
 
         DialogueSystem.Instance.StartDialogue((uint)startLineId);
         isTimelineDialogueActive = DialogueSystem.Instance.IsPlaying;
+
+        // StartDialogue bails out (and logs) on an unknown line ID.
+        if(!isTimelineDialogueActive)
+            UnbindDialogue();
 
         currentDialogueIndex = 3;
         //director.time = dialogueTimepoints[currentDialogueIndex];
