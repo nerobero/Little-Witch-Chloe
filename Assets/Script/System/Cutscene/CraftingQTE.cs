@@ -40,14 +40,42 @@ public class CraftingQTE : MonoBehaviour
     public event Action OnQTEBlocked;
     public event Action OnQTESucceeded;
 
+    private bool _inputSubscribed;
+
+    // PlayerController creates InputContext in its Awake(); Unity doesn't guarantee that runs
+    // before this OnEnable(), so the first subscription is deferred to Start().
+    private void Start()
+    {
+        SubscribeInput();
+    }
+
     private void OnEnable()
     {
-        PlayerController.Instance.InputContext.CraftQTE.CraftingPotion.performed += HandleInput;
+        SubscribeInput();
     }
 
     private void OnDisable()
     {
-        PlayerController.Instance.InputContext.CraftQTE.CraftingPotion.performed -= HandleInput;
+        UnsubscribeInput();
+    }
+
+    private void SubscribeInput()
+    {
+        if (_inputSubscribed) return;
+        PlayerController player = PlayerController.Instance;
+        if (player == null || player.InputContext == null) return;
+
+        player.InputContext.CraftQTE.CraftingPotion.performed += HandleInput;
+        _inputSubscribed = true;
+    }
+
+    private void UnsubscribeInput()
+    {
+        if (!_inputSubscribed) return;
+        PlayerController player = PlayerController.Instance;
+        if (player != null && player.InputContext != null)
+            player.InputContext.CraftQTE.CraftingPotion.performed -= HandleInput;
+        _inputSubscribed = false;
     }
 
     public void StartQTEAnim()
