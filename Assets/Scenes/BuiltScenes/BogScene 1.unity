@@ -22729,7 +22729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4359057531831849439, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1
+      value: 0.63
       objectReference: {fileID: 0}
     - target: {fileID: 4807451909408316340, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
       propertyPath: isBackground
@@ -22805,7 +22805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166473367356917606, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.14
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 9169097736380440220, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
       propertyPath: m_Name
@@ -226527,7 +226527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8455361539264746166, guid: 9c6ece9182af56b4c8b5e6e77a55ffe1, type: 3}
       propertyPath: m_Events.m_Events.Array.data[7].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_FloatArgument
-      value: 9.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8455361539264746166, guid: 9c6ece9182af56b4c8b5e6e77a55ffe1, type: 3}
       propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -460470,7 +460470,7 @@ Transform:
   m_GameObject: {fileID: 1893663949}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.79, y: -9.88, z: 0}
+  m_LocalPosition: {x: 23.1, y: -0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -464123,6 +464123,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5017284588309293016, guid: 040e2b691cf1fad469ae725da1e6fb56, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5232889621539689729, guid: 4964ea8e3231c704f9521a3f0c61d9fc, type: 3}
     - target: {fileID: 5017284588309293016, guid: 040e2b691cf1fad469ae725da1e6fb56, type: 3}
       propertyPath: m_SortingOrder
       value: 0
