@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8359131243249482955}
   - component: {fileID: 8465211274973181356}
   - component: {fileID: 2980717834158728599}
+  - component: {fileID: 875426953450993870}
   m_Layer: 10
   m_Name: Charlie
   m_TagString: Untagged
@@ -172,3 +173,20 @@ PolygonCollider2D:
       - {x: -0.125, y: -0.5}
       - {x: 0.1875, y: -0.5}
   m_UseDelaunayMesh: 1
+--- !u!114 &875426953450993870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2734760886530537367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96457dae21d2bae4f8a6cca272d8df1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseBlobShadow
+  shadow: {fileID: 0}
+  offset: 0
+  _baseScale: {x: 0, y: 0, z: 0}
+  maxHeight: 4
+  minScaleMultiplier: 0.4
