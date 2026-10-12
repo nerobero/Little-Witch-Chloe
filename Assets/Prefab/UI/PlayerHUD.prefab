@@ -129,6 +129,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIPlayerHUD
   root: {fileID: 2389787923472161709}
+  isStackable: 0
+  isPauseable: 0
+  isInputDisable: 0
   _hpSlider: {fileID: 6459173841312485868}
   _staminaImg: {fileID: 5622134996209381119}
   _blinkImg: {fileID: 6537434126719646711}
@@ -703,6 +706,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectSlotContainer
   root: {fileID: 6511052835095059419}
+  isStackable: 0
+  isPauseable: 0
+  isInputDisable: 0
   layoutGroupRect: {fileID: 387968608145046307}
   slotPrefab: {fileID: 1019103164157921420, guid: d0b9c0a99ecee734a84204711945223c, type: 3}
 --- !u!114 &8444178863949261048

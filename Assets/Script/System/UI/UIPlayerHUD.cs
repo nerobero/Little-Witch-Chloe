@@ -78,6 +78,8 @@ public class UIPlayerHUD : UIBase
         playerMove.OnBlinkCooldown += UpdateBlinkCooldown;
 
         GameManager.Instance.OnObjectivesCollected += UpdateObjectives;
+        if(LovePotionManager.Instance != null)
+            LovePotionManager.Instance.OnLovePotionStateChanged += RefreshObjectivesText;
 
         isInitialized = true;
     }
@@ -103,6 +105,9 @@ public class UIPlayerHUD : UIBase
 
         if(GameManager.Instance != null)
             GameManager.Instance.OnObjectivesCollected -= UpdateObjectives;
+
+        if(LovePotionManager.Instance != null)
+            LovePotionManager.Instance.OnLovePotionStateChanged -= RefreshObjectivesText;
 
         isInitialized = false;
     }
@@ -131,7 +136,17 @@ public class UIPlayerHUD : UIBase
 
     public void UpdateObjectives(ECollectable types, int amount)
     {
-        _objectivesText.text = amount.ToString();
+        RefreshObjectivesText();
+    }
+
+    /// <summary>Objective count = collected frogs + collected love potion ingredients.</summary>
+    private void RefreshObjectivesText()
+    {
+        int total = GameManager.Instance.GetCollectedFrog();
+        if(LovePotionManager.Instance != null)
+            total += LovePotionManager.Instance.GetTotalCollectedCount(ECollectable.FrogCollectible);
+
+        _objectivesText.text = total.ToString();
     }
 
     public void UpdateSkillList(EAbilityType abilityType)
@@ -213,6 +228,6 @@ public class UIPlayerHUD : UIBase
         _maxSkillIndex = 0;
         _maxProjIndex = 0;
         _currentProjIndex = 0;
-        _objectivesText.text = GameManager.Instance.GetCollectedFrog().ToString();
+        RefreshObjectivesText();
     }
 }

@@ -100,6 +100,22 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
         return total;
     }
 
+    /// <summary>
+    /// Total number of love potion ingredients currently held, across all types except
+    /// <paramref name="exclude"/> (e.g. frogs, which are already counted separately by GameManager).
+    /// </summary>
+    public int GetTotalCollectedCount(ECollectable? exclude = null)
+    {
+        int total = 0;
+        foreach (KeyValuePair<ECollectable, int> entry in _collectedIngredients)
+        {
+            if (exclude.HasValue && entry.Key == exclude.Value) continue;
+            total += entry.Value;
+        }
+
+        return total;
+    }
+
     #region LovePotionState
 
     public bool OnLoveIngredientCollected(ECollectable type)
