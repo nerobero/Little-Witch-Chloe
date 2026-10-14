@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 330.65, y: -135.755}
-  m_SizeDelta: {x: 561.3, y: 171.51}
+  m_AnchoredPosition: {x: 330.65, y: -97.465}
+  m_SizeDelta: {x: 561.3, y: 94.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1378056695581574572
 CanvasRenderer:
@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5bc718642b8be2740ac5643919fc05fc, type: 2}
+  m_sharedMaterial: {fileID: 6669912596048367737, guid: 5bc718642b8be2740ac5643919fc05fc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: -27.290466}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &492845995199566247
@@ -206,8 +206,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8d3df2e40eba0db4fbe4a92128099e76, type: 2}
+  m_sharedMaterial: {fileID: -4424101594444736250, guid: 8d3df2e40eba0db4fbe4a92128099e76, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -231,8 +231,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.29
-  m_fontSizeBase: 28.29
+  m_fontSize: 32.9
+  m_fontSizeBase: 32.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -351,8 +351,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 340.5, y: -118.505}
-  m_SizeDelta: {x: 571, y: 137.01}
+  m_AnchoredPosition: {x: 340.5, y: -97.465}
+  m_SizeDelta: {x: 571, y: 94.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6907040642128450128
 CanvasRenderer:
@@ -382,10 +382,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+  m_text: sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5bc718642b8be2740ac5643919fc05fc, type: 2}
+  m_sharedMaterial: {fileID: 6669912596048367737, guid: 5bc718642b8be2740ac5643919fc05fc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -448,7 +448,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -19.493286, w: -32.488632}
+  m_margin: {x: 0, y: 0, z: -17.894165, w: -32.488632}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -567,7 +567,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -25.3, y: 23}
-  m_SizeDelta: {x: 676, y: 239.01}
+  m_SizeDelta: {x: 676, y: 196.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &250862917734844454
 CanvasRenderer:
@@ -722,6 +722,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIDialoguePanel
   root: {fileID: 692755051800096274}
+  isStackable: 0
+  isPauseable: 0
+  isInputDisable: 0
   bgDialogue: {fileID: 8125047170507293039}
   bgMonologue: {fileID: 1298284378398232592}
   speakerGroup:
@@ -1073,8 +1076,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SpeakerName1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8d3df2e40eba0db4fbe4a92128099e76, type: 2}
+  m_sharedMaterial: {fileID: -4424101594444736250, guid: 8d3df2e40eba0db4fbe4a92128099e76, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1098,8 +1101,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.29
-  m_fontSizeBase: 28.29
+  m_fontSize: 32.9
+  m_fontSizeBase: 32.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1218,7 +1221,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 34.95, y: -21.46}
-  m_SizeDelta: {x: 661.3, y: 273.51}
+  m_SizeDelta: {x: 661.3, y: 196.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4669764539107690920
 CanvasRenderer:

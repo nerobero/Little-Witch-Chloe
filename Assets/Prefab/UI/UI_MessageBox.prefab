@@ -191,6 +191,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIMessageBox
   root: {fileID: 3873922888655861451}
+  isStackable: 0
+  isPauseable: 0
+  isInputDisable: 0
   messageText: {fileID: 8291827544799509195}
   messageImage: {fileID: 6654183852101982955}
 --- !u!1 &2595605236402886563
@@ -542,8 +545,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5bc718642b8be2740ac5643919fc05fc, type: 2}
+  m_sharedMaterial: {fileID: 6669912596048367737, guid: 5bc718642b8be2740ac5643919fc05fc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -567,8 +570,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 44.3
+  m_fontSizeBase: 44.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -743,15 +746,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: OK
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75211317d1410bc4ebfeff98ef5386e4, type: 2}
+  m_sharedMaterial: {fileID: -6629658760532734321, guid: 75211317d1410bc4ebfeff98ef5386e4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282402424
-  m_fontColor: {r: 0.4716981, g: 0.2730195, b: 0.25142398, a: 1}
+    rgba: 4287448696
+  m_fontColor: {r: 0.4716981, g: 0.2730195, b: 0.553, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
