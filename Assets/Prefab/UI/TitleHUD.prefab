@@ -864,6 +864,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitleUI
   root: {fileID: 5370123826274843984}
+  isStackable: 0
+  isPauseable: 0
+  isInputDisable: 0
   sceneName: wip
 --- !u!223 &2869032711060913223
 Canvas:
@@ -1358,8 +1361,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4289028181
-  m_fontColor: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
+    rgba: 4287448696
+  m_fontColor: {r: 0.47058824, g: 0.27450982, b: 0.5529412, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 0
   m_fontColorGradient:
@@ -1699,8 +1702,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4289028181
-  m_fontColor: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
+    rgba: 4287448696
+  m_fontColor: {r: 0.47058824, g: 0.27450982, b: 0.5529412, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 0
   m_fontColorGradient:
@@ -1836,8 +1839,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4289028181
-  m_fontColor: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
+    rgba: 4287448696
+  m_fontColor: {r: 0.47058824, g: 0.27450982, b: 0.5529412, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 0
   m_fontColorGradient:
@@ -2406,8 +2409,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4289028181
-  m_fontColor: {r: 0.33333334, g: 0.37647063, b: 0.64705884, a: 1}
+    rgba: 4287448696
+  m_fontColor: {r: 0.47058824, g: 0.27450982, b: 0.5529412, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 0
   m_fontColorGradient:
