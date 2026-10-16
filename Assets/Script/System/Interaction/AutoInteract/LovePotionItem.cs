@@ -28,4 +28,17 @@ public class LovePotionItem : ItemBase
 
         return false;
     }
+
+    
+    public void ReqGameEnded()
+    {
+        Debug.Log("[Ending] Potion: ReqEndingScene");
+        if(GameManager.Instance)
+        {
+            GameManager.Instance.ShowEndingScreen();
+            Debug.Log("[Ending] Potion: Succeed");
+            return;
+        }
+        Debug.Log("[Ending] Potion: Error");
+    }
 }

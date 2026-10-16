@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EndingScreen : MonoBehaviour
+public class EndingScreen : UIBase
 {
     public void OnClick_OpenURL()
     {
@@ -21,4 +21,22 @@ public class EndingScreen : MonoBehaviour
         PauseManager.Instance.UnpauseGame();
         SceneManager.LoadScene("TitleScene");
     }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        Hide();
+    }
+
+    #region EventSubscription
+    protected override void SubscribeEvents()
+    {
+        
+    }
+
+    protected override void UnsubscribeEvents()
+    {
+    
+    }
+    #endregion
 }

@@ -47,6 +47,9 @@ public class GameManager : MonoSingletonBase<GameManager>
     private float _damageProgressPenalty = 0f; // 0..1, accumulated as a fraction of max HP lost
     private float _currentLovePotionProgress = 0f;
     private StatManager _subscribedPlayerStat;
+    
+    [Header("Ending Screen")]
+    [SerializeField] private EndingScreen endScene;
 
     public float DamageProgressPenalty => _damageProgressPenalty;
     public float CurrentLovePotionProgress => _currentLovePotionProgress;
@@ -314,6 +317,17 @@ public class GameManager : MonoSingletonBase<GameManager>
         OnLovePotionProgressChanged?.Invoke(_currentLovePotionProgress);
     }
 
+    public void ShowEndingScreen()
+    {
+        Debug.Log("[Ending] Manager: ShowEndingScreen");
+        if(endScene)
+        {
+            Debug.Log("[Ending] Manager: Succeed");
+            endScene.Show();
+            return;
+        }
+        Debug.Log("[Ending] Manager: Error");
+    }
     #endregion
 
     #region LevelLoad

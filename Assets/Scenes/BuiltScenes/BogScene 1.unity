@@ -22832,6 +22832,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9169097736380440220, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
   m_PrefabInstance: {fileID: 185503333}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &185503335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4807451909408316340, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
+  m_PrefabInstance: {fileID: 185503333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185503334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d878ee65ff4d5a4985bbdbeaff26e0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LovePotionItem
 --- !u!1 &186199402
 GameObject:
   m_ObjectHideFlags: 0
@@ -30671,7 +30682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7242244557993250923, guid: 4a289915a29581041ac58c33a7f3467c, type: 3}
       propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -7242244557993250923, guid: 4a289915a29581041ac58c33a7f3467c, type: 3}
       propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.size
@@ -30727,7 +30738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7242244557993250923, guid: 4a289915a29581041ac58c33a7f3467c, type: 3}
       propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7242244557993250923, guid: 4a289915a29581041ac58c33a7f3467c, type: 3}
       propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -30836,7 +30847,7 @@ PrefabInstance:
     - target: {fileID: -7242244557993250923, guid: 4a289915a29581041ac58c33a7f3467c, type: 3}
       propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 213202459}
+      objectReference: {fileID: 185503335}
     - target: {fileID: -7242244557993250923, guid: 4a289915a29581041ac58c33a7f3467c, type: 3}
       propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -31051,7 +31062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7242244557993250923, guid: 4a289915a29581041ac58c33a7f3467c, type: 3}
       propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: set_simulated
+      value: ReqGameEnded
       objectReference: {fileID: 0}
     - target: {fileID: -7242244557993250923, guid: 4a289915a29581041ac58c33a7f3467c, type: 3}
       propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -31147,7 +31158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7242244557993250923, guid: 4a289915a29581041ac58c33a7f3467c, type: 3}
       propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: UnityEngine.Rigidbody2D, UnityEngine
+      value: LovePotionItem, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: -7242244557993250923, guid: 4a289915a29581041ac58c33a7f3467c, type: 3}
       propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -31243,6 +31254,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7242244557993250923, guid: 4a289915a29581041ac58c33a7f3467c, type: 3}
       propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7242244557993250923, guid: 4a289915a29581041ac58c33a7f3467c, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7242244557993250923, guid: 4a289915a29581041ac58c33a7f3467c, type: 3}
