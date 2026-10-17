@@ -315,6 +315,20 @@ public class GameManager : MonoSingletonBase<GameManager>
         OnLovePotionProgressChanged?.Invoke(_currentLovePotionProgress);
     }
 
+    public void ShowEndingScreen()
+    {
+        Debug.Log("[Ending] Manager: ShowEndingScreen");
+        if(UIManager.Instance)
+        {
+            Debug.Log("[Ending] Manager: Succeed");
+            if(UIManager.Instance.Get<EndingScreen>() != null)
+            {
+                UIManager.Instance.Get<EndingScreen>().Show();
+                return;
+            }
+        }
+        Debug.Log("[Ending] Manager: Error");
+    }
     #endregion
 
     #region LevelLoad
