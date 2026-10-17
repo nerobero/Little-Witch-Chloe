@@ -26,6 +26,8 @@ public class PoolObjectManager : MonoSingletonBase<PoolObjectManager>
     private Dictionary<ESpawnType, GameObject> prefabMap = new(); // for easier runtime access
     private Dictionary<ESpawnType, Queue<GameObject>> pools = new(); // key = pool object type, value = pool
 
+    private Dictionary<GameObject, ESpawnType> activeObjects = new(); // objects currently handed out by Get
+
     private Stack<ActiveStatusEffect> statusPools = new();
 
     private Stack<GameObject> shadowPools = new();
@@ -56,9 +58,47 @@ public class PoolObjectManager : MonoSingletonBase<PoolObjectManager>
     public GameObject Get(ESpawnType type)
     {
         var pool = pools[type];
-        var obj = pool.Count > 0 ? pool.Dequeue() : CreateNew(type); // when we run out of pooled objects, we increase the size of the pool by creating new
+
+        // pooled objects parented to a level object are destroyed with its scene, leaving nulls in the queue:
+        GameObject obj = null;
+        while(pool.Count > 0 && obj == null)
+        {
+            obj = pool.Dequeue();
+        }
+
+        if(obj == null)
+        {
+            obj = CreateNew(type); // when we run out of pooled objects, we increase the size of the pool by creating new
+        }
+
+        activeObjects[obj] = type;
         obj.SetActive(true);
         return obj;
+    }
+
+    /// <summary>
+    /// Returns every object still handed out by Get to its pool.
+    /// Call before unloading a level so in-flight objects are not left behind.
+    /// </summary>
+    public void ReturnAll()
+    {
+        // Return() modifies activeObjects, so iterate over a copy
+        var snapshot = new List<KeyValuePair<GameObject, ESpawnType>>(activeObjects);
+        activeObjects.Clear();
+
+        foreach(var pair in snapshot)
+        {
+            GameObject obj = pair.Key;
+            if(obj == null) continue; // already destroyed along with its scene
+
+            // detach from any level object so it survives the scene unload
+            if(obj.transform.parent != transform)
+            {
+                obj.transform.SetParent(transform, false);
+            }
+
+            Return(pair.Value, obj);
+        }
     }
 
     public ActiveStatusEffect GetStatusEffect()
@@ -78,6 +118,7 @@ public class PoolObjectManager : MonoSingletonBase<PoolObjectManager>
             pools[type] = new Queue<GameObject>();
         }
 
+        activeObjects.Remove(obj);
         obj.SetActive(false);
         pools[type].Enqueue(obj);
     }

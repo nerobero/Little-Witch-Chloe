@@ -201,7 +201,8 @@ public class GameManager : MonoSingletonBase<GameManager>
 
     public void LoadObjectiveData(List<SavedObjectiveData> savedData)
     {
-        _objectives.Clear(); 
+        _objectives.Clear();
+        allCollectedObjectivesCounts = 0; // recounted below; otherwise it accumulates across loads/restarts
         foreach(SavedObjectiveData data in savedData)
         {
             _objectives.Add(data.collectableType, data.collectedCount);

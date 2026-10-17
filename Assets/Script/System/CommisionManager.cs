@@ -42,6 +42,10 @@ public class CommisionManager : MonoSingletonBase<CommisionManager>
 
         ObjectiveData data = levelObjectives.Find(x => x.collectableType == herbType);
 
+        // No commission of this type for the level (e.g. a saved collectible from another level).
+        if (data == null)
+            return -1;
+
         return data.collectedCount;
     }
 

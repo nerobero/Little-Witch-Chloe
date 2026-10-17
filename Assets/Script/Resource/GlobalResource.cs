@@ -260,6 +260,7 @@ namespace Data
         public List<Types.EAbilityType> unlockedAbility; // Blink, Flying
         public List<Types.ESpawnType> spellList; // unlocked Projectile spells
         public List<SavedObjectiveData> objectives;
+        public List<SavedObjectiveData> inventoryItems; // herb/ingredient slot contents shown in the InventoryHUD
         public List<string> defeatedBosses;
         public float currentHP;
         public float currentMaxHP;

@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Types;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
+using DG.Tweening;
 
 /// <summary>
 /// Processes transitions and loading of levels
@@ -37,7 +36,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-#region Instance Registration
+    #region Instance Registration
     public void Register(ELevelType levelType, SceneBase instance)
     {
         GameManager.Instance.SetCurrentLevel(levelType);
@@ -49,7 +48,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
     {
         ELevelType curLevel = GameManager.Instance.CurrentLevel;
 
-        if(!sceneBases.TryGetValue(curLevel, out SceneBase sceneBase))
+        if (!sceneBases.TryGetValue(curLevel, out SceneBase sceneBase))
         {
             Debug.LogWarning($"No SceneBase registered for level {curLevel}, cannot register {behaviour}");
             return;
@@ -60,7 +59,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
     public void RegisterBenchMark(ELevelType level)
     {
-        if(!sceneBases.TryGetValue(level, out SceneBase sceneBase))
+        if (!sceneBases.TryGetValue(level, out SceneBase sceneBase))
         {
             Debug.LogWarning($"No SceneBase registered for level {level}, cannot register");
             return;
@@ -71,7 +70,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
     public int GetTotalBenchmarksForLevel(ELevelType level)
     {
-        if(!sceneBases.TryGetValue(level, out SceneBase sceneBase))
+        if (!sceneBases.TryGetValue(level, out SceneBase sceneBase))
         {
             Debug.LogWarning($"No SceneBase registered for level {level}, cannot register");
             return 0;
@@ -79,7 +78,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
         return sceneBase.GetTotalBenchMarkAmount();
     }
-#endregion
+    #endregion
 
     private void OnEnable()
     {
@@ -93,14 +92,14 @@ public class LevelManager : MonoSingletonBase<LevelManager>
             EventManager.Instance.OnTransitionLevel -= LoadLevelAdditively;
     }
 
-#region Level Load and Loading HUD
+    #region Level Load and Loading HUD
     private async void LoadLevelAdditively(ELevelType levelType)
     {
         await SceneManager.LoadSceneAsync((int)levelType, LoadSceneMode.Additive);
 
         if (!await SaveManager.Instance.WaitForPlayerReadyAsync())
             return;
-                
+
         //GameManager.Instance.SetCurrentLevel(levelType);
         SaveManager.Instance?.SavePlayerData();
         // _progressBar.value = 0.0f;
@@ -137,7 +136,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
                 _loaderCanvas.SetActive(true);
                 SoundManager.Instance.StopAllMusic();
             },
-            onComplete: ()=>
+            onComplete: () =>
             {
                 UIManager.Instance.Hide<UIGameOverHUD>();
                 Fade_img.blocksRaycasts = false;
@@ -147,20 +146,40 @@ public class LevelManager : MonoSingletonBase<LevelManager>
 
     private IEnumerator RestartLevelCoroutine()
     {
-        foreach(SceneBase scene in sceneBases.Values)
+
+        ELevelType level = GameManager.Instance.GetCurrentLevel();
+
+        // ELevelType values are not build indices, so take the scene from the level's SceneBase
+        if (!sceneBases.TryGetValue(level, out SceneBase levelBase) || levelBase == null)
         {
-            scene.ResetScene();
-            _progressBar.value = 0.9f;
-            yield return null;
+            Debug.LogError($"RestartLevelCoroutine: no SceneBase registered for {level}");
+            yield break;
         }
-        _progressBar.value = 1.0f;
+        Scene levelScene = levelBase.gameObject.scene;
+        int levelBuildIndex = levelScene.buildIndex;
 
-        //GameManager.Instance.ResetState();
-        
-        bool hasSave = SaveManager.Instance.LoadSaveGame();
+        // hand in-flight pooled objects back before the level's objects are destroyed
+        PoolObjectManager.Instance.ReturnAll();
 
-        if(hasSave)
+        DOTween.KillAll();
+        sceneBases.Remove(level);
+        _isFirstSceneLoad = true;              // OnSceneLoaded skips its own fade
+
+        _progressBar.value = 0.3f;
+        yield return SceneManager.UnloadSceneAsync(levelScene);
+
+        _progressBar.value = 0.6f;
+        yield return SceneManager.LoadSceneAsync(levelBuildIndex, LoadSceneMode.Additive);
+
+        // new scene's SceneBase.Awake and PlayerController register themselves
+        while (!SaveManager.Instance.IsPlayerReady) yield return null;
+        _progressBar.value = 0.9f;
+
+        GameManager.Instance.ResetState();     // clear persistent state the save doesn't cover
+        if (SaveManager.Instance.LoadSaveGame())
             SaveManager.Instance.ApplyAllGameData();
+
+        _progressBar.value = 1.0f;
 
         // Fade out
         StartCoroutine(Fade(Fade_img, 0f, fadeDuration,
@@ -168,7 +187,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
             {
                 _loaderCanvas.SetActive(false);
             },
-            onComplete: ()=>
+            onComplete: () =>
             {
                 Fade_img.gameObject.SetActive(false);
                 ShowSceneTitle();
@@ -190,7 +209,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         {
             await Task.Delay(100);
             _progressBar.value = scene.progress;
-        } while(scene.progress < 0.9f);
+        } while (scene.progress < 0.9f);
 
         // The target scene is ready but has not been activated yet.
         // Update this before activation so OnSceneLoaded reads the new level.
@@ -198,11 +217,11 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         await scene;
 
         Debug.Log($"CurrentLevel: {GameManager.Instance.GetCurrentLevel()}");
-        
+
         if (!await SaveManager.Instance.WaitForPlayerReadyAsync())
             return;
 
-        if(isSaveDataLoad)
+        if (isSaveDataLoad)
         {
 
             SaveManager.Instance?.ApplyAllGameData();
@@ -225,7 +244,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
                 Fade_img.alpha = 0f;
                 SoundManager.Instance.StopAllMusic();
             },
-            onComplete: ()=>
+            onComplete: () =>
             {
                 UIManager.Instance.Hide<TitleUI>();
                 Fade_img.blocksRaycasts = false;
@@ -255,7 +274,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
             {
                 _loaderCanvas.SetActive(false);
             },
-            onComplete: ()=>
+            onComplete: () =>
             {
                 Fade_img.gameObject.SetActive(false);
                 ShowSceneTitle();
@@ -277,9 +296,9 @@ public class LevelManager : MonoSingletonBase<LevelManager>
             {
                 SceneTitle_img.gameObject.SetActive(false);
                 _isFirstSceneLoad = true;
-            })); 
+            }));
         }));
-        
+
     }
 
     IEnumerator Fade(CanvasGroup group, float targetAlpha, float duration,
@@ -291,7 +310,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         float startAlpha = group.alpha;
         Debug.Log(startAlpha);
 
-        while(elapsedTime < duration)
+        while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
 
@@ -314,5 +333,5 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         Fade_img.blocksRaycasts = false;
         _isFirstSceneLoad = true;
     }
-#endregion
+    #endregion
 }
