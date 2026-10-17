@@ -124,6 +124,8 @@ public class SaveManager : MonoSingletonBase<SaveManager>
         }
 
         savePlayerData.objectives = GameManager.Instance.GetObjectiveData();
+        if(playerController && playerController.Inventory)
+            savePlayerData.inventoryItems = playerController.Inventory.GetSavedItems();
         savePlayerData.loveIngredientObjectives = LovePotionManager.Instance.GetLoveIngredientObjectiveData();
         savePlayerData.loveBenchmarkProgress = GameManager.Instance.GetLoveBenchmarkProgress();
         savePlayerData.loveDamagePenalty = GameManager.Instance.GetLoveDamagePenalty();
@@ -186,6 +188,12 @@ public class SaveManager : MonoSingletonBase<SaveManager>
         if(playerState)
         {
             playerState.ApplyAllGameData(savePlayerData.currentMaxHP, savePlayerData.currentHP, savePlayerData.currentStamina);
+        }
+
+        if(playerController && playerController.Inventory)
+        {
+            playerController.Inventory.LoadSavedItems(savePlayerData.inventoryItems); // null in saves made before this field existed
+            UIManager.Instance.Get<InventoryHUD>()?.RefreshDisplay();
         }
 
         foreach(ELevelType unlockedLevel in savePlayerData.unlockedLevels)

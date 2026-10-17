@@ -115,6 +115,47 @@ public class ItemInventory : MonoBehaviour
         return 0;
     }
 
+    /// <summary>
+    /// Collects the used slots (commission herbs, then ingredients) for saving.
+    /// </summary>
+    public List<Data.SavedObjectiveData> GetSavedItems()
+    {
+        var saved = new List<Data.SavedObjectiveData>();
+
+        foreach(ItemSlot slot in commisionItemSlots)
+        {
+            if(slot.isSlotUsed)
+                saved.Add(new Data.SavedObjectiveData(slot.item.itemType, slot.amount));
+        }
+
+        foreach(ItemSlot slot in ingredientItemSlots)
+        {
+            if(slot.isSlotUsed)
+                saved.Add(new Data.SavedObjectiveData(slot.item.itemType, slot.amount));
+        }
+
+        return saved;
+    }
+
+    /// <summary>
+    /// Replaces the current slot contents with the saved ones.
+    /// The caller must refresh the InventoryHUD afterwards.
+    /// </summary>
+    public void LoadSavedItems(List<Data.SavedObjectiveData> savedItems)
+    {
+        foreach(ItemSlot slot in commisionItemSlots) slot.ClearSlot();
+        foreach(ItemSlot slot in ingredientItemSlots) slot.ClearSlot();
+        lastCommisionItemIndex = 0;
+        lastIngredientItemIndex = 0;
+
+        if(savedItems == null) return;
+
+        foreach(Data.SavedObjectiveData saved in savedItems)
+        {
+            AddItem(saved.collectableType, saved.collectedCount);
+        }
+    }
+
     public void ResetState()
     {
         ingredientItemSlots.Clear();
