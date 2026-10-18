@@ -3,6 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Types;
+using System.Runtime.InteropServices;
+using System.Linq;
 
 /// <summary>
 /// Processes the player's attack logic here
@@ -315,11 +317,25 @@ public class PlayerAttack : MonoBehaviour
 
     public void ResetState()
     {
-        _spellList = new Dictionary<ESpawnType, bool>()
+        foreach(var key in _spellList.Keys.ToList())
         {
-            {ESpawnType.FireBall, true}, {ESpawnType.WaterBall, true},
-            {ESpawnType.PoisonBall, false}, {ESpawnType.ElectricBall, false}, {ESpawnType.LightBall, false}
-        };
+            switch(key)
+            {
+                case ESpawnType.FireBall:
+                case ESpawnType.WaterBall:
+                    continue;
+            }
+
+            _spellList[key] = false;
+        }
+
+        _currentSpell = ESpawnType.FireBall;
+        UIManager.Instance.Get<UIPlayerHUD>().ProjectileSelected((int)_currentSpell);   
+        // _spellList = new Dictionary<ESpawnType, bool>()
+        // {
+        //     {ESpawnType.FireBall, true}, {ESpawnType.WaterBall, true},
+        //     {ESpawnType.PoisonBall, false}, {ESpawnType.ElectricBall, false}, {ESpawnType.LightBall, false}
+        // };
         GameManager.Instance.ResetState();
     }
 
