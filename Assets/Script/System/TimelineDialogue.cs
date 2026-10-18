@@ -203,13 +203,13 @@ public class TimelineDialogue : MonoBehaviour
             Debug.Log($"[TimelineDialogue] Jump to {nextTime}s (index: {currentDialogueIndex})");
         }
         
+        director?.Resume();
         DialogueSystem.Instance.Advance();
         if(!DialogueSystem.Instance.IsPlaying)
             isTimelineDialogueActive = false;            
 
         waitingForNext = false;
         //director?.playableGraph.GetRootPlayable(0).SetSpeed(1);
-        director?.Resume();
         //Debug.Log($"[TimelineDialogue] director speed is {director?.playableGraph.GetRootPlayable(0).GetSpeed()}s");
         return true;
     }
