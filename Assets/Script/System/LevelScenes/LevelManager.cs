@@ -264,6 +264,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
         }
 
         SceneTitle_img.gameObject.SetActive(true);
+        SceneTitle_img.alpha = 1f;
 
         Debug.Log($"{sceneName[GameManager.Instance.GetCurrentLevel()]}");
         SceneTitle_img.GetComponent<SceneTitleUI>().SetTitleText(
@@ -326,8 +327,8 @@ public class LevelManager : MonoSingletonBase<LevelManager>
     public void GoToTitle()
     {
         StopAllCoroutines();
-        SceneTitle_img.gameObject.SetActive(true);
-        SceneTitle_img.alpha = 1f;
+        SceneTitle_img.alpha = 0f;
+        SceneTitle_img.gameObject.SetActive(false);
         Fade_img.gameObject.SetActive(true);
         Fade_img.alpha = 0f;
         Fade_img.blocksRaycasts = false;
