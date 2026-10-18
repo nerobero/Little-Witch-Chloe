@@ -164,13 +164,13 @@ public class SaveManager : MonoSingletonBase<SaveManager>
             // playerAttack.gameObject.transform.rotation = savePlayerData.savedRotation;
             // playerAttack.gameObject.transform.localScale = savePlayerData.savedScale;
             
+            // OnScrollCollected returns false when GameManager already holds the ability (it persists across scenes),
+            // so the HUD is rebuilt from the saved list instead of relying on that return value.
             foreach(Types.EAbilityType unlocked in savePlayerData.unlockedAbility)
             {
-                if(GameManager.Instance.OnScrollCollected(unlocked))
-                {
-                    UIManager.Instance.Get<UIPlayerHUD>().UpdateSkillList(unlocked);
-                }
+                GameManager.Instance.OnScrollCollected(unlocked);
             }
+            UIManager.Instance.Get<UIPlayerHUD>()?.RebuildSkillList(savePlayerData.unlockedAbility);
 
             foreach(Types.ESpawnType spell in savePlayerData.spellList)
             {   

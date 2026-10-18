@@ -149,6 +149,24 @@ public class UIPlayerHUD : UIBase
         _objectivesText.text = total.ToString();
     }
 
+    /// <summary>
+    /// Clears the skill slots and shows the given abilities again.
+    /// Used when loading save data, where the HUD is new but GameManager may already hold the abilities.
+    /// </summary>
+    public void RebuildSkillList(IEnumerable<EAbilityType> abilities)
+    {
+        foreach(var slot in _skillLists)
+        {
+            slot.gameObject.SetActive(false);
+        }
+        _maxSkillIndex = 0;
+
+        foreach(EAbilityType ability in abilities)
+        {
+            UpdateSkillList(ability);
+        }
+    }
+
     public void UpdateSkillList(EAbilityType abilityType)
     {
         int unlocked = (int)abilityType;
