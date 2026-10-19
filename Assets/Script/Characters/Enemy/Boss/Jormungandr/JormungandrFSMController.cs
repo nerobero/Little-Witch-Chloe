@@ -30,7 +30,6 @@ public class JormungandrFSMController : BaseFSMAIController
     [Header("Crafting QTE handoff")]
     [SerializeField] private Transform craftingQTESpawnPoint;
 
-
     [Header("Animator - Flower")]
     public Animator flowerAnimator;
     public GameObject flower;
@@ -193,15 +192,13 @@ public class JormungandrFSMController : BaseFSMAIController
         if (splashAnimator != null) splashAnimator.SetBool(IsDeadHash, true);
     }
 
-    // Called via Animation Event on the last frame of the Dead clip (base drops loot and
-    // deactivates Jormungandr's hierarchy first). Relocates the player into the crafting
-    // QTE area now that the boss fight is over.
-    public override void DeathAnimationComplete()
+    // The player is relocated into the crafting QTE area by the drop itself once it is
+    // picked up, so the flower can be collected first.
+    protected override void OnDropSpawned(GameObject drop)
     {
-        base.DeathAnimationComplete();
-
-        if (craftingQTESpawnPoint != null)
-            PlayerController.Instance.PlayerMove.TeleportTo(craftingQTESpawnPoint.position);
+        BossPotionIngredient ingredient = drop.GetComponent<BossPotionIngredient>();
+        if (ingredient != null)
+            ingredient.SetCraftingQTESpawnPoint(craftingQTESpawnPoint);
     }
 
     protected override void ResetEntranceState()

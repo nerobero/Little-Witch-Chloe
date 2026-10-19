@@ -423,11 +423,17 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
         if (dropItemPrefab != null)
         {
             Vector3 spawnPos = dropPoint != null ? dropPoint.position : transform.position;
-            GameObject.Instantiate(dropItemPrefab, spawnPos, Quaternion.identity);
+            GameObject drop = GameObject.Instantiate(dropItemPrefab, spawnPos, Quaternion.identity);
+            OnDropSpawned(drop);
         }
 
         gameObject.SetActive(false);
     }
+
+    /// <summary>
+    /// Lets a boss pass scene references (which a prefab can't hold) to its freshly spawned drop.
+    /// </summary>
+    protected virtual void OnDropSpawned(GameObject drop) { }
 
     public virtual void ResetState()
     {

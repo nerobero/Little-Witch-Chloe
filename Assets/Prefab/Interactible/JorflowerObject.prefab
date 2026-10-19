@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2981583763820392832}
   - component: {fileID: 7524308087682134410}
   - component: {fileID: 3899274855192734880}
-  - component: {fileID: 7209403004357551359}
   - component: {fileID: -8298243595212714889}
+  - component: {fileID: 125833145085648692}
   m_Layer: 20
   m_Name: JorflowerObject
   m_TagString: Untagged
@@ -168,7 +168,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.75, y: 2.1875}
   m_EdgeRadius: 0
---- !u!114 &7209403004357551359
+--- !u!114 &-8298243595212714889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,9 +177,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 625002237836764037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03b5eca0fdec4ca4ca6f403795808a4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 96457dae21d2bae4f8a6cca272d8df1a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LovePotionIngredient
+  m_EditorClassIdentifier: Assembly-CSharp::BaseBlobShadow
+  shadow: {fileID: 0}
+  offset: 0
+  _baseScale: {x: 0, y: 0, z: 0}
+  maxHeight: 4
+  minScaleMultiplier: 0.4
+--- !u!114 &125833145085648692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625002237836764037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09717ded70590e4aaabaed3876f62ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossPotionIngredient
   bgPlayerLayer:
     serializedVersion: 2
     m_Bits: 8192
@@ -194,16 +211,3 @@ MonoBehaviour:
   CollectType: 7
   isCommissionHerb: 0
   isLovePotionIngredient: 1
---- !u!114 &-8298243595212714889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 625002237836764037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96457dae21d2bae4f8a6cca272d8df1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BaseBlobShadow
-  shadow: {fileID: 0}

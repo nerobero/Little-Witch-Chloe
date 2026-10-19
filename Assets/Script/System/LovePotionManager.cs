@@ -154,7 +154,10 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
             int collected = _collectedIngredients.TryGetValue(data.collectableType, out int count) ? count : 0;
 
             if (collected < data.collectedCount)
+            {
+                Debug.LogWarning($"[LovePotionManager] {currentLevel} short on {data.collectableType}: {collected}/{data.collectedCount}");
                 return false;
+            }
         }
 
         return true;

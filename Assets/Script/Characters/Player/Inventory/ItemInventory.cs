@@ -158,7 +158,12 @@ public class ItemInventory : MonoBehaviour
 
     public void ResetState()
     {
-        ingredientItemSlots.Clear();
-        // System.Array.Clear(ingredientItemSlots, 0, ingredientItemSlots.Count);
+        // Keep the slot lists (only Start() fills them); emptying them would make every later AddItem fail.
+        foreach(ItemSlot slot in ingredientItemSlots) slot.ClearSlot();
+        foreach(ItemSlot slot in commisionItemSlots) slot.ClearSlot();
+        lastIngredientItemIndex = 0;
+        lastCommisionItemIndex = 0;
+
+        UIManager.Instance.Get<InventoryHUD>()?.RefreshDisplay();
     }
 }
