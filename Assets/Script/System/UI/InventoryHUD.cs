@@ -53,6 +53,11 @@ public class InventoryHUD : UIBase
             PlayerController.Instance.InputContext.BaseInputAction.Disable();
         }
         base.Show();
+
+        // Slot panels start inactive, so their Awake (which blanks the icon) only runs on first
+        // Show and would wipe anything Display()ed while the inventory was still closed.
+        if(inventoryData != null)
+            RefreshDisplay();
     }
 
     public override void Hide()
