@@ -9,6 +9,11 @@ public class LovePotionItem : ItemBase
     private void Awake()
     {
         _director.stopped += ReqGameEnded;
+        Collider2D _collider = GetComponent<Collider2D>();
+        if(_collider)
+        {
+            _collider.enabled = false;
+        }
         gameObject.SetActive(false);
     }
 
