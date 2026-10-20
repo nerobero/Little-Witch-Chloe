@@ -424,6 +424,7 @@ public class BaseFSMAIController : MonoBehaviour, IResetable, IStatusEffect
         {
             Vector3 spawnPos = dropPoint != null ? dropPoint.position : transform.position;
             GameObject drop = GameObject.Instantiate(dropItemPrefab, spawnPos, Quaternion.identity);
+            drop.layer = LayerManager.Instance.GetLayer(false, "Interactables"); //default to foreground
             OnDropSpawned(drop);
         }
 

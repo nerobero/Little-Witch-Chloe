@@ -8,6 +8,13 @@ public class BossPotionIngredient : LovePotionIngredient
 {
     private Transform craftingQTESpawnPoint;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        // the boss assigns this drop's layer on spawn; don't let ground detection override it
+        skipGroundLayerDetect = true;
+    }
+
     public void SetCraftingQTESpawnPoint(Transform spawnPoint)
     {
         craftingQTESpawnPoint = spawnPoint;

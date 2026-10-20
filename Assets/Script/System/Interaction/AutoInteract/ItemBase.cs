@@ -16,6 +16,8 @@ public abstract class ItemBase : MonoBehaviour, IResetable
     [SerializeField] protected bool isBackground;
     protected SpriteRenderer _spriteRender;
     protected bool _canInteract = true;
+    // set by items whose layer/sorting is assigned by their spawner instead of the ground raycast
+    protected bool skipGroundLayerDetect;
 
     /// <summary>
     /// Handles interaction logic. Can be overriden by the child classes.
@@ -29,6 +31,8 @@ public abstract class ItemBase : MonoBehaviour, IResetable
         LevelManager.Instance.RegisterInstance(this);
 
         _spriteRender = GetComponent<SpriteRenderer>();
+
+        if (skipGroundLayerDetect) return;
 
         int bgLayer = LayerMask.GetMask("Background_Platform");
         int fgLayer = LayerMask.GetMask("Foreground_Platform");
