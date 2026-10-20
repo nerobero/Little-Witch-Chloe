@@ -22845,6 +22845,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9169097736380440220, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
   m_PrefabInstance: {fileID: 185503333}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &185503335 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8798428445665095959, guid: 5bd7ab199e128f64ea011ecab2b0055b, type: 3}
+  m_PrefabInstance: {fileID: 185503333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &186199402
 GameObject:
   m_ObjectHideFlags: 0
@@ -199349,6 +199354,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: fd5a6476b61f7e44fbf99200e57eaea3, type: 2}
     - {fileID: 11400000, guid: fbaad291cb864284cb48e15fae2ba9d0, type: 2}
     - {fileID: 11400000, guid: bbf3d40a68db60d43bca7227db7c1975, type: 2}
+    - {fileID: 11400000, guid: 4c188f9e4f226a04aaac7aeee1a5f2aa, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls: []
@@ -199691,6 +199697,20 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 185503335}
+          m_TargetAssemblyTypeName: UnityEngine.CircleCollider2D, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!114 &840394811
 MonoBehaviour:
