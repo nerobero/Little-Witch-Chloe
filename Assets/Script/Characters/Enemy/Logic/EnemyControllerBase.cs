@@ -360,12 +360,14 @@ public class EnemyControllerBase : MonoBehaviour, IResetable, IStatusEffect
     {
         // subscribe the event: OnHit
         enemyStat.OnHPChanged += OnHit;
+        enemyStat.OnDeath += Death;
     }
 
     void OnDisable()
     {
         // release subscription for escaping memory leak
         enemyStat.OnHPChanged -= OnHit;
+        enemyStat.OnDeath -= Death;
     }
 
     void OnHit(float currentHP, float maxHP, GameObject instigator)
@@ -413,6 +415,11 @@ public class EnemyControllerBase : MonoBehaviour, IResetable, IStatusEffect
     protected virtual void FireCharged(float chargeRatio)
     {
         
+    }
+
+    protected virtual void Death()
+    {
+        enemyMove.Death();
     }
 
     public virtual void ResetState()

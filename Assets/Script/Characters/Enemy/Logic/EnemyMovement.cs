@@ -307,4 +307,10 @@ public class EnemyMovement : BaseCharacterMovement
     {
         transform.position = spawnPosition;
     }
+
+    public virtual void Death()
+    {
+        shouldStop = true;
+        _rb.linearVelocity = new Vector2(0.0f, 0.0f);
+    }
 }

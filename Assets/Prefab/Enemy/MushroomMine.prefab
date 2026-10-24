@@ -331,7 +331,7 @@ MonoBehaviour:
     m_Bits: 64
   heightDistance: 2
   _isBackground: 0
-  shouldStop: 0
+  shouldStop: 1
   IsEnabled: 1
   minDistance: 2
   maxDistance: 3
@@ -398,3 +398,5 @@ MonoBehaviour:
   shadow: {fileID: 0}
   offset: 0.344
   _baseScale: {x: 0.7, y: 0.06, z: 1}
+  maxHeight: 4
+  minScaleMultiplier: 0.4
