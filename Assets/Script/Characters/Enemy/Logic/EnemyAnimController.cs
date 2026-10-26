@@ -65,11 +65,12 @@ public class EnemyAnimController : BaseCharacterAnimController
         
         if(enemyHPWidget)
         {
-            if (IsFacingRight && moveDir > 0f || !IsFacingRight && moveDir < 0f)
+            if(enemyHPWidget != null && enemyHPWidget.HPSlider != null)
             {
-                Vector2 localScale2D = transform.localScale;
-                localScale2D.x = IsFacingRight ? 1f : -1f;
-                //enemyHPWidget.HPSlider.transform.localScale = localScale2D;
+                Transform bar = enemyHPWidget.HPSlider.transform;
+                Vector3 scale = bar.localScale;
+                scale.x = Mathf.Abs(scale.x) * (transform.localScale.x < 0f ? -1f : 1f);
+                bar.localScale = scale;
             }
         }
 
