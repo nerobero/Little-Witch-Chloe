@@ -41,7 +41,7 @@ public class PopupHUD : UIBase
     // Save button click event
     public void OnSaveButtonClicked()
     {
-        SaveManager.Instance.SavePlayerData();
+        UIManager.Instance.Get<UIMessageBox>().ShowMessage("SAVE_SUCCESSFUL", () => SaveManager.Instance.SavePlayerData()); 
     }
 
     // Return to the menu button click event
