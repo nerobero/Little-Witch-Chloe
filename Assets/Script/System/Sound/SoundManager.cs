@@ -17,10 +17,42 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     private float _currentStateValue;
     private bool _isStarted = false;
     private EventReference _currentTrack;
+
+    // This manager lives in the level scene and is recreated on a level restart,
+    // so what the BGM was doing has to be kept outside the instance.
+    private static float s_lastStateValue = 0f;
+    private static bool s_lastTrackWasMain = false;
+
+    /// <summary>
+    /// Forgets the BGM progress kept for level restarts. Call when starting a new session from the title.
+    /// </summary>
+    public static void ResetPersistentState()
+    {
+        s_lastStateValue = 0f;
+        s_lastTrackWasMain = false;
+    }
+
+    // The restart handling below only applies to playable levels, not the Title or Main Game scenes.
+    private bool IsPlayableLevelScene
+    {
+        get
+        {
+            string sceneName = gameObject.scene.name;
+            return sceneName != "TitleScene" && sceneName != "MainScene";
+        }
+    }
+
     protected override void Awake()
     {
         dontDestroy = false;
         base.Awake();
+
+        // FMOD global parameters outlive this object, so re-apply the last phase instead of leaving a stale value
+        if (IsPlayableLevelScene)
+        {
+            _currentStateValue = s_lastStateValue;
+            RuntimeManager.StudioSystem.setParameterByName("ForestLevel", s_lastStateValue);
+        }
 
         RuntimeManager.StudioSystem.setParameterByName("Master Volume", 0.5f);
         RuntimeManager.StudioSystem.setParameterByName("MUSIC Volume", 0.5f);
@@ -30,10 +62,12 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     private void HandleStartManagerEvent()
     {
         if (_isStarted) return;
-        if (Overworld.IsNull) return;
+        // after a level restart, resume the main music if it was playing before
+        EventReference startTrack = (IsPlayableLevelScene && s_lastTrackWasMain && !MainMusic.IsNull) ? MainMusic : Overworld;
+        if (startTrack.IsNull) return;
         Debug.Log("HandleStartManagerEvent Called");
-        _currentTrack = Overworld;
-        _eventInstance = RuntimeManager.CreateInstance(Overworld);
+        _currentTrack = startTrack;
+        _eventInstance = RuntimeManager.CreateInstance(startTrack);
         _eventInstance.start();
         _isStarted = true;
     }
@@ -47,6 +81,7 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     public void SetGlobalValue(float state)
     {
         _currentStateValue = state;
+        if (IsPlayableLevelScene) s_lastStateValue = state;
         RuntimeManager.StudioSystem.setParameterByName("ForestLevel", state);
     }
 
@@ -93,6 +128,8 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     {
         HandleStopEvent();
         if (track.IsNull) return;
+        if (IsPlayableLevelScene && track.Guid != GameOverMusic.Guid) // the game over jingle must not decide what resumes after a restart
+            s_lastTrackWasMain = track.Guid == MainMusic.Guid;
         _currentTrack = track;
         _eventInstance = RuntimeManager.CreateInstance(track);
         _eventInstance.start();
@@ -102,6 +139,16 @@ public class SoundManager : MonoSingletonBase<SoundManager>
     public bool IsTrackPlaying(EventReference track)
     {
         return _isStarted && _currentTrack.Guid == track.Guid;
+    }
+
+    /// <summary>
+    /// Starts the main music unless it, or other special music such as a boss track, is already playing.
+    /// Used by the BGM phase triggers, which can be reached without ever passing the Ambience trigger (e.g. after a restart).
+    /// </summary>
+    public void EnsureMainMusic()
+    {
+        if (!_isStarted || IsTrackPlaying(Overworld))
+            PlayMainMusic();
     }
 
     public void PlayMainMusic() => PlayTrack(MainMusic);

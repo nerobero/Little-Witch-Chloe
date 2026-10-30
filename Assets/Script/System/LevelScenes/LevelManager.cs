@@ -243,6 +243,7 @@ public class LevelManager : MonoSingletonBase<LevelManager>
                 Fade_img.blocksRaycasts = true;
                 Fade_img.alpha = 0f;
                 SoundManager.Instance.StopAllMusic();
+                SoundManager.ResetPersistentState(); // a new session must not resume the previous one's BGM
             },
             onComplete: () =>
             {

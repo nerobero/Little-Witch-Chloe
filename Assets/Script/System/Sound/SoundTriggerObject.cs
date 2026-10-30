@@ -34,6 +34,10 @@ public class SoundTriggerObject : MonoBehaviour
             {
                 SoundManager.Instance.PlayMainMusic();
             }
+            else
+            {
+                SoundManager.Instance.EnsureMainMusic();
+            }
 
             if (SoundManager.Instance.GetGlobalValue() != _globalParam)
             {
