@@ -182,6 +182,11 @@ public class PlayerMovement : BaseCharacterMovement
     public void FlyTick()
     {
         //if (_statusEffects != null && !_statusEffects.CanMove) return;
+        if (_statManager.CurrStamina <= 0f)
+        {
+            StopFlying();
+            return;
+        }
         _rb.AddForce(Vector2.up * flyForce, ForceMode2D.Force);
         _statManager.UseStamina(0.01f);
     }

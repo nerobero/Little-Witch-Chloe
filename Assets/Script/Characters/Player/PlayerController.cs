@@ -193,6 +193,9 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
     private void OnFlyStopped()
     {
         _isFlying = false;
+        // invalidate the hold snapshot so a still-held key can't re-trigger flying
+        // (e.g. when flight ended because stamina ran out):
+        _jumpPressTime = -1f;
     }
 
     private void Update()
@@ -206,6 +209,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IBaseInputActionActio
             if (heldFor >= flyingThreshold) // state change
             {
                 if (!GameManager.Instance.IsSpellUnlocked(Types.EAbilityType.Flying)) return;
+                if (_playerStat.CurrStamina <= 0f) return; // no stamina, no flight
                 _isFlying = true;
                 _playerMove.StartFlying(); // always called before FlyTick()
             }
