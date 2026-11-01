@@ -86,6 +86,8 @@ public class GameManager : MonoSingletonBase<GameManager>
         {
             OnObjectivesCollected?.Invoke(collection.Key, collection.Value);
         }
+
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // #region Save&Load
