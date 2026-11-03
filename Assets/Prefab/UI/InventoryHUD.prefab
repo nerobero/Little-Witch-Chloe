@@ -128,7 +128,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2470460714003421373}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -396,6 +396,9 @@ MonoBehaviour:
   itemIconDatabase: {fileID: 11400000, guid: 92a92cbbd20c45f4a9a019a0373eb384, type: 2}
   LastItemIndex: 0
   inventoryData: {fileID: 0}
+  objectiveListRoot: {fileID: 5240498675808463143}
+  objCheckboxPrefab: {fileID: 4861905187952768627, guid: a1cccdda315cd2040b818b7864d31b01, type: 3}
+  _objIconDataBase: {fileID: 11400000, guid: 08e756fc1ff9e3a45b951aa348175114, type: 2}
 --- !u!1 &7820520858274359030
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +429,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2448373904848824172}
+  - {fileID: 5240498675808463143}
   - {fileID: 6762489031067411135}
   - {fileID: 1948202975124390332}
   - {fileID: 4316154533457037214}
@@ -480,7 +484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6762489031067411135
 RectTransform:
   m_ObjectHideFlags: 0
@@ -515,7 +519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 356.9093, y: -189.52145}
+  m_AnchoredPosition: {x: 356.9093, y: -265.45}
   m_SizeDelta: {x: 0, y: 320}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4009962822619318752
@@ -693,6 +697,83 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &8027595131344482054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5240498675808463143}
+  - component: {fileID: 1421792107170200653}
+  - component: {fileID: 6373964280520663230}
+  m_Layer: 5
+  m_Name: Group_ObjectiveCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5240498675808463143
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8027595131344482054}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8853824393328065354}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 356.9093, y: -112.913826}
+  m_SizeDelta: {x: 0, y: 61.942554}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1421792107170200653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8027595131344482054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
+--- !u!114 &6373964280520663230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8027595131344482054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 3
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &8761402084183870039
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,8 +826,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 356.9093, y: -564.7228}
-  m_SizeDelta: {x: 0, y: 320}
+  m_AnchoredPosition: {x: 356.9093, y: -533.75146}
+  m_SizeDelta: {x: 0, y: 381.94257}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6645369609022097041
 MonoBehaviour:
@@ -796,7 +877,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -914,7 +995,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -1008,6 +1089,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Name
       value: InventorySlot (2)
@@ -1032,7 +1117,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -1150,7 +1235,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -1244,6 +1329,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Name
       value: InventorySlot (3)
@@ -1268,7 +1357,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -1386,7 +1475,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -1504,7 +1593,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -1598,6 +1687,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Name
       value: InventorySlot (8)
@@ -1622,7 +1715,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -1740,7 +1833,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -1858,7 +1951,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -1950,6 +2043,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
@@ -1976,7 +2073,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -2068,6 +2165,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
@@ -2094,7 +2195,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -2186,6 +2287,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
@@ -2212,7 +2317,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -2304,6 +2409,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
@@ -2330,7 +2439,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -2424,6 +2533,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Name
       value: InventorySlot (13)
@@ -2448,7 +2561,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -2566,7 +2679,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -2684,7 +2797,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -2778,6 +2891,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Name
       value: InventorySlot (15)
@@ -2802,7 +2919,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -2920,7 +3037,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -3038,7 +3155,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -3156,7 +3273,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -3274,7 +3391,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -3368,6 +3485,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Name
       value: InventorySlot
@@ -3392,7 +3513,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -3510,7 +3631,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -3628,7 +3749,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -3720,6 +3841,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
@@ -3746,7 +3871,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -3840,6 +3965,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Name
       value: InventorySlot (5)
@@ -3864,7 +3993,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -3982,7 +4111,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -4076,6 +4205,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Name
       value: InventorySlot (1)
@@ -4100,7 +4233,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -4218,7 +4351,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -4312,6 +4445,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Name
       value: InventorySlot (7)
@@ -4336,7 +4473,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -4454,7 +4591,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -4546,6 +4683,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
@@ -4572,7 +4713,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -4666,6 +4807,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Name
       value: InventorySlot (9)
@@ -4690,7 +4835,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -4808,7 +4953,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 769983585409120522, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 51.15
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_Pivot.x
@@ -4900,6 +5045,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
@@ -5002,6 +5151,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2224273336335037398, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584537802717662113, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7596230840110121404, guid: 048e97bb26174c7488c3b3d490c3f612, type: 3}

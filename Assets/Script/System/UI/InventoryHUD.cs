@@ -1,4 +1,4 @@
-using System.Linq;
+using System.Collections.Generic;
 using Types;
 using UnityEngine;
 
@@ -12,6 +12,10 @@ public class InventoryHUD : UIBase
     public int LastItemIndex = 0;
 
     [SerializeField] private ItemInventory inventoryData;
+    [SerializeField] private Transform objectiveListRoot;
+    [SerializeField] private LWCIngredientCheckbox objCheckboxPrefab;
+    // the objective icon dataset => should be allocated at the prefab.
+    [SerializeField] private LovePotionIconDatabase _objIconDataBase;
 
     protected override void Awake()
     {
@@ -21,7 +25,15 @@ public class InventoryHUD : UIBase
 
         commisionItemSlots = herbGroups.GetComponentsInChildren<ItemSlotPanel>(true);
         ingredientItemSlots = potionGroups.GetComponentsInChildren<ItemSlotPanel>(true);
+        List<ECollectable> objTypes = LovePotionManager.Instance.GetObjectiveIngredients(GameManager.Instance.CurrentLevel);
 
+        foreach (ECollectable type in objTypes)
+        {
+            LWCIngredientCheckbox checkbox =
+            Instantiate(objCheckboxPrefab, objectiveListRoot);
+
+            checkbox.Initialize(type, _objIconDataBase);
+        }
         base.Awake();
         Hide();
     }

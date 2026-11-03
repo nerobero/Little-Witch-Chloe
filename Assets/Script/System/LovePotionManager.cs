@@ -139,6 +139,17 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
         OnLovePotionStateChanged?.Invoke();
     }
 
+    // Get current collected ingredient amount
+    public int GetLoveIngredientCollectedAmount(ECollectable type)
+    {
+        if(_collectedIngredients.ContainsKey(type))
+        {
+            return _collectedIngredients[type];
+        }
+
+        return -1;
+    }
+
     /// <summary>
     /// Checks whether enough of every required ingredient has been collected for the given level.
     /// </summary>

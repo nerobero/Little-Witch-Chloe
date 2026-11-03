@@ -34,7 +34,7 @@ public class PopupHUD : UIBase
 
         //SubscribeEvents();
 
-        //Hide();
+        Hide();
     }
 
     #region Button click event
