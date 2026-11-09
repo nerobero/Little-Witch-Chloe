@@ -147,7 +147,7 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
             return _collectedIngredients[type];
         }
 
-        return -1;
+        return 0;
     }
 
     /// <summary>
