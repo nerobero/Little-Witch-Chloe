@@ -294,14 +294,14 @@ namespace Data
     public class ObjectiveData
     {
         public Types.ECollectable collectableType;
-        public int collectedCount = 0;
+        public int targetCollectCount = 0;
 
         public ObjectiveData() {}
 
         public ObjectiveData(Types.ECollectable type, int amount)
         {
             collectableType = type;
-            collectedCount = amount;
+            targetCollectCount = amount;
         }
     }
 

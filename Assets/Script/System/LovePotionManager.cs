@@ -51,7 +51,7 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
     {
         ObjectiveData data = _levelObjectives[currentLevel].Find(x => x.collectableType == ingredientType);
 
-        return data.collectedCount;
+        return data.targetCollectCount;
     }
 
     /// <summary>
@@ -95,7 +95,7 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
 
         int total = 0;
         foreach (ObjectiveData data in _levelObjectives[currentLevel])
-            total += data.collectedCount;
+            total += data.targetCollectCount;
 
         return total;
     }
@@ -164,9 +164,9 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
         {
             int collected = _collectedIngredients.TryGetValue(data.collectableType, out int count) ? count : 0;
 
-            if (collected < data.collectedCount)
+            if (collected < data.targetCollectCount)
             {
-                Debug.LogWarning($"[LovePotionManager] {currentLevel} short on {data.collectableType}: {collected}/{data.collectedCount}");
+                Debug.LogWarning($"[LovePotionManager] {currentLevel} short on {data.collectableType}: {collected}/{data.targetCollectCount}");
                 return false;
             }
         }
@@ -187,7 +187,7 @@ public class LovePotionManager : MonoSingletonBase<LovePotionManager>
         foreach (ObjectiveData data in _levelObjectives[currentLevel])
         {
             if (_collectedIngredients.TryGetValue(data.collectableType, out int count))
-                _collectedIngredients[data.collectableType] = Mathf.Max(0, count - data.collectedCount);
+                _collectedIngredients[data.collectableType] = Mathf.Max(0, count - data.targetCollectCount);
         }
 
         OnLovePotionStateChanged?.Invoke();

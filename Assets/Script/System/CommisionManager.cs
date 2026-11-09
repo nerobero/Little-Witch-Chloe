@@ -46,7 +46,7 @@ public class CommisionManager : MonoSingletonBase<CommisionManager>
         if (data == null)
             return -1;
 
-        return data.collectedCount;
+        return data.targetCollectCount;
     }
 
     /// <summary>

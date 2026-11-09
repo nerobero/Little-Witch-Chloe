@@ -25,6 +25,12 @@ public class InventoryHUD : UIBase
 
         commisionItemSlots = herbGroups.GetComponentsInChildren<ItemSlotPanel>(true);
         ingredientItemSlots = potionGroups.GetComponentsInChildren<ItemSlotPanel>(true);
+        base.Awake();
+        Hide();
+    }
+
+    private void Start()
+    {
         List<ECollectable> objTypes = LovePotionManager.Instance.GetObjectiveIngredients(GameManager.Instance.CurrentLevel);
 
         foreach (ECollectable type in objTypes)
@@ -34,8 +40,6 @@ public class InventoryHUD : UIBase
 
             checkbox.Initialize(type, _objIconDataBase);
         }
-        base.Awake();
-        Hide();
     }
 
     // public void Register(ItemSlotPanel itemSlot)
