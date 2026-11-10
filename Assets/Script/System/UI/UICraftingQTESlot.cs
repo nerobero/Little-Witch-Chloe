@@ -10,10 +10,16 @@ public class UICraftingQTESlot : MonoBehaviour
 {
     [SerializeField] private Image _keyIcon;
     [SerializeField] private Image _ingredientIcon;
+    public GameObject indicator;
 
     public void SetData(Sprite keySprite, Sprite ingredientSprite)
     {
         _keyIcon.sprite = keySprite;
         _ingredientIcon.sprite = ingredientSprite;
+    }
+
+    public void SetTurn(bool isTurn)
+    {
+        indicator.SetActive(isTurn);
     }
 }

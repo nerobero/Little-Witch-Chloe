@@ -50,6 +50,24 @@ public class UICraftingQTE : UIBase
                 _uiSlots[i].SetData(keySprite, ingredientSprite);
             }
         }
+
+        HighlightSlot(0);
+    }
+
+    private void HighlightSlot(int currentIndex)
+    {
+        for (int i = 0; i < _uiSlots.Count; i++)
+            _uiSlots[i].SetTurn(i <= currentIndex);
+    }
+
+    private void HandleComboProgress(int currentIndex, int total)
+    {
+        HighlightSlot(currentIndex);
+    }
+
+    private void HandleQTESucceeded()
+    {
+        HighlightSlot(_uiSlots.Count);
     }
 
     private void EnsureSlotsCached()
@@ -98,11 +116,15 @@ public class UICraftingQTE : UIBase
     protected override void SubscribeEvents()
     {
         _craftingQTE.OnComboReset += HandleComboReset;
+        _craftingQTE.OnComboProgress += HandleComboProgress;
+        _craftingQTE.OnQTESucceeded += HandleQTESucceeded;
     }
 
     protected override void UnsubscribeEvents()
     {
         _craftingQTE.OnComboReset -= HandleComboReset;
+        _craftingQTE.OnComboProgress -= HandleComboProgress;
+        _craftingQTE.OnQTESucceeded -= HandleQTESucceeded;
     }
 
 
