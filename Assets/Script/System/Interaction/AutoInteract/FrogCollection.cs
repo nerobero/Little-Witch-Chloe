@@ -44,6 +44,8 @@ public class FrogCollection : CollectableItemBase
             return false;
         }
 
+        UIManager.Instance.Get<InventoryHUD>().AddItem(CollectType);
+
         return stat.IncreaseMaxHP(healAmount);
     }
 

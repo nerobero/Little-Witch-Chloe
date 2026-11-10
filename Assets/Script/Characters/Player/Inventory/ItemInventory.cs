@@ -77,7 +77,8 @@ public class ItemInventory : MonoBehaviour
             case ECollectable.JorFlower:
             case ECollectable.FireCore:
             case ECollectable.Winterberry:
-            {    
+            case ECollectable.FrogCollectible:
+            {
                 for(int i = 0; i < lastIngredientItemIndex; ++i)
                 {
                     // already used slot and the same item is in the same slot
