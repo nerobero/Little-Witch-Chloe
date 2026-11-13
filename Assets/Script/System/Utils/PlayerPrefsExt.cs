@@ -20,6 +20,7 @@ public static class PlayerPrefsExt
         string savingValue = encryption ? aes128.Encrypt(jsonValue) : jsonValue;
 
         PlayerPrefs.SetString(savingKey, savingValue);
+        PlayerPrefs.Save();
     }
 
     /// <summary>
