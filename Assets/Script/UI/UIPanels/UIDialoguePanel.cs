@@ -226,5 +226,10 @@ public class UIDialoguePanel : UIBase
             RenderLine();
         }
     }
+
+    public void PlaySFX()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Dialouge");
+    }
     #endregion
 }
