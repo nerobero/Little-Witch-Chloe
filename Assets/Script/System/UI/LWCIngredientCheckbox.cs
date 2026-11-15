@@ -21,6 +21,18 @@ public class LWCIngredientCheckbox : UIBase
         }
     }
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+
+        // Events fired while this checkbox was inactive (inventory closed) were missed,
+        // so resync. Skipped on the first OnEnable (from Instantiate) before Initialize runs.
+        if (_objName != null && LovePotionManager.Instance != null)
+        {
+            UpdateUI();
+        }
+    }
+
     protected override void UnsubscribeEvents()
     {
         if (LovePotionManager.Instance != null)
@@ -89,9 +101,6 @@ public class LWCIngredientCheckbox : UIBase
     }
     private void GetObjectives(int count)
     {   
-        if(count >= _objTargetAmount)
-        {
-            _objCheckbox.gameObject.SetActive(true);
-        }
+        _objCheckbox.gameObject.SetActive(count >= _objTargetAmount);
     }
 }
