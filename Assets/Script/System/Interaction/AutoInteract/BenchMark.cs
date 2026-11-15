@@ -27,6 +27,7 @@ public class BenchMark : MonoBehaviour, IResetable
             int totalBenchmarksForLevel = LevelManager.Instance.GetTotalBenchmarksForLevel(levelType);
             float normalizedIncrement = 1.0f / totalBenchmarksForLevel;
             GameManager.Instance.OnLevelBenchmarkPassed(normalizedIncrement);
+            SaveManager.Instance.SavePlayerData(); // added auto-save when the player has paased this benchmark
         }
     }
 
