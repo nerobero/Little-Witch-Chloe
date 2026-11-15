@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47d4da44e5ab7724aaddeb22a9409e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntermedSpiritMovement
-  originalSpeed: 1
+  originalSpeed: 2
   jumpHeight: 1
   bgLayer:
     serializedVersion: 2
@@ -272,8 +272,8 @@ MonoBehaviour:
   _isBackground: 1
   shouldStop: 0
   IsEnabled: 1
-  minDistance: 2
-  maxDistance: 3
+  minDistance: 3
+  maxDistance: 8
   speedIncFactor: 1
   groundCheckDistance: 0.5
   obstacleDistance: 2

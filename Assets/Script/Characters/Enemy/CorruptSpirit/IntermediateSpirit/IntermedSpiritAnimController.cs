@@ -16,8 +16,13 @@ public class IntermedSpiritAnimController : EnemyAnimController
     }
 
 
+    // True once the PassiveIdle => SeenTrans => SeenIdle chain has been triggered.
+    // The attack transition only exists from SeenIdle, so this must be true before attacking.
+    public bool HasBeenSeen { get; private set; }
+
     public void SetToSeenTrans()
     {
+        HasBeenSeen = true;
         _animator.SetTrigger(IsSeenTrigHash);
         _animator.SetBool(IsSeenHash, true);
     }

@@ -28,6 +28,22 @@ public class IntermedSpiritController : CorruptController
         }
     }
 
+    protected override void PlayerDetected(bool bIsDifferentPlatform, Vector2 hitPosition)
+    {
+        // Same-platform detection skips the blink, so the animator never leaves PassiveIdle
+        // (the attack transition only exists from SeenIdle). Play the seen transition first.
+        if (!bIsDifferentPlatform)
+        {
+            var spiritAnim = enemyMove.AnimController as IntermedSpiritAnimController;
+            if (spiritAnim != null && !spiritAnim.HasBeenSeen)
+            {
+                spiritAnim.SetToSeenTrans();
+            }
+        }
+
+        base.PlayerDetected(bIsDifferentPlatform, hitPosition);
+    }
+
     protected override void FireProjectile()
     {
         float probability = (float)Random.Range(0, 100) / 100.0f;
