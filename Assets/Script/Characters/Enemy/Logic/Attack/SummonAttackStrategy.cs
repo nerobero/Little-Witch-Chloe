@@ -21,6 +21,13 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
     // radius around _summonPosition within which each summon's spawn point is randomized
     private float _orbitRadius = 0f;
 
+    // optional runtime source of the spawn anchor; null means the static _basePosition is used.
+    // queried at spawn time so a moving anchor is never stale
+    private Func<Vector3> _anchorProvider;
+
+    // current spawn anchor: dynamic if a provider was given, otherwise the fixed _basePosition
+    private Vector3 CurrentBase => _anchorProvider != null ? _anchorProvider() : _basePosition;
+
     private int _poolSize => _summonPool.Count;
 
     // owner used to run the summon coroutine, since this strategy is a plain C# class
@@ -69,11 +76,12 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
 
     }
 
-    public SummonAttackStrategy(MonoBehaviour owner, GameObject summonObj, float timeInterval, int poolSize, Vector3 position, float orbitRadius = 0.0f, float summonRange = 0.0f)
+    public SummonAttackStrategy(MonoBehaviour owner, GameObject summonObj, float timeInterval, int poolSize, Vector3 position, float orbitRadius = 0.0f, float summonRange = 0.0f, Func<Vector3> anchorProvider = null)
         : this(owner, summonObj, timeInterval, poolSize, position)
     {
         _orbitRadius = orbitRadius;
         _summonRange = summonRange;
+        _anchorProvider = anchorProvider;
     }
 
     public bool Attack(GameObject instigator, GameObject target, bool useLastTarget = false)
@@ -87,7 +95,8 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
         {
             float randomOffset = UnityEngine.Random.Range(-_summonRange, _summonRange);
             float x = target.transform.position.x + randomOffset;
-            float y = _basePosition.y;
+            Vector3 basePos = CurrentBase;
+            float y = basePos.y;
             // Debug.Log($"SummonAttackStrat:{_summonable} _summonRange={_summonRange}, x={x}, y={y}");
             // Debug.Log($"SummonAttackStrat:{_summonable} ForeminX={ai.ForegroundMinX}, ForemaxX={ai.ForegroundMaxX}, BackMinX={ai.BackgroundMinX}, BackMaxX={ai.BackgroundMaxX}");
             // Debug.Log($"SummonAttackStrat:{_summonable} ForeY={ai.ForegroundY}, BackY={ai.BackgroundY}");
@@ -104,7 +113,7 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
             //Debug.Log($"SummonAttackStrat:{_summonable} _summonRange={_summonRange}, x changed={x}, y changed={y}");
             // recomputed fresh from _basePosition every attack, rather than mutated in place,
             // so repeated background-side attacks don't keep stacking the Y offset
-            _summonPosition = new Vector3(x, y, _basePosition.z);
+            _summonPosition = new Vector3(x, y, basePos.z);
         }
 
         _summonRoutine = _owner.StartCoroutine(SummonRoutine());
@@ -131,7 +140,11 @@ public class SummonAttackStrategy : IEnemyAttackStrategy, IDisposable
     {
         var obj = Get();
         Vector2 randomOffset = UnityEngine.Random.insideUnitCircle * _orbitRadius;
-        obj.transform.position = _summonPosition + new Vector3(randomOffset.x, randomOffset.y, 0f);
+
+        // orbit mode with a dynamic anchor: re-resolve per summon so the spawn follows the anchor.
+        // otherwise use the position computed in Attack()
+        Vector3 origin = (_anchorProvider != null && _orbitRadius != 0f) ? _anchorProvider() : _summonPosition;
+        obj.transform.position = origin + new Vector3(randomOffset.x, randomOffset.y, 0f);
 
         // match the summoned object's layer to whichever side the instigator is currently on
         bool isBackground = LayerMask.LayerToName(_owner.gameObject.layer).StartsWith("Background");

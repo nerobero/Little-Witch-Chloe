@@ -163,7 +163,7 @@ public class JormungandrFSMController : BaseFSMAIController
         attacklist["statusEffect"] = new AttackEntry(
             Animator.StringToHash("StatusEffect"),
             new SummonAttackStrategy(this, poisonPrefab, timeInterval: fogSummontimeInterval, poolSize: fogSummonCount, 
-                                    position: summonRoot.position, orbitRadius: summonRadius)
+                                    position: summonRoot.position, orbitRadius: summonRadius, anchorProvider: () => summonRoot.position)
         );
     }
 
