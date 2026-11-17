@@ -126,7 +126,7 @@ public class UIPlayerHUD : UIBase
 
     public void OnDeath()
     {
-        OnDisable();
+        Hide();
     }
 
     public void UpdateBlinkCooldown(float cool)
