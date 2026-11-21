@@ -7,8 +7,10 @@ public class JormungandrTail : MonoBehaviour, ISummonable
     [SerializeField] private ESpawnType spawnType;
     [SerializeField] private EElementType elementType;
     [SerializeField] private string fmodEventName = "";
+    [SerializeField] private int foregroundSortingOrder = 2;
+    [SerializeField] private int backgroundSortingOrder = 0;
     private bool _isActive = true;
-    private bool _dealEnable = false;
+private bool _dealEnable = false;
     
     private Collider2D _collider;
     private Rigidbody2D _projRB;
@@ -142,6 +144,16 @@ public class JormungandrTail : MonoBehaviour, ISummonable
     {
         //if (_collider != null) _collider.enabled = true;
         _isActive = true;
+        ApplySortingOrder();
+    }
+
+    // match the tail's sorting order to whichever side the boss is on (SetInstigator runs before this)
+    private void ApplySortingOrder()
+    {
+        if (_spriteRenderer == null || _instigator == null) return;
+
+        bool isBackground = LayerMask.LayerToName(_instigator.layer).StartsWith("Background");
+        _spriteRenderer.sortingOrder = isBackground ? backgroundSortingOrder : foregroundSortingOrder;
     }
 
     public void OnReturnedToPool()
