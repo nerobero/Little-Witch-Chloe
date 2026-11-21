@@ -8,6 +8,7 @@ public class JormungandrTail : MonoBehaviour, ISummonable
     [SerializeField] private EElementType elementType;
     [SerializeField] private string fmodEventName = "";
     private bool _isActive = true;
+    private bool _dealEnable = false;
     
     private Collider2D _collider;
     private Rigidbody2D _projRB;
@@ -23,62 +24,89 @@ public class JormungandrTail : MonoBehaviour, ISummonable
         _projRB.gravityScale = 0f;
     }
 
-    // private void OnTriggerEnter2D(Collider2D other) 
-    // {
-    //     /*
-    //     1. call the TakeDamage(gameObject, dealtDamage) interface function 
-    //     2. change the anim state to collided.
-    //     3. call ReturnToPool()
-    //     */
-
-    //     Debug.Log($"Jormungandr tail Collided: {other.gameObject}");
-
-       
-
-    // }
-
-     // Call at the animation event
-    public void CheckHit()
+    private void OnTriggerEnter2D(Collider2D other) 
     {
+        /*
+        1. call the TakeDamage(gameObject, dealtDamage) interface function 
+        2. change the anim state to collided.
+        3. call ReturnToPool()
+        */
+
         if(!_isActive) return;
 
-        Collider2D[] results = Physics2D.OverlapBoxAll(
-            (Vector2)transform.position + GetComponent<BoxCollider2D>().offset,
-            GetComponent<BoxCollider2D>().size,
-            0f
-        );
         
-        foreach (var col in results)
+        // Get instigator's layer name and collided object's layer name
+        string instigatorLayerName = LayerMask.LayerToName(_instigator.layer);
+
+        string targetLayerName = LayerMask.LayerToName(other.gameObject.layer);
+
+        // // prevent team kill 
+        if (instigatorLayerName.Contains("Enemy"))
         {
-            // Get instigator's layer name and collided object's layer name
-            string instigatorLayerName = LayerMask.LayerToName(_instigator.layer);
-
-            string targetLayerName = LayerMask.LayerToName(col.gameObject.layer);
-
-            // // prevent team kill 
-            if (instigatorLayerName.Contains("Enemy"))
+            if (targetLayerName.Contains("Enemy"))
             {
-                if (targetLayerName.Contains("Enemy"))
-                {
-                    Debug.Log("?");
-                    continue;
-                }
-            }
-
-            if (!LayerManager.IsSameSide(_instigator, col.gameObject)) continue;
-
-            //1. processing any potential damage:
-            var stats = col.gameObject.GetComponent<StatManager>();
-            if (stats != null)
-            {
-                if (stats.TakeDamageHelper(_instigator, dealtDamage, elementType))
-                {
-                    //2. stop movement and disable collider so it doesn't retrigger
-                    _projRB.linearVelocity = Vector2.zero;
-                    _isActive = false;
-                }
+                Debug.Log("?");
+                return;
             }
         }
+
+        if (!LayerManager.IsSameSide(_instigator, other.gameObject)) return;
+
+        //1. processing any potential damage:
+        var stats = other.gameObject.GetComponent<StatManager>();
+        if (stats != null)
+        {
+            if (stats.TakeDamageHelper(_instigator, dealtDamage, elementType))
+            {
+                //2. stop movement and disable collider so it doesn't retrigger
+                _projRB.linearVelocity = Vector2.zero;
+                _isActive = false;
+            }
+        }
+    }
+
+     // Call at the animation event(DEPRECATED)
+    public void CheckHit()
+    {
+        // if(!_isActive) return;
+
+        // Collider2D[] results = Physics2D.OverlapBoxAll(
+        //     (Vector2)transform.position + GetComponent<BoxCollider2D>().offset,
+        //     GetComponent<BoxCollider2D>().size,
+        //     0f
+        // );
+        
+        // foreach (var col in results)
+        // {
+        //     // Get instigator's layer name and collided object's layer name
+        //     string instigatorLayerName = LayerMask.LayerToName(_instigator.layer);
+
+        //     string targetLayerName = LayerMask.LayerToName(col.gameObject.layer);
+
+        //     // // prevent team kill 
+        //     if (instigatorLayerName.Contains("Enemy"))
+        //     {
+        //         if (targetLayerName.Contains("Enemy"))
+        //         {
+        //             Debug.Log("?");
+        //             continue;
+        //         }
+        //     }
+
+        //     if (!LayerManager.IsSameSide(_instigator, col.gameObject)) continue;
+
+        //     //1. processing any potential damage:
+        //     var stats = col.gameObject.GetComponent<StatManager>();
+        //     if (stats != null)
+        //     {
+        //         if (stats.TakeDamageHelper(_instigator, dealtDamage, elementType))
+        //         {
+        //             //2. stop movement and disable collider so it doesn't retrigger
+        //             _projRB.linearVelocity = Vector2.zero;
+        //             _isActive = false;
+        //         }
+        //     }
+        // }
     }
 
     public void OnCollisionFinished()
