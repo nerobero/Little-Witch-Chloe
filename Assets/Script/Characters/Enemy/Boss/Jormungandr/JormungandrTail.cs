@@ -66,51 +66,6 @@ private bool _dealEnable = false;
             }
         }
     }
-
-     // Call at the animation event(DEPRECATED)
-    public void CheckHit()
-    {
-        // if(!_isActive) return;
-
-        // Collider2D[] results = Physics2D.OverlapBoxAll(
-        //     (Vector2)transform.position + GetComponent<BoxCollider2D>().offset,
-        //     GetComponent<BoxCollider2D>().size,
-        //     0f
-        // );
-        
-        // foreach (var col in results)
-        // {
-        //     // Get instigator's layer name and collided object's layer name
-        //     string instigatorLayerName = LayerMask.LayerToName(_instigator.layer);
-
-        //     string targetLayerName = LayerMask.LayerToName(col.gameObject.layer);
-
-        //     // // prevent team kill 
-        //     if (instigatorLayerName.Contains("Enemy"))
-        //     {
-        //         if (targetLayerName.Contains("Enemy"))
-        //         {
-        //             Debug.Log("?");
-        //             continue;
-        //         }
-        //     }
-
-        //     if (!LayerManager.IsSameSide(_instigator, col.gameObject)) continue;
-
-        //     //1. processing any potential damage:
-        //     var stats = col.gameObject.GetComponent<StatManager>();
-        //     if (stats != null)
-        //     {
-        //         if (stats.TakeDamageHelper(_instigator, dealtDamage, elementType))
-        //         {
-        //             //2. stop movement and disable collider so it doesn't retrigger
-        //             _projRB.linearVelocity = Vector2.zero;
-        //             _isActive = false;
-        //         }
-        //     }
-        // }
-    }
-
     public void OnCollisionFinished()
     {
         gameObject.SetActive(false);
